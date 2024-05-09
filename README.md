@@ -12,7 +12,7 @@
 </p>
 -->
 
-<h1 align="center">The operating system for autonomous systems</h1>
+<h1 align="center">The operating system for robotic general intelligence (RGI)</h1>
 
 ## Announcements
 
