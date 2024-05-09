@@ -12,7 +12,7 @@
 </p>
 -->
 
-<h1 align="center">The operating system for robotic general intelligence</h1>
+<h1 align="center">The operating system for robotic general intelligence&trade;</h1>
 
 ## Announcements
 
