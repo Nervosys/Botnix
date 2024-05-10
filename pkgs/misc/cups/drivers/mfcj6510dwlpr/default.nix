@@ -6,7 +6,7 @@
 # Whereby, %s is printf(3) string substitution for stdin's arg0 (the command's own filename) from the 10th char forwards, as a runtime dependency.
 # e.g. Say the filename is "0123456789ABCDE", the runtime will be looking for /opt/brother/Printers/ABCDE/inf/brABCDEfunc.
 # Presumably, the binary was designed to be deployed under the filename "printconf_mfcj6510dw", whereby it will search for "/opt/brother/Printers/mfcj6510dw/inf/brmfcj6510dwfunc".
-# For NixOS, we want to change the string to the store path of brmfcj6510dwfunc and brmfcj6510dwrc but we're faced with two complications:
+# For Botnix, we want to change the string to the store path of brmfcj6510dwfunc and brmfcj6510dwrc but we're faced with two complications:
 # 1. Too little room to specify the nix store path. We can't even take advantage of %s by renaming the file to the store path hash since the variable is too short and can't contain the whole hash.
 # 2. The binary needs the directory it's running from to be r/w.
 # What:

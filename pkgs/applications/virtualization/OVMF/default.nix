@@ -107,7 +107,7 @@ edk2.mkDerivation projectDscPath (finalAttrs: {
   in {
     firmware  = "${prefix}_CODE.fd";
     variables = "${prefix}_VARS.fd";
-    # This will test the EFI firmware for the host platform as part of the NixOS Tests setup.
+    # This will test the EFI firmware for the host platform as part of the Botnix Tests setup.
     tests.basic-systemd-boot = nixosTests.systemd-boot.basic;
   };
 

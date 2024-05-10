@@ -37,7 +37,7 @@ buildPythonPackage rec {
     numpy
   ];
 
-  # We need to run tests on real built package: https://github.com/NixOS/nixpkgs/issues/255262
+  # We need to run tests on real built package: https://github.com/nervosys/Botnix/issues/255262
   preCheck = "cd $out";
   nativeCheckInputs = [ pytestCheckHook ];
   # tests/ are not included to output package, so we have to set path explicitly

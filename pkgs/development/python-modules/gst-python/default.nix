@@ -54,7 +54,7 @@ buildPythonPackage rec {
   doCheck = true;
 
   # TODO: Meson setup hook does not like buildPythonPackage
-  # https://github.com/NixOS/nixpkgs/issues/47390
+  # https://github.com/nervosys/Botnix/issues/47390
   installCheckPhase = "meson test --print-errorlogs";
 
   meta = with lib; {

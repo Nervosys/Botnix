@@ -5,7 +5,7 @@ Subject: [PATCH] Allow loading token handlers from the default search path
 
 Since [1] landed in cryptsetup, token handlers (libcryptsetup-token-*.so)
 are loaded from a fixed path defined at compile-time. This is
-problematic with NixOS since it introduces a dependency cycle
+problematic with Botnix since it introduces a dependency cycle
 between cryptsetup and systemd.
 
 This downstream patch [2] allows loading token plugins from the
@@ -13,7 +13,7 @@ default library search path. This approach is not accepted upstream [3]
 due to security concerns, but the potential attack vectors require
 root access and they are sufficiently addressed:
 
-* cryptsetup could be used as a setuid binary (not used in NixOS).
+* cryptsetup could be used as a setuid binary (not used in Botnix).
   In this case, LD_LIBRARY_PATH is ignored because of secure-execution
   mode.
 * cryptsetup running as root could lead to a malicious token handler
@@ -21,7 +21,7 @@ root access and they are sufficiently addressed:
   doesn't prevent the same malicious .so being loaded through LD_PRELOAD.
 
 [1] https://gitlab.com/cryptsetup/cryptsetup/-/commit/5b9e98f94178d3cd179d9f6e2a0a68c7d9eb6507
-[2] https://github.com/NixOS/nixpkgs/issues/167994#issuecomment-1094249369
+[2] https://github.com/nervosys/Botnix/issues/167994#issuecomment-1094249369
 [3] https://gitlab.com/cryptsetup/cryptsetup/-/issues/733
 ---
  lib/luks2/luks2_token.c | 4 +---

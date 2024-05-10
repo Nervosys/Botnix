@@ -23,10 +23,10 @@ makeSetupHook {
     # Below are some useful links describing the discovery process of this 'bug'
     # in Nixpkgs:
 
-    # https://github.com/NixOS/nixpkgs/issues/169461
-    # https://github.com/NixOS/nixpkgs/issues/185644
-    # https://github.com/NixOS/nixpkgs/pull/197046
-    # https://github.com/NixOS/nixpkgs/pull/241741#issuecomment-1624227485
+    # https://github.com/nervosys/Botnix/issues/169461
+    # https://github.com/nervosys/Botnix/issues/185644
+    # https://github.com/nervosys/Botnix/pull/197046
+    # https://github.com/nervosys/Botnix/pull/241741#issuecomment-1624227485
     # https://github.com/ziglang/zig/issues/14281#issuecomment-1624220653
 
     zig_default_flags =

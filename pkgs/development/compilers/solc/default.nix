@@ -16,7 +16,7 @@
 }:
 
 # compiling source/libsmtutil/CVC4Interface.cpp breaks on clang on Darwin,
-# general commandline tests fail at abiencoderv2_no_warning/ on clang on NixOS
+# general commandline tests fail at abiencoderv2_no_warning/ on clang on Botnix
 let z3 = z3_4_11; in
 
 assert z3Support -> z3 != null && lib.versionAtLeast z3.version "4.11.0";

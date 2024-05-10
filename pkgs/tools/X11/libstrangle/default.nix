@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   makeFlags = [ "prefix=" "DESTDIR=$(out)" ];
 
   patches = [
-    ./nixos.patch
+    ./botnix.patch
     # Pull the fix pending upstream inclusion for gcc-13:
     #   https://gitlab.com/torkel104/libstrangle/-/merge_requests/29
     (fetchpatch {

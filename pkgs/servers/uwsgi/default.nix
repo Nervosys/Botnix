@@ -81,7 +81,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   patches = [
-    ./no-ext-session-php_session.h-on-NixOS.patch
+    ./no-ext-session-php_session.h-on-Botnix.patch
     ./additional-php-ldflags.patch
   ];
 
@@ -122,12 +122,12 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preConfigure
 
     export pluginDir=$out/lib/uwsgi
-    substituteAll ${./nixos.ini} buildconf/nixos.ini
+    substituteAll ${./botnix.ini} buildconf/botnix.ini
 
     runHook postConfigure
   '';
 
-  # this is a hack to make the php plugin link with session.so (which on nixos is a separate package)
+  # this is a hack to make the php plugin link with session.so (which on botnix is a separate package)
   # the hack works in coordination with ./additional-php-ldflags.patch
   UWSGICONFIG_PHP_LDFLAGS = lib.optionalString
     (builtins.any (x: x.name == "php") needed)
@@ -142,8 +142,8 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preBuild
 
     mkdir -p $pluginDir
-    python3 uwsgiconfig.py --build nixos
-    ${lib.concatMapStringsSep ";" (x: "${x.preBuild or ""}\n ${x.interpreter or "python3"} uwsgiconfig.py --plugin ${x.path} nixos ${x.name}") needed}
+    python3 uwsgiconfig.py --build botnix
+    ${lib.concatMapStringsSep ";" (x: "${x.preBuild or ""}\n ${x.interpreter or "python3"} uwsgiconfig.py --plugin ${x.path} botnix ${x.name}") needed}
 
     runHook postBuild
   '';

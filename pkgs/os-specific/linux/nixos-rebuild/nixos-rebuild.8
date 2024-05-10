@@ -1,9 +1,9 @@
 .Dd January 1, 1980
-.Dt nixos-rebuild 8
+.Dt botnix-rebuild 8
 .Os
 .Sh NAME
-.Nm nixos-rebuild
-.Nd reconfigure a NixOS machine
+.Nm botnix-rebuild
+.Nd reconfigure a Botnix machine
 .
 .
 .
@@ -45,10 +45,10 @@
 .Sh DESCRIPTION
 This command updates the system so that it corresponds to the
 configuration specified in
-.Pa /etc/nixos/configuration.nix
+.Pa /etc/botnix/configuration.nix
 or
-.Pa /etc/nixos/flake.nix Ns
-\&. Thus, every time you modify the configuration or any other NixOS module, you
+.Pa /etc/botnix/flake.nix Ns
+\&. Thus, every time you modify the configuration or any other Botnix module, you
 must run
 .Nm
 to make the changes take effect. It builds the new system in
@@ -66,29 +66,29 @@ Build and activate the new configuration, and make it the boot default. That
 is, the configuration is added to the GRUB boot menu as the default
 menu entry, so that subsequent reboots will boot the system into the new
 configuration. Previous configurations activated with
-.Ic nixos-rebuild switch
+.Ic botnix-rebuild switch
 or
-.Ic nixos-rebuild boot
+.Ic botnix-rebuild boot
 remain available in the GRUB menu.
 .Pp
 Note that if you are using specializations, running just
-.Ic nixos-rebuild switch
+.Ic botnix-rebuild switch
 will switch you back to the unspecialized, base system \(em in that case, you
 might want to use this instead:
 .Bd -literal -offset indent
-$ nixos-rebuild switch --specialisation your-specialisation-name
+$ botnix-rebuild switch --specialisation your-specialisation-name
 .Ed
 .Pp
 This command will build all specialisations and make them bootable just
 like regular
-.Ic nixos-rebuild switch
+.Ic botnix-rebuild switch
 does \(em the only thing different is that it will switch to given
 specialisation instead of the base system; it can be also used to switch from
 the base system into a specialised one, or to switch between specialisations.
 .
 .It Cm boot
 Build the new configuration and make it the boot default (as with
-.Ic nixos-rebuild switch Ns
+.Ic botnix-rebuild switch Ns
 ), but do not activate it. That is, the system continues to run the previous
 configuration until the next reboot.
 .
@@ -97,17 +97,17 @@ Build and activate the new configuration, but do not add it to the GRUB
 boot menu. Thus, if you reboot the system (or if it crashes), you will
 automatically revert to the default configuration (i.e. the
 configuration resulting from the last call to
-.Ic nixos-rebuild switch
+.Ic botnix-rebuild switch
 or
-.Ic nixos-rebuild boot Ns
+.Ic botnix-rebuild boot Ns
 ).
 .Pp
 Note that if you are using specialisations, running just
-.Ic nixos-rebuild test
+.Ic botnix-rebuild test
 will activate the unspecialised, base system \(em in that case, you might want
 to use this instead:
 .Bd -literal -offset indent
-$ nixos-rebuild test --specialisation your-specialisation-name
+$ botnix-rebuild test --specialisation your-specialisation-name
 .Ed
 .Pp
 This command can be also used to switch from the base system into a
@@ -121,11 +121,11 @@ in the current directory, which points to the output of the top-level
 .Dq system
 derivation. This is essentially the same as doing
 .Bd -literal -offset indent
-$ nix-build /path/to/nixpkgs/nixos -A system
+$ nix-build /path/to/nixpkgs/botnix -A system
 .Ed
 .Pp
 Note that you do not need to be root to run
-.Ic nixos-rebuild build Ns
+.Ic botnix-rebuild build Ns
 \&.
 .
 .It Cm dry-build
@@ -135,7 +135,7 @@ operations above, but otherwise do nothing.
 .It Cm dry-activate
 Build the new configuration, but instead of activating it, show what
 changes would be performed by the activation (i.e. by
-.Ic nixos-rebuild test Ns
+.Ic botnix-rebuild test Ns
 ). For instance, this command will print which systemd units would be restarted.
 The list of changes is not guaranteed to be complete.
 .
@@ -149,16 +149,16 @@ Opens the configuration in
 .Ic nix repl Ns .
 .
 .It Cm build-vm
-Build a script that starts a NixOS virtual machine with the desired
+Build a script that starts a Botnix virtual machine with the desired
 configuration. It leaves a symlink
 .Pa result
 in the current directory that points (under
 .Ql result/bin/run\- Ns Va hostname Ns \-vm Ns
 )
-at the script that starts the VM. Thus, to test a NixOS configuration in
+at the script that starts the VM. Thus, to test a Botnix configuration in
 a virtual machine, you should do the following:
 .Bd -literal -offset indent
-$ nixos-rebuild build-vm
+$ botnix-rebuild build-vm
 $ ./result/bin/run-*-vm
 .Ed
 .Pp
@@ -193,9 +193,9 @@ Like
 , but boots using the regular boot loader of your configuration (e.g. GRUB 1 or
 2), rather than booting directly into the kernel and initial ramdisk of the
 system. This allows you to test whether the boot loader works correctly. \
-However, it does not guarantee that your NixOS configuration will boot
+However, it does not guarantee that your Botnix configuration will boot
 successfully on the host hardware (i.e., after running
-.Ic nixos-rebuild switch Ns
+.Ic botnix-rebuild switch Ns
 ), because the hardware and boot loader configuration in the VM are different.
 The boot loader is installed on an automatically generated virtual disk
 containing a
@@ -204,7 +204,7 @@ partition.
 .
 .It Cm list-generations Op Fl -json
 List the available generations in a similar manner to the boot loader
-menu. It shows the generation number, build date and time, NixOS version,
+menu. It shows the generation number, build date and time, Botnix version,
 kernel version and the configuration revision.
 There is also a json version of output available.
 .El
@@ -215,13 +215,13 @@ There is also a json version of output available.
 .Bl -tag -width indent
 .It Fl -upgrade , -upgrade-all
 Update the root user's channel named
-.Ql nixos
+.Ql botnix
 before rebuilding the system.
 .Pp
 In addition to the
-.Ql nixos
+.Ql botnix
 channel, the root user's channels which have a file named
-.Ql .update-on-nixos-rebuild
+.Ql .update-on-botnix-rebuild
 in their base directory will also be updated.
 .Pp
 Passing
@@ -238,7 +238,7 @@ Normally,
 first builds the
 .Ql nixUnstable
 attribute in Nixpkgs, and uses the resulting instance of the Nix package manager
-to build the new system configuration. This is necessary if the NixOS modules
+to build the new system configuration. This is necessary if the Botnix modules
 use features not provided by the currently installed version of Nix. This option
 disables building a new Nix.
 .
@@ -247,11 +247,11 @@ Equivalent to
 .Fl -no-build-nix Ns
 \&. This option is useful if you call
 .Nm
-frequently (e.g. if you’re hacking on a NixOS module).
+frequently (e.g. if you’re hacking on a Botnix module).
 .
 .It Fl -rollback
 Instead of building a new configuration as specified by
-.Pa /etc/nixos/configuration.nix Ns
+.Pa /etc/botnix/configuration.nix Ns
 , roll back to the previous configuration. (The previous configuration is
 defined as the one before the “current” generation of the Nix profile
 .Pa /nix/var/nix/profiles/system Ns
@@ -264,7 +264,7 @@ the user executing
 (usually root) to be configured as a trusted user in the Nix daemon. This can be
 achieved by using the
 .Va nix.settings.trusted-users
-NixOS option. Examples values for that option are described in the
+Botnix option. Examples values for that option are described in the
 .Dq Remote builds
 chapter in the Nix manual, (i.e.
 .Ql --builders \(dqssh://bigbrother x86_64-linux\(dq Ns
@@ -279,20 +279,20 @@ Instead of using the Nix profile
 .Pa /nix/var/nix/profiles/system
 to keep track of the current and previous system configurations, use
 .Pa /nix/var/nix/profiles/system-profiles/ Ns Va name Ns
-\&. When you use GRUB 2, for every system profile created with this flag, NixOS
+\&. When you use GRUB 2, for every system profile created with this flag, Botnix
 will create a submenu named
-.Dq NixOS - Profile Va name
+.Dq Botnix - Profile Va name
 in GRUB’s boot menu, containing the current and previous configurations of this profile.
 .Pp
 For instance, if you want to test a configuration file named
 .Pa test.nix
 without affecting the default system profile, you would do:
 .Bd -literal -offset indent
-$ nixos-rebuild switch -p test -I nixos-config=./test.nix
+$ botnix-rebuild switch -p test -I botnix-config=./test.nix
 .Ed
 .Pp
 The new configuration will appear in the GRUB 2 submenu
-.Dq NixOS - Profile 'test' Ns
+.Dq Botnix - Profile 'test' Ns
 \&.
 .
 .It Fl -specialisation Ar name , Fl c Ar name
@@ -320,7 +320,7 @@ You can include a remote user name in the host name
 environment variable.
 .
 .It Fl -target-host Ar host
-Specifies the NixOS target host. By setting this to something other than an
+Specifies the Botnix target host. By setting this to something other than an
 empty string, the system activation will happen on the remote host instead of
 the local machine. The remote host needs to be accessible over
 .Ic ssh Ns ,
@@ -352,27 +352,27 @@ target host. Hence the
 setting has to match the target platform or else activation will fail.
 .
 .It Fl -use-substitutes
-When set, nixos-rebuild will add
+When set, botnix-rebuild will add
 .Fl -use-substitutes
 to each invocation of nix-copy-closure. This will only affect the behavior of
-nixos-rebuild if
+botnix-rebuild if
 .Fl -target-host
 or
 .Fl -build-host
-is also set. This is useful when the target-host connection to cache.nixos.org
+is also set. This is useful when the target-host connection to cache.botnix.org
 is faster than the connection between hosts.
 .
 .It Fl -use-remote-sudo
-When set, nixos-rebuild prefixes activation commands that run on the
+When set, botnix-rebuild prefixes activation commands that run on the
 .Fl -target-host
 system with
 .Ic sudo Ns
 \&. Setting this option allows deploying as a non-root user.
 .
 .It Fl -flake Va flake-uri Ns Op Va #name
-Build the NixOS system from the specified flake. It defaults to the directory
+Build the Botnix system from the specified flake. It defaults to the directory
 containing the target of the symlink
-.Pa /etc/nixos/flake.nix Ns
+.Pa /etc/botnix/flake.nix Ns
 , if it exists. The flake must contain an output named
 .Ql nixosConfigurations. Ns Va name Ns
 \&. If
@@ -383,9 +383,9 @@ is omitted, it default to the current host name.
 Do not imply
 .Fl -flake
 if
-.Pa /etc/nixos/flake.nix
-exists. With this option, it is possible to build non-flake NixOS configurations
-even if the current NixOS systems uses flakes.
+.Pa /etc/botnix/flake.nix
+exists. With this option, it is possible to build non-flake Botnix configurations
+even if the current Botnix systems uses flakes.
 .El
 .Pp
 In addition,
@@ -407,9 +407,9 @@ accepts various Nix-related flags, including
 .
 .Sh ENVIRONMENT
 .Bl -tag -width indent
-.It Ev NIXOS_CONFIG
-Path to the main NixOS configuration module. Defaults to
-.Pa /etc/nixos/configuration.nix Ns
+.It Ev BOTNIX_CONFIG
+Path to the main Botnix configuration module. Defaults to
+.Pa /etc/botnix/configuration.nix Ns
 \&.
 .
 .It Ev NIX_PATH
@@ -437,7 +437,7 @@ during system activation. Possibly dangerous, specially in remote environments
 .
 .Sh FILES
 .Bl -tag -width indent
-.It Pa /etc/nixos/flake.nix
+.It Pa /etc/botnix/flake.nix
 If this file exists, then
 .Nm
 will use it as if the
@@ -445,7 +445,7 @@ will use it as if the
 option was given. This file may be a symlink to a
 .Pa flake.nix
 in an actual flake; thus
-.Pa /etc/nixos
+.Pa /etc/botnix
 need not be a flake.
 .
 .It Pa /run/current-system
@@ -467,4 +467,4 @@ This command should be renamed to something more descriptive.
 .An -nosplit
 .An Eelco Dolstra
 and
-.An the Nixpkgs/NixOS contributors
+.An the Nixpkgs/Botnix contributors

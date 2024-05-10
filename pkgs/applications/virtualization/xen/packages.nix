@@ -12,7 +12,7 @@ rec {
       longDescription = ''
         Vanilla version of Xen. Uses forks of Qemu and Seabios bundled
         with Xen. This gives vanilla experince, but wastes space and
-        build time: typical NixOS setup that runs lots of VMs will
+        build time: typical Botnix setup that runs lots of VMs will
         build three different versions of Qemu when using this (two
         forks and upstream).
       '';

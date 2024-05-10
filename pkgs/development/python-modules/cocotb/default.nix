@@ -45,7 +45,7 @@ buildPythonPackage rec {
     substituteInPlace setup.py --replace "'cocotb-bus<1.0'" ""
   '' + lib.optionalString stdenv.isDarwin ''
     # disable lto on darwin
-    # https://github.com/NixOS/nixpkgs/issues/19098
+    # https://github.com/nervosys/Botnix/issues/19098
     substituteInPlace cocotb_build_libs.py --replace "-flto" ""
   '';
 

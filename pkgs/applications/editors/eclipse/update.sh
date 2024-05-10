@@ -1,9 +1,9 @@
 #!/usr/bin/env nix-shell
 #! nix-shell -i bash --pure -p curl cacert libxml2 yq nix jq
-#! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/3c7487575d9445185249a159046cc02ff364bff8.tar.gz
+#! nix-shell -I nixpkgs=https://github.com/nervosys/Botnix/archive/3c7487575d9445185249a159046cc02ff364bff8.tar.gz
 #                                                                ^
 #                                                                |
-#                   nixos-unstable ~ 2023-07-06 -----------------/
+#                   botnix-unstable ~ 2023-07-06 -----------------/
 
 set -o errexit
 set -o nounset

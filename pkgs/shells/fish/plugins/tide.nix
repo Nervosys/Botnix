@@ -1,7 +1,7 @@
 { lib, buildFishPlugin, fetchFromGitHub }:
 
 # Due to a quirk in tide breaking wrapFish, we need to add additional commands in the config.fish
-# Refer to the following comment to get you setup: https://github.com/NixOS/nixpkgs/pull/201646#issuecomment-1320893716
+# Refer to the following comment to get you setup: https://github.com/nervosys/Botnix/pull/201646#issuecomment-1320893716
 buildFishPlugin rec {
   pname = "tide";
   version = "6.0.1";

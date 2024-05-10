@@ -18,16 +18,16 @@ my $stateDirectory = "@stateDirectory@";
 # Ensure a consistent umask.
 umask 0022;
 
-# Ensure $NIXOS_CONFIG is not set.
-$ENV{"NIXOS_CONFIG"} = "";
+# Ensure $BOTNIX_CONFIG is not set.
+$ENV{"BOTNIX_CONFIG"} = "";
 
 # Parse the command line.
 
 sub showHelp {
     print <<EOF;
-Usage: nixos-container list
-       nixos-container create <container-name>
-         [--nixos-path <path>]
+Usage: botnix-container list
+       botnix-container create <container-name>
+         [--botnix-path <path>]
          [--system-path <path>]
          [--config <string>]
          [--config-file <path>]
@@ -38,22 +38,22 @@ Usage: nixos-container list
          [--port <port>]
          [--host-address <string>]
          [--local-address <string>]
-       nixos-container destroy <container-name>
-       nixos-container restart <container-name>
-       nixos-container start <container-name>
-       nixos-container stop <container-name>
-       nixos-container terminate <container-name>
-       nixos-container status <container-name>
-       nixos-container update <container-name>
+       botnix-container destroy <container-name>
+       botnix-container restart <container-name>
+       botnix-container start <container-name>
+       botnix-container stop <container-name>
+       botnix-container terminate <container-name>
+       botnix-container status <container-name>
+       botnix-container update <container-name>
          [--config <string>]
          [--config-file <path>]
          [--flake <flakeref>]
-         [--nixos-path <path>]
-       nixos-container login <container-name>
-       nixos-container root-login <container-name>
-       nixos-container run <container-name> -- args...
-       nixos-container show-ip <container-name>
-       nixos-container show-host-key <container-name>
+         [--botnix-path <path>]
+       botnix-container login <container-name>
+       botnix-container root-login <container-name>
+       botnix-container run <container-name> -- args...
+       botnix-container show-ip <container-name>
+       botnix-container show-host-key <container-name>
 EOF
     exit 0;
 }
@@ -96,7 +96,7 @@ GetOptions(
     "port=s" => \$port,
     "system-path=s" => \$systemPath,
     "signal=s" => \$signal,
-    "nixos-path=s" => \$nixosPath,
+    "botnix-path=s" => \$nixosPath,
     "config=s" => \$extraConfig,
     "config-file=s" => \$configFile,
     "host-address=s" => \$hostAddress,
@@ -203,8 +203,8 @@ sub clearContainerState {
 
 if ($action eq "create") {
     # Acquire an exclusive lock to prevent races with other
-    # invocations of ‘nixos-container create’.
-    my $lockFN = "/run/lock/nixos-container";
+    # invocations of ‘botnix-container create’.
+    my $lockFN = "/run/lock/botnix-container";
     open(my $lock, '>>', $lockFN) or die "$0: opening $lockFN: $!";
     flock($lock, LOCK_EX) or die "$0: could not lock $lockFN: $!";
 
@@ -288,14 +288,14 @@ if ($action eq "create") {
                 die "$0: failed to set initial container configuration\n";
             };
     } else {
-        mkpath("$root/etc/nixos", 0, 0755);
+        mkpath("$root/etc/botnix", 0, 0755);
 
-        my $nixenvF = $nixosPath // "<nixpkgs/nixos>";
-        my $nixosConfigFile = "$root/etc/nixos/configuration.nix";
+        my $nixenvF = $nixosPath // "<nixpkgs/botnix>";
+        my $nixosConfigFile = "$root/etc/botnix/configuration.nix";
         writeNixOSConfig $nixosConfigFile;
 
         system("nix-env", "-p", "$profileDir/system",
-               "-I", "nixos-config=$nixosConfigFile", "-f", "$nixenvF",
+               "-I", "botnix-config=$nixosConfigFile", "-f", "$nixenvF",
                "--set", "-A", "system", @nixFlags) == 0
             or do {
                 clearContainerState($profileDir, "$profileDir/$containerName", $root, $confFile);
@@ -343,7 +343,7 @@ sub terminateContainer {
     #       recycled after a PID overflow.
     #       Relying entirely on some form of UUID provided by machinectl
     #       instead of PIDs would remove this risk.
-    #       See https://github.com/NixOS/nixpkgs/pull/32992#discussion_r158586048
+    #       See https://github.com/nervosys/Botnix/pull/32992#discussion_r158586048
     while ( kill 0, $leader ) { Time::HiRes::sleep(0.1) }
 }
 
@@ -433,7 +433,7 @@ elsif ($action eq "update") {
             or die "$0: failed to set container configuration\n";
     } else {
 
-        my $nixosConfigFile = "$root/etc/nixos/configuration.nix";
+        my $nixosConfigFile = "$root/etc/botnix/configuration.nix";
 
         # FIXME: may want to be more careful about clobbering the existing
         # configuration.nix.
@@ -442,9 +442,9 @@ elsif ($action eq "update") {
             writeNixOSConfig $nixosConfigFile;
         }
 
-        my $nixenvF = $nixosPath // "<nixpkgs/nixos>";
+        my $nixenvF = $nixosPath // "<nixpkgs/botnix>";
         system("nix-env", "-p", "$profileDir/system",
-               "-I", "nixos-config=$nixosConfigFile", "-f", $nixenvF,
+               "-I", "botnix-config=$nixosConfigFile", "-f", $nixenvF,
                "--set", "-A", "system", @nixFlags) == 0
             or die "$0: failed to build container configuration\n";
     }

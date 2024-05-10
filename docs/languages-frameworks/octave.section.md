@@ -15,8 +15,8 @@ All Octave add-on packages are available in two ways:
 
 Nixpkgs provides a function `buildOctavePackage`, a generic package builder function for any Octave package that complies with the Octave's current packaging format.
 
-All Octave packages are defined in [pkgs/top-level/octave-packages.nix](https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/octave-packages.nix) rather than `pkgs/all-packages.nix`.
-Each package is defined in their own file in the [pkgs/development/octave-modules](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/octave-modules) directory.
+All Octave packages are defined in [pkgs/top-level/octave-packages.nix](https://github.com/nervosys/Botnix/blob/master/pkgs/top-level/octave-packages.nix) rather than `pkgs/all-packages.nix`.
+Each package is defined in their own file in the [pkgs/development/octave-modules](https://github.com/nervosys/Botnix/blob/master/pkgs/development/octave-modules) directory.
 Octave packages are made available through `all-packages.nix` through both the attribute `octavePackages` and `octave.pkgs`.
 You can test building an Octave package as follows:
 
@@ -71,7 +71,7 @@ In Octave packages, there are four sets of dependencies that can be specified:
 
 `propagatedBuildInputs`
 : Similar to other packages, `propagatedBuildInputs` is intended for packages that are required for both building and running of the package.
-See [Symbolic](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/octave-modules/symbolic/default.nix) for how this works and why it is needed.
+See [Symbolic](https://github.com/nervosys/Botnix/blob/master/pkgs/development/octave-modules/symbolic/default.nix) for how this works and why it is needed.
 
 `requiredOctavePackages`
 : This is a special dependency that ensures the specified Octave packages are dependent on others, and are made available simultaneously when loading them in Octave.

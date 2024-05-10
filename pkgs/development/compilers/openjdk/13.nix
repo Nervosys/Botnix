@@ -135,7 +135,7 @@ let
       # Propagate the setJavaClassPath setup hook so that any package
       # that depends on the JDK has $CLASSPATH set up properly.
       mkdir -p $out/nix-support
-      #TODO or printWords?  cf https://github.com/NixOS/nixpkgs/pull/27427#issuecomment-317293040
+      #TODO or printWords?  cf https://github.com/nervosys/Botnix/pull/27427#issuecomment-317293040
       echo -n "${setJavaClassPath}" > $out/nix-support/propagated-build-inputs
 
       # Set JAVA_HOME automatically.

@@ -53,18 +53,18 @@ class BaseConverter(Converter[md.TR], Generic[md.TR]):
         # locations can be either plain strings (specific to nixpkgs), or attrsets
         # { name = "foo/bar.nix"; url = "https://github.com/....."; }
         if isinstance(loc, str):
-            # Hyperlink the filename either to the NixOS github
+            # Hyperlink the filename either to the Botnix github
             # repository (if it’s a module and we have a revision number),
             # or to the local filesystem.
             if not loc.startswith('/'):
                 if self._revision == 'local':
-                    href = f"https://github.com/NixOS/nixpkgs/blob/master/{loc}"
+                    href = f"https://github.com/nervosys/Botnix/blob/master/{loc}"
                 else:
-                    href = f"https://github.com/NixOS/nixpkgs/blob/{self._revision}/{loc}"
+                    href = f"https://github.com/nervosys/Botnix/blob/{self._revision}/{loc}"
             else:
                 href = f"file://{loc}"
             # Print the filename and make it user-friendly by replacing the
-            # /nix/store/<hash> prefix by the default location of nixos
+            # /nix/store/<hash> prefix by the default location of botnix
             # sources.
             if not loc.startswith('/'):
                 name = f"<nixpkgs/{loc}>"
@@ -252,7 +252,7 @@ class DocBookConverter(BaseConverter[OptionsDocBookRenderer]):
             ]
         result += [
             '<variablelist xmlns:xlink="http://www.w3.org/1999/xlink"',
-            '               xmlns:nixos="tag:nixos.org"',
+            '               xmlns:botnix="tag:botnix.org"',
             '               xmlns="http://docbook.org/ns/docbook"',
             f'              xml:id="{self._varlist_id}">',
         ]
@@ -356,7 +356,7 @@ class ManpageConverter(BaseConverter[OptionsManpageRenderer]):
             result += self._header
         else:
             result += [
-                r'''.TH "CONFIGURATION\&.NIX" "5" "01/01/1980" "NixOS" "NixOS Reference Pages"''',
+                r'''.TH "CONFIGURATION\&.NIX" "5" "01/01/1980" "Botnix" "Botnix Reference Pages"''',
                 r'''.\" disable hyphenation''',
                 r'''.nh''',
                 r'''.\" disable justification (adjust text to left margin only)''',
@@ -364,12 +364,12 @@ class ManpageConverter(BaseConverter[OptionsManpageRenderer]):
                 r'''.\" enable line breaks after slashes''',
                 r'''.cflags 4 /''',
                 r'''.SH "NAME"''',
-                self._render('{file}`configuration.nix` - NixOS system configuration specification'),
+                self._render('{file}`configuration.nix` - Botnix system configuration specification'),
                 r'''.SH "DESCRIPTION"''',
                 r'''.PP''',
-                self._render('The file {file}`/etc/nixos/configuration.nix` contains the '
-                            'declarative specification of your NixOS system configuration. '
-                            'The command {command}`nixos-rebuild` takes this file and '
+                self._render('The file {file}`/etc/botnix/configuration.nix` contains the '
+                            'declarative specification of your Botnix system configuration. '
+                            'The command {command}`botnix-rebuild` takes this file and '
                             'realises the system configuration specified therein.'),
                 r'''.SH "OPTIONS"''',
                 r'''.PP''',
@@ -402,7 +402,7 @@ class ManpageConverter(BaseConverter[OptionsManpageRenderer]):
             result += [
                 r'''.SH "AUTHORS"''',
                 r'''.PP''',
-                r'''Eelco Dolstra and the Nixpkgs/NixOS contributors''',
+                r'''Eelco Dolstra and the Nixpkgs/Botnix contributors''',
             ]
 
         return "\n".join(result)

@@ -4,7 +4,7 @@
 , pango, cairo, libinput, gdk-pixbuf, librsvg
 , wlroots_0_16, wayland-protocols, libdrm
 , nixosTests
-# Used by the NixOS module:
+# Used by the Botnix module:
 , isNixOS ? false
 , enableXWayland ? true, xorg
 , systemdSupport ? lib.meta.availableOn stdenv.hostPlatform systemd, systemd
@@ -46,7 +46,7 @@ stdenv.mkDerivation (finalAttrs: {
   ] ++ lib.optionals finalAttrs.isNixOS [
     # Use /run/current-system/sw/share and /etc instead of /nix/store
     # references:
-    ./sway-config-nixos-paths.patch
+    ./sway-config-botnix-paths.patch
   ];
 
   strictDeps = true;

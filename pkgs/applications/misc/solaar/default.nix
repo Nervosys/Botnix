@@ -11,7 +11,7 @@
 
 # Although we copy in the udev rules here, you probably just want to use
 # `logitech-udev-rules`, which is an alias to `udev` output of this derivation,
-# instead of adding this to `services.udev.packages` on NixOS,
+# instead of adding this to `services.udev.packages` on Botnix,
 python3Packages.buildPythonApplication rec {
   pname = "solaar";
   version = "1.1.10";
@@ -77,7 +77,7 @@ python3Packages.buildPythonApplication rec {
 
       Solaar can be used as a GUI application or via its command-line interface.
 
-      This tool requires either to be run with root/sudo or alternatively to have the udev rules files installed. On NixOS this can be achieved by setting `hardware.logitech.wireless.enable`.
+      This tool requires either to be run with root/sudo or alternatively to have the udev rules files installed. On Botnix this can be achieved by setting `hardware.logitech.wireless.enable`.
     '';
     homepage = "https://pwr-solaar.github.io/Solaar/";
     license = licenses.gpl2Only;

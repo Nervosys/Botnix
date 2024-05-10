@@ -10,4 +10,4 @@ Pointers:
 
 - https://docs.python.org/3/library/sys.html#sys.path
 
-- https://github.com/NixOS/nixpkgs/pull/23600
+- https://github.com/nervosys/Botnix/pull/23600

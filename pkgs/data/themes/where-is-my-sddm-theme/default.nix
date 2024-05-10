@@ -3,12 +3,12 @@
 , stdenvNoCC
 , fetchFromGitHub
 , qtgraphicaleffects
-  /* An example of how you can override the background on the NixOS logo
+  /* An example of how you can override the background on the Botnix logo
   *
   *  environment.systemPackages = [
   *    (pkgs.where-is-my-sddm-theme.override {
   *      themeConfig.General = {
-  *        background = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+  *        background = "${pkgs.botnix-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
   *        backgroundMode = "none";
   *      };
   *    })

@@ -53,9 +53,9 @@ stdenv.mkDerivation rec {
 
       Instructions for usage:
 
-      First, compile your '.java' (NixOS-specific: you should not need to set the class path -- if you need, it's a bug):
+      First, compile your '.java' (Botnix-specific: you should not need to set the class path -- if you need, it's a bug):
           javacardc -source 1.5 -target 1.5 [MyJavaFile].java
-      Then, test with 'jcwde' (NixOS-specific: you can change the java version used to run jcwde with eg. JAVA=jdb):
+      Then, test with 'jcwde' (Botnix-specific: you can change the java version used to run jcwde with eg. JAVA=jdb):
           CLASSPATH=. jcwde [MyJcwdeConfig].app & sleep 1 && apdutool [MyApdus].apdu
       Finally, convert the '.class' file into a '.cap':
           converter -applet [AppletAID] [MyApplet] [myPackage] [PackageAID] [Version]

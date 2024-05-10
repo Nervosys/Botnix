@@ -40,7 +40,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = [ opencv4 numba pandas pytorch-pfn-extras terminaltables tqdm ];
 
   # `ffcv._libffcv*.so` cannot be loaded in the nix build environment for some
-  # reason. See https://github.com/NixOS/nixpkgs/pull/160441#issuecomment-1045204722.
+  # reason. See https://github.com/nervosys/Botnix/pull/160441#issuecomment-1045204722.
   doCheck = false;
 
   pythonImportsCheck = [ "ffcv" ];

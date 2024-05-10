@@ -24,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
     mainProgram = "mac";
     # This is not considered a GPL license, but it seems rather free although
     # it's not standard, see a quote of it:
-    # https://github.com/NixOS/nixpkgs/pull/171682#issuecomment-1120260551
+    # https://github.com/nervosys/Botnix/pull/171682#issuecomment-1120260551
     license = licenses.free;
     maintainers = with maintainers; [ doronbehar ];
   };

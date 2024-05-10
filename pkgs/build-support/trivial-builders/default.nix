@@ -887,7 +887,7 @@ rec {
       src = pkgs.path;
       patches = [
         (pkgs.fetchpatch {
-          url = "https://github.com/NixOS/nixpkgs/commit/1f770d20550a413e508e081ddc08464e9d08ba3d.patch";
+          url = "https://github.com/nervosys/Botnix/commit/1f770d20550a413e508e081ddc08464e9d08ba3d.patch";
           sha256 = "1nlzx171y3r3jbk0qhvnl711kmdk57jlq4na8f8bs8wz2pbffymr";
         })
       ];

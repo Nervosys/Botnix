@@ -23,8 +23,8 @@ stdenv.mkDerivation {
     ./hier.patch
     ./fix-nix-usernamespace-build.patch
 
-    # To fix https://github.com/NixOS/nixpkgs/issues/119066.
-    # Note that the NixOS test <nixpkgs/nixos/tests/tinydns.nix> tests for this.
+    # To fix https://github.com/nervosys/Botnix/issues/119066.
+    # Note that the Botnix test <nixpkgs/botnix/tests/tinydns.nix> tests for this.
     ./softlimit.patch
   ];
 

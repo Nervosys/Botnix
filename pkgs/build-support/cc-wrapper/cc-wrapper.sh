@@ -140,7 +140,7 @@ if [[ "$isCxx" = 1 ]]; then
         # the C++ stdlib to NIX_CFLAGS_COMPILE, which I initially thought should
         # change and later realized it shouldn't in:
         #
-        #   https://github.com/NixOS/nixpkgs/pull/185569#issuecomment-1234959249
+        #   https://github.com/nervosys/Botnix/pull/185569#issuecomment-1234959249
         #
         # NIX_CFLAGS_COMPILE contains dependencies added using "-isystem", and
         # NIX_CXXSTDLIB_COMPILE adds the C++ stdlib using "-isystem". Appending

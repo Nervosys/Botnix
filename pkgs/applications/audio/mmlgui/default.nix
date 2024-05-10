@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     # Actually wants pkgconf but that seems abit broken:
-    # https://github.com/NixOS/nixpkgs/pull/147503#issuecomment-1055943897
+    # https://github.com/nervosys/Botnix/pull/147503#issuecomment-1055943897
     # Removing a pkgconf-specific option makes it work with pkg-config
     substituteInPlace libvgm.mak \
       --replace '--with-path=/usr/local/lib/pkgconfig' ""

@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
       --add-flags "-classpath $classpath org.janusgraph.graphdb.server.JanusGraphServer"
 
     # temporary workaround for
-    # https://github.com/NixOS/nixpkgs/pull/244400#issuecomment-1667330430
+    # https://github.com/nervosys/Botnix/pull/244400#issuecomment-1667330430
     cd "$TMPDIR"
   '';
 

@@ -107,7 +107,7 @@ in stdenv.mkDerivation {
   patches = [
     ./0001-Use-protobuf-gradle-plugin.patch
     # we use fetchurl since the fetchpatch normalization strips the whole diff
-    # https://github.com/NixOS/nixpkgs/issues/266556
+    # https://github.com/nervosys/Botnix/issues/266556
     (fetchurl {
       name = "0002-remove-executable-bit.patch";
       url = "https://github.com/NationalSecurityAgency/ghidra/commit/e2a945624b74e5d42dc85e9c1f992315dd154db1.diff";

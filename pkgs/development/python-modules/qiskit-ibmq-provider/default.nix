@@ -78,7 +78,7 @@ buildPythonPackage rec {
 
   pythonImportsCheck = [ "qiskit.providers.ibmq" ];
   disabledTests = [
-    "test_coder_operators"  # fails for some reason on nixos-21.05+
+    "test_coder_operators"  # fails for some reason on botnix-21.05+
     # These disabled tests require internet connection, aren't skipped elsewhere
     "test_old_api_url"
     "test_non_auth_url"

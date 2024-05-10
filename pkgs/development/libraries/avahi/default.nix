@@ -134,7 +134,7 @@ stdenv.mkDerivation rec {
     "--runstatedir=/run"
     "--sysconfdir=/etc"
     "--with-distro=${with stdenv.hostPlatform; if isBSD then parsed.kernel.name else "none"}"
-    # A systemd unit is provided by the avahi-daemon NixOS module
+    # A systemd unit is provided by the avahi-daemon Botnix module
     "--with-systemdsystemunitdir=no"
   ] ++ lib.optionals withLibdnssdCompat [
     "--enable-compat-libdns_sd"

@@ -10,7 +10,7 @@
 
 { lib, stdenv
 # This *is* correct, though unusual. as a way of getting krb5-config from the
-# package without splicing See: https://github.com/NixOS/nixpkgs/pull/107606
+# package without splicing See: https://github.com/nervosys/Botnix/pull/107606
 , pkgs
 , fetchurl
 , autoreconfHook
@@ -44,7 +44,7 @@ stdenv.mkDerivation {
       sha256 = "sha256-eFFOd4B2nccRZAQWwdBPBoKWjfEdKEVGJvKZAzLu3HU=";
     })
 
-    # See discussion in https://github.com/NixOS/nixpkgs/pull/16966
+    # See discussion in https://github.com/nervosys/Botnix/pull/16966
     ./dont_create_privsep_path.patch
   ] ++ extraPatches;
 
@@ -59,7 +59,7 @@ stdenv.mkDerivation {
   nativeBuildInputs = [ autoreconfHook pkg-config ]
     # This is not the same as the libkrb5 from the inputs! pkgs.libkrb5 is
     # needed here to access krb5-config in order to cross compile. See:
-    # https://github.com/NixOS/nixpkgs/pull/107606
+    # https://github.com/nervosys/Botnix/pull/107606
     ++ lib.optional withKerberos pkgs.libkrb5
     ++ extraNativeBuildInputs;
   buildInputs = [ zlib openssl libedit ]

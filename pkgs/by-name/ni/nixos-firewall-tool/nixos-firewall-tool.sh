@@ -9,21 +9,21 @@ ip46tables() {
 }
 
 show_help() {
-    echo "nixos-firewall-tool"
+    echo "botnix-firewall-tool"
     echo ""
-    echo "Can temporarily manipulate the NixOS firewall"
+    echo "Can temporarily manipulate the Botnix firewall"
     echo ""
     echo "Open TCP port:"
-    echo " nixos-firewall-tool open tcp 8888"
+    echo " botnix-firewall-tool open tcp 8888"
     echo ""
     echo "Show all firewall rules:"
-    echo " nixos-firewall-tool show"
+    echo " botnix-firewall-tool show"
     echo ""
     echo "Open UDP port:"
-    echo " nixos-firewall-tool open udp 51820"
+    echo " botnix-firewall-tool open udp 51820"
     echo ""
     echo "Reset firewall configuration to system settings:"
-    echo " nixos-firewall-tool reset"
+    echo " botnix-firewall-tool reset"
 }
 
 if [[ -z ${1+x} ]]; then
@@ -36,10 +36,10 @@ case $1 in
     protocol="$2"
     port="$3"
 
-    ip46tables -I nixos-fw -p "$protocol" --dport "$port" -j nixos-fw-accept
+    ip46tables -I botnix-fw -p "$protocol" --dport "$port" -j botnix-fw-accept
   ;;
   "show")
-    ip46tables --numeric --list nixos-fw
+    ip46tables --numeric --list botnix-fw
   ;;
   "reset")
     systemctl restart firewall.service

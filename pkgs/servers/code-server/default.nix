@@ -56,7 +56,7 @@ let
   '';
 
   # Comment from @code-asher, the code-server maintainer
-  # See https://github.com/NixOS/nixpkgs/pull/240001#discussion_r1244303617
+  # See https://github.com/nervosys/Botnix/pull/240001#discussion_r1244303617
   #
   # If the commit is missing it will break display languages (Japanese, Spanish,
   # etc). For some reason VS Code has a hard dependency on the commit being set

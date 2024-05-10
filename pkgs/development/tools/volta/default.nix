@@ -47,7 +47,7 @@ rustPlatform.buildRustPackage rec {
       toolchain without having to periodically reinstall them or figure out why
       they’ve stopped working.
 
-      Note: Volta cannot be used on NixOS out of the box because it downloads
+      Note: Volta cannot be used on Botnix out of the box because it downloads
       Node binaries that assume shared libraries are in FHS standard locations.
     '';
     homepage = "https://volta.sh/";

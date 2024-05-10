@@ -52,7 +52,7 @@ python3.pkgs.buildPythonApplication rec {
       src = ./fix-paths.patch;
       inherit mousetweaks;
     })
-    # Allow loading hunspell dictionaries installed in NixOS system path
+    # Allow loading hunspell dictionaries installed in Botnix system path
     ./hunspell-use-xdg-datadirs.patch
   ];
 
@@ -112,7 +112,7 @@ python3.pkgs.buildPythonApplication rec {
 
   preBuild = ''
     # Unnecessary file, has been removed upstream
-    # https://github.com/NixOS/nixpkgs/pull/24986#issuecomment-296114062
+    # https://github.com/nervosys/Botnix/pull/24986#issuecomment-296114062
     rm -r Onboard/pypredict/attic
 
     substituteInPlace  ./scripts/sokSettings.py \

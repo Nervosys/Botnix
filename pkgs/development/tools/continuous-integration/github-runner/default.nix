@@ -268,7 +268,7 @@ buildDotnetModule rec {
       --replace '$LDCONFIG_COMMAND -NXv ''${libpath//:/ }' 'echo libicu'
   '' + ''
     # XXX: Using the corresponding Nix argument does not work as expected:
-    #      https://github.com/NixOS/nixpkgs/issues/218449
+    #      https://github.com/nervosys/Botnix/issues/218449
     # Common wrapper args for `executables`
     makeWrapperArgs+=(
       --run 'export RUNNER_ROOT="''${RUNNER_ROOT:-"$HOME/.github-runner"}"'

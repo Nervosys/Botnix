@@ -42,7 +42,7 @@ python3.pkgs.buildPythonApplication rec {
   preInstall = ''
     substituteInPlace setup.py --replace /usr/share/doc/ share/doc/
 
-    # see https://github.com/NixOS/nixpkgs/issues/4968
+    # see https://github.com/nervosys/Botnix/issues/4968
     ${python3.pythonOnBuildForHost.interpreter} setup.py install_data --install-dir=$out --root=$out
   '';
 
@@ -57,7 +57,7 @@ python3.pkgs.buildPythonApplication rec {
       # Delete creating the runtime directory, systemd does that
       sed -i "/ExecStartPre/d" $out/lib/systemd/system/fail2ban.service
 
-      # see https://github.com/NixOS/nixpkgs/issues/4968
+      # see https://github.com/nervosys/Botnix/issues/4968
       rm -r "${sitePackages}/etc"
 
       installManPage man/*.[1-9]
@@ -67,7 +67,7 @@ python3.pkgs.buildPythonApplication rec {
       ln -s ${python3.interpreter} $out/bin/fail2ban-python
 
     '' + lib.optionalString stdenv.isLinux ''
-      # see https://github.com/NixOS/nixpkgs/issues/4968
+      # see https://github.com/nervosys/Botnix/issues/4968
       rm -r "${sitePackages}/usr"
     '';
 

@@ -1,7 +1,7 @@
 From 9218347b8f833ab05d016dfba5617dcdeb59eb7b Mon Sep 17 00:00:00 2001
 From: Cole Helbling <cole.e.helbling@outlook.com>
 Date: Wed, 27 May 2020 08:02:57 -0700
-Subject: [PATCH] add NixOS-specific dirs to safe PATH
+Subject: [PATCH] add Botnix-specific dirs to safe PATH
 
 ---
  doas.c | 1 +

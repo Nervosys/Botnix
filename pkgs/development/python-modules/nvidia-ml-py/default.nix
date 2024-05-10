@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   patches = [
-    ./0001-locate-libnvidia-ml.so.1-on-NixOS.patch
+    ./0001-locate-libnvidia-ml.so.1-on-Botnix.patch
   ];
 
   # no tests

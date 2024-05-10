@@ -95,7 +95,7 @@ stdenv.mkDerivation rec {
     license = licenses.asl20;
     maintainers = with maintainers; [ ken-matsui ];
     platforms = platforms.unix;
-    # https://github.com/NixOS/nixpkgs/pull/189712#issuecomment-1237791234
+    # https://github.com/nervosys/Botnix/pull/189712#issuecomment-1237791234
     broken = (stdenv.isLinux && stdenv.isAarch64)
     # error: excess elements in scalar initializer on std::aligned_alloc
           || (stdenv.isDarwin && stdenv.isx86_64);

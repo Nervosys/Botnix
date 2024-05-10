@@ -28,7 +28,7 @@
 #   python = integrationsWithNtp.python;
 # });
 #
-# The NixOS module 'datadog-agent' provides a simplified interface to
+# The Botnix module 'datadog-agent' provides a simplified interface to
 # this. Please see the module itself for more information.
 #
 # [1]: https://github.com/DataDog/integrations-core

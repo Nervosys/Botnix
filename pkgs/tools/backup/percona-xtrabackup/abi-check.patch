@@ -1,6 +1,6 @@
 MySQL ABI check assumes that with -nostdinc any standard #include terminates
 preprocessing, but we do not provide that:
-https://github.com/NixOS/nixpkgs/issues/44530
+https://github.com/nervosys/Botnix/issues/44530
 
 "#error" does not terminate preprocessing, so we #include a non-existent file instead.
 

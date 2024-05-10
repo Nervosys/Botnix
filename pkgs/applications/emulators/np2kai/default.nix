@@ -28,7 +28,7 @@
 , libSM
 
   # HAXM build succeeds but the binary segfaults, seemingly due to the missing HAXM kernel module
-  # Enable once there is a HAXM kernel module option in NixOS? Or somehow bind it to the system kernel having HAXM?
+  # Enable once there is a HAXM kernel module option in Botnix? Or somehow bind it to the system kernel having HAXM?
   # Or leave it disabled by default?
   # https://github.com/intel/haxm/blob/master/docs/manual-linux.md
 , enableHAXM ? false

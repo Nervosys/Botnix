@@ -1,6 +1,6 @@
 From: Bryan Gardiner <bog@khumba.net>
 Date: Sat, 9 Jan 2021 16:51:20 -0800
-Subject: [PATCH] Add NixOS CUPS PPD search path.
+Subject: [PATCH] Add Botnix CUPS PPD search path.
 
 ---
  base/g.py | 2 +-

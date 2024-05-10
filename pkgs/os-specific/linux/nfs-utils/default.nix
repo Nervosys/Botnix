@@ -91,7 +91,7 @@ stdenv.mkDerivation rec {
 
   postInstall =
     ''
-      # Not used on NixOS
+      # Not used on Botnix
       sed -i \
         -e "s,/sbin/modprobe,${kmod}/bin/modprobe,g" \
         -e "s,/usr/sbin,$out/bin,g" \

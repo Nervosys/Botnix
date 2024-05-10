@@ -44,7 +44,7 @@ let
   inherit (stdenv)
     buildPlatform hostPlatform targetPlatform;
 
-  # See https://github.com/NixOS/nixpkgs/pull/209870#issuecomment-1500550903
+  # See https://github.com/nervosys/Botnix/pull/209870#issuecomment-1500550903
   disableBootstrap' = disableBootstrap && !langFortran && !langGo;
 
   crossMingw = targetPlatform != hostPlatform && targetPlatform.isMinGW;
@@ -130,7 +130,7 @@ let
       # cases. As a result libc headers don't get found for cross case
       # and many modern features get disabled (libssp is used instead of
       # target-specific implementations and similar). More details at:
-      #   https://github.com/NixOS/nixpkgs/pull/181802#issuecomment-1186822355
+      #   https://github.com/nervosys/Botnix/pull/181802#issuecomment-1186822355
       #
       # We pick "/" path to effectively avoid sysroot offset and make it work
       # as a native case.

@@ -17,7 +17,7 @@ let
     nixops-hetznercloud = callPackage ./plugins/nixops-hetznercloud.nix { };
     nixops-libvirtd = callPackage ./plugins/nixops-libvirtd.nix { };
     nixops-vbox = callPackage ./plugins/nixops-vbox.nix { };
-    nixos-modules-contrib = callPackage ./plugins/nixos-modules-contrib.nix { };
+    botnix-modules-contrib = callPackage ./plugins/botnix-modules-contrib.nix { };
 
     # aliases for backwards compatibility
     nixops-gcp = nixops-gce;

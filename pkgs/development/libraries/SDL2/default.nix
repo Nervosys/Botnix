@@ -73,7 +73,7 @@ stdenv.mkDerivation (finalAttrs: {
   patches = [
     # `sdl2-config --cflags` from Nixpkgs returns include path to just SDL2.
     # On a normal distro this is enough for includes from all SDL2* packages to work,
-    # but on NixOS they're spread across different paths.
+    # but on Botnix they're spread across different paths.
     # This patch + the setup-hook will ensure that `sdl2-config --cflags` works correctly.
     ./find-headers.patch
   ];
@@ -129,7 +129,7 @@ stdenv.mkDerivation (finalAttrs: {
   # because they make the builds of downstream libs like `SDL_tff`
   # fail with `cannot find -lXext, `-lXcursor` etc. linker errors
   # because the `.la` files are not pruned if static libs exist
-  # (see https://github.com/NixOS/nixpkgs/commit/fd97db43bcb05e37f6bb77f363f1e1e239d9de53)
+  # (see https://github.com/nervosys/Botnix/commit/fd97db43bcb05e37f6bb77f363f1e1e239d9de53)
   # and they also don't carry the necessary `-L` paths of their
   # X11 dependencies.
   # For static linking, it is better to rely on `pkg-config` `.pc`

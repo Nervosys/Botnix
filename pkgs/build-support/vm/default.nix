@@ -14,7 +14,7 @@ let
     buildPackages writeScript writeText runCommand;
 in
 rec {
-  qemu-common = import ../../../nixos/lib/qemu-common.nix { inherit lib pkgs; };
+  qemu-common = import ../../../botnix/lib/qemu-common.nix { inherit lib pkgs; };
 
   qemu = buildPackages.qemu_kvm;
 
@@ -328,7 +328,7 @@ rec {
     origArgs = args;
     origBuilder = builder;
     QEMU_OPTS = "${QEMU_OPTS} -m ${toString memSize}";
-    passAsFile = []; # HACK fix - see https://github.com/NixOS/nixpkgs/issues/16742
+    passAsFile = []; # HACK fix - see https://github.com/nervosys/Botnix/issues/16742
   });
 
 
@@ -385,7 +385,7 @@ rec {
   /* Like runInLinuxVM, but run the build not using the stdenv from
      the Nix store, but using the tools provided by /bin, /usr/bin
      etc. from the specified filesystem image, which typically is a
-     filesystem containing a non-NixOS Linux distribution. */
+     filesystem containing a non-Botnix Linux distribution. */
 
   runInLinuxImage = drv: runInLinuxVM (lib.overrideDerivation drv (attrs: {
     mountDisk = true;

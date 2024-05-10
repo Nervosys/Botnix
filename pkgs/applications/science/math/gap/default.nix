@@ -131,7 +131,7 @@ stdenv.mkDerivation rec {
     # make install creates an empty pkg dir. since we run "make check" on
     # installCheckPhase to make sure the installed GAP finds its libraries, we
     # also install the tst dir. this is probably excessively cautious, see
-    # https://github.com/NixOS/nixpkgs/pull/192548#discussion_r992824942
+    # https://github.com/nervosys/Botnix/pull/192548#discussion_r992824942
     rm -r "$out/share/gap/pkg"
     cp -ar pkg tst "$out/share/gap"
   '';

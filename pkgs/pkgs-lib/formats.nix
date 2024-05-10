@@ -4,7 +4,7 @@ rec {
   /*
 
   Every following entry represents a format for program configuration files
-  used for `settings`-style options (see https://github.com/NixOS/rfcs/pull/42).
+  used for `settings`-style options (see https://github.com/Botnix/rfcs/pull/42).
   Each entry should look as follows:
 
     <format> = <parameters>: {

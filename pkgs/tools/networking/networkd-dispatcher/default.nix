@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    # Support rule files in NixOS store paths. Required for the networkd-dispatcher
+    # Support rule files in Botnix store paths. Required for the networkd-dispatcher
     # module to work
     ./support_nix_store_path.patch
 

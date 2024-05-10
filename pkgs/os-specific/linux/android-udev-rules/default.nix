@@ -1,7 +1,7 @@
 { lib, stdenv, fetchFromGitHub }:
 
 ## Usage
-# In NixOS, simply add this package to services.udev.packages:
+# In Botnix, simply add this package to services.udev.packages:
 #   services.udev.packages = [ pkgs.android-udev-rules ];
 
 stdenv.mkDerivation rec {

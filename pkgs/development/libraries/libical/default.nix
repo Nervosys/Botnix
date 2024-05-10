@@ -48,8 +48,8 @@ stdenv.mkDerivation rec {
     gobject-introspection
     vala
     # Docs building fails:
-    # https://github.com/NixOS/nixpkgs/pull/67204
-    # previously with https://github.com/NixOS/nixpkgs/pull/61657#issuecomment-495579489
+    # https://github.com/nervosys/Botnix/pull/67204
+    # previously with https://github.com/nervosys/Botnix/pull/61657#issuecomment-495579489
     # gtk-doc docbook_xsl docbook_xml_dtd_43 # for docs
   ] ++ lib.optionals stdenv.isDarwin [
     fixDarwinDylibNames

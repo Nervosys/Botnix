@@ -30,8 +30,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   postInstall = ''
     mkdir -p $out/Library/LaunchDaemons
-    cp ${./org.nixos.skhd.plist} $out/Library/LaunchDaemons/org.nixos.skhd.plist
-    substituteInPlace $out/Library/LaunchDaemons/org.nixos.skhd.plist --subst-var out
+    cp ${./org.botnix.skhd.plist} $out/Library/LaunchDaemons/org.botnix.skhd.plist
+    substituteInPlace $out/Library/LaunchDaemons/org.botnix.skhd.plist --subst-var out
   '';
 
   passthru.tests.version = testers.testVersion {

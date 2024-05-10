@@ -6,7 +6,7 @@ This package is an ibus-based completion method to speed up typing.
 
 IBus needs to be configured accordingly to activate `typing-booster`. The configuration depends on the desktop manager in use. For detailed instructions, please refer to the [upstream docs](https://mike-fabian.github.io/ibus-typing-booster/).
 
-On NixOS, you need to explicitly enable `ibus` with given engines before customizing your desktop to use `typing-booster`. This can be achieved using the `ibus` module:
+On Botnix, you need to explicitly enable `ibus` with given engines before customizing your desktop to use `typing-booster`. This can be achieved using the `ibus` module:
 
 ```nix
 { pkgs, ... }: {
@@ -31,7 +31,7 @@ _Note: each language passed to `langs` must be an attribute name in `pkgs.hunspe
 
 The `ibus-engines.typing-booster` package contains a program named `emoji-picker`. To display all emojis correctly, a special font such as `noto-fonts-color-emoji` is needed:
 
-On NixOS, it can be installed using the following expression:
+On Botnix, it can be installed using the following expression:
 
 ```nix
 { pkgs, ... }: {

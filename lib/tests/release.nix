@@ -75,7 +75,7 @@ in
       # This comment and the expression which follows it should be
       # removed as part of resolving this issue:
       #
-      #   https://github.com/NixOS/nixpkgs/issues/272591
+      #   https://github.com/nervosys/Botnix/issues/272591
       #
       [(import ../../pkgs/test/release {})]
     ;

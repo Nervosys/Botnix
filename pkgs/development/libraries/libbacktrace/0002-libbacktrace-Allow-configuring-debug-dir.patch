@@ -6,7 +6,7 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On platforms that do not use FHS like NixOS or GNU Guix,
+On platforms that do not use FHS like Botnix or GNU Guix,
 the build-id directories are not under `/usr/lib/debug`.
 
 Let’s add `--with-separate-debug-dir` configure flag so that

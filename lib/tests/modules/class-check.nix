@@ -3,21 +3,21 @@
     sub = {
       nixosOk = lib.mkOption {
         type = lib.types.submoduleWith {
-          class = "nixos";
+          class = "botnix";
           modules = [ ];
         };
       };
       # Same but will have bad definition
       nixosFail = lib.mkOption {
         type = lib.types.submoduleWith {
-          class = "nixos";
+          class = "botnix";
           modules = [ ];
         };
       };
 
       mergeFail = lib.mkOption {
         type = lib.types.submoduleWith {
-          class = "nixos";
+          class = "botnix";
           modules = [ ];
         };
         default = { };
@@ -42,26 +42,26 @@
     _module.freeformType = lib.types.anything;
     ok =
       lib.evalModules {
-        class = "nixos";
+        class = "botnix";
         modules = [
-          ./module-class-is-nixos.nix
+          ./module-class-is-botnix.nix
         ];
       };
 
     fail =
       lib.evalModules {
-        class = "nixos";
+        class = "botnix";
         modules = [
-          ./module-class-is-nixos.nix
+          ./module-class-is-botnix.nix
           ./module-class-is-darwin.nix
         ];
       };
 
     fail-anon =
       lib.evalModules {
-        class = "nixos";
+        class = "botnix";
         modules = [
-          ./module-class-is-nixos.nix
+          ./module-class-is-botnix.nix
           { _file = "foo.nix#darwinModules.default";
             _class = "darwin";
             config = {};
@@ -70,7 +70,7 @@
         ];
       };
 
-    sub.nixosOk = { _class = "nixos"; };
+    sub.nixosOk = { _class = "botnix"; };
     sub.nixosFail = { imports = [ ./module-class-is-darwin.nix ]; };
   };
 }

@@ -81,7 +81,7 @@ stdenv.mkDerivation {
   # so skip groups Y Z
   checkFlags = map (T: "TESTNUM=${T}") (lib.stringToCharacters "ABCDEVW");
 
-  # XXX: think/discuss about this, also with respect to nixos vs nix-on-X
+  # XXX: think/discuss about this, also with respect to botnix vs nix-on-X
   postInstall = ''
     make install.info install.html
     mkdir -p $out/etc/
@@ -102,7 +102,7 @@ if test -e /etc/NIXOS; then
     . /etc/zshenv.local
   fi
 else
-  # on non-nixos we just source the global /etc/zshenv as if we did
+  # on non-botnix we just source the global /etc/zshenv as if we did
   # not use the configure flag
   if test -r /etc/zshenv; then
     . /etc/zshenv

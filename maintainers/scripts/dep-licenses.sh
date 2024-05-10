@@ -2,7 +2,7 @@
 
 attr=$1
 
-: ${NIXPKGS=/etc/nixos/nixpkgs}
+: ${NIXPKGS=/etc/botnix/nixpkgs}
 
 tmp=$(mktemp --tmpdir -d nixpkgs-dep-license.XXXXXX)
 

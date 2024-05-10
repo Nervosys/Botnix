@@ -7,10 +7,10 @@ index 6fff2af..7e2877e 100644
      ImmutableMap.Builder<String, String> result = ImmutableMap.builder();
      result.putAll(Maps.filterKeys(env, k -> !k.equals("TMPDIR")));
 +
-+    // In case we are running on NixOS.
++    // In case we are running on Botnix.
 +    // If bash is called with an unset PATH on this platform,
 +    // it will set it to /no-such-path and default tools will be missings.
-+    // See, https://github.com/NixOS/nixpkgs/issues/94222
++    // See, https://github.com/nervosys/Botnix/issues/94222
 +    // So we ensure that minimal dependencies are present.
 +    if (!env.containsKey("PATH")){
 +        result.put("PATH", "@actionsPathPatch@");
@@ -27,10 +27,10 @@ index 95642767c6..39d3c62461 100644
      ImmutableMap.Builder<String, String> newEnvBuilder = ImmutableMap.builder();
      newEnvBuilder.putAll(Maps.filterKeys(env, k -> !k.equals("TMPDIR")));
 +
-+    // In case we are running on NixOS.
++    // In case we are running on Botnix.
 +    // If bash is called with an unset PATH on this platform,
 +    // it will set it to /no-such-path and default tools will be missings.
-+    // See, https://github.com/NixOS/nixpkgs/issues/94222
++    // See, https://github.com/nervosys/Botnix/issues/94222
 +    // So we ensure that minimal dependencies are present.
 +    if (!env.containsKey("PATH")){
 +      newEnvBuilder.put("PATH", "@actionsPathPatch@");

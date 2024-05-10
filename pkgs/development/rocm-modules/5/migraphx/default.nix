@@ -107,7 +107,7 @@ in stdenv.mkDerivation (finalAttrs: {
     "-DMIGRAPHX_ENABLE_FPGA=ON"
     "-DMIGRAPHX_ENABLE_MLIR=OFF" # LLVM or rocMLIR mismatch?
     # Manually define CMAKE_INSTALL_<DIR>
-    # See: https://github.com/NixOS/nixpkgs/pull/197838
+    # See: https://github.com/nervosys/Botnix/pull/197838
     "-DCMAKE_INSTALL_BINDIR=bin"
     "-DCMAKE_INSTALL_LIBDIR=lib"
     "-DCMAKE_INSTALL_INCLUDEDIR=include"

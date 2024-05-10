@@ -64,7 +64,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     # Configure composer globally
     composer global init --quiet --no-interaction --no-ansi \
-      --name="nixos/composer" \
+      --name="botnix/composer" \
       --homepage "https://nixos.org/" \
       --description "Composer with nix-community/composer-local-repo-plugin" \
       --license "MIT"

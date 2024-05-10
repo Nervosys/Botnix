@@ -2,7 +2,7 @@
 , kservice, libatasmart, libxcb, yaml-cpp, libpwquality, parted, polkit-qt, python
 , qtbase, qtquickcontrols, qtsvg, qttools, qtwebengine, util-linux, tzdata
 , ckbcomp, xkeyboard_config, mkDerivation
-, nixos-extensions ? false
+, botnix-extensions ? false
 }:
 
 mkDerivation rec {
@@ -15,20 +15,20 @@ mkDerivation rec {
     sha256 = "sha256-oPvOwqQ4aTdT/BdCIDVhGa1624orGcMXUYqhywJdbdA=";
   };
 
-  patches = lib.optionals nixos-extensions [
+  patches = lib.optionals botnix-extensions [
     # Modifies the users module to only set passwords of user and root
     # as the users will have already been created in the configuration.nix file
     ./userjob.patch
     # Makes calamares search /run/current-system/sw/share/calamares/ for extra configuration files
     # as by default it only searches /usr/share/calamares/ and /nix/store/<hash>-calamares-<version>/share/calamares/
-    # but calamares-nixos-extensions is not in either of these locations
-    ./nixos-extensions-paths.patch
+    # but calamares-botnix-extensions is not in either of these locations
+    ./botnix-extensions-paths.patch
     # Uses pkexec within modules in order to run calamares without root permissions as a whole
     # Also fixes storage check in the welcome module
     ./nonroot.patch
     # Adds unfree qml to packagechooserq
     ./unfreeq.patch
-    # Modifies finished module to add some NixOS resources
+    # Modifies finished module to add some Botnix resources
     # Modifies packagechooser module to change the UI
     ./uimod.patch
     # Remove options for unsupported partition types

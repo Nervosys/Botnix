@@ -123,7 +123,7 @@ let
     mkdir -p $out/chromium-$CHROMIUM_REVISION/chrome-linux
 
     # See here for the Chrome options:
-    # https://github.com/NixOS/nixpkgs/issues/136207#issuecomment-908637738
+    # https://github.com/nervosys/Botnix/issues/136207#issuecomment-908637738
     makeWrapper ${chromium}/bin/chromium $out/chromium-$CHROMIUM_REVISION/chrome-linux/chrome \
       --set SSL_CERT_FILE /etc/ssl/certs/ca-bundle.crt \
       --set FONTCONFIG_FILE ${fontconfig}

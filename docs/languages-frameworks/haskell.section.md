@@ -39,7 +39,7 @@ haskellPackages.abacate                                                     abac
 haskellPackages.abc-puzzle                                                  abc-puzzle-0.2.1
 …
 ```
-Also, the `haskellPackages` set is included on [search.nixos.org].
+Also, the `haskellPackages` set is included on [search.botnix.org].
 
 The attribute names in `haskellPackages` always correspond with their name on
 Hackage. Since Hackage allows names that are not valid Nix without escaping,
@@ -53,7 +53,7 @@ basically all open source Haskell packages). See [below](#haskell-available-
 versions) for a few more details on this.
 
 Roughly half of the 16K packages contained in `haskellPackages` don’t actually
-build and are [marked as broken semi-automatically](https://github.com/NixOS/nixpkgs/blob/haskell-updates/pkgs/development/haskell-modules/configuration-hackage2nix/broken.yaml).
+build and are [marked as broken semi-automatically](https://github.com/nervosys/Botnix/blob/haskell-updates/pkgs/development/haskell-modules/configuration-hackage2nix/broken.yaml).
 Most of those packages are deprecated or unmaintained, but sometimes packages
 that should build, do not build. Very often fixing them is not a lot of work.
 
@@ -143,10 +143,10 @@ Hackage snapshot, thus we use the state of Hackage as of the last time we
 updated this pin.
 2. If the [Stackage] snapshot that we use (usually the newest LTS snapshot)
 contains a package, [we use instead the version in the Stackage snapshot as
-default version for that package.](https://github.com/NixOS/nixpkgs/blob/haskell-updates/pkgs/development/haskell-modules/configuration-hackage2nix/stackage.yaml)
+default version for that package.](https://github.com/nervosys/Botnix/blob/haskell-updates/pkgs/development/haskell-modules/configuration-hackage2nix/stackage.yaml)
 3. For some packages, which are not on Stackage, we have if necessary [manual
 overrides to set the default version to a version older than the newest on
-Hackage.](https://github.com/NixOS/nixpkgs/blob/haskell-updates/pkgs/development/haskell-modules/configuration-hackage2nix/main.yaml)
+Hackage.](https://github.com/nervosys/Botnix/blob/haskell-updates/pkgs/development/haskell-modules/configuration-hackage2nix/main.yaml)
 4. For all packages, for which the newest Hackage version is not the default
 version, there will also be a `haskellPackages.foo_x_y_z` package with the
 newest version. The `x_y_z` part encodes the version with dots replaced by
@@ -158,7 +158,7 @@ newest version from Hackage. E.g. if `haskellPackages.foo` gets updated from
 1.0.0 to 1.1.0 the package `haskellPackages.foo_1_1_0` becomes obsolete and
 gets dropped.
 5. For some packages, we also [manually add other `haskellPackages.foo_x_y_z`
-versions](https://github.com/NixOS/nixpkgs/blob/haskell-updates/pkgs/development/haskell-modules/configuration-hackage2nix/main.yaml),
+versions](https://github.com/nervosys/Botnix/blob/haskell-updates/pkgs/development/haskell-modules/configuration-hackage2nix/main.yaml),
 if they are required for a certain build.
 
 Relying on `haskellPackages.foo_x_y_z` attributes in derivations outside
@@ -205,7 +205,7 @@ restrictions of nixpkgs, partially in the name of maintainability:
 * As described above we only build one version of most packages.
 
 The experience using an older or newer packaged compiler or using different
-versions may be worse, because builds will not be cached on `cache.nixos.org`
+versions may be worse, because builds will not be cached on `cache.botnix.org`
 or may fail.
 
 Thus, to get the best experience, make sure that your project can be compiled
@@ -579,7 +579,7 @@ in
 
 In addition to building and installing Haskell software, nixpkgs can also
 provide development environments for Haskell projects. This has the obvious
-advantage that you benefit from `cache.nixos.org` and no longer need to compile
+advantage that you benefit from `cache.botnix.org` and no longer need to compile
 all project dependencies yourself. While it is often very useful, this is not
 the primary use case of our package set. Have a look at the section
 [available package versions](#haskell-available-versions) to learn which
@@ -1120,7 +1120,7 @@ requires executing the binaries in question.
 
 <!--
 
-TODO(@NixOS/haskell): finish these planned sections
+TODO(@Botnix/haskell): finish these planned sections
 ### Overriding the entire package set
 
 
@@ -1140,9 +1140,9 @@ TODO(@NixOS/haskell): finish these planned sections
 
 ### Backporting {#haskell-backporting}
 
-Backporting changes to a stable NixOS version in general is covered
+Backporting changes to a stable Botnix version in general is covered
 in nixpkgs' `CONTRIBUTING.md` in general. In particular refer to the
-[backporting policy](https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#criteria-for-backporting-changes)
+[backporting policy](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md#criteria-for-backporting-changes)
 to check if the change you have in mind may be backported.
 
 This section focuses on how to backport a package update (e.g. a
@@ -1156,7 +1156,7 @@ it does for the unstable branches.
 ### Why is topic X not covered in this section? Why is section Y missing? {#haskell-why-not-covered}
 
 We have been working on [moving the nixpkgs Haskell documentation back into the
-nixpkgs manual](https://github.com/NixOS/nixpkgs/issues/121403). Since this
+nixpkgs manual](https://github.com/nervosys/Botnix/issues/121403). Since this
 process has not been completed yet, you may find some topics missing here
 covered in the old [haskell4nix docs](https://haskell4nix.readthedocs.io/).
 
@@ -1203,7 +1203,7 @@ annotated with comments, as are any optional or alternative ways to achieve
 the desired profiling settings without causing too many rebuilds.
 
 <!-- TODO(@sternenseemann): buildHaskellPackages != haskellPackages with this overlay,
-affected by https://github.com/NixOS/nixpkgs/issues/235960 which needs to be fixed
+affected by https://github.com/nervosys/Botnix/issues/235960 which needs to be fixed
 properly still.
 -->
 
@@ -1287,7 +1287,7 @@ relevant.
 
 [Stackage]: https://www.stackage.org
 [cabal-project-files]: https://cabal.readthedocs.io/en/latest/cabal-project.html
-[cabal2nix]: https://github.com/nixos/cabal2nix
+[cabal2nix]: https://github.com/botnix/cabal2nix
 [cpphs]: https://Hackage.haskell.org/package/cpphs
 [haddock-hoogle-option]: https://haskell-haddock.readthedocs.io/en/latest/invoking.html#cmdoption-hoogle
 [haddock-hyperlinked-source-option]: https://haskell-haddock.readthedocs.io/en/latest/invoking.html#cmdoption-hyperlinked-source
@@ -1297,10 +1297,10 @@ relevant.
 [HLS user guide]: https://haskell-language-server.readthedocs.io/en/latest/configuration.html#configuring-your-editor
 [hoogle]: https://wiki.haskell.org/Hoogle
 [incremental-builds]: https://www.haskellforall.com/2022/12/nixpkgs-support-for-incremental-haskell.html
-[jailbreak-cabal]: https://github.com/NixOS/jailbreak-cabal/
+[jailbreak-cabal]: https://github.com/Botnix/jailbreak-cabal/
 [multiple-outputs]: https://nixos.org/manual/nixpkgs/stable/#chap-multiple-output
 [optparse-applicative-completions]: https://github.com/pcapriotti/optparse-applicative/blob/7726b63796aa5d0df82e926d467f039b78ca09e2/README.md#bash-zsh-and-fish-completions
 [profiling-detail]: https://cabal.readthedocs.io/en/latest/cabal-project.html#cfg-field-profiling-detail
 [profiling]: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/profiling.html
-[search.nixos.org]: https://search.nixos.org
+[search.botnix.org]: https://search.botnix.org
 [turtle]: https://hackage.haskell.org/package/turtle

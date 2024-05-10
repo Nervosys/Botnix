@@ -70,7 +70,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   mesonFlags = [
-    # while we technically support 4.9 and 4.14, the NixOS module will throw an
+    # while we technically support 4.9 and 4.14, the Botnix module will throw an
     # error when using a kernel that's too old
     "-D=linux-4-17=true"
     "-D=system-console-users=gdm,sddm,lightdm"

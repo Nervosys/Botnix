@@ -46,7 +46,7 @@
   # prevent these flags from being added when wrapping *old* versions of gcc
   # (e.g. `gcc6Stdenv`), since they will cause the old gcc to get `-B` and
   # `-L` flags pointing at the new gcc's libstdc++ headers.  Example failure:
-  # https://hydra.nixos.org/build/213125495
+  # https://hydra.botnix.org/build/213125495
   else false
 
 # the derivation at which the `-B` and `-L` flags added by `useCcForLibs` will point
@@ -523,7 +523,7 @@ stdenv.mkDerivation {
     # Adding -isystem flags should be done only for clang; gcc
     # already knows how to find its own libstdc++, and adding
     # additional -isystem flags will confuse gfortran (see
-    # https://github.com/NixOS/nixpkgs/pull/209870#issuecomment-1500550903)
+    # https://github.com/nervosys/Botnix/pull/209870#issuecomment-1500550903)
     + optionalString (libcxx == null && isClang && (useGccForLibs && gccForLibs.langCC or false)) ''
       for dir in ${gccForLibs}/include/c++/*; do
         echo "-isystem $dir" >> $out/nix-support/libcxx-cxxflags

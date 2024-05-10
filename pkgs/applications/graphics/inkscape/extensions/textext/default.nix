@@ -61,7 +61,7 @@ python3.pkgs.buildPythonApplication rec {
   ];
 
   # strictDeps do not play nicely with introspection setup hooks.
-  # https://github.com/NixOS/nixpkgs/issues/56943
+  # https://github.com/nervosys/Botnix/issues/56943
   strictDeps = false;
 
   # TexText doesn’t have a 'bdist_wheel' target.

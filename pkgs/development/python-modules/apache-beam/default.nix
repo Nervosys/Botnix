@@ -70,12 +70,12 @@ buildPythonPackage rec {
   ];
 
   pythonRelaxDeps = [
-    # See https://github.com/NixOS/nixpkgs/issues/156957
+    # See https://github.com/nervosys/Botnix/issues/156957
     "dill"
     "numpy"
     "pymongo"
 
-    # See https://github.com/NixOS/nixpkgs/issues/193613
+    # See https://github.com/nervosys/Botnix/issues/193613
     "protobuf"
 
     # As of apache-beam v2.45.0, the requirement is httplib2>=0.8,<0.21.0, but

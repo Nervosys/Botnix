@@ -775,7 +775,7 @@ general. A number of other parameters can be overridden:
 
 Oftentimes you want to develop code from within `nix-shell`. Unfortunately
 `buildRustCrate` does not support common `nix-shell` operations directly
-(see [this issue](https://github.com/NixOS/nixpkgs/issues/37945))
+(see [this issue](https://github.com/nervosys/Botnix/issues/37945))
 so we will use `stdenv.mkDerivation` instead.
 
 Using the example `hello` project above, we want to do the following:

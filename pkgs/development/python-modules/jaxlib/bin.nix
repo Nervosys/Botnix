@@ -166,7 +166,7 @@ buildPythonPackage {
 
   disabled = !(pythonVersion == "3.9" || pythonVersion == "3.10" || pythonVersion == "3.11" || pythonVersion == "3.12");
 
-  # See https://discourse.nixos.org/t/ofborg-does-not-respect-meta-platforms/27019/6.
+  # See https://discourse.botnix.org/t/ofborg-does-not-respect-meta-platforms/27019/6.
   src =
     if !cudaSupport then
       (
@@ -211,7 +211,7 @@ buildPythonPackage {
   ];
 
   # Note that cudatoolkit is snecessary since jaxlib looks for "ptxas" in $PATH.
-  # See https://github.com/NixOS/nixpkgs/pull/164176#discussion_r828801621 for
+  # See https://github.com/nervosys/Botnix/pull/164176#discussion_r828801621 for
   # more info.
   postInstall = lib.optional cudaSupport ''
     mkdir -p $out/bin

@@ -60,7 +60,7 @@ buildPythonPackage rec {
   ];
 
   # Tests require certificates
-  # https://github.com/NixOS/nixpkgs/pull/72544#issuecomment-582674047
+  # https://github.com/nervosys/Botnix/pull/72544#issuecomment-582674047
   SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
 
   pythonImportsCheck = [

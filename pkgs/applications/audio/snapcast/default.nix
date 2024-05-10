@@ -41,7 +41,7 @@ stdenv.mkDerivation rec {
   TARGET=lib.optionalString stdenv.isDarwin "MACOS";
 
   # Upstream systemd unit files are pretty awful, so we provide our own in a
-  # NixOS module. It might make sense to get that upstreamed...
+  # Botnix module. It might make sense to get that upstreamed...
   postInstall = ''
     install -d $out/share/doc/snapcast
     cp -r ../doc/* ../*.md $out/share/doc/snapcast

@@ -27,7 +27,7 @@ rustPlatform.buildRustPackage rec {
   cargoHash = "sha256-F3FLu/n57F8psk+d0Hf+HnqV/DvEFQwRefu/4C8A1sU=";
 
   # Prepare the Cargo.lock for offline use.
-  # See https://github.com/NixOS/nixpkgs/issues/261412
+  # See https://github.com/nervosys/Botnix/issues/261412
   postConfigure = ''
     cargo metadata --offline > /dev/null
   '';

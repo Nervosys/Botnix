@@ -22,10 +22,10 @@ mkDerivation rec {
 
   patches = [
     (substituteAll {
-      src = ./0001-NixOS-provide-mobile-broadband-provider-info-path.patch;
+      src = ./0001-Botnix-provide-mobile-broadband-provider-info-path.patch;
       inherit mobile-broadband-provider-info;
     })
-    ./0001-NixOS-Skip-tests-they-re-shock-full-of-hardcoded-FHS.patch
+    ./0001-Botnix-Skip-tests-they-re-shock-full-of-hardcoded-FHS.patch
   ];
 
   # Replaces paths from the Qt store path to this library's store path.

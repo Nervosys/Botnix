@@ -4,7 +4,7 @@
 , withBaseWrapper ? true, extraSessionCommands ? "", dbus
 , withGtkWrapper ? false, wrapGAppsHook, gdk-pixbuf, glib, gtk3
 , extraOptions ? [] # E.g.: [ "--verbose" ]
-# Used by the NixOS module:
+# Used by the Botnix module:
 , isNixOS ? false
 
 , enableXWayland ? true

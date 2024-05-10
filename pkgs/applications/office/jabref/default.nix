@@ -143,7 +143,7 @@ stdenv.mkDerivation rec {
       --offline \
       --no-daemon \
       -PprojVersion="${version}" \
-      -PprojVersionInfo="${version} NixOS" \
+      -PprojVersionInfo="${version} Botnix" \
       -Dorg.gradle.java.home=${jdk} \
       assemble
 
@@ -170,7 +170,7 @@ stdenv.mkDerivation rec {
 
     tar xf build/distributions/JabRef-${version}.tar -C $out --strip-components=1
 
-    # workaround for https://github.com/NixOS/nixpkgs/issues/162064
+    # workaround for https://github.com/nervosys/Botnix/issues/162064
     unzip $out/lib/javafx-web-*-*.jar libjfxwebkit.so -d $out/lib/
 
     DEFAULT_JVM_OPTS=$(sed -n -E "s/^DEFAULT_JVM_OPTS='(.*)'$/\1/p" $out/bin/JabRef | sed -e "s|\$APP_HOME|$out|g" -e 's/"//g')

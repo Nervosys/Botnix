@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
   # initial digging uncovers that the tests call out to `git`, which
   # they shouldn't, and then even once that's fixed have some
   # perl-related errors later on. For more, see
-  # https://github.com/NixOS/nixpkgs/issues/7957
+  # https://github.com/nervosys/Botnix/issues/7957
   doCheck = false; # stdenv.hostPlatform.system == "x86_64-linux";
 
   checkPhase = lib.optionalString (stdenv.hostPlatform.system == "x86_64-linux")

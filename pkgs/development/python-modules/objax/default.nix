@@ -27,7 +27,7 @@ buildPythonPackage rec {
   };
 
   # Avoid propagating the dependency on `jaxlib`, see
-  # https://github.com/NixOS/nixpkgs/issues/156767
+  # https://github.com/nervosys/Botnix/issues/156767
   buildInputs = [
     jaxlib
   ];

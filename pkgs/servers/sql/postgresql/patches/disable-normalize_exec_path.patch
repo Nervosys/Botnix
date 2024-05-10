@@ -4,7 +4,7 @@
  static int
  normalize_exec_path(char *path)
  {
-+	// On NixOS we *want* stuff relative to symlinks.
++	// On Botnix we *want* stuff relative to symlinks.
 +	return 0;
 +
  	/*

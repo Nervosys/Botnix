@@ -146,7 +146,7 @@ let
               jobs.cachix.x86_64-linux
 
               /*
-              TODO: re-add tests; context: https://github.com/NixOS/nixpkgs/commit/36587a587ab191eddd868179d63c82cdd5dee21b
+              TODO: re-add tests; context: https://github.com/nervosys/Botnix/commit/36587a587ab191eddd868179d63c82cdd5dee21b
 
               jobs.tests.cc-wrapper.default.x86_64-linux
               jobs.tests.cc-wrapper.gcc7Stdenv.x86_64-linux
@@ -242,7 +242,7 @@ let
   # Do not allow attribute collision between jobs inserted in
   # 'nonPackageAttrs' and jobs pulled in from 'pkgs'.
   # Conflicts usually cause silent job drops like in
-  #   https://github.com/NixOS/nixpkgs/pull/182058
+  #   https://github.com/nervosys/Botnix/pull/182058
   jobs = let
     packagePlatforms = if attrNamesOnly then lib.id else release-lib.packagePlatforms;
     packageJobs = {
@@ -269,7 +269,7 @@ let
 
       tests = packagePlatforms pkgs.tests;
 
-      # Language packages disabled in https://github.com/NixOS/nixpkgs/commit/ccd1029f58a3bb9eca32d81bf3f33cb4be25cc66
+      # Language packages disabled in https://github.com/nervosys/Botnix/commit/ccd1029f58a3bb9eca32d81bf3f33cb4be25cc66
 
       #emacsPackages = packagePlatforms pkgs.emacsPackages;
       #rPackages = packagePlatforms pkgs.rPackages;

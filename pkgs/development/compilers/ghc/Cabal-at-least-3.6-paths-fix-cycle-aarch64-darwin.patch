@@ -107,7 +107,7 @@ index b2be7e1a8..9b63e9850 100644
 +    shouldEmit name =
 +      case lookup name dirs of
 +        Just b -> b
-+        Nothing -> error "panic! BUG in Cabal Paths_ patch for aarch64-darwin, report this at https://github.com/nixos/nixpkgs/issues"
++        Nothing -> error "panic! BUG in Cabal Paths_ patch for aarch64-darwin, report this at https://github.com/botnix/nixpkgs/issues"
 +
 +    -- This is a comma separated list of all functions that have been omitted.
 +    -- This is included in a GHC warning which will be attached to the `Paths_*`

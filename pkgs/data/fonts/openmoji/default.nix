@@ -19,9 +19,9 @@ let
     variant;
 
   # With newer fontforge the build hangs, see
-  # https://github.com/NixOS/nixpkgs/issues/167869
+  # https://github.com/nervosys/Botnix/issues/167869
   # Patches etc taken from
-  # https://github.com/NixOS/nixpkgs/commit/69da642a5a9bb433138ba1b13c8d56fb5bb6ec05
+  # https://github.com/nervosys/Botnix/commit/69da642a5a9bb433138ba1b13c8d56fb5bb6ec05
   fontforge-20201107 = fontforge.overrideAttrs (old: rec {
     version = "20201107";
     src = fetchFromGitHub {

@@ -18,7 +18,7 @@ let
 in
 
 python.pkgs.buildPythonApplication rec {
-  pname = "nixos-render-docs";
+  pname = "botnix-render-docs";
   version = "0.0";
   format = "pyproject";
 
@@ -60,7 +60,7 @@ python.pkgs.buildPythonApplication rec {
   '';
 
   meta = with lib; {
-    description = "Renderer for NixOS manual and option docs";
+    description = "Renderer for Botnix manual and option docs";
     license = licenses.mit;
     maintainers = [ ];
   };

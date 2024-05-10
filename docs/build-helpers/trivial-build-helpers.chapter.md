@@ -513,7 +513,7 @@ For example, the following shell application can refer to `curl` directly, rathe
 
 ```nix
 writeShellApplication {
-  name = "show-nixos-org";
+  name = "show-botnix-org";
 
   runtimeInputs = [ curl w3m ];
 

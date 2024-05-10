@@ -31,9 +31,9 @@ rec {
   files; they have no way to unpack multi-file archives except for
   NAR archives:
 
-  https://github.com/NixOS/nixpkgs/pull/232576#issuecomment-1592415619
+  https://github.com/nervosys/Botnix/pull/232576#issuecomment-1592415619
 
-  # Why don't we have to upload this to tarballs.nixos.org like the binary bootstrap-files did?
+  # Why don't we have to upload this to tarballs.botnix.org like the binary bootstrap-files did?
 
   Unlike this archive, the binary bootstrap-files contained binaries,
   which meant that we had to:
@@ -44,7 +44,7 @@ rec {
   3. Keep copies of the built binaries, in case the toolchains that
      produced them failed to be perfectly deterministic.
 
-  The curated archives at tarballs.nixos.org exist in order to
+  The curated archives at tarballs.botnix.org exist in order to
   satisfy these requirements.
 
   The second point created a significant burden: since the nixpkgs

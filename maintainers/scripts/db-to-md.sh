@@ -38,7 +38,7 @@ if [[ $debug ]]; then
 fi
 pandoc_flags=(
     # Not needed:
-    # - diagram-generator.lua (we do not support that in NixOS manual to limit dependencies)
+    # - diagram-generator.lua (we do not support that in Botnix manual to limit dependencies)
     # - media extraction (was only required for diagram generator)
     # - myst-reader/roles.lua (only relevant for MyST → DocBook)
     # - link-manpages.lua (links should only be added to display output)

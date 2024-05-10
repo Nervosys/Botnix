@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
   # without this, the build fails because of an encoding issue with the manual page.
   # https://stackoverflow.com/a/17031697/4935114
   # This requires glibcLocales to be present in the build so it will have an impact.
-  # See https://github.com/NixOS/nixpkgs/issues/8398
+  # See https://github.com/nervosys/Botnix/issues/8398
   preBuild = ''
     export LC_ALL="en_US.UTF-8";
   '';

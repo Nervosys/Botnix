@@ -10,7 +10,7 @@
 
 # To expose the *srht modules, they have to be a python module so we use `buildPythonModule`
 # Then we expose them through all-packages.nix as an application through `toPythonApplication`
-# https://github.com/NixOS/nixpkgs/pull/54425#discussion_r250688781
+# https://github.com/nervosys/Botnix/pull/54425#discussion_r250688781
 let
   python = python3.override {
     packageOverrides = self: super: {
@@ -81,7 +81,7 @@ with python.pkgs; recurseIntoAttrs ({
   pastesrht = toPythonApplication pastesrht;
   todosrht = toPythonApplication todosrht;
   passthru.tests = {
-    nixos-sourcehut = nixosTests.sourcehut;
+    botnix-sourcehut = nixosTests.sourcehut;
   };
 } // lib.optionalAttrs config.allowAliases {
   # Added 2022-10-29

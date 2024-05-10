@@ -11,7 +11,7 @@ let
       version = pkg.version or "";
     in
     lib.optionalString (isPvpVersion version && (pkg.meta.hydraPlatforms or null) != lib.platforms.none)
-      ''"${name}","${version}","http://hydra.nixos.org/job/nixpkgs/trunk/haskellPackages.${name}.x86_64-linux"'';
+      ''"${name}","${version}","http://hydra.botnix.org/job/nixpkgs/trunk/haskellPackages.${name}.x86_64-linux"'';
   all-haskellPackages = builtins.toFile "all-haskellPackages" (lib.concatStringsSep "\n" (lib.filter (x: x != "") (lib.mapAttrsToList pkgLine haskellPackages)));
 in
 runCommand "hackage-package-list" { }
@@ -21,5 +21,5 @@ runCommand "hackage-package-list" { }
   # The call is wrapped in echo $(...) to trim trailing newline, which hackage requires.
   ''
     mkdir -p $out/bin
-    echo -n "$(tar -t -f ${all-cabal-hashes} | sed 's![^/]*/\([^/]*\)/.*!"\1"!' | sort -u | join -t , - ${all-haskellPackages})" > $out/nixos-hackage-packages.csv
+    echo -n "$(tar -t -f ${all-cabal-hashes} | sed 's![^/]*/\([^/]*\)/.*!"\1"!' | sort -u | join -t , - ${all-haskellPackages})" > $out/botnix-hackage-packages.csv
   ''

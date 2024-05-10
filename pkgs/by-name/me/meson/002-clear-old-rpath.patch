@@ -10,8 +10,8 @@ index 4176b9a03..faaabf616 100644
 +            # not heeding the warning above about de-duplication
 +            # since it does not seem to cause issues for us
 +            # and not doing so trips up Nix’s reference checker.
-+            # See https://github.com/NixOS/nixpkgs/pull/46020
-+            # and https://github.com/NixOS/nixpkgs/issues/95163
++            # See https://github.com/nervosys/Botnix/pull/46020
++            # and https://github.com/nervosys/Botnix/issues/95163
 +            self.bf.seek(rp_off)
 +            self.bf.write(b'\0'*len(old_rpath))
 +

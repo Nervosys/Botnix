@@ -22,7 +22,7 @@ stdenv.mkDerivation {
 
   # cross-compilation fixes:
   # - fix libtool, the reason it does not work in nativeBuildInputs is complicated
-  #   see https://github.com/NixOS/nixpkgs/pull/192878 for more info
+  #   see https://github.com/nervosys/Botnix/pull/192878 for more info
   # - freetype-config doesn't properly support cross-compilation, but is just a thin
   #   wrapper around pkg-config anyways
   postPatch = ''

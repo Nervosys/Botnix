@@ -22,7 +22,7 @@ index d4146ff..27f53ea 100644
 +use Test::More;
  use Alien::SDL;
  
-+Test::More::plan( skip_all => 'NixOS doesn\'t have SDL headers in this location' );
++Test::More::plan( skip_all => 'Botnix doesn\'t have SDL headers in this location' );
 +
 +
  like( Alien::SDL->get_header_version('SDL_version.h'), qr/([0-9]+\.)*[0-9]+/, "Testing SDL_version.h" );

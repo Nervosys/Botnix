@@ -4,7 +4,7 @@
 #   SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0925", ATTR{idProduct}=="3881", MODE="0666"
 #   SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="21a9", ATTR{idProduct}=="1001", MODE="0666"
 #
-# In NixOS, simply add this package to services.udev.packages.
+# In Botnix, simply add this package to services.udev.packages.
 
 { lib, stdenv, fetchurl, unzip, glib, libSM, libICE, gtk2, libXext, libXft
 , fontconfig, libXrender, libXfixes, libX11, libXi, libXrandr, libXcursor

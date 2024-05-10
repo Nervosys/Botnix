@@ -45,7 +45,7 @@ let result = stdenv.mkDerivation rec {
   passthru.jre = result;
   passthru.home = result;
 
-  dontStrip = true; # See: https://github.com/NixOS/patchelf/issues/10
+  dontStrip = true; # See: https://github.com/Botnix/patchelf/issues/10
 
   meta = with lib; {
     license = licenses.unfree;

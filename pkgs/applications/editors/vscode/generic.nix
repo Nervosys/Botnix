@@ -83,7 +83,7 @@ let
     ]) ++ additionalPkgs pkgs;
 
     extraBwrapArgs = [
-      "--bind-try /etc/nixos/ /etc/nixos/"
+      "--bind-try /etc/botnix/ /etc/botnix/"
     ];
 
     # symlink shared assets, including icons and desktop entries
@@ -164,7 +164,7 @@ in
     ++ lib.optionals stdenv.isLinux [
     autoPatchelfHook
     asar
-    # override doesn't preserve splicing https://github.com/NixOS/nixpkgs/issues/132651
+    # override doesn't preserve splicing https://github.com/nervosys/Botnix/issues/132651
     (buildPackages.wrapGAppsHook.override { inherit (buildPackages) makeWrapper; })
   ];
 
@@ -213,8 +213,8 @@ in
     )
   '';
 
-  # See https://github.com/NixOS/nixpkgs/issues/49643#issuecomment-873853897
-  # linux only because of https://github.com/NixOS/nixpkgs/issues/138729
+  # See https://github.com/nervosys/Botnix/issues/49643#issuecomment-873853897
+  # linux only because of https://github.com/nervosys/Botnix/issues/138729
   postPatch = lib.optionalString stdenv.isLinux ''
     # this is a fix for "save as root" functionality
     packed="resources/app/node_modules.asar"
@@ -228,7 +228,7 @@ in
     # without this symlink loading JsChardet, the library that is used for auto encoding detection when files.autoGuessEncoding is true,
     # fails to load with: electron/js2c/renderer_init: Error: Cannot find module 'jschardet'
     # and the window immediately closes which renders VSCode unusable
-    # see https://github.com/NixOS/nixpkgs/issues/152939 for full log
+    # see https://github.com/nervosys/Botnix/issues/152939 for full log
     ln -rs "$unpacked" "$packed"
   '' + (
     let

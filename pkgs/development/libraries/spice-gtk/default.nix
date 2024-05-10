@@ -44,17 +44,17 @@
 # usb redirection requires spice-client-glib-usb-acl-helper to run setuid root.
 # The helper confirms via polkit that the user has an active session,
 # then adds a device acl entry for that user.
-# Example NixOS config to create a setuid wrapper for the helper:
+# Example Botnix config to create a setuid wrapper for the helper:
 # security.wrappers.spice-client-glib-usb-acl-helper.source =
 #   "${pkgs.spice-gtk}/bin/spice-client-glib-usb-acl-helper";
-# On non-NixOS installations, make a setuid copy of the helper
+# On non-Botnix installations, make a setuid copy of the helper
 # outside the store and adjust PATH to find the setuid version.
 
 # If this package is built without polkit support (withPolkit=false),
 # usb redirection requires read-write access to usb devices.
 # This can be granted by adding users to a custom group like "usb"
 # and using a udev rule to put all usb devices in that group.
-# Example NixOS config:
+# Example Botnix config:
 #  users.groups.usb = {};
 #  users.users.dummy.extraGroups = [ "usb" ];
 #  services.udev.extraRules = ''

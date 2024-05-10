@@ -47,7 +47,7 @@ stdenv.mkDerivation rec {
 
   patches = [
     ./gnu-install-dirs.patch
-    # fix for https://github.com/NixOS/nixpkgs/issues/269548
+    # fix for https://github.com/nervosys/Botnix/issues/269548
     # https://github.com/llvm/llvm-project/pull/77218
     (fetchpatch {
       name = "darwin-system-libcxxabi-link-flags.patch";

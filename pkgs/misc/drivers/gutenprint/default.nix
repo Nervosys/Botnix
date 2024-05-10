@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
     ++ lib.optionals cupsSupport [ cups libusb1 perl ];
 
   configureFlags = lib.optionals cupsSupport [
-    "--disable-static-genppd" # should be harmless on NixOS
+    "--disable-static-genppd" # should be harmless on Botnix
   ];
 
   # FIXME: hacky because we modify generated configure, but I haven't found a better way.

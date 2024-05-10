@@ -91,9 +91,9 @@ in
     # TODO(amjoseph): remove the `libgcc_s.so` symlinks below and replace them
     # with a `-L${gccForLibs.libgcc}/lib` in cc-wrapper's
     # `$out/nix-support/cc-flags`.  See also:
-    # - https://github.com/NixOS/nixpkgs/pull/209870#discussion_r1130614895
-    # - https://github.com/NixOS/nixpkgs/pull/209870#discussion_r1130635982
-    # - https://github.com/NixOS/nixpkgs/commit/404155c6acfa59456aebe6156b22fe385e7dec6f
+    # - https://github.com/nervosys/Botnix/pull/209870#discussion_r1130614895
+    # - https://github.com/nervosys/Botnix/pull/209870#discussion_r1130635982
+    # - https://github.com/nervosys/Botnix/commit/404155c6acfa59456aebe6156b22fe385e7dec6f
     #
     # move `libgcc_s.so` into its own output, `$libgcc`
     + lib.optionalString enableLibGccOutput (''
@@ -130,7 +130,7 @@ in
     # will leave the old RUNPATH string in the file where the reference
     # scanner can still find it:
     #
-    #   https://github.com/NixOS/patchelf/issues/453
+    #   https://github.com/Botnix/patchelf/issues/453
     #
     # Note: we might be using the bootstrapFiles' copy of patchelf, so we have
     # to keep doing it this way until both the issue is fixed *and* all the

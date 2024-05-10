@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
 
   # pkgs.db provides db_stat, not db$major.$minor_stat
   patches = [
-    ./adapt-to-nixos.patch
+    ./adapt-to-botnix.patch
   ];
 
   outputs = [ "out" "webSamples" ];
@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
   doCheck = true;
   checkPhase = "./sks unit_test";
 
-  # Copy the web examples for the NixOS module
+  # Copy the web examples for the Botnix module
   postInstall = "cp -R sampleWeb $webSamples";
 
   meta = with lib; {

@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [ python3 ];
 
   # fix for compilation on aarch64
-  # see https://github.com/NixOS/nixpkgs/issues/145726
+  # see https://github.com/nervosys/Botnix/issues/145726
   prePatch = ''
     rm .cargo/config.toml
   '';

@@ -61,7 +61,7 @@ mkChromiumDerivation (base: rec {
     sed -i '/^MimeType=/ s,$,x-scheme-handler/webcal;x-scheme-handler/mailto;x-scheme-handler/about;x-scheme-handler/unknown,' \
       $out/share/applications/chromium-browser.desktop
 
-    # See https://github.com/NixOS/nixpkgs/issues/12433
+    # See https://github.com/nervosys/Botnix/issues/12433
     sed -i \
       -e '/\[Desktop Entry\]/a\' \
       -e 'StartupWMClass=chromium-browser' \

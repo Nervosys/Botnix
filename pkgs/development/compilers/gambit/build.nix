@@ -55,14 +55,14 @@ gccStdenv.mkDerivation rec {
     "--enable-gcc-opts"
     "--enable-trust-c-tco"
     "--enable-shared"
-    "--enable-absolute-shared-libs" # Yes, NixOS will want an absolute path, and fix it.
+    "--enable-absolute-shared-libs" # Yes, Botnix will want an absolute path, and fix it.
     "--enable-openssl"
     "--enable-dynamic-clib"
     #"--enable-default-compile-options='(compactness 9)'" # Make life easier on the JS backend
     "--enable-default-runtime-options=${gambit-params.defaultRuntimeOptions}"
     # "--enable-rtlib-debug" # used by Geiser, but only on recent-enough gambit, and messes js runtime
     # "--enable-debug" # Nope: enables plenty of good stuff, but also the costly console.log
-    # "--enable-multiple-versions" # Nope, NixOS already does version multiplexing
+    # "--enable-multiple-versions" # Nope, Botnix already does version multiplexing
     # "--enable-guide"
     # "--enable-track-scheme"
     # "--enable-high-res-timing"

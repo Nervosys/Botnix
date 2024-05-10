@@ -14,7 +14,7 @@ let
 
     # these are required in order to prevent inhibit_libc=true,
     # which will cripple libgcc's unwinder; see:
-    #  https://github.com/NixOS/nixpkgs/issues/213453#issuecomment-1616346163
+    #  https://github.com/nervosys/Botnix/issues/213453#issuecomment-1616346163
     "--with-headers=${lib.getDev glibc}/include"
     "--with-native-system-header-dir=${lib.getDev glibc}${glibc.incdir or "/include"}"
     "--with-build-sysroot=/"

@@ -16,7 +16,7 @@ buildPythonPackage rec {
     hash = "sha256-TrFQzfkXabmfpGYwhxD1UVY1F645KycfSPPrMJFAe+0=";
   };
 
-  # Tests failed (errors=4, failures=4) on NixOS
+  # Tests failed (errors=4, failures=4) on Botnix
   doCheck = false;
 
   pythonImportsCheck = [ "xdg" ];

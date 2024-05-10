@@ -120,7 +120,7 @@ let
   };
 
   # Intentionally does not support overrideAttrs etc
-  # Use only for tests that are about the package relation to `pkgs` and/or NixOS.
+  # Use only for tests that are about the package relation to `pkgs` and/or Botnix.
   addTestsShallowly = tests: pkg: pkg // {
     tests = pkg.tests // tests;
     # In case someone reads the wrong attribute
@@ -130,7 +130,7 @@ let
   addFallbackPathsCheck = pkg: addTestsShallowly
     { nix-fallback-paths =
         runCommand "test-nix-fallback-paths-version-equals-nix-stable" {
-          paths = lib.concatStringsSep "\n" (builtins.attrValues (import ../../../../nixos/modules/installer/tools/nix-fallback-paths.nix));
+          paths = lib.concatStringsSep "\n" (builtins.attrValues (import ../../../../botnix/modules/installer/tools/nix-fallback-paths.nix));
         } ''
           if [[ "" != $(grep -v 'nix-${pkg.version}$' <<< "$paths") ]]; then
             echo "nix-fallback-paths not up to date with nixVersions.stable (nix-${pkg.version})"
@@ -139,7 +139,7 @@ let
             echo
             echo "Fix it by running in nixpkgs:"
             echo
-            echo "curl https://releases.nixos.org/nix/nix-${pkg.version}/fallback-paths.nix >nixos/modules/installer/tools/nix-fallback-paths.nix"
+            echo "curl https://releases.botnix.org/nix/nix-${pkg.version}/fallback-paths.nix >botnix/modules/installer/tools/nix-fallback-paths.nix"
             echo
             exit 1
           else

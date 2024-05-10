@@ -3,7 +3,7 @@
 , version
 , suffix ? ""
 , hash ? null
-, src ? fetchFromGitHub { owner = "NixOS"; repo = "nix"; rev = version; inherit hash; }
+, src ? fetchFromGitHub { owner = "Botnix"; repo = "nix"; rev = version; inherit hash; }
 , patches ? [ ]
 , maintainers ? with lib.maintainers; [ eelco lovesegfault artturin ma27 ]
 }@args:
@@ -59,7 +59,7 @@ in
 , enableDocumentation ? !atLeast24 || (
     (stdenv.hostPlatform == stdenv.buildPlatform) &&
     # mdbook errors out on risc-v due to a rustc bug
-    # https://github.com/NixOS/nixpkgs/pull/242019
+    # https://github.com/nervosys/Botnix/pull/242019
     # https://github.com/rust-lang/rust/issues/114473
     !stdenv.buildPlatform.isRiscV
   )
@@ -148,7 +148,7 @@ self = stdenv.mkDerivation {
 
   preConfigure =
     # Copy libboost_context so we don't get all of Boost in our closure.
-    # https://github.com/NixOS/nixpkgs/issues/45462
+    # https://github.com/nervosys/Botnix/issues/45462
     lib.optionalString (!enableStatic) ''
       mkdir -p $out/lib
       cp -pd ${boost}/lib/{libboost_context*,libboost_thread*,libboost_system*} $out/lib

@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
     sha256 = "sha256-bz922lWiap3vMy8qS9dmXa8zUg5NJlg0bx3+/xz7QAk=";
   };
 
-  # https://github.com/NixOS/nixpkgs/issues/144170
+  # https://github.com/nervosys/Botnix/issues/144170
   postPatch = ''
     sed -i -E \
       -e '/^libdir[=]/clibdir=@CMAKE_INSTALL_FULL_LIBDIR@' \

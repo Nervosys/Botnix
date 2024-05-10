@@ -72,7 +72,7 @@ stdenv.mkDerivation {
     yarn install --frozen-lockfile --offline --no-progress --non-interactive --ignore-scripts --production
     cp -r node_modules $out
 
-    # replace matrix-sdk-crypto-nodejs with nixos package
+    # replace matrix-sdk-crypto-nodejs with botnix package
     rm -rv $out/node_modules/@matrix-org/matrix-sdk-crypto-nodejs
     ln -sv ${matrix-sdk-crypto-nodejs}/lib/node_modules/@matrix-org/matrix-sdk-crypto-nodejs $out/node_modules/@matrix-org/
 

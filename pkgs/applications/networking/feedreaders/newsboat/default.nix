@@ -34,7 +34,7 @@ rustPlatform.buildRustPackage rec {
     make -j $NIX_BUILD_CORES prefix="$out"
   '';
 
-  # https://github.com/NixOS/nixpkgs/pull/98471#issuecomment-703100014 . We set
+  # https://github.com/nervosys/Botnix/pull/98471#issuecomment-703100014 . We set
   # these for all platforms, since upstream's gettext crate behavior might
   # change in the future.
   GETTEXT_LIB_DIR = "${lib.getLib gettext}/lib";

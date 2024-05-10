@@ -48,7 +48,7 @@ buildDunePackage rec {
 
     # Note: wrapProgram by default calls 'exec -a $0 ...', but this
     # breaks utop on Linux with OCaml 4.04, and is disabled with
-    # '--argv0 ""' flag. See https://github.com/NixOS/nixpkgs/issues/24496
+    # '--argv0 ""' flag. See https://github.com/nervosys/Botnix/issues/24496
     wrapProgram "$prog" \
       --argv0 "" \
       --prefix CAML_LD_LIBRARY_PATH ":" "${get "CAML_LD_LIBRARY_PATH"}" \

@@ -1,6 +1,6 @@
 # Set RUNPATH so that driver libraries in /run/opengl-driver(-32)/lib can be found.
 # This is needed to not rely on LD_LIBRARY_PATH which does not work with setuid
-# executables. Fixes https://github.com/NixOS/nixpkgs/issues/22760. It must be run
+# executables. Fixes https://github.com/nervosys/Botnix/issues/22760. It must be run
 # in postFixup because RUNPATH stripping in fixup would undo it. Note that patchelf
 # actually sets RUNPATH not RPATH, which applies only to dependencies of the binary
 # it set on (including for dlopen), so the RUNPATH must indeed be set on these

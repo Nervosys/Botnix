@@ -49,7 +49,7 @@ buildPythonPackage {
   libraryPath = lib.makeLibraryPath (
     # TODO: remove openssl_1_1 and zlib, maybe by building paddlepaddle from
     # source as suggested in the following comment:
-    # https://github.com/NixOS/nixpkgs/pull/243583#issuecomment-1641450848
+    # https://github.com/nervosys/Botnix/pull/243583#issuecomment-1641450848
     [ openssl_1_1 zlib ] ++ lib.optionals cudaSupport (with cudaPackages_11; [
       cudatoolkit.lib
       cudatoolkit.out

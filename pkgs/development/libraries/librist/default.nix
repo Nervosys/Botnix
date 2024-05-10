@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    # https://github.com/NixOS/nixpkgs/pull/257020
+    # https://github.com/nervosys/Botnix/pull/257020
     ./darwin.patch
   ];
 

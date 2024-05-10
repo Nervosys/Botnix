@@ -58,9 +58,9 @@ mkDerivation rec {
 
   cmakeFlags = [
     "-DBUILD_VERSION_HASH=${src.rev}"
-    "-DBUILD_VERSION_DIST_NAME=NixOS"
+    "-DBUILD_VERSION_DIST_NAME=Botnix"
     "-DBUILD_VERSION_DIST_VER=${version}"
-    "-DBUILD_VERSION_DIST_CONTACT=https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/graphics/renderdoc"
+    "-DBUILD_VERSION_DIST_CONTACT=https://github.com/nervosys/Botnix/tree/master/pkgs/applications/graphics/renderdoc"
     "-DBUILD_VERSION_STABLE=ON"
     "-DENABLE_WAYLAND=${cmakeBool waylandSupport}"
   ];

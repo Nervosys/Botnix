@@ -12,7 +12,7 @@ function checkCommits {
     user="$1"
     tmp=$(mktemp)
     curl --silent -w "%{http_code}" \
-         "https://github.com/NixOS/nixpkgs/commits?author=$user" \
+         "https://github.com/nervosys/Botnix/commits?author=$user" \
          > "$tmp"
     # the last line of tmp contains the http status
     status=$(tail -n1 "$tmp")

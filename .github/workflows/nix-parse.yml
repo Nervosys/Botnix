@@ -11,14 +11,14 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    if: "github.repository_owner == 'NixOS' && !contains(github.event.pull_request.title, '[skip treewide]')"
+    if: github.repository_owner == 'nervosys' && !contains(github.event.pull_request.title, '[skip treewide]')
     steps:
     - name: Get list of changed files from PR
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gh api \
-          repos/NixOS/nixpkgs/pulls/${{github.event.number}}/files --paginate \
+          repos/nervosys/Botnix/pulls/${{github.event.number}}/files --paginate \
           | jq --raw-output '.[] | select(.status != "removed" and (.filename | endswith(".nix"))) | .filename' \
           > "$HOME/changed_files"
         if [[ -s "$HOME/changed_files" ]]; then

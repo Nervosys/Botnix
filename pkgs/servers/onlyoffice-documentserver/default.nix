@@ -37,11 +37,11 @@ let
         ln -rs "$file" lib/$(basename "$file")
       done
 
-      # NixOS uses systemd, not supervisor
+      # Botnix uses systemd, not supervisor
       rm -rf etc/supervisor
 
       install -Dm755 usr/bin/documentserver-prepare4shutdown.sh -t $out/bin
-      # maintainer scripts which expect supervisorctl, try to write into the nix store or are handled by nixos modules
+      # maintainer scripts which expect supervisorctl, try to write into the nix store or are handled by botnix modules
       rm -rf usr/bin
 
       # .deb default documentation

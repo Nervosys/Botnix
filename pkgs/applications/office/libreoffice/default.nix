@@ -320,7 +320,7 @@ in stdenv.mkDerivation (finalAttrs: {
     # rendering-dependent test
     # tilde expansion in path processing checks the existence of $HOME
     sed -e 's@OString sSysPath("~/tmp");@& return ; @' -i sal/qa/osl/file/osl_File.cxx
-    # fails on systems using ZFS, see https://github.com/NixOS/nixpkgs/issues/19071
+    # fails on systems using ZFS, see https://github.com/nervosys/Botnix/issues/19071
     sed -e '/CPPUNIT_TEST(getSystemPathFromFileURL_005);/d' -i './sal/qa/osl/file/osl_File.cxx'
     # rendering-dependent: on my computer the test table actually doesn't fit…
     # interesting fact: test disabled on macOS by upstream
@@ -435,7 +435,7 @@ in stdenv.mkDerivation (finalAttrs: {
     "--with-boost=${getDev boost}"
     "--with-boost-libdir=${getLib boost}/lib"
     "--with-beanshell-jar=${bsh}"
-    "--with-vendor=NixOS"
+    "--with-vendor=Botnix"
     "--disable-report-builder"
     "--disable-online-update"
     "--enable-python=system"
@@ -493,7 +493,7 @@ in stdenv.mkDerivation (finalAttrs: {
   ] ++ optionals (variant == "fresh") [
     "--with-system-mdds"
   ] ++ [
-    # https://github.com/NixOS/nixpkgs/commit/5c5362427a3fa9aefccfca9e531492a8735d4e6f
+    # https://github.com/nervosys/Botnix/commit/5c5362427a3fa9aefccfca9e531492a8735d4e6f
     "--without-system-orcus"
     "--without-system-xmlsec"
     "--without-system-zxing"

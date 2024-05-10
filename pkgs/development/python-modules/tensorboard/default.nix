@@ -56,7 +56,7 @@ buildPythonPackage rec {
     tensorboard-plugin-wit
     werkzeug
     # not declared in install_requires, but used at runtime
-    # https://github.com/NixOS/nixpkgs/issues/73840
+    # https://github.com/nervosys/Botnix/issues/73840
     wheel
   ];
 

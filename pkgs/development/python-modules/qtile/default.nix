@@ -43,7 +43,7 @@ buildPythonPackage rec {
   };
 
   patches = [
-    ./fix-restart.patch # https://github.com/NixOS/nixpkgs/issues/139568
+    ./fix-restart.patch # https://github.com/nervosys/Botnix/issues/139568
   ];
 
   postPatch = ''
@@ -89,7 +89,7 @@ buildPythonPackage rec {
     xcbutilwm
   ];
 
-  doCheck = false; # Requires X server #TODO this can be worked out with the existing NixOS testing infrastructure.
+  doCheck = false; # Requires X server #TODO this can be worked out with the existing Botnix testing infrastructure.
 
   meta = with lib; {
     homepage = "http://www.qtile.org/";

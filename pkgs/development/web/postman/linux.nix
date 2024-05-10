@@ -38,7 +38,7 @@
 , mesa
 # It's unknown which version of openssl that postman expects but it seems that
 # OpenSSL 3+ seems to work fine (cf.
-# https://github.com/NixOS/nixpkgs/issues/254325). If postman breaks apparently
+# https://github.com/nervosys/Botnix/issues/254325). If postman breaks apparently
 # around OpenSSL stuff then try changing this dependency version.
 , openssl
 , xorg

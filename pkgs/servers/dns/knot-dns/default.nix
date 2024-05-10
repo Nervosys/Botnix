@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
 
   patches = [
     # Don't try to create directories like /var/lib/knot at build time.
-    # They are later created from NixOS itself.
+    # They are later created from Botnix itself.
     ./dont-create-run-time-dirs.patch
     ./runtime-deps.patch
   ];

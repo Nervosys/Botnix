@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
     description = "Interface for terminal emulators such as screen and xterm to record user sessions to utmp and wtmp files";
     longDescription = ''
       The bundled utempter binary must be able to run as a user belonging to group utmp.
-      On NixOS systems, this can be achieved by creating a setguid wrapper.
+      On Botnix systems, this can be achieved by creating a setguid wrapper.
     '';
     license = licenses.lgpl21Plus;
     platforms = platforms.linux;

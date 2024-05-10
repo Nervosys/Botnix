@@ -33,7 +33,7 @@ buildNpmPackage rec {
     })
     ./install.patch
     ./fix-paths.patch
-    ./expose-password-hashing.patch # Used by the NixOS module
+    ./expose-password-hashing.patch # Used by the Botnix module
   ];
 
   npmDepsHash = "sha256-/F/lhQIVGbbFxFuQXXwHUVlV2jhHt0hFf94v0FrTKt8=";

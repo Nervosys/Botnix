@@ -47,7 +47,7 @@ stdenv.mkDerivation rec {
     ghostscript
   ];
 
-  # Work around https://github.com/NixOS/nixpkgs/issues/166205
+  # Work around https://github.com/nervosys/Botnix/issues/166205
   env.NIX_LDFLAGS = lib.optionalString (stdenv.cc.isClang && stdenv.cc.libcxx != null) "-l${stdenv.cc.libcxx.cxxabi.libName}";
 
   configurePhase = ''

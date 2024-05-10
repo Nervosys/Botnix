@@ -47,7 +47,7 @@
   # tlp concerns itself only with DESTDIR [2] (possibly incorrectly) and so we set
   # that as opposed to PREFIX, despite what [1] says.
   #
-  # [1]: https://github.com/NixOS/nixpkgs/issues/65718
+  # [1]: https://github.com/nervosys/Botnix/issues/65718
   # [2]: https://github.com/linrunner/TLP/blob/ab788abf4936dfb44fbb408afc34af834230a64d/Makefile#L4-L46
   makeFlags = [
     "TLP_NO_INIT=1"

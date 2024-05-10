@@ -198,7 +198,7 @@ let
       '';
 
       buildFlags = [
-        "KBUILD_BUILD_VERSION=1-NixOS"
+        "KBUILD_BUILD_VERSION=1-Botnix"
         kernelConf.target
         "vmlinux"  # for "perf" and things like that
       ] ++ optional isModular "modules"

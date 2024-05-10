@@ -12,7 +12,7 @@ echo "Getting latest version from crates.io API" >&2
 
 curlOpts=(
   -H "Accept: application/json"
-  -H "User-Agent: $crate update script (https://github.com/nixos/nixpkgs/)"
+  -H "User-Agent: $crate update script (https://github.com/botnix/nixpkgs/)"
 )
 
 version="$(curl "${curlOpts[@]}" "https://crates.io/api/v1/crates/$crate" \

@@ -253,7 +253,7 @@ rec {
       # element after another. We can't return early, so this means that we
       # sacrifice early cutoff, but that appears to be an acceptable cost. A
       # clever scheme with "exponential search" is possible, but appears over-
-      # engineered for now. See https://github.com/NixOS/nixpkgs/pull/235267
+      # engineered for now. See https://github.com/nervosys/Botnix/pull/235267
 
       # Invariant:
       # - if index < 0 then el == elemAt list (- index - 1) and all elements before el didn't satisfy pred

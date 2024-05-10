@@ -43,10 +43,10 @@ in stdenv.mkDerivation (finalAttrs: {
   # Running the default `strip -S` command on Darwin corrupts the
   # .rlib files in "lib/".
   #
-  # See https://github.com/NixOS/nixpkgs/pull/34227
+  # See https://github.com/nervosys/Botnix/pull/34227
   #
   # Running `strip -S` when cross compiling can harm the cross rlibs.
-  # See: https://github.com/NixOS/nixpkgs/pull/56540#issuecomment-471624656
+  # See: https://github.com/nervosys/Botnix/pull/56540#issuecomment-471624656
   stripDebugList = [ "bin" ];
 
   # The Rust pkg-config crate does not support prefixed pkg-config executables[1],

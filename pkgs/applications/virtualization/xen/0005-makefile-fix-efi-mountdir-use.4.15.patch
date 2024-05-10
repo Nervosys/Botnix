@@ -1,6 +1,6 @@
 EFI_MOUNTPOINT is conventionally /boot/efi or /boot/EFI or something
 like that, and (on my machine) has directories within that called
-{Boot, nixos, gummiboot}.
+{Boot, botnix, gummiboot}.
 
 This patch does two things:
 

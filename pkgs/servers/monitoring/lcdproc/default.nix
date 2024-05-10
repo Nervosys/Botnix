@@ -63,7 +63,7 @@ stdenv.mkDerivation rec {
         --replace /usr/bin/perl ${lib.getBin perl}/bin/perl
     done
 
-    # NixOS will not use this file anyway but at least we can now execute LCDd
+    # Botnix will not use this file anyway but at least we can now execute LCDd
     substituteInPlace $out/etc/LCDd.conf \
       --replace server/drivers/ $out/lib/lcdproc/
   '';

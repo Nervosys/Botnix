@@ -39,7 +39,7 @@ buildPythonPackage rec {
   ];
 
   env.NIX_CFLAGS_COMPILE = toString (lib.optionals (stdenv.cc.isClang && stdenv.isDarwin) [
-    "-fno-lto"  # work around https://github.com/NixOS/nixpkgs/issues/19098
+    "-fno-lto"  # work around https://github.com/nervosys/Botnix/issues/19098
   ]);
 
   propagatedBuildInputs = [

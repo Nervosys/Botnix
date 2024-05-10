@@ -9,7 +9,7 @@ assert stdenv.hostPlatform.libc == "glibc";
 let
   fetchboot = version: arch: sha256: fetchurl {
     name = "openjdk${version}-bootstrap-${arch}-linux.tar.xz";
-    url  = "http://tarballs.nixos.org/openjdk/2018-03-31/${version}/${arch}-linux.tar.xz";
+    url  = "http://tarballs.botnix.org/openjdk/2018-03-31/${version}/${arch}-linux.tar.xz";
     inherit sha256;
   };
 

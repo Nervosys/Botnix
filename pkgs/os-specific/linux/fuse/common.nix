@@ -58,7 +58,7 @@ in stdenv.mkDerivation rec {
 
     # Ensure that FUSE calls the setuid wrapper, not
     # $out/bin/fusermount. It falls back to calling fusermount in
-    # $PATH, so it should also work on non-NixOS systems.
+    # $PATH, so it should also work on non-Botnix systems.
     export NIX_CFLAGS_COMPILE="-DFUSERMOUNT_DIR=\"/run/wrappers/bin\""
 
     substituteInPlace lib/mount_util.c --replace "/bin/" "${util-linux}/bin/"

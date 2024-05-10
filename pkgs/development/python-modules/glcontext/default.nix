@@ -32,7 +32,7 @@ buildPythonPackage rec {
   '';
 
   # Tests fail because they try to open display. See
-  # https://github.com/NixOS/nixpkgs/pull/121439
+  # https://github.com/nervosys/Botnix/pull/121439
   # for details.
   doCheck = false;
 

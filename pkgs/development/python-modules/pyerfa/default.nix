@@ -49,7 +49,7 @@ buildPythonPackage rec {
   ];
   # Getting circular import errors without this, not clear yet why. This was mentioned to
   # upstream at: https://github.com/liberfa/pyerfa/issues/112 and downstream at
-  # https://github.com/NixOS/nixpkgs/issues/255262
+  # https://github.com/nervosys/Botnix/issues/255262
   preCheck = ''
     cd $out
   '';

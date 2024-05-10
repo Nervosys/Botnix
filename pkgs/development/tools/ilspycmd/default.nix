@@ -22,7 +22,7 @@ buildDotnetModule rec {
     powershell
   ] ++ lib.optionals (stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isAarch64) [ autoSignDarwinBinariesHook ];
 
-  # https://github.com/NixOS/nixpkgs/issues/38991
+  # https://github.com/nervosys/Botnix/issues/38991
   # bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
   env.LOCALE_ARCHIVE = lib.optionalString stdenv.hostPlatform.isLinux "${glibcLocales}/lib/locale/locale-archive";
 

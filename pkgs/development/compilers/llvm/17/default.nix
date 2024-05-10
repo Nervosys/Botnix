@@ -163,7 +163,7 @@ in let
         # of this preprocessor symbol in `lldb` with its expansion.
         #
         # See here for some context:
-        # https://github.com/NixOS/nixpkgs/pull/194634#issuecomment-1272129132
+        # https://github.com/nervosys/Botnix/pull/194634#issuecomment-1272129132
         ++ lib.optional (
           stdenv.targetPlatform.isDarwin
             && !stdenv.targetPlatform.isAarch64

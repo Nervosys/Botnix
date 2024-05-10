@@ -110,7 +110,7 @@ let
 
   commonGccOverrides = {
     # Use a deterministically built compiler
-    # see https://github.com/NixOS/nixpkgs/issues/108475 for context
+    # see https://github.com/nervosys/Botnix/issues/108475 for context
     reproducibleBuild = true;
     profiledCompiler = false;
 
@@ -553,7 +553,7 @@ in
       };
 
       # To allow users' overrides inhibit dependencies too heavy for
-      # bootstrap, like guile: https://github.com/NixOS/nixpkgs/issues/181188
+      # bootstrap, like guile: https://github.com/nervosys/Botnix/issues/181188
       gnumake = super.gnumake.override { inBootstrap = true; };
 
       gcc = lib.makeOverridable (import ../../build-support/cc-wrapper) {

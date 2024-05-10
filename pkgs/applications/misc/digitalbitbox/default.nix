@@ -30,11 +30,11 @@
 #
 # will install the digitalbitbox package and enable the corresponding hardware
 # module and is by far the easiest way to get started with the Digital Bitbox on
-# NixOS.
+# Botnix.
 
 # In case you install the package only, please be aware that you may need to
 # apply some udev rules to allow the application to identify and access your
-# wallet. In a nixos-configuration, one may accomplish this by enabling the
+# wallet. In a botnix-configuration, one may accomplish this by enabling the
 # digitalbitbox hardware module
 #
 #     hardware.digitalbitbox.enable = true;
@@ -132,7 +132,7 @@ in mkDerivation rec {
       to the configuration which is equivalent to adding this package to the udev.packages list.
 
 
-      The easiest way to use the digitalbitbox package in NixOS is by adding
+      The easiest way to use the digitalbitbox package in Botnix is by adding
 
           programs.digitalbitbox.enable = true;
 

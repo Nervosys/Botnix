@@ -65,7 +65,7 @@ index 000000000..cb87d864a
 +                    width: 600
 +                    height: 150
 +                    anchors.centerIn: parent
-+                    text: qsTr("NixOS is fully open source, but it also provides software packages with unfree licenses. By default unfree packages are not allowed, but you can enable it here. If you check this box, software installed might have additional End User License Agreements (EULAs) attached. If not enabled, some hardware might not work fully when no suitable open source drivers are available.<br/>")
++                    text: qsTr("Botnix is fully open source, but it also provides software packages with unfree licenses. By default unfree packages are not allowed, but you can enable it here. If you check this box, software installed might have additional End User License Agreements (EULAs) attached. If not enabled, some hardware might not work fully when no suitable open source drivers are available.<br/>")
 +                    font.pointSize: 12
 +                    wrapMode: Text.WordWrap
 +                }

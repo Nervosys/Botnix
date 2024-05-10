@@ -297,7 +297,7 @@ rec {
   /* Pretty print a value, akin to `builtins.trace`.
    * Should probably be a builtin as well.
    * The pretty-printed string should be suitable for rendering default values
-   * in the NixOS manual. In particular, it should be as close to a valid Nix expression
+   * in the Botnix manual. In particular, it should be as close to a valid Nix expression
    * as possible.
    */
   toPretty = {

@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
   # binaries to the directory given on line 1 in ./conf-home.
   #
   # Also, assume getgroups and setgroups work, instead of doing a build time
-  # test that breaks on NixOS (I think because nixbld users lack CAP_SETGID
+  # test that breaks on Botnix (I think because nixbld users lack CAP_SETGID
   # capability).
   preBuild = ''
     echo "$out" > conf-home

@@ -51,7 +51,7 @@ maven.buildMavenPackage rec {
 
   ### Issues:
   # * Set us to only use software rendering with `-Dprism.order=sw`, had a hard time
-  #   getting `prism_es2` happy with NixOS's GL/GLES.
+  #   getting `prism_es2` happy with Botnix's GL/GLES.
   # * Currently, there's also a lot of `Failed to build parent project for org.openjfx:javafx-*`
   #   at build, but jar runs fine when using `jreWithJavaFX`.
 

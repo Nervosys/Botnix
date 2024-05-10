@@ -15,7 +15,7 @@ stdenv.mkDerivation (finalAttrs: {
   postPatch = ''
     substituteInPlace cmake/monetdb-packages.cmake --replace \
       'get_os_release_info(LINUX_DISTRO LINUX_DISTRO_VERSION)' \
-      'set(LINUX_DISTRO "nixos")'
+      'set(LINUX_DISTRO "botnix")'
   '';
 
   postInstall = ''

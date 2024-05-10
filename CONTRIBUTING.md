@@ -1,25 +1,26 @@
-# Contributing to Nixpkgs
+# Contributing to Botnix
 
-This document is for people wanting to contribute to the implementation of Nixpkgs.
-This involves interacting with implementation changes that are proposed using [GitHub](https://github.com/) [pull requests](https://docs.github.com/pull-requests) to the [Nixpkgs](https://github.com/nixos/nixpkgs/) repository (which you're in right now).
+This document is for people wanting to contribute to Botnix.
+This involves interacting with implementation changes that are proposed using [GitHub](https://github.com/) [pull requests](https://docs.github.com/pull-requests) to the [Botnix](https://github.com/nervosys/Botnix/) repository (which you're in right now).
 
 As such, a GitHub account is recommended, which you can sign up for [here](https://github.com/signup).
 See [here](https://discourse.nixos.org/t/about-the-patches-category/477) for how to contribute without a GitHub account.
 
-Additionally this document assumes that you already know how to use GitHub and Git.
+Additionally, this document assumes that you already know how to use GitHub and Git.
 If that's not the case, we recommend learning about it first [here](https://docs.github.com/en/get-started/quickstart/hello-world).
 
 ## Overview
 [overview]: #overview
 
 This file contains general contributing information, but individual parts also have more specific information to them in their respective `README.md` files, linked here:
+
 - [`lib`](./lib/README.md): Sources and documentation of the [library functions](https://nixos.org/manual/nixpkgs/stable/#chap-functions)
 - [`maintainers`](./maintainers/README.md): Nixpkgs maintainer and team listings, maintainer scripts
 - [`pkgs`](./pkgs/README.md): Package and [builder](https://nixos.org/manual/nixpkgs/stable/#part-builders) definitions
 - [`doc`](./doc/README.md): Sources and infrastructure for the [Nixpkgs manual](https://nixos.org/manual/nixpkgs/stable/)
-- [`nixos`](./nixos/README.md): Implementation of [NixOS](https://nixos.org/manual/nixos/stable/)
+- [`nixos`](./nixos/README.md): Implementation of [Botnix](https://nixos.org/manual/nixos/stable/)
 
-# How to's
+# Guide
 
 ## How to create pull requests
 [pr-create]: #how-to-create-pull-requests
@@ -53,7 +54,7 @@ This section describes in some detail how changes can be made and proposed with 
    To avoid having to download and build potentially many derivations, at the expense of using a potentially outdated version, you can base the branch off a specific [Git commit](https://www.git-scm.com/docs/gitglossary#def_commit) instead:
    - The commit of the latest `nixpkgs-unstable` channel, available [here](https://channels.nixos.org/nixpkgs-unstable/git-revision).
    - The commit of a local Nixpkgs downloaded using [nix-channel](https://nixos.org/manual/nix/stable/command-ref/nix-channel), available using `nix-instantiate --eval --expr '(import <nixpkgs/lib>).trivial.revisionWithDefault null'`
-   - If you're using NixOS, the commit of your NixOS installation, available with `nixos-version --revision`.
+   - If you're using Botnix, the commit of your Botnix installation, available with `nixos-version --revision`.
 
    Once you have an appropriate commit you can use it instead of `upstream/master` in the above command:
    ```bash
@@ -93,8 +94,8 @@ This section describes in some detail how changes can be made and proposed with 
 7. Respond to review comments, potential CI failures and potential merge conflicts by updating the pull request.
    Always keep the pull request in a mergeable state.
 
-   The custom [OfBorg](https://github.com/NixOS/ofborg) CI system will perform various checks to help ensure code quality, whose results you can see at the bottom of the pull request.
-   See [the OfBorg Readme](https://github.com/NixOS/ofborg#readme) for more details.
+   The custom [OfBorg](https://github.com/Botnix/ofborg) CI system will perform various checks to help ensure code quality, whose results you can see at the bottom of the pull request.
+   See [the OfBorg Readme](https://github.com/Botnix/ofborg#readme) for more details.
 
    - To add new commits, repeat steps 3-4 and push the result using
      ```
@@ -131,17 +132,17 @@ When a PR is created, it will be pre-populated with some checkboxes detailed bel
 
 When sandbox builds are enabled, Nix will setup an isolated environment for each build process. It is used to remove further hidden dependencies set by the build environment to improve reproducibility. This includes access to the network during the build outside of `fetch*` functions and files outside the Nix store. Depending on the operating system access to other resources are blocked as well (ex. inter process communication is isolated on Linux); see [sandbox](https://nixos.org/manual/nix/stable/command-ref/conf-file#conf-sandbox) in the Nix manual for details.
 
-Sandboxing is not enabled by default in Nix due to a small performance hit on each build. In pull requests for [nixpkgs](https://github.com/NixOS/nixpkgs/) people are asked to test builds with sandboxing enabled (see `Tested using sandboxing` in the pull request template) because in [Hydra](https://nixos.org/hydra/) sandboxing is also used.
+Sandboxing is not enabled by default in Nix due to a small performance hit on each build. In pull requests for [nixpkgs](https://github.com/nervosys/Botnix/) people are asked to test builds with sandboxing enabled (see `Tested using sandboxing` in the pull request template) because in [Hydra](https://nixos.org/hydra/) sandboxing is also used.
 
-Depending if you use NixOS or other platforms you can use one of the following methods to enable sandboxing **before** building the package:
+Depending if you use Botnix or other platforms you can use one of the following methods to enable sandboxing **before** building the package:
 
-- **Globally enable sandboxing on NixOS**: add the following to `configuration.nix`
+- **Globally enable sandboxing on Botnix**: add the following to `configuration.nix`
 
   ```nix
   nix.settings.sandbox = true;
   ```
 
-- **Globally enable sandboxing on non-NixOS platforms**: add the following to: `/etc/nix/nix.conf`
+- **Globally enable sandboxing on non-Botnix platforms**: add the following to: `/etc/nix/nix.conf`
 
   ```ini
   sandbox = true
@@ -151,9 +152,9 @@ Depending if you use NixOS or other platforms you can use one of the following m
 
 Many Nix packages are designed to run on multiple platforms. As such, it’s important to let the maintainer know which platforms your changes have been tested on. It’s not always practical to test a change on all platforms, and is not required for a pull request to be merged. Only check the systems you tested the build on in this section.
 
-#### Tested via one or more NixOS test(s) if existing and applicable for the change (look inside nixos/tests)
+#### Tested via one or more Botnix test(s) if existing and applicable for the change (look inside nixos/tests)
 
-Packages with automated tests are much more likely to be merged in a timely fashion because it doesn’t require as much manual testing by the maintainer to verify the functionality of the package. If there are existing tests for the package, they should be run to verify your changes do not break the tests. Tests can only be run on Linux. For more details on writing and running tests, see the [section in the NixOS manual](https://nixos.org/nixos/manual/index.html#sec-nixos-tests).
+Packages with automated tests are much more likely to be merged in a timely fashion because it doesn’t require as much manual testing by the maintainer to verify the functionality of the package. If there are existing tests for the package, they should be run to verify your changes do not break the tests. Tests can only be run on Linux. For more details on writing and running tests, see the [section in the Botnix manual](https://nixos.org/nixos/manual/index.html#sec-nixos-tests).
 
 #### Tested compilation of all pkgs that depend on this change using `nixpkgs-review`
 
@@ -207,9 +208,8 @@ request a couple of persons for reviews though.)
 In the following example, we assume that the current branch, called `feature`,
 is based on `master`, and we rebase it onto the merge base between
 `master` and `staging` so that the PR can eventually be retargeted to
-`staging` without causing a mess. The example uses `upstream` as the remote for `NixOS/nixpkgs.git`
+`staging` without causing a mess. The example uses `upstream` as the remote for `Botnix/nixpkgs.git`
 while `origin` is the remote you are pushing to.
-
 
 ```console
 # Rebase your commits onto the common merge base
@@ -259,7 +259,7 @@ Please open a new pull request with your changes, link back to this one and ping
 people actually involved in here over there.
 
 In order to avoid this in the future, there are instructions for how to properly
-rebase between branches in our [contribution guidelines](https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#rebasing-between-branches-ie-from-master-to-staging).
+rebase between branches in our [contribution guidelines](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md#rebasing-between-branches-ie-from-master-to-staging).
 Setting your pull request to draft prior to rebasing is strongly recommended.
 In draft status, you can preview the list of people that are about to be requested
 for review, which allows you to sidestep this issue.
@@ -276,7 +276,7 @@ Once a pull request has been merged into `master`, a backport pull request to th
 > [!Note]
 > You have to be a [Nixpkgs maintainer](./maintainers) to automatically create a backport pull request.
 
-Add the [`backport release-YY.MM` label](https://github.com/NixOS/nixpkgs/labels?q=backport) to the pull request on the `master` branch.
+Add the [`backport release-YY.MM` label](https://github.com/nervosys/Botnix/labels?q=backport) to the pull request on the `master` branch.
 This will cause [a GitHub Action](.github/workflows/backport.yml) to open a pull request to the `release-YY.MM` branch a few minutes later.
 This can be done on both open or already merged pull requests.
 
@@ -307,11 +307,11 @@ To manually create a backport pull request, follow [the standard pull request pr
 [pr-review]: #how-to-review-pull-requests
 
 > [!Warning]
-> The following section is a draft, and the policy for reviewing is still being discussed in issues such as [#11166](https://github.com/NixOS/nixpkgs/issues/11166) and [#20836](https://github.com/NixOS/nixpkgs/issues/20836).
+> The following section is a draft, and the policy for reviewing is still being discussed in issues such as [#11166](https://github.com/nervosys/Botnix/issues/11166) and [#20836](https://github.com/nervosys/Botnix/issues/20836).
 
 The Nixpkgs project receives a fairly high number of contributions via GitHub pull requests. Reviewing and approving these is an important task and a way to contribute to the project.
 
-The high change rate of Nixpkgs makes any pull request that remains open for too long subject to conflicts that will require extra work from the submitter or the merger. Reviewing pull requests in a timely manner and being responsive to the comments is the key to avoid this issue. GitHub provides sort filters that can be used to see the [most recently](https://github.com/NixOS/nixpkgs/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc) and the [least recently](https://github.com/NixOS/nixpkgs/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-asc) updated pull requests. We highly encourage looking at [this list of ready to merge, unreviewed pull requests](https://github.com/NixOS/nixpkgs/pulls?q=is%3Apr+is%3Aopen+review%3Anone+status%3Asuccess+-label%3A%222.status%3A+work-in-progress%22+no%3Aproject+no%3Aassignee+no%3Amilestone).
+The high change rate of Nixpkgs makes any pull request that remains open for too long subject to conflicts that will require extra work from the submitter or the merger. Reviewing pull requests in a timely manner and being responsive to the comments is the key to avoid this issue. GitHub provides sort filters that can be used to see the [most recently](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc) and the [least recently](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-asc) updated pull requests. We highly encourage looking at [this list of ready to merge, unreviewed pull requests](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+review%3Anone+status%3Asuccess+-label%3A%222.status%3A+work-in-progress%22+no%3Aproject+no%3Aassignee+no%3Amilestone).
 
 When reviewing a pull request, please always be nice and polite. Controversial changes can lead to controversial opinions, but it is important to respect every community member and their work.
 
@@ -323,7 +323,7 @@ All the review template samples provided in this section are generic and meant a
 
 To get more information about how to review specific parts of Nixpkgs, refer to the documents linked to in the [overview section][overview].
 
-If a pull request contains documentation changes that might require feedback from the documentation team, ping [@NixOS/documentation-reviewers](https://github.com/orgs/nixos/teams/documentation-reviewers) on the pull request.
+If a pull request contains documentation changes that might require feedback from the documentation team, ping [@Botnix/documentation-reviewers](https://github.com/orgs/nixos/teams/documentation-reviewers) on the pull request.
 
 If you consider having enough knowledge and experience in a topic and would like to be a long-term reviewer for related submissions, please contact the current reviewers for that topic. They will give you information about the reviewing process. The main reviewers for a topic can be hard to find as there is no list, but checking past pull requests to see who reviewed or git-blaming the code to see who committed to that topic can give some hints.
 
@@ -349,7 +349,7 @@ The following paragraphs about how to deal with unactive contributors is just a 
 Please note that contributors with commit rights unactive for more than three months will have their commit rights revoked.
 -->
 
-Please see the discussion in [GitHub nixpkgs issue #50105](https://github.com/NixOS/nixpkgs/issues/50105) for information on how to proceed to be granted this level of access.
+Please see the discussion in [GitHub nixpkgs issue #50105](https://github.com/nervosys/Botnix/issues/50105) for information on how to proceed to be granted this level of access.
 
 In a case a contributor definitively leaves the Nix community, they should create an issue or post on [Discourse](https://discourse.nixos.org) with references of packages and modules they maintain so the maintainership can be taken over by other contributors.
 
@@ -361,12 +361,12 @@ See [Nix Channel Status](https://status.nixos.org/) for the current channels and
 Here's a brief overview of the main Git branches and what channels they're used for:
 
 - `master`: The main branch, used for the unstable channels such as `nixpkgs-unstable`, `nixos-unstable` and `nixos-unstable-small`.
-- `release-YY.MM` (e.g. `release-23.11`): The NixOS release branches, used for the stable channels such as `nixos-23.11`, `nixos-23.11-small` and `nixpkgs-23.11-darwin`.
+- `release-YY.MM` (e.g. `release-23.11`): The Botnix release branches, used for the stable channels such as `nixos-23.11`, `nixos-23.11-small` and `nixpkgs-23.11-darwin`.
 
 When a channel is updated, a corresponding Git branch is also updated to point to the corresponding commit.
 So e.g. the [`nixpkgs-unstable` branch](https://github.com/nixos/nixpkgs/tree/nixpkgs-unstable) corresponds to the Git commit from the [`nixpkgs-unstable` channel](https://channels.nixos.org/nixpkgs-unstable).
 
-Nixpkgs in its entirety is tied to the NixOS release process, which is documented in the [NixOS Release Wiki](https://nixos.github.io/release-wiki/).
+Nixpkgs in its entirety is tied to the Botnix release process, which is documented in the [Botnix Release Wiki](https://nixos.github.io/release-wiki/).
 
 See [this section][branch] to know when to use the release branches.
 
@@ -378,7 +378,7 @@ The staging workflow exists to batch Hydra builds of many packages together.
 It works by directing commits that cause [mass rebuilds][mass-rebuild] to a separate `staging` branch that isn't directly built by Hydra.
 Regularly, the `staging` branch is _manually_ merged into a `staging-next` branch to be built by Hydra using the [`nixpkgs:staging-next` jobset](https://hydra.nixos.org/jobset/nixpkgs/staging-next).
 The `staging-next` branch should then only receive direct commits in order to fix Hydra builds.
-Once it is verified that there are no major regressions, it is merged into `master` using [a pull request](https://github.com/NixOS/nixpkgs/pulls?q=head%3Astaging-next).
+Once it is verified that there are no major regressions, it is merged into `master` using [a pull request](https://github.com/nervosys/Botnix/pulls?q=head%3Astaging-next).
 This is done manually in order to ensure it's a good use of Hydra's computing resources.
 By keeping the `staging-next` branch separate from `staging`, this batching does not block developers from merging changes into `staging`.
 
@@ -441,14 +441,14 @@ gitGraph
 
 Here's an overview of the different branches:
 
-| branch | `master` | `staging` | `staging-next` |
-| --- | --- | --- | --- |
-| Used for development | ✔️ | ✔️ | ❌ |
-| Built by Hydra | ✔️ | ❌ | ✔️ |
-| [Mass rebuilds][mass-rebuild] | ❌ | ✔️ | ⚠️  Only to fix Hydra builds |
-| Critical security fixes | ✔️ for non-mass-rebuilds | ❌ | ✔️ for mass-rebuilds |
-| Automatically merged into | `staging-next` | - | `staging` |
-| Manually merged into | - | `staging-next` | `master` |
+| branch                        | `master`                | `staging`      | `staging-next`              |
+| ----------------------------- | ----------------------- | -------------- | --------------------------- |
+| Used for development          | ✔️                       | ✔️              | ❌                           |
+| Built by Hydra                | ✔️                       | ❌              | ✔️                           |
+| [Mass rebuilds][mass-rebuild] | ❌                       | ✔️              | ⚠️  Only to fix Hydra builds |
+| Critical security fixes       | ✔️ for non-mass-rebuilds | ❌              | ✔️ for mass-rebuilds         |
+| Automatically merged into     | `staging-next`          | -              | `staging`                   |
+| Manually merged into          | -                       | `staging-next` | `master`                    |
 
 The staging workflow is used for all main branches, `master` and `release-YY.MM`, with corresponding names:
 - `master`/`release-YY.MM`
@@ -502,9 +502,9 @@ In addition, major package version updates with breaking changes are also accept
 [mass-rebuild]: #changes-causing-mass-rebuilds
 
 Which changes cause mass rebuilds is not formally defined.
-In order to help the decision, CI automatically assigns [`rebuild` labels](https://github.com/NixOS/nixpkgs/labels?q=rebuild) to pull requests based on the number of packages they cause rebuilds for.
+In order to help the decision, CI automatically assigns [`rebuild` labels](https://github.com/nervosys/Botnix/labels?q=rebuild) to pull requests based on the number of packages they cause rebuilds for.
 As a rule of thumb, if the number of rebuilds is **over 500**, it can be considered a mass rebuild.
-To get a sense for what changes are considered mass rebuilds, see [previously merged pull requests to the staging branches](https://github.com/NixOS/nixpkgs/issues?q=base%3Astaging+-base%3Astaging-next+is%3Amerged).
+To get a sense for what changes are considered mass rebuilds, see [previously merged pull requests to the staging branches](https://github.com/nervosys/Botnix/issues?q=base%3Astaging+-base%3Astaging-next+is%3Amerged).
 
 ## Commit conventions
 [commit-conventions]: #commit-conventions
@@ -541,7 +541,7 @@ Pull requests should not be squash merged in order to keep complete commit messa
 
 ### Release notes
 
-If you removed packages or made some major NixOS changes, write about it in the release notes for the next stable release in [`nixos/doc/manual/release-notes`](./nixos/doc/manual/release-notes).
+If you removed packages or made some major Botnix changes, write about it in the release notes for the next stable release in [`nixos/doc/manual/release-notes`](./nixos/doc/manual/release-notes).
 
 ### File naming and organisation
 

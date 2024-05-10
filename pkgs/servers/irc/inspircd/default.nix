@@ -200,7 +200,7 @@ stdenv.mkDerivation rec {
   enableParallelBuilding = true;
 
   passthru.tests = {
-    nixos-test = nixosTests.inspircd;
+    botnix-test = nixosTests.inspircd;
   };
 
   meta = {

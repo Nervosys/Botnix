@@ -87,7 +87,7 @@ mkDerivation {
       It allows you to easily create, copy, move, delete, back up, restore, and resize them without losing data.
       It supports a large number of file systems, including ext2/3/4, btrfs, reiserfs, NTFS, FAT16/32, JFS, XFS and more.
 
-      To install on NixOS, use the option `programs.partition-manager.enable = true`.
+      To install on Botnix, use the option `programs.partition-manager.enable = true`.
     '';
     license = with licenses; [ cc-by-40 cc0 gpl3Plus lgpl3Plus mit ];
     homepage = "https://www.kde.org/applications/system/kdepartitionmanager/";

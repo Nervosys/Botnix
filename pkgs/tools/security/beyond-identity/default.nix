@@ -38,7 +38,7 @@ let
 
       rm -rf usr/share/doc
 
-      # https://github.com/NixOS/nixpkgs/issues/42117
+      # https://github.com/nervosys/Botnix/issues/42117
       sed -i -e 's/auth_self/yes/g' usr/share/polkit-1/actions/com.beyondidentity.endpoint.stepup.policy
 
       cp -ar usr/{bin,share} $out

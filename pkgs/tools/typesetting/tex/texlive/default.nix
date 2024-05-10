@@ -54,7 +54,7 @@ let
 
   # The tarballs on CTAN mirrors for the current release are constantly
   # receiving updates, so we can't use those directly. Stable snapshots
-  # need to be used instead. Ideally, for the release branches of NixOS we
+  # need to be used instead. Ideally, for the release branches of Botnix we
   # should be switching to the tlnet-final versions
   # (https://tug.org/historic/).
   mirrors = with version; lib.optionals final  [

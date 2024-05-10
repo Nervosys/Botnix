@@ -25,10 +25,10 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-4FdNYP9VLgv/rfvT7KHCF+ABFsZvPbJjfz6IvvDkRNA=";
   };
 
-  # Allow setting package path for the NixOS module.
+  # Allow setting package path for the Botnix module.
   patches = [ ./packages-path.patch ];
 
-  # Use the NixOS module's state directory by default.
+  # Use the Botnix module's state directory by default.
   postPatch = ''
     echo /var/lib/thelounge > .thelounge_home
   '';

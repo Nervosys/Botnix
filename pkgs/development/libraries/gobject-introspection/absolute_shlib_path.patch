@@ -185,7 +185,7 @@ index a8337c60..72789d76 100644
          self.assertEqual(
              sanitize_shlib_path('/foo/bar'),
 -            '/foo/bar' if sys.platform == 'darwin' else 'bar')
-+            # NixOS always want the absolute path
++            # Botnix always want the absolute path
 +            '/foo/bar')
  
      def test_unresolved_library(self):

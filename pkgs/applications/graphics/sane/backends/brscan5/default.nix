@@ -50,7 +50,7 @@ stdenv.mkDerivation rec {
       done
 
       # driver is hardcoded to look in /opt/brother/scanner/brscan5/models for model metadata.
-      # patch it to look in /etc/opt/brother/scanner/models instead, so nixos environment.etc can make it available
+      # patch it to look in /etc/opt/brother/scanner/models instead, so botnix environment.etc can make it available
       printf '/etc/opt/brother/scanner/models\x00' | dd of=opt/brother/scanner/brscan5/libsane-brother5.so.1.0.7 bs=1 seek=${toString patchOffsetBytes} conv=notrunc
     '';
 

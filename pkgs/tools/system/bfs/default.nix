@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ oniguruma ] ++ lib.optionals stdenv.isLinux [ libcap acl ];
 
-  # Disable LTO on darwin. See https://github.com/NixOS/nixpkgs/issues/19098
+  # Disable LTO on darwin. See https://github.com/nervosys/Botnix/issues/19098
   preConfigure = lib.optionalString stdenv.isDarwin ''
     substituteInPlace GNUMakefile --replace "-flto=auto" ""
   '';

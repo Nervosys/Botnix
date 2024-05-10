@@ -14,8 +14,8 @@ let
       fontFile = "JoyPixels-SBIX.ttf";
     };
   }.${kernel.name} or rec {
-    systemTag = "nixos";
-    capitalized = "NixOS";
+    systemTag = "botnix";
+    capitalized = "Botnix";
     fontFile = "joypixels-android.ttf";
   };
 
@@ -27,7 +27,7 @@ let
   };
 
   joypixels-license-appendix = with systemSpecific; {
-    spdxId = "LicenseRef-JoyPixels-NixOS-Appendix";
+    spdxId = "LicenseRef-JoyPixels-Botnix-Appendix";
     fullName = "JoyPixels ${capitalized} License Appendix";
     url = "https://cdn.joypixels.com/distributions/${systemTag}/appendix/joypixels-license-appendix.pdf";
     free = false;

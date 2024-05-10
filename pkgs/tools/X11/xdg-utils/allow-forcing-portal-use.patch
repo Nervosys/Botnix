@@ -5,9 +5,9 @@ Subject: [PATCH] xdg-open: add $XDG_OPEN_USE_PORTAL env var
 
 When set, the same mechanism that is used in a flatpak is used,
 a dbus call to the portal. This is useful for distros with non-flatpak
-wrapper or sandboxing features which require the same treatment, eg NixOS.
+wrapper or sandboxing features which require the same treatment, eg Botnix.
 
-See https://github.com/NixOS/nixpkgs/issues/160923
+See https://github.com/nervosys/Botnix/issues/160923
 ---
  scripts/xdg-open.in | 4 ++++
  1 file changed, 4 insertions(+)

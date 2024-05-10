@@ -21,7 +21,7 @@ sub github_team_members {
     my ($team_name, $username, $token) = @_;
     my @ret;
 
-    my $req = HTTP::Request->new('GET', "https://api.github.com/orgs/NixOS/teams/$team_name/members", [ 'Accept' => 'application/vnd.github.v3+json' ]);
+    my $req = HTTP::Request->new('GET', "https://api.github.com/orgs/Botnix/teams/$team_name/members", [ 'Accept' => 'application/vnd.github.v3+json' ]);
     $req->authorization_basic($username, $token);
     my $response = LWP::UserAgent->new->request($req);
 
@@ -76,7 +76,7 @@ while (my ($team_nix_key, $team_config) = each %{$data}) {
     my @github_members;
     if (defined $team_config->{githubTeams}) {
         foreach (@{$team_config->{githubTeams}}) {
-            print {*STDERR} " \@NixOS/${_}";
+            print {*STDERR} " \@Botnix/${_}";
             push @github_members, @{github_team_members($_, $github_user, $github_token)};
         }
     }

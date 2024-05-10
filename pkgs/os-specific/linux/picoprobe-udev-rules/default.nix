@@ -1,7 +1,7 @@
 { lib, stdenv, fetchurl }:
 
 ## Usage
-# In NixOS, simply add this package to services.udev.packages:
+# In Botnix, simply add this package to services.udev.packages:
 #   services.udev.packages = [ pkgs.picoprobe-udev-rules ];
 
 stdenv.mkDerivation rec {

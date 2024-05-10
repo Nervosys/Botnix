@@ -250,7 +250,7 @@ with lib.maintainers; {
       asymmetric
       ryantm
     ];
-    scope = "Maintain nixpkgs/NixOS documentation and tools for building it.";
+    scope = "Maintain nixpkgs/Botnix documentation and tools for building it.";
     shortName = "Docs";
     enableFeatureFreezePing = true;
   };
@@ -317,7 +317,7 @@ with lib.maintainers; {
       # Not in the maintainer list
       # Sereja313
     ];
-    scope = "Tentative Nix formatter team to be established in https://github.com/NixOS/rfcs/pull/166";
+    scope = "Tentative Nix formatter team to be established in https://github.com/Botnix/rfcs/pull/166";
     shortName = "Nix formatter team";
   };
 
@@ -627,7 +627,7 @@ with lib.maintainers; {
       garbas
       tomberek
     ];
-    scope = "Marketing of Nix/NixOS/nixpkgs.";
+    scope = "Marketing of Nix/Botnix/nixpkgs.";
     shortName = "Marketing";
     enableFeatureFreezePing = true;
   };
@@ -683,7 +683,7 @@ with lib.maintainers; {
     members = [
       samueldr
     ];
-    scope = "Maintain Mobile NixOS.";
+    scope = "Maintain Mobile Botnix.";
     shortName = "Mobile";
   };
 
@@ -804,7 +804,7 @@ with lib.maintainers; {
     members = [
       thoughtpolice
     ];
-    scope = "Maintain the PostgreSQL package and plugins along with the NixOS module.";
+    scope = "Maintain the PostgreSQL package and plugins along with the Botnix module.";
     shortName = "PostgreSQL";
   };
 
@@ -855,9 +855,9 @@ with lib.maintainers; {
   release = {
     members = [ ];
     githubTeams = [
-      "nixos-release-managers"
+      "botnix-release-managers"
     ];
-    scope = "Manage the current nixpkgs/NixOS release.";
+    scope = "Manage the current nixpkgs/Botnix release.";
     shortName = "Release";
   };
 
@@ -929,7 +929,7 @@ with lib.maintainers; {
     githubTeams = [
       "systemd"
     ];
-    scope = "Maintain systemd for NixOS.";
+    scope = "Maintain systemd for Botnix.";
     shortName = "systemd";
     enableFeatureFreezePing = true;
   };
@@ -938,8 +938,8 @@ with lib.maintainers; {
     members = [
       tfc
     ];
-    scope = "Maintain the NixOS VM test runner.";
-    shortName = "NixOS tests";
+    scope = "Maintain the Botnix VM test runner.";
+    shortName = "Botnix tests";
     enableFeatureFreezePing = true;
   };
 

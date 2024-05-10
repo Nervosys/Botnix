@@ -99,7 +99,7 @@ let
       # environment variables
       ln -s ${etcProfile} profile
 
-      # compatibility with NixOS
+      # compatibility with Botnix
       ln -s /host/etc/static static
 
       # symlink nix config

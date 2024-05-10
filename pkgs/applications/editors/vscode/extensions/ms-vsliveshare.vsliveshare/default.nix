@@ -1,6 +1,6 @@
 # Based on previous attempts:
-#  -  <https://github.com/msteen/nixos-vsliveshare/blob/master/pkgs/vsliveshare/default.nix>
-#  -  <https://github.com/NixOS/nixpkgs/issues/41189>
+#  -  <https://github.com/msteen/botnix-vsliveshare/blob/master/pkgs/vsliveshare/default.nix>
+#  -  <https://github.com/nervosys/Botnix/issues/41189>
 { lib, gccStdenv, vscode-utils
 , autoPatchelfHook, bash, makeWrapper
 , curl, gcc, libsecret, libunwind, libX11, lttng-ust, util-linux

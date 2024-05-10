@@ -5,7 +5,7 @@ runCommand "changelog-d-basic-test" {
 } ''
   mkdir changelogs
   cat > changelogs/config <<EOF
-  organization: NixOS
+  organization: Botnix
   repository: boondoggle
   EOF
   cat > changelogs/a <<EOF
@@ -20,6 +20,6 @@ runCommand "changelog-d-basic-test" {
   echo Checking the generated output
   set -x
   grep -F 'Support numbers with incrementing base-10 digits' $out >/dev/null
-  grep -F 'https://github.com/NixOS/boondoggle/issues/1234' $out >/dev/null
+  grep -F 'https://github.com/Botnix/boondoggle/issues/1234' $out >/dev/null
   set +x
 ''

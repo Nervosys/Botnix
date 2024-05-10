@@ -169,7 +169,7 @@ let
 
         url=$(echo $json | ${jq}/bin/jq -r .url)
         if [ "$url" == "null"  ]; then
-          echo "Could not get download URL, open an issue on https://github.com/NixOS/nixpkgs"
+          echo "Could not get download URL, open an issue on https://github.com/nervosys/Botnix"
           return 1
         fi
         "''${curl[@]}" --progress-bar --cookie cookies -o $out "$url"

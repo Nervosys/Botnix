@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
     export RELEASE_VERSION=${version}
   '';
 
-  # Packager note: Not clear whether this needs a NixOS configuration,
+  # Packager note: Not clear whether this needs a Botnix configuration,
   # as only the `idevicerestore` binary was tested so far (which worked
   # without further configuration).
   configureFlags = [

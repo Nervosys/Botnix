@@ -126,7 +126,7 @@ symlinkJoin {
       fi
     done
 
-    # haddock was referring to the base ghc, https://github.com/NixOS/nixpkgs/issues/36976
+    # haddock was referring to the base ghc, https://github.com/nervosys/Botnix/issues/36976
     if [[ -x "${ghc}/bin/haddock" ]]; then
       rm -f $out/bin/haddock
       makeWrapper ${ghc}/bin/haddock $out/bin/haddock    \
@@ -168,7 +168,7 @@ symlinkJoin {
      # ghc-pkg is now trying to open the file.  These file are symlink
      # to another nix derivation, so they are not writable.  Removing
      # them allow the correct behavior of ghc-pkg recache
-     # See: https://github.com/NixOS/nixpkgs/issues/79441
+     # See: https://github.com/nervosys/Botnix/issues/79441
      rm ${packageCfgDir}/package.cache.lock
      rm ${packageCfgDir}/package.cache
 

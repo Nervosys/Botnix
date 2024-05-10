@@ -24,7 +24,7 @@ stdenv.mkDerivation {
       ''--replace "convert" "${imagemagick}/bin/convert"''
       ''--replace "qrencode" "${qrencode.bin}/bin/qrencode"''
     ] ++ lib.optionals testQR [
-      ''--replace "hash zbarimg" "true"'' # hash does not work on NixOS
+      ''--replace "hash zbarimg" "true"'' # hash does not work on Botnix
       ''--replace "$(zbarimg --raw" "$(${zbar.out}/bin/zbarimg --raw"''
     ];
   in ''

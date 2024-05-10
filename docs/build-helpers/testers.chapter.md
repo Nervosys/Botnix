@@ -205,13 +205,13 @@ tests.fetchgit = testers.invalidateFetcherByDrvHash fetchgit {
 
 ## `runNixOSTest` {#tester-runNixOSTest}
 
-A helper function that behaves exactly like the NixOS `runTest`, except it also assigns this Nixpkgs package set as the `pkgs` of the test and makes the `nixpkgs.*` options read-only.
+A helper function that behaves exactly like the Botnix `runTest`, except it also assigns this Nixpkgs package set as the `pkgs` of the test and makes the `nixpkgs.*` options read-only.
 
-If your test is part of the Nixpkgs repository, or if you need a more general entrypoint, see ["Calling a test" in the NixOS manual](https://nixos.org/manual/nixos/stable/index.html#sec-calling-nixos-tests).
+If your test is part of the Nixpkgs repository, or if you need a more general entrypoint, see ["Calling a test" in the Botnix manual](https://nixos.org/manual/botnix/stable/index.html#sec-calling-botnix-tests).
 
 :::{.example #ex-runNixOSTest-hello}
 
-# Run a NixOS test using `runNixOSTest`
+# Run a Botnix test using `runNixOSTest`
 
 ```nix
 pkgs.testers.runNixOSTest ({ lib, ... }: {
@@ -229,17 +229,17 @@ pkgs.testers.runNixOSTest ({ lib, ... }: {
 
 ## `nixosTest` {#tester-nixosTest}
 
-Run a NixOS VM network test using this evaluation of Nixpkgs.
+Run a Botnix VM network test using this evaluation of Nixpkgs.
 
-NOTE: This function is primarily for external use. NixOS itself uses `make-test-python.nix` directly. Packages defined in Nixpkgs [reuse NixOS tests via `nixosTests`, plural](#ssec-nixos-tests-linking).
+NOTE: This function is primarily for external use. Botnix itself uses `make-test-python.nix` directly. Packages defined in Nixpkgs [reuse Botnix tests via `nixosTests`, plural](#ssec-botnix-tests-linking).
 
-It is mostly equivalent to the function `import ./make-test-python.nix` from the [NixOS manual](https://nixos.org/nixos/manual/index.html#sec-nixos-tests), except that the current application of Nixpkgs (`pkgs`) will be used, instead of letting NixOS invoke Nixpkgs anew.
+It is mostly equivalent to the function `import ./make-test-python.nix` from the [Botnix manual](https://nixos.org/botnix/manual/index.html#sec-botnix-tests), except that the current application of Nixpkgs (`pkgs`) will be used, instead of letting Botnix invoke Nixpkgs anew.
 
-If a test machine needs to set NixOS options under `nixpkgs`, it must set only the `nixpkgs.pkgs` option.
+If a test machine needs to set Botnix options under `nixpkgs`, it must set only the `nixpkgs.pkgs` option.
 
 ### Parameter {#tester-nixosTest-parameter}
 
-A [NixOS VM test network](https://nixos.org/nixos/manual/index.html#sec-nixos-tests), or path to it. Example:
+A [Botnix VM test network](https://nixos.org/botnix/manual/index.html#sec-botnix-tests), or path to it. Example:
 
 ```nix
 {
@@ -265,6 +265,6 @@ A derivation that runs the VM test.
 
 Notable attributes:
 
- * `nodes`: the evaluated NixOS configurations. Useful for debugging and exploring the configuration.
+ * `nodes`: the evaluated Botnix configurations. Useful for debugging and exploring the configuration.
 
  * `driverInteractive`: a script that launches an interactive Python session in the context of the `testScript`.

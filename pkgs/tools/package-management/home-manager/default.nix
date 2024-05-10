@@ -8,7 +8,7 @@
 , gnused
 , less
 , ncurses
-, nixos-option
+, botnix-option
 , unixtools
 , installShellFiles
 , unstableGitUpdater
@@ -50,7 +50,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
           gnused
           less
           ncurses
-          nixos-option
+          botnix-option
           unixtools.hostname
         ]
       }" \

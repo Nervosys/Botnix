@@ -333,7 +333,7 @@ isMachO() {
 
     # nix uses 'declare -F' in get-env.sh to retrieve the loaded functions.
     # If we use the $'string' syntax instead of 'echo -ne' then 'declare' will print the raw characters and break nix.
-    # See https://github.com/NixOS/nixpkgs/pull/138334 and https://github.com/NixOS/nix/issues/5262.
+    # See https://github.com/nervosys/Botnix/pull/138334 and https://github.com/NixOS/nix/issues/5262.
 
     # https://opensource.apple.com/source/lldb/lldb-310.2.36/examples/python/mach_o.py.auto.html
     if [[ "$magic" = $(echo -ne "\xfe\xed\xfa\xcf") || "$magic" = $(echo -ne "\xcf\xfa\xed\xfe") ]]; then
@@ -1445,7 +1445,7 @@ fixupPhase() {
         substituteAll "$setupHook" "${!outputDev}/nix-support/setup-hook"
     fi
 
-    # TODO(@Ericson2314): Remove after https://github.com/NixOS/nixpkgs/pull/31414
+    # TODO(@Ericson2314): Remove after https://github.com/nervosys/Botnix/pull/31414
     if [ -n "${setupHooks:-}" ]; then
         mkdir -p "${!outputDev}/nix-support"
         local hook

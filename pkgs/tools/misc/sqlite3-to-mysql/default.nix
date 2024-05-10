@@ -49,7 +49,7 @@ python3Packages.buildPythonApplication rec {
   # tests require a mysql server instance
   doCheck = false;
 
-  # run package tests as a separate nixos test
+  # run package tests as a separate botnix test
   passthru.tests = {
     nixosTest = nixosTests.sqlite3-to-mysql;
     version = testers.testVersion {

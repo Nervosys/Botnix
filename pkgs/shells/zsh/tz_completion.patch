@@ -1,4 +1,4 @@
-On NixOS, timezone data is located at /etc/zoneinfo
+On Botnix, timezone data is located at /etc/zoneinfo
 diff --git a/Completion/Unix/Type/_time_zone b/Completion/Unix/Type/_time_zone
 index cd924bbc7..5d683291b 100644
 --- a/Completion/Unix/Type/_time_zone

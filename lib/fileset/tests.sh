@@ -618,7 +618,7 @@ done
 # This is actually really hard to test:
 # A lot of files would be needed to cause a stack overflow.
 # And while we could limit the maximum stack size using `ulimit -s`,
-# that turns out to not be very deterministic: https://github.com/NixOS/nixpkgs/pull/256417#discussion_r1339396686.
+# that turns out to not be very deterministic: https://github.com/nervosys/Botnix/pull/256417#discussion_r1339396686.
 # Meanwhile, the test infra here is not the fastest, creating 10000 would be too slow.
 # So, just using 1000 files for now.
 checkFileset 'unions (mapAttrsToList (name: _: ./. + "/${name}/a") (builtins.readDir ./.))'
@@ -1378,7 +1378,7 @@ createGitRepo() {
     git init -q "$1"
     # Only repo-local config
     git -C "$1" config user.name "Nixpkgs"
-    git -C "$1" config user.email "nixpkgs@nixos.org"
+    git -C "$1" config user.email "nixpkgs@botnix.org"
     # Get at least a HEAD commit, needed for older Nix versions
     git -C "$1" commit -q --allow-empty -m "Empty commit"
 }

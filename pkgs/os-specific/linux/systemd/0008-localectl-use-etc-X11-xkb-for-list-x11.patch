@@ -3,7 +3,7 @@ From: Imuli <i@imu.li>
 Date: Wed, 19 Oct 2016 08:46:47 -0400
 Subject: [PATCH] localectl: use /etc/X11/xkb for list-x11-*
 
-NixOS has an option to link the xkb data files to /etc/X11, but not to
+Botnix has an option to link the xkb data files to /etc/X11, but not to
 /usr/share/X11.
 ---
  src/locale/localectl.c | 2 +-

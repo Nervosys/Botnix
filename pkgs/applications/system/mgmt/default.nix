@@ -21,7 +21,7 @@ buildGoModule rec {
   };
 
   # patching must be done in prebuild, so it is shared with goModules
-  # see https://github.com/NixOS/nixpkgs/issues/208036
+  # see https://github.com/nervosys/Botnix/issues/208036
   preBuild = ''
     for file in `find -name Makefile -type f`; do
       substituteInPlace $file --replace "/usr/bin/env " ""

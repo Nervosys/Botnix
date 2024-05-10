@@ -80,8 +80,8 @@
     and are designed to be the buildInput of other packages.
   - DRI drivers are compiled into $drivers output, which is much bigger and
     depends on LLVM. These should be searched at runtime in
-    "/run/opengl-driver{,-32}/lib/*" and so are kind-of impure (given by NixOS).
-    (I suppose on non-NixOS one would create the appropriate symlinks from there.)
+    "/run/opengl-driver{,-32}/lib/*" and so are kind-of impure (given by Botnix).
+    (I suppose on non-Botnix one would create the appropriate symlinks from there.)
   - libOSMesa is in $osmesa (~4 MB)
 */
 

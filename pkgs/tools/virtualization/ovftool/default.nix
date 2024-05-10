@@ -128,13 +128,13 @@ stdenv.mkDerivation rec {
   doInstallCheck = true;
 
   installCheckPhase = ''
-    # This is a NixOS 22.11 image (doesn't actually matter) with a 1 MiB root disk that's all zero.
+    # This is a Botnix 22.11 image (doesn't actually matter) with a 1 MiB root disk that's all zero.
     # Make sure that it converts properly.
     mkdir -p ovftool-check
     cd ovftool-check
 
-    $out/bin/ovftool ${./installCheckPhase.ova} nixos.ovf
-    if [ ! -f nixos.ovf ] || [ ! -f nixos.mf ] || [ ! -f nixos-disk1.vmdk ]; then
+    $out/bin/ovftool ${./installCheckPhase.ova} botnix.ovf
+    if [ ! -f botnix.ovf ] || [ ! -f botnix.mf ] || [ ! -f botnix-disk1.vmdk ]; then
       exit 1
     fi
   '';

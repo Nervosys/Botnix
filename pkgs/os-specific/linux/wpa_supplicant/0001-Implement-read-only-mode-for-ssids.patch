@@ -7,7 +7,7 @@ With this change it's possible to define `network=`-sections in a second
 config file specified via `-I` without having changes written to
 `/etc/wpa_supplicant.conf`.
 
-This is helpful on e.g. NixOS to allow both declarative (i.e. read-only)
+This is helpful on e.g. Botnix to allow both declarative (i.e. read-only)
 and imperative (i.e. mutable) networks.
 ---
  wpa_supplicant/config.h         | 2 +-

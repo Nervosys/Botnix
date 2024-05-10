@@ -48,7 +48,7 @@ buildPythonApplication rec {
       cm-rgb controls AMD Wraith Prism RGB LEDS.
 
       To permit non-root accounts to use this utility on
-      NixOS, add this package to <literal>services.udev.packages</literal>
+      Botnix, add this package to <literal>services.udev.packages</literal>
       in <filename>configuration.nix</filename>.
     '';
     homepage = "https://github.com/gfduszynski/cm-rgb";

@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
   preCheck = "patchShebangs --build regress/regress.pl";
 
   passthru.tests = {
-    nixos = nixosTests.man;
+    botnix = nixosTests.man;
   };
 
   meta = with lib; {
@@ -65,8 +65,8 @@ stdenv.mkDerivation rec {
     # allow “native” cross such as pkgsLLVM and pkgsStatic.
     # For a lack of a better predicate at the moment, we compare the platforms'
     # system tuples. See also:
-    # * https://github.com/NixOS/nixpkgs/pull/140271
-    # * https://github.com/NixOS/nixpkgs/issues/61414
+    # * https://github.com/nervosys/Botnix/pull/140271
+    # * https://github.com/nervosys/Botnix/issues/61414
     # We need to use broken instead of, say a top level assert, to keep splicing
     # working.
     broken = stdenv.buildPlatform.system != stdenv.hostPlatform.system;

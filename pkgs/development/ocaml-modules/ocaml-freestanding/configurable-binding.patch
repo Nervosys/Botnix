@@ -5,9 +5,9 @@ Date:   Thu Mar 18 01:28:46 2021 +0100
     Let user specify solo5-binding to use
     
     This is a little feature for the configure script I wanted to have for
-    the NixOS package: It allows the user to set PKG_CONFIG_DEPS before
+    the Botnix package: It allows the user to set PKG_CONFIG_DEPS before
     running configure.sh to disable the autodetection mechanism. This is
-    useful for NixOS as we have all bindings bundled in the solo5 package,
+    useful for Botnix as we have all bindings bundled in the solo5 package,
     so the result would also be solo5-bindings-xen. Additionally, it allows
     us to do the binding selection declaratively and minimize the risk of
     accidentally switching backend.

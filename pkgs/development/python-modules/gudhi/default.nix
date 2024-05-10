@@ -6,7 +6,7 @@
 , boost
 , eigen
 , gmp
-, cgal  # see https://github.com/NixOS/nixpkgs/pull/94875 about cgal
+, cgal  # see https://github.com/nervosys/Botnix/pull/94875 about cgal
 , mpfr
 , tbb
 , numpy

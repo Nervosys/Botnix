@@ -60,7 +60,7 @@ index 230620c37027..dd16cab1835e 100644
 +    # does not point at the LLVM shared objects.
 +    #
 +    # More discussion here:
-+    #   - https://github.com/NixOS/nixpkgs/pull/235624#discussion_r1220150329
++    #   - https://github.com/nervosys/Botnix/pull/235624#discussion_r1220150329
 +    #   - https://reviews.llvm.org/D146918 (16.0.5+)
 +    #
 +    # Note that we leave `extra_libdir` in `_build_rpath`: without FHS there is

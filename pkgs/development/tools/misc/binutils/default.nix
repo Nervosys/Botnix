@@ -124,7 +124,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   strictDeps = true;
   depsBuildBuild = [ buildPackages.stdenv.cc ];
-  # texinfo was removed here in https://github.com/NixOS/nixpkgs/pull/210132
+  # texinfo was removed here in https://github.com/nervosys/Botnix/pull/210132
   # to reduce rebuilds during stdenv bootstrap.  Please don't add it back without
   # checking the impact there first.
   nativeBuildInputs = [

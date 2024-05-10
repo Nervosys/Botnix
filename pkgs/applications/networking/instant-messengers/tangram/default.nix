@@ -74,7 +74,7 @@ stdenv.mkDerivation rec {
       --replace "#!/usr/bin/env -S gjs -m" "#!${gjs}/bin/gjs -m"
   '';
 
-  # https://github.com/NixOS/nixpkgs/issues/31168#issuecomment-341793501
+  # https://github.com/nervosys/Botnix/issues/31168#issuecomment-341793501
   preFixup = ''
     sed -e '2iimports.package._findEffectiveEntryPointName = () => "re.sonny.Tangram"' \
       -i $out/bin/re.sonny.Tangram

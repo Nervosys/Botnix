@@ -86,7 +86,7 @@ let result = stdenv.mkDerivation rec {
   nativeBuildInputs = [ file makeWrapper ]
     ++ lib.optional installjce unzip;
 
-  # See: https://github.com/NixOS/patchelf/issues/10
+  # See: https://github.com/Botnix/patchelf/issues/10
   dontStrip = 1;
 
   installPhase = ''

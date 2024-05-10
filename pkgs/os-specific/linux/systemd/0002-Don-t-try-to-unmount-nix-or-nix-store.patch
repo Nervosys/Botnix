@@ -5,7 +5,7 @@ Subject: [PATCH] Don't try to unmount /nix or /nix/store
 
 They'll still be remounted read-only.
 
-https://github.com/NixOS/nixos/issues/126
+https://github.com/Botnix/botnix/issues/126
 
 Original-Author: Eelco Dolstra <eelco.dolstra@logicblox.com>
 ---

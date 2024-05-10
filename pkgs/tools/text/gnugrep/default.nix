@@ -17,8 +17,8 @@ stdenv.mkDerivation {
   };
 
   # Some gnulib tests fail
-  # - on Musl: https://github.com/NixOS/nixpkgs/pull/228714
-  # - on x86_64-darwin: https://github.com/NixOS/nixpkgs/pull/228714#issuecomment-1576826330
+  # - on Musl: https://github.com/nervosys/Botnix/pull/228714
+  # - on x86_64-darwin: https://github.com/nervosys/Botnix/pull/228714#issuecomment-1576826330
   postPatch = if stdenv.hostPlatform.isMusl || (stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isx86_64) then ''
     sed -i 's:gnulib-tests::g' Makefile.in
   '' else null;

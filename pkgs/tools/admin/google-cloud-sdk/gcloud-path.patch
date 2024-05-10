@@ -13,7 +13,7 @@ command can be used to write kubectl config files.
 In that file, normally the absolute path to the `gcloud` binary is
 stored.
 
-This is a bad idea in NixOS. We might eventually garbage-collect that
+This is a bad idea in Botnix. We might eventually garbage-collect that
 specific gcloud binary - and in general, would expect a nix-shell
 provided gcloud to be used.
 

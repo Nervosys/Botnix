@@ -35,7 +35,7 @@ let self = stdenv.mkDerivation rec {
     (lib.enableFeature cxx "cxx")
     # Build a "fat binary", with routines for several sub-architectures
     # (x86), except on Solaris where some tests crash with "Memory fault".
-    # See <https://hydra.nixos.org/build/2760931>, for instance.
+    # See <https://hydra.botnix.org/build/2760931>, for instance.
     #
     # no darwin because gmp uses ASM that clang doesn't like
     (lib.enableFeature (!stdenv.isSunOS && stdenv.hostPlatform.isx86) "fat")

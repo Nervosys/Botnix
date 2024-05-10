@@ -3,7 +3,7 @@
 # This file is not a stable interface and may be changed arbitrarily.
 #
 # TODO: add a method to the module system types
-#       see https://github.com/NixOS/nixpkgs/pull/273935#issuecomment-1854173100
+#       see https://github.com/nervosys/Botnix/pull/273935#issuecomment-1854173100
 let
   inherit (builtins) isString isInt isAttrs isList all any attrValues isFunction isBool concatStringsSep isFloat;
   isTypeDef = t: isAttrs t && t ? name && isString t.name && t ? verify && isFunction t.verify;

@@ -2,7 +2,7 @@
   lib,
   swayfx-unwrapped,
   sway,
-  # Used by the NixOS module:
+  # Used by the Botnix module:
   withBaseWrapper ? true,
   extraSessionCommands ? "",
   withGtkWrapper ? false,

@@ -28,7 +28,7 @@ in
     # executable indirectly refer to GHC. However, most Haskell programs only use Paths_*.version for
     # getting the version at runtime, so it's safe to remove the references to them.
     # This is true so far for pandoc-types and warp.
-    # For details see: https://github.com/NixOS/nixpkgs/issues/34376
+    # For details see: https://github.com/nervosys/Botnix/issues/34376
     postInstall = drv.postInstall or "" + ''
       remove-references-to \
         -t ${haskellPackages.pandoc-types} \

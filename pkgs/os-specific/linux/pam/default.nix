@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   patches = [
     ./suid-wrapper-path.patch
     # Pull support for localization on non-default --prefix:
-    #   https://github.com/NixOS/nixpkgs/issues/249010
+    #   https://github.com/nervosys/Botnix/issues/249010
     #   https://github.com/linux-pam/linux-pam/pull/604
     (fetchpatch {
       name = "bind-locales.patch";
@@ -63,7 +63,7 @@ stdenv.mkDerivation rec {
   configureFlags = [
     "--includedir=${placeholder "out"}/include/security"
     "--enable-sconfigdir=/etc/security"
-    # The module is deprecated. We re-enable it explicitly until NixOS
+    # The module is deprecated. We re-enable it explicitly until Botnix
     # module stops using it.
     "--enable-lastlog"
   ];

@@ -23,7 +23,7 @@ jobs:
     permissions:
       contents: write  # for devmasx/merge-branch to merge branches
       pull-requests: write  # for peter-evans/create-or-update-comment to create or update comment
-    if: github.repository_owner == 'NixOS'
+    if: github.repository_owner == 'Botnix'
     runs-on: ubuntu-latest
     strategy:
       # don't fail fast, so that all pairs are tried
@@ -57,4 +57,4 @@ jobs:
         with:
           issue-number: 105153
           body: |
-            Periodic merge from `${{ matrix.pairs.from }}` into `${{ matrix.pairs.into }}` has [failed](https://github.com/NixOS/nixpkgs/actions/runs/${{ github.run_id }}).
+            Periodic merge from `${{ matrix.pairs.from }}` into `${{ matrix.pairs.into }}` has [failed](https://github.com/nervosys/Botnix/actions/runs/${{ github.run_id }}).

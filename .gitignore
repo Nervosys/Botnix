@@ -5,8 +5,9 @@
 .\#*
 \#*\#
 .idea/
-.nixos-test-history
+.botnix-test-history
 .vscode/
+.vs/
 outputs/
 result-*
 result

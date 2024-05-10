@@ -107,7 +107,7 @@ builder rec {
   ''
   # XXX: See http://thread.gmane.org/gmane.comp.lib.gnulib.bugs/18903 for
   # why `--with-libunistring-prefix' and similar options coming from
-  # `AC_LIB_LINKFLAGS_BODY' don't work on NixOS/x86_64.
+  # `AC_LIB_LINKFLAGS_BODY' don't work on Botnix/x86_64.
   + ''
     sed -i "$out/lib/pkgconfig/guile"-*.pc    \
         -e "s|-lunistring|-L${libunistring}/lib -lunistring|g ;

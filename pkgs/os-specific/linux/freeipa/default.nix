@@ -112,7 +112,7 @@ stdenv.mkDerivation rec {
     patchShebangs makeapi makeaci install/ui/util
 
     substituteInPlace ipaplatform/setup.py \
-      --replace 'ipaplatform.debian' 'ipaplatform.nixos'
+      --replace 'ipaplatform.debian' 'ipaplatform.botnix'
 
     substituteInPlace ipasetup.py.in \
       --replace 'int(v)' 'int(v.replace("post", ""))'
@@ -120,8 +120,8 @@ stdenv.mkDerivation rec {
     substituteInPlace client/ipa-join.c \
       --replace /usr/sbin/ipa-getkeytab $out/bin/ipa-getkeytab
 
-    cp -r ipaplatform/{fedora,nixos}
-    substitute ${pathsPy} ipaplatform/nixos/paths.py \
+    cp -r ipaplatform/{fedora,botnix}
+    substitute ${pathsPy} ipaplatform/botnix/paths.py \
       --subst-var out \
       --subst-var-by bind ${bind.dnsutils} \
       --subst-var-by curl ${curl} \
@@ -137,14 +137,14 @@ stdenv.mkDerivation rec {
 
   configureFlags = [
     "--with-systemdsystemunitdir=$out/lib/systemd/system"
-    "--with-ipaplatform=nixos"
+    "--with-ipaplatform=botnix"
     "--disable-server"
   ];
 
   postInstall = ''
     echo "
      #!${runtimeShell}
-     echo 'ipa-client-install is not available on NixOS. Please see security.ipa, instead.'
+     echo 'ipa-client-install is not available on Botnix. Please see security.ipa, instead.'
      exit 1
     " > $out/sbin/ipa-client-install
   '';

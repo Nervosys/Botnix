@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   buildInputs = [ libpng ];
 
   # Workaround for crash in cexcept.h. See
-  # https://github.com/NixOS/nixpkgs/issues/28106
+  # https://github.com/nervosys/Botnix/issues/28106
   preConfigure = ''
     export LD=$CC
   '';

@@ -43,16 +43,16 @@ let
     NIX_LINK=$HOME/.nix-profile
 
     tmpdir=$(/usr/bin/mktemp -d $TMPDIR/xquartz-installer-XXXXXXXX)
-    agentName=org.nixos.xquartz.startx.plist
-    daemonName=org.nixos.xquartz.privileged_startx.plist
+    agentName=org.botnix.xquartz.startx.plist
+    daemonName=org.botnix.xquartz.privileged_startx.plist
     sed=${gnused}/bin/sed
 
-    cp ${./org.nixos.xquartz.startx.plist} $tmpdir/$agentName
+    cp ${./org.botnix.xquartz.startx.plist} $tmpdir/$agentName
     $sed -i "s|@LAUNCHD_STARTX@|$NIX_LINK/libexec/launchd_startx|" $tmpdir/$agentName
     $sed -i "s|@STARTX@|$NIX_LINK/bin/startx|" $tmpdir/$agentName
     $sed -i "s|@XQUARTZ@|$NIX_LINK/bin/Xquartz|" $tmpdir/$agentName
 
-    cp ${./org.nixos.xquartz.privileged_startx.plist} $tmpdir/$daemonName
+    cp ${./org.botnix.xquartz.privileged_startx.plist} $tmpdir/$daemonName
     $sed -i "s|@PRIVILEGED_STARTX@|$NIX_LINK/libexec/privileged_startx|" $tmpdir/$daemonName
     $sed -i "s|@PRIVILEGED_STARTX_D@|$NIX_LINK/etc/X11/xinit/privileged_startx.d|" $tmpdir/$daemonName
 

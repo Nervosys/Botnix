@@ -14,7 +14,7 @@ let
     # Test flaky on ofborg
     "channels"
     # Test flaky because of our RPATH patching
-    # https://github.com/NixOS/nixpkgs/pull/230965#issuecomment-1545336489
+    # https://github.com/nervosys/Botnix/pull/230965#issuecomment-1545336489
     "compiler/codegen"
     # Test flaky
     "read"

@@ -1,6 +1,6 @@
 # Tested on linux-x86_64.  Might work on linux-i386.  Probably won't work on anything else.
 
-# To use this driver in NixOS, add it to printing.drivers in configuration.nix.
+# To use this driver in Botnix, add it to printing.drivers in configuration.nix.
 # configuration.nix might look like this when you're done:
 # { pkgs, ... }: {
 #   printing = {

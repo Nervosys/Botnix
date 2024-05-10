@@ -49,7 +49,7 @@ index 5803e4599..88ba51461 100644
  =back
  
 -B<By default, HTTP::Tiny does not verify server identity>.
-+B<By default, HTTP::Tiny in NixOS verifies server identity>.
++B<By default, HTTP::Tiny in Botnix verifies server identity>.
  
  Server identity verification is controversial and potentially tricky because it
  depends on a (usually paid) third-party Certificate Authority (CA) trust model
@@ -69,7 +69,7 @@ index 5803e4599..88ba51461 100644
 -concerned about security, you should enable this option.
 +attack|http://en.wikipedia.org/wiki/Man-in-the-middle_attack>.
 +
-+If you are not concerned about security, and this default in NixOS causes
++If you are not concerned about security, and this default in Botnix causes
 +problems, you should disable this option.
  
  Certificate verification requires a file containing trusted CA certificates.

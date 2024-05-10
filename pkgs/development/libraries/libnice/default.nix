@@ -70,7 +70,7 @@ stdenv.mkDerivation rec {
   ];
 
   # Tests are flaky
-  # see https://github.com/NixOS/nixpkgs/pull/53293#issuecomment-453739295
+  # see https://github.com/nervosys/Botnix/pull/53293#issuecomment-453739295
   doCheck = false;
 
   meta = with lib; {

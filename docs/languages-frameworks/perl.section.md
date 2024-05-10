@@ -29,9 +29,9 @@ If you are always using the script in places where `nix-shell` is available, you
 
 ## Packaging Perl programs {#ssec-perl-packaging}
 
-Nixpkgs provides a function `buildPerlPackage`, a generic package builder function for any Perl package that has a standard `Makefile.PL`. It’s implemented in [pkgs/development/perl-modules/generic](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/perl-modules/generic).
+Nixpkgs provides a function `buildPerlPackage`, a generic package builder function for any Perl package that has a standard `Makefile.PL`. It’s implemented in [pkgs/development/perl-modules/generic](https://github.com/nervosys/Botnix/blob/master/pkgs/development/perl-modules/generic).
 
-Perl packages from CPAN are defined in [pkgs/top-level/perl-packages.nix](https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/perl-packages.nix) rather than `pkgs/all-packages.nix`. Most Perl packages are so straight-forward to build that they are defined here directly, rather than having a separate function for each package called from `perl-packages.nix`. However, more complicated packages should be put in a separate file, typically in `pkgs/development/perl-modules`. Here is an example of the former:
+Perl packages from CPAN are defined in [pkgs/top-level/perl-packages.nix](https://github.com/nervosys/Botnix/blob/master/pkgs/top-level/perl-packages.nix) rather than `pkgs/all-packages.nix`. Most Perl packages are so straight-forward to build that they are defined here directly, rather than having a separate function for each package called from `perl-packages.nix`. However, more complicated packages should be put in a separate file, typically in `pkgs/development/perl-modules`. Here is an example of the former:
 
 ```nix
 ClassC3 = buildPerlPackage rec {

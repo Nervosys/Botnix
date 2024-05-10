@@ -36,8 +36,8 @@ perlPackages.buildPerlPackage rec {
       --replace /usr/bin/clamdscan ${lib.getBin clamav}/bin/clamdscan \
       --replace /usr/share/pixmaps $out/share/pixmaps
 
-    # We want to catch the crontab wrapper on NixOS and the
-    # System crontab on non-NixOS so we don't give a full path.
+    # We want to catch the crontab wrapper on Botnix and the
+    # System crontab on non-Botnix so we don't give a full path.
     substituteInPlace lib/Schedule.pm \
       --replace "( -e '/usr/bin/crontab' )" "(1)" \
       --replace /usr/bin/crontab crontab

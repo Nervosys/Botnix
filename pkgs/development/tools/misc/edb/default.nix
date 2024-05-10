@@ -28,7 +28,7 @@ mkDerivation rec {
     # Avoid using leaveDotGit in the fetchFromGitHub options as it is non-deterministic.
     mkdir -p src/qhexview/.git lib/gdtoa-desktop/.git
 
-    # Change default optional terminal program path to one that is more likely to work on NixOS.
+    # Change default optional terminal program path to one that is more likely to work on Botnix.
     substituteInPlace ./src/Configuration.cpp --replace "/usr/bin/xterm" "xterm";
   '';
 

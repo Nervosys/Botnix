@@ -22,15 +22,15 @@
 , span-lite
 , stdenv
   # NOTE: We disable tests by default, because they cannot be run easily on
-  # non-NixOS systems when either CUDA or OpenCL support is enabled (CUDA and
+  # non-Botnix systems when either CUDA or OpenCL support is enabled (CUDA and
   # OpenCL need access to drivers that are installed outside of Nix on
-  # non-NixOS systems).
+  # non-Botnix systems).
 , doCheck ? false
 , cpuSupport ? true
 , cudaSupport ? config.cudaSupport
   # OpenCL needs mesa which is broken on Darwin
 , openclSupport ? !stdenv.isDarwin
-  # This argument lets one run CUDA & OpenCL tests on non-NixOS systems by
+  # This argument lets one run CUDA & OpenCL tests on non-Botnix systems by
   # telling Nix where to find the drivers. If you know the version of the
   # NVidia driver that is installed on your system, you can do:
   #
@@ -158,11 +158,11 @@ stdenv.mkDerivation rec {
       LD_LIBRARY_PATH = builtins.concatStringsSep ":" (
         [ "${forge}/lib" "${freeimage}/lib" ]
         ++ lib.optional cudaSupport "${cudaPackages.cudatoolkit}/lib64"
-        # On non-NixOS systems, help the tests find Nvidia drivers
+        # On non-Botnix systems, help the tests find Nvidia drivers
         ++ lib.optional (nvidiaComputeDrivers != null) "${nvidiaComputeDrivers}/lib"
       );
       ctestFlags = builtins.concatStringsSep " " (
-        # We have to run with "-j1" otherwise various segfaults occur on non-NixOS systems.
+        # We have to run with "-j1" otherwise various segfaults occur on non-Botnix systems.
         [ "--output-on-errors" "-j1" ]
         # See https://github.com/arrayfire/arrayfire/issues/3484
         ++ lib.optional openclSupport "-E '(inverse_dense|cholesky_dense)'"
@@ -171,7 +171,7 @@ stdenv.mkDerivation rec {
     ''
       export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
     '' +
-    # On non-NixOS systems, help the tests find Nvidia drivers
+    # On non-Botnix systems, help the tests find Nvidia drivers
     lib.optionalString (openclSupport && nvidiaComputeDrivers != null) ''
       export OCL_ICD_VENDORS=${nvidiaComputeDrivers}/etc/OpenCL/vendors
     '' + ''

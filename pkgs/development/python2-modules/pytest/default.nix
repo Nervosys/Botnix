@@ -47,7 +47,7 @@ buildPythonPackage rec {
     # pytest generates it's own bytecode files to improve assertion messages.
     # These files similar to cpython's bytecode files but are never laoded
     # by python interpreter directly. We remove them for a few reasons:
-    # - files are non-deterministic: https://github.com/NixOS/nixpkgs/issues/139292
+    # - files are non-deterministic: https://github.com/nervosys/Botnix/issues/139292
     #   (file headers are generatedt by pytest directly and contain timestamps)
     # - files are not needed after tests are finished
     pytestRemoveBytecodePhase () {

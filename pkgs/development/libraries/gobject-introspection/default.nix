@@ -58,7 +58,7 @@ stdenv.mkDerivation (finalAttrs: {
     })
   ] ++ lib.optionals x11Support [
     # Hardcode the cairo shared library path in the Cairo gir shipped with this package.
-    # https://github.com/NixOS/nixpkgs/issues/34080
+    # https://github.com/nervosys/Botnix/issues/34080
     (substituteAll {
       src = ./absolute_gir_path.patch;
       cairoLib = "${lib.getLib cairo}/lib";
@@ -116,7 +116,7 @@ stdenv.mkDerivation (finalAttrs: {
   doCheck = !stdenv.isAarch64;
 
   # During configurePhase, two python scripts are generated and need this. See
-  # https://github.com/NixOS/nixpkgs/pull/98316#issuecomment-695785692
+  # https://github.com/nervosys/Botnix/pull/98316#issuecomment-695785692
   postConfigure = ''
     patchShebangs tools/*
   '';

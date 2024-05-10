@@ -33,7 +33,7 @@ let
     };
 
     # Copied from package.json, see also
-    # https://github.com/NixOS/nixpkgs/pull/214952
+    # https://github.com/nervosys/Botnix/pull/214952
     packageResolutions = {
       "@fortawesome/fontawesome-free" = "6.3.0";
     };

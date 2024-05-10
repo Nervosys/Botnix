@@ -14,12 +14,12 @@ and we can also rely on the local Git history to do the mergeability check.
 
 Arguments:
 - `BASE_BRANCH`: The base branch to use, e.g. master or release-23.11
-- `REPOSITORY`: The repository to fetch the base branch from, defaults to https://github.com/NixOS/nixpkgs.git
+- `REPOSITORY`: The repository to fetch the base branch from, defaults to https://github.com/nervosys/Botnix.git
 
 ## `./update-pinned-tool.sh`
 
 Updates the pinned CI tool in [`./pinned-tool.json`](./pinned-tool.json) to the
-[latest version from the `nixos-unstable` channel](https://hydra.nixos.org/job/nixos/trunk-combined/nixpkgs.tests.nixpkgs-check-by-name.x86_64-linux).
+[latest version from the `botnix-unstable` channel](https://hydra.botnix.org/job/botnix/trunk-combined/nixpkgs.tests.nixpkgs-check-by-name.x86_64-linux).
 
 This script needs to be called manually when the CI tooling needs to be updated.
 
@@ -27,8 +27,8 @@ The `pinned-tool.json` file gets populated with both:
 - The `/nix/store` path for `x86_64-linux`, such that CI doesn't have to evaluate Nixpkgs and can directly fetch it from the cache instead.
 - The Nixpkgs revision, such that the `./run-local.sh` script can be used to run the checks locally on any system.
 
-To ensure that the tool is always pre-built for `x86_64-linux` in the `nixos-unstable` channel,
-it's included in the `tested` jobset description in [`nixos/release-combined.nix`](../../../nixos/release-combined.nix).
+To ensure that the tool is always pre-built for `x86_64-linux` in the `botnix-unstable` channel,
+it's included in the `tested` jobset description in [`botnix/release-combined.nix`](../../../botnix/release-combined.nix).
 
 Why not just build the tooling right from the PRs Nixpkgs version?
 - Because it allows CI to check all PRs, even if they would break the CI tooling.

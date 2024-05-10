@@ -28,7 +28,7 @@ python3.pkgs.buildPythonApplication rec {
   };
 
   patches = [
-    ./0001-add-nixos-support.patch
+    ./0001-add-botnix-support.patch
   ];
 
   prePatch = ''

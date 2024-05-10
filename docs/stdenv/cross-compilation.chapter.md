@@ -87,7 +87,7 @@ Only nine dependency types matter in practice:
 #### Possible dependency types {#possible-dependency-types}
 
 | Dependency type | Dependency’s host platform | Dependency’s target platform |
-|-----------------|----------------------------|------------------------------|
+| --------------- | -------------------------- | ---------------------------- |
 | build → *       | build                      | (none)                       |
 | build → build   | build                      | build                        |
 | build → host    | build                      | host                         |
@@ -131,7 +131,7 @@ makeFlags = [ "CC=${stdenv.cc.targetPrefix}cc" ];
 ```
 
 #### How do I avoid compiling a GCC cross-compiler from source? {#cross-qa-avoid-compiling-gcc-cross-compiler}
-On less powerful machines, it can be inconvenient to cross-compile a package only to find out that GCC has to be compiled from source, which could take up to several hours. Nixpkgs maintains a limited [cross-related jobset on Hydra](https://hydra.nixos.org/jobset/nixpkgs/cross-trunk), which tests cross-compilation to various platforms from build platforms "x86\_64-darwin", "x86\_64-linux", and "aarch64-linux".  See `pkgs/top-level/release-cross.nix` for the full list of target platforms and packages.  For instance, the following invocation fetches the pre-built cross-compiled GCC for `armv6l-unknown-linux-gnueabihf` and builds GNU Hello from source.
+On less powerful machines, it can be inconvenient to cross-compile a package only to find out that GCC has to be compiled from source, which could take up to several hours. Nixpkgs maintains a limited [cross-related jobset on Hydra](https://hydra.botnix.org/jobset/nixpkgs/cross-trunk), which tests cross-compilation to various platforms from build platforms "x86\_64-darwin", "x86\_64-linux", and "aarch64-linux".  See `pkgs/top-level/release-cross.nix` for the full list of target platforms and packages.  For instance, the following invocation fetches the pre-built cross-compiled GCC for `armv6l-unknown-linux-gnueabihf` and builds GNU Hello from source.
 
 ```ShellSession
 $ nix-build '<nixpkgs>' -A pkgsCross.raspberryPi.hello
@@ -186,7 +186,7 @@ Eventually we would like to make these platform examples an unnecessary convenie
 $ nix-build '<nixpkgs>' --arg crossSystem '{ config = "<arch>-<os>-<vendor>-<abi>"; }' -A whatever
 ```
 
-works in the vast majority of cases. The problem today is dependencies on other sorts of configuration which aren't given proper defaults. We rely on the examples to crudely to set those configuration parameters in some vaguely sane manner on the users behalf. Issue [\#34274](https://github.com/NixOS/nixpkgs/issues/34274) tracks this inconvenience along with its root cause in crufty configuration options.
+works in the vast majority of cases. The problem today is dependencies on other sorts of configuration which aren't given proper defaults. We rely on the examples to crudely to set those configuration parameters in some vaguely sane manner on the users behalf. Issue [\#34274](https://github.com/nervosys/Botnix/issues/34274) tracks this inconvenience along with its root cause in crufty configuration options.
 :::
 
 While one is free to pass both parameters in full, there's a lot of logic to fill in missing fields. As discussed in the previous section, only one of `system`, `config`, and `parsed` is needed to infer the other two. Additionally, `libc` will be inferred from `parse`. Finally, `localSystem.system` is also _impurely_ inferred based on the platform evaluation occurs. This means it is often not necessary to pass `localSystem` at all, as in the command-line example in the previous paragraph.

@@ -91,7 +91,7 @@ rec {
   };
 
   dvipng = lib.recurseIntoAttrs {
-    # https://github.com/NixOS/nixpkgs/issues/75605
+    # https://github.com/nervosys/Botnix/issues/75605
     basic = runCommand "texlive-test-dvipng-basic" {
       nativeBuildInputs = [ file texliveMedium ];
       input = fetchurl {
@@ -154,7 +154,7 @@ rec {
     '';
   };
 
-  # https://github.com/NixOS/nixpkgs/issues/75070
+  # https://github.com/nervosys/Botnix/issues/75070
   dvisvgm = runCommand "texlive-test-dvisvgm" {
     nativeBuildInputs = [ file texliveMedium ];
     input = builtins.toFile "dvisvgm-sample.tex" ''

@@ -16,7 +16,7 @@ in (llvmPackages.lldb.overrideAttrs (oldAttrs: rec {
   doInstallCheck = true;
 
   # installCheck for lldb_14 currently broken
-  # https://github.com/NixOS/nixpkgs/issues/166604#issuecomment-1086103692
+  # https://github.com/nervosys/Botnix/issues/166604#issuecomment-1086103692
   # ignore the oldAttrs installCheck
   installCheckPhase = ''
     versionOutput="$($out/bin/lldb --version)"

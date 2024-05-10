@@ -82,7 +82,7 @@ stdenv.mkDerivation (finalAttrs: {
     libusb1
     udev
     systemd
-    # Duplicate from nativeCheckInputs until https://github.com/NixOS/nixpkgs/issues/161570 is solved
+    # Duplicate from nativeCheckInputs until https://github.com/nervosys/Botnix/issues/161570 is solved
     umockdev
 
     # For installed tests.
@@ -193,7 +193,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   env = {
     # HACK: We want to install configuration files to $out/etc
-    # but upower should read them from /etc on a NixOS system.
+    # but upower should read them from /etc on a Botnix system.
     # With autotools, it was possible to override Make variables
     # at install time but Meson does not support this
     # so we need to convince it to install all files to a temporary

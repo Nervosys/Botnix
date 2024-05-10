@@ -79,7 +79,7 @@ in buildGoModule rec {
   passthru = {
     php = phpEmbedWithZts;
     tests = {
-      # TODO: real NixOS test with Symfony application
+      # TODO: real Botnix test with Symfony application
       version = testers.testVersion {
         inherit version;
         package = frankenphp;

@@ -35,7 +35,7 @@ let
 
   # FIXME: a dependency of the `proxy` component of radicle-upstream (radicle-macros
   # v0.1.0) uses unstable rust features, making a from source build impossible at
-  # this time. See this PR for discussion: https://github.com/NixOS/nixpkgs/pull/105674
+  # this time. See this PR for discussion: https://github.com/nervosys/Botnix/pull/105674
   linux = appimageTools.wrapType2 {
     inherit name src meta;
 

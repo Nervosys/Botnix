@@ -36,7 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
     ++ lib.optionals stdenv.isDarwin [ AppKit CoreFoundation Security ];
 
   env = lib.optionalAttrs (stdenv.cc.libcxx != null) {
-    # work around https://github.com/NixOS/nixpkgs/issues/166205
+    # work around https://github.com/nervosys/Botnix/issues/166205
     NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}";
   } // lib.optionalAttrs stdenv.cc.isClang {
     CXXFLAGS = "-std=c++11";

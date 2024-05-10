@@ -92,7 +92,7 @@ rec {
       dontBuild = true;
 
       patchPhase = lib.optionalString isNixOS ''
-        touch .update-on-nixos-rebuild
+        touch .update-on-botnix-rebuild
       '';
 
       installPhase = ''

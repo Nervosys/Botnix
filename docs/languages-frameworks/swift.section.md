@@ -81,7 +81,7 @@ stdenv.mkDerivation rec {
   version = "0.0.0";
 
   src = fetchFromGitHub {
-    owner = "nixos";
+    owner = "botnix";
     repo = pname;
     rev = version;
     hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";

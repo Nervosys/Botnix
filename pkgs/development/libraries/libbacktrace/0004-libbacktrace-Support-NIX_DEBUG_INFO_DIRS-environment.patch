@@ -7,7 +7,7 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Let’s make debug data lookup work on NixOS just like in gdb.
+Let’s make debug data lookup work on Botnix just like in gdb.
 ---
  elf.c | 11 +++++++++--
  1 file changed, 9 insertions(+), 2 deletions(-)

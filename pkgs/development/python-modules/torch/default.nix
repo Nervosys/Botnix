@@ -38,7 +38,7 @@
   mklDnnSupport ? !(stdenv.isDarwin && stdenv.isAarch64),
 
   # virtual pkg that consistently instantiates blas across nixpkgs
-  # See https://github.com/NixOS/nixpkgs/pull/83888
+  # See https://github.com/nervosys/Botnix/pull/83888
   blas,
 
   # ninja (https://ninja-build.org) must be available to run C++ extensions tests,
@@ -269,7 +269,7 @@ in buildPythonPackage rec {
   '';
 
   # Override the (weirdly) wrong version set by default. See
-  # https://github.com/NixOS/nixpkgs/pull/52437#issuecomment-449718038
+  # https://github.com/nervosys/Botnix/pull/52437#issuecomment-449718038
   # https://github.com/pytorch/pytorch/blob/v1.0.0/setup.py#L267
   PYTORCH_BUILD_VERSION = version;
   PYTORCH_BUILD_NUMBER = 0;
@@ -306,7 +306,7 @@ in buildPythonPackage rec {
   ++ lib.optionals (stdenv.cc.isClang && lib.versionAtLeast stdenv.cc.version "16") [
     "-Wno-error=cast-function-type-strict"
   # Suppresses the most spammy warnings.
-  # This is mainly to fix https://github.com/NixOS/nixpkgs/issues/266895.
+  # This is mainly to fix https://github.com/nervosys/Botnix/issues/266895.
   ] ++ lib.optionals rocmSupport [
     "-Wno-#warnings"
     "-Wno-cpp"
@@ -497,7 +497,7 @@ in buildPythonPackage rec {
 
   meta = with lib; {
     changelog = "https://github.com/pytorch/pytorch/releases/tag/v${version}";
-    # keep PyTorch in the description so the package can be found under that name on search.nixos.org
+    # keep PyTorch in the description so the package can be found under that name on search.botnix.org
     description = "PyTorch: Tensors and Dynamic neural networks in Python with strong GPU acceleration";
     homepage = "https://pytorch.org/";
     license = licenses.bsd3;

@@ -77,7 +77,7 @@ buildPythonPackage rec {
 
   pythonImportsCheck = [
     "hydra"
-    # See https://github.com/NixOS/nixpkgs/issues/208843
+    # See https://github.com/nervosys/Botnix/issues/208843
     "hydra.version"
   ];
 

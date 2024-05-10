@@ -38,7 +38,7 @@ buildPythonPackage rec {
     pytestCheckHook
   ];
 
-  # Disables tests when running with cuda due to https://github.com/NixOS/nixpkgs/issues/225912
+  # Disables tests when running with cuda due to https://github.com/nervosys/Botnix/issues/225912
   doCheck = !config.cudaSupport;
 
   meta = with lib; {

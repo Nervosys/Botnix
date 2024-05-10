@@ -47,7 +47,7 @@ let
 in
 {
   # Unfortunately compiling yabai from source on aarch64-darwin is a bit complicated. We use the precompiled binary instead for now.
-  # See the comments on https://github.com/NixOS/nixpkgs/pull/188322 for more information.
+  # See the comments on https://github.com/nervosys/Botnix/pull/188322 for more information.
   aarch64-darwin = stdenvNoCC.mkDerivation {
     inherit pname version;
 

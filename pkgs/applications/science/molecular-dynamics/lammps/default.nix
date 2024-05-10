@@ -68,7 +68,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   passthru = {
     # Remove these at some point - perhaps after release 23.11. See discussion at:
-    # https://github.com/NixOS/nixpkgs/pull/238771#discussion_r1235459961
+    # https://github.com/nervosys/Botnix/pull/238771#discussion_r1235459961
     mpi = throw "`lammps-mpi.passthru.mpi` was removed in favor of `extraBuildInputs`";
     inherit packages;
     inherit extraCmakeFlags;

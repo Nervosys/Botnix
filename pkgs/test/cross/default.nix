@@ -107,7 +107,7 @@ let
     '';
   };
 
-  # see https://github.com/NixOS/nixpkgs/issues/213453
+  # see https://github.com/nervosys/Botnix/issues/213453
   # this is a good test of a lot of tricky glibc/libgcc corner cases
   mbuffer = let
     mbuffer = pkgs.pkgsCross.aarch64-multiplatform.mbuffer;
@@ -129,12 +129,12 @@ let
   # calls here.
   sanity = [
     mbuffer
-    #pkgs.pkgsCross.gnu64.bash # https://github.com/NixOS/nixpkgs/issues/243164
+    #pkgs.pkgsCross.gnu64.bash # https://github.com/nervosys/Botnix/issues/243164
     pkgs.gcc_multi.cc
     pkgs.pkgsMusl.stdenv
     pkgs.pkgsLLVM.stdenv
     pkgs.pkgsStatic.bash
-    #pkgs.pkgsCross.gnu64_simplekernel.bash   # https://github.com/NixOS/nixpkgs/issues/264989
+    #pkgs.pkgsCross.gnu64_simplekernel.bash   # https://github.com/nervosys/Botnix/issues/264989
     pkgs.pkgsCross.arm-embedded.stdenv
     pkgs.pkgsCross.sheevaplug.stdenv  # for armv5tel
     pkgs.pkgsCross.raspberryPi.stdenv  # for armv6l
@@ -157,7 +157,7 @@ let
     pkgs.pkgsCross.aarch64-multiplatform.qutebrowser-qt5
     pkgs.pkgsCross.aarch64-multiplatform.firefox
 
-    # Uses pkgsCross.riscv64-embedded; see https://github.com/NixOS/nixpkgs/issues/267859
+    # Uses pkgsCross.riscv64-embedded; see https://github.com/nervosys/Botnix/issues/267859
     pkgs.spike
   ];
 

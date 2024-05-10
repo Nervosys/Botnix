@@ -96,7 +96,7 @@ function parseIntegrity(maybeIntegrity, fallbackHash) {
 }
 
 function fetchLockedDep(builtinFetchGit) {
-  return function(pkg) {
+  return function (pkg) {
     const { integrity, nameWithVersion, resolved } = pkg;
 
     if (!resolved) {

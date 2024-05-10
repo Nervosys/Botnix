@@ -1,4 +1,4 @@
-# We have tests for PCRE and PHP-FPM in nixos/tests/php/ or
+# We have tests for PCRE and PHP-FPM in botnix/tests/php/ or
 # both in the same attribute named nixosTests.php
 
 let
@@ -161,7 +161,7 @@ let
               unwrapped = php;
               # Select the right php tests for the php version
               tests = {
-                nixos = lib.recurseIntoAttrs nixosTests."php${lib.strings.replaceStrings [ "." ] [ "" ] (lib.versions.majorMinor php.version)}";
+                botnix = lib.recurseIntoAttrs nixosTests."php${lib.strings.replaceStrings [ "." ] [ "" ] (lib.versions.majorMinor php.version)}";
                 package = tests.php;
               };
               inherit (php-packages) extensions buildPecl mkComposerRepository buildComposerProject composerHooks mkExtension;

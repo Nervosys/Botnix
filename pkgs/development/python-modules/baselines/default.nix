@@ -44,7 +44,7 @@ buildPythonPackage {
 
   postPatch = ''
     # Needed for the atari wrapper, but the gym-atari package is not supported
-    # in nixos anyways. Since opencv-python is not currently packaged, we
+    # in botnix anyways. Since opencv-python is not currently packaged, we
     # disable it.
     sed -ie '/opencv-python/d' setup.py
   '';

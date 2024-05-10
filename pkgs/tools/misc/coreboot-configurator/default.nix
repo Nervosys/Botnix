@@ -5,9 +5,9 @@
 , mkDerivation
 , ninja
   # We will resolve pkexec from the path because it has a setuid wrapper on
-  # NixOS meaning that we cannot just use the path from the nix store.
+  # Botnix meaning that we cannot just use the path from the nix store.
   # Using the path to the wrapper here would make the package incompatible
-  # with non-NixOS systems.
+  # with non-Botnix systems.
 , pkexecPath ? "pkexec"
 , pkg-config
 , yaml-cpp

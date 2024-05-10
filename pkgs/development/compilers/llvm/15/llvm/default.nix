@@ -248,7 +248,7 @@ in stdenv.mkDerivation (rec {
 
     # !!! Note: these tests are removed in LLVM 16.
     #
-    # See here for context: https://github.com/NixOS/nixpkgs/pull/194634#discussion_r999790443
+    # See here for context: https://github.com/nervosys/Botnix/pull/194634#discussion_r999790443
     rm test/CodeGen/RISCV/rv32zbp.ll
     rm test/CodeGen/RISCV/rv64zbp.ll
   '' + optionalString (stdenv.hostPlatform.system == "armv6l-linux") ''

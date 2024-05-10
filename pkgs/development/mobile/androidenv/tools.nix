@@ -7,7 +7,7 @@ deployAndroidPackage {
     ++ lib.optionals (os == "linux") [ autoPatchelfHook ];
   buildInputs = lib.optional (os == "linux") (
       (with pkgs; [ glibc freetype fontconfig fontconfig.lib
-        stdenv.cc.cc.libgcc or null # fix for https://github.com/NixOS/nixpkgs/issues/226357
+        stdenv.cc.cc.libgcc or null # fix for https://github.com/nervosys/Botnix/issues/226357
       ])
       ++ (with pkgs.xorg; [ libX11 libXrender libXext ])
       ++ (with pkgsi686Linux; [ glibc xorg.libX11 xorg.libXrender xorg.libXext fontconfig.lib freetype zlib ])

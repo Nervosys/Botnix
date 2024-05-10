@@ -2,37 +2,37 @@
   buildEnv,
   lib,
   man,
-  nixos,
+  botnix,
   # TODO: replace indirect self-reference by proper self-reference
-  #       https://github.com/NixOS/nixpkgs/pull/119942
-  nixos-install-tools,
+  #       https://github.com/nervosys/Botnix/pull/119942
+  botnix-install-tools,
   runCommand,
   nixosTests,
 }:
 let
-  inherit (nixos {}) config;
-  version = config.system.nixos.version;
+  inherit (botnix {}) config;
+  version = config.system.botnix.version;
 in
 (buildEnv {
-  name = "nixos-install-tools-${version}";
+  name = "botnix-install-tools-${version}";
   paths = lib.attrValues {
-    # See nixos/modules/installer/tools/tools.nix
+    # See botnix/modules/installer/tools/tools.nix
     inherit (config.system.build)
-      nixos-install nixos-generate-config nixos-enter;
+      botnix-install botnix-generate-config botnix-enter;
 
-    inherit (config.system.build.manual) nixos-configuration-reference-manpage;
+    inherit (config.system.build.manual) botnix-configuration-reference-manpage;
   };
 
   extraOutputsToInstall = ["man"];
 
   meta = {
-    description = "The essential commands from the NixOS installer as a package";
+    description = "The essential commands from the Botnix installer as a package";
     longDescription = ''
-      With this package, you get the commands like nixos-generate-config and
-      nixos-install that you would otherwise only find on a NixOS system, such
+      With this package, you get the commands like botnix-generate-config and
+      botnix-install that you would otherwise only find on a Botnix system, such
       as an installer image.
 
-      This way, you can install NixOS using a machine that only has Nix.
+      This way, you can install Botnix using a machine that only has Nix.
     '';
     license = lib.licenses.mit;
     homepage = "https://nixos.org";
@@ -40,29 +40,29 @@ in
   };
 
   passthru.tests = {
-    nixos-tests = lib.recurseIntoAttrs nixosTests.installer;
-    nixos-install-help = runCommand "test-nixos-install-help" {
+    botnix-tests = lib.recurseIntoAttrs nixosTests.installer;
+    botnix-install-help = runCommand "test-botnix-install-help" {
       nativeBuildInputs = [
         man
-        nixos-install-tools
+        botnix-install-tools
       ];
       meta.description = ''
         Make sure that --help works. It's somewhat non-trivial because it
         requires man.
       '';
     } ''
-      nixos-install --help | grep -F 'NixOS Reference Pages'
-      nixos-install --help | grep -F 'configuration.nix'
-      nixos-generate-config --help | grep -F 'NixOS Reference Pages'
-      nixos-generate-config --help | grep -F 'hardware-configuration.nix'
+      botnix-install --help | grep -F 'Botnix Reference Pages'
+      botnix-install --help | grep -F 'configuration.nix'
+      botnix-generate-config --help | grep -F 'Botnix Reference Pages'
+      botnix-generate-config --help | grep -F 'hardware-configuration.nix'
 
       # FIXME: Tries to call unshare, which it must not do for --help
-      # nixos-enter --help | grep -F 'NixOS Reference Pages'
+      # botnix-enter --help | grep -F 'Botnix Reference Pages'
 
       touch $out
     '';
   };
 }).overrideAttrs {
   inherit version;
-  pname = "nixos-install-tools";
+  pname = "botnix-install-tools";
 }

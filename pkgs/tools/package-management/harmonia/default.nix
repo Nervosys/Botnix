@@ -33,7 +33,7 @@ rustPlatform.buildRustPackage rec {
     nixVersions.nix_2_19
   ];
 
-  # Workaround for https://github.com/NixOS/nixpkgs/issues/166205
+  # Workaround for https://github.com/nervosys/Botnix/issues/166205
   env = lib.optionalAttrs stdenv.cc.isClang {
     NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}";
   };

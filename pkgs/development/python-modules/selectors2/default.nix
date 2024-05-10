@@ -18,7 +18,7 @@ buildPythonPackage rec {
   nativeCheckInputs = [ nose psutil mock ];
 
   checkPhase = ''
-    # https://github.com/NixOS/nixpkgs/pull/46186#issuecomment-419450064
+    # https://github.com/nervosys/Botnix/pull/46186#issuecomment-419450064
     # Trick to disable certain tests that depend on timing which
     # will always fail on hydra
     export TRAVIS=""

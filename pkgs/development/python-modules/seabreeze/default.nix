@@ -22,7 +22,7 @@
 }:
 
 ## Usage
-# In NixOS, add the package to services.udev.packages for non-root plugdev
+# In Botnix, add the package to services.udev.packages for non-root plugdev
 # users to get device access permission:
 #    services.udev.packages = [ pkgs.python3Packages.seabreeze ];
 

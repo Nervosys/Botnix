@@ -95,7 +95,7 @@ stdenvNoCC.mkDerivation rec {
     maintainers = with maintainers; [ DAlperin jk thilobillerbeck cdmistman coffeeispower ];
     platforms = builtins.attrNames passthru.sources;
     # Broken for Musl at 2024-01-13, tracking issue:
-    # https://github.com/NixOS/nixpkgs/issues/280716
+    # https://github.com/nervosys/Botnix/issues/280716
     broken = stdenvNoCC.hostPlatform.isMusl;
   };
 }

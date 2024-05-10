@@ -79,7 +79,7 @@ libfoo = callPackage ../by-name/so/some-package/package.nix {
 Most packages are still defined in `all-packages.nix` and the [category hierarchy](../README.md#category-hierarchy).
 Please hold off migrating your maintained packages to this directory.
 
-1. An automated migration for the majority of packages [is being worked on](https://github.com/NixOS/nixpkgs/pull/211832).
+1. An automated migration for the majority of packages [is being worked on](https://github.com/nervosys/Botnix/pull/211832).
    In order to save on contributor and reviewer time, packages should only be migrated manually afterwards if they couldn't be migrated automatically.
 
 1. Manual migrations should only be lightly encouraged if the relevant code is being worked on anyways.

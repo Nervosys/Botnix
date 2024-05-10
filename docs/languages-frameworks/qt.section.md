@@ -29,7 +29,7 @@ Additionally all Qt packages must include `wrapQtAppsHook` in `nativeBuildInputs
 `pkgs.callPackage` does not provide injections for `qtbase` or the like.
 Instead you want to either use `pkgs.libsForQt5.callPackage`, or `pkgs.qt6Packages.callPackage`, depending on the Qt version you want to use.
 
-For example (from [here](https://github.com/NixOS/nixpkgs/blob/2f9286912cb215969ece465147badf6d07aa43fe/pkgs/top-level/all-packages.nix#L30106))
+For example (from [here](https://github.com/nervosys/Botnix/blob/2f9286912cb215969ece465147badf6d07aa43fe/pkgs/top-level/all-packages.nix#L30106))
 
 ```nix
   zeal-qt5 = libsForQt5.callPackage ../data/documentation/zeal { };

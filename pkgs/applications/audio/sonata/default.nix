@@ -40,7 +40,7 @@ in buildPythonApplication rec {
   ];
 
   postPatch = ''
-    # Remove "Local MPD" tab which is not suitable for NixOS.
+    # Remove "Local MPD" tab which is not suitable for Botnix.
     sed -i '/localmpd/d' sonata/consts.py
   '';
 
@@ -58,7 +58,7 @@ in buildPythonApplication rec {
        - User-configurable columns
        - Automatic fetching of lyrics
        - Playlist and stream support
-       - Support for editing song tags (not in NixOS version)
+       - Support for editing song tags (not in Botnix version)
        - Drag and drop to copy files
        - Popup notification
        - Library and playlist searching, filter as you type

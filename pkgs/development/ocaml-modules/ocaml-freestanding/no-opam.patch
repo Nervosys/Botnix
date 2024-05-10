@@ -5,7 +5,7 @@ Date:   Thu Mar 18 01:07:49 2021 +0100
     Allow building without ocamlfind and opam
     
     This change is the result of my first go at packaging ocaml-freestanding
-    for NixOS. Our build infrastructure for ocaml there is completely
+    for Botnix. Our build infrastructure for ocaml there is completely
     independent of opam at the moment, so depending on opam for the build
     time is not an option, especially in this case where the information it
     would give us would be garbage.
@@ -18,7 +18,7 @@ Date:   Thu Mar 18 01:07:49 2021 +0100
     Additionally, in configure.sh we check if the target ocaml source
     directory already exists. This allows for building ocaml-freestanding
     without the ocaml-src package (which would be unnecessarily cumbersome
-    to package for NixOS) and ocamlfind (one less dependency is always a
+    to package for Botnix) and ocamlfind (one less dependency is always a
     nice bonus). The Makefile needs no fix since the target ocaml/Makefile
     won't be built if it's already present.
 

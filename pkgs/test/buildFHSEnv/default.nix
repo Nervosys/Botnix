@@ -59,7 +59,7 @@ let
 
 in {
   # This test proves an issue with buildFHSEnv - don't expect it to succeed,
-  # this is discussed in https://github.com/NixOS/nixpkgs/pull/279844 .
+  # this is discussed in https://github.com/nervosys/Botnix/pull/279844 .
   libtinfo = makeSharedObjectTest (getSharedObjectFromDebian "libedit.so.2.0.70" (fetchurl {
     url = "mirror://debian/pool/main/libe/libedit/libedit2_3.1-20221030-2_amd64.deb";
     hash = "sha256-HPFKvycW0yedsS0GV6VzfPcAdKHnHTvfcyBmJePInOY=";

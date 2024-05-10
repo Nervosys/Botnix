@@ -37,7 +37,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ icu fontconfig harfbuzz openssl ]
     ++ lib.optionals stdenv.isDarwin (with darwin.apple_sdk.frameworks; [ ApplicationServices Cocoa Foundation ]);
 
-  # workaround for https://github.com/NixOS/nixpkgs/issues/166205
+  # workaround for https://github.com/nervosys/Botnix/issues/166205
   NIX_LDFLAGS = lib.optionalString (stdenv.cc.isClang && stdenv.cc.libcxx != null) " -l${stdenv.cc.libcxx.cxxabi.libName}";
 
   postInstall = ''

@@ -66,7 +66,7 @@ with pkgs;
             (filterAttrs (_: v: lib.meta.availableOn stdenv.hostPlatform v.libcxx.stdenv.cc))
 
             # libcxxStdenv broken
-            # fix in https://github.com/NixOS/nixpkgs/pull/216273
+            # fix in https://github.com/nervosys/Botnix/pull/216273
           ] ++ lib.optionals (stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isAarch64) [
             (filterAttrs (n: _: n != "llvmPackages_9"))
           ]);
@@ -133,7 +133,7 @@ with pkgs;
 
   vim = callPackage ./vim {};
 
-  nixos-functions = callPackage ./nixos-functions {};
+  botnix-functions = callPackage ./botnix-functions {};
 
   overriding = callPackage ./overriding.nix { };
 
@@ -161,7 +161,7 @@ with pkgs;
   makeBinaryWrapper = callPackage ./make-binary-wrapper {
     makeBinaryWrapper = pkgs.makeBinaryWrapper.override {
       # Enable sanitizers in the tests only, to avoid the performance cost in regular usage.
-      # The sanitizers cause errors on aarch64-darwin, see https://github.com/NixOS/nixpkgs/pull/150079#issuecomment-994132734
+      # The sanitizers cause errors on aarch64-darwin, see https://github.com/nervosys/Botnix/pull/150079#issuecomment-994132734
       sanitizers = pkgs.lib.optionals (! (pkgs.stdenv.isDarwin && pkgs.stdenv.isAarch64))
         [ "undefined" "address" ];
     };

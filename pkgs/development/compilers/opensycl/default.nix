@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
     rocmPackages.rocm-runtime
   ];
 
-  # opensycl makes use of clangs internal headers. Its cmake does not successfully discover them automatically on nixos, so we supply the path manually
+  # opensycl makes use of clangs internal headers. Its cmake does not successfully discover them automatically on botnix, so we supply the path manually
   cmakeFlags = [
     "-DCLANG_INCLUDE_PATH=${llvmPackages_15.libclang.dev}/include"
   ];

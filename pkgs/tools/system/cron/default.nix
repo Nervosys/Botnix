@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
     #define _PATH_DEFPATH "/run/wrappers/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:/usr/bin:/bin"
     __EOT__
 
-    # Implicit saved uids do not work here due to way NixOS uses setuid wrappers
+    # Implicit saved uids do not work here due to way Botnix uses setuid wrappers
     # (#16518).
     echo "#undef HAVE_SAVED_UIDS" >> externs.h
   '';

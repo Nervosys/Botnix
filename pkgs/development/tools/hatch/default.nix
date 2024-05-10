@@ -83,7 +83,7 @@ python3.pkgs.buildPythonApplication rec {
     # output capturing mismatch, likely stdout/stderr mixup
     "test_no_compatibility_check_if_exists"
   ] ++ lib.optionals stdenv.isDarwin [
-    # https://github.com/NixOS/nixpkgs/issues/209358
+    # https://github.com/nervosys/Botnix/issues/209358
     "test_scripts_no_environment"
 
     # This test assumes it is running on macOS with a system shell on the PATH.

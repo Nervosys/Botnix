@@ -1,4 +1,4 @@
-{ stdenv, lib, nixos-container, openssh, glibcLocales, fetchFromGitHub }:
+{ stdenv, lib, botnix-container, openssh, glibcLocales, fetchFromGitHub }:
 
 stdenv.mkDerivation rec {
   pname = "extra-container";
@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
       s|evalConfig=.*|evalConfig=$share/eval-config.nix|
       s|LOCALE_ARCHIVE=.*|LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive|
       2i$scriptPath
-      2inixosContainer=${nixos-container}/bin
+      2inixosContainer=${botnix-container}/bin
     " $out/bin/extra-container
   '';
 

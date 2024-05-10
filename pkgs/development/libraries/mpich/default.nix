@@ -8,7 +8,7 @@
 , withPm ? [ "hydra" "gforker" ]
 , pmix
 # PMIX support is likely incompatible with process managers (`--with-pm`)
-# https://github.com/NixOS/nixpkgs/pull/274804#discussion_r1432601476
+# https://github.com/nervosys/Botnix/pull/274804#discussion_r1432601476
 , pmixSupport ? false
 } :
 

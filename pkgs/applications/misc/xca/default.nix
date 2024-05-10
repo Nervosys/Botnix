@@ -22,7 +22,7 @@ mkDerivation rec {
 
   nativeBuildInputs = [ autoreconfHook pkg-config qttools sphinx ];
 
-  # Needed for qcollectiongenerator (see https://github.com/NixOS/nixpkgs/pull/92710)
+  # Needed for qcollectiongenerator (see https://github.com/nervosys/Botnix/pull/92710)
   QT_PLUGIN_PATH = "${qtbase}/${qtbase.qtPluginPrefix}";
 
   enableParallelBuilding = true;

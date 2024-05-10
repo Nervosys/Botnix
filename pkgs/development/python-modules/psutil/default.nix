@@ -24,7 +24,7 @@ buildPythonPackage rec {
   };
 
   buildInputs =
-    # workaround for https://github.com/NixOS/nixpkgs/issues/146760
+    # workaround for https://github.com/nervosys/Botnix/issues/146760
     lib.optionals (stdenv.isDarwin && stdenv.isx86_64) [
       CoreFoundation
     ] ++ lib.optionals stdenv.isDarwin [

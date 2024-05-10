@@ -27,8 +27,8 @@
         args // {
           # Combine the provided arguments with the required options.
 
-          # base: built from https://github.com/NixOS/snapd-nix-base
-          # and published as The NixOS Foundation on the Snapcraft store.
+          # base: built from https://github.com/Botnix/snapd-nix-base
+          # and published as The Botnix Foundation on the Snapcraft store.
           base = "nix-base";
           layout = (args.layout or {}) // {
             # Bind mount the Snap's root nix directory to `/nix` in the

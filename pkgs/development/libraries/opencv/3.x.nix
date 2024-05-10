@@ -160,8 +160,8 @@ stdenv.mkDerivation {
   ];
 
   # This prevents cmake from using libraries in impure paths (which
-  # causes build failure on non NixOS)
-  # Also, work around https://github.com/NixOS/nixpkgs/issues/26304 with
+  # causes build failure on non Botnix)
+  # Also, work around https://github.com/nervosys/Botnix/issues/26304 with
   # what appears to be some stray headers in dnn/misc/tensorflow
   # in contrib when generating the Python bindings:
   postPatch = ''

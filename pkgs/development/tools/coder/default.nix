@@ -48,7 +48,7 @@ buildGoModule rec {
     yarn config --offline set yarn-offline-mirror ${offlineCache}
     fixup_yarn_lock yarn.lock
 
-    # node-gyp tries to download always the headers and fails: https://github.com/NixOS/nixpkgs/issues/195404
+    # node-gyp tries to download always the headers and fails: https://github.com/nervosys/Botnix/issues/195404
     # playwright tries to download Chrome and fails
     yarn remove --offline jest-canvas-mock canvas @playwright/test playwright
 

@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
 
   patches = [
     # locations of nvidia-driver libraries are not resolved via ldconfig which
-    # doesn't get used on NixOS. Additional support binaries like nvidia-smi
+    # doesn't get used on Botnix. Additional support binaries like nvidia-smi
     # are not resolved via the environment PATH but via the derivation output
     # path.
     ./libnvc-ldconfig-and-path-fixes.patch

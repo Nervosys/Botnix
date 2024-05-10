@@ -109,7 +109,7 @@ stdenv.mkDerivation rec {
   configureFlags = [
     "--disable-appliance"
     "--disable-daemon"
-    "--with-distro=NixOS"
+    "--with-distro=Botnix"
     "--with-guestfs-path=${placeholder "out"}/lib/guestfs"
   ] ++ lib.optionals (!javaSupport) [ "--without-java" ];
   patches = [

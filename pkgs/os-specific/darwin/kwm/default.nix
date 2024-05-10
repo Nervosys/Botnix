@@ -19,8 +19,8 @@ stdenv.mkDerivation rec {
     cp kwm overlaylib.dylib $out
 
     mkdir -p $out/Library/LaunchDaemons
-    cp ${./org.nixos.kwm.plist} $out/Library/LaunchDaemons/org.nixos.kwm.plist
-    substituteInPlace $out/Library/LaunchDaemons/org.nixos.kwm.plist --subst-var out
+    cp ${./org.botnix.kwm.plist} $out/Library/LaunchDaemons/org.botnix.kwm.plist
+    substituteInPlace $out/Library/LaunchDaemons/org.botnix.kwm.plist --subst-var out
   '';
 
   meta = with lib; {

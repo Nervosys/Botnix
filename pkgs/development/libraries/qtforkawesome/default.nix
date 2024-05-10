@@ -41,9 +41,9 @@ in stdenv.mkDerivation (finalAttrs: {
   ];
   cmakeFlags = [
     "-DQT_PACKAGE_PREFIX=Qt${lib.versions.major qtbase.version}"
-    # Current freetype used by NixOS users doesn't support the `.woff2` font
+    # Current freetype used by Botnix users doesn't support the `.woff2` font
     # format, so we use ttf. See
-    # https://github.com/NixOS/nixpkgs/pull/174875#discussion_r883423881
+    # https://github.com/nervosys/Botnix/pull/174875#discussion_r883423881
     "-DFORK_AWESOME_FONT_FILE=${fork_awesome_release}/fonts/forkawesome-webfont.ttf"
     "-DFORK_AWESOME_ICON_DEFINITIONS=${fork_awesome_release}/src/icons/icons.yml"
   ];

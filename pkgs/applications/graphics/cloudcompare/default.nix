@@ -104,7 +104,7 @@ mkDerivation rec {
       --replace '.png' ""
   '';
 
-  # fix file dialogs crashing on non-NixOS (and avoid double wrapping)
+  # fix file dialogs crashing on non-Botnix (and avoid double wrapping)
   preFixup = ''
     qtWrapperArgs+=("''${gappsWrapperArgs[@]}")
   '';

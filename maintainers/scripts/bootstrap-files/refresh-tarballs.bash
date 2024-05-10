@@ -13,7 +13,7 @@
 # 2. fetch oldest evaluation that contained that '.build', extract nixpkgs commit
 # 3. fetch all the `.build` artifacts from '$out/on-server/' directory
 # 4. calculate hashes and craft the commit message with the details on
-#    how to upload the result to 'tarballs.nixos.org'
+#    how to upload the result to 'tarballs.botnix.org'
 
 usage() {
     cat >&2 <<EOF
@@ -25,7 +25,7 @@ Usage:
 Synopsis:
     'refresh-tarballs.bash' script fetches latest bootstrapFiles built
     by hydra, registers them in 'nixpkgs' and provides commands to
-    upload seed files to 'tarballs.nixos.org'.
+    upload seed files to 'tarballs.botnix.org'.
 
     This is usually done in the following cases:
 
@@ -40,7 +40,7 @@ Synopsis:
 
        \$ $0 --commit --all-targets
 
-To get help on uploading refreshed binaries to 'tarballs.nixos.org'
+To get help on uploading refreshed binaries to 'tarballs.botnix.org'
 please have a look at <maintainers/scripts/bootstrap-files/README.md>.
 EOF
     exit 1
@@ -157,14 +157,14 @@ for target in "${targets[@]}"; do
     s3_prefix="stdenv/$target"
 
     # resolve 'latest' build to the build 'id', construct the link.
-    latest_build_uri="https://hydra.nixos.org/job/$jobset/$job/latest"
+    latest_build_uri="https://hydra.botnix.org/job/$jobset/$job/latest"
     latest_build="$target.latest-build"
     info "Fetching latest successful build from '${latest_build_uri}'"
     curl -s -H "Content-Type: application/json" -L "$latest_build_uri" > "$latest_build"
     [[ $? -ne 0 ]] && die "Failed to fetch latest successful build"
     latest_build_id=$(jq '.id' < "$latest_build")
     [[ $? -ne 0 ]] && die "Did not find 'id' in latest build"
-    build_uri="https://hydra.nixos.org/build/${latest_build_id}"
+    build_uri="https://hydra.botnix.org/build/${latest_build_id}"
 
     # We pick oldest jobset evaluation and extract the 'nicpkgs' commit.
     #
@@ -174,7 +174,7 @@ for target in "${targets[@]}"; do
     # no bootstrapTools updates committed between the two runs).
     oldest_eval_id=$(jq '.jobsetevals|min' < "$latest_build")
     [[ $? -ne 0 ]] && die "Did not find 'jobsetevals' in latest build"
-    eval_uri="https://hydra.nixos.org/eval/${oldest_eval_id}"
+    eval_uri="https://hydra.botnix.org/eval/${oldest_eval_id}"
     eval_meta="$target.eval-meta"
     info "Fetching oldest eval details from '${eval_uri}' (can take a minute)"
     curl -s -H "Content-Type: application/json"  -L "${eval_uri}" > "$eval_meta"
@@ -238,7 +238,7 @@ EOF
           # individual file entries
           cat <<EOF
   $attr = import <nix/fetchurl.nix> {
-    url = "http://tarballs.nixos.org/${s3_prefix}/${nixpkgs_revision}/$fname";
+    url = "http://tarballs.botnix.org/${s3_prefix}/${nixpkgs_revision}/$fname";
     hash = "${sri}";$(printf "\n%s" "${executable_nix}")
   };
 EOF
@@ -260,7 +260,7 @@ echo "$ sha256sum ${outpath}/on-server/*"
 sha256sum ${outpath}/on-server/*
 )
 
-Suggested commands to upload files to 'tarballs.nixos.org':
+Suggested commands to upload files to 'tarballs.botnix.org':
 
     $ nix-store --realize ${outpath}
     $ aws s3 cp --recursive --acl public-read ${outpath}/on-server/ s3://nixpkgs-tarballs/${s3_prefix}/${nixpkgs_revision}

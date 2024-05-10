@@ -1,4 +1,4 @@
 {
-  _class = "nixos";
+  _class = "botnix";
   config = {};
 }

@@ -53,7 +53,7 @@ python3Packages.buildPythonApplication rec {
 
   # zerobin has no check, but checking would fail with:
   # nix_run_setup runserver: Received extra arguments: test
-  # See https://github.com/NixOS/nixpkgs/pull/98734#discussion_r495823510
+  # See https://github.com/nervosys/Botnix/pull/98734#discussion_r495823510
   doCheck = false;
 
   pythonImportsCheck = [ "zerobin" ];

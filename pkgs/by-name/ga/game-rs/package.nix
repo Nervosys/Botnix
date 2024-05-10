@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-aq58sFK4/Zd8S4dOWjag+g5PmTeaVAK3FS3fW/YlCLs=";
 
-  buildFeatures = [ "nixos" ];
+  buildFeatures = [ "botnix" ];
 
   propagatedBuildInputs = [ steam-run ];
 

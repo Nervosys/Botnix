@@ -133,7 +133,7 @@ in
 , drmSupport ? true
 
 # As stated by Sylvestre Ledru (@sylvestre) on Nov 22, 2017 at
-# https://github.com/NixOS/nixpkgs/issues/31843#issuecomment-346372756 we
+# https://github.com/nervosys/Botnix/issues/31843#issuecomment-346372756 we
 # have permission to use the official firefox branding.
 #
 # For purposes of documentation the statement of @sylvestre:
@@ -191,13 +191,13 @@ let
   distributionIni = pkgs.writeText "distribution.ini" (lib.generators.toINI {} {
     # Some light branding indicating this build uses our distro preferences
     Global = {
-      id = "nixos";
+      id = "botnix";
       version = "1.0";
-      about = "${applicationName} for NixOS";
+      about = "${applicationName} for Botnix";
     };
     Preferences = {
       # These values are exposed through telemetry
-      "app.distributor" = "nixos";
+      "app.distributor" = "botnix";
       "app.distributor.channel" = "nixpkgs";
     };
   });
@@ -209,7 +209,7 @@ let
     };
   };
 
-  defaultPrefsFile = pkgs.writeText "nixos-default-prefs.js" (lib.concatStringsSep "\n" (lib.mapAttrsToList (key: value: ''
+  defaultPrefsFile = pkgs.writeText "botnix-default-prefs.js" (lib.concatStringsSep "\n" (lib.mapAttrsToList (key: value: ''
     // ${value.reason}
     pref("${key}", ${builtins.toJSON value.value});
   '') defaultPrefs));
@@ -358,7 +358,7 @@ buildStdenv.mkDerivation {
     fi
   '' + lib.optionalString googleAPISupport ''
     # Google API key used by Chromium and Firefox.
-    # Note: These are for NixOS/nixpkgs use ONLY. For your own distribution,
+    # Note: These are for Botnix/nixpkgs use ONLY. For your own distribution,
     # please get your own set of keys at https://www.chromium.org/developers/how-tos/api-keys/.
     echo "AIzaSyDGi15Zwl11UNe6Y-5XW_upsfyw31qwZPI" > $TMPDIR/google-api-key
     # 60.5+ & 66+ did split the google API key arguments: https://bugzilla.mozilla.org/show_bug.cgi?id=1531176
@@ -366,7 +366,7 @@ buildStdenv.mkDerivation {
     configureFlagsArray+=("--with-google-safebrowsing-api-keyfile=$TMPDIR/google-api-key")
   '' + lib.optionalString mlsAPISupport ''
     # Mozilla Location services API key
-    # Note: These are for NixOS/nixpkgs use ONLY. For your own distribution,
+    # Note: These are for Botnix/nixpkgs use ONLY. For your own distribution,
     # please get your own set of keys at https://location.services.mozilla.com/api.
     echo "dfd7836c-d458-4917-98bb-421c82d3c8a0" > $TMPDIR/mls-api-key
     configureFlagsArray+=("--with-mozilla-api-keyfile=$TMPDIR/mls-api-key")
@@ -389,7 +389,7 @@ buildStdenv.mkDerivation {
     "--enable-application=${application}"
     "--enable-default-toolkit=cairo-gtk3${lib.optionalString waylandSupport "-wayland"}"
     "--enable-system-pixman"
-    "--with-distribution-id=org.nixos"
+    "--with-distribution-id=org.botnix"
     "--with-libclang-path=${llvmPackagesBuildBuild.libclang.lib}/lib"
     "--with-system-ffi"
     "--with-system-icu"
@@ -543,7 +543,7 @@ buildStdenv.mkDerivation {
   postInstall = ''
     # Install distribution customizations
     install -Dvm644 ${distributionIni} $out/lib/${binaryName}/distribution/distribution.ini
-    install -Dvm644 ${defaultPrefsFile} $out/lib/${binaryName}/browser/defaults/preferences/nixos-default-prefs.js
+    install -Dvm644 ${defaultPrefsFile} $out/lib/${binaryName}/browser/defaults/preferences/botnix-default-prefs.js
 
   '' + lib.optionalString buildStdenv.isLinux ''
     # Remove SDK cruft. FIXME: move to a separate output?
@@ -586,7 +586,7 @@ buildStdenv.mkDerivation {
   # the build system verifies checksums of the bundled rust sources
   # ./third_party/rust is be patched by our libtool fixup code in stdenv
   # unfortunately we can't just set this to `false` when we do not want it.
-  # See https://github.com/NixOS/nixpkgs/issues/77289 for more details
+  # See https://github.com/nervosys/Botnix/issues/77289 for more details
   # Ideally we would figure out how to tell the build system to not
   # care about changed hashes as we are already doing that when we
   # fetch the sources. Any further modifications of the source tree

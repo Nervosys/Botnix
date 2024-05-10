@@ -63,7 +63,7 @@ let
     platforms = platforms.unix;
     # aarch64-darwin is broken because of https://github.com/bazelbuild/rules_cc/pull/136
     # however even with that fix applied, it doesn't work for everyone:
-    # https://github.com/NixOS/nixpkgs/pull/184395#issuecomment-1207287129
+    # https://github.com/nervosys/Botnix/pull/184395#issuecomment-1207287129
     # NOTE: We always build with NCCL; if it is unsupported, then our build is broken.
     broken = stdenv.isDarwin || nccl.meta.unsupported;
   };
@@ -241,7 +241,7 @@ let
     ] ++ lib.optionals stdenv.cc.isClang [
       # bazel depends on the compiler frontend automatically selecting these flags based on file
       # extension but our clang doesn't.
-      # https://github.com/NixOS/nixpkgs/issues/150655
+      # https://github.com/nervosys/Botnix/issues/150655
       "--cxxopt=-x" "--cxxopt=c++" "--host_cxxopt=-x" "--host_cxxopt=c++"
     ];
 
@@ -285,7 +285,7 @@ let
         patchShebangs ../output/external/xla/third_party/gpus/crosstool/clang/bin/crosstool_wrapper_driver_is_not_gcc.tpl
       '' + lib.optionalString stdenv.isDarwin ''
         # Framework search paths aren't added by bintools hook
-        # https://github.com/NixOS/nixpkgs/pull/41914
+        # https://github.com/nervosys/Botnix/pull/41914
         export NIX_LDFLAGS+=" -F${IOKit}/Library/Frameworks"
         substituteInPlace ../output/external/rules_cc/cc/private/toolchain/osx_cc_wrapper.sh.tpl \
           --replace "/usr/bin/install_name_tool" "${cctools}/bin/install_name_tool"
@@ -315,7 +315,7 @@ buildPythonPackage {
     in "${bazel-build}/jaxlib-${version}-${cp}-${cp}-${platformTag}.whl";
 
   # Note that cudatoolkit is necessary since jaxlib looks for "ptxas" in $PATH.
-  # See https://github.com/NixOS/nixpkgs/pull/164176#discussion_r828801621 for
+  # See https://github.com/nervosys/Botnix/pull/164176#discussion_r828801621 for
   # more info.
   postInstall = lib.optionalString cudaSupport ''
     mkdir -p $out/bin

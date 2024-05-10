@@ -44,7 +44,7 @@ python3Packages.buildPythonApplication rec {
 
      wpgtk uses pywal as its colorscheme generator, but builds upon it with a UI and other features, such as the abilty to mix and edit the colorschemes generated and save them with their respective wallpapers, having light and dark themes, hackable and fast GTK theme made specifically for wpgtk and custom keywords and values to replace in templates.
 
-     INFO: To work properly, this tool needs "programs.dconf.enable = true" on nixos or dconf installed. A reboot may be required after installing dconf.
+     INFO: To work properly, this tool needs "programs.dconf.enable = true" on botnix or dconf installed. A reboot may be required after installing dconf.
      '';
     homepage = "https://github.com/deviantfero/wpgtk";
     license = licenses.gpl2Only;

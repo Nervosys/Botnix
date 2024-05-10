@@ -35,8 +35,8 @@ stdenv.mkDerivation rec {
     wrapProgram $out/bin/cage --prefix PATH : "${xwayland}/bin"
   '';
 
-  # Tests Cage using the NixOS module by launching xterm:
-  passthru.tests.basic-nixos-module-functionality = nixosTests.cage;
+  # Tests Cage using the Botnix module by launching xterm:
+  passthru.tests.basic-botnix-module-functionality = nixosTests.cage;
 
   meta = with lib; {
     description = "A Wayland kiosk that runs a single, maximized application";

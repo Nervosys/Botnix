@@ -14,8 +14,8 @@ let
   ];
 in stdenv.mkDerivation rec {
   # NOTICE: if you bump this, make sure to run
-  # $ nix-build nixos/release-combined.nix -A nixos.tests.ec2-nixops
-  # growpart is needed in initrd in nixos/system/boot/grow-partition.nix
+  # $ nix-build botnix/release-combined.nix -A botnix.tests.ec2-nixops
+  # growpart is needed in initrd in botnix/system/boot/grow-partition.nix
   pname = "cloud-utils";
   version = "0.32";
   src = fetchurl {

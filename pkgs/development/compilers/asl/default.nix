@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
     incdir="${placeholder "out"}/include/asl" \
     libdir="${placeholder "out"}/lib/asl" \
     mandir="${placeholder "man"}/share/man" \
-    substituteAll ${./Makefile-nixos.def} Makefile.def
+    substituteAll ${./Makefile-botnix.def} Makefile.def
     mkdir -p .objdir
   '';
 

@@ -17,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   # Using elfutils because libelf is being discontinued
-  # See https://github.com/NixOS/nixpkgs/pull/271568
+  # See https://github.com/nervosys/Botnix/pull/271568
   buildInputs = [ elfutils pcre ];
 
   postPatch = ''

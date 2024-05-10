@@ -49,7 +49,7 @@ stdenv.mkDerivation rec {
         --replace '"/usr/bin/xauth"' '"${xorg.xauth}/bin/xauth"'
   '');
 
-  # nixos test fails to start slurmd with 'undefined symbol: slurm_job_preempt_mode'
+  # botnix test fails to start slurmd with 'undefined symbol: slurm_job_preempt_mode'
   # https://groups.google.com/forum/#!topic/slurm-devel/QHOajQ84_Es
   # this doesn't fix tests completely at least makes slurmd to launch
   hardeningDisable = [ "bindnow" ];

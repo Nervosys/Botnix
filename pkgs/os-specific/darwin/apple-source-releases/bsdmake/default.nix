@@ -21,7 +21,7 @@ appleDerivation {
       --replace '-g ''${''${group}GRP_''${.ALLSRC:T}}' "" \
       --replace '-o ''${''${group}OWN} -g ''${''${group}GRP}' ""
 
-    # Workaround for https://github.com/NixOS/nixpkgs/issues/103172
+    # Workaround for https://github.com/nervosys/Botnix/issues/103172
     # Prevents bsdmake from failing on systems that already had default limits
     # increased.
     substituteInPlace main.c \

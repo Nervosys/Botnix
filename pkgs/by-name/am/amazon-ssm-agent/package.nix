@@ -69,7 +69,7 @@ buildGoModule rec {
   ];
 
   # See the list https://github.com/aws/amazon-ssm-agent/blob/3.2.2143.0/makefile#L121-L147
-  # The updater is not built because it cannot work on NixOS
+  # The updater is not built because it cannot work on Botnix
   subPackages = [
     "core"
     "agent"
@@ -128,7 +128,7 @@ buildGoModule rec {
     # we're using the default configuration.
 
     # seelog.xml isn't actually required to run, but it does ship as a template
-    # with debian packages, so it's here for reference. Future work in the nixos
+    # with debian packages, so it's here for reference. Future work in the botnix
     # module could use this template and substitute a different log level.
 
     install -D -m 0444 -t $out/etc/amazon/ssm amazon-ssm-agent.json.template

@@ -49,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
   configureFlags = [ "--enable-tmpdir=/tmp" ];
 
   patches = [
-    ./000-nixos-specific.patch
+    ./000-botnix-specific.patch
   ];
 
   postPatch = ''

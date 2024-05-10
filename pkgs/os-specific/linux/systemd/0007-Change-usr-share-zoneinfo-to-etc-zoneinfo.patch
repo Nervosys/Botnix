@@ -3,7 +3,7 @@ From: Nikolay Amiantov <ab@fmap.me>
 Date: Tue, 11 Oct 2016 13:12:08 +0300
 Subject: [PATCH] Change /usr/share/zoneinfo to /etc/zoneinfo
 
-NixOS uses this path.
+Botnix uses this path.
 ---
  man/localtime.xml         | 4 ++--
  src/basic/time-util.c     | 8 ++++----

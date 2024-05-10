@@ -16,7 +16,7 @@ let
   }).overrideAttrs (attrs : {
     installPhase = attrs.installPhase + ''
       rm -R $out/bootstrap/cache
-      # Move static contents for the NixOS module to pick it up, if needed.
+      # Move static contents for the Botnix module to pick it up, if needed.
       mv $out/bootstrap $out/bootstrap-static
       mv $out/storage $out/storage-static
       ln -s ${dataDir}/.env $out/.env

@@ -2,7 +2,7 @@
 , threadSupport ? (stdenv.hostPlatform.isx86 || "aarch64-linux" == stdenv.hostPlatform.system || "aarch64-darwin" == stdenv.hostPlatform.system)
 , linkableRuntime ? stdenv.hostPlatform.isx86
 , disableImmobileSpace ? false
-  # Meant for sbcl used for creating binaries portable to non-NixOS via save-lisp-and-die.
+  # Meant for sbcl used for creating binaries portable to non-Botnix via save-lisp-and-die.
   # Note that the created binaries still need `patchelf --set-interpreter ...`
   # to get rid of ${glibc} dependency.
 , purgeNixReferences ? false
@@ -86,7 +86,7 @@ stdenv.mkDerivation rec {
   ];
 
   postPatch = ''
-    echo '"${version}.nixos"' > version.lisp-expr
+    echo '"${version}.botnix"' > version.lisp-expr
 
     # SBCL checks whether files are up-to-date in many places..
     # Unfortunately, same timestamp is not good enough

@@ -101,7 +101,7 @@ stdenv.mkDerivation rec {
     export LD_LIBRARY_PATH="$PWD"
   '';
 
-  # TODO: the udev rules file and the hotplug script need fixes to work on NixOS
+  # TODO: the udev rules file and the hotplug script need fixes to work on Botnix
   preInstall = ''
     mkdir -p "$out/lib/udev/rules.d"
   '';

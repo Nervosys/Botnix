@@ -48,7 +48,7 @@ buildPythonPackage rec {
 
   disabledTests = [
     # Tests are failing as mxnet is not pulled-in
-    # https://github.com/NixOS/nixpkgs/issues/174872
+    # https://github.com/nervosys/Botnix/issues/174872
     "test_all_notebooks"
     "test_dl_notebook_with_all_backends"
     "test_backends_installed"

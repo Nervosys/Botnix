@@ -77,7 +77,7 @@ stdenv.mkDerivation rec {
       echo "int main() { return 77; }" > gnulib-tests/test-getlogin.c
     ''
   ])) + (optionalString stdenv.isAarch64 ''
-    # Sometimes fails: https://github.com/NixOS/nixpkgs/pull/143097#issuecomment-954462584
+    # Sometimes fails: https://github.com/nervosys/Botnix/pull/143097#issuecomment-954462584
     sed '2i echo Skipping cut huge range test && exit 77' -i ./tests/cut/cut-huge-range.sh
   '');
 

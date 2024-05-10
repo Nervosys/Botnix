@@ -1,7 +1,7 @@
 Patch dlopen() to allow direct paths to all required libs
 
 This is an update of the patch submitted in
-https://github.com/NixOS/nixpkgs/commit/b13e44e094989d3a902f8c73b22e8d3c0cc7acf4
+https://github.com/nervosys/Botnix/commit/b13e44e094989d3a902f8c73b22e8d3c0cc7acf4
 by Alexander V. Nikolaev <avn@avnik.info>
 
 ---

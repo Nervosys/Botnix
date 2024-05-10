@@ -17,7 +17,7 @@ Type the name of your package and try to find an open pull request for the packa
 If you find an open pull request, you can review it!
 There's a high chance that you'll have the new version right away while helping the community!
 -->
-- [ ] Checked the [nixpkgs pull requests](https://github.com/NixOS/nixpkgs/pulls)
+- [ ] Checked the [nixpkgs pull requests](https://github.com/nervosys/Botnix/pulls)
 
 **Notify maintainers**
 
@@ -32,4 +32,4 @@ Note for maintainers: Please tag this issue in your PR.
 Add a :+1: [reaction] to [issues you find important].
 
 [reaction]: https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/
-[issues you find important]: https://github.com/NixOS/nixpkgs/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc
+[issues you find important]: https://github.com/nervosys/Botnix/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc

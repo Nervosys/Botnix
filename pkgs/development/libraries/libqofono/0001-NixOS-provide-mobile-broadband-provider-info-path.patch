@@ -1,7 +1,7 @@
 From 04106010ae2a13b3a2a93e210062998ee51778ca Mon Sep 17 00:00:00 2001
 From: Samuel Dionne-Riel <samuel@dionne-riel.com>
 Date: Tue, 30 Mar 2021 15:47:38 -0400
-Subject: [PATCH] [NixOS] provide mobile-broadband-provider-info path
+Subject: [PATCH] [Botnix] provide mobile-broadband-provider-info path
 
 ---
  src/qofonoconnectioncontext.cpp | 4 ++--

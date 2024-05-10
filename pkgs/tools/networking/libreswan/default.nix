@@ -90,7 +90,7 @@ stdenv.mkDerivation rec {
         -e 's|systemd-tmpfiles|true|g' \
         -i initsystems/systemd/Makefile
 
-    # Fix systemd detection on NixOS
+    # Fix systemd detection on Botnix
     sed -e 's|\(-a ! -x /bin/journalctl\)|\1 -a ! -x /run/current-system/sw/bin/journalctl|g' \
         -e 's|\(-o ! -x /bin/journalctl\)|\1 -o ! -x /run/current-system/sw/bin/journalctl|g' \
         -i programs/barf/barf.in
@@ -128,7 +128,7 @@ stdenv.mkDerivation rec {
     "INITSYSTEM=systemd"
     "UNITDIR=$(out)/etc/systemd/system/"
     "TMPFILESDIR=$(out)/lib/tmpfiles.d/"
-    "LINUX_VARIANT=nixos"
+    "LINUX_VARIANT=botnix"
     "DEFAULT_DNSSEC_ROOTKEY_FILE=${dns-root-data}/root.key"
   ];
 

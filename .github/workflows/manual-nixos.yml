@@ -1,4 +1,4 @@
-name: "Build NixOS manual"
+name: "Build Botnix manual"
 
 permissions: read-all
 
@@ -7,12 +7,12 @@ on:
     branches:
       - master
     paths:
-      - 'nixos/**'
+      - 'botnix/**'
 
 jobs:
-  nixos:
+  botnix:
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'NixOS'
+    if: github.repository_owner == 'Botnix'
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
@@ -27,5 +27,5 @@ jobs:
           # This cache is for the nixpkgs repo checks and should not be trusted or used elsewhere.
           name: nixpkgs-ci
           signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-      - name: Building NixOS manual
-        run: NIX_PATH=nixpkgs=$(pwd) nix-build --option restrict-eval true nixos/release.nix -A manual.x86_64-linux
+      - name: Building Botnix manual
+        run: NIX_PATH=nixpkgs=$(pwd) nix-build --option restrict-eval true botnix/release.nix -A manual.x86_64-linux

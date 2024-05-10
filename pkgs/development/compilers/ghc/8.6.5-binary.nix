@@ -64,7 +64,7 @@ stdenv.mkDerivation rec {
     x86_64-linux = {
       # This is the Fedora build because it links against ncurses6 where the
       # deb9 one links against ncurses5, see here
-      # https://github.com/NixOS/nixpkgs/issues/85924 for a discussion
+      # https://github.com/nervosys/Botnix/issues/85924 for a discussion
       url = "${downloadsUrl}/${version}/ghc-${version}-x86_64-fedora27-linux.tar.xz";
       sha256 = "18dlqm5d028fqh6ghzn7pgjspr5smw030jjzl3kq6q1kmwzbay6g";
     };
@@ -185,7 +185,7 @@ stdenv.mkDerivation rec {
   # But GHC cannot currently produce outputs that are ready for `-pie` linking.
   # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.
   # See:
-  # * https://github.com/NixOS/nixpkgs/issues/129247
+  # * https://github.com/nervosys/Botnix/issues/129247
   # * https://gitlab.haskell.org/ghc/ghc/-/issues/19580
   hardeningDisable = lib.optional stdenv.targetPlatform.isMusl "pie";
 

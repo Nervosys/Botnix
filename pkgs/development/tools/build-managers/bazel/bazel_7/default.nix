@@ -175,7 +175,7 @@ stdenv.mkDerivation rec {
   inherit sourceRoot;
 
   patches = [
-    # Remote java toolchains do not work on NixOS because they download binaries,
+    # Remote java toolchains do not work on Botnix because they download binaries,
     # so we need to use the @local_jdk//:jdk
     # It could in theory be done by registering @local_jdk//:all toolchains,
     # but these java toolchains still bundle binaries for ijar and stuff. So we
@@ -199,7 +199,7 @@ stdenv.mkDerivation rec {
     # With more code, we could define java toolchains for all the java versions
     # supported by the jdk as in rules_java's
     # toolchains/local_java_repository.bzl, but this is not implemented here.
-    # To recover vanilla behavior, non NixOS users can set
+    # To recover vanilla behavior, non Botnix users can set
     # --{,tool_}java_runtime_version=remote_jdk, effectively reverting the
     # effect of this patch and the fake system bazelrc.
     ./java_toolchain.patch
@@ -238,9 +238,9 @@ stdenv.mkDerivation rec {
     # --experimental_strict_action_env (which may one day become the default
     # see bazelbuild/bazel#2574) hardcodes the default
     # action environment to a non hermetic value (e.g. "/usr/local/bin").
-    # This is non hermetic on non-nixos systems. On NixOS, bazel cannot find the required binaries.
+    # This is non hermetic on non-botnix systems. On Botnix, bazel cannot find the required binaries.
     # So we are replacing this bazel paths by defaultShellPath,
-    # improving hermeticity and making it work in nixos.
+    # improving hermeticity and making it work in botnix.
     (substituteAll {
       src = ../strict_action_env.patch;
       strictActionEnvPatch = defaultShellPath;
@@ -258,7 +258,7 @@ stdenv.mkDerivation rec {
 
   postPatch =
     let
-      # Workaround for https://github.com/NixOS/nixpkgs/issues/166205
+      # Workaround for https://github.com/nervosys/Botnix/issues/166205
       nixpkgs166205ldflag = lib.optionalString stdenv.cc.isClang "-l${stdenv.cc.libcxx.cxxabi.libName}";
       darwinPatches = ''
         bazelLinkFlags () {
@@ -273,11 +273,11 @@ stdenv.mkDerivation rec {
         export GCOV=${coreutils}/bin/false
 
         # Framework search paths aren't added by bintools hook
-        # https://github.com/NixOS/nixpkgs/pull/41914
+        # https://github.com/nervosys/Botnix/pull/41914
         export NIX_LDFLAGS+=" -F${CoreFoundation}/Library/Frameworks -F${CoreServices}/Library/Frameworks -F${Foundation}/Library/Frameworks -F${IOKit}/Library/Frameworks ${nixpkgs166205ldflag}"
 
         # libcxx includes aren't added by libcxx hook
-        # https://github.com/NixOS/nixpkgs/pull/41589
+        # https://github.com/nervosys/Botnix/pull/41589
         export NIX_CFLAGS_COMPILE="$NIX_CFLAGS_COMPILE -isystem ${lib.getDev libcxx}/include/c++/v1"
         # for CLang 16 compatibility in external/upb dependency
         export NIX_CFLAGS_COMPILE+=" -Wno-gnu-offsetof-extensions"

@@ -9,7 +9,7 @@ let
   pname = "cockroachdb";
 
   # For several reasons building cockroach from source has become
-  # nearly impossible. See https://github.com/NixOS/nixpkgs/pull/152626
+  # nearly impossible. See https://github.com/nervosys/Botnix/pull/152626
   # Therefore we use the pre-build release binary and wrap it with buildFHSUserEnv to
   # work on nix.
   # You can generate the hashes with

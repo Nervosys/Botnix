@@ -5,7 +5,7 @@ diff -Nur buildbot-0.9.6/buildbot/test/unit/test_buildbot_net_usage_data.py buil
          _sendBuildbotNetUsageData({'foo': 'bar'})
  
      def test_linux_distro(self):
-+        raise SkipTest("NixOS sandboxed builds hides /etc/os-release")
++        raise SkipTest("Botnix sandboxed builds hides /etc/os-release")
          system = platform.system()
          if system != "Linux":
              raise SkipTest("test is only for linux")

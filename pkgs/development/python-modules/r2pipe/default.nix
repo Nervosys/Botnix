@@ -21,7 +21,7 @@ buildPythonPackage rec {
   in
   ''
     # Fix find_library, can be removed after
-    # https://github.com/NixOS/nixpkgs/issues/7307 is resolved.
+    # https://github.com/nervosys/Botnix/issues/7307 is resolved.
     substituteInPlace r2pipe/native.py --replace 'find_library("r_core")' "'${libr_core}'"
 
     # Fix the default r2 executable

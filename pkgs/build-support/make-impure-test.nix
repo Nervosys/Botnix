@@ -51,7 +51,7 @@ let
     {
       name = "test-run-${name}";
 
-      requiredSystemFeatures = [ "nixos-test" ];
+      requiredSystemFeatures = [ "botnix-test" ];
 
       buildCommand = ''
         mkdir -p $out

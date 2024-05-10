@@ -59,7 +59,7 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  # https://github.com/NixOS/nixpkgs/issues/245534
+  # https://github.com/nervosys/Botnix/issues/245534
   hardeningDisable = [ "fortify" ];
 
   meta = with lib; {

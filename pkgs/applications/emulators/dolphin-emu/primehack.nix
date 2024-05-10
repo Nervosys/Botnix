@@ -122,7 +122,7 @@ stdenv.mkDerivation rec {
 
   # - Allow Dolphin to use nix-provided libraries instead of building them
   postPatch = ''
-    substituteInPlace CMakeLists.txt --replace 'DISTRIBUTOR "None"' 'DISTRIBUTOR "NixOS"'
+    substituteInPlace CMakeLists.txt --replace 'DISTRIBUTOR "None"' 'DISTRIBUTOR "Botnix"'
   '' + lib.optionalString stdenv.isDarwin ''
     substituteInPlace CMakeLists.txt --replace 'if(NOT APPLE)' 'if(true)'
     substituteInPlace CMakeLists.txt --replace 'if(LIBUSB_FOUND AND NOT APPLE)' 'if(LIBUSB_FOUND)'

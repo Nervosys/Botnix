@@ -13,7 +13,7 @@ let
     # 1. pdm requiring a later version of resolvelib
     # 2. Ansible being packaged as a library
     # 3. Ansible being unable to upgrade to a later version of resolvelib
-    # see here for more details: https://github.com/NixOS/nixpkgs/pull/155380/files#r786255738
+    # see here for more details: https://github.com/nervosys/Botnix/pull/155380/files#r786255738
     packageOverrides = self: super: {
       resolvelib = super.resolvelib.overridePythonAttrs rec {
         version = "1.0.1";

@@ -48,7 +48,7 @@ let
       ++ lib.optionals stdenv.isDarwin [ CoreFoundation Security ];
     nativeBuildInputs = [ pkg-config ];
 
-    # https://github.com/NixOS/nixpkgs/issues/161570 ,
+    # https://github.com/nervosys/Botnix/issues/161570 ,
     # buildRustPackage sets strictDeps = true;
     nativeCheckInputs = buildInputs;
 

@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
   checkFlags = [
     # Relies on the test environment to be able to resolve "localhost"
     # on IPv4. That's not the case in the Nix sandbox somehow. Works
-    # when running cargo test impurely on a (NixOS|Debian) machine.
+    # when running cargo test impurely on a (Botnix|Debian) machine.
     "--skip=ffi::test_gethostbyname2_r"
   ];
 

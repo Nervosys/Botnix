@@ -58,7 +58,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   patches = [
-    ./000-nixos-sanitization.patch
+    ./000-botnix-sanitization.patch
   ];
 
   postPatch = ''

@@ -23,9 +23,9 @@ perlPackages.buildPerlPackage rec {
   ];
 
   # These are part of a greater effort to add better support upstream:
-  # https://github.com/RexOps/Rex/compare/master...nixos
+  # https://github.com/RexOps/Rex/compare/master...botnix
   patches = [
-    # Fix rex's ability to execute things on NixOS managed hosts
+    # Fix rex's ability to execute things on Botnix managed hosts
     (fetchpatch {
       url = "https://github.com/RexOps/Rex/commit/c71f3b255dac8f929abea46913798f132566af55.patch";
       hash = "sha256-S2tF3IZ96QrxDN3HfBk7RWDZcEwukQYAkSId51dATiU=";

@@ -72,7 +72,7 @@ stdenv.mkDerivation (finalAttrs: {
     })
 
     # Fix swig not being able to find headers
-    # https://github.com/NixOS/nixpkgs/pull/82362#issuecomment-597948461
+    # https://github.com/nervosys/Botnix/pull/82362#issuecomment-597948461
     (substituteAll {
       src = ./fix-swig-build.patch;
       cairoDev = "${cairo.dev}";

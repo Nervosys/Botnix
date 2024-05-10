@@ -1,9 +1,9 @@
 .Dd January 1, 1980
-.Dt nixos-option 8
+.Dt botnix-option 8
 .Os
 .Sh NAME
-.Nm nixos-option
-.Nd inspect a NixOS configuration
+.Nm botnix-option
+.Nd inspect a Botnix configuration
 .
 .
 .
@@ -17,7 +17,7 @@
 .
 .Sh DESCRIPTION
 This command evaluates the configuration specified in
-.Pa /etc/nixos/configuration.nix
+.Pa /etc/botnix/configuration.nix
 and returns the properties of the option name given as argument.
 .
 .Pp
@@ -41,9 +41,9 @@ invocation.
 .
 .Sh ENVIRONMENT
 .Bl -tag -width indent
-.It Ev NIXOS_CONFIG
-Path to the main NixOS configuration module. Defaults to
-.Pa /etc/nixos/configuration.nix Ns
+.It Ev BOTNIX_CONFIG
+Path to the main Botnix configuration module. Defaults to
+.Pa /etc/botnix/configuration.nix Ns
 \&.
 .El
 .
@@ -52,13 +52,13 @@ Path to the main NixOS configuration module. Defaults to
 .Sh EXAMPLES
 Investigate option values:
 .Bd -literal -offset indent
-$ nixos-option boot.loader
+$ botnix-option boot.loader
 This attribute set contains:
 generationsDir
 grub
 initScript
 
-$ nixos-option boot.loader.grub.enable
+$ botnix-option boot.loader.grub.enable
 Value:
 true
 
@@ -69,10 +69,10 @@ Description:
 Whether to enable the GNU GRUB boot loader.
 
 Declared by:
-  "/nix/var/nix/profiles/per-user/root/channels/nixos/nixpkgs/nixos/modules/system/boot/loader/grub/grub.nix"
+  "/nix/var/nix/profiles/per-user/root/channels/botnix/nixpkgs/botnix/modules/system/boot/loader/grub/grub.nix"
 
 Defined by:
-  "/nix/var/nix/profiles/per-user/root/channels/nixos/nixpkgs/nixos/modules/system/boot/loader/grub/grub.nix"
+  "/nix/var/nix/profiles/per-user/root/channels/botnix/nixpkgs/botnix/modules/system/boot/loader/grub/grub.nix"
 .Ed
 .
 .
@@ -86,4 +86,4 @@ Defined by:
 .An -nosplit
 .An Nicolas Pierron
 and
-.An the Nixpkgs/NixOS contributors
+.An the Nixpkgs/Botnix contributors

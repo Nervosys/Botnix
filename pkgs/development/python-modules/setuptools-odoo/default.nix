@@ -26,7 +26,7 @@ buildPythonPackage rec {
     setuptools-scm
   ];
 
-  # HACK https://github.com/NixOS/nixpkgs/pull/229460
+  # HACK https://github.com/nervosys/Botnix/pull/229460
   patchPhase = ''
     runHook prePatch
 

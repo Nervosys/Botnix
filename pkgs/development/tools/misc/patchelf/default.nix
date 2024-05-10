@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   version = "0.15.0";
 
   src = fetchurl {
-    url = "https://github.com/NixOS/${pname}/releases/download/${version}/${pname}-${version}.tar.bz2";
+    url = "https://github.com/Botnix/${pname}/releases/download/${version}/${pname}-${version}.tar.bz2";
     sha256 = "sha256-9ANtPuTY4ijewb7/8PbkbYpA6eVw4AaOOdd+YuLIvcI=";
   };
 
@@ -23,11 +23,11 @@ stdenv.mkDerivation rec {
   # fails 8 out of 24 tests, problems when loading libc.so.6
   doCheck = stdenv.name == "stdenv-linux"
     # test scripts require unprefixed bintools binaries
-    # https://github.com/NixOS/patchelf/issues/417
+    # https://github.com/Botnix/patchelf/issues/417
     && stdenv.cc.targetPrefix == "";
 
   meta = with lib; {
-    homepage = "https://github.com/NixOS/patchelf";
+    homepage = "https://github.com/Botnix/patchelf";
     license = licenses.gpl3Plus;
     description = "A small utility to modify the dynamic linker and RPATH of ELF executables";
     maintainers = [ maintainers.eelco ];

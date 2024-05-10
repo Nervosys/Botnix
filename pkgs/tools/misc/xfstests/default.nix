@@ -44,8 +44,8 @@ stdenv.mkDerivation rec {
       sed -i $f -e 's|/bin/bash|${bash}/bin/bash|'
       sed -i $f -e 's|/bin/true|true|'
       sed -i $f -e 's|/usr/sbin/filefrag|${e2fsprogs}/bin/filefrag|'
-      sed -i $f -e 's|hostname -s|hostname|'   # `hostname -s` seems problematic on NixOS
-      sed -i $f -e 's|$(_yp_active)|1|'        # NixOS won't ever have Yellow Pages enabled
+      sed -i $f -e 's|hostname -s|hostname|'   # `hostname -s` seems problematic on Botnix
+      sed -i $f -e 's|$(_yp_active)|1|'        # Botnix won't ever have Yellow Pages enabled
     done
 
     for f in src/*.c src/*.sh; do

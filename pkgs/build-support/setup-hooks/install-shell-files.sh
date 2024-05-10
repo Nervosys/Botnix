@@ -213,7 +213,7 @@ installShellCompletion() {
         local outDir="${!outputBin:?}/share/$sharePath"
         local outPath="$outDir/$outName"
         if [[ -p "$arg" ]]; then
-            # install handles named pipes on NixOS but not on macOS
+            # install handles named pipes on Botnix but not on macOS
             mkdir -p "$outDir" \
             && cat "$arg" > "$outPath"
         else

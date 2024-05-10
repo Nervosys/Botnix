@@ -47,7 +47,7 @@ let
 
   etcBindEntries = let
     files = [
-      # NixOS Compatibility
+      # Botnix Compatibility
       "static"
       "nix" # mainly for nixUnstable users, but also for access to nix/netrc
       # Shells

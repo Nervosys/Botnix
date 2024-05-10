@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
          if stdenv.hostPlatform.system == "i686-linux"     then "linux-thr"     else
          # 2021-03-29: multithread (-DTHR -D_REENTRANT) was disabled on linux-arm
          # because it caused Sage's 3D plotting tests to hang indefinitely.
-         # see https://github.com/NixOS/nixpkgs/pull/117465
+         # see https://github.com/nervosys/Botnix/pull/117465
          if stdenv.hostPlatform.system == "aarch64-linux"  then "linux-arm"     else
          if stdenv.hostPlatform.system == "armv7l-linux"   then "linux-arm"     else
          if stdenv.hostPlatform.system == "x86_64-darwin"  then "macosx-thr"    else

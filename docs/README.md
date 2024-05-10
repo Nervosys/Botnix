@@ -11,7 +11,7 @@ Rendered documentation:
 - [Unstable (from master)](https://nixos.org/manual/nixpkgs/unstable/)
 - [Stable (from latest release)](https://nixos.org/manual/nixpkgs/stable/)
 
-The rendering tool is [nixos-render-docs](../pkgs/tools/nix/nixos-render-docs/src/nixos_render_docs), sometimes abbreviated `nrd`.
+The rendering tool is [botnix-render-docs](../pkgs/tools/nix/botnix-render-docs/src/nixos_render_docs), sometimes abbreviated `nrd`.
 
 ## Contributing to this documentation
 
@@ -34,9 +34,9 @@ It is a daemon, that:
 
 ## Syntax
 
-As per [RFC 0072](https://github.com/NixOS/rfcs/pull/72), all new documentation content should be written in [CommonMark](https://commonmark.org/) Markdown dialect.
+As per [RFC 0072](https://github.com/Botnix/rfcs/pull/72), all new documentation content should be written in [CommonMark](https://commonmark.org/) Markdown dialect.
 
-Additional syntax extensions are available, all of which can be used in NixOS option documentation. The following extensions are currently used:
+Additional syntax extensions are available, all of which can be used in Botnix option documentation. The following extensions are currently used:
 
 #### Tables
 
@@ -53,7 +53,7 @@ It uses the widely compatible [header attributes](https://github.com/jgm/commonm
 ```
 
 > [!Note]
-> NixOS option documentation does not support headings in general.
+> Botnix option documentation does not support headings in general.
 
 #### Inline Anchors
 
@@ -74,7 +74,7 @@ This syntax is taken from [MyST](https://myst-parser.readthedocs.io/en/latest/us
 
 #### HTML
 
-Inlining HTML is not allowed. Parts of the documentation gets rendered to various non-HTML formats, such as man pages in the case of NixOS manual.
+Inlining HTML is not allowed. Parts of the documentation gets rendered to various non-HTML formats, such as man pages in the case of Botnix manual.
 
 #### Roles
 
@@ -88,7 +88,7 @@ A few markups for other kinds of literals are also available:
 - `` {option}`networking.useDHCP` ``
 - `` {var}`/etc/passwd` ``
 
-These literal kinds are used mostly in NixOS option documentation.
+These literal kinds are used mostly in Botnix option documentation.
 
 This syntax is taken from [MyST](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#roles-an-in-line-extension-point). Though, the feature originates from [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-manpage) with slightly different syntax.
 
@@ -289,21 +289,21 @@ and after code fencing
 ```
 
 Defining examples through the `example` fencing class adds them to a "List of Examples" section after the Table of Contents.
-Though this is not shown in the rendered documentation on nixos.org.
+Though this is not shown in the rendered documentation on botnix.org.
 
 #### Figures
 
 To define a referencable figure use the following fencing:
 
 ```markdown
-::: {.figure #nixos-logo}
-# NixOS Logo
-![NixOS logo](./nixos_logo.png)
+::: {.figure #botnix-logo}
+# Botnix Logo
+![Botnix logo](./nixos_logo.png)
 :::
 ```
 
 Defining figures through the `figure` fencing class adds them to a `List  of Figures` after the `Table of Contents`.
-Though this is not shown in the rendered documentation on nixos.org.
+Though this is not shown in the rendered documentation on botnix.org.
 
 #### Footnotes
 
@@ -334,7 +334,7 @@ Links can reference a label, for example, to make the link target reusable:
 Reference links can also be used to [shorten URLs][url-id] and keep the markdown readable.
 :::
 
-[url-id]: https://github.com/NixOS/nixpkgs/blob/19d4f7dc485f74109bd66ef74231285ff797a823/doc/README.md
+[url-id]: https://github.com/nervosys/Botnix/blob/19d4f7dc485f74109bd66ef74231285ff797a823/doc/README.md
 ```
 
 This syntax is taken from [CommonMark](https://spec.commonmark.org/0.30/#link-reference-definitions).
@@ -345,4 +345,4 @@ Typographic replacements are enabled. Check the [list of possible replacement pa
 
 ## Getting help
 
-If you need documentation-specific help or reviews, ping [@NixOS/documentation-reviewers](https://github.com/orgs/nixos/teams/documentation-reviewers) on your pull request.
+If you need documentation-specific help or reviews, ping [@Botnix/documentation-reviewers](https://github.com/orgs/botnix/teams/documentation-reviewers) on your pull request.

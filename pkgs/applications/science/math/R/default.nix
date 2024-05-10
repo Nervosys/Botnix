@@ -40,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   # Test of the examples for package 'tcltk' fails in Darwin sandbox. See:
-  # https://github.com/NixOS/nixpkgs/issues/146131
+  # https://github.com/nervosys/Botnix/issues/146131
   postPatch = lib.optionalString stdenv.isDarwin ''
     substituteInPlace configure \
       --replace "-install_name libRblas.dylib" "-install_name $out/lib/R/lib/libRblas.dylib" \

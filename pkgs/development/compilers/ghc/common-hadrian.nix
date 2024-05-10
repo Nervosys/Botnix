@@ -275,7 +275,7 @@ stdenv.mkDerivation ({
     #
     # These cause problems as they're not eliminated by GHC's dead code
     # elimination on aarch64-darwin. (see
-    # https://github.com/NixOS/nixpkgs/issues/140774 for details).
+    # https://github.com/nervosys/Botnix/issues/140774 for details).
     ./Cabal-at-least-3.6-paths-fix-cycle-aarch64-darwin.patch
   ];
 
@@ -467,7 +467,7 @@ stdenv.mkDerivation ({
     # But GHC cannot currently produce outputs that are ready for `-pie` linking.
     # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.
     # See:
-    # * https://github.com/NixOS/nixpkgs/issues/129247
+    # * https://github.com/nervosys/Botnix/issues/129247
     # * https://gitlab.haskell.org/ghc/ghc/-/issues/19580
     ++ lib.optional stdenv.targetPlatform.isMusl "pie";
 
@@ -486,7 +486,7 @@ stdenv.mkDerivation ({
 
   ''
   # the bindist configure script uses different env variables than the GHC configure script
-  # see https://github.com/NixOS/nixpkgs/issues/267250 and https://gitlab.haskell.org/ghc/ghc/-/issues/24211
+  # see https://github.com/nervosys/Botnix/issues/267250 and https://gitlab.haskell.org/ghc/ghc/-/issues/24211
   + lib.optionalString (stdenv.targetPlatform.linker == "cctools") ''
     export InstallNameToolCmd=$INSTALL_NAME_TOOL
     export OtoolCmd=$OTOOL

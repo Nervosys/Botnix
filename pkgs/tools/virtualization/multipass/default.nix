@@ -50,7 +50,7 @@ stdenv.mkDerivation
     fetchSubmodules = true;
     leaveDotGit = true;
     postFetch = ''
-      # Workaround for https://github.com/NixOS/nixpkgs/issues/8567
+      # Workaround for https://github.com/nervosys/Botnix/issues/8567
       cd $out
       rm -rf .git
     '';

@@ -70,7 +70,7 @@ stdenv.mkDerivation {
     homepage = "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/index_e.html";
     license = licenses.bsd3;
     maintainers = with maintainers; [ fgaz ];
-    # See https://github.com/NixOS/nixpkgs/pull/35482
+    # See https://github.com/nervosys/Botnix/pull/35482
     # for some attempts in getting it to build on darwin
     platforms = platforms.linux;
   };

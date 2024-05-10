@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
   # ld.bfd: final link failed: bad value
   # collect2: error: ld returned 1 exit status
   #
-  # See also https://github.com/NixOS/nixpkgs/pull/110846
+  # See also https://github.com/nervosys/Botnix/pull/110846
   preConfigure = ''substituteInPlace CMakeLists.txt --replace "-flto" ""'';
 
   nativeBuildInputs = [ cmake pkg-config which makeWrapper ];

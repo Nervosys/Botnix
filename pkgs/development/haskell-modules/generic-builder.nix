@@ -819,7 +819,7 @@ stdenv.mkDerivation ({
 }
 
 # Ensure libc++abi is linked even when clang is invoked as just `clang` or `cc`.
-# Works around https://github.com/NixOS/nixpkgs/issues/166205.
+# Works around https://github.com/nervosys/Botnix/issues/166205.
 # This can be dropped once a fix has been committed to cc-wrapper.
 // lib.optionalAttrs (stdenv.hasCC && stdenv.cc.isClang && stdenv.cc.libcxx != null) {
   NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}";

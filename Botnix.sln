@@ -3,37 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-<<<<<<< HEAD
-<<<<<<< HEAD
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pkgs", "pkgs", "{6130D792-F095-4961-83C9-95A33A0197DD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pkgs", "pkgs", "{F9D65841-4128-4307-8365-E721CE994235}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{01D698B6-7174-4EFF-8E7F-4EDDD40DC39A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D5281DD0-6C23-4976-BE0E-328F1BC4EBD5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{FD6ACDFC-C198-461E-ACE7-85450D720C82}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{3FDBB0F2-580F-4426-9A8E-1893359E86BD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project-references", "project-references", "{34583F92-1AF5-4AD4-8055-FC844996F1D4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project-references", "project-references", "{E6B5332B-31DA-459D-82B0-038E6DA3EDBC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "pkgs\test\dotnet\project-references\application\Application.csproj", "{7E543928-7509-4C08-9406-FF0220CEF4BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "pkgs\test\dotnet\project-references\application\Application.csproj", "{325B6285-6CA2-42EF-969E-5BA45D5AE42B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "pkgs\test\dotnet\project-references\library\Library.csproj", "{0E67C6F6-A98D-45D8-A5BA-BE9A22977FB7}"
-=======
-=======
->>>>>>> 936ce8e3e7cdad55daa5d2e9639f7864e5790ce5
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pkgs", "pkgs", "{5409EC02-F605-4206-BA35-E5E783FF9775}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{73A99F38-4CC2-4FDB-82F9-AF8B4207786A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{A95D24EF-9546-4B84-9859-467D7AD175B2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project-references", "project-references", "{AAE750D6-77FD-4A76-A5FB-FB8A382488B0}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "pkgs\test\dotnet\project-references\application\Application.csproj", "{708527A6-9A19-4BE5-898B-A343719AF9BE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "pkgs\test\dotnet\project-references\library\Library.csproj", "{88C21A8E-95F3-43F9-94CE-7F260E3E33DE}"
-<<<<<<< HEAD
->>>>>>> 7e445334801d (update)
-=======
->>>>>>> 936ce8e3e7cdad55daa5d2e9639f7864e5790ce5
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "pkgs\test\dotnet\project-references\library\Library.csproj", "{5B65DA2C-2B68-47CB-A73D-F7382265D9B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,60 +21,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-<<<<<<< HEAD
-<<<<<<< HEAD
-		{7E543928-7509-4C08-9406-FF0220CEF4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E543928-7509-4C08-9406-FF0220CEF4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E543928-7509-4C08-9406-FF0220CEF4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E543928-7509-4C08-9406-FF0220CEF4BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E67C6F6-A98D-45D8-A5BA-BE9A22977FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E67C6F6-A98D-45D8-A5BA-BE9A22977FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E67C6F6-A98D-45D8-A5BA-BE9A22977FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E67C6F6-A98D-45D8-A5BA-BE9A22977FB7}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
-=======
->>>>>>> 936ce8e3e7cdad55daa5d2e9639f7864e5790ce5
-		{708527A6-9A19-4BE5-898B-A343719AF9BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{708527A6-9A19-4BE5-898B-A343719AF9BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{708527A6-9A19-4BE5-898B-A343719AF9BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{708527A6-9A19-4BE5-898B-A343719AF9BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{88C21A8E-95F3-43F9-94CE-7F260E3E33DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88C21A8E-95F3-43F9-94CE-7F260E3E33DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88C21A8E-95F3-43F9-94CE-7F260E3E33DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88C21A8E-95F3-43F9-94CE-7F260E3E33DE}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
->>>>>>> 7e445334801d (update)
-=======
->>>>>>> 936ce8e3e7cdad55daa5d2e9639f7864e5790ce5
+		{325B6285-6CA2-42EF-969E-5BA45D5AE42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325B6285-6CA2-42EF-969E-5BA45D5AE42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325B6285-6CA2-42EF-969E-5BA45D5AE42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325B6285-6CA2-42EF-969E-5BA45D5AE42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B65DA2C-2B68-47CB-A73D-F7382265D9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B65DA2C-2B68-47CB-A73D-F7382265D9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B65DA2C-2B68-47CB-A73D-F7382265D9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B65DA2C-2B68-47CB-A73D-F7382265D9B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-<<<<<<< HEAD
-<<<<<<< HEAD
-		{01D698B6-7174-4EFF-8E7F-4EDDD40DC39A} = {6130D792-F095-4961-83C9-95A33A0197DD}
-		{FD6ACDFC-C198-461E-ACE7-85450D720C82} = {01D698B6-7174-4EFF-8E7F-4EDDD40DC39A}
-		{34583F92-1AF5-4AD4-8055-FC844996F1D4} = {FD6ACDFC-C198-461E-ACE7-85450D720C82}
-		{7E543928-7509-4C08-9406-FF0220CEF4BC} = {34583F92-1AF5-4AD4-8055-FC844996F1D4}
-		{0E67C6F6-A98D-45D8-A5BA-BE9A22977FB7} = {34583F92-1AF5-4AD4-8055-FC844996F1D4}
+		{D5281DD0-6C23-4976-BE0E-328F1BC4EBD5} = {F9D65841-4128-4307-8365-E721CE994235}
+		{3FDBB0F2-580F-4426-9A8E-1893359E86BD} = {D5281DD0-6C23-4976-BE0E-328F1BC4EBD5}
+		{E6B5332B-31DA-459D-82B0-038E6DA3EDBC} = {3FDBB0F2-580F-4426-9A8E-1893359E86BD}
+		{325B6285-6CA2-42EF-969E-5BA45D5AE42B} = {E6B5332B-31DA-459D-82B0-038E6DA3EDBC}
+		{5B65DA2C-2B68-47CB-A73D-F7382265D9B9} = {E6B5332B-31DA-459D-82B0-038E6DA3EDBC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CD8F1C37-CDA1-4C27-9212-834EED90FD5D}
-=======
-=======
->>>>>>> 936ce8e3e7cdad55daa5d2e9639f7864e5790ce5
-		{73A99F38-4CC2-4FDB-82F9-AF8B4207786A} = {5409EC02-F605-4206-BA35-E5E783FF9775}
-		{A95D24EF-9546-4B84-9859-467D7AD175B2} = {73A99F38-4CC2-4FDB-82F9-AF8B4207786A}
-		{AAE750D6-77FD-4A76-A5FB-FB8A382488B0} = {A95D24EF-9546-4B84-9859-467D7AD175B2}
-		{708527A6-9A19-4BE5-898B-A343719AF9BE} = {AAE750D6-77FD-4A76-A5FB-FB8A382488B0}
-		{88C21A8E-95F3-43F9-94CE-7F260E3E33DE} = {AAE750D6-77FD-4A76-A5FB-FB8A382488B0}
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FE60C3BE-48C8-410B-BDFA-E3C719C4DFE0}
-<<<<<<< HEAD
->>>>>>> 7e445334801d (update)
-=======
->>>>>>> 936ce8e3e7cdad55daa5d2e9639f7864e5790ce5
+		SolutionGuid = {4C820463-6C7A-4522-A70A-7ED9F739A76F}
 	EndGlobalSection
 EndGlobal

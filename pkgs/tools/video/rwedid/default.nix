@@ -36,7 +36,7 @@ rustPlatform.buildRustPackage rec {
     description = "Read and write EDID data over an I2C bus";
     longDescription = ''
       To install udev rules, you also have to add `services.udev.packages = [ pkgs.rwedid ]` into your configuration.
-      Additionally you will also have to create the i2c group, on NixOS this can be done using `users.groups.i2c = {};`.
+      Additionally you will also have to create the i2c group, on Botnix this can be done using `users.groups.i2c = {};`.
       And you will have to load i2c-dev kernel module, for that add `boot.initrd.availableKernelModules = [ i2c-dev ] to your config.
     '';
     homepage = "https://codeberg.org/ral/rwedid";

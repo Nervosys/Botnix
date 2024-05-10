@@ -51,7 +51,7 @@
       rev = version;
       sha256 = "0wvy6m9qfvjii3kanf2d1rhfaww32kg0d7m57643f79qb05gd6vg";
       # this driver only seems to build correctly when built against the mariadb-connect-c subrepo
-      # (see https://github.com/NixOS/nixpkgs/issues/73258)
+      # (see https://github.com/nervosys/Botnix/issues/73258)
       fetchSubmodules = true;
     };
 

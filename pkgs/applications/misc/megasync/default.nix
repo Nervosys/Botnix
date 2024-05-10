@@ -68,7 +68,7 @@ mkDerivation rec {
 
   patches = [
     # Distro and version targets attempt to use lsb_release which is broken
-    # (see issue: https://github.com/NixOS/nixpkgs/issues/22729)
+    # (see issue: https://github.com/nervosys/Botnix/issues/22729)
     ./noinstall-distro-version.patch
     # megasync target is not part of the install rule thanks to a commented block
     ./install-megasync.patch

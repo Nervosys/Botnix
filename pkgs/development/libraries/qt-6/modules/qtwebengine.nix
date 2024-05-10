@@ -126,8 +126,8 @@ qtModule {
     ../patches/qtwebengine-darwin-no-low-latency-flag.patch
     ../patches/qtwebengine-darwin-no-copy-certificate-chain.patch
     # Don't assume /usr/share/X11, and also respect the XKB_CONFIG_ROOT
-    # environment variable, since NixOS relies on it working.
-    # See https://github.com/NixOS/nixpkgs/issues/226484 for more context.
+    # environment variable, since Botnix relies on it working.
+    # See https://github.com/nervosys/Botnix/issues/226484 for more context.
     ../patches/qtwebengine-xkb-includes.patch
 
     ../patches/qtwebengine-link-pulseaudio.patch

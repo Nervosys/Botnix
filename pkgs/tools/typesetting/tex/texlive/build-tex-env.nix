@@ -194,7 +194,7 @@ let
     requiredTeXPackages = builtins.filter lib.isDerivation (pkgList.bin ++ pkgList.nonbin
       ++ lib.optionals (! __fromCombineWrapper)
         (lib.concatMap (n: (pkgList.otherOutputs.${n} or [ ] ++ pkgList.specifiedOutputs.${n} or [ ]))) pkgList.nonEnvOutputs);
-    # useful for inclusion in the `fonts.packages` nixos option or for use in devshells
+    # useful for inclusion in the `fonts.packages` botnix option or for use in devshells
     fonts = "${texmfroot}/texmf-dist/fonts";
     # support variants attrs, (prev: attrs)
     __overrideTeXConfig = newArgs:
@@ -407,7 +407,7 @@ let
     # libfaketime fixes non-determinism related to timestamps ignoring FORCE_SOURCE_DATE
     # we cannot fix further randomness caused by luatex; for further details, see
     # https://salsa.debian.org/live-team/live-build/-/blob/master/examples/hooks/reproducible/2006-reproducible-texlive-binaries-fmt-files.hook.chroot#L52
-    # note that calling faketime and fmtutil is fragile (faketime uses LD_PRELOAD, fmtutil calls /bin/sh, causing potential glibc issues on non-NixOS)
+    # note that calling faketime and fmtutil is fragile (faketime uses LD_PRELOAD, fmtutil calls /bin/sh, causing potential glibc issues on non-Botnix)
     # so we patch fmtutil to use faketime, rather than calling faketime fmtutil
     substitute "$TEXMFDIST"/scripts/texlive/fmtutil.pl fmtutil \
       --replace 'my $cmdline = "$eng -ini ' 'my $cmdline = "faketime -f '"'"'\@1980-01-01 00:00:00 x0.001'"'"' $eng -ini '

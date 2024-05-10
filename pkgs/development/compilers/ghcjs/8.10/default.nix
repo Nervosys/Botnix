@@ -120,7 +120,7 @@ in stdenv.mkDerivation {
 
       # Hydra limits jobs to only outputting 1 gigabyte worth of files.
       # GHCJS outputs over 3 gigabytes.
-      # https://github.com/NixOS/nixpkgs/pull/137066#issuecomment-922335563
+      # https://github.com/nervosys/Botnix/pull/137066#issuecomment-922335563
       hydraPlatforms = lib.platforms.none;
 
       maintainers = with lib.maintainers; [ obsidian-systems-maintenance ];

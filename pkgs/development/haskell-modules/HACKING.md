@@ -1,7 +1,7 @@
 
 # Maintainer Workflow
 
-The goal of the [@NixOS/haskell](https://github.com/orgs/NixOS/teams/haskell)
+The goal of the [@Botnix/haskell](https://github.com/orgs/Botnix/teams/haskell)
 team is to keep the Haskell packages in Nixpkgs up-to-date, while making sure
 there are no Haskell-related evaluation errors or build errors that get into
 the Nixpkgs `master` branch.
@@ -48,7 +48,7 @@ In this section we create the PR for merging `haskell-updates` into `master`.
     $ ./maintainers/scripts/haskell/regenerate-hackage-packages.sh --do-commit
     ```
 
-1.  Push these commits to the `haskell-updates` branch of the NixOS/nixpkgs repository.
+1.  Push these commits to the `haskell-updates` branch of the Botnix/nixpkgs repository.
 
 1.  Open a PR on Nixpkgs for merging `haskell-updates` into `master`.  The recommended
     PR title and body text are described in the `merge-and-open-pr.sh` section.
@@ -57,7 +57,7 @@ In this section we create the PR for merging `haskell-updates` into `master`.
 
 After you've done the previous steps, Hydra will start building the new and
 updated Haskell packages.  You can see the progress Hydra is making at
-https://hydra.nixos.org/jobset/nixpkgs/haskell-updates.  This Hydra jobset is
+https://hydra.botnix.org/jobset/nixpkgs/haskell-updates.  This Hydra jobset is
 defined in the file [release-haskell.nix](../../top-level/release-haskell.nix).
 
 ### Notify Maintainers
@@ -91,8 +91,8 @@ may be marked broken before merging `haskell-updates` into `master`.
 
 After getting the build report, you can see which packages and Hydra jobs are
 failing to build.  The most important jobs are the
-[`maintained`](https://hydra.nixos.org/job/nixpkgs/haskell-updates/maintained) and
-[`mergeable`](https://hydra.nixos.org/job/nixpkgs/haskell-updates/mergeable)
+[`maintained`](https://hydra.botnix.org/job/nixpkgs/haskell-updates/maintained) and
+[`mergeable`](https://hydra.botnix.org/job/nixpkgs/haskell-updates/mergeable)
 jobs. These are both defined in
 [`release-haskell.nix`](../../top-level/release-haskell.nix).
 
@@ -219,7 +219,7 @@ opening the next one.  When you want to merge the currently open
     ```
 
 1.  Make sure you have setup your `~/.cabal/config` file for authentication
-    for uploading the NixOS package versions to Hackage.  See the following
+    for uploading the Botnix package versions to Hackage.  See the following
     section for details on how to do this.
 
 1.  Make sure you have correctly marked packages broken.  One of the previous
@@ -237,7 +237,7 @@ opening the next one.  When you want to merge the currently open
     `haskell-updates` branch.  (This can be skipped if `master` has recently
     been merged into `haskell-updates`.)
 
-1.  Go to https://hydra.nixos.org/jobset/nixpkgs/haskell-updates and force an
+1.  Go to https://hydra.botnix.org/jobset/nixpkgs/haskell-updates and force an
     evaluation of the `haskell-updates` jobset.  See one of the following
     sections for how to do this.  Make sure there are no evaluation errors.  If
     there are remaining evaluation errors, fix them before continuing with this
@@ -249,7 +249,7 @@ opening the next one.  When you want to merge the currently open
     $ ./maintainers/scripts/haskell/merge-and-open-pr.sh PR_NUM_OF_CURRENT_HASKELL_UPDATES_PR
     ```
 
-    Find the PR number easily [here](https://github.com/nixos/nixpkgs/pulls?q=is%3Apr+is%3Aopen+head%3Ahaskell-updates)
+    Find the PR number easily [here](https://github.com/botnix/nixpkgs/pulls?q=is%3Apr+is%3Aopen+head%3Ahaskell-updates)
 
     This does the following things:
 
@@ -260,7 +260,7 @@ opening the next one.  When you want to merge the currently open
 
     1.  Merges the currently open `haskell-updates` PR.
 
-    1.  Updates the version of Haskell packages in NixOS on Hackage.
+    1.  Updates the version of Haskell packages in Botnix on Hackage.
 
     1.  Updates Stackage and Hackage snapshots.  Regenerates the Haskell package set.
 
@@ -271,8 +271,8 @@ opening the next one.  When you want to merge the currently open
 ## Update Hackage Version Information
 
 After merging into `master` you can update what Hackage displays as the current
-version in NixOS for every individual package.  To do this you run
-`maintainers/scripts/haskell/upload-nixos-package-list-to-hackage.sh`.  See the
+version in Botnix for every individual package.  To do this you run
+`maintainers/scripts/haskell/upload-botnix-package-list-to-hackage.sh`.  See the
 script for how to provide credentials. Once you have configured credentials,
 running this takes only a few seconds.
 
@@ -281,19 +281,19 @@ running this takes only a few seconds.
 Here are some additional tips that didn't fit in above.
 
 -   Hydra tries to evaluate the `haskell-updates` branch (in the
-    [`nixpkgs:haskell-updates`](https://hydra.nixos.org/jobset/nixpkgs/haskell-updates)
+    [`nixpkgs:haskell-updates`](https://hydra.botnix.org/jobset/nixpkgs/haskell-updates)
     jobset) every 4 hours.  It is possible to force a new Hydra evaluation without
     waiting 4 hours by the following steps:
 
     1. Log into Hydra with your GitHub or Google account.
-    1. Go to the [nixpkgs:haskell-updates](https://hydra.nixos.org/jobset/nixpkgs/haskell-updates) jobset.
+    1. Go to the [nixpkgs:haskell-updates](https://hydra.botnix.org/jobset/nixpkgs/haskell-updates) jobset.
     1. Click the `Actions` button.
     1. Select `Evaluate this jobset`.
     1. If you refresh the page, there should be a new `Evaluation running since:` line.
     1. Evaluations take about 10 minutes to finish.
 
 -   It is sometimes helpful to update the version of
-    [`cabal2nix` / `hackage2nix`](https://github.com/NixOS/cabal2nix) that our
+    [`cabal2nix` / `hackage2nix`](https://github.com/Botnix/cabal2nix) that our
     maintainer scripts use.  This can be done with the
     [`maintainers/scripts/haskell/update-cabal2nix-unstable.sh`](../../../maintainers/scripts/haskell/update-cabal2nix-unstable.sh)
     script.
@@ -321,17 +321,17 @@ Here are some additional tips that didn't fit in above.
     as described above.
 
 -   The Haskell team members generally hang out in the Matrix room
-    [#haskell:nixos.org](https://matrix.to/#/#haskell:nixos.org).
+    [#haskell:botnix.org](https://matrix.to/#/#haskell:botnix.org).
 
 -   This is a checklist for things that need to happen when a new
     member is added to the Nixpkgs Haskell team.
 
     1.  Add the person to the
-        [@NixOS/haskell](https://github.com/orgs/NixOS/teams/haskell)
-        team.  You may need to ask someone in the NixOS organization
+        [@Botnix/haskell](https://github.com/orgs/Botnix/teams/haskell)
+        team.  You may need to ask someone in the Botnix organization
         to do this, like [@domenkozar](https://github.com/domenkozar).
         This gives the new member access to the GitHub repos like
-        [cabal2nix](https://github.com/NixOS/cabal2nix).
+        [cabal2nix](https://github.com/Botnix/cabal2nix).
 
     1.  Add the person as a maintainer for the following packages
         on Hackage:

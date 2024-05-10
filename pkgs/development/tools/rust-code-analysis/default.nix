@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-axrtFZQOm1/UUBq1CDFkaZCks1mWoLWmfajDfsqSBmY=";
 
-  # Work around https://github.com/NixOS/nixpkgs/issues/166205.
+  # Work around https://github.com/nervosys/Botnix/issues/166205.
   env = lib.optionalAttrs stdenv.cc.isClang {
     NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}";
   };

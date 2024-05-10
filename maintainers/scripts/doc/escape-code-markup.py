@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -I nixpkgs=channel:nixos-unstable -i python3 -p python3 -p python3.pkgs.lxml
+#! nix-shell -I nixpkgs=channel:botnix-unstable -i python3 -p python3 -p python3.pkgs.lxml
 
 """
 Pandoc will strip any markup within code elements so

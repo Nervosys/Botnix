@@ -103,7 +103,7 @@ in buildFHSEnvBubblewrap {
     unset QT_STYLE_OVERRIDE
     unset QPA_PLATFORMTHEME
 
-    # xkb configuration needed: https://github.com/NixOS/nixpkgs/issues/236365
+    # xkb configuration needed: https://github.com/nervosys/Botnix/issues/236365
     export XKB_CONFIG_ROOT=${xkeyboard_config}/share/X11/xkb/
     echo XKB_CONFIG_ROOT=$XKB_CONFIG_ROOT
 

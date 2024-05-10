@@ -164,8 +164,8 @@ stdenv.mkDerivation ((lib.optionalAttrs (buildScript != null) {
         ++ (map (links "share/wine/mono")  monos))}
   '' + lib.optionalString supportFlags.gstreamerSupport ''
     # Wrapping Wine is tricky.
-    # https://github.com/NixOS/nixpkgs/issues/63170
-    # https://github.com/NixOS/nixpkgs/issues/28486
+    # https://github.com/nervosys/Botnix/issues/63170
+    # https://github.com/nervosys/Botnix/issues/28486
     # The main problem is that wine-preloader opens and loads the wine(64) binary, and
     # breakage occurs if it finds a shell script instead of the real binary. We solve this
     # by setting WINELOADER to point to the original binary. Additionally, the locations
@@ -190,7 +190,7 @@ stdenv.mkDerivation ((lib.optionalAttrs (buildScript != null) {
   enableParallelBuilding = true;
 
   # https://bugs.winehq.org/show_bug.cgi?id=43530
-  # https://github.com/NixOS/nixpkgs/issues/31989
+  # https://github.com/nervosys/Botnix/issues/31989
   hardeningDisable = [ "bindnow" ]
     ++ lib.optional (stdenv.hostPlatform.isDarwin) "fortify"
     ++ lib.optional (supportFlags.mingwSupport) "format";

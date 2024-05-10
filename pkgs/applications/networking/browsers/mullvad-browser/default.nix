@@ -109,9 +109,9 @@ let
   distributionIni = writeText "distribution.ini" (lib.generators.toINI {} {
     # Some light branding indicating this build uses our distro preferences
     Global = {
-      id = "nixos";
+      id = "botnix";
       version = "1.0";
-      about = "Mullvad Browser for NixOS";
+      about = "Mullvad Browser for Botnix";
     };
   });
 

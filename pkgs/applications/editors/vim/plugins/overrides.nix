@@ -571,7 +571,7 @@
 
   fruzzy =
     let
-      # until https://github.com/NixOS/nixpkgs/pull/67878 is merged, there's no better way to install nim libraries with nix
+      # until https://github.com/nervosys/Botnix/pull/67878 is merged, there's no better way to install nim libraries with nix
       nimpy = fetchFromGitHub {
         owner = "yglukhov";
         repo = "nimpy";
@@ -789,7 +789,7 @@
 
   lens-vim = super.lens-vim.overrideAttrs {
     # remove duplicate g:lens#animate in doc/lens.txt
-    # https://github.com/NixOS/nixpkgs/pull/105810#issuecomment-740007985
+    # https://github.com/nervosys/Botnix/pull/105810#issuecomment-740007985
     # https://github.com/camspiers/lens.vim/pull/40/files
     patches = [
       (substituteAll {
@@ -1495,7 +1495,7 @@
   };
 
   # Due to case-sensitivety issues, the hash differs on Darwin systems, see:
-  # https://github.com/NixOS/nixpkgs/issues/157609
+  # https://github.com/nervosys/Botnix/issues/157609
   vim-colorschemes = super.vim-colorschemes.overrideAttrs (old: {
     src = old.src.overrideAttrs (srcOld: {
       postFetch =

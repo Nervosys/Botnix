@@ -19,7 +19,7 @@ index f97bc5f..88e9d35 100644
 -		g_free (prog_path);
 -		return;
 -	}
-+	/* disable symlink check on nixos */
++	/* disable symlink check on botnix */
 +
  	/* Make sure it's a regular file */
 -	else if (!g_file_test (prog_path, G_FILE_TEST_IS_REGULAR)) {

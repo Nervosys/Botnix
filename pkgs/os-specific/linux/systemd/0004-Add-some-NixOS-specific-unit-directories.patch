@@ -1,13 +1,13 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Raito Bezarius <masterancpp@gmail.com>
 Date: Mon, 19 Jun 2023 02:13:42 +0200
-Subject: [PATCH] Add some NixOS-specific unit directories
+Subject: [PATCH] Add some Botnix-specific unit directories
 
 Look in `/nix/var/nix/profiles/default/lib/systemd/{system,user}` for
 units provided by packages installed into the default profile via
-`nix-env -iA nixos.$package`.
+`nix-env -iA botnix.$package`.
 
-Also, remove /usr and /lib as these don't exist on NixOS.
+Also, remove /usr and /lib as these don't exist on Botnix.
 
 Original-Author: Eelco Dolstra <eelco.dolstra@logicblox.com>
 ---

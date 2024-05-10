@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   buildInputs = [ popt ] ++ lib.optionals aclSupport [ acl ];
 
   passthru.tests = {
-    nixos-logrotate = nixosTests.logrotate;
+    botnix-logrotate = nixosTests.logrotate;
   };
 
   meta = with lib; {

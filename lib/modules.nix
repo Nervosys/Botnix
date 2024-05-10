@@ -164,11 +164,11 @@ let
                 For this reason, callers of the module system can provide `specialArgs`
                 which are available during import resolution.
 
-                For NixOS, `specialArgs` includes
+                For Botnix, `specialArgs` includes
                 {var}`modulesPath`, which allows you to import
                 extra modules from the nixpkgs package tree without having to
                 somehow make the module aware of the location of the
-                `nixpkgs` or NixOS directories.
+                `nixpkgs` or Botnix directories.
                 ```
                 { modulesPath, ... }: {
                   imports = [
@@ -177,7 +177,7 @@ let
                 }
                 ```
 
-              For NixOS, the default value for this option includes at least this argument:
+              For Botnix, the default value for this option includes at least this argument:
               - {var}`pkgs`: The nixpkgs package set according to
                 the {option}`nixpkgs.pkgs` option.
             '';
@@ -620,7 +620,7 @@ let
                 modules = [ { options = decl.options; } ];
                 # `null` is not intended for use by modules. It is an internal
                 # value that means "whatever the user has declared elsewhere".
-                # This might become obsolete with https://github.com/NixOS/nixpkgs/issues/162398
+                # This might become obsolete with https://github.com/nervosys/Botnix/issues/162398
                 shorthandOnlyDefinesConfig = null;
               };
             };
@@ -847,7 +847,7 @@ let
         else let allInvalid = filter (def: ! type.check def.value) defsFinal;
         in throw "A definition for option `${showOption loc}' is not of type `${type.description}'. Definition values:${showDefs allInvalid}"
       else
-        # (nixos-option detects this specific error message and gives it special
+        # (botnix-option detects this specific error message and gives it special
         # handling.  If changed here, please change it there too.)
         throw "The option `${showOption loc}' is used but not defined.";
 
@@ -1021,7 +1021,7 @@ let
   defaultOverridePriority = 100;
   mkImageMediaOverride = mkOverride 60; # image media profiles can be derived by inclusion into host config, hence needing to override host config, but do allow user to mkForce
   mkForce = mkOverride 50;
-  mkVMOverride = mkOverride 10; # used by ‘nixos-rebuild build-vm’
+  mkVMOverride = mkOverride 10; # used by ‘botnix-rebuild build-vm’
 
   defaultPriority = lib.warnIf (lib.isInOldestRelease 2305) "lib.modules.defaultPriority is deprecated, please use lib.modules.defaultOverridePriority instead." defaultOverridePriority;
 
@@ -1283,7 +1283,7 @@ let
       ]);
     };
 
-  /* Use this function to import a JSON file as NixOS configuration.
+  /* Use this function to import a JSON file as Botnix configuration.
 
      modules.importJSON :: path -> attrs
   */
@@ -1292,7 +1292,7 @@ let
     config = lib.importJSON file;
   };
 
-  /* Use this function to import a TOML file as NixOS configuration.
+  /* Use this function to import a TOML file as Botnix configuration.
 
      modules.importTOML :: path -> attrs
   */
@@ -1302,7 +1302,7 @@ let
   };
 
   private = lib.mapAttrs
-    (k: lib.warn "External use of `lib.modules.${k}` is deprecated. If your use case isn't covered by non-deprecated functions, we'd like to know more and perhaps support your use case well, instead of providing access to these low level functions. In this case please open an issue in https://github.com/nixos/nixpkgs/issues/.")
+    (k: lib.warn "External use of `lib.modules.${k}` is deprecated. If your use case isn't covered by non-deprecated functions, we'd like to know more and perhaps support your use case well, instead of providing access to these low level functions. In this case please open an issue in https://github.com/botnix/nixpkgs/issues/.")
     {
       inherit
         applyModuleArgsIfFunction

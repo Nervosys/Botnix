@@ -3,7 +3,7 @@ name: "No channel PR"
 on:
   pull_request:
     branches:
-      - 'nixos-**'
+      - 'botnix-**'
       - 'nixpkgs-**'
 
 permissions:
@@ -18,7 +18,7 @@ jobs:
     steps:
     - run: |
         cat <<EOF
-        The nixos-* and nixpkgs-* branches are pushed to by the channel
+        The botnix-* and nixpkgs-* branches are pushed to by the channel
         release script and should not be merged into directly.
 
         Please target the equivalent release-* branch or master instead.

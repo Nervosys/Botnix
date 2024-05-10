@@ -7,7 +7,7 @@ let
   rubyWrapper = writeShellScriptBin "ruby" ''
     if [[ "$#" -eq 2 ]]; then
       if [[ "''${1##*/}" == "bundle" && "$2" == "install" ]]; then
-        # See https://github.com/NixOS/nixpkgs/issues/58126 for more details.
+        # See https://github.com/nervosys/Botnix/issues/58126 for more details.
         echo 'Skipping "bundle install" as it fails due to the Nix wrapper.'
         echo 'Please enter the new directory and run the following commands to serve the page:'
         echo 'nix-shell -p bundler --run "bundle install --gemfile=Gemfile --path vendor/cache"'

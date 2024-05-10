@@ -13,8 +13,8 @@
   #
   # NOTE In some cases, rlwrap prints some extra empty lines. That behavior can
   # break some babashka scripts. For this reason, it is disabled by default. See:
-  # https://github.com/NixOS/nixpkgs/issues/246839
-  # https://github.com/NixOS/nixpkgs/pull/248207
+  # https://github.com/nervosys/Botnix/issues/246839
+  # https://github.com/nervosys/Botnix/pull/248207
 , withRlwrap ? false
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {

@@ -50,7 +50,7 @@ python3Packages.buildPythonApplication rec {
       It's main goal is to be as unintrusive as possible.
 
       To run gtimelog successfully on a system that does not have full GNOME
-      installed, the following NixOS options should be set:
+      installed, the following Botnix options should be set:
       - programs.dconf.enable = true;
     '';
     homepage = "https://gtimelog.org/";

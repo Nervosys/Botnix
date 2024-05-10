@@ -129,7 +129,7 @@ stdenv.mkDerivation rec {
 
   installPhase = let
     run-streaming = writeShellScript "run-streaming.sh" ''
-      # NixOS helper script to consistently use the same NodeJS version the package was built with.
+      # Botnix helper script to consistently use the same NodeJS version the package was built with.
       ${nodejs-slim}/bin/node ./streaming
     '';
   in ''

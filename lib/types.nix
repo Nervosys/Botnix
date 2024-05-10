@@ -1,5 +1,5 @@
 # Definitions related to run-time type checking.  Used in particular
-# to type-check NixOS configurations.
+# to type-check Botnix configurations.
 { lib }:
 
 let
@@ -133,11 +133,11 @@ rec {
       # Strict and deep type checking can be performed by calling lib.deepSeq on
       # the merged value.
       #
-      # See https://github.com/NixOS/nixpkgs/pull/6794 that introduced this change,
-      # https://github.com/NixOS/nixpkgs/pull/173568 and
-      # https://github.com/NixOS/nixpkgs/pull/168295 that attempted to revert this,
-      # https://github.com/NixOS/nixpkgs/issues/191124 and
-      # https://github.com/NixOS/nixos-search/issues/391 for what happens if you ignore
+      # See https://github.com/nervosys/Botnix/pull/6794 that introduced this change,
+      # https://github.com/nervosys/Botnix/pull/173568 and
+      # https://github.com/nervosys/Botnix/pull/168295 that attempted to revert this,
+      # https://github.com/nervosys/Botnix/issues/191124 and
+      # https://github.com/Botnix/botnix-search/issues/391 for what happens if you ignore
       # this disclaimer.
       check ? (x: true)
     , # Merge a list of definitions together into a single value.
@@ -214,7 +214,7 @@ rec {
     else "(${t.description})";
 
   # When adding new types don't forget to document them in
-  # nixos/doc/manual/development/option-types.xml!
+  # botnix/doc/manual/development/option-types.xml!
   types = rec {
 
     raw = mkOptionType {
@@ -464,7 +464,7 @@ rec {
     # strings, which is usually not what you want.
     # We use a lib.warn because `deprecationMessage` doesn't trigger in nested types such as `attrsOf string`
     string = lib.warn
-      "The type `types.string` is deprecated. See https://github.com/NixOS/nixpkgs/pull/66346 for better alternative types."
+      "The type `types.string` is deprecated. See https://github.com/nervosys/Botnix/pull/66346 for better alternative types."
       (separatedString "" // {
         name = "string";
       });
@@ -610,7 +610,7 @@ rec {
       name = "loaOf";
       deprecationMessage = "Mixing lists with attribute values is no longer"
         + " possible; please use `types.attrsOf` instead. See"
-        + " https://github.com/NixOS/nixpkgs/issues/1800 for the motivation.";
+        + " https://github.com/nervosys/Botnix/issues/1800 for the motivation.";
       nestedTypes.elemType = elemType;
     };
 
@@ -673,7 +673,7 @@ rec {
       nestedTypes.elemType = elemType;
     };
 
-    # A submodule (like typed attribute set). See NixOS manual.
+    # A submodule (like typed attribute set). See Botnix manual.
     submodule = modules: submoduleWith {
       shorthandOnlyDefinesConfig = true;
       modules = toList modules;

@@ -58,7 +58,7 @@ stdenv.mkDerivation (finalAttrs: {
   dontWrapQtApps = true;
 
   qmakeFlags = [
-    # Needs qdoc, https://github.com/NixOS/nixpkgs/pull/245379
+    # Needs qdoc, https://github.com/nervosys/Botnix/pull/245379
     "CONFIG+=no_docs"
   ];
 

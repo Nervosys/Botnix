@@ -37,7 +37,7 @@ The resulting derivation is a union of all the downloaded Bower packages (and th
 
 ## buildBowerComponents function {#ssec-build-bower-components}
 
-The function is implemented in [pkgs/development/bower-modules/generic/default.nix](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/bower-modules/generic/default.nix).
+The function is implemented in [pkgs/development/bower-modules/generic/default.nix](https://github.com/nervosys/Botnix/blob/master/pkgs/development/bower-modules/generic/default.nix).
 
 ### Example buildBowerComponents {#ex-buildBowerComponents}
 

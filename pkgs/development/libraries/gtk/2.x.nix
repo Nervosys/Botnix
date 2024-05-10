@@ -119,7 +119,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   postInstall = ''
     moveToOutput share/gtk-2.0/demo "$devdoc"
-    # The updater is needed for nixos env and it's tiny.
+    # The updater is needed for botnix env and it's tiny.
     moveToOutput bin/gtk-update-icon-cache "$out"
   '';
 

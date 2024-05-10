@@ -27,7 +27,7 @@ unwrapped = stdenv.mkDerivation rec {
 
   outputs = [ "out" "dev" ];
 
-  # Path fixups for the NixOS service.
+  # Path fixups for the Botnix service.
   postPatch = ''
     patch meson.build <<EOF
     @@ -50,2 +50,2 @@
@@ -78,13 +78,13 @@ unwrapped = stdenv.mkDerivation rec {
   ]
   ++ optional doInstallCheck "-Dunit_tests=enabled"
   ++ optional doInstallCheck "-Dconfig_tests=enabled"
-  ++ optional stdenv.isLinux "-Dsystemd_files=enabled" # used by NixOS service
+  ++ optional stdenv.isLinux "-Dsystemd_files=enabled" # used by Botnix service
     #"-Dextra_tests=enabled" # not suitable as in-distro tests; many deps, too.
   ;
 
   postInstall = ''
     rm "$out"/lib/libkres.a
-    rm "$out"/lib/knot-resolver/upgrade-4-to-5.lua # not meaningful on NixOS
+    rm "$out"/lib/knot-resolver/upgrade-4-to-5.lua # not meaningful on Botnix
   '' + optionalString stdenv.hostPlatform.isLinux ''
     rm -r "$out"/lib/sysusers.d/ # ATM more likely to harm than help
   '';
@@ -125,7 +125,7 @@ wrapped-full = runCommand unwrapped.name
       --set LUA_CPATH "$LUA_CPATH"
 
     ln -sr '${unwrapped}/share' "$out"/
-    ln -sr '${unwrapped}/lib'   "$out"/ # useful in NixOS service
+    ln -sr '${unwrapped}/lib'   "$out"/ # useful in Botnix service
     ln -sr "$out"/{bin,sbin}
   '' + lib.optionalString unwrapped.doInstallCheck ''
     echo "Checking that 'http' module loads, i.e. lua search paths work:"

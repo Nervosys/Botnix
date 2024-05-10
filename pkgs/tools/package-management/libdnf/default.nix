@@ -62,7 +62,7 @@ stdenv.mkDerivation rec {
     rpm
   ];
 
-  # See https://github.com/NixOS/nixpkgs/issues/107430
+  # See https://github.com/nervosys/Botnix/issues/107430
   prePatch = ''
     cp ${libsolv}/share/cmake/Modules/FindLibSolv.cmake cmake/modules/
   '';

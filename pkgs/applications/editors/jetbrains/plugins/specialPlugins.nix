@@ -36,7 +36,7 @@
   };
   "17718" = {
     # Github Copilot
-    # Modified version of https://github.com/ktor/nixos/commit/35f4071faab696b2a4d86643726c9dd3e4293964
+    # Modified version of https://github.com/ktor/botnix/commit/35f4071faab696b2a4d86643726c9dd3e4293964
     buildPhase = ''
       agent="copilot-agent/bin/copilot-agent-linux"
       orig_size=$(stat --printf=%s $agent)

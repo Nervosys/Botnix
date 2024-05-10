@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   version = "unstable-2024-01-15";
 
   src = fetchFromGitHub {
-    owner = "NixOS";
+    owner = "Botnix";
     repo = "patchelf";
     rev = "7c2f768bf9601268a4e71c2ebe91e2011918a70f";
     sha256 = "sha256-PPXqKY2hJng4DBVE0I4xshv/vGLUskL7jl53roB8UdU=";
@@ -26,12 +26,12 @@ stdenv.mkDerivation rec {
 
   passthru = {
     updateScript = unstableGitUpdater {
-      url = "https://github.com/NixOS/patchelf.git";
+      url = "https://github.com/Botnix/patchelf.git";
     };
   };
 
   meta = with lib; {
-    homepage = "https://github.com/NixOS/patchelf";
+    homepage = "https://github.com/Botnix/patchelf";
     license = licenses.gpl3;
     description = "A small utility to modify the dynamic linker and RPATH of ELF executables";
     maintainers = [ maintainers.eelco ];

@@ -22,7 +22,7 @@ buildPythonApplication rec {
   # On Darwin this package segfaults due to mismatch of pure and impure
   # CoreFoundation. This issues was solved for binaries but for interpreted
   # scripts a workaround below is still required.
-  # Relevant: https://github.com/NixOS/nixpkgs/issues/24693
+  # Relevant: https://github.com/nervosys/Botnix/issues/24693
   makeWrapperArgs = lib.optionals stdenv.isDarwin [
     "--set" "DYLD_FRAMEWORK_PATH" "/System/Library/Frameworks"
   ];

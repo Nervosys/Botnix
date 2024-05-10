@@ -97,7 +97,7 @@ stdenv.mkDerivation (rec {
   # We copy this header over from macOS 10.12 SDK.
   #
   # See here for context:
-  # https://github.com/NixOS/nixpkgs/pull/194634#issuecomment-1272129132
+  # https://github.com/nervosys/Botnix/pull/194634#issuecomment-1272129132
   ++ lib.optional
     (
       stdenv.targetPlatform.isDarwin

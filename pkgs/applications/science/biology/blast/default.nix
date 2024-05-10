@@ -102,7 +102,7 @@ stdenv.mkDerivation rec {
     license = licenses.publicDomain;
 
     # Version 2.10.0 fails on Darwin
-    # See https://github.com/NixOS/nixpkgs/pull/61430
+    # See https://github.com/nervosys/Botnix/pull/61430
     platforms = platforms.linux;
     maintainers = with maintainers; [ luispedro ];
   };

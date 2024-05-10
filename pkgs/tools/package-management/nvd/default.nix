@@ -32,7 +32,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   meta = {
-    description = "Nix/NixOS package version diff tool";
+    description = "Nix/Botnix package version diff tool";
     homepage = "https://gitlab.com/khumba/nvd";
     license = lib.licenses.asl20;
     mainProgram = "nvd";

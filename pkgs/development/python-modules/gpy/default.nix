@@ -54,6 +54,6 @@ buildPythonPackage rec {
     changelog = "https://github.com/SheffieldML/GPy/releases/tag/v.${version}";
     license = licenses.bsd3;
     maintainers = with maintainers; [ bcdarwin ];
-    broken = stdenv.isDarwin; # See inscrutable error message here: https://github.com/NixOS/nixpkgs/pull/107653#issuecomment-751527547
+    broken = stdenv.isDarwin; # See inscrutable error message here: https://github.com/nervosys/Botnix/pull/107653#issuecomment-751527547
   };
 }

@@ -108,7 +108,7 @@ stdenv.mkDerivation {
   postPatch = ''
     sed -ie '4i GIT_LABEL = heads/master-${rev}' GNUmakefile
 
-    # There is no ld.so.cache in NixOS so we patch out calls to that completely.
+    # There is no ld.so.cache in Botnix so we patch out calls to that completely.
     # This should work as long as no application code relies on `find-library*`
     # to return a match, which currently is the case and also a justified assumption.
 
@@ -139,7 +139,7 @@ stdenv.mkDerivation {
     # We can't have that. So, set it to $TMPDIR/.cache
     export XDG_CACHE_HOME=$TMPDIR/.cache && mkdir -p $XDG_CACHE_HOME
 
-    # There is no ld.so.cache in NixOS so we construct one
+    # There is no ld.so.cache in Botnix so we construct one
     # out of known libraries. The side effect is that find-lib
     # will work only on the known libraries. There does not seem
     # to be a generic solution here.

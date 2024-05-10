@@ -12,7 +12,7 @@ shopt -s extglob
 # shouldn't need to persist something that will differ between hosts built from
 # the same configuration template.
 
-# Thus, for using bees from NixOS, we have our own wrapper, which supports not
+# Thus, for using bees from Botnix, we have our own wrapper, which supports not
 # just UUID but any specification permitted by findmnt
 
 [[ $bees_debug ]] && { PS4=':${BASH_SOURCE##*/}:$LINENO+'; set -x; }

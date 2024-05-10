@@ -2,7 +2,7 @@
 , lib
 , stdenv
 , fetchurl
-, nixos
+, botnix
 , testers
 , hello
 }:
@@ -25,7 +25,7 @@ stdenv.mkDerivation (finalAttrs: {
       testers.testEqualDerivation
         "hello must not be rebuilt when environment.noXlibs is set."
         hello
-        (nixos { environment.noXlibs = true; }).pkgs.hello;
+        (botnix { environment.noXlibs = true; }).pkgs.hello;
   };
 
   passthru.tests.run = callPackage ./test.nix { hello = finalAttrs.finalPackage; };

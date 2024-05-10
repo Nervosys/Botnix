@@ -269,7 +269,7 @@ rec {
       longDescription = ''
         Docker is a platform designed to help developers build, share, and run modern applications.
 
-        To enable the docker daemon on NixOS, set the `virtualisation.docker.enable` option to `true`.
+        To enable the docker daemon on Botnix, set the `virtualisation.docker.enable` option to `true`.
       '';
       license = licenses.asl20;
       maintainers = with maintainers; [ offline vdemeester periklis amaxine ];

@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
   sourceRoot = "${finalAttrs.src.name}/src";
 
   postPatch = ''
-    echo '#define GIT_REVISION "${finalAttrs.version}-NixOS"' > git-rev.h
+    echo '#define GIT_REVISION "${finalAttrs.version}-Botnix"' > git-rev.h
     substituteInPlace miniAudicle.pro \
       --replace "/usr/local" $out
   '';

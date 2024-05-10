@@ -44,7 +44,7 @@ buildPythonPackage rec {
     "tests/pytorch_pfn_extras_tests/test_config_types.py"
 
     # requires onnxruntime which was removed because of poor maintainability
-    # See https://github.com/NixOS/nixpkgs/pull/105951 https://github.com/NixOS/nixpkgs/pull/155058
+    # See https://github.com/nervosys/Botnix/pull/105951 https://github.com/nervosys/Botnix/pull/155058
     "tests/pytorch_pfn_extras_tests/onnx_tests/test_export.py"
     "tests/pytorch_pfn_extras_tests/onnx_tests/test_torchvision.py"
     "tests/pytorch_pfn_extras_tests/onnx_tests/utils.py"
@@ -68,7 +68,7 @@ buildPythonPackage rec {
     "tests/pytorch_pfn_extras_tests/utils_tests/test_comparer.py"
     "tests/pytorch_pfn_extras_tests/utils_tests/test_new_comparer.py"
   ] ++ lib.optionals (pythonAtLeast "3.11") [
-    # Remove this when https://github.com/NixOS/nixpkgs/pull/259068 is merged
+    # Remove this when https://github.com/nervosys/Botnix/pull/259068 is merged
     "tests/pytorch_pfn_extras_tests/dynamo_tests/test_compile.py"
   ];
 

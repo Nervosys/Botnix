@@ -17,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   patches = [
     # Add a "libs" field to the syntax recognized in the /etc/asound.conf file.
-    # The nixos modules for pulseaudio, jack, and pipewire are leveraging this
+    # The botnix modules for pulseaudio, jack, and pipewire are leveraging this
     # "libs" field to declare locations for both native and 32bit plugins, in
     # order to support apps with 32bit sound running on x86_64 architecture.
     ./alsa-plugin-conf-multilib.patch

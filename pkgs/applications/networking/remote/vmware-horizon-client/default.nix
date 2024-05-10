@@ -50,7 +50,7 @@ let
 
       # Horizon includes a copy of libstdc++ which is loaded via $LD_LIBRARY_PATH
       # when it cannot detect a new enough version already present on the system.
-      # The checks are distribution-specific and do not function correctly on NixOS.
+      # The checks are distribution-specific and do not function correctly on Botnix.
       # Deleting the bundled library is the simplest way to force it to use our version.
       rm "$out/lib/vmware/gcc/libstdc++.so.6"
 

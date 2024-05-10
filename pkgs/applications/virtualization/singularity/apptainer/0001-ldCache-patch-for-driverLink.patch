@@ -37,7 +37,7 @@ index db45d9db1..9d0110b6b 100644
 +    for _, dirPath := range driverDirs {
 +        dir, err := os.Open(dirPath)
 +        if err != nil {
-+            /* Maybe we're not running under NixOS */
++            /* Maybe we're not running under Botnix */
 +            continue
 +        }
 +        files, err := dir.ReadDir(-1)

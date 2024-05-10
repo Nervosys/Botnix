@@ -15,7 +15,7 @@ lib: self: super:
 # Try to keep them to a minimum.
 # valid examples of what to preserve:
 #   distro aliases such as:
-#     debian-package-name -> nixos-package-name
+#     debian-package-name -> botnix-package-name
 
 with self;
 
@@ -148,9 +148,9 @@ mapAliases ({
   ccloud-cli = throw "ccloud-cli has been removed, please use confluent-cli instead"; # Added 2023-06-09
   certmgr-selfsigned = certmgr; # Added 2023-11-30
   chefdk = throw "chefdk has been removed due to being deprecated upstream by Chef Workstation"; # Added 2023-03-22
-  chia = throw "chia has been removed. see https://github.com/NixOS/nixpkgs/pull/270254"; # Added 2023-11-30
-  chia-dev-tools = throw "chia-dev-tools has been removed. see https://github.com/NixOS/nixpkgs/pull/270254"; # Added 2023-11-30
-  chia-plotter = throw "chia-plotter has been removed. see https://github.com/NixOS/nixpkgs/pull/270254"; # Added 2023-11-30
+  chia = throw "chia has been removed. see https://github.com/nervosys/Botnix/pull/270254"; # Added 2023-11-30
+  chia-dev-tools = throw "chia-dev-tools has been removed. see https://github.com/nervosys/Botnix/pull/270254"; # Added 2023-11-30
+  chia-plotter = throw "chia-plotter has been removed. see https://github.com/nervosys/Botnix/pull/270254"; # Added 2023-11-30
   chkservice = throw "chkservice has been removed from nixpkgs, as it has been deleted upstream"; # Added 2024-01-08
   chocolateDoom = chocolate-doom; # Added 2023-05-01
   chrome-gnome-shell = gnome-browser-connector; # Added 2022-07-27
@@ -618,7 +618,7 @@ mapAliases ({
     If you want to use a hardened kernel, please check which kernel minors are supported
     and use a versioned attribute, e.g. `linuxPackages_5_10_hardened'.
 
-    [1] for more context: https://github.com/NixOS/nixpkgs/pull/133587
+    [1] for more context: https://github.com/nervosys/Botnix/pull/133587
   '';
   linux_latest_hardened = linuxPackages_latest_hardened;
 
@@ -718,7 +718,7 @@ mapAliases ({
 
         services.nextcloud.package = pkgs.nextcloud26;
 
-    in your NixOS config.
+    in your Botnix config.
 
     WARNING: if you were on Nextcloud 24 you have to upgrade to Nextcloud 25
     first on 23.05 because Nextcloud doesn't support upgrades across multiple major versions!
@@ -731,7 +731,7 @@ mapAliases ({
   nix-repl = throw (
     # Added 2018-08-26
     "nix-repl has been removed because it's not maintained anymore, " +
-    "use `nix repl` instead. Also see https://github.com/NixOS/nixpkgs/pull/44903"
+    "use `nix repl` instead. Also see https://github.com/nervosys/Botnix/pull/44903"
   );
   nix-review = throw "'nix-review' has been renamed to/replaced by 'nixpkgs-review'"; # Converted to throw 2023-09-10
   nix-template-rpm = throw "'nix-template-rpm' has been removed as it is broken and unmaintained"; # Added 2023-11-20
@@ -1104,7 +1104,7 @@ mapAliases ({
   vamp = { vampSDK = vamp-plugin-sdk; }; # Added 2020-03-26
   vaapiIntel = intel-vaapi-driver; # Added 2023-05-31
   vaultwarden-vault = vaultwarden.webvault; # Added 2022-12-13
-  vdirsyncerStable = vdirsyncer; # Added 2020-11-08, see https://github.com/NixOS/nixpkgs/issues/103026#issuecomment-723428168
+  vdirsyncerStable = vdirsyncer; # Added 2020-11-08, see https://github.com/nervosys/Botnix/issues/103026#issuecomment-723428168
   ventoy-bin = ventoy; # Added 2023-04-12
   ventoy-bin-full = ventoy-full; # Added 2023-04-12
   ViennaRNA = viennarna; # Added 2023-08-23
@@ -1204,7 +1204,7 @@ mapAliases ({
 
   /* If these are in the scope of all-packages.nix, they cause collisions
     between mixed versions of qt. See:
-  https://github.com/NixOS/nixpkgs/pull/101369 */
+  https://github.com/nervosys/Botnix/pull/101369 */
 
   inherit (plasma5Packages)
     akonadi akregator arianna ark bluedevil bomber bovo breeze-grub breeze-gtk

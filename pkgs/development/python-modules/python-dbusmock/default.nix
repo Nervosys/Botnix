@@ -49,7 +49,7 @@ in buildPythonPackage rec {
 
   # TODO: Get the rest of these tests running?
   NOSE_EXCLUDE = lib.concatStringsSep "," [
-    "test_bluez4" # NixOS ships BlueZ5
+    "test_bluez4" # Botnix ships BlueZ5
     # These appear to fail because they're expecting to run in an Ubuntu chroot?
     "test_everything" # BlueZ5 OBEX
     "test_polkitd"

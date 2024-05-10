@@ -19,7 +19,7 @@ let cpuName = stdenv.hostPlatform.parsed.cpu.name;
     inherit (sourcePerArch.${cpuName}) url sha256;
   };
 
-  # See: https://github.com/NixOS/patchelf/issues/10
+  # See: https://github.com/Botnix/patchelf/issues/10
   dontStrip = 1;
 
   installPhase = ''

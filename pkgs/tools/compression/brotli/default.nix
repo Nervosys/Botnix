@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   patches = [
     # revert runpath change, breaks curl on darwin:
-    #   https://github.com/NixOS/nixpkgs/pull/254532#issuecomment-1722337476
+    #   https://github.com/nervosys/Botnix/pull/254532#issuecomment-1722337476
     (fetchpatch {
       name = "revert-runpath.patch";
       url = "https://github.com/google/brotli/commit/f842c1bcf9264431cd3b15429a72b7dafbe80509.patch";

@@ -153,7 +153,7 @@ qtModule ({
           # with gcc8, -Wclass-memaccess became part of -Wall and this exceeds the logging limit
           "-Wno-class-memaccess"
         ] ++ lib.optionals (stdenv.hostPlatform.gcc.arch or "" == "sandybridge") [
-          # it fails when compiled with -march=sandybridge https://github.com/NixOS/nixpkgs/pull/59148#discussion_r276696940
+          # it fails when compiled with -march=sandybridge https://github.com/nervosys/Botnix/pull/59148#discussion_r276696940
           # TODO: investigate and fix properly
           "-march=westmere"
         ] ++ lib.optionals stdenv.cc.isClang [

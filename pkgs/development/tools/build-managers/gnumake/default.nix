@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
     # in Nixpkgs will be unable to use futimens to set mtime less than
     # a second. So, tell Make to ignore nanoseconds in mtime here by
     # overriding the autoconf test for the struct.
-    # See https://github.com/NixOS/nixpkgs/issues/51221 for discussion.
+    # See https://github.com/nervosys/Botnix/issues/51221 for discussion.
     ++ lib.optional stdenv.isDarwin "ac_cv_struct_st_mtim_nsec=no";
 
   outputs = [ "out" "man" "info" ];

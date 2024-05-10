@@ -61,7 +61,7 @@ stdenv.mkDerivation (finalAttrs: {
         jq --raw-output ". * $pnpmPatch" package.json.orig > package.json
       '';
 
-      # https://github.com/NixOS/nixpkgs/blob/763e59ffedb5c25774387bf99bc725df5df82d10/pkgs/applications/misc/pot/default.nix#L56
+      # https://github.com/nervosys/Botnix/blob/763e59ffedb5c25774387bf99bc725df5df82d10/pkgs/applications/misc/pot/default.nix#L56
       installPhase = ''
         export HOME=$(mktemp -d)
 

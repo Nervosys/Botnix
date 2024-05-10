@@ -36,7 +36,7 @@ stdenvNoCC.mkDerivation rec {
 
   buildPhase = ''
     for variant in dark light ; do
-    # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/emojione/default.nix#L16
+    # https://github.com/nervosys/Botnix/blob/master/pkgs/data/fonts/emojione/default.nix#L16
       HOME="$NIX_BUILD_ROOT" ./build.sh --max-dpi xhd --type $variant
     done
   '';

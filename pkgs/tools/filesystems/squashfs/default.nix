@@ -52,7 +52,7 @@ stdenv.mkDerivation rec {
   ];
 
   passthru.tests = {
-    nixos-iso-boots-and-verifies = nixosTests.boot.biosCdrom;
+    botnix-iso-boots-and-verifies = nixosTests.boot.biosCdrom;
   };
 
   meta = with lib; {

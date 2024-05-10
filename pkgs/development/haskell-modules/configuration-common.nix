@@ -2,7 +2,7 @@
 #
 # This file contains haskell package overrides that are shared by all
 # haskell package sets provided by nixpkgs and distributed via the official
-# NixOS hydra instance.
+# Botnix hydra instance.
 #
 # Overrides that would also make sense for custom haskell package sets not provided
 # as part of nixpkgs and that are specific to Nix should go in configuration-nix.nix
@@ -190,7 +190,7 @@ self: super: {
     })
   ] super.aeson);
 
-  # 2023-06-28: Test error: https://hydra.nixos.org/build/225565149
+  # 2023-06-28: Test error: https://hydra.botnix.org/build/225565149
   orbits = dontCheck super.orbits;
 
   # Fixes the build if Cabal >= 3.10.2 is used for Setup.hs, as it got stricter
@@ -635,7 +635,7 @@ self: super: {
   }) super.HTF;
   htsn = dontCheck super.htsn;
   htsn-import = dontCheck super.htsn-import;
-  http-link-header = dontCheck super.http-link-header; # non deterministic failure https://hydra.nixos.org/build/75041105
+  http-link-header = dontCheck super.http-link-header; # non deterministic failure https://hydra.botnix.org/build/75041105
   influxdb = dontCheck super.influxdb;
   integer-roots = dontCheck super.integer-roots; # requires an old version of smallcheck, will be fixed in > 1.0
   itanium-abi = dontCheck super.itanium-abi;
@@ -704,7 +704,7 @@ self: super: {
   static-resources = dontCheck super.static-resources;
   strive = dontCheck super.strive;                      # fails its own hlint test with tons of warnings
   svndump = dontCheck super.svndump;
-  tar = dontCheck super.tar; #https://hydra.nixos.org/build/25088435/nixlog/2 (fails only on 32-bit)
+  tar = dontCheck super.tar; #https://hydra.botnix.org/build/25088435/nixlog/2 (fails only on 32-bit)
   th-printf = dontCheck super.th-printf;
   thumbnail-plus = dontCheck super.thumbnail-plus;
   tickle = dontCheck super.tickle;
@@ -719,7 +719,7 @@ self: super: {
   xsd = dontCheck super.xsd;
   zip-archive = dontCheck super.zip-archive;  # https://github.com/jgm/zip-archive/issues/57
 
-  # 2023-06-26: Test failure: https://hydra.nixos.org/build/224869905
+  # 2023-06-26: Test failure: https://hydra.botnix.org/build/224869905
   comfort-blas = dontCheck super.comfort-blas;
 
   # 2022-06-26: Too strict lower bound on semialign.
@@ -774,7 +774,7 @@ self: super: {
   # This packages compiles 4+ hours on a fast machine. That's just unreasonable.
   CHXHtml = dontDistribute super.CHXHtml;
 
-  # https://github.com/NixOS/nixpkgs/issues/6350
+  # https://github.com/nervosys/Botnix/issues/6350
   paypal-adaptive-hoops = overrideCabal (drv: { testTarget = "local"; }) super.paypal-adaptive-hoops;
 
   # Avoid "QuickCheck >=2.3 && <2.10" dependency we cannot fulfill in lts-11.x.
@@ -875,7 +875,7 @@ self: super: {
   # vector dependency < 0.12
   imagemagick = doJailbreak super.imagemagick;
 
-  # Elm is no longer actively maintained on Hackage: https://github.com/NixOS/nixpkgs/pull/9233.
+  # Elm is no longer actively maintained on Hackage: https://github.com/nervosys/Botnix/pull/9233.
   Elm = markBroken super.Elm;
   elm-build-lib = markBroken super.elm-build-lib;
   elm-compiler = markBroken super.elm-compiler;
@@ -1116,7 +1116,7 @@ self: super: {
   # https://github.com/bmillwood/applicative-quoters/issues/6
   applicative-quoters = doJailbreak super.applicative-quoters;
 
-  # https://hydra.nixos.org/build/42769611/nixlog/1/raw
+  # https://hydra.botnix.org/build/42769611/nixlog/1/raw
   # note: the library is unmaintained, no upstream issue
   dataenc = doJailbreak super.dataenc;
 
@@ -1371,13 +1371,13 @@ self: super: {
 
   # Requires pg_ctl command during tests
   beam-postgres = overrideCabal (drv: {
-    # https://github.com/NixOS/nixpkgs/issues/198495
+    # https://github.com/nervosys/Botnix/issues/198495
     doCheck = pkgs.postgresql.doCheck;
     testToolDepends = (drv.testToolDepends or []) ++ [pkgs.postgresql];
   }) super.beam-postgres;
 
   # PortMidi needs an environment variable to have ALSA find its plugins:
-  # https://github.com/NixOS/nixpkgs/issues/6860
+  # https://github.com/nervosys/Botnix/issues/6860
   PortMidi = overrideCabal (drv: {
     patches = (drv.patches or []) ++ [ ./patches/portmidi-alsa-plugins.patch ];
     postPatch = (drv.postPatch or "") + ''
@@ -1415,7 +1415,7 @@ self: super: {
           sed -i test/PostgreSQL/Test.hs \
             -e s^host=localhost^^
         '';
-        # https://github.com/NixOS/nixpkgs/issues/198495
+        # https://github.com/nervosys/Botnix/issues/198495
         doCheck = pkgs.postgresql.doCheck;
         # Match the test suite defaults (or hardcoded values?)
         preCheck = drv.preCheck or "" + ''
@@ -1539,7 +1539,7 @@ self: super: {
           # is incompatible with the stackage version of persistent, so the tests
           # are disabled temporarily.
           false
-          # https://github.com/NixOS/nixpkgs/issues/198495
+          # https://github.com/nervosys/Botnix/issues/198495
           && pkgs.postgresql.doCheck;
         preCheck = drv.preCheck or "" + ''
           PGDATABASE=test
@@ -1712,7 +1712,7 @@ self: super: {
     testToolDepends = drv.testToolDepends or [] ++ [
       pkgs.postgresql pkgs.postgresqlTestHook
     ];
-    # https://github.com/NixOS/nixpkgs/issues/198495
+    # https://github.com/nervosys/Botnix/issues/198495
     doCheck = pkgs.postgresql.doCheck;
     preCheck = drv.preCheck or "" + ''
       # empty string means use default connection
@@ -1755,7 +1755,7 @@ self: super: {
   #   PATH.
   # - Patch can be removed on next package set bump (for v0.2.11)
 
-  # 2023-06-26: Test failure: https://hydra.nixos.org/build/225081865
+  # 2023-06-26: Test failure: https://hydra.botnix.org/build/225081865
   update-nix-fetchgit = let
       deps = [ pkgs.git pkgs.nix pkgs.nix-prefetch-git ];
     in lib.pipe  super.update-nix-fetchgit [
@@ -2811,7 +2811,7 @@ self: super: {
   }) super.true-name);
 
   # ffmpeg-light works against the ffmpeg-4 API, but the default ffmpeg in nixpkgs is ffmpeg-5.
-  # https://github.com/NixOS/nixpkgs/pull/220972#issuecomment-1484017192
+  # https://github.com/nervosys/Botnix/pull/220972#issuecomment-1484017192
   ffmpeg-light = super.ffmpeg-light.override { ffmpeg = pkgs.ffmpeg_4; };
 
   # posix-api has had broken tests since 2020 (until at least 2023-01-11)
@@ -2868,7 +2868,7 @@ self: super: {
   unleash-client-haskell-core = dontCheck super.unleash-client-haskell-core;
 
   # Workaround for Cabal failing to find nonexistent SDL2 library?!
-  # https://github.com/NixOS/nixpkgs/issues/260863
+  # https://github.com/nervosys/Botnix/issues/260863
   sdl2-gfx = overrideCabal { __propagatePkgConfigDepends = false; } super.sdl2-gfx;
   sdl2-ttf = overrideCabal { __onlyPropagateKnownPkgConfigModules = true; } super.sdl2-ttf;
 

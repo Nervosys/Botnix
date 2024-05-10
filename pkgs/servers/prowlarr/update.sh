@@ -7,7 +7,7 @@ dirname="$(dirname "$0")"
 
 updateHash()
 {
-    # nixos
+    # botnix
     version=$1
     system=$2
 

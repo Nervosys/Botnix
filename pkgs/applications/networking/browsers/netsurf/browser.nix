@@ -99,7 +99,7 @@ stdenv.mkDerivation (finalAttrs: {
   # compiler
 
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=85678
-  # https://github.com/NixOS/nixpkgs/issues/54506
+  # https://github.com/nervosys/Botnix/issues/54506
 
   env.NIX_CFLAGS_COMPILE = "-fcommon";
 

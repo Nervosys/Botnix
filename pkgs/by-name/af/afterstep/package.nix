@@ -38,7 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   postPatch = ''
-    # Causes fatal ldconfig cache generation attempt on non-NixOS Linux
+    # Causes fatal ldconfig cache generation attempt on non-Botnix Linux
     for mkfile in autoconf/Makefile.common.lib.in libAfter{Base,Image}/Makefile.in; do
       substituteInPlace $mkfile \
         --replace 'test -w /etc' 'false'

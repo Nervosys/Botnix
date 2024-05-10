@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
   enableParallelBuilding = true;
 
   # Tests are currently broken on i686 see
-  # https://hydra.nixos.org/build/24003763/nixlog/1
+  # https://hydra.botnix.org/build/24003763/nixlog/1
   doCheck = if stdenv.isi686 then false else true;
   checkTarget = "test";
 

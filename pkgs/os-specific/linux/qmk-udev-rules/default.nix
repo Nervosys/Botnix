@@ -1,7 +1,7 @@
 { lib, stdenv, fetchFromGitHub }:
 
 ## Usage
-# In NixOS, set hardware.keyboard.qmk.enable = true;
+# In Botnix, set hardware.keyboard.qmk.enable = true;
 
 stdenv.mkDerivation rec {
   pname = "qmk-udev-rules";

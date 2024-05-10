@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    # https://github.com/NixOS/nixpkgs/issues/136093
+    # https://github.com/nervosys/Botnix/issues/136093
     ./swap-priority-4-and-5-in-get_config_path.patch
   ];
 

@@ -63,7 +63,7 @@ end
 # webrick
 gem 'webrick'
 
-# Include database gems for the database adapters NixOS supports
+# Include database gems for the database adapters Botnix supports
 require 'erb'
 require 'yaml'
 gem "mysql2", "~> 0.5.0", :platforms => [:mri, :mingw, :x64_mingw]

@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
   postInstall = ''
     install -Dm444 -t $out/share/doc/${pname} ../{LICENSE,*.md}
     install -Dm444 -t $out/share/${pname}/munin ../munin/*
-    # the systemd service definition is garbage, and we use our own with NixOS
+    # the systemd service definition is garbage, and we use our own with Botnix
     mv $out/lib/systemd $out/share/${pname}
     rmdir $out/lib
   '';

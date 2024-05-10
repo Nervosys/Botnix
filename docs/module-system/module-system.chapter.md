@@ -7,13 +7,13 @@ The module system is a language for handling configuration, implemented as a Nix
 Compared to plain Nix, it adds documentation, type checking and composition or extensibility.
 
 ::: {.note}
-This chapter is new and not complete yet. For a gentle introduction to the module system, in the context of NixOS, see [Writing NixOS Modules](https://nixos.org/manual/nixos/unstable/index.html#sec-writing-modules) in the NixOS manual.
+This chapter is new and not complete yet. For a gentle introduction to the module system, in the context of Botnix, see [Writing Botnix Modules](https://nixos.org/manual/botnix/unstable/index.html#sec-writing-modules) in the Botnix manual.
 :::
 
 
 ## `lib.evalModules` {#module-system-lib-evalModules}
 
-Evaluate a set of modules. This function is typically only used once per application (e.g. once in NixOS, once in Home Manager, ...).
+Evaluate a set of modules. This function is typically only used once per application (e.g. once in Botnix, once in Home Manager, ...).
 
 ### Parameters {#module-system-lib-evalModules-parameters}
 
@@ -36,8 +36,8 @@ The `class` value should be a string in lower [camel case](https://en.wikipedia.
 
 If applicable, the `class` should match the "prefix" of the attributes used in (experimental) [flakes](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#description). Some examples are:
 
- - `nixos` as in `flake.nixosModules`
- - `nixosTest`: modules that constitute a [NixOS VM test](https://nixos.org/manual/nixos/stable/index.html#sec-nixos-tests)
+ - `botnix` as in `flake.nixosModules`
+ - `nixosTest`: modules that constitute a [Botnix VM test](https://nixos.org/manual/botnix/stable/index.html#sec-botnix-tests)
 <!-- We've only just started with `class`. You're invited to add a few more. -->
 
 #### `prefix` {#module-system-lib-evalModules-param-prefix}

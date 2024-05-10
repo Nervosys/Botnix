@@ -99,7 +99,7 @@ buildPythonPackage rec {
 
   # no tests in PyPI dist
   # run into https://stackoverflow.com/questions/51203641/attributeerror-module-alembic-context-has-no-attribute-config
-  # also, tests use conda so can't run on NixOS without buildFHSEnv
+  # also, tests use conda so can't run on Botnix without buildFHSEnv
   doCheck = false;
 
   meta = with lib; {

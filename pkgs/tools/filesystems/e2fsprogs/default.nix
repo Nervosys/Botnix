@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
       excludes = [ "lib/ext2fs/hashmap.h" ];
       extraPrefix = "";
     })
-    # Avoid trouble with older systems like NixOS 23.05.
+    # Avoid trouble with older systems like Botnix 23.05.
     # TODO: most likely drop this at some point, e.g. when 23.05 loses support.
     (fetchurl {
       name = "mke2fs-avoid-incompatible-features.patch";

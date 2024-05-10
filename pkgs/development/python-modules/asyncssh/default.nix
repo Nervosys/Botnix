@@ -71,9 +71,9 @@ buildPythonPackage rec {
     #
     # This changed the test to avoid setting the sticky bit
     # because that's not allowed for plain files in FreeBSD.
-    # However that broke the test on NixOS, failing with
+    # However that broke the test on Botnix, failing with
     # "Operation not permitted"
-    ./fix-sftp-chmod-test-nixos.patch
+    ./fix-sftp-chmod-test-botnix.patch
   ];
 
   disabledTestPaths = [

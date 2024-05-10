@@ -33,7 +33,7 @@ stdenv.mkDerivation rec {
 
   mesonFlags = [
     "-Dgtk=false"
-    "-Dbuildstamp=NixOS"
+    "-Dbuildstamp=Botnix"
   ];
 
   postInstall = lib.optionalString (audacious-plugins != null) ''

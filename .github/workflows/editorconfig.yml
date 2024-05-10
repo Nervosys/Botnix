@@ -11,14 +11,14 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    if: "github.repository_owner == 'NixOS' && !contains(github.event.pull_request.title, '[skip treewide]')"
+    if: github.repository_owner == 'nervosys' && !contains(github.event.pull_request.title, '[skip treewide]')
     steps:
     - name: Get list of changed files from PR
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gh api \
-          repos/NixOS/nixpkgs/pulls/${{github.event.number}}/files --paginate \
+          repos/nervosys/Botnix/pulls/${{github.event.number}}/files --paginate \
           | jq '.[] | select(.status != "removed") | .filename' \
           > "$HOME/changed_files"
     - name: print list of changed files
@@ -32,7 +32,7 @@ jobs:
       with:
         # nixpkgs commit is pinned so that it doesn't break
         # editorconfig-checker 2.4.0
-        nix_path: nixpkgs=https://github.com/NixOS/nixpkgs/archive/c473cc8714710179df205b153f4e9fa007107ff9.tar.gz
+        nix_path: nixpkgs=https://github.com/nervosys/Botnix/archive/c473cc8714710179df205b153f4e9fa007107ff9.tar.gz
     - name: Checking EditorConfig
       run: |
         cat "$HOME/changed_files" | nix-shell -p editorconfig-checker --run 'xargs -r editorconfig-checker -disable-indent-size'

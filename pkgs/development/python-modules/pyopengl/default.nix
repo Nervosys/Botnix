@@ -44,7 +44,7 @@ buildPythonPackage rec {
       --replace "'OpenGL'," "'${pkgs.libGL}/lib/libGL${ext}'," \
       --replace "'GLUT'," "'${pkgs.freeglut}/lib/libglut${ext}',"
   '' + ''
-    # https://github.com/NixOS/nixpkgs/issues/76822
+    # https://github.com/nervosys/Botnix/issues/76822
     # pyopengl introduced a new "robust" way of loading libraries in 3.1.4.
     # The later patch of the filepath does not work anymore because
     # pyopengl takes the "name" (for us: the path) and tries to add a

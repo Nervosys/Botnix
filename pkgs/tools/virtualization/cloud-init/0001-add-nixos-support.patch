@@ -6,15 +6,15 @@ index 79e26235..bdc32c52 100644
      ],
      "openeuler": ["openeuler"],
      "OpenCloudOS": ["OpenCloudOS", "TencentOS"],
-+    "nixos": ["nixos"],
++    "botnix": ["botnix"],
  }
  
  LOG = logging.getLogger(__name__)
-diff --git a/cloudinit/distros/nixos.py b/cloudinit/distros/nixos.py
+diff --git a/cloudinit/distros/botnix.py b/cloudinit/distros/botnix.py
 new file mode 100644
 index 00000000..67c049b8
 --- /dev/null
-+++ b/cloudinit/distros/nixos.py
++++ b/cloudinit/distros/botnix.py
 @@ -0,0 +1,109 @@
 +# vi: ts=4 expandtab
 +#
@@ -61,7 +61,7 @@ index 00000000..67c049b8
 +        self._runner = helpers.Runners(paths)
 +        self.usr_lib_exec = os.path.join(os.path.dirname(__file__),
 +                                         "../../../../../libexec")
-+        self.osfamily = 'nixos'
++        self.osfamily = 'botnix'
 +        self.dhcp_client_priority = [
 +            dhcp.Udhcpc,
 +            dhcp.IscDhclient,

@@ -52,7 +52,7 @@ buildGoModule rec {
   '';
 
   # tests require a separate go module
-  # integration tests are ran within a nixos vm
+  # integration tests are ran within a botnix vm
   # see passthru.tests.integration
   doCheck = false;
 

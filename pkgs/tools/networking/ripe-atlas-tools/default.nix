@@ -42,7 +42,7 @@ python3.pkgs.buildPythonApplication rec {
   ];
 
   preBuild = ''
-    echo "RIPE Atlas Tools [NixOS ${version}" > ripe/atlas/tools/user-agent
+    echo "RIPE Atlas Tools [Botnix ${version}" > ripe/atlas/tools/user-agent
   '';
 
   postInstall = ''

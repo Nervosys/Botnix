@@ -57,7 +57,7 @@ writeScript "update-librewolf" ''
   ffHash=$(grep '\.source\.tar\.xz$' "$HOME"/shasums | grep '^[^ ]*' -o)
   echo "ffHash=$ffHash"
 
-  # upstream does not specify settings rev, so just get the latest. see https://github.com/NixOS/nixpkgs/issues/252276
+  # upstream does not specify settings rev, so just get the latest. see https://github.com/nervosys/Botnix/issues/252276
   settingsRev=$(curl 'https://codeberg.org/api/v1/repos/librewolf/settings/commits?sha=master&limit=1' | jq -r .[0].sha)
   echo "settingsRev=$settingsRev"
   repoUrl=https://codeberg.org/librewolf/settings

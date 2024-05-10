@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   buildFlags = [ "all" "lib" ];
 
   makeFlags = [ "PREFIX=$(out)" ]
-    # work around https://github.com/NixOS/nixpkgs/issues/19098
+    # work around https://github.com/nervosys/Botnix/issues/19098
     ++ lib.optional (stdenv.cc.isClang && stdenv.isDarwin) "CFLAGS=-fno-lto";
 
   meta = with lib; {

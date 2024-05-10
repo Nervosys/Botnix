@@ -1,7 +1,7 @@
 #
 # Files came from this Hydra build:
 #
-#   https://hydra.nixos.org/build/186237511
+#   https://hydra.botnix.org/build/186237511
 #
 # Which used nixpkgs revision ac43c444780a80e789fd14fe2114acd4a3b5cf9d
 # to instantiate:
@@ -14,12 +14,12 @@
 #
 {
   busybox = import <nix/fetchurl.nix> {
-    url = "http://tarballs.nixos.org/stdenv-linux/powerpc64le/ac43c444780a80e789fd14fe2114acd4a3b5cf9d/busybox";
+    url = "http://tarballs.botnix.org/stdenv-linux/powerpc64le/ac43c444780a80e789fd14fe2114acd4a3b5cf9d/busybox";
     sha256 = "sha256-jtPEAsht4AUAG4MLK8xocQSfveUR4ppU1lS4bGI1VN4=";
     executable = true;
   };
   bootstrapTools = import <nix/fetchurl.nix> {
-    url = "http://tarballs.nixos.org/stdenv-linux/powerpc64le/ac43c444780a80e789fd14fe2114acd4a3b5cf9d/bootstrap-tools.tar.xz";
+    url = "http://tarballs.botnix.org/stdenv-linux/powerpc64le/ac43c444780a80e789fd14fe2114acd4a3b5cf9d/bootstrap-tools.tar.xz";
     sha256 = "sha256-MpIDnpZUK3M17qlnuoxfnK0EgxRosm3TMW1WfPZ1+jU=";
   };
 }

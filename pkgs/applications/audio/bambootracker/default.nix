@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   postPatch = lib.optionalString (lib.versionAtLeast qtbase.version "6.0") ''
     # Work around lrelease finding in qmake being broken by using pre-Qt5.12 code path
-    # https://github.com/NixOS/nixpkgs/issues/214765
+    # https://github.com/nervosys/Botnix/issues/214765
     substituteInPlace BambooTracker/lang/lang.pri \
       --replace 'equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 12)' 'if(true)'
   '';
@@ -51,7 +51,7 @@ stdenv.mkDerivation (finalAttrs: {
   ] ++ rtaudio.buildInputs;
 
   qmakeFlags = [
-    # we don't have RtAudio 6 yet: https://github.com/NixOS/nixpkgs/pull/245075
+    # we don't have RtAudio 6 yet: https://github.com/nervosys/Botnix/pull/245075
     # "CONFIG+=system_rtaudio"
     "CONFIG+=system_rtmidi"
   ];

@@ -31,7 +31,7 @@ buildFHSEnv {
     # Path to where we're storing our Plex data files. We default to storing
     # them in the user's home directory under the XDG-compatible location, but
     # allow overriding with an environment variable so the location can be
-    # configured in our NixOS module.
+    # configured in our Botnix module.
     #
     # NOTE: the old version of Plex used /var/lib/plex as the default location,
     # but this package shouldn't assume that we're going to run Plex with the
@@ -60,7 +60,7 @@ buildFHSEnv {
     # (see the 'plexRaw' package).
     ln -s "$db" /db
 
-    # If we have a plugin list (set by our NixOS module), we create plugins in
+    # If we have a plugin list (set by our Botnix module), we create plugins in
     # the data directory as expected. This is a colon-separated list of paths.
     if [[ -n "''${PLEX_PLUGINS:-}" ]]; then
       echo "Preparing plugin directory"

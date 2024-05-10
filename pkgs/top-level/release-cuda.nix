@@ -1,7 +1,7 @@
 /*
     Test CUDA packages.
 
-    This release file will not be tested on hydra.nixos.org
+    This release file will not be tested on hydra.botnix.org
     because it requires unfree software.
 
     Test for example like this:

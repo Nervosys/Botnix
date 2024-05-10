@@ -35,7 +35,7 @@ let
   # to support future GPU generations.
   # E.g. true
   #
-  # Please see the accompanying documentation or https://github.com/NixOS/nixpkgs/pull/205351
+  # Please see the accompanying documentation or https://github.com/nervosys/Botnix/pull/205351
 
   # isSupported :: Gpu -> Bool
   isSupported =

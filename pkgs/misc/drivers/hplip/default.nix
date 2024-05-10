@@ -96,9 +96,9 @@ python3Packages.buildPythonApplication {
   patches = [
     # HPLIP's getSystemPPDs() function relies on searching for PPDs below common FHS
     # paths, and hp-setup crashes if none of these paths actually exist (which they
-    # don't on NixOS).  Add the equivalent NixOS path, /var/lib/cups/path/share.
-    # See: https://github.com/NixOS/nixpkgs/issues/21796
-    ./hplip-3.20.11-nixos-cups-ppd-search-path.patch
+    # don't on Botnix).  Add the equivalent Botnix path, /var/lib/cups/path/share.
+    # See: https://github.com/nervosys/Botnix/issues/21796
+    ./hplip-3.20.11-botnix-cups-ppd-search-path.patch
 
     # Remove all ImageProcessor functionality since that is closed source
     (fetchurl {
@@ -111,7 +111,7 @@ python3Packages.buildPythonApplication {
   ];
 
   postPatch = ''
-    # https://github.com/NixOS/nixpkgs/issues/44230
+    # https://github.com/nervosys/Botnix/issues/44230
     substituteInPlace createPPD.sh \
       --replace ppdc "${cups}/bin/ppdc" \
       --replace "gzip -c" "gzip -cn"

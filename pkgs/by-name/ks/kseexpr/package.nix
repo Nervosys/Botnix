@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-XjFGAN7kK2b0bLouYG3OhajhOQk4AgC4EQRzseccGCE=";
   };
   patches = [
-    # see https://github.com/NixOS/nixpkgs/issues/144170
+    # see https://github.com/nervosys/Botnix/issues/144170
     ./cmake_libdir.patch
   ];
   nativeBuildInputs = [

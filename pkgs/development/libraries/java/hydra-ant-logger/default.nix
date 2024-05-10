@@ -11,7 +11,7 @@ stdenv.mkDerivation {
   version = "2010.2";
 
   src = fetchFromGitHub {
-    owner = "NixOS";
+    owner = "Botnix";
     repo = "hydra-ant-logger";
     rev = "dae3224f4ed42418d3492bdf5bee4f825819006f";
     hash = "sha256-5oQ/jZfz7izTcYR+N801HYh4lH2MF54PCMnmA4CpRwc=";
@@ -37,7 +37,7 @@ stdenv.mkDerivation {
   '';
 
   meta = {
-    homepage = "https://github.com/NixOS/hydra-ant-logger";
+    homepage = "https://github.com/Botnix/hydra-ant-logger";
     platforms = lib.platforms.unix;
   };
 }

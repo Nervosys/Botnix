@@ -6,7 +6,7 @@ index 4324fc700..5d915a85e 100644
          else:
              self._debug = max(0, int(debug))
 
-+        # Allow setting any option declaratively, for the NixOS module
++        # Allow setting any option declaratively, for the Botnix module
 +        for env, value in os.environ.items():
 +            if not env.startswith("PYLOAD__"):
 +                continue

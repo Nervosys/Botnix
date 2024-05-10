@@ -25,7 +25,7 @@ def get_response_text(url):
     return pq(requests.get(url).text)  # IO
 
 EVAL_FILE = {
-    'nixos': 'nixos/release.nix',
+    'botnix': 'botnix/release.nix',
     'nixpkgs': 'pkgs/top-level/release.nix',
 }
 
@@ -71,15 +71,15 @@ def print_build(table_row):
 @click.command()
 @click.option(
     '--jobset',
-    default="nixos/release-19.09",
-    help='Hydra project like nixos/release-19.09')
+    default="botnix/release-19.09",
+    help='Hydra project like botnix/release-19.09')
 def cli(jobset):
     """
     Given a Hydra project, inspect latest evaluation
     and print a summary of failed builds
     """
 
-    url = "https://hydra.nixos.org/jobset/{}".format(jobset)
+    url = "https://hydra.botnix.org/jobset/{}".format(jobset)
 
     # get the last evaluation
     click.echo(click.style(

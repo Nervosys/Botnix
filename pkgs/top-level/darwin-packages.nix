@@ -126,7 +126,7 @@ impure-cmds // appleSourcePackages // chooseLibs // {
     stdenv = if stdenv.isDarwin then stdenv else pkgs.libcxxStdenv;
   };
 
-  # TODO(@connorbaker): See https://github.com/NixOS/nixpkgs/issues/229389.
+  # TODO(@connorbaker): See https://github.com/nervosys/Botnix/issues/229389.
   cf-private = self.apple_sdk.frameworks.CoreFoundation;
 
   DarwinTools = callPackage ../os-specific/darwin/DarwinTools { };
@@ -239,10 +239,10 @@ impure-cmds // appleSourcePackages // chooseLibs // {
     let
       toGuest = builtins.replaceStrings [ "darwin" ] [ "linux" ];
 
-      nixos = import ../../nixos {
+      botnix = import ../../botnix {
         configuration = {
           imports = [
-            ../../nixos/modules/profiles/macos-builder.nix
+            ../../botnix/modules/profiles/macos-builder.nix
           ] ++ modules;
 
           # If you need to override this, consider starting with the right Nixpkgs
@@ -258,7 +258,7 @@ impure-cmds // appleSourcePackages // chooseLibs // {
       };
 
     in
-      nixos.config.system.build.macos-builder-installer) { modules = [ ]; };
+      botnix.config.system.build.macos-builder-installer) { modules = [ ]; };
 
   linux-builder-x86_64 = self.linux-builder.override {
     modules = [ { nixpkgs.hostPlatform = "x86_64-linux"; } ];

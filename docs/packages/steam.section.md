@@ -11,7 +11,7 @@ Nix problems and constraints:
 - The `steam.sh` script in `$HOME` cannot be patched, as it is checked and rewritten by steam.
 - The steam binary cannot be patched, it's also checked.
 
-The current approach to deploy Steam in NixOS is composing a FHS-compatible chroot environment, as documented [here](https://sandervanderburg.blogspot.com/2013/09/composing-fhs-compatible-chroot.html). This allows us to have binaries in the expected paths without disrupting the system, and to avoid patching them to work in a non FHS environment.
+The current approach to deploy Steam in Botnix is composing a FHS-compatible chroot environment, as documented [here](https://sandervanderburg.blogspot.com/2013/09/composing-fhs-compatible-chroot.html). This allows us to have binaries in the expected paths without disrupting the system, and to avoid patching them to work in a non FHS environment.
 
 ## How to play {#sec-steam-play}
 
@@ -31,14 +31,14 @@ Use `programs.steam.enable = true;` if you want to add steam to `systemPackages`
 
 - **Using the FOSS Radeon or nouveau (nvidia) drivers**
 
-  - The `newStdcpp` parameter was removed since NixOS 17.09 and should not be needed anymore.
+  - The `newStdcpp` parameter was removed since Botnix 17.09 and should not be needed anymore.
   - Steam ships statically linked with a version of `libcrypto` that conflicts with the one dynamically loaded by radeonsi_dri.so. If you get the error:
 
     ```
     steam.sh: line 713: 7842 Segmentation fault (core dumped)
     ```
 
-    have a look at [this pull request](https://github.com/NixOS/nixpkgs/pull/20269).
+    have a look at [this pull request](https://github.com/nervosys/Botnix/pull/20269).
 
 - **Java**
 

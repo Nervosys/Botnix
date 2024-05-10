@@ -77,7 +77,7 @@ buildPythonPackage rec {
     brotli
   ];
 
-  # NOTE: pytest-xdist cannot be added because it is flaky. See https://github.com/NixOS/nixpkgs/issues/230597 for more info.
+  # NOTE: pytest-xdist cannot be added because it is flaky. See https://github.com/nervosys/Botnix/issues/230597 for more info.
   nativeCheckInputs = [
     gunicorn
     pytest-mock

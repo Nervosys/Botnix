@@ -260,7 +260,7 @@ python3.pkgs.buildPythonApplication rec {
   ];
 
   disabledTestPaths = [
-    # fails due to https://github.com/NixOS/nixpkgs/issues/256896
+    # fails due to https://github.com/nervosys/Botnix/issues/256896
     # should be removed once that issue is resolved in coreboot or diffoscope
     "tests/comparators/test_cbfs.py"
   ]

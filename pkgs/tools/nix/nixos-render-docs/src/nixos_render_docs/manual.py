@@ -751,7 +751,7 @@ def _build_cli_db(p: argparse.ArgumentParser) -> None:
 def _build_cli_html(p: argparse.ArgumentParser) -> None:
     p.add_argument('--manpage-urls', required=True)
     p.add_argument('--revision', required=True)
-    p.add_argument('--generator', default='nixos-render-docs')
+    p.add_argument('--generator', default='botnix-render-docs')
     p.add_argument('--stylesheet', default=[], action='append')
     p.add_argument('--script', default=[], action='append')
     p.add_argument('--toc-depth', default=1, type=int)

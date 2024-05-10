@@ -292,11 +292,11 @@ mod tests {
 
                 },
                 "foo": {
-                    "resolved": "https://github.com/NixOS/nixpkgs",
+                    "resolved": "https://github.com/nervosys/Botnix",
                     "integrity": "sha1-aaa"
                 },
                 "bar": {
-                    "resolved": "git+ssh://git@github.com/NixOS/nixpkgs.git",
+                    "resolved": "git+ssh://git@github.com/Botnix/nixpkgs.git",
                     "integrity": "sha512-aaa"
                 },
                 "foo-bad": {
@@ -318,11 +318,11 @@ mod tests {
 
                 },
                 "foo": {
-                    "resolved": "https://github.com/NixOS/nixpkgs",
+                    "resolved": "https://github.com/nervosys/Botnix",
                     "integrity": ""
                 },
                 "bar": {
-                    "resolved": "git+ssh://git@github.com/NixOS/nixpkgs.git",
+                    "resolved": "git+ssh://git@github.com/Botnix/nixpkgs.git",
                 },
                 "foo-bad": {
                     "resolved": "foo",
@@ -338,12 +338,12 @@ mod tests {
         let mut hashes = HashMap::new();
 
         hashes.insert(
-            String::from("https://github.com/NixOS/nixpkgs"),
+            String::from("https://github.com/nervosys/Botnix"),
             String::new(),
         );
 
         hashes.insert(
-            String::from("git+ssh://git@github.com/NixOS/nixpkgs.git"),
+            String::from("git+ssh://git@github.com/Botnix/nixpkgs.git"),
             String::new(),
         );
 
@@ -364,7 +364,7 @@ mod tests {
             "name": "foo",
             "dependencies": {
                 "foo": {
-                    "resolved": "https://github.com/NixOS/nixpkgs",
+                    "resolved": "https://github.com/nervosys/Botnix",
                     "integrity": "sha512-aaa"
                 },
                 "foo-good": {
@@ -372,7 +372,7 @@ mod tests {
                     "integrity": "sha512-foo"
                 },
                 "bar": {
-                    "resolved": "git+ssh://git@github.com/NixOS/nixpkgs.git",
+                    "resolved": "git+ssh://git@github.com/Botnix/nixpkgs.git",
                     "integrity": "sha512-bbb",
                     "dependencies": {
                         "foo-bad": {
@@ -389,7 +389,7 @@ mod tests {
             "name": "foo",
             "dependencies": {
                 "foo": {
-                    "resolved": "https://github.com/NixOS/nixpkgs",
+                    "resolved": "https://github.com/nervosys/Botnix",
                     "integrity": ""
                 },
                 "foo-good": {
@@ -397,7 +397,7 @@ mod tests {
                     "integrity": "sha512-foo"
                 },
                 "bar": {
-                    "resolved": "git+ssh://git@github.com/NixOS/nixpkgs.git",
+                    "resolved": "git+ssh://git@github.com/Botnix/nixpkgs.git",
                     "dependencies": {
                         "foo-bad": {
                             "resolved": "foo",
@@ -411,12 +411,12 @@ mod tests {
         let mut hashes = HashMap::new();
 
         hashes.insert(
-            String::from("https://github.com/NixOS/nixpkgs"),
+            String::from("https://github.com/nervosys/Botnix"),
             String::new(),
         );
 
         hashes.insert(
-            String::from("git+ssh://git@github.com/NixOS/nixpkgs.git"),
+            String::from("git+ssh://git@github.com/Botnix/nixpkgs.git"),
             String::new(),
         );
 

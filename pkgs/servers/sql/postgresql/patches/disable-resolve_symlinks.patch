@@ -4,7 +4,7 @@
  static int
  resolve_symlinks(char *path)
  {
-+	// On NixOS we *want* stuff relative to symlinks.
++	// On Botnix we *want* stuff relative to symlinks.
 +	return 0;
 +
  #ifdef HAVE_READLINK

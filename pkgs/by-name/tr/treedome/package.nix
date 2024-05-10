@@ -127,7 +127,7 @@ rustPlatform.buildRustPackage {
     runHook postInstall
   '';
 
-  # WEBKIT_DISABLE_COMPOSITING_MODE essential in NVIDIA + compositor https://github.com/NixOS/nixpkgs/issues/212064#issuecomment-1400202079
+  # WEBKIT_DISABLE_COMPOSITING_MODE essential in NVIDIA + compositor https://github.com/nervosys/Botnix/issues/212064#issuecomment-1400202079
   postFixup = ''
     wrapProgram "$out/bin/treedome" \
       --set WEBKIT_DISABLE_COMPOSITING_MODE 1

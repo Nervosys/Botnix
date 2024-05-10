@@ -37,7 +37,7 @@ NIX_CFLAGS_COMPILE_@suffixSalt@="-B@out@/bin/ $NIX_CFLAGS_COMPILE_@suffixSalt@"
 # separate directories. As a workaround we want resulting cflags to be
 # ordered as: crt1-cflags libc-cflags cc-cflags. Otherwise we mix crt/libc.so
 # from different libc as seen in
-#   https://github.com/NixOS/nixpkgs/issues/158042
+#   https://github.com/nervosys/Botnix/issues/158042
 #
 # Note that below has reverse ordering as we prepend flags one-by-one.
 # Once bootstrap-tools is split into different directories we can stop

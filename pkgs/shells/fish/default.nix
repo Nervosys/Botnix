@@ -75,7 +75,7 @@ let
   '';
 
   fishPreInitHooks = writeText "__fish_build_paths_suffix.fish" ''
-    # source nixos environment
+    # source botnix environment
     # note that this is required:
     #   1. For all shells, not just login shells (mosh needs this as do some other command-line utilities)
     #   2. Before the shell is initialized, so that config snippets can find the commands they use on the PATH
@@ -85,8 +85,8 @@ let
     and begin
     ${lib.removeSuffix "\n" (if lib.isFunction fishEnvPreInit then fishEnvPreInit sourceWithFenv else fishEnvPreInit)}
     end'' else ''
-    and test -f /etc/fish/nixos-env-preinit.fish
-    and source /etc/fish/nixos-env-preinit.fish''}
+    and test -f /etc/fish/botnix-env-preinit.fish
+    and source /etc/fish/botnix-env-preinit.fish''}
     and set -gx __fish_nixos_env_preinit_sourced 1
 
     test -n "$NIX_PROFILES"
@@ -179,7 +179,7 @@ let
       sed -i 's|/bin/ls|${coreutils}/bin/ls|' tests/checks/complete.fish
     '' + lib.optionalString stdenv.isDarwin ''
       # Tests use pkill/pgrep which are currently not built on Darwin
-      # See https://github.com/NixOS/nixpkgs/pull/103180
+      # See https://github.com/nervosys/Botnix/pull/103180
       rm tests/pexpects/exit.py
       rm tests/pexpects/job_summary.py
       rm tests/pexpects/signals.py
@@ -308,7 +308,7 @@ let
     passthru = {
       shellPath = "/bin/fish";
       tests = {
-        nixos = nixosTests.fish;
+        botnix = nixosTests.fish;
 
         # Test the fish_config tool by checking the generated splash page.
         # Since the webserver requires a port to run, it is not started.

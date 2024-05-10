@@ -105,7 +105,7 @@ builder rec {
     "--without-threads"
   ]
   # At least on x86_64-darwin '-flto' autodetection is not correct:
-  #  https://github.com/NixOS/nixpkgs/pull/160051#issuecomment-1046193028
+  #  https://github.com/nervosys/Botnix/pull/160051#issuecomment-1046193028
   ++ lib.optional (stdenv.isDarwin) "--disable-lto";
 
   postInstall = ''
@@ -113,7 +113,7 @@ builder rec {
   ''
   # XXX: See http://thread.gmane.org/gmane.comp.lib.gnulib.bugs/18903 for
   # why `--with-libunistring-prefix' and similar options coming from
-  # `AC_LIB_LINKFLAGS_BODY' don't work on NixOS/x86_64.
+  # `AC_LIB_LINKFLAGS_BODY' don't work on Botnix/x86_64.
   + ''
     sed -i "$out/lib/pkgconfig/guile"-*.pc    \
         -e "s|-lunistring|-L${libunistring}/lib -lunistring|g ;

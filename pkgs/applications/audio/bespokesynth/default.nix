@@ -39,7 +39,7 @@
 , MetalKit
   # It is not allowed to distribute binaries with the VST2 SDK plugin without a license
   # (the author of Bespoke has such a licence but not Nix). VST3 should work out of the box.
-  # Read more in https://github.com/NixOS/nixpkgs/issues/145607
+  # Read more in https://github.com/nervosys/Botnix/issues/145607
 , enableVST2 ? false
 }:
 

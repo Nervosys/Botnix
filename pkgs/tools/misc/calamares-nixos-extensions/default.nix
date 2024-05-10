@@ -1,12 +1,12 @@
 { stdenv, fetchFromGitHub, lib }:
 
 stdenv.mkDerivation rec {
-  pname = "calamares-nixos-extensions";
+  pname = "calamares-botnix-extensions";
   version = "0.3.14";
 
   src = fetchFromGitHub {
-    owner = "NixOS";
-    repo = "calamares-nixos-extensions";
+    owner = "Botnix";
+    repo = "calamares-botnix-extensions";
     rev = version;
     hash = "sha256-wRKZ80yU3WsUkGn5/ft4wDR22s39/WTxTrjFE0/9mlc=";
   };
@@ -21,8 +21,8 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "Calamares modules for NixOS";
-    homepage = "https://github.com/NixOS/calamares-nixos-extensions";
+    description = "Calamares modules for Botnix";
+    homepage = "https://github.com/Botnix/calamares-botnix-extensions";
     license = with licenses; [ gpl3Plus bsd2 cc-by-40 cc-by-sa-40 cc0 ];
     maintainers = with maintainers; [ vlinkz ];
     platforms = platforms.linux;

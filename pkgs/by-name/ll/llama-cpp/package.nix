@@ -49,7 +49,7 @@ effectiveStdenv.mkDerivation (finalAttrs: {
     cudaPackages.cuda_nvcc
 
     # TODO: Replace with autoAddDriverRunpath
-    # once https://github.com/NixOS/nixpkgs/pull/275241 has been merged
+    # once https://github.com/nervosys/Botnix/pull/275241 has been merged
     cudaPackages.autoAddOpenGLRunpathHook
   ];
 
@@ -67,7 +67,7 @@ effectiveStdenv.mkDerivation (finalAttrs: {
     cuda_cccl.dev # <nv/target>
 
     # A temporary hack for reducing the closure size, remove once cudaPackages
-    # have stopped using lndir: https://github.com/NixOS/nixpkgs/issues/271792
+    # have stopped using lndir: https://github.com/nervosys/Botnix/issues/271792
     cuda_cudart.dev
     cuda_cudart.lib
     cuda_cudart.static

@@ -60,7 +60,7 @@ stdenv.mkDerivation (finalAttrs: {
     xorg.libXrender
     xorg.libXrandr
   ];
-  # Standard fix for JUCE programs: https://github.com/NixOS/nixpkgs/blob/5014727e62ae7b22fb1afc61d789ca6ad9170435/pkgs/applications/audio/bespokesynth/default.nix#L137
+  # Standard fix for JUCE programs: https://github.com/nervosys/Botnix/blob/5014727e62ae7b22fb1afc61d789ca6ad9170435/pkgs/applications/audio/bespokesynth/default.nix#L137
   env.NIX_LDFLAGS = lib.optionalString stdenv.hostPlatform.isLinux "-rpath ${lib.makeLibraryPath ([
     xorg.libX11
     xorg.libXrandr

@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
     "-DENABLE_SHARED=${if stdenv.hostPlatform.isStatic then "OFF" else "ON"}"
     # TODO Remove this when https://github.com/Haivision/srt/issues/538 is fixed and available to nixpkgs
     # Workaround for the fact that srt incorrectly disables GNUInstallDirs when LIBDIR is specified,
-    # see https://github.com/NixOS/nixpkgs/pull/54463#discussion_r249878330
+    # see https://github.com/nervosys/Botnix/pull/54463#discussion_r249878330
     "-UCMAKE_INSTALL_LIBDIR"
   ];
 

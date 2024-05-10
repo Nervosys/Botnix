@@ -54,7 +54,7 @@ in symlinkJoin {
       {command}`$(wordlists_path)/rockyou.txt` to get the location of the
       [rockyou](https://en.wikipedia.org/wiki/RockYou#Data_breach)
       wordlist. If you want to modify the available wordlists you can override
-      the `lists` attribute`. In your nixos configuration this would look
+      the `lists` attribute`. In your botnix configuration this would look
       similiar to this:
 
       ```nix

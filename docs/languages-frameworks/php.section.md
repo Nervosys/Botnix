@@ -12,13 +12,13 @@ attributes named based on major and minor version number; e.g.,
 `php81` is PHP 8.1.
 
 Only versions of PHP that are supported by upstream for the entirety
-of a given NixOS release will be included in that release of
-NixOS. See [PHP Supported
+of a given Botnix release will be included in that release of
+Botnix. See [PHP Supported
 Versions](https://www.php.net/supported-versions.php).
 
 The attribute `php` refers to the version of PHP considered most
 stable and thoroughly tested in nixpkgs for any given release of
-NixOS - not necessarily the latest major release from upstream.
+Botnix - not necessarily the latest major release from upstream.
 
 All available PHP attributes are wrappers around their respective
 binary PHP package and provide commonly used extensions this way. The

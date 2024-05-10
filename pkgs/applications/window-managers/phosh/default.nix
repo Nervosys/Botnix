@@ -89,7 +89,7 @@ stdenv.mkDerivation (finalAttrs: {
   mesonFlags = [
     "-Dsystemd=true"
     "-Dcompositor=${phoc}/bin/phoc"
-    # https://github.com/NixOS/nixpkgs/issues/36468
+    # https://github.com/nervosys/Botnix/issues/36468
     # https://gitlab.gnome.org/World/Phosh/phosh/-/merge_requests/1363
     "-Dc_args=-I${glib.dev}/include/gio-unix-2.0"
     # Save some time building if tests are disabled

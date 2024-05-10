@@ -6,10 +6,10 @@ _nixos-container() {
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     opts="list create destroy restart start stop status update login root-login run show-ip show-host-key"
-    startstop_opts=$(nixos-container list)
+    startstop_opts=$(botnix-container list)
     update_opts="--config"
 
-    if [[ "$prev" == "nixos-container" ]]
+    if [[ "$prev" == "botnix-container" ]]
     then
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
         return 0
@@ -29,5 +29,5 @@ _nixos-container() {
     fi
 }
 
-complete -F _nixos-container nixos-container
+complete -F _nixos-container botnix-container
 

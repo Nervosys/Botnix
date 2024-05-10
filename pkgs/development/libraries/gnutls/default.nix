@@ -26,7 +26,7 @@
 let
 
   # XXX: Gnulib's `test-select' fails on FreeBSD:
-  # https://hydra.nixos.org/build/2962084/nixlog/1/raw .
+  # https://hydra.botnix.org/build/2962084/nixlog/1/raw .
   doCheck = !stdenv.isFreeBSD && !stdenv.isDarwin
       && stdenv.buildPlatform == stdenv.hostPlatform;
 

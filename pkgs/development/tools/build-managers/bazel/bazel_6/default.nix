@@ -228,9 +228,9 @@ stdenv.mkDerivation rec {
     # --experimental_strict_action_env (which may one day become the default
     # see bazelbuild/bazel#2574) hardcodes the default
     # action environment to a non hermetic value (e.g. "/usr/local/bin").
-    # This is non hermetic on non-nixos systems. On NixOS, bazel cannot find the required binaries.
+    # This is non hermetic on non-botnix systems. On Botnix, bazel cannot find the required binaries.
     # So we are replacing this bazel paths by defaultShellPath,
-    # improving hermeticity and making it work in nixos.
+    # improving hermeticity and making it work in botnix.
     (substituteAll {
       src = ../strict_action_env.patch;
       strictActionEnvPatch = defaultShellPath;
@@ -393,11 +393,11 @@ stdenv.mkDerivation rec {
       export GCOV=${coreutils}/bin/false
 
       # Framework search paths aren't added by bintools hook
-      # https://github.com/NixOS/nixpkgs/pull/41914
+      # https://github.com/nervosys/Botnix/pull/41914
       export NIX_LDFLAGS+=" -F${CoreFoundation}/Library/Frameworks -F${CoreServices}/Library/Frameworks -F${Foundation}/Library/Frameworks"
 
       # libcxx includes aren't added by libcxx hook
-      # https://github.com/NixOS/nixpkgs/pull/41589
+      # https://github.com/nervosys/Botnix/pull/41589
       export NIX_CFLAGS_COMPILE="$NIX_CFLAGS_COMPILE -isystem ${lib.getDev libcxx}/include/c++/v1"
       # for CLang 16 compatibility in external/{absl,upb} dependencies
       export NIX_CFLAGS_COMPILE+=" -Wno-deprecated-builtins -Wno-gnu-offsetof-extensions"
@@ -638,7 +638,7 @@ stdenv.mkDerivation rec {
   '';
 
   # Install check fails on `aarch64-darwin`
-  # https://github.com/NixOS/nixpkgs/issues/145587
+  # https://github.com/nervosys/Botnix/issues/145587
   doInstallCheck = stdenv.hostPlatform.system != "aarch64-darwin";
   installCheckPhase = ''
     export TEST_TMPDIR=$(pwd)

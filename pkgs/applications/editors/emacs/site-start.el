@@ -62,7 +62,7 @@ least specific (the system profile)"
                          (nix--profile-paths))
                  woman-manpath)))
 
-;;; Make tramp work for remote NixOS machines
+;;; Make tramp work for remote Botnix machines
 (defvar tramp-remote-path)
 (eval-after-load 'tramp
   ;; TODO: We should also add the other `NIX_PROFILES' to this path.

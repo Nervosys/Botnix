@@ -28,7 +28,7 @@ buildPythonPackage rec {
   nativeCheckInputs = [ unittestCheckHook ];
 
   # We specify the name of the test files to prevent
-  # https://github.com/NixOS/nixpkgs/issues/14634
+  # https://github.com/nervosys/Botnix/issues/14634
   unittestFlagsArray = [ "*_test.py" ];
 
   __darwinAllowLocalNetworking = true;

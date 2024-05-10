@@ -62,7 +62,7 @@ stdenv.mkDerivation rec {
     ./no-files-in-etc-and-var.patch
 
     # Avoid build-only inputs in closure leaked by configure command:
-    #   https://github.com/NixOS/nixpkgs/issues/175693#issuecomment-1143344162
+    #   https://github.com/nervosys/Botnix/issues/175693#issuecomment-1143344162
     ./skip-CONFIGURE_COMMAND.patch
 
     # Allow building without non-free v2 dashboard.
@@ -75,7 +75,7 @@ stdenv.mkDerivation rec {
   # Guard against unused buld-time development inputs in closure. Without
   # the ./skip-CONFIGURE_COMMAND.patch patch the closure retains inputs up
   # to bootstrap tools:
-  #   https://github.com/NixOS/nixpkgs/pull/175719
+  #   https://github.com/nervosys/Botnix/pull/175719
   # We pick zlib.dev as a simple canary package with pkg-config input.
   disallowedReferences = lib.optional (!withDebug) zlib.dev;
 

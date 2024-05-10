@@ -17,7 +17,7 @@ lib.recurseIntoAttrs {
   runNixOSTest-example = pkgs-with-overlay.testers.runNixOSTest ({ lib, ... }: {
     name = "runNixOSTest-test";
     nodes.machine = { pkgs, ... }: {
-      system.nixos = dummyVersioning;
+      system.botnix = dummyVersioning;
       environment.systemPackages = [ pkgs.proof-of-overlay-hello pkgs.figlet ];
     };
     testScript = ''
@@ -26,11 +26,11 @@ lib.recurseIntoAttrs {
   });
 
   # Check that the wiring of nixosTest is correct.
-  # Correct operation of the NixOS test driver should be asserted elsewhere.
+  # Correct operation of the Botnix test driver should be asserted elsewhere.
   nixosTest-example = pkgs-with-overlay.testers.nixosTest ({ lib, pkgs, figlet, ... }: {
     name = "nixosTest-test";
     nodes.machine = { pkgs, ... }: {
-      system.nixos = dummyVersioning;
+      system.botnix = dummyVersioning;
       environment.systemPackages = [ pkgs.proof-of-overlay-hello figlet ];
     };
     testScript = ''

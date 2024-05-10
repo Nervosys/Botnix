@@ -4,7 +4,7 @@
   sway-unwrapped,
   stdenv,
   systemd,
-  # Used by the NixOS module:
+  # Used by the Botnix module:
   isNixOS ? false,
   enableXWayland ? true,
   systemdSupport ? lib.meta.availableOn stdenv.hostPlatform systemd,

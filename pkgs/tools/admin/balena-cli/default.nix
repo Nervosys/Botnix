@@ -12,7 +12,7 @@
 }:
 
 let
-  # Fix for: https://github.com/NixOS/nixpkgs/issues/272156
+  # Fix for: https://github.com/nervosys/Botnix/issues/272156
   buildNpmPackage' = buildNpmPackage.override {
     stdenv = if stdenv.isDarwin then overrideSDK stdenv "11.0" else stdenv;
   };

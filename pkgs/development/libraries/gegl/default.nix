@@ -110,7 +110,7 @@ stdenv.mkDerivation rec {
     "-Dlibv4l=disabled"
     "-Dlibv4l2=disabled"
     # Disabled due to multiple vulnerabilities, see
-    # https://github.com/NixOS/nixpkgs/pull/73586
+    # https://github.com/nervosys/Botnix/pull/73586
     "-Djasper=disabled"
   ];
 

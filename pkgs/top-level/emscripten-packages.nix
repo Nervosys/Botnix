@@ -3,7 +3,7 @@
 with pkgs;
 
 # emscripten toolchain abstraction for nix
-# https://github.com/NixOS/nixpkgs/pull/16208
+# https://github.com/nervosys/Botnix/pull/16208
 
 rec {
   json_c = (pkgs.json_c.override {

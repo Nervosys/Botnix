@@ -2,7 +2,7 @@ Disable imake autodetection for:
 - LinuxDistribution to avoid injection of /usr paths
 - gcc to avoid use uf /usr/bin/gcc
 
-https://github.com/NixOS/nixpkgs/issues/135337
+https://github.com/nervosys/Botnix/issues/135337
 --- a/imake.c
 +++ b/imake.c
 @@ -1065,6 +1065,7 @@ get_distrib(FILE *inFile)

@@ -1,6 +1,6 @@
 Ding persists its settings to $HOME/.dingrc on startup, this sadly includes the path to the dictionary.
 On all other distributions, that would be /usr/share/dict/de-en.txt and would hardly ever change.
-On nixos, this will indeed change on ever update and would break it for all users.
+On botnix, this will indeed change on ever update and would break it for all users.
 This just comments out the dictionary path in the .dingrc so the user can still set it if she wants to, but it will not affect normal operations.
 --- a/ding
 +++ b/ding

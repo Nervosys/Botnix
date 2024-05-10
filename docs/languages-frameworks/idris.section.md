@@ -19,18 +19,18 @@ self: super: {
 And then:
 
 ```ShellSession
-$ # On NixOS
-$ nix-env -iA nixos.myIdris
-$ # On non-NixOS
+$ # On Botnix
+$ nix-env -iA botnix.myIdris
+$ # On non-Botnix
 $ nix-env -iA nixpkgs.myIdris
 ```
 
 To see all available Idris packages:
 
 ```ShellSession
-$ # On NixOS
-$ nix-env -qaPA nixos.idrisPackages
-$ # On non-NixOS
+$ # On Botnix
+$ nix-env -qaPA botnix.idrisPackages
+$ # On non-Botnix
 $ nix-env -qaPA nixpkgs.idrisPackages
 ```
 

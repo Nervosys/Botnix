@@ -9,7 +9,7 @@ changes made to 5dd0a8c8acc36b654c13a5102e4327eedf1858f2.
 
 -----
 
-Rationale: NixOS-specific patch. The changes in here break our current
+Rationale: Botnix-specific patch. The changes in here break our current
 implementation of declarative plugins (only `vagrant-libvirt` atm).
 ---
  bin/vagrant                       | 28 +--------------

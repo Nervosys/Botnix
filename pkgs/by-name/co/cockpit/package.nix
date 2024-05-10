@@ -101,7 +101,7 @@ stdenv.mkDerivation rec {
 
     # instruct users with problems to create a nixpkgs issue instead of nagging upstream directly
     substituteInPlace configure.ac \
-      --replace 'devel@lists.cockpit-project.org' 'https://github.com/NixOS/nixpkgs/issues/new?assignees=&labels=0.kind%3A+bug&template=bug_report.md&title=cockpit%25'
+      --replace 'devel@lists.cockpit-project.org' 'https://github.com/nervosys/Botnix/issues/new?assignees=&labels=0.kind%3A+bug&template=bug_report.md&title=cockpit%25'
 
     patchShebangs \
       build.js \

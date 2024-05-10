@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
   installTargets = [ "install" "install-lib" ];
 
   postInstall = ''
-    # Remove update-pciids as it won't work on nixos
+    # Remove update-pciids as it won't work on botnix
     rm $out/sbin/update-pciids $out/man/man8/update-pciids.8
 
     # use database from hwdata instead

@@ -103,7 +103,7 @@ a message like
 
 > texlive: 2022-final -> 2023.20230401
 
-Please make sure to follow the [CONTRIBUTING](https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md)
+Please make sure to follow the [CONTRIBUTING](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md)
 guidelines.
 
 ## Reviewing the bin containers

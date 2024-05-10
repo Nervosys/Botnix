@@ -447,7 +447,7 @@ fn handle_non_by_name_attribute(
                         // relation with overlays, so migration is generally not possible.
                         //
                         // See also "package variants" in RFC 140:
-                        // https://github.com/NixOS/rfcs/blob/master/rfcs/0140-simple-package-paths.md#package-variants
+                        // https://github.com/Botnix/rfcs/blob/master/rfcs/0140-simple-package-paths.md#package-variants
                         NonApplicable
                     }
                     _ => {

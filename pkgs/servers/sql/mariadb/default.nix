@@ -69,7 +69,7 @@ let
 
       cmakeFlags = [
         "-DBUILD_CONFIG=mysql_release"
-        "-DMANUFACTURER=nixos.org"
+        "-DMANUFACTURER=botnix.org"
         "-DDEFAULT_CHARSET=utf8mb4"
         "-DDEFAULT_COLLATION=utf8mb4_unicode_ci"
         "-DSECURITY_HARDENED=ON"

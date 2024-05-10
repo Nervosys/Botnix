@@ -10,9 +10,9 @@
 
 # Use techniques described in https://web.archive.org/web/20220904051329/https://tapesoftware.net/replace-symbol/
 
-# Adapted from https://github.com/KenMacD/etc-nixos/blob/d3d28085586358a62b2bb4b427eb21aad05b5b23/dcc/default.nix
+# Adapted from https://github.com/KenMacD/etc-botnix/blob/d3d28085586358a62b2bb4b427eb21aad05b5b23/dcc/default.nix
 
-# Used https://github.com/NixOS/nixpkgs/pull/84926 as a template
+# Used https://github.com/nervosys/Botnix/pull/84926 as a template
 # then converted to use autoPatchelfHook instead, and link with
 # the dependencies from other pkgs.
 

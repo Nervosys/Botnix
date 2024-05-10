@@ -23,13 +23,13 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = [ pam ];
 
-  patches = [ ./nixos-specific.patch ];
+  patches = [ ./botnix-specific.patch ];
 
   postInstall = ''
     installManPage man/*
   '';
 
-  # Unit tests are broken on NixOS.
+  # Unit tests are broken on Botnix.
   doCheck = false;
 
   passthru.tests = { inherit (nixosTests) please; };

@@ -3,7 +3,7 @@
 # system doubles for platforms where nixpkgs can do native compilation
 # reasonably well are included.
 #
-# [RFC 46]: https://github.com/NixOS/rfcs/blob/master/rfcs/0046-platform-support-tiers.md
+# [RFC 46]: https://github.com/Botnix/rfcs/blob/master/rfcs/0046-platform-support-tiers.md
 { }:
 
 [

@@ -53,7 +53,7 @@ stdenv.mkDerivation rec {
     platforms = platforms.unix;
 
     # Broken due to Agda update.  See
-    # https://github.com/NixOS/nixpkgs/pull/129606#issuecomment-881107449.
+    # https://github.com/nervosys/Botnix/pull/129606#issuecomment-881107449.
     broken = true;
     hydraPlatforms = platforms.none;
   };

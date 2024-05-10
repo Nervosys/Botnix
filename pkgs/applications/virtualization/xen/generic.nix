@@ -190,7 +190,7 @@ stdenv.mkDerivation (rec {
   '';
 
   EFI_LD = "${efiBinutils}/bin/ld";
-  EFI_VENDOR = "nixos";
+  EFI_VENDOR = "botnix";
 
   # TODO: Flask needs more testing before enabling it by default.
   #makeFlags = [ "XSM_ENABLE=y" "FLASK_ENABLE=y" "PREFIX=$(out)" "CONFIG_DIR=/etc" "XEN_EXTFILES_URL=\\$(XEN_ROOT)/xen_ext_files" ];

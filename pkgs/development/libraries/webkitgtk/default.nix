@@ -75,7 +75,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   outputs = [ "out" "dev" "devdoc" ];
 
-  # https://github.com/NixOS/nixpkgs/issues/153528
+  # https://github.com/nervosys/Botnix/issues/153528
   # Can't be linked within a 4GB address space.
   separateDebugInfo = stdenv.isLinux && !stdenv.is32bit;
 
@@ -92,7 +92,7 @@ stdenv.mkDerivation (finalAttrs: {
     })
 
     # Hardcode path to WPE backend
-    # https://github.com/NixOS/nixpkgs/issues/110468
+    # https://github.com/nervosys/Botnix/issues/110468
     (substituteAll {
       src = ./fdo-backend-path.patch;
       wpebackend_fdo = libwpe-fdo;

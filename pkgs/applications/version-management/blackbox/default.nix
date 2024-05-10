@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ gnupg ];
 
-  # https://github.com/NixOS/nixpkgs/issues/134445
+  # https://github.com/nervosys/Botnix/issues/134445
   doCheck = !stdenv.isDarwin && stdenv.isx86_64;
 
   nativeCheckInputs = [

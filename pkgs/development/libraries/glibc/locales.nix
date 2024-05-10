@@ -62,7 +62,7 @@
   # Current `nixpkgs` way of building locales is not compatible with
   # parallel install. `locale-archive` is updated in parallel with
   # multiple `localedef` processes and causes non-deterministic result:
-  #   https://github.com/NixOS/nixpkgs/issues/245360
+  #   https://github.com/nervosys/Botnix/issues/245360
   enableParallelBuilding = false;
 
   makeFlags = (previousAttrs.makeFlags or []) ++ [

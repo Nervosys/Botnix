@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ cmake pkg-config ];
 
   patches = lib.optionals stdenv.isDarwin [
-    # Ubsan seems to be broken on aarch64-darwin, it produces linker errors similar to https://github.com/NixOS/nixpkgs/issues/140751
+    # Ubsan seems to be broken on aarch64-darwin, it produces linker errors similar to https://github.com/nervosys/Botnix/issues/140751
     ./disable-ubsan.patch
   ];
 

@@ -20,7 +20,7 @@ let
         --replace /usr/libexec/hypervkvpd/ $out/${libexec}/
     '';
 
-    # We don't actually need the hv_get_{dhcp,dns}_info scripts on NixOS in
+    # We don't actually need the hv_get_{dhcp,dns}_info scripts on Botnix in
     # their current incarnation but with them in place, we stop the spam of
     # errors in the log.
     installPhase = ''
@@ -96,7 +96,7 @@ in stdenv.mkDerivation {
   '';
 
   meta = with lib; {
-    description = "Integration Services for running NixOS under HyperV";
+    description = "Integration Services for running Botnix under HyperV";
     longDescription = ''
       This packages contains the daemons that are used by the Hyper-V hypervisor
       on the host.

@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
         Set `cplex.releasePath = /path/to/download;` in your
         ~/.config/nixpkgs/config.nix for `nix-*` commands, or
         `config.cplex.releasePath = /path/to/download;` in your
-        `configuration.nix` for NixOS.
+        `configuration.nix` for Botnix.
       ''
     else
       releasePath;

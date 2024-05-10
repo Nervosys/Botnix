@@ -10,7 +10,7 @@
 { pkgs, buildImage, buildLayeredImage, fakeNss, pullImage, shadowSetup, buildImageWithNixDb, pkgsCross, streamNixShellImage }:
 
 let
-  nixosLib = import ../../../nixos/lib {
+  nixosLib = import ../../../botnix/lib {
     # Experimental features need testing too, but there's no point in warning
     # about it, so we enable the feature flag.
     featureFlags.minimalModules = {};
@@ -109,7 +109,7 @@ rec {
 
   # 4. example of pulling an image. could be used as a base for other images
   nixFromDockerHub = pullImage {
-    imageName = "nixos/nix";
+    imageName = "botnix/nix";
     imageDigest = "sha256:85299d86263a3059cf19f419f9d286cc9f06d3c13146a8ebbb21b3437f598357";
     sha256 = "19fw0n3wmddahzr20mhdqv6jkjn1kanh6n2mrr08ai53dr8ph5n7";
     finalImageTag = "2.2.1";
@@ -118,7 +118,7 @@ rec {
   # Same example, but re-fetches every time the fetcher implementation changes.
   # NOTE: Only use this for testing, or you'd be wasting a lot of time, network and space.
   testNixFromDockerHub = pkgs.testers.invalidateFetcherByDrvHash pullImage {
-    imageName = "nixos/nix";
+    imageName = "botnix/nix";
     imageDigest = "sha256:85299d86263a3059cf19f419f9d286cc9f06d3c13146a8ebbb21b3437f598357";
     sha256 = "19fw0n3wmddahzr20mhdqv6jkjn1kanh6n2mrr08ai53dr8ph5n7";
     finalImageTag = "2.2.1";
@@ -425,7 +425,7 @@ rec {
   };
 
   # 21. Support files in the store on buildLayeredImage
-  # See: https://github.com/NixOS/nixpkgs/pull/91084#issuecomment-653496223
+  # See: https://github.com/nervosys/Botnix/pull/91084#issuecomment-653496223
   filesInStore = pkgs.dockerTools.buildLayeredImageWithNixDb {
     name = "file-in-store";
     tag = "latest";
@@ -645,7 +645,7 @@ rec {
       nixosCore = (evalMinimalConfig ({ config, ... }: {
         imports = [
           pkgs.pkgsModule
-          ../../../nixos/modules/system/etc/etc.nix
+          ../../../botnix/modules/system/etc/etc.nix
         ];
         environment.etc."some-config-file" = {
           text = ''

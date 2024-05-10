@@ -68,7 +68,7 @@ stdenv.mkDerivation rec {
     license = licenses.bsd3;
     maintainers = with maintainers; [ fgaz ];
     platforms = platforms.all;
-    # https://github.com/NixOS/nixpkgs/pull/91766#issuecomment-688751821
+    # https://github.com/nervosys/Botnix/pull/91766#issuecomment-688751821
     broken = stdenv.isDarwin;
   };
 }

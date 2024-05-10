@@ -70,7 +70,7 @@ stdenv.mkDerivation rec {
 
   mesonFlags = [
     # We are still using ssh-agent from gnome-keyring.
-    # https://github.com/NixOS/nixpkgs/issues/140824
+    # https://github.com/nervosys/Botnix/issues/140824
     "-Dssh_agent=false"
   ];
 

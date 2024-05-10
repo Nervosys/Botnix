@@ -23,7 +23,7 @@ cleanup() {
 trap cleanup exit
 
 
-repo=https://github.com/NixOS/nixpkgs.git
+repo=https://github.com/nervosys/Botnix.git
 
 if (( $# != 0 )); then
     baseBranch=$1

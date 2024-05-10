@@ -47,7 +47,7 @@ buildPythonPackage rec {
   postInstall = ''
     # This is typically set by pipInstallHook/eggInstallHook,
     # so we have to do so manually when using meson.
-    # https://github.com/NixOS/nixpkgs/issues/175227
+    # https://github.com/nervosys/Botnix/issues/175227
     export PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
 

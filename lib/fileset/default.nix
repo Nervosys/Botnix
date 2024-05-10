@@ -51,7 +51,7 @@
     Create a file set from all tracked files in a local Git repository.
 
   If you need more file set functions,
-  see [this issue](https://github.com/NixOS/nixpkgs/issues/266356) to request it.
+  see [this issue](https://github.com/nervosys/Botnix/issues/266356) to request it.
 
 
   ## Implicit coercion from paths to file sets {#sec-fileset-path-coercion}

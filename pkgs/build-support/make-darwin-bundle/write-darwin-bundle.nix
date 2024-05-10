@@ -6,7 +6,7 @@ let
     CFBundleExecutable = "$name";
     CFBundleIconFile = "$icon";
     CFBundleIconFiles = [ "$icon" ];
-    CFBundleIdentifier = "org.nixos.$name";
+    CFBundleIdentifier = "org.botnix.$name";
     CFBundleInfoDictionaryVersion = "6.0";
     CFBundleName = "$name";
     CFBundlePackageType = "APPL";

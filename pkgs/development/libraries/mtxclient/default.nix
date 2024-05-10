@@ -60,7 +60,7 @@ stdenv.mkDerivation rec {
     maintainers = with maintainers; [ fpletz pstn ];
     platforms = platforms.all;
     # Should be fixable if a higher clang version is used, see:
-    # https://github.com/NixOS/nixpkgs/pull/85922#issuecomment-619287177
+    # https://github.com/nervosys/Botnix/pull/85922#issuecomment-619287177
     broken = stdenv.hostPlatform.isDarwin;
   };
 }

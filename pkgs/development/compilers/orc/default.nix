@@ -29,7 +29,7 @@ in stdenv.mkDerivation rec {
     # https://gitlab.freedesktop.org/gstreamer/orc/-/issues/20
     sed -i '/exec_opcodes_sys/d' testsuite/meson.build
   '' + lib.optionalString (stdenv.isDarwin && stdenv.isx86_64) ''
-    # This benchmark times out on Hydra.nixos.org
+    # This benchmark times out on Hydra.botnix.org
     sed -i '/memcpy_speed/d' testsuite/meson.build
   '';
 

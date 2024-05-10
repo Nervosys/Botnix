@@ -89,7 +89,7 @@ let
       description = lib.mdDoc ''
         Whether to allow unfree packages.
 
-        See [Installing unfree packages](https://nixos.org/manual/nixpkgs/stable/#sec-allow-unfree) in the NixOS manual.
+        See [Installing unfree packages](https://nixos.org/manual/nixpkgs/stable/#sec-allow-unfree) in the Botnix manual.
       '';
     };
 
@@ -101,7 +101,7 @@ let
       description = lib.mdDoc ''
         Whether to allow broken packages.
 
-        See [Installing broken packages](https://nixos.org/manual/nixpkgs/stable/#sec-allow-broken) in the NixOS manual.
+        See [Installing broken packages](https://nixos.org/manual/nixpkgs/stable/#sec-allow-broken) in the Botnix manual.
       '';
     };
 
@@ -113,7 +113,7 @@ let
       description = lib.mdDoc ''
         Whether to allow unsupported packages.
 
-        See [Installing packages on unsupported systems](https://nixos.org/manual/nixpkgs/stable/#sec-allow-unsupported-system) in the NixOS manual.
+        See [Installing packages on unsupported systems](https://nixos.org/manual/nixpkgs/stable/#sec-allow-unsupported-system) in the Botnix manual.
       '';
     };
 
@@ -137,7 +137,7 @@ let
         or deprecated values passed into `stdenv.mkDerivation`.
 
         A list of warnings can be found in
-        [/pkgs/stdenv/generic/check-meta.nix](https://github.com/NixOS/nixpkgs/blob/master/pkgs/stdenv/generic/check-meta.nix).
+        [/pkgs/stdenv/generic/check-meta.nix](https://github.com/nervosys/Botnix/blob/master/pkgs/stdenv/generic/check-meta.nix).
 
         This is not a stable interface; warnings may be added, changed
         or removed without prior notice.

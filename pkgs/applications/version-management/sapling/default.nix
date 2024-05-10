@@ -39,7 +39,7 @@ let
   # compilation, which doesn't work on macOS anyway so we can just stub it
   # on macOS.
   #
-  # See https://github.com/NixOS/nixpkgs/pull/198311#issuecomment-1326894295
+  # See https://github.com/nervosys/Botnix/pull/198311#issuecomment-1326894295
   myCargoSetupHook = rustPlatform.cargoSetupHook.overrideAttrs (old: {
     cargoConfig = lib.optionalString (!stdenv.isDarwin) old.cargoConfig;
   });

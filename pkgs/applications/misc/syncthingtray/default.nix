@@ -29,7 +29,7 @@
 written to the `~/.config/autostart/syncthingtray.desktop` file generated
 during runtime. Alternatively, one can edit the desktop file themselves after
 it is generated See:
-https://github.com/NixOS/nixpkgs/issues/199596#issuecomment-1310136382 */
+https://github.com/nervosys/Botnix/issues/199596#issuecomment-1310136382 */
 , autostartExecPath ? "syncthingtray"
 }:
 

@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
   };
 
   #   display.c: When run without a hardware accelerator, this allows the command to continue working rather than failing unexpectedly.
-  #   This can happen when running on non-NixOS because then scrcpy seems to have a hard time using the host OpenGL-supporting hardware.
+  #   This can happen when running on non-Botnix because then scrcpy seems to have a hard time using the host OpenGL-supporting hardware.
   #   It would be better to fix the OpenGL problem, but that seems much more intrusive.
   postPatch = ''
     substituteInPlace app/src/display.c \

@@ -29,7 +29,7 @@ buildPythonPackage rec {
     extension = "zip";
   };
 
-  # find_library doesn't reliably work with nix (https://github.com/NixOS/nixpkgs/issues/7307).
+  # find_library doesn't reliably work with nix (https://github.com/nervosys/Botnix/issues/7307).
   # Even naively searching `LD_LIBRARY_PATH` won't work since `libc.so` is a linker script and
   # ctypes.cdll.LoadLibrary cannot deal with those. Therefore, just hardcode the paths to the
   # necessary libraries.

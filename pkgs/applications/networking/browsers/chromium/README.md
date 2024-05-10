@@ -1,7 +1,7 @@
 # Maintainers
 
 - Note: We could always use more contributors, testers, etc. E.g.:
-  - Dedicated maintainers for the NixOS stable channel
+  - Dedicated maintainers for the Botnix stable channel
   - PRs with cleanups, improvements, fixes, etc. (but please try to make reviews
     as easy as possible)
   - People who handle stale issues/PRs
@@ -36,16 +36,16 @@ was announced. The CI/CD status can be tracked here:
 - https://ci.chromium.org/p/infra/builders/cron/publish_tarball
 - https://ci.chromium.org/p/infra/builders/cron/publish_tarball_dispatcher
 
-To run all automated NixOS VM tests for Chromium, ungoogled-chromium,
+To run all automated Botnix VM tests for Chromium, ungoogled-chromium,
 and Google Chrome (not recommended, currently 6x tests!):
 ```
-nix-build nixos/tests/chromium.nix
+nix-build botnix/tests/chromium.nix
 ```
 
 A single test can be selected, e.g. to test `ungoogled-chromium` (see
-`channelMap` in `nixos/tests/chromium.nix` for all available options):
+`channelMap` in `botnix/tests/chromium.nix` for all available options):
 ```
-nix-build nixos/tests/chromium.nix -A ungoogled
+nix-build botnix/tests/chromium.nix -A ungoogled
 ```
 (Note: Testing Google Chrome requires `export NIXPKGS_ALLOW_UNFREE=1`.)
 

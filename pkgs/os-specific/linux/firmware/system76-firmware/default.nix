@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage rec {
     };
   };
 
-  # Purposefully don't install systemd unit file, that's for NixOS
+  # Purposefully don't install systemd unit file, that's for Botnix
   postInstall = ''
     install -D -m -0644 data/system76-firmware-daemon.conf $out/etc/dbus-1/system.d/system76-firmware-daemon.conf
 

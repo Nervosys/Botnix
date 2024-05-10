@@ -173,7 +173,7 @@ in mkDerivation rec {
     # GRASS has to be availble on the command line even though we baked in
     # the path at build time using GRASS_PREFIX.
     # Using wrapGAppsHook also prevents file dialogs from crashing the program
-    # on non-NixOS.
+    # on non-Botnix.
     wrapProgram $out/bin/qgis \
       "''${gappsWrapperArgs[@]}" \
       --prefix PATH : ${lib.makeBinPath [ grass ]}

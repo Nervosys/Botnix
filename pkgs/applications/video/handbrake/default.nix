@@ -261,7 +261,7 @@ let
     ++ optional stdenv.isDarwin "--disable-xcode"
     ++ optional stdenv.hostPlatform.isx86 "--harden";
 
-    # NOTE: 2018-12-27: Check NixOS HandBrake test if changing
+    # NOTE: 2018-12-27: Check Botnix HandBrake test if changing
     NIX_LDFLAGS = [ "-lx265" ];
 
     makeFlags = [ "--directory=build" ];

@@ -109,7 +109,7 @@ stdenv.mkDerivation rec {
     ./001-use-absolute-paths.diff
   ];
 
-  # Since the bug described in https://github.com/NixOS/nixpkgs/issues/135438,
+  # Since the bug described in https://github.com/nervosys/Botnix/issues/135438,
   # it is not possible to use substituteAll
   postPatch = ''
     substituteInPlace src/emu/emuopts.cpp \

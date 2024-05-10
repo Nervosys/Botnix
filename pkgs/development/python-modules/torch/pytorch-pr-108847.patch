@@ -4,7 +4,7 @@ Date: Sat, 9 Sep 2023 02:04:09 +0000
 Subject: [PATCH] Dependencies.cmake: support building against CUPTI outside of
  CUDA_SOURCE_DIR
 
-Limitation discovered in https://github.com/NixOS/nixpkgs/pull/249259.
+Limitation discovered in https://github.com/nervosys/Botnix/pull/249259.
 ---
  cmake/Dependencies.cmake | 2 ++
  1 file changed, 2 insertions(+)

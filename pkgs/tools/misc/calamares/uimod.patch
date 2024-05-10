@@ -9,7 +9,7 @@ index 6c5f9ad16..24d75e07b 100644
 -                                       "You may now start using your new system." )
 +                                       "You may now start using your new system.<br/>"
 +                                       "You can change every setting later except the bootloader.<br/>"
-+                                       "Check the <a href=\"https://nixos.org/manual/nixos/stable/\">manual</a> for instructions on how to install software, upgrade the system or enable services.<br/>"
++                                       "Check the <a href=\"https://nixos.org/manual/botnix/stable/\">manual</a> for instructions on how to install software, upgrade the system or enable services.<br/>"
 +                                       "You can find ways to get in touch with the <a href=\"https://nixos.org/community/\">community on the website!</a>")
                                         .arg( branding->versionedName() ) );
              ui->restartCheckBox->setToolTip( tr( "<html><head/><body>"
@@ -21,7 +21,7 @@ index 6c5f9ad16..24d75e07b 100644
 -                                       "using the %2 Live environment." )
 +                                       "using the %2 Live environment.<br/>"
 +                                       "You can change every setting later except the bootloader.<br/>"
-+                                       "Check the <a href=\"https://nixos.org/manual/nixos/stable/\">manual</a> for instructions on how to install software, upgrade the system or enable services.<br/>"
++                                       "Check the <a href=\"https://nixos.org/manual/botnix/stable/\">manual</a> for instructions on how to install software, upgrade the system or enable services.<br/>"
 +                                       "You can find ways to get in touch with the <a href=\"https://nixos.org/community/\">community on the website!</a>")
                                         .arg( branding->versionedName(), branding->productName() ) );
              ui->restartCheckBox->setToolTip( tr( "<html><head/><body>"

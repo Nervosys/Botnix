@@ -420,7 +420,7 @@ rec {
         MIGRATION n
         COMPACTION n
 
-        # nixos mounts some cgroup
+        # botnix mounts some cgroup
         CGROUPS y
 
         BLK_DEV_RAM y

@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   buildInputs = [ efivar popt ];
 
   makeFlags = [
-    "EFIDIR=nixos"
+    "EFIDIR=botnix"
     "PKG_CONFIG=${stdenv.cc.targetPrefix}pkg-config"
   ];
 

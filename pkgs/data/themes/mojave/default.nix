@@ -117,7 +117,7 @@ stdenvNoCC.mkDerivation rec {
       ${lib.optionalString (colorVariants != []) "--color " + builtins.toString colorVariants} \
       ${lib.optionalString (opacityVariants != []) "--opacity " + builtins.toString opacityVariants} \
       ${lib.optionalString (themeVariants != []) "--theme " + builtins.toString themeVariants} \
-      --icon nixos \
+      --icon botnix \
       --dest $out/share/themes
 
     ${lib.optionalString wallpapers ''

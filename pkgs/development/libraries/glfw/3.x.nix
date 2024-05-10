@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-DlPRNGCBr6XF9Jn8kWs5lCRTyjPeDt/69PNDzBDhoyg=";
   };
 
-  # Fix linkage issues on X11 (https://github.com/NixOS/nixpkgs/issues/142583)
+  # Fix linkage issues on X11 (https://github.com/nervosys/Botnix/issues/142583)
   patches = lib.optional (!waylandSupport) ./x11.patch;
 
   propagatedBuildInputs =

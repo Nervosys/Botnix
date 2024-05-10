@@ -6,7 +6,7 @@ let
     sha256 =  "04ws94q71bwskmhizhwmaf41ma4wabvfgjgkagr8wf3vakgv866r";
   };
   owdtest = fetchurl {
-    url = "https://github.com/NixOS/nixpkgs/files/10099048/owdtest.AppImage.gz";
+    url = "https://github.com/nervosys/Botnix/files/10099048/owdtest.AppImage.gz";
     sha256 = "sha256-EEp9dxz/+l5XkNaVBFgv5v64sizQILnljRAzwXv/yV8=";
   };
 in

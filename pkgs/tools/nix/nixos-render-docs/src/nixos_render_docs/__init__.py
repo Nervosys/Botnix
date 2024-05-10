@@ -32,7 +32,7 @@ def pretty_print_exc(e: BaseException, *, _desc_text: str = "error") -> None:
         pretty_print_exc(e.__cause__, _desc_text="caused by")
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description='render nixos manual bits')
+    parser = argparse.ArgumentParser(description='render botnix manual bits')
     parser.add_argument('-j', '--jobs', type=int, default=None)
 
     commands = parser.add_subparsers(dest='command', required=True)

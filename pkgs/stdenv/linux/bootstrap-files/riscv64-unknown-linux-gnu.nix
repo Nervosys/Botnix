@@ -1,7 +1,7 @@
 #
 # Files came from this Hydra build:
 #
-#   https://hydra.nixos.org/build/246376732
+#   https://hydra.botnix.org/build/246376732
 #
 # Which used nixpkgs revision 160cedc144aced7a35a91440b46b74ffacd52682
 # to instantiate:
@@ -14,13 +14,13 @@
 #
 {
   busybox = import <nix/fetchurl.nix> {
-    url = "http://tarballs.nixos.org/stdenv-linux/riscv64/160cedc144aced7a35a91440b46b74ffacd52682/busybox";
+    url = "http://tarballs.botnix.org/stdenv-linux/riscv64/160cedc144aced7a35a91440b46b74ffacd52682/busybox";
     sha256 = "sha256-OGO96QUzs2n5pGipn/V87AxzUY9OWKZl417nE8HdZIE=";
     executable = true;
   };
 
   bootstrapTools = import <nix/fetchurl.nix> {
-    url = "http://tarballs.nixos.org/stdenv-linux/riscv64/160cedc144aced7a35a91440b46b74ffacd52682/bootstrap-tools.tar.xz";
+    url = "http://tarballs.botnix.org/stdenv-linux/riscv64/160cedc144aced7a35a91440b46b74ffacd52682/bootstrap-tools.tar.xz";
     sha256 = "sha256-0LxRd7fdafQezNJ+N2tuOfm0KEwgfRSts5fhP0e0r0s=";
   };
 }

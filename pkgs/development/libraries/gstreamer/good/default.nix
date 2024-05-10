@@ -177,7 +177,7 @@ stdenv.mkDerivation rec {
 
   NIX_LDFLAGS = [
     # linking error on Darwin
-    # https://github.com/NixOS/nixpkgs/pull/70690#issuecomment-553694896
+    # https://github.com/nervosys/Botnix/pull/70690#issuecomment-553694896
     "-lncurses"
   ];
 

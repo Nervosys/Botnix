@@ -41,7 +41,7 @@ fetchurl ({
 
   # Have to pull in glibcLocalesUtf8 for unzip in setup-hook.sh to handle
   # UTF-8 aware locale:
-  #   https://github.com/NixOS/nixpkgs/issues/176225#issuecomment-1146617263
+  #   https://github.com/nervosys/Botnix/issues/176225#issuecomment-1146617263
   nativeBuildInputs = lib.optionals withUnzip [ unzip glibcLocalesUtf8 ] ++ nativeBuildInputs;
 
   postFetch =
@@ -73,5 +73,5 @@ fetchurl ({
       chmod 755 "$out"
     '';
     # ^ Remove non-owner write permissions
-    # Fixes https://github.com/NixOS/nixpkgs/issues/38649
+    # Fixes https://github.com/nervosys/Botnix/issues/38649
 } // removeAttrs args [ "stripRoot" "extraPostFetch" "postFetch" "extension" "nativeBuildInputs" ])

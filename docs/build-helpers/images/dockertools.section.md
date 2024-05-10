@@ -420,7 +420,7 @@ See [](#ex-dockerTools-streamLayeredImage-hello) to see how to do that.
 
 For this function, you specify a [store path](https://nixos.org/manual/nix/stable/store/store-path) or a list of store paths to be added to the image, and the functions will automatically include any dependencies of those paths in the image.
 The function will attempt to create one layer per object in the Nix store that needs to be added to the image.
-In case there are more objects to include than available layers, the function will put the most ["popular"](https://github.com/NixOS/nixpkgs/tree/release-23.11/pkgs/build-support/references-by-popularity) objects in their own layers, and group all remaining objects into a single layer.
+In case there are more objects to include than available layers, the function will put the most ["popular"](https://github.com/nervosys/Botnix/tree/release-23.11/pkgs/build-support/references-by-popularity) objects in their own layers, and group all remaining objects into a single layer.
 
 An additional layer will be created with symlinks to the store paths you specified to be included in the image.
 These symlinks are built with [`symlinkJoin`](#trivial-builder-symlinkJoin), so they will be included in the root of the image.
@@ -810,14 +810,14 @@ See [](#ex-dockerTools-pullImage-nixprefetchdocker) for a tool that can help gat
 ### Examples {#ssec-pkgs-dockerTools-pullImage-examples}
 
 ::: {.example #ex-dockerTools-pullImage-niximage}
-# Pulling the nixos/nix Docker image from the default registry
+# Pulling the botnix/nix Docker image from the default registry
 
-This example pulls the [`nixos/nix` image](https://hub.docker.com/r/nixos/nix) and saves it in the Nix store.
+This example pulls the [`botnix/nix` image](https://hub.docker.com/r/botnix/nix) and saves it in the Nix store.
 
 ```nix
 { dockerTools }:
 dockerTools.pullImage {
-  imageName = "nixos/nix";
+  imageName = "botnix/nix";
   imageDigest = "sha256:b8ea88f763f33dfda2317b55eeda3b1a4006692ee29e60ee54ccf6d07348c598";
   finalImageName = "nix";
   finalImageTag = "2.19.3";
@@ -827,7 +827,7 @@ dockerTools.pullImage {
 :::
 
 ::: {.example #ex-dockerTools-pullImage-differentregistry}
-# Pulling the nixos/nix Docker image from a specific registry
+# Pulling the botnix/nix Docker image from a specific registry
 
 This example pulls the [`coreos/etcd` image](https://quay.io/repository/coreos/etcd) from the `quay.io` registry.
 
@@ -850,20 +850,20 @@ Since [`dockerTools.pullImage`](#ssec-pkgs-dockerTools-pullImage) requires two d
 The tool outputs some text for an attribute set which you can pass directly to `pullImage`.
 
 ```shell
-$ nix run nixpkgs#nix-prefetch-docker -- --image-name nixos/nix --image-tag 2.19.3 --arch amd64 --os linux
+$ nix run nixpkgs#nix-prefetch-docker -- --image-name botnix/nix --image-tag 2.19.3 --arch amd64 --os linux
 (some output removed for clarity)
 Writing manifest to image destination
--> ImageName: nixos/nix
+-> ImageName: botnix/nix
 -> ImageDigest: sha256:498fa2d7f2b5cb3891a4edf20f3a8f8496e70865099ba72540494cd3e2942634
--> FinalImageName: nixos/nix
+-> FinalImageName: botnix/nix
 -> FinalImageTag: latest
--> ImagePath: /nix/store/4mxy9mn6978zkvlc670g5703nijsqc95-docker-image-nixos-nix-latest.tar
+-> ImagePath: /nix/store/4mxy9mn6978zkvlc670g5703nijsqc95-docker-image-botnix-nix-latest.tar
 -> ImageHash: 1q6cf2pdrasa34zz0jw7pbs6lvv52rq2aibgxccbwcagwkg2qj1q
 {
-  imageName = "nixos/nix";
+  imageName = "botnix/nix";
   imageDigest = "sha256:498fa2d7f2b5cb3891a4edf20f3a8f8496e70865099ba72540494cd3e2942634";
   sha256 = "1q6cf2pdrasa34zz0jw7pbs6lvv52rq2aibgxccbwcagwkg2qj1q";
-  finalImageName = "nixos/nix";
+  finalImageName = "botnix/nix";
   finalImageTag = "latest";
 }
 ```

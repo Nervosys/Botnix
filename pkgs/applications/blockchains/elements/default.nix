@@ -58,7 +58,7 @@ stdenv.mkDerivation rec {
   ];
 
   # fix "Killed: 9  test/test_bitcoin"
-  # https://github.com/NixOS/nixpkgs/issues/179474
+  # https://github.com/nervosys/Botnix/issues/179474
   hardeningDisable = lib.optionals (stdenv.isAarch64 && stdenv.isDarwin) [ "fortify" "stackprotector" ];
 
   nativeCheckInputs = [ python3 ];
@@ -68,7 +68,7 @@ stdenv.mkDerivation rec {
   checkFlags =
     [ "LC_ALL=en_US.UTF-8" ]
     # QT_PLUGIN_PATH needs to be set when executing QT, which is needed when testing Bitcoin's GUI.
-    # See also https://github.com/NixOS/nixpkgs/issues/24256
+    # See also https://github.com/nervosys/Botnix/issues/24256
     ++ lib.optional withGui "QT_PLUGIN_PATH=${qtbase}/${qtbase.qtPluginPrefix}";
 
   enableParallelBuilding = true;

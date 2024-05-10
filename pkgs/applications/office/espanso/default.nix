@@ -121,7 +121,7 @@ rustPlatform.buildRustPackage rec {
   '';
 
   env = lib.optionalAttrs stdenv.cc.isClang {
-    # Work around https://github.com/NixOS/nixpkgs/issues/166205.
+    # Work around https://github.com/nervosys/Botnix/issues/166205.
     NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}";
   };
 

@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
   ];
 
   # FIXME: checkPhase on darwin will leave some zombie spawn processes
-  # see https://github.com/NixOS/nixpkgs/issues/205620
+  # see https://github.com/nervosys/Botnix/issues/205620
   doCheck = !stdenv.isDarwin;
   checkFlags = [
     # tests depend on network interface, may fail with virtual IPs.

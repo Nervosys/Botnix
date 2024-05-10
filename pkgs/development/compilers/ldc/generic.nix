@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
       rm ldc-${version}-src/tests/dmd/compilable/ddocYear.d
   ''
   + lib.optionalString stdenv.hostPlatform.isDarwin ''
-      # https://github.com/NixOS/nixpkgs/issues/34817
+      # https://github.com/nervosys/Botnix/issues/34817
       rm -r ldc-${version}-src/tests/plugins/addFuncEntryCall
   '';
 
@@ -60,7 +60,7 @@ stdenv.mkDerivation rec {
     darwin.apple_sdk.frameworks.Foundation
   ]
   ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
-    # https://github.com/NixOS/nixpkgs/pull/36378#issuecomment-385034818
+    # https://github.com/nervosys/Botnix/pull/36378#issuecomment-385034818
     gdb
   ];
 

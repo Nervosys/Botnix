@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     homepage = "https://github.com/nix-community/nix-zsh-completions";
-    description = "ZSH completions for Nix, NixOS, and NixOps";
+    description = "ZSH completions for Nix, Botnix, and NixOps";
     license = licenses.bsd3;
     platforms = platforms.all;
     maintainers = with maintainers; [ olejorgenb hedning ma27 ];

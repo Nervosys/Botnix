@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
     ./Disable-methods-that-change-files-in-etc.patch
 
     # Do not ignore third-party (e.g Pantheon) extensions not matching FHS path scheme.
-    # Fixes https://github.com/NixOS/nixpkgs/issues/72396
+    # Fixes https://github.com/nervosys/Botnix/issues/72396
     ./drop-prefix-check-extensions.patch
 
     # Detect DM type from config file.

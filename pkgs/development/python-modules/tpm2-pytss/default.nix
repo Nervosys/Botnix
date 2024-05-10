@@ -65,7 +65,7 @@ buildPythonPackage rec {
 
   # Hardening has to be disabled
   # due to pycparsing handling it poorly.
-  # See https://github.com/NixOS/nixpkgs/issues/252023
+  # See https://github.com/nervosys/Botnix/issues/252023
   # for more details.
   hardeningDisable = [
     "fortify"

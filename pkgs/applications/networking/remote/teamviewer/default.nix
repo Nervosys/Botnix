@@ -54,7 +54,7 @@ mkDerivation rec {
     # Most of them can be replaced by nixpkgs libraries, but the following need to be used beginning at version 15.35.7
     # because teamviewer will not start without them, either stalling at startup or even segfaulting. In the logfiles, some missing qt libraries
     # can be observed, although they are present from nixpkgs. AutoPatchelfHook will automatically choose the included libraries, if present.
-    # See https://github.com/NixOS/nixpkgs/pull/202024
+    # See https://github.com/nervosys/Botnix/pull/202024
 
     # delete all library files except "qt" folder
     find $out/share/teamviewer/tv_bin/RTlib -depth  -maxdepth 1 ! -type d -execdir rm -rf {} +

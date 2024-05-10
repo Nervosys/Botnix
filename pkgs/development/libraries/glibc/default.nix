@@ -56,12 +56,12 @@ in
         (builtins.concatLists [
           (lib.optionals withGd gdCflags)
           # Fix -Werror build failure when building glibc with musl with GCC >= 8, see:
-          # https://github.com/NixOS/nixpkgs/pull/68244#issuecomment-544307798
+          # https://github.com/nervosys/Botnix/pull/68244#issuecomment-544307798
           (lib.optional stdenv.hostPlatform.isMusl "-Wno-error=attribute-alias")
           (lib.optionals ((stdenv.hostPlatform != stdenv.buildPlatform) || stdenv.hostPlatform.isMusl) [
             # Ignore "error: '__EI___errno_location' specifies less restrictive attributes than its target '__errno_location'"
             # New warning as of GCC 9
-            # Same for musl: https://github.com/NixOS/nixpkgs/issues/78805
+            # Same for musl: https://github.com/nervosys/Botnix/issues/78805
             "-Wno-error=missing-attributes"
           ])
           (lib.optionals (stdenv.hostPlatform.isPower64) [
@@ -109,7 +109,7 @@ in
       # target's bintools, which depend on the target's glibc, which, again,
       # depends on buildPackages.glibc, causing an infinute recursion when
       # evaluating buildPackages.glibc when glibc hasn't come from stdenv
-      # (e.g. on musl)." https://github.com/NixOS/nixpkgs/pull/259964
+      # (e.g. on musl)." https://github.com/nervosys/Botnix/pull/259964
     ''
       pushd ../glibc-2*/localedata
       export I18NPATH=$PWD GCONV_PATH=$PWD/../iconvdata

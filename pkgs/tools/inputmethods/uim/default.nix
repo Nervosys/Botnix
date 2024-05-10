@@ -131,7 +131,7 @@ stdenv.mkDerivation rec {
   #--with-osx-dcs          Build with OS X Dictionary Services [default=no]
 
   # TODO: fix this in librsvg/glib later
-  # https://github.com/NixOS/nixpkgs/pull/57027#issuecomment-475461733
+  # https://github.com/nervosys/Botnix/pull/57027#issuecomment-475461733
   preBuild = ''
     export XDG_DATA_DIRS="${shared-mime-info}/share"
   '';

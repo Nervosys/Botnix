@@ -6,7 +6,7 @@ if ! builtins ? nixVersion || builtins.compareVersions requiredVersion builtins.
 
     This version of Nixpkgs requires Nix >= ${requiredVersion}, please upgrade:
 
-    - If you are running NixOS, `nixos-rebuild' can be used to upgrade your system.
+    - If you are running Botnix, `nixos-rebuild' can be used to upgrade your system.
 
     - Alternatively, with Nix > 2.0 `nix upgrade-nix' can be used to imperatively
       upgrade Nix. You may use `nix-env --version' to check which version you have.
@@ -16,7 +16,7 @@ if ! builtins ? nixVersion || builtins.compareVersions requiredVersion builtins.
 
           curl -L https://nixos.org/nix/install | sh
 
-    For more information, please see the NixOS release notes at
+    For more information, please see the Botnix release notes at
     https://nixos.org/nixos/manual or locally at
     ${toString ./nixos/doc/manual/release-notes}.
 

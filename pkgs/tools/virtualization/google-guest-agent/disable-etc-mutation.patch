@@ -3,12 +3,12 @@ From: Nikolay Amiantov <ab@fmap.me>
 Date: Mon, 10 Jan 2022 22:16:38 +0300
 Subject: [PATCH] Disable accounts setup phase and oslogin
 
-On NixOS we set up necessary groups and sudoers rules declaratively,
+On Botnix we set up necessary groups and sudoers rules declaratively,
 and have most of `/etc` directory read-only. This creates (harmless)
 error messages when trying to create google-sudoers file.
 
 "oslogin" daemon sets up configuration necessary for OS Login to
-work, including PAM, NSS and sudoers. On NixOS we perform all this
+work, including PAM, NSS and sudoers. On Botnix we perform all this
 configuration declaratively and have most of /etc mounted read-only.
 This creates (harmless) error messages when running the daemon.
 ---

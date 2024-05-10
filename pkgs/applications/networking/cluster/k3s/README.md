@@ -1,8 +1,8 @@
 # k3s versions
 
-K3s, Kubernetes, and other clustered software has the property of not being able to update atomically. Most software in nixpkgs, like for example bash, can be updated as part of a "nixos-rebuild switch" without having to worry about the old and the new bash interacting in some way.
+K3s, Kubernetes, and other clustered software has the property of not being able to update atomically. Most software in nixpkgs, like for example bash, can be updated as part of a "botnix-rebuild switch" without having to worry about the old and the new bash interacting in some way.
 
-K3s/Kubernetes, on the other hand, is typically run across several NixOS machines, and each NixOS machine is updated independently. As such, different versions of the package and NixOS module must maintain compatibility with each other through temporary version skew during updates.
+K3s/Kubernetes, on the other hand, is typically run across several Botnix machines, and each Botnix machine is updated independently. As such, different versions of the package and Botnix module must maintain compatibility with each other through temporary version skew during updates.
 
 The upstream Kubernetes project [documents this in their version-skew policy](https://kubernetes.io/releases/version-skew-policy/#supported-component-upgrade-order).
 
@@ -19,16 +19,16 @@ In short, a new Kubernetes version is released roughly every 4 months, and each 
 
 Any version that is not supported by upstream should be dropped from nixpkgs.
 
-## Versions in NixOS releases
+## Versions in Botnix releases
 
-NixOS releases should avoid having deprecated software, or making major version upgrades, wherever possible.
+Botnix releases should avoid having deprecated software, or making major version upgrades, wherever possible.
 
-As such, we would like to have only the newest K3s version in each NixOS
+As such, we would like to have only the newest K3s version in each Botnix
 release at the time the release branch is branched off, which will ensure the
 K3s version in that release will receive updates for the longest duration
 possible.
 
-However, this conflicts with another desire: we would like people to be able to upgrade between NixOS stable releases without needing to make a large enough k3s version jump that they violate the Kubernetes version skew policy.
+However, this conflicts with another desire: we would like people to be able to upgrade between Botnix stable releases without needing to make a large enough k3s version jump that they violate the Kubernetes version skew policy.
 
 To give an example, we may have the following timeline for k8s releases:
 
@@ -57,17 +57,17 @@ gitGraph
 
 (Note: the above graph will render if you view this markdown on GitHub, or when using [mermaid](https://mermaid.js.org/))
 
-In this scenario even though k3s 1.24 is still technically supported when the NixOS 23.05
-release is cut, since it goes EOL before the NixOS 23.11 release is made, we would
-not want to include it. Similarly, k3s 1.25 would go EOL before NixOS 23.11.
+In this scenario even though k3s 1.24 is still technically supported when the Botnix 23.05
+release is cut, since it goes EOL before the Botnix 23.11 release is made, we would
+not want to include it. Similarly, k3s 1.25 would go EOL before Botnix 23.11.
 
 As such, we should only include k3s 1.26 in the 23.05 release.
 
-We can then make a similar argument when NixOS 23.11 comes around to not
-include k3s 1.26 or 1.27. However, that means someone upgrading from the NixOS
-22.05 release to the NixOS 23.11 would not have a supported upgrade path.
+We can then make a similar argument when Botnix 23.11 comes around to not
+include k3s 1.26 or 1.27. However, that means someone upgrading from the Botnix
+22.05 release to the Botnix 23.11 would not have a supported upgrade path.
 
-In order to resolve this issue, we propose backporting not just new patch releases to older NixOS releases, but also new k3s versions, up to one version before the first version that is included in the next NixOS release.
+In order to resolve this issue, we propose backporting not just new patch releases to older Botnix releases, but also new k3s versions, up to one version before the first version that is included in the next Botnix release.
 
-In the above example, where NixOS 23.05 included k3s 1.26, and 23.11 included k3s 1.28, that means we would backport 1.27 to the NixOS 23.05 release, and backport all patches for 1.26 and 1.27.
-This would allow someone to upgrade between those NixOS releases in a supported configuration.
+In the above example, where Botnix 23.05 included k3s 1.26, and 23.11 included k3s 1.28, that means we would backport 1.27 to the Botnix 23.05 release, and backport all patches for 1.26 and 1.27.
+This would allow someone to upgrade between those Botnix releases in a supported configuration.

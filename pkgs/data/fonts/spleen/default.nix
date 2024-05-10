@@ -21,7 +21,7 @@ stdenvNoCC.mkDerivation rec {
     install -D -m 644 *.psfu -t "$out/share/consolefonts"
     install -m644 fonts.alias-spleen $d/fonts.alias
 
-    # create fonts.dir so NixOS xorg module adds to fp
+    # create fonts.dir so Botnix xorg module adds to fp
     mkfontdir "$d"
 
     runHook postInstall

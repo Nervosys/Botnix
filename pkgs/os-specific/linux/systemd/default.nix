@@ -100,7 +100,7 @@
 , withDocumentation ? true
 , withEfi ? stdenv.hostPlatform.isEfi
 , withFido2 ? true
-, withFirstboot ? false # conflicts with the NixOS /etc management
+, withFirstboot ? false # conflicts with the Botnix /etc management
 , withHomed ? !stdenv.hostPlatform.isMusl
 , withHostnamed ? true
 , withHwdb ? true
@@ -109,7 +109,7 @@
 , withKmod ? true
 , withLibBPF ? lib.versionAtLeast buildPackages.llvmPackages.clang.version "10.0"
     && (stdenv.hostPlatform.isAarch -> lib.versionAtLeast stdenv.hostPlatform.parsed.cpu.version "6") # assumes hard floats
-    && !stdenv.hostPlatform.isMips64   # see https://github.com/NixOS/nixpkgs/pull/194149#issuecomment-1266642211
+    && !stdenv.hostPlatform.isMips64   # see https://github.com/nervosys/Botnix/pull/194149#issuecomment-1266642211
     # can't find gnu/stubs-32.h
     && (stdenv.hostPlatform.isPower64 -> stdenv.hostPlatform.isBigEndian)
     # https://reviews.llvm.org/D43106#1019077
@@ -180,7 +180,7 @@ in
 stdenv.mkDerivation (finalAttrs: {
   inherit pname version;
 
-  # We use systemd/systemd-stable for src, and ship NixOS-specific patches inside nixpkgs directly
+  # We use systemd/systemd-stable for src, and ship Botnix-specific patches inside nixpkgs directly
   # This has proven to be less error-prone than the previous systemd fork.
   src = fetchFromGitHub {
     owner = "systemd";
@@ -197,8 +197,8 @@ stdenv.mkDerivation (finalAttrs: {
   patches = [
     ./0001-Start-device-units-for-uninitialised-encrypted-devic.patch
     ./0002-Don-t-try-to-unmount-nix-or-nix-store.patch
-    ./0003-Fix-NixOS-containers.patch
-    ./0004-Add-some-NixOS-specific-unit-directories.patch
+    ./0003-Fix-Botnix-containers.patch
+    ./0004-Add-some-Botnix-specific-unit-directories.patch
     ./0005-Get-rid-of-a-useless-message-in-user-sessions.patch
     ./0006-hostnamed-localed-timedated-disable-methods-that-cha.patch
     ./0007-Change-usr-share-zoneinfo-to-etc-zoneinfo.patch
@@ -471,7 +471,7 @@ stdenv.mkDerivation (finalAttrs: {
 
     (lib.mesonOption "version-tag" version)
     (lib.mesonOption "mode" "release")
-    (lib.mesonOption "tty-gid" "3") # tty in NixOS has gid 3
+    (lib.mesonOption "tty-gid" "3") # tty in Botnix has gid 3
     (lib.mesonOption "debug-shell" "${bashInteractive}/bin/bash")
     (lib.mesonOption "pamconfdir" "${placeholder "out"}/etc/pam.d")
     # Use cgroupsv2. This is already the upstream default, but better be explicit.
@@ -492,8 +492,8 @@ stdenv.mkDerivation (finalAttrs: {
     (lib.mesonOption "setfont-path" "${kbd}/bin/setfont")
 
     # SBAT
-    (lib.mesonOption "sbat-distro" "nixos")
-    (lib.mesonOption "sbat-distro-summary" "NixOS")
+    (lib.mesonOption "sbat-distro" "botnix")
+    (lib.mesonOption "sbat-distro-summary" "Botnix")
     (lib.mesonOption "sbat-distro-url" "https://nixos.org/")
     (lib.mesonOption "sbat-distro-pkgname" pname)
     (lib.mesonOption "sbat-distro-version" version)
@@ -704,7 +704,7 @@ stdenv.mkDerivation (finalAttrs: {
         '';
     in
     ''
-      mesonFlagsArray+=(-Dntp-servers="0.nixos.pool.ntp.org 1.nixos.pool.ntp.org 2.nixos.pool.ntp.org 3.nixos.pool.ntp.org")
+      mesonFlagsArray+=(-Dntp-servers="0.botnix.pool.ntp.org 1.botnix.pool.ntp.org 2.botnix.pool.ntp.org 3.botnix.pool.ntp.org")
       export LC_ALL="en_US.UTF-8";
 
       ${lib.concatStringsSep "\n" (lib.flatten (map mkSubstitute binaryReplacements))}
@@ -768,7 +768,7 @@ stdenv.mkDerivation (finalAttrs: {
 
     rm -rf $out/etc/rpm
 
-    # "kernel-install" shouldn't be used on NixOS.
+    # "kernel-install" shouldn't be used on Botnix.
     find $out -name "*kernel-install*" -exec rm {} \;
   '' + lib.optionalString (!withDocumentation) ''
     rm -rf $out/share/doc
@@ -780,7 +780,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   # Avoid *.EFI binary stripping. At least on aarch64-linux strip
   # removes too much from PE32+ files:
-  #   https://github.com/NixOS/nixpkgs/issues/169693
+  #   https://github.com/nervosys/Botnix/issues/169693
   # The hack is to move EFI file out of lib/ before doStrip
   # run and return it after doStrip run.
   preFixup = lib.optionalString withBootloader ''
@@ -807,7 +807,7 @@ stdenv.mkDerivation (finalAttrs: {
     (builtins.map (p: p.__spliced.buildHost or p) finalAttrs.nativeBuildInputs);
 
   passthru = {
-    # The interface version prevents NixOS from switching to an
+    # The interface version prevents Botnix from switching to an
     # incompatible systemd at runtime.  (Switching across reboots is
     # fine, of course.)  It should be increased whenever systemd changes
     # in a backwards-incompatible way.  If the interface version of two

@@ -111,8 +111,8 @@ done
 KERNEL_NAME_VAL=@uSystem@
 NODENAME_VAL=nixpkgs
 KERNEL_RELEASE_VAL=@modDirVersion@
-# #1-NixOS SMP PREEMPT_DYNAMIC Wed Dec 14 10:41:06 UTC 2022
-KERNEL_VERSION_VAL="#1-NixOS Tue Jan 1 00:00:00 UTC 1980"
+# #1-Botnix SMP PREEMPT_DYNAMIC Wed Dec 14 10:41:06 UTC 2022
+KERNEL_VERSION_VAL="#1-Botnix Tue Jan 1 00:00:00 UTC 1980"
 MACHINE_VAL=@processor@
 PROCESSOR_VAL=unknown
 HARDWARE_PLATFORM_VAL=unknown
@@ -129,8 +129,8 @@ fi
 # output of the real uname from GNU coreutils
 # Darwin:
 #  Darwin *nodename* 22.1.0 Darwin Kernel Version 22.1.0: Sun Oct  9 20:14:30 PDT 2022; root:xnu-8792.41.9~2/RELEASE_ARM64_T8103 arm64 arm Darwin
-# NixOS:
-#  Linux *nodename* 6.0.13 #1-NixOS SMP PREEMPT_DYNAMIC Wed Dec 14 10:41:06 UTC 2022 x86_64 GNU/Linux
+# Botnix:
+#  Linux *nodename* 6.0.13 #1-Botnix SMP PREEMPT_DYNAMIC Wed Dec 14 10:41:06 UTC 2022 x86_64 GNU/Linux
 output=()
 if [[ "$all" = "1" ]]; then
     output+=("$KERNEL_NAME_VAL" "$NODENAME_VAL" "$KERNEL_RELEASE_VAL" "$KERNEL_VERSION_VAL" "$MACHINE_VAL")

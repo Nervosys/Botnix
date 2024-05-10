@@ -1,4 +1,4 @@
-/* Nixpkgs/NixOS option handling. */
+/* Nixpkgs/Botnix option handling. */
 { lib }:
 
 let
@@ -73,13 +73,13 @@ rec {
     example ? null,
     # String describing the option.
     description ? null,
-    # Related packages used in the manual (see `genRelatedPackages` in ../nixos/lib/make-options-doc/default.nix).
+    # Related packages used in the manual (see `genRelatedPackages` in ../botnix/lib/make-options-doc/default.nix).
     relatedPackages ? null,
     # Option type, providing type-checking and value merging.
     type ? null,
     # Function that converts the option value to something else.
     apply ? null,
-    # Whether the option is for NixOS developers only.
+    # Whether the option is for Botnix developers only.
     internal ? null,
     # Whether the option shows up in the manual. Default: true. Use false to hide the option and any sub-options from submodules. Use "shallow" to hide only sub-options.
     visible ? null,
@@ -335,7 +335,7 @@ rec {
           in if ss != {} then optionAttrSetToDocList' opt.loc ss else [];
         subOptionsVisible = docOption.visible && opt.visible or null != "shallow";
       in
-        # To find infinite recursion in NixOS option docs:
+        # To find infinite recursion in Botnix option docs:
         # builtins.trace opt.loc
         [ docOption ] ++ optionals subOptionsVisible subOptions) (collect isOption options);
 

@@ -94,7 +94,7 @@ checkConfigOutput '^true$' config.result ./module-argument-default.nix
 # gvariant
 checkConfigOutput '^true$' config.assertion ./gvariant.nix
 
-# https://github.com/NixOS/nixpkgs/pull/131205
+# https://github.com/nervosys/Botnix/pull/131205
 # We currently throw this error already in `config`, but throwing in `config.wrong1` would be acceptable.
 checkConfigError 'It seems as if you.re trying to declare an option by placing it into .config. rather than .options.' config.wrong1 ./error-mkOption-in-config.nix
 # We currently throw this error already in `config`, but throwing in `config.nest.wrong2` would be acceptable.
@@ -443,16 +443,16 @@ checkConfigOutput '^1$' config.sub.specialisation.value ./extendModules-168767-i
 
 # Class checks, evalModules
 checkConfigOutput '^{}$' config.ok.config ./class-check.nix
-checkConfigOutput '"nixos"' config.ok.class ./class-check.nix
-checkConfigError 'The module .*/module-class-is-darwin.nix was imported into nixos instead of darwin.' config.fail.config ./class-check.nix
-checkConfigError 'The module foo.nix#darwinModules.default was imported into nixos instead of darwin.' config.fail-anon.config ./class-check.nix
+checkConfigOutput '"botnix"' config.ok.class ./class-check.nix
+checkConfigError 'The module .*/module-class-is-darwin.nix was imported into botnix instead of darwin.' config.fail.config ./class-check.nix
+checkConfigError 'The module foo.nix#darwinModules.default was imported into botnix instead of darwin.' config.fail-anon.config ./class-check.nix
 
 # Class checks, submoduleWith
 checkConfigOutput '^{}$' config.sub.nixosOk ./class-check.nix
-checkConfigError 'The module .*/module-class-is-darwin.nix was imported into nixos instead of darwin.' config.sub.nixosFail.config ./class-check.nix
+checkConfigError 'The module .*/module-class-is-darwin.nix was imported into botnix instead of darwin.' config.sub.nixosFail.config ./class-check.nix
 
 # submoduleWith type merge with different class
-checkConfigError 'A submoduleWith option is declared multiple times with conflicting class values "darwin" and "nixos".' config.sub.mergeFail.config ./class-check.nix
+checkConfigError 'A submoduleWith option is declared multiple times with conflicting class values "darwin" and "botnix".' config.sub.mergeFail.config ./class-check.nix
 
 # _type check
 checkConfigError 'Could not load a value as a module, because it is of type "flake", in file .*/module-imports-_type-check.nix' config.ok.config ./module-imports-_type-check.nix

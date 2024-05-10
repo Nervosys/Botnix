@@ -31,7 +31,7 @@ in stdenv.mkDerivation {
     $CXX -o cxx-check ${./cxx-main.cc}
     ${emulator} ./cxx-check
 
-    # test for https://github.com/NixOS/nixpkgs/issues/214524#issuecomment-1431745905
+    # test for https://github.com/nervosys/Botnix/issues/214524#issuecomment-1431745905
     # .../include/cxxabi.h:20:10: fatal error: '__cxxabi_config.h' file not found
     # in libcxxStdenv
     echo "checking whether cxxabi.h can be included... " >&2
@@ -40,7 +40,7 @@ in stdenv.mkDerivation {
 
     # cxx doesn't have libatomic.so
     ${lib.optionalString (!isCxx) ''
-      # https://github.com/NixOS/nixpkgs/issues/91285
+      # https://github.com/nervosys/Botnix/issues/91285
       echo "checking whether libatomic.so can be linked... " >&2
       $CXX -shared -o atomics.so ${./atomics.cc} -latomic ${lib.optionalString (stdenv.cc.isClang && lib.versionOlder stdenv.cc.version "6.0.0" ) "-std=c++17"}
       $READELF -d ./atomics.so | grep libatomic.so && echo "ok" >&2 || echo "failed" >&2

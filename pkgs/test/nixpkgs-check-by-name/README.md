@@ -1,7 +1,7 @@
 # Nixpkgs pkgs/by-name checker
 
 This directory implements a program to check the [validity](#validity-checks) of the `pkgs/by-name` Nixpkgs directory.
-This is part of the implementation of [RFC 140](https://github.com/NixOS/rfcs/pull/140).
+This is part of the implementation of [RFC 140](https://github.com/Botnix/rfcs/pull/140).
 
 A [pinned version](./scripts/pinned-tool.json) of this tool is used by [this GitHub Actions workflow](../../../.github/workflows/check-by-name.yml).
 See [./scripts](./scripts/README.md#update-pinned-toolsh) for how to update the pinned version.

@@ -29,7 +29,7 @@ buildPythonPackage rec {
   # ModuleNotFoundError: No module named 'calmjs.types'
   # Not yet clear how to run these tests correctly
   # https://github.com/calmjs/calmjs/issues/63
-  # https://github.com/NixOS/nixpkgs/pull/186298
+  # https://github.com/nervosys/Botnix/pull/186298
   disabledTestPaths = [
     "src/calmjs/tests/test_dist.py"
     "src/calmjs/tests/test_testing.py"

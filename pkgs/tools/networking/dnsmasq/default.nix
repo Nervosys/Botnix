@@ -47,7 +47,7 @@ stdenv.mkDerivation rec {
     make -C contrib/lease-tools
   '';
 
-  # XXX: Does the systemd service definition really belong here when our NixOS
+  # XXX: Does the systemd service definition really belong here when our Botnix
   # module can create it in Nix-land?
   postInstall = ''
     install -Dm644 trust-anchors.conf $out/share/dnsmasq/trust-anchors.conf

@@ -71,7 +71,7 @@ let
         find $out/lib/native/ -name 'libnativetask.so*' -o -name 'libhdfs.so*' | \
           xargs -n1 patchelf --add-rpath $(dirname $(find ${finalAttrs.jdk.home} -name libjvm.so | head -n1))
 
-        # NixOS/nixpkgs#193370
+        # Botnix/nixpkgs#193370
         # This workaround is needed to use protobuf 3.19
         # hadoop 3.3+ depends on protobuf 3.18, 3.2 depends on 3.8
         find $out/lib/native -name 'libhdfspp.so*' | \

@@ -33,7 +33,7 @@ buildPythonPackage rec {
   ];
 
   # Requires pytest, which in turn requires this package - causes infinite
-  # recursion. See also: https://github.com/NixOS/nixpkgs/issues/63168
+  # recursion. See also: https://github.com/nervosys/Botnix/issues/63168
   doCheck = false;
 
   meta = with lib; {

@@ -118,7 +118,7 @@ perlPackages.buildPerlPackage rec {
   checkPhase = ''
     # Temporarily disable a test failing after a patch imagemagick update.
     # It might only due to the reporting and matching used in the test.
-    # See https://github.com/NixOS/nixpkgs/issues/223446
+    # See https://github.com/nervosys/Botnix/issues/223446
     # See https://sourceforge.net/p/gscan2pdf/bugs/417/
     #
     #   Failed test 'valid TIFF created'

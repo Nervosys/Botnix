@@ -38,7 +38,7 @@ A lock file (package-lock.json, yarn.lock...) is supposed to make reproducible i
 
 Guidelines of package managers, recommend to commit those lock files to the repos. If a particular lock file is present, it is a strong indication of which package manager is used upstream.
 
-It's better to try to use a Nix tool that understand the lock file. Using a different tool might give you hard to understand error because different packages have been installed. An example of problems that could arise can be found [here](https://github.com/NixOS/nixpkgs/pull/126629). Upstream use NPM, but this is an attempt to package it with `yarn2nix` (that uses yarn.lock).
+It's better to try to use a Nix tool that understand the lock file. Using a different tool might give you hard to understand error because different packages have been installed. An example of problems that could arise can be found [here](https://github.com/nervosys/Botnix/pull/126629). Upstream use NPM, but this is an attempt to package it with `yarn2nix` (that uses yarn.lock).
 
 Using a different tool forces to commit a lock file to the repository. Those files are fairly large, so when packaging for nixpkgs, this approach does not scale well.
 
@@ -78,11 +78,11 @@ Exceptions to this rule are:
 
 ### Using node_modules directly {#javascript-using-node_modules}
 
-Each tool has an abstraction to just build the node_modules (dependencies) directory. You can always use the `stdenv.mkDerivation` with the node_modules to build the package (symlink the node_modules directory and then use the package build command). The node_modules abstraction can be also used to build some web framework frontends. For an example of this see how [plausible](https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/web-apps/plausible/default.nix) is built. `mkYarnModules` to make the derivation containing node_modules. Then when building the frontend you can just symlink the node_modules directory.
+Each tool has an abstraction to just build the node_modules (dependencies) directory. You can always use the `stdenv.mkDerivation` with the node_modules to build the package (symlink the node_modules directory and then use the package build command). The node_modules abstraction can be also used to build some web framework frontends. For an example of this see how [plausible](https://github.com/nervosys/Botnix/blob/master/pkgs/servers/web-apps/plausible/default.nix) is built. `mkYarnModules` to make the derivation containing node_modules. Then when building the frontend you can just symlink the node_modules directory.
 
 ## Javascript packages inside nixpkgs {#javascript-packages-nixpkgs}
 
-The [pkgs/development/node-packages](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/node-packages) folder contains a generated collection of [NPM packages](https://npmjs.com/) that can be installed with the Nix package manager.
+The [pkgs/development/node-packages](https://github.com/nervosys/Botnix/blob/master/pkgs/development/node-packages) folder contains a generated collection of [NPM packages](https://npmjs.com/) that can be installed with the Nix package manager.
 
 As a rule of thumb, the package set should only provide _end user_ software packages, such as command-line utilities. Libraries should only be added to the package set if there is a non-NPM package that requires it.
 
@@ -96,7 +96,7 @@ If your package uses native addons, you need to examine what kind of native buil
 - `node-gyp-builder`
 - `node-pre-gyp`
 
-After you have identified the correct system, you need to override your package expression while adding in build system as a build input. For example, `dat` requires `node-gyp-build`, so we override its expression in [pkgs/development/node-packages/overrides.nix](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/node-packages/overrides.nix):
+After you have identified the correct system, you need to override your package expression while adding in build system as a build input. For example, `dat` requires `node-gyp-build`, so we override its expression in [pkgs/development/node-packages/overrides.nix](https://github.com/nervosys/Botnix/blob/master/pkgs/development/node-packages/overrides.nix):
 
 ```nix
     dat = prev.dat.override (oldAttrs: {
@@ -109,7 +109,7 @@ After you have identified the correct system, you need to override your package 
 
 To add a package from NPM to nixpkgs:
 
-1. Modify [pkgs/development/node-packages/node-packages.json](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/node-packages/node-packages.json) to add, update or remove package entries to have it included in `nodePackages` and `nodePackages_latest`.
+1. Modify [pkgs/development/node-packages/node-packages.json](https://github.com/nervosys/Botnix/blob/master/pkgs/development/node-packages/node-packages.json) to add, update or remove package entries to have it included in `nodePackages` and `nodePackages_latest`.
 2. Run the script:
 
    ```sh
@@ -129,7 +129,7 @@ To add a package from NPM to nixpkgs:
     ```
 
     If the package doesn't build, you may need to add an override as explained above.
-4. If the package's name doesn't match any of the executables it provides, add an entry in [pkgs/development/node-packages/main-programs.nix](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/node-packages/main-programs.nix). This will be the case for all scoped packages, e.g., `@angular/cli`.
+4. If the package's name doesn't match any of the executables it provides, add an entry in [pkgs/development/node-packages/main-programs.nix](https://github.com/nervosys/Botnix/blob/master/pkgs/development/node-packages/main-programs.nix). This will be the case for all scoped packages, e.g., `@angular/cli`.
 5. Add and commit all modified and generated files.
 
 For more information about the generation process, consult the [README.md](https://github.com/svanderburg/node2nix) file of the `node2nix` tool.

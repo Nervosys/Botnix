@@ -153,9 +153,9 @@ stdenv.mkDerivation rec {
 
     # Fixup the aesmd systemd service
     #
-    # Most—if not all—of those fixups are not relevant for NixOS as we have our own
-    # NixOS module which is based on those files without relying on them. Still, it
-    # is helpful to have properly patched versions for non-NixOS distributions.
+    # Most—if not all—of those fixups are not relevant for Botnix as we have our own
+    # Botnix module which is based on those files without relying on them. Still, it
+    # is helpful to have properly patched versions for non-Botnix distributions.
     echo "Fixing aesmd.service"
     substituteInPlace $out/lib/systemd/system/aesmd.service \
       --replace '@aesm_folder@' \

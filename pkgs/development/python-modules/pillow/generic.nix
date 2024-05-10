@@ -48,7 +48,7 @@ buildPythonPackage rec {
   # NOTE: we use LCMS_ROOT as WEBP root since there is not other setting for webp.
   # NOTE: The Pillow install script will, by default, add paths like /usr/lib
   # and /usr/include to the search paths. This can break things when building
-  # on a non-NixOS system that has some libraries installed that are not
+  # on a non-Botnix system that has some libraries installed that are not
   # installed in Nix (for example, Arch Linux has jpeg2000 but Nix doesn't
   # build Pillow with this support). We patch the `disable_platform_guessing`
   # setting here, instead of passing the `--disable-platform-guessing`

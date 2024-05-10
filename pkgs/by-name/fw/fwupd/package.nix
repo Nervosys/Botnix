@@ -136,11 +136,11 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   patches = [
-    # Since /etc is the domain of NixOS, not Nix,
+    # Since /etc is the domain of Botnix, not Nix,
     # we cannot install files there.
     # Let’s install the files to $prefix/etc
     # while still reading them from /etc.
-    # NixOS module for fwupd will take take care of copying the files appropriately.
+    # Botnix module for fwupd will take take care of copying the files appropriately.
     ./add-option-for-installation-sysconfdir.patch
 
     # Install plug-ins and libfwupdplugin to $out output,
@@ -212,7 +212,7 @@ stdenv.mkDerivation (finalAttrs: {
     "--localstatedir=/var"
     "--sysconfdir=/etc"
     "-Dsysconfdir_install=${placeholder "out"}/etc"
-    "-Defi_os_dir=nixos"
+    "-Defi_os_dir=botnix"
     "-Dplugin_modem_manager=enabled"
     # We do not want to place the daemon into lib (cyclic reference)
     "--libexecdir=${placeholder "out"}/libexec"
@@ -245,7 +245,7 @@ stdenv.mkDerivation (finalAttrs: {
     fontsConf;
 
   # error: “PolicyKit files are missing”
-  # https://github.com/NixOS/nixpkgs/pull/67625#issuecomment-525788428
+  # https://github.com/nervosys/Botnix/pull/67625#issuecomment-525788428
   PKG_CONFIG_POLKIT_GOBJECT_1_ACTIONDIR = "/run/current-system/sw/share/polkit-1/actions";
 
   # Phase hooks
@@ -261,12 +261,12 @@ stdenv.mkDerivation (finalAttrs: {
     sed -i 's/test(.*)//' plugins/mtd/meson.build
     # fails on amd cpu
     sed -i 's/test(.*)//' libfwupdplugin/meson.build
-    # in nixos test tries to chmod 0777 $out/share/installed-tests/fwupd/tests/redfish.conf
+    # in botnix test tries to chmod 0777 $out/share/installed-tests/fwupd/tests/redfish.conf
     sed -i "s/get_option('tests')/false/" plugins/redfish/meson.build
 
     # Device tests use device emulation and need to download emulation data from
     # the internet, which does not work on our test VMs.
-    # It's probably better to disable these tests for NixOS by setting
+    # It's probably better to disable these tests for Botnix by setting
     # the device-tests directory to /dev/null.
     # For more info on device emulation, see:
     #   https://github.com/fwupd/fwupd/blob/eeeac4e9ba8a6513428b456a551bffd95d533e50/docs/device-emulation.md

@@ -123,7 +123,7 @@ stdenv.mkDerivation (finalAttrs: {
     popd
     wrapPythonProgramsIn $test/test "$test/test ${toString pythonPath}"
 
-    # for bluez4 compatibility for NixOS
+    # for bluez4 compatibility for Botnix
     mkdir $out/sbin
     ln -s ../libexec/bluetooth/bluetoothd $out/sbin/bluetoothd
     ln -s ../libexec/bluetooth/obexd $out/sbin/obexd
@@ -132,7 +132,7 @@ stdenv.mkDerivation (finalAttrs: {
     mkdir $out/etc/bluetooth
     ln -s /etc/bluetooth/main.conf $out/etc/bluetooth/main.conf
 
-    # https://github.com/NixOS/nixpkgs/issues/204418
+    # https://github.com/nervosys/Botnix/issues/204418
     ln -s /etc/bluetooth/input.conf $out/etc/bluetooth/input.conf
     ln -s /etc/bluetooth/network.conf $out/etc/bluetooth/network.conf
 

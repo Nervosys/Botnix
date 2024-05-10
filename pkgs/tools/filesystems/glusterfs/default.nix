@@ -167,7 +167,7 @@ in stdenv.mkDerivation rec {
   # By default they are indeterministic because such files contain time stamps
   # (see https://nedbatchelder.com/blog/200804/the_structure_of_pyc_files.html).
   # So we use the same environment variables as in
-  #   https://github.com/NixOS/nixpkgs/blob/249b34aadca7038207492f29142a3456d0cecec3/pkgs/development/interpreters/python/mk-python-derivation.nix#L61
+  #   https://github.com/nervosys/Botnix/blob/249b34aadca7038207492f29142a3456d0cecec3/pkgs/development/interpreters/python/mk-python-derivation.nix#L61
   # to make these files deterministic.
   # A general solution to this problem might be brought by #25707.
   DETERMINISTIC_BUILD = 1;

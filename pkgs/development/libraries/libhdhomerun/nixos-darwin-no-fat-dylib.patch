@@ -1,7 +1,7 @@
 From 6b9ed19d7874b88b7db5b740dac3dcd7dcda6c8c Mon Sep 17 00:00:00 2001
 From: Nicholas Sielicki <git@opensource.nslick.com>
 Date: Sat, 25 Nov 2023 13:54:39 -0600
-Subject: [PATCH] nixos-darwin-no-fat-dylib
+Subject: [PATCH] botnix-darwin-no-fat-dylib
 
 Signed-off-by: Nicholas Sielicki <git@opensource.nslick.com>
 ---

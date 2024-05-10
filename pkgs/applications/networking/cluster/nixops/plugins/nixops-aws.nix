@@ -6,7 +6,7 @@
 , boto
 , boto3
 , nixops
-, nixos-modules-contrib
+, botnix-modules-contrib
 , typing-extensions
 }:
 
@@ -16,7 +16,7 @@ buildPythonPackage {
   pyproject = true;
 
   src = fetchFromGitHub {
-    owner = "NixOS";
+    owner = "Botnix";
     repo = "nixops-aws";
     rev = "8802d1cda9004ec1362815292c2a8ab95e6d64e8";
     hash = "sha256-i0KjFrwpDHRch9jorccdVwnjAQiORClDUqm2R2xvwuU=";
@@ -39,7 +39,7 @@ buildPythonPackage {
   propagatedBuildInputs = [
     boto
     boto3
-    nixos-modules-contrib
+    botnix-modules-contrib
     typing-extensions
   ];
 
@@ -49,7 +49,7 @@ buildPythonPackage {
 
   meta = with lib; {
     description = "AWS plugin for NixOps";
-    homepage = "https://github.com/NixOS/nixops-aws";
+    homepage = "https://github.com/Botnix/nixops-aws";
     license = licenses.lgpl3Only;
     maintainers = nixops.meta.maintainers;
   };

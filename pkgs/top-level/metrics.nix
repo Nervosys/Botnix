@@ -51,11 +51,11 @@ runCommand "nixpkgs-metrics"
       echo "$name.values $x" >> $out/nix-support/hydra-metrics
     }
 
-    run nixos.smallContainer nix-instantiate --dry-run ${nixpkgs}/nixos/release.nix \
+    run botnix.smallContainer nix-instantiate --dry-run ${nixpkgs}/botnix/release.nix \
       -A closures.smallContainer.x86_64-linux --show-trace
-    run nixos.kde nix-instantiate --dry-run ${nixpkgs}/nixos/release.nix \
+    run botnix.kde nix-instantiate --dry-run ${nixpkgs}/botnix/release.nix \
       -A closures.kde.x86_64-linux --show-trace
-    run nixos.lapp nix-instantiate --dry-run ${nixpkgs}/nixos/release.nix \
+    run botnix.lapp nix-instantiate --dry-run ${nixpkgs}/botnix/release.nix \
       -A closures.lapp.x86_64-linux --show-trace
     run nix-env.qa nix-env -f ${nixpkgs} -qa
     run nix-env.qaDrv nix-env -f ${nixpkgs} -qa --drv-path --meta --xml

@@ -61,8 +61,8 @@ buildGoModule rec {
     # include path.
     # We can't use a regular clang command (something like
     # llvmPackages.clangUseLLVM) because there are various bugs, see:
-    # https://github.com/NixOS/nixpkgs/issues/259397
-    # https://github.com/NixOS/nixpkgs/issues/259386
+    # https://github.com/nervosys/Botnix/issues/259397
+    # https://github.com/nervosys/Botnix/issues/259386
     (substituteAll {
       src = ./0002-Add-clang-header-path.patch;
       clang_include = "${clang.cc.lib}/lib/clang/${llvmMajor}/include";

@@ -40,7 +40,7 @@ in stdenv.mkDerivation (args // {
   LD_LIBRARY_PATH = lib.makeLibraryPath (LD_LIBRARY_PATH ++ buildInputs);
                     # ^^^ Internally uses `getOutput "lib"` (equiv. to getLib)
 
-  # Non-NixOS git needs cert
+  # Non-Botnix git needs cert
   GIT_SSL_CAINFO = "${cacert}/etc/ssl/certs/ca-bundle.crt";
 
   # Fixes https://github.com/commercialhaskell/stack/issues/2358

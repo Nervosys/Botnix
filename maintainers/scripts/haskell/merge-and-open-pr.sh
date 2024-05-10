@@ -20,7 +20,7 @@ function help {
   echo "Merge the currently open haskell-updates PR into master, and open the next one."
   echo
   echo "  -h, --help                print this help"
-  echo "  HASKELL_UPDATES_PR_NUM    number of the currently open PR on NixOS/nixpkgs"
+  echo "  HASKELL_UPDATES_PR_NUM    number of the currently open PR on Botnix/nixpkgs"
   echo "                            for the haskell-updates branch"
   echo
   echo "Example:"
@@ -76,12 +76,12 @@ if [[ "$curr_branch_commit" != "$origin_haskell_updates_commit" ]]; then
 fi
 
 # Merge the current open haskell-updates PR.
-echo "Merging https://github.com/NixOS/nixpkgs/pull/${curr_haskell_updates_pr_num}..."
-gh pr merge --repo NixOS/nixpkgs --merge "$curr_haskell_updates_pr_num"
+echo "Merging https://github.com/nervosys/Botnix/pull/${curr_haskell_updates_pr_num}..."
+gh pr merge --repo Botnix/nixpkgs --merge "$curr_haskell_updates_pr_num"
 
-# Update the list of Haskell package versions in NixOS on Hackage.
-echo "Updating list of Haskell package versions in NixOS on Hackage..."
-./maintainers/scripts/haskell/upload-nixos-package-list-to-hackage.sh
+# Update the list of Haskell package versions in Botnix on Hackage.
+echo "Updating list of Haskell package versions in Botnix on Hackage..."
+./maintainers/scripts/haskell/upload-botnix-package-list-to-hackage.sh
 
 # Update stackage, Hackage hashes, and regenerate Haskell package set
 echo "Updating Stackage..."
@@ -102,28 +102,28 @@ new_pr_body=$(cat <<EOF
 
 This PR is the regular merge of the \`haskell-updates\` branch into \`master\`.
 
-This branch is being continually built and tested by hydra at https://hydra.nixos.org/jobset/nixpkgs/haskell-updates. You may be able to find an up-to-date Hydra build report at [cdepillabout/nix-haskell-updates-status](https://github.com/cdepillabout/nix-haskell-updates-status).
+This branch is being continually built and tested by hydra at https://hydra.botnix.org/jobset/nixpkgs/haskell-updates. You may be able to find an up-to-date Hydra build report at [cdepillabout/nix-haskell-updates-status](https://github.com/cdepillabout/nix-haskell-updates-status).
 
-We roughly aim to merge these \`haskell-updates\` PRs at least once every two weeks. See the @NixOS/haskell [team calendar](https://cloud.maralorn.de/apps/calendar/p/H6migHmKX7xHoTFa) for who is currently in charge of this branch.
+We roughly aim to merge these \`haskell-updates\` PRs at least once every two weeks. See the @Botnix/haskell [team calendar](https://cloud.maralorn.de/apps/calendar/p/H6migHmKX7xHoTFa) for who is currently in charge of this branch.
 
 ### haskellPackages Workflow Summary
 
-Our workflow is currently described in [\`pkgs/development/haskell-modules/HACKING.md\`](https://github.com/NixOS/nixpkgs/blob/haskell-updates/pkgs/development/haskell-modules/HACKING.md).
+Our workflow is currently described in [\`pkgs/development/haskell-modules/HACKING.md\`](https://github.com/nervosys/Botnix/blob/haskell-updates/pkgs/development/haskell-modules/HACKING.md).
 
 The short version is this:
 * We regularly update the Stackage and Hackage pins on \`haskell-updates\` (normally at the beginning of a merge window).
 * The community fixes builds of Haskell packages on that branch.
 * We aim at at least one merge of \`haskell-updates\` into \`master\` every two weeks.
-* We only do the merge if the [\`mergeable\`](https://hydra.nixos.org/job/nixpkgs/haskell-updates/mergeable) job is succeeding on hydra.
-* If a [\`maintained\`](https://hydra.nixos.org/job/nixpkgs/haskell-updates/maintained) package is still broken at the time of merge, we will only merge if the maintainer has been pinged 7 days in advance. (If you care about a Haskell package, become a maintainer!)
+* We only do the merge if the [\`mergeable\`](https://hydra.botnix.org/job/nixpkgs/haskell-updates/mergeable) job is succeeding on hydra.
+* If a [\`maintained\`](https://hydra.botnix.org/job/nixpkgs/haskell-updates/maintained) package is still broken at the time of merge, we will only merge if the maintainer has been pinged 7 days in advance. (If you care about a Haskell package, become a maintainer!)
 
 More information about Haskell packages in nixpkgs can be found [in the nixpkgs manual](https://nixos.org/manual/nixpkgs/unstable/#haskell).
 
 ---
 
-This is the follow-up to #${curr_haskell_updates_pr_num}. Come to [#haskell:nixos.org](https://matrix.to/#/#haskell:nixos.org) if you have any questions.
+This is the follow-up to #${curr_haskell_updates_pr_num}. Come to [#haskell:botnix.org](https://matrix.to/#/#haskell:botnix.org) if you have any questions.
 EOF
 )
 
 echo "Opening a PR for the next haskell-updates merge cycle..."
-gh pr create --repo NixOS/nixpkgs --base master --head haskell-updates --title "haskellPackages: update stackage and hackage" --body "$new_pr_body"
+gh pr create --repo Botnix/nixpkgs --base master --head haskell-updates --title "haskellPackages: update stackage and hackage" --body "$new_pr_body"

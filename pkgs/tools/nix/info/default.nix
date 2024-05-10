@@ -1,5 +1,5 @@
 { stdenv, lib, coreutils, findutils, gnugrep, darwin, bash
-# Avoid having GHC in the build-time closure of all NixOS configurations
+# Avoid having GHC in the build-time closure of all Botnix configurations
 , doCheck ? false, shellcheck
 }:
 

@@ -29,7 +29,7 @@ _nixos-rebuild() {
   local all_args=(
     --verbose -v
 
-    # nixos-rebuild options
+    # botnix-rebuild options
     --fast
     --no-build-nix
     --profile-name -p # name
@@ -162,4 +162,4 @@ _nixos-rebuild() {
   esac
 }
 
-complete -F _nixos-rebuild nixos-rebuild
+complete -F _nixos-rebuild botnix-rebuild

@@ -183,7 +183,7 @@ stdenv.mkDerivation rec {
   # uses `integer-simple` and has no `gmp` dependency:
   # https://gitlab.haskell.org/ghc/ghc/-/commit/8306501020cd66f683ad9c215fa8e16c2d62357d
   # Related nixpkgs issues:
-  # * https://github.com/NixOS/nixpkgs/pull/130441#issuecomment-922452843
+  # * https://github.com/nervosys/Botnix/pull/130441#issuecomment-922452843
   # TODO: When this file is copied to `ghc-9.*-binary.nix`, determine whether
   #       the GHC 9 branch also switched from `gmp` to `integer-simple` via the
   #       currently-open issue:
@@ -301,7 +301,7 @@ stdenv.mkDerivation rec {
     # Note `--with-gmp-libraries` does nothing for GHC bindists:
     # https://gitlab.haskell.org/ghc/ghc/-/merge_requests/6124
   ] ++ lib.optional stdenv.isDarwin "--with-gcc=${./gcc-clang-wrapper.sh}"
-    # From: https://github.com/NixOS/nixpkgs/pull/43369/commits
+    # From: https://github.com/nervosys/Botnix/pull/43369/commits
     ++ lib.optional stdenv.hostPlatform.isMusl "--disable-ld-override";
 
   # No building is necessary, but calling make without flags ironically
@@ -393,7 +393,7 @@ stdenv.mkDerivation rec {
   # But GHC cannot currently produce outputs that are ready for `-pie` linking.
   # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.
   # See:
-  # * https://github.com/NixOS/nixpkgs/issues/129247
+  # * https://github.com/nervosys/Botnix/issues/129247
   # * https://gitlab.haskell.org/ghc/ghc/-/issues/19580
   hardeningDisable = lib.optional stdenv.targetPlatform.isMusl "pie";
 

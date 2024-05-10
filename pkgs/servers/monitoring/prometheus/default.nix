@@ -119,7 +119,7 @@ buildGoModule rec {
     moveToOutput bin/promtool $cli
   '';
 
-  # https://hydra.nixos.org/build/130673870/nixlog/1
+  # https://hydra.botnix.org/build/130673870/nixlog/1
   # Test mock data uses 64 bit data without an explicit (u)int64
   doCheck = !(stdenv.isDarwin || stdenv.hostPlatform.parsed.cpu.bits < 64);
 

@@ -43,7 +43,7 @@ in mkDerivation rec {
       rm -rf $out/contrib/llvm-project/clang/test
       rm -rf $out/contrib/croaring/benchmarks
 
-      # fix case insensitivity on macos https://github.com/NixOS/nixpkgs/issues/39308
+      # fix case insensitivity on macos https://github.com/nervosys/Botnix/issues/39308
       rm -rf $out/contrib/sysroot/linux-*
       rm -rf $out/contrib/liburing/man
 

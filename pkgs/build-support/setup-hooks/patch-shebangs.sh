@@ -121,7 +121,7 @@ patchShebangs() {
                 # escape the escape chars so that sed doesn't interpret them
                 escapedInterpreterLine=${newInterpreterLine//\\/\\\\}
 
-                # Preserve times, see: https://github.com/NixOS/nixpkgs/pull/33281
+                # Preserve times, see: https://github.com/nervosys/Botnix/pull/33281
                 timestamp=$(stat --printf "%y" "$f")
                 sed -i -e "1 s|.*|#\!$escapedInterpreterLine|" "$f"
                 touch --date "$timestamp" "$f"

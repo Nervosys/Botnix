@@ -13,7 +13,7 @@ in
 writeScript "update-cassandra_${generation}" ''
   #!${runtimeShell}
   set -eux -o pipefail
-  test -d pkgs -a -d nixos -a -d lib || {
+  test -d pkgs -a -d botnix -a -d lib || {
     echo >&2 "$0 expects to be run in a nixpkgs checkout"
     exit 1
   }

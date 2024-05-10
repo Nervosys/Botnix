@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
   ];
 
   # Temporary hack to copy the example configuration files into the nix-store,
-  # this'll probably be helpful until there's a NixOS module for that (feel free
+  # this'll probably be helpful until there's a Botnix module for that (feel free
   # to ping me (@primeos) if you want to help).
   preInstall = ''
     substituteInPlace Makefile --replace\

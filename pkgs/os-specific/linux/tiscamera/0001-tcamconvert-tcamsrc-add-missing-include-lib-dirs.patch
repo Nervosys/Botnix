@@ -7,7 +7,7 @@ These were building libraries with dependencies on gstreamer-video
 and gstreamer-base but weren't adding the proper include and
 lib directories which resulted in build failure on systems
 where video and base aren't installed in the same location
-as gstreamer itself (e.g: nix, nixos).
+as gstreamer itself (e.g: nix, botnix).
 ---
  src/gstreamer-1.0/tcamconvert/CMakeLists.txt |  2 ++
  src/gstreamer-1.0/tcamsrc/CMakeLists.txt     | 11 +++++++++++

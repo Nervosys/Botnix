@@ -8,11 +8,11 @@
 }:
 
 stdenv.mkDerivation {
-  name = "nixos-option";
+  name = "botnix-option";
 
   src = ./.;
   postInstall = ''
-    installManPage ${./nixos-option.8}
+    installManPage ${./botnix-option.8}
   '';
 
   strictDeps = true;
@@ -31,7 +31,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     license = licenses.lgpl2Plus;
-    mainProgram = "nixos-option";
+    mainProgram = "botnix-option";
     maintainers = with maintainers; [ ];
     inherit (nix.meta) platforms;
   };

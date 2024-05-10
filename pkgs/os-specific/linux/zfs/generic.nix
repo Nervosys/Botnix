@@ -223,9 +223,9 @@ let
       license = lib.licenses.cddl;
 
       # The case-block for TARGET_CPU has branches for only some CPU families,
-      # which prevents ZFS from building on any other platform.  Since the NixOS
+      # which prevents ZFS from building on any other platform.  Since the Botnix
       # `boot.zfs.enabled` property is `readOnly`, excluding platforms where ZFS
-      # does not build is the only way to produce a NixOS installer on such
+      # does not build is the only way to produce a Botnix installer on such
       # platforms.
       # https://github.com/openzfs/zfs/blob/6723d1110f6daf93be93db74d5ea9f6b64c9bce5/config/always-arch.m4#L12
       platforms =
@@ -235,7 +235,7 @@ let
       inherit maintainers;
       mainProgram = "zfs";
       # If your Linux kernel version is not yet supported by zfs, try zfsUnstable.
-      # On NixOS set the option boot.zfs.enableUnstable.
+      # On Botnix set the option boot.zfs.enableUnstable.
       broken = buildKernel && (kernelCompatible != null) && !kernelCompatible;
     };
   };

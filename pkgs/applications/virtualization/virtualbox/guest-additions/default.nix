@@ -79,7 +79,7 @@ in stdenv.mkDerivation rec {
     done
 
     # FIXME: Virtualbox 4.3.22 moved VBoxClient-all (required by Guest Additions
-    # NixOS module) to 98vboxadd-xclient. For now, just work around it:
+    # Botnix module) to 98vboxadd-xclient. For now, just work around it:
     mv other/98vboxadd-xclient bin/VBoxClient-all
 
     # Remove references to /usr from various scripts and files
@@ -140,7 +140,7 @@ in stdenv.mkDerivation rec {
   meta = {
     description = "Guest additions for VirtualBox";
     longDescription = ''
-      Various add-ons which makes NixOS work better as guest OS inside VirtualBox.
+      Various add-ons which makes Botnix work better as guest OS inside VirtualBox.
       This add-on provides support for dynamic resizing of the X Display, shared
       host/guest clipboard support and guest OpenGL support.
     '';

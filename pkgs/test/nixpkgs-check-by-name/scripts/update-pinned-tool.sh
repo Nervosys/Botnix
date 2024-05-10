@@ -10,7 +10,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # Determined by `runs-on: ubuntu-latest` in .github/workflows/check-by-name.yml
 CI_SYSTEM=x86_64-linux
 
-channel=nixos-unstable
+channel=botnix-unstable
 pin_file=$SCRIPT_DIR/pinned-tool.json
 
 trace -n "Fetching latest version of channel $channel.. "

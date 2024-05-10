@@ -126,7 +126,7 @@ stdenv.mkDerivation rec {
   version = "2023-12-24";
 
   src = fetchFromGitHub {
-    owner = "NixOS";
+    owner = "Botnix";
     repo = "hydra";
     rev = "02e453fc8c39751843220eaecdeaf7d539b7e765";
     hash = "sha256-hIXRgu2MGqFYCALDKAiP+8lE859zftRe4OVIgGOTkvc=";

@@ -96,7 +96,7 @@ For the purposes of this example let's consider a very basic Maven project with 
   <artifactId>maven-demo</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
-  <name>NixOS Maven Demo</name>
+  <name>Botnix Maven Demo</name>
 
   <dependencies>
     <dependency>
@@ -115,19 +115,19 @@ import com.vdurmont.emoji.EmojiParser;
 
 public class Main {
   public static void main(String[] args) {
-    String str = "NixOS :grinning: is super cool :smiley:!";
+    String str = "Botnix :grinning: is super cool :smiley:!";
     String result = EmojiParser.parseToUnicode(str);
     System.out.println(result);
   }
 }
 ```
 
-You find this demo project at [https://github.com/fzakaria/nixos-maven-example](https://github.com/fzakaria/nixos-maven-example).
+You find this demo project at [https://github.com/fzakaria/botnix-maven-example](https://github.com/fzakaria/botnix-maven-example).
 
 ### Solving for dependencies {#solving-for-dependencies}
 
-#### buildMaven with NixOS/mvn2nix-maven-plugin {#buildmaven-with-nixosmvn2nix-maven-plugin}
-`buildMaven` is an alternative method that tries to follow similar patterns of other programming languages by generating a lock file. It relies on the maven plugin [mvn2nix-maven-plugin](https://github.com/NixOS/mvn2nix-maven-plugin).
+#### buildMaven with Botnix/mvn2nix-maven-plugin {#buildmaven-with-nixosmvn2nix-maven-plugin}
+`buildMaven` is an alternative method that tries to follow similar patterns of other programming languages by generating a lock file. It relies on the maven plugin [mvn2nix-maven-plugin](https://github.com/Botnix/mvn2nix-maven-plugin).
 
 First you generate a `project-info.json` file using the maven plugin.
 
@@ -135,13 +135,13 @@ First you generate a `project-info.json` file using the maven plugin.
 
 ```bash
 # run this step within the project's source repository
-❯ mvn org.nixos.mvn2nix:mvn2nix-maven-plugin:mvn2nix
+❯ mvn org.botnix.mvn2nix:mvn2nix-maven-plugin:mvn2nix
 
 ❯ cat project-info.json | jq | head
 {
   "project": {
     "artifactId": "maven-demo",
-    "groupId": "org.nixos",
+    "groupId": "org.botnix",
     "version": "1.0",
     "classifier": "",
     "extension": "jar",
@@ -159,7 +159,7 @@ This file is then given to the `buildMaven` function, and it returns 2 attribute
 **`build`**:
     A simple derivation that runs through `mvn compile` & `mvn package` to build the JAR. You may use this as inspiration for more complicated derivations.
 
-Here is an [example](https://github.com/fzakaria/nixos-maven-example/blob/main/build-maven-repository.nix) of building the Maven repository
+Here is an [example](https://github.com/fzakaria/botnix-maven-example/blob/main/build-maven-repository.nix) of building the Maven repository
 
 ```nix
 { pkgs ? import <nixpkgs> { } }:
@@ -192,7 +192,7 @@ The double invocation is a _simple_ way to get around the problem that `nix-buil
 
 It treats the entire Maven repository as a single source to be downloaded, relying on Maven's dependency resolution to satisfy the output hash. This is similar to fetchers like `fetchgit`, except it has to run a Maven build to determine what to download.
 
-The first step will be to build the Maven project as a fixed-output derivation in order to collect the Maven repository -- below is an [example](https://github.com/fzakaria/nixos-maven-example/blob/main/double-invocation-repository.nix).
+The first step will be to build the Maven project as a fixed-output derivation in order to collect the Maven repository -- below is an [example](https://github.com/fzakaria/botnix-maven-example/blob/main/double-invocation-repository.nix).
 
 ::: {.note}
 Traditionally the Maven repository is at `~/.m2/repository`. We will override this to be the `$out` directory.
@@ -260,7 +260,7 @@ in stdenv.mkDerivation rec {
   pname = "maven-demo";
   version = "1.0";
 
-  src = builtins.fetchTarball "https://github.com/fzakaria/nixos-maven-example/archive/main.tar.gz";
+  src = builtins.fetchTarball "https://github.com/fzakaria/botnix-maven-example/archive/main.tar.gz";
   buildInputs = [ maven ];
 
   buildPhase = ''
@@ -317,7 +317,7 @@ in stdenv.mkDerivation rec {
   version = "1.0";
 
   src = builtins.fetchTarball
-    "https://github.com/fzakaria/nixos-maven-example/archive/main.tar.gz";
+    "https://github.com/fzakaria/botnix-maven-example/archive/main.tar.gz";
   nativeBuildInputs = [ makeWrapper ];
   buildInputs = [ maven ];
 
@@ -395,7 +395,7 @@ in stdenv.mkDerivation rec {
   version = "1.0";
 
   src = builtins.fetchTarball
-    "https://github.com/fzakaria/nixos-maven-example/archive/main.tar.gz";
+    "https://github.com/fzakaria/botnix-maven-example/archive/main.tar.gz";
   nativeBuildInputs = [ makeWrapper ];
   buildInputs = [ maven ];
 
@@ -435,5 +435,5 @@ This will give you an executable shell-script that launches your JAR with all th
         └── maven-demo-1.0.jar
 
 ❯ $(nix-build --no-out-link --option tarball-ttl 1 runnable-jar.nix)/bin/maven-demo
-NixOS 😀 is super cool 😃!
+Botnix 😀 is super cool 😃!
 ```

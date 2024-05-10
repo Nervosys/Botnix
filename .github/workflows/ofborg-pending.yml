@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   action:
-    if: github.repository_owner == 'NixOS'
+    if: github.repository_owner == 'Botnix'
     permissions:
       statuses: write
     runs-on: ubuntu-latest
@@ -30,4 +30,4 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: Bearer $GITHUB_TOKEN" \
           -d '{"context": "ofborg-eval", "state": "pending", "description": "Waiting for OfBorg..."}' \
-          "https://api.github.com/repos/NixOS/nixpkgs/commits/${{ github.event.pull_request.head.sha }}/statuses"
+          "https://api.github.com/repos/nervosys/Botnix/commits/${{ github.event.pull_request.head.sha }}/statuses"

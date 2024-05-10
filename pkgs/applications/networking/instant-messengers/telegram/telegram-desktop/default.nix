@@ -78,7 +78,7 @@ stdenv.mkDerivation rec {
     ./macos.patch
     # the generated .desktop files contains references to unwrapped tdesktop, breaking scheme handling
     # and the scheme handler is already registered in the packaged .desktop file, rendering this unnecessary
-    # see https://github.com/NixOS/nixpkgs/issues/218370
+    # see https://github.com/nervosys/Botnix/issues/218370
     (fetchpatch {
       url = "https://salsa.debian.org/debian/telegram-desktop/-/raw/09b363ed5a4fcd8ecc3282b9bfede5fbb83f97ef/debian/patches/Disable-register-custom-scheme.patch";
       hash = "sha256-B8X5lnSpwwdp1HlvyXJWQPybEN+plOwimdV5gW6aY2Y=";
@@ -191,7 +191,7 @@ stdenv.mkDerivation rec {
     # We're allowed to used the API ID of the Snap package:
     "-DTDESKTOP_API_ID=611335"
     "-DTDESKTOP_API_HASH=d524b414d21f4d37f08684c1df41ac9c"
-    # See: https://github.com/NixOS/nixpkgs/pull/130827#issuecomment-885212649
+    # See: https://github.com/nervosys/Botnix/pull/130827#issuecomment-885212649
     "-DDESKTOP_APP_USE_PACKAGED_FONTS=OFF"
     "-DDESKTOP_APP_DISABLE_SCUDO=ON"
   ];

@@ -1129,7 +1129,7 @@ in mkLicense lset) ({
     fullName = "Unfree redistributable firmware";
     redistributable = true;
     # Note: we currently consider these "free" for inclusion in the
-    # channel and NixOS images.
+    # channel and Botnix images.
   };
 
   unicode-dfs-2015 = {

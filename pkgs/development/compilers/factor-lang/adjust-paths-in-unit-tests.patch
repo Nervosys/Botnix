@@ -1,7 +1,7 @@
 From da8a4b9c1094a568f443c525ca1ce11f686be1bc Mon Sep 17 00:00:00 2001
 From: timor <timor.dd@googlemail.com>
 Date: Thu, 8 Aug 2019 14:13:09 +0200
-Subject: [PATCH] adjust unit test for finding executables in path for NixOS
+Subject: [PATCH] adjust unit test for finding executables in path for Botnix
 
 ---
  basis/io/standard-paths/unix/unix-tests.factor | 4 ++--

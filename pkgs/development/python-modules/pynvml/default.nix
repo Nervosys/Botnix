@@ -20,7 +20,7 @@ buildPythonPackage rec {
 
   patches = [
     (substituteAll {
-      src = ./0001-locate-libnvidia-ml.so.1-on-NixOS.patch;
+      src = ./0001-locate-libnvidia-ml.so.1-on-Botnix.patch;
       inherit (addOpenGLRunpath) driverLink;
     })
   ];

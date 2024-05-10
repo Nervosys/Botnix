@@ -77,7 +77,7 @@ stdenv.mkDerivation (finalAttrs: {
   postFixup = ''
     # Add $lib/lib to gamemoded & gamemode-simulate-game's rpath since
     # they use dlopen to load libgamemode. Can't use makeWrapper since
-    # it would break the security wrapper in the NixOS module.
+    # it would break the security wrapper in the Botnix module.
     for bin in "$out/bin/gamemoded" "$out/bin/gamemode-simulate-game"; do
       patchelf --set-rpath "$lib/lib:$(patchelf --print-rpath "$bin")" "$bin"
     done
@@ -99,6 +99,6 @@ stdenv.mkDerivation (finalAttrs: {
     license = licenses.bsd3;
     maintainers = with maintainers; [ kira-bruneau ];
     platforms = platforms.linux;
-    mainProgram = "gamemoderun"; # Requires NixOS module to run
+    mainProgram = "gamemoderun"; # Requires Botnix module to run
   };
 })

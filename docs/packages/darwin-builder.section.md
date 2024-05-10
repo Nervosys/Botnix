@@ -33,14 +33,14 @@ After that the script will launch the virtual machine and automatically log you
 in as the `builder` user:
 
 ```
-<<< Welcome to NixOS 22.11.20220901.1bd8d11 (aarch64) - ttyAMA0 >>>
+<<< Welcome to Botnix 22.11.20220901.1bd8d11 (aarch64) - ttyAMA0 >>>
 
-Run 'nixos-help' for the NixOS manual.
+Run 'botnix-help' for the Botnix manual.
 
-nixos login: builder (automatic login)
+botnix login: builder (automatic login)
 
 
-[builder@nixos:~]$
+[builder@botnix:~]$
 ```
 
 > Note: When you need to stop the VM, run `shutdown now` as the `builder` user.
@@ -69,7 +69,7 @@ Host linux-builder
 … and then restart your Nix daemon to apply the change:
 
 ```ShellSession
-$ sudo launchctl kickstart -k system/org.nixos.nix-daemon
+$ sudo launchctl kickstart -k system/org.botnix.nix-daemon
 ```
 
 ## Example flake usage {#sec-darwin-builder-example-flake}
@@ -77,7 +77,7 @@ $ sudo launchctl kickstart -k system/org.nixos.nix-daemon
 ```
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.11-darwin";
+    nixpkgs.url = "github:botnix/nixpkgs/nixpkgs-22.11-darwin";
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -93,7 +93,7 @@ $ sudo launchctl kickstart -k system/org.nixos.nix-daemon
     darwin-builder = nixpkgs.lib.nixosSystem {
       system = linuxSystem;
       modules = [
-        "${nixpkgs}/nixos/modules/profiles/macos-builder.nix"
+        "${nixpkgs}/botnix/modules/profiles/macos-builder.nix"
         { virtualisation = {
             host.pkgs = pkgs;
             darwin-builder.workingDirectory = "/var/lib/darwin-builder";
@@ -147,7 +147,7 @@ in the example below and rebuild.
     darwin-builder = nixpkgs.lib.nixosSystem {
       system = linuxSystem;
       modules = [
-        "${nixpkgs}/nixos/modules/profiles/macos-builder.nix"
+        "${nixpkgs}/botnix/modules/profiles/macos-builder.nix"
         {
           virtualisation.host.pkgs = pkgs;
           virtualisation.darwin-builder.diskSize = 5120;
@@ -163,7 +163,7 @@ you could enable Docker or X11 forwarding to your Darwin host.
 
 ## Troubleshooting the generated configuration {#sec-darwin-builder-troubleshoot}
 
-The `linux-builder` package exposes the attributes `nixosConfig` and `nixosOptions` that allow you to inspect the generated NixOS configuration in the `nix repl`. For example:
+The `linux-builder` package exposes the attributes `nixosConfig` and `nixosOptions` that allow you to inspect the generated Botnix configuration in the `nix repl`. For example:
 
 ```
 $ nix repl --file ~/src/nixpkgs --argstr system aarch64-darwin
@@ -172,6 +172,6 @@ nix-repl> darwin.linux-builder.nixosConfig.nix.package
 «derivation /nix/store/...-nix-2.17.0.drv»
 
 nix-repl> :p darwin.linux-builder.nixosOptions.virtualisation.memorySize.definitionsWithLocations
-[ { file = "/home/user/src/nixpkgs/nixos/modules/profiles/macos-builder.nix"; value = 3072; } ]
+[ { file = "/home/user/src/nixpkgs/botnix/modules/profiles/macos-builder.nix"; value = 3072; } ]
 
 ```

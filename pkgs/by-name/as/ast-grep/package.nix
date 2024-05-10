@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-ttJMtaQfVnFj4/wUz4fn8X/EmUwW+usqhmWhy4Y0AB8=";
 
-  # Work around https://github.com/NixOS/nixpkgs/issues/166205.
+  # Work around https://github.com/nervosys/Botnix/issues/166205.
   env = lib.optionalAttrs stdenv.cc.isClang {
     NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}";
   };
@@ -31,7 +31,7 @@ rustPlatform.buildRustPackage rec {
     # disable flaky test
     "--skip=test::test_load_parser_mac"
 
-    # BUG: Broke by 0.12.1 update (https://github.com/NixOS/nixpkgs/pull/257385)
+    # BUG: Broke by 0.12.1 update (https://github.com/nervosys/Botnix/pull/257385)
     # Please check if this is fixed in future updates of the package
     "--skip=verify::test_case::tests::test_unmatching_id"
   ] ++ lib.optionals (with stdenv.hostPlatform; (isDarwin && isx86_64) || (isLinux && isAarch64)) [

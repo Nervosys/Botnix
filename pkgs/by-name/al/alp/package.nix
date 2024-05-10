@@ -22,7 +22,7 @@ buildGoModule rec {
 
   # Executing Go commands directly in checkPhase and buildPhase below,
   # because the default testsuite runs all go tests, some of which require docker.
-  # Docker is too expensive for https://github.com/NixOS/ofborg.
+  # Docker is too expensive for https://github.com/Botnix/ofborg.
   checkPhase = ''
     runHook preCheck
 

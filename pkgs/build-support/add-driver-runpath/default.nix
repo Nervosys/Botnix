@@ -4,7 +4,7 @@ stdenv.mkDerivation {
   name = "add-driver-runpath";
 
   # Named "opengl-driver" for legacy reasons, but it is the path to
-  # hardware drivers installed by NixOS
+  # hardware drivers installed by Botnix
   driverLink = "/run/opengl-driver" + lib.optionalString stdenv.isi686 "-32";
 
   buildCommand = ''

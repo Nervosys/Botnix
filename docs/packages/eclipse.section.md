@@ -1,6 +1,6 @@
 # Eclipse {#sec-eclipse}
 
-The Nix expressions related to the Eclipse platform and IDE are in [`pkgs/applications/editors/eclipse`](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/eclipse).
+The Nix expressions related to the Eclipse platform and IDE are in [`pkgs/applications/editors/eclipse`](https://github.com/nervosys/Botnix/blob/master/pkgs/applications/editors/eclipse).
 
 Nixpkgs provides a number of packages that will install Eclipse in its various forms. These range from the bare-bones Eclipse Platform to the more fully featured Eclipse SDK or Scala-IDE packages and multiple version are often available. It is possible to list available Eclipse packages by issuing the command:
 

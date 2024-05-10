@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     # needs special setup on Linux, dunno if it can work on Darwin
-    # https://github.com/NixOS/nixpkgs/issues/19098
+    # https://github.com/nervosys/Botnix/issues/19098
     sed -i -e '/juce::juce_recommended_lto_flags/d' Source/CMakeLists.txt
   '';
 

@@ -814,9 +814,9 @@ rec {
   # This provides the ca bundle in common locations
   caCertificates = runCommand "ca-certificates" { } ''
     mkdir -p $out/etc/ssl/certs $out/etc/pki/tls/certs
-    # Old NixOS compatibility.
+    # Old Botnix compatibility.
     ln -s ${cacert}/etc/ssl/certs/ca-bundle.crt $out/etc/ssl/certs/ca-bundle.crt
-    # NixOS canonical location + Debian/Ubuntu/Arch/Gentoo compatibility.
+    # Botnix canonical location + Debian/Ubuntu/Arch/Gentoo compatibility.
     ln -s ${cacert}/etc/ssl/certs/ca-bundle.crt $out/etc/ssl/certs/ca-certificates.crt
     # CentOS/Fedora compatibility.
     ln -s ${cacert}/etc/ssl/certs/ca-bundle.crt $out/etc/pki/tls/certs/ca-bundle.crt

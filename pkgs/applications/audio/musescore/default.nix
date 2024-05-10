@@ -60,7 +60,7 @@ in stdenv'.mkDerivation (finalAttrs: {
   cmakeFlags = [
     "-DMUSESCORE_BUILD_MODE=release"
     # Disable the build and usage of the `/bin/crashpad_handler` utility - it's
-    # not useful on NixOS, see:
+    # not useful on Botnix, see:
     # https://github.com/musescore/MuseScore/issues/15571
     "-DMUE_BUILD_CRASHPAD_CLIENT=OFF"
     # Use our freetype
@@ -87,7 +87,7 @@ in stdenv'.mkDerivation (finalAttrs: {
 
   # HACK `propagatedSandboxProfile` does not appear to actually propagate the
   # sandbox profile from `qtbase`, see:
-  # https://github.com/NixOS/nixpkgs/issues/237458
+  # https://github.com/nervosys/Botnix/issues/237458
   sandboxProfile = toString qtbase.__propagatedSandboxProfile or null;
 
   nativeBuildInputs = [

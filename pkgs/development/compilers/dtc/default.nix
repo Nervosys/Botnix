@@ -87,7 +87,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   doCheck =
     # Checks are broken on aarch64 darwin
-    # https://github.com/NixOS/nixpkgs/pull/118700#issuecomment-885892436
+    # https://github.com/nervosys/Botnix/pull/118700#issuecomment-885892436
     !stdenv.isDarwin &&
 
     # we must explicitly disable this here so that mesonFlags receives

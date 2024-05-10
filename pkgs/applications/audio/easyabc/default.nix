@@ -41,7 +41,7 @@ in python.pkgs.buildPythonApplication {
   dontBuild = true;
   format = "other";
 
-  # https://discourse.nixos.org/t/packaging-mcomix3-python-gtk-missing-gsettings-schemas-issue/10190/2
+  # https://discourse.botnix.org/t/packaging-mcomix3-python-gtk-missing-gsettings-schemas-issue/10190/2
   strictDeps = false;
 
   patches = [

@@ -185,7 +185,7 @@ let
       mv $out/bin $bin/bin
 
     '' + lib.optionalString (!stdenv.hostPlatform.isWindows)
-      # makeWrapper is broken for windows cross (https://github.com/NixOS/nixpkgs/issues/120726)
+      # makeWrapper is broken for windows cross (https://github.com/nervosys/Botnix/issues/120726)
     ''
       # c_rehash is a legacy perl script with the same functionality
       # as `openssl rehash`
@@ -258,7 +258,7 @@ in {
     withDocs = true;
     extraMeta = {
       knownVulnerabilities = [
-        "OpenSSL 1.1 is reaching its end of life on 2023/09/11 and cannot be supported through the NixOS 23.05 release cycle. https://www.openssl.org/blog/blog/2023/03/28/1.1.1-EOL/"
+        "OpenSSL 1.1 is reaching its end of life on 2023/09/11 and cannot be supported through the Botnix 23.05 release cycle. https://www.openssl.org/blog/blog/2023/03/28/1.1.1-EOL/"
       ];
     };
   };

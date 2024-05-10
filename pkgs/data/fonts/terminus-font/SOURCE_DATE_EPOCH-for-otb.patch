@@ -4,7 +4,7 @@ Date: Sat, 9 Oct 2021 10:17:05 +0100
 Subject: [PATCH] terminus-font: bin/otb1cli.py: add support for
  SOURCE_DATE_EPOCH
 
-NixOS (and a few other distributions) strive for bit-reproducible
+Botnix (and a few other distributions) strive for bit-reproducible
 builds. terminus-font-4.49.1 fails reproducibility test due to
 timestamp embedding into .otb files. diffoscope says that two
 consecutive builds differ at file creation timestamp:

@@ -104,7 +104,7 @@ let
       license = licenses.lgpl21;
       maintainers = with maintainers; [ stargate01 ];
       knownVulnerabilities = [
-        "This bundled version of Qt 4 has reached its end of life after 2015. See https://github.com/NixOS/nixpkgs/pull/174634"
+        "This bundled version of Qt 4 has reached its end of life after 2015. See https://github.com/nervosys/Botnix/pull/174634"
         "CVE-2023-43114"
         "CVE-2023-38197"
         "CVE-2023-37369"

@@ -164,7 +164,7 @@ stdenv.mkDerivation {
 
   passthru = {
     implementation = "heimdal";
-    tests.nixos = nixosTests.kerberos.heimdal;
+    tests.botnix = nixosTests.kerberos.heimdal;
   };
 
   meta = with lib; {

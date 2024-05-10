@@ -152,7 +152,7 @@ in stdenv.mkDerivation rec {
     "--js-engine=mozjs"
     "--use-sasl-client"
     "--disable-warnings-as-errors"
-    "VARIANT_DIR=nixos" # Needed so we don't produce argument lists that are too long for gcc / ld
+    "VARIANT_DIR=botnix" # Needed so we don't produce argument lists that are too long for gcc / ld
   ] ++ lib.optionals (versionAtLeast version "4.4") [ "--link-model=static" ]
   ++ map (lib: "--use-system-${lib}") system-libraries;
 

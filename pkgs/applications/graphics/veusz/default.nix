@@ -29,7 +29,7 @@ python3Packages.buildPythonApplication rec {
     wrapQtApp "$out/bin/veusz"
   '';
 
-  # pyqt_setuptools.py uses the platlib path from sysconfig, but NixOS doesn't
+  # pyqt_setuptools.py uses the platlib path from sysconfig, but Botnix doesn't
   # really have a corresponding path, so patching the location of PyQt5 inplace
   postPatch = ''
     substituteInPlace pyqt_setuptools.py \

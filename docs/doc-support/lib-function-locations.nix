@@ -57,7 +57,7 @@ let
     [ "'"      ]
     [ "-prime" ];
 
-  urlPrefix = "https://github.com/NixOS/nixpkgs/blob/${revision}";
+  urlPrefix = "https://github.com/nervosys/Botnix/blob/${revision}";
   jsonLocs = builtins.listToAttrs
     (builtins.map
       ({ name, value }: {

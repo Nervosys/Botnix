@@ -84,7 +84,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    # https://github.com/NixOS/nixpkgs/pull/218143#issuecomment-1501059486
+    # https://github.com/nervosys/Botnix/pull/218143#issuecomment-1501059486
     ./patches/4.0-fix-darwin-build.patch
   ];
 
@@ -225,7 +225,7 @@ stdenv.mkDerivation rec {
   postInstall = ''
     PATH="$OLD_PATH"
   '' + lib.optionalString (!stdenv.isDarwin) ''
-    # The updater is needed for nixos env and it's tiny.
+    # The updater is needed for botnix env and it's tiny.
     moveToOutput bin/gtk4-update-icon-cache "$out"
     # Launcher
     moveToOutput bin/gtk-launch "$out"

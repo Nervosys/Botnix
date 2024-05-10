@@ -387,7 +387,7 @@ let
         buildTests = true;
         expectedTestOutputs = [ "test feature_not_visible ... ok" ];
       };
-      # Regression test for https://github.com/NixOS/nixpkgs/pull/88054
+      # Regression test for https://github.com/nervosys/Botnix/pull/88054
       # Build script output should be rewritten as valid env vars.
       buildScriptIncludeDirDeps = let
         depCrate = mkHostCrate {
@@ -421,7 +421,7 @@ let
         buildDependencies = [ depCrate ];
         dependencies = [ depCrate ];
       };
-      # Regression test for https://github.com/NixOS/nixpkgs/issues/74071
+      # Regression test for https://github.com/nervosys/Botnix/issues/74071
       # Whenevever a build.rs file is generating files those should not be overlayed onto the actual source dir
       buildRsOutDirOverlay = {
         src = symlinkJoin {
@@ -442,7 +442,7 @@ let
           ];
         };
       };
-      # Regression test for https://github.com/NixOS/nixpkgs/pull/83379
+      # Regression test for https://github.com/nervosys/Botnix/pull/83379
       # link flag order should be preserved
       linkOrder = {
         src = symlinkJoin {

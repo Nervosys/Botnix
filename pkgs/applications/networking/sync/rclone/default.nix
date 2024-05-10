@@ -47,7 +47,7 @@ buildGoModule rec {
       ln -s $out/bin/rclone $out/bin/mount.rclone
     '' + lib.optionalString (enableCmount && !stdenv.isDarwin)
       # use --suffix here to ensure we don't shadow /run/wrappers/bin/fusermount,
-      # as the setuid wrapper is required as non-root on NixOS.
+      # as the setuid wrapper is required as non-root on Botnix.
       ''
       wrapProgram $out/bin/rclone \
         --suffix PATH : "${lib.makeBinPath [ fuse ] }" \

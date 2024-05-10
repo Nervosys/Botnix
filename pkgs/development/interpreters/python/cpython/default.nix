@@ -262,7 +262,7 @@ in with passthru; stdenv.mkDerivation (finalAttrs: {
     })
   ] ++ [
     # Disable the use of ldconfig in ctypes.util.find_library (since
-    # ldconfig doesn't work on NixOS), and don't use
+    # ldconfig doesn't work on Botnix), and don't use
     # ctypes.util.find_library during the loading of the uuid module
     # (since it will do a futile invocation of gcc (!) to find
     # libuuid, slowing down program startup a lot).
@@ -474,7 +474,7 @@ in with passthru; stdenv.mkDerivation (finalAttrs: {
        sed -i $i -e "s|$TMPDIR|/no-such-path|g"
     done
 
-    # Further get rid of references. https://github.com/NixOS/nixpkgs/issues/51668
+    # Further get rid of references. https://github.com/nervosys/Botnix/issues/51668
     find $out/lib/python*/config-* -type f -print -exec nuke-refs ${keep-references} '{}' +
     find $out/lib -name '_sysconfigdata*.py*' -print -exec nuke-refs ${keep-references} '{}' +
 

@@ -80,7 +80,7 @@ buildPythonPackage rec {
     "tests/test_adhoc.py"
     "tests/test_adhoc_result.py"
   ] ++ lib.optionals (lib.versionAtLeast ansible-core.version "2.16") [
-    # Test fail in the NixOS environment
+    # Test fail in the Botnix environment
     "tests/test_adhoc.py"
   ];
 

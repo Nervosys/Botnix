@@ -179,7 +179,7 @@ stdenv.mkDerivation rec {
   ];
 
   passthru.tests = {
-    nixos-rsyslogd = nixosTests.rsyslogd;
+    botnix-rsyslogd = nixosTests.rsyslogd;
   };
 
   meta = with lib; {

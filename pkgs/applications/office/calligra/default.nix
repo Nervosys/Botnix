@@ -22,7 +22,7 @@ mkDerivation rec {
   };
 
   patches = [
-    # Fix fontconfig underlinking: https://github.com/NixOS/nixpkgs/issues/137794
+    # Fix fontconfig underlinking: https://github.com/nervosys/Botnix/issues/137794
     # Can be dropped on next release.
     (fetchpatch {
       name = "fix-fontconfig-linking.patch";

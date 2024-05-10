@@ -11,7 +11,7 @@
 , testers
 , colima
   # use lima-bin on darwin to support native macOS virtualization
-  # https://github.com/NixOS/nixpkgs/pull/209171
+  # https://github.com/nervosys/Botnix/pull/209171
 , lima-drv ? if stdenv.isDarwin then lima-bin else lima
 }:
 
@@ -38,7 +38,7 @@ buildGoModule rec {
   vendorHash = "sha256-QS0TwXI2Md+PXmT2UrzCMQoHRj+wjTSjWPv9CeVzyFU=";
 
   # disable flaky Test_extractZones
-  # https://hydra.nixos.org/build/212378003/log
+  # https://hydra.botnix.org/build/212378003/log
   excludedPackages = "gvproxy";
 
   CGO_ENABLED = 1;

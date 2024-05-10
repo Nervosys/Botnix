@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
   passthru.tests.nix-ld = nixosTests.nix-ld;
 
   meta = with lib; {
-    description = "Run unpatched dynamic binaries on NixOS";
+    description = "Run unpatched dynamic binaries on Botnix";
     homepage = "https://github.com/Mic92/nix-ld";
     license = licenses.mit;
     maintainers = with maintainers; [ mic92 ];

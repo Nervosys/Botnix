@@ -11,10 +11,10 @@ stdenv.mkDerivation rec {
     sha256 = "bSJlerfbJG6h5dDwWQKHnVLH6DEuvuUyqaRuJ7jvOsA=";
   };
 
-  # Use the provided NixOS logo automatically
+  # Use the provided Botnix logo automatically
   prePatch = ''
     substituteInPlace ./config.h --replace \
-      "#include \"ascii/gnu.h\"" "#include \"ascii/nixos.h\""
+      "#include \"ascii/gnu.h\"" "#include \"ascii/botnix.h\""
 
     sed '1i#include <array>' -i config.h # gcc12
   '';

@@ -7,7 +7,7 @@
 #
 # Most helpful comment regarding recursive attribute sets:
 #
-# https://github.com/NixOS/nixpkgs/pull/256324#issuecomment-1749935979
+# https://github.com/nervosys/Botnix/pull/256324#issuecomment-1749935979
 #
 # To summarize:
 #
@@ -67,7 +67,7 @@ let
         # It, however, propagates current stdenv's libstdc++ to avoid "GLIBCXX_* not found errors"
         # when linked with other C++ libraries.
         # E.g. for cudaPackages_11_8 we use gcc11 with gcc12's libstdc++
-        # Cf. https://github.com/NixOS/nixpkgs/pull/218265 for context
+        # Cf. https://github.com/nervosys/Botnix/pull/218265 for context
         backendStdenv = final.callPackage ../development/cuda-modules/backend-stdenv.nix {};
 
         # Loose packages

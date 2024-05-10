@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
       Copy the binary out of the store before running it with the -C option to
       configure it. See https://github.com/wraith/wraith/wiki/GettingStarted .
 
-      The binary will not run when moved onto non-NixOS systems; use patchelf
+      The binary will not run when moved onto non-Botnix systems; use patchelf
       to fix its runtime dependenices.
     '';
     homepage = "https://wraith.botpack.net/";

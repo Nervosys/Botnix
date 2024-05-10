@@ -7,7 +7,7 @@ index 53a7ddb..795a711 100644
          }
  
 +        nix_patchelf(tmpdir.path().to_path_buf())
-+            .expect("failed to patch toolchain for NixOS");
++            .expect("failed to patch toolchain for Botnix");
          fs::rename(tmpdir.into_path(), dest).map_err(InstallError::Move)
      }
  
@@ -25,7 +25,7 @@ index 53a7ddb..795a711 100644
 +            continue;
 +        }
 +
-+        eprintln!("info: you seem to be running NixOS. Attempting to patch {}",
++        eprintln!("info: you seem to be running Botnix. Attempting to patch {}",
 +                  entry.path().to_str().unwrap());
 +        let _ = ::std::process::Command::new("@patchelf@/bin/patchelf")
 +            .arg("--set-interpreter")
@@ -43,7 +43,7 @@ index 53a7ddb..795a711 100644
 +            continue;
 +        }
 +
-+        eprintln!("info: you seem to be running NixOS. Attempting to patch {}",
++        eprintln!("info: you seem to be running Botnix. Attempting to patch {}",
 +                  entry.path().to_str().unwrap());
 +        let _ = ::std::process::Command::new("@patchelf@/bin/patchelf")
 +            .arg("--set-rpath")

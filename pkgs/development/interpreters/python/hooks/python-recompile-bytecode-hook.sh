@@ -1,5 +1,5 @@
 # Setup hook for recompiling bytecode.
-# https://github.com/NixOS/nixpkgs/issues/81441
+# https://github.com/nervosys/Botnix/issues/81441
 echo "Sourcing python-recompile-bytecode-hook.sh"
 
 # Remove all bytecode from the $out output. Then, recompile only site packages folder

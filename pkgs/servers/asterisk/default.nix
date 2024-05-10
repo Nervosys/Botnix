@@ -189,7 +189,7 @@ let
 in
 {
   # Supported releases (as of 2023-04-19).
-  # v16 and v19 have been dropped because they go EOL before the NixOS 23.11 release.
+  # v16 and v19 have been dropped because they go EOL before the Botnix 23.11 release.
   # Source: https://wiki.asterisk.org/wiki/display/AST/Asterisk+Versions
   # Exact version can be found at https://www.asterisk.org/downloads/asterisk/all-asterisk-versions/
   #

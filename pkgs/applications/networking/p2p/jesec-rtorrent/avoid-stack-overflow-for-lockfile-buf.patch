@@ -6,7 +6,7 @@ Subject: [PATCH] utils: lockfile: avoid stack overflow for lockfile buffer
 Original patch by @cyphar was submitted to rakshasa/rtorrent at
 https://github.com/rakshasa/rtorrent/pull/1169.
 
-Observed the segfault on nixos-unstable.
+Observed the segfault on botnix-unstable.
 ---
  src/utils/lockfile.cc | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)

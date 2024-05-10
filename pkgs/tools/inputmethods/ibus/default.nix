@@ -73,7 +73,7 @@ stdenv.mkDerivation rec {
     })
     ./build-without-dbus-launch.patch
     # unicode and emoji input are broken before 1.5.29
-    # https://github.com/NixOS/nixpkgs/issues/226526
+    # https://github.com/nervosys/Botnix/issues/226526
     (fetchpatch {
       url = "https://github.com/ibus/ibus/commit/7c8abbe89403c2fcb08e3fda42049a97187e53ab.patch";
       hash = "sha256-59HzAdLq8ahrF7K+tFGLjTodwIiTkJGEkFe8quqIkhU=";
@@ -116,7 +116,7 @@ stdenv.mkDerivation rec {
   ];
 
   # missing make dependency
-  # https://github.com/NixOS/nixpkgs/pull/218120#issuecomment-1514027173
+  # https://github.com/nervosys/Botnix/pull/218120#issuecomment-1514027173
   preBuild = ''
     make -C src ibusenumtypes.h
   '';
@@ -169,7 +169,7 @@ stdenv.mkDerivation rec {
 
   postInstall = ''
     # It has some hardcoded FHS paths and also we do not use it
-    # since we set up the environment in NixOS tests anyway.
+    # since we set up the environment in Botnix tests anyway.
     moveToOutput "bin/ibus-desktop-testing-runner" "$installedTests"
   '';
 

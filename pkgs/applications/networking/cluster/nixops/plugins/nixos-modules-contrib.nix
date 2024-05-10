@@ -7,13 +7,13 @@
 }:
 
 buildPythonPackage {
-  pname = "nixos-modules-contrib";
+  pname = "botnix-modules-contrib";
   version = "unstable-2021-01-20";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "nix-community";
-    repo = "nixos-modules-contrib";
+    repo = "botnix-modules-contrib";
     rev = "81a1c2ef424dcf596a97b2e46a58ca73a1dd1ff8";
     hash = "sha256-/RSStpkAxWpUB5saQ8CmQZljFjJyUMOrR1+GiHJR2Tg=";
   };
@@ -37,8 +37,8 @@ buildPythonPackage {
   passthru.updateScript = unstableGitUpdater {};
 
   meta = with lib; {
-    description = "Useful NixOS modules which may not belong in the Nixpkgs repository itself";
-    homepage = "https://github.com/nix-community/nixos-modules-contrib";
+    description = "Useful Botnix modules which may not belong in the Nixpkgs repository itself";
+    homepage = "https://github.com/nix-community/botnix-modules-contrib";
     license = licenses.lgpl3;
     maintainers = [];
   };

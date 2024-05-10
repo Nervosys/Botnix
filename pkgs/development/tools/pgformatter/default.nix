@@ -26,7 +26,7 @@ perlPackages.buildPerlPackage rec {
     })
   ];
 
-  # Makefile.PL only accepts DESTDIR and INSTALLDIRS, but we need to set more to make this work for NixOS.
+  # Makefile.PL only accepts DESTDIR and INSTALLDIRS, but we need to set more to make this work for Botnix.
   patchPhase = ''
     substituteInPlace pg_format \
       --replace "#!/usr/bin/env perl" "#!/usr/bin/perl"

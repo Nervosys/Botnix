@@ -10,7 +10,7 @@ shopt -s inherit_errexit
 export PATH=@path@:$PATH
 
 showSyntax() {
-    exec man nixos-rebuild
+    exec man botnix-rebuild
     exit 1
 }
 
@@ -337,7 +337,7 @@ if [ -z "$action" ]; then showSyntax; fi
 # Only run shell scripts from the Nixpkgs tree if the action is
 # "switch", "boot", or "test". With other actions (such as "build"),
 # the user may reasonably expect that no code from the Nixpkgs tree is
-# executed, so it's safe to run nixos-rebuild against a potentially
+# executed, so it's safe to run botnix-rebuild against a potentially
 # untrusted tree.
 canRun=
 if [[ "$action" = switch || "$action" = boot || "$action" = test ]]; then
@@ -346,18 +346,18 @@ fi
 
 
 # If ‘--upgrade’ or `--upgrade-all` is given,
-# run ‘nix-channel --update nixos’.
+# run ‘nix-channel --update botnix’.
 if [[ -n $upgrade && -z $_NIXOS_REBUILD_REEXEC && -z $flake ]]; then
     # If --upgrade-all is passed, or there are other channels that
-    # contain a file called ".update-on-nixos-rebuild", update them as
-    # well. Also upgrade the nixos channel.
+    # contain a file called ".update-on-botnix-rebuild", update them as
+    # well. Also upgrade the botnix channel.
 
     for channelpath in /nix/var/nix/profiles/per-user/root/channels/*; do
         channel_name=$(basename "$channelpath")
 
-        if [[ "$channel_name" == "nixos" ]]; then
+        if [[ "$channel_name" == "botnix" ]]; then
             runCmd nix-channel --update "$channel_name"
-        elif [ -e "$channelpath/.update-on-nixos-rebuild" ]; then
+        elif [ -e "$channelpath/.update-on-botnix-rebuild" ]; then
             runCmd nix-channel --update "$channel_name"
         elif [[ -n $upgrade_all ]] ; then
             runCmd nix-channel --update "$channel_name"
@@ -367,19 +367,19 @@ fi
 
 # Make sure that we use the Nix package we depend on, not something
 # else from the PATH for nix-{env,instantiate,build}.  This is
-# important, because NixOS defaults the architecture of the rebuilt
+# important, because Botnix defaults the architecture of the rebuilt
 # system to the architecture of the nix-* binaries used.  So if on an
 # amd64 system the user has an i686 Nix package in her PATH, then we
-# would silently downgrade the whole system to be i686 NixOS on the
+# would silently downgrade the whole system to be i686 Botnix on the
 # next reboot.
 if [ -z "$_NIXOS_REBUILD_REEXEC" ]; then
     export PATH=@nix@/bin:$PATH
 fi
 
-# Use /etc/nixos/flake.nix if it exists. It can be a symlink to the
+# Use /etc/botnix/flake.nix if it exists. It can be a symlink to the
 # actual flake.
-if [[ -z $flake && -e /etc/nixos/flake.nix && -z $noFlake ]]; then
-    flake="$(dirname "$(readlink -f /etc/nixos/flake.nix)")"
+if [[ -z $flake && -e /etc/botnix/flake.nix && -z $noFlake ]]; then
+    flake="$(dirname "$(readlink -f /etc/botnix/flake.nix)")"
 fi
 
 # For convenience, use the hostname as the default configuration to
@@ -405,13 +405,13 @@ if [[ ! -z "$specialisation" && ! "$action" = switch && ! "$action" = test ]]; t
     exit 1
 fi
 
-tmpDir=$(mktemp -t -d nixos-rebuild.XXXXXX)
+tmpDir=$(mktemp -t -d botnix-rebuild.XXXXXX)
 
 if [[ ${#tmpDir} -ge 60 ]]; then
     # Very long tmp dirs lead to "too long for Unix domain socket"
     # SSH ControlPath errors. Especially macOS sets long TMPDIR paths.
     rmdir "$tmpDir"
-    tmpDir=$(TMPDIR= mktemp -t -d nixos-rebuild.XXXXXX)
+    tmpDir=$(TMPDIR= mktemp -t -d botnix-rebuild.XXXXXX)
 fi
 
 cleanup() {
@@ -423,15 +423,15 @@ cleanup() {
 trap cleanup EXIT
 
 
-# Re-execute nixos-rebuild from the Nixpkgs tree.
+# Re-execute botnix-rebuild from the Nixpkgs tree.
 if [[ -z $_NIXOS_REBUILD_REEXEC && -n $canRun && -z $fast ]]; then
     if [[ -z $flake ]]; then
-        if p=$(runCmd nix-build --no-out-link --expr 'with import <nixpkgs/nixos> {}; config.system.build.nixos-rebuild' "${extraBuildFlags[@]}"); then
+        if p=$(runCmd nix-build --no-out-link --expr 'with import <nixpkgs/botnix> {}; config.system.build.botnix-rebuild' "${extraBuildFlags[@]}"); then
             SHOULD_REEXEC=1
         fi
     else
-        runCmd nix "${flakeFlags[@]}" build --out-link "${tmpDir}/nixos-rebuild" "$flake#$flakeAttr.config.system.build.nixos-rebuild" "${extraBuildFlags[@]}" "${lockFlags[@]}"
-        if p=$(readlink -e "${tmpDir}/nixos-rebuild"); then
+        runCmd nix "${flakeFlags[@]}" build --out-link "${tmpDir}/botnix-rebuild" "$flake#$flakeAttr.config.system.build.botnix-rebuild" "${extraBuildFlags[@]}" "${lockFlags[@]}"
+        if p=$(readlink -e "${tmpDir}/botnix-rebuild"); then
             SHOULD_REEXEC=1
         fi
     fi
@@ -440,7 +440,7 @@ if [[ -z $_NIXOS_REBUILD_REEXEC && -n $canRun && -z $fast ]]; then
         export _NIXOS_REBUILD_REEXEC=1
         # Manually call cleanup as the EXIT trap is not triggered when using exec
         cleanup
-        runCmd exec "$p/bin/nixos-rebuild" "${origArgs[@]}"
+        runCmd exec "$p/bin/botnix-rebuild" "${origArgs[@]}"
         exit 1
     fi
 fi
@@ -448,11 +448,11 @@ fi
 # Find configuration.nix and open editor instead of building.
 if [ "$action" = edit ]; then
     if [[ -z $flake ]]; then
-        NIXOS_CONFIG=${NIXOS_CONFIG:-$(runCmd nix-instantiate --find-file nixos-config)}
-        if [[ -d $NIXOS_CONFIG ]]; then
-            NIXOS_CONFIG=$NIXOS_CONFIG/default.nix
+        BOTNIX_CONFIG=${BOTNIX_CONFIG:-$(runCmd nix-instantiate --find-file botnix-config)}
+        if [[ -d $BOTNIX_CONFIG ]]; then
+            BOTNIX_CONFIG=$BOTNIX_CONFIG/default.nix
         fi
-        runCmd exec ${EDITOR:-nano} "$NIXOS_CONFIG"
+        runCmd exec ${EDITOR:-nano} "$BOTNIX_CONFIG"
     else
         runCmd exec nix "${flakeFlags[@]}" edit "${lockFlags[@]}" -- "$flake#$flakeAttr"
     fi
@@ -461,7 +461,7 @@ fi
 
 SSHOPTS="$NIX_SSHOPTS -o ControlMaster=auto -o ControlPath=$tmpDir/ssh-%n -o ControlPersist=60"
 
-# First build Nix, since NixOS may require a newer version than the
+# First build Nix, since Botnix may require a newer version than the
 # current one.
 if [[ -n "$rollback" || "$action" = dry-build ]]; then
     buildNix=
@@ -492,13 +492,13 @@ prebuiltNix() {
 if [[ -n $buildNix && -z $flake ]]; then
     log "building Nix..."
     nixDrv=
-    if ! nixDrv="$(runCmd nix-instantiate '<nixpkgs/nixos>' --add-root "$tmpDir/nix.drv" --indirect -A config.nix.package.out "${extraBuildFlags[@]}")"; then
+    if ! nixDrv="$(runCmd nix-instantiate '<nixpkgs/botnix>' --add-root "$tmpDir/nix.drv" --indirect -A config.nix.package.out "${extraBuildFlags[@]}")"; then
         if ! nixDrv="$(runCmd nix-instantiate '<nixpkgs>' --add-root "$tmpDir/nix.drv" --indirect -A nix "${extraBuildFlags[@]}")"; then
-            if ! nixStorePath="$(runCmd nix-instantiate --eval '<nixpkgs/nixos/modules/installer/tools/nix-fallback-paths.nix>' -A "$(nixSystem)" | sed -e 's/^"//' -e 's/"$//')"; then
+            if ! nixStorePath="$(runCmd nix-instantiate --eval '<nixpkgs/botnix/modules/installer/tools/nix-fallback-paths.nix>' -A "$(nixSystem)" | sed -e 's/^"//' -e 's/"$//')"; then
                 nixStorePath="$(prebuiltNix "$(uname -m)")"
             fi
             if ! runCmd nix-store -r "$nixStorePath" --add-root "${tmpDir}/nix" --indirect \
-                --option extra-binary-caches https://cache.nixos.org/; then
+                --option extra-binary-caches https://cache.botnix.org/; then
                 log "warning: don't know how to get latest Nix"
             fi
             # Older version of nix-store -r don't support --add-root.
@@ -507,7 +507,7 @@ if [[ -n $buildNix && -z $flake ]]; then
                 remoteNixStorePath="$(runCmd prebuiltNix "$(buildHostCmd uname -m)")"
                 remoteNix="$remoteNixStorePath/bin"
                 if ! buildHostCmd nix-store -r "$remoteNixStorePath" \
-                  --option extra-binary-caches https://cache.nixos.org/ >/dev/null; then
+                  --option extra-binary-caches https://cache.botnix.org/ >/dev/null; then
                     remoteNix=
                     log "warning: don't know how to get latest Nix"
                 fi
@@ -529,10 +529,10 @@ fi
 
 
 # Update the version suffix if we're building from Git (so that
-# nixos-version shows something useful).
+# botnix-version shows something useful).
 if [[ -n $canRun && -z $flake ]]; then
     if nixpkgs=$(runCmd nix-instantiate --find-file nixpkgs "${extraBuildFlags[@]}"); then
-        suffix=$(runCmd $SHELL "$nixpkgs/nixos/modules/installer/tools/get-version-suffix" "${extraBuildFlags[@]}" || true)
+        suffix=$(runCmd $SHELL "$nixpkgs/botnix/modules/installer/tools/get-version-suffix" "${extraBuildFlags[@]}" || true)
         if [ -n "$suffix" ]; then
             echo -n "$suffix" > "$nixpkgs/.version-suffix" || true
         fi
@@ -549,11 +549,11 @@ if [ "$action" = repl ]; then
     # You should feel free to improve its behavior, as well as resolve tech
     # debt in "breaking" ways. Humans adapt quite well.
     if [[ -z $flake ]]; then
-        exec nix repl '<nixpkgs/nixos>' "${extraBuildFlags[@]}"
+        exec nix repl '<nixpkgs/botnix>' "${extraBuildFlags[@]}"
     else
         if [[ -n "${lockFlags[0]}" ]]; then
             # nix repl itself does not support locking flags
-            log "nixos-rebuild repl does not support locking flags yet"
+            log "botnix-rebuild repl does not support locking flags yet"
             exit 1
         fi
         d='$'
@@ -570,7 +570,7 @@ if [ "$action" = repl ]; then
               configuration = flake.$flakeAttr;
               motd = ''
                 $d{$q\n$q}
-                Hello and welcome to the NixOS configuration
+                Hello and welcome to the Botnix configuration
                     $flakeAttr
                     in $flake
 
@@ -591,11 +591,11 @@ if [ "$action" = repl ]; then
 
                 See ${bold}:?${reset} for more repl commands.
 
-                ${attention}warning:${reset} nixos-rebuild repl does not currently enforce pure evaluation.
+                ${attention}warning:${reset} botnix-rebuild repl does not currently enforce pure evaluation.
               '';
               scope =
                 assert configuration._type or null == ''configuration'';
-                assert configuration.class or ''nixos'' == ''nixos'';
+                assert configuration.class or ''botnix'' == ''botnix'';
                 configuration._module.args //
                 configuration._module.specialArgs //
                 {
@@ -623,16 +623,16 @@ if [ "$action" = list-generations ]; then
     describe_generation(){
         generation_dir="$1"
         generation_number="$(generation_from_dir "$generation_dir")"
-        nixos_version="$(cat "$generation_dir/nixos-version" 2> /dev/null || echo "Unknown")"
+        nixos_version="$(cat "$generation_dir/botnix-version" 2> /dev/null || echo "Unknown")"
 
         kernel_dir="$(dirname "$(realpath "$generation_dir/kernel")")"
         kernel_version="$(ls "$kernel_dir/lib/modules" || echo "Unknown")"
 
-        configurationRevision="$("$generation_dir/sw/bin/nixos-version" --configuration-revision 2> /dev/null || true)"
+        configurationRevision="$("$generation_dir/sw/bin/botnix-version" --configuration-revision 2> /dev/null || true)"
 
-        # Old nixos-version output ignored unknown flags and just printed the version
+        # Old botnix-version output ignored unknown flags and just printed the version
         # therefore the following workaround is done not to show the default output
-        nixos_version_default="$("$generation_dir/sw/bin/nixos-version")"
+        nixos_version_default="$("$generation_dir/sw/bin/botnix-version")"
         if [ "$configurationRevision" == "$nixos_version_default" ]; then
              configurationRevision=""
         fi
@@ -681,7 +681,7 @@ EOF
                     .nixosVersion, .kernelVersion, .configurationRevision,
                     (.specialisations | join(" "))
                 ] | @tsv' |
-                column --separator $'\t' --table --table-columns "Generation,Build-date,NixOS version,Kernel,Configuration Revision,Specialisation" |
+                column --separator $'\t' --table --table-columns "Generation,Build-date,Botnix version,Kernel,Configuration Revision,Specialisation" |
                 ${PAGER:cat}
         else
             jq --slurp .
@@ -697,7 +697,7 @@ if [ -z "$rollback" ]; then
     log "building the system configuration..."
     if [[ "$action" = switch || "$action" = boot ]]; then
         if [[ -z $flake ]]; then
-            pathToConfig="$(nixBuild '<nixpkgs/nixos>' --no-out-link -A system "${extraBuildFlags[@]}")"
+            pathToConfig="$(nixBuild '<nixpkgs/botnix>' --no-out-link -A system "${extraBuildFlags[@]}")"
         else
             pathToConfig="$(nixFlakeBuild "$flake#$flakeAttr.config.system.build.toplevel" "${extraBuildFlags[@]}" "${lockFlags[@]}")"
         fi
@@ -705,19 +705,19 @@ if [ -z "$rollback" ]; then
         targetHostSudoCmd nix-env -p "$profile" --set "$pathToConfig"
     elif [[ "$action" = test || "$action" = build || "$action" = dry-build || "$action" = dry-activate ]]; then
         if [[ -z $flake ]]; then
-            pathToConfig="$(nixBuild '<nixpkgs/nixos>' -A system -k "${extraBuildFlags[@]}")"
+            pathToConfig="$(nixBuild '<nixpkgs/botnix>' -A system -k "${extraBuildFlags[@]}")"
         else
             pathToConfig="$(nixFlakeBuild "$flake#$flakeAttr.config.system.build.toplevel" "${extraBuildFlags[@]}" "${lockFlags[@]}")"
         fi
     elif [ "$action" = build-vm ]; then
         if [[ -z $flake ]]; then
-            pathToConfig="$(nixBuild '<nixpkgs/nixos>' -A vm -k "${extraBuildFlags[@]}")"
+            pathToConfig="$(nixBuild '<nixpkgs/botnix>' -A vm -k "${extraBuildFlags[@]}")"
         else
             pathToConfig="$(nixFlakeBuild "$flake#$flakeAttr.config.system.build.vm" "${extraBuildFlags[@]}" "${lockFlags[@]}")"
         fi
     elif [ "$action" = build-vm-with-bootloader ]; then
         if [[ -z $flake ]]; then
-            pathToConfig="$(nixBuild '<nixpkgs/nixos>' -A vmWithBootLoader -k "${extraBuildFlags[@]}")"
+            pathToConfig="$(nixBuild '<nixpkgs/botnix>' -A vmWithBootLoader -k "${extraBuildFlags[@]}")"
         else
             pathToConfig="$(nixFlakeBuild "$flake#$flakeAttr.config.system.build.vmWithBootLoader" "${extraBuildFlags[@]}" "${lockFlags[@]}")"
         fi
@@ -752,7 +752,7 @@ fi
 if [[ "$action" = switch || "$action" = boot || "$action" = test || "$action" = dry-activate ]]; then
     # Using systemd-run here to protect against PTY failures/network
     # disconnections during rebuild.
-    # See: https://github.com/NixOS/nixpkgs/issues/39118
+    # See: https://github.com/nervosys/Botnix/issues/39118
     cmd=(
         "systemd-run"
         "-E" "LOCALE_ARCHIVE" # Will be set to new value early in switch-to-configuration script, but interpreter starts out with old value
@@ -763,7 +763,7 @@ if [[ "$action" = switch || "$action" = boot || "$action" = test || "$action" = 
         "--quiet"
         "--same-dir"
         "--service-type=exec"
-        "--unit=nixos-rebuild-switch-to-configuration"
+        "--unit=botnix-rebuild-switch-to-configuration"
         "--wait"
     )
     # Check if we have a working systemd-run. In chroot environments we may have

@@ -59,7 +59,7 @@ stdenv.mkDerivation (finalAttrs: {
     export KBUILD_BUILD_TIMESTAMP="$(date -u -d @$SOURCE_DATE_EPOCH)"
   '';
 
-  # mocked ioctl conflicts with the musl one: https://github.com/NixOS/nixpkgs/pull/263768#issuecomment-1782877974
+  # mocked ioctl conflicts with the musl one: https://github.com/nervosys/Botnix/pull/263768#issuecomment-1782877974
   doCheck = !stdenv.hostPlatform.isMusl;
 
   meta = with lib; {

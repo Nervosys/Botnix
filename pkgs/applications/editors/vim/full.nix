@@ -30,7 +30,7 @@
 
 
 let
-  nixosRuntimepath = writeText "nixos-vimrc" ''
+  nixosRuntimepath = writeText "botnix-vimrc" ''
     set nocompatible
     syntax on
 

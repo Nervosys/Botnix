@@ -1,4 +1,4 @@
-/* List of NixOS maintainers.
+/* List of Botnix maintainers.
     ```nix
     handle = {
       # Required
@@ -27,8 +27,8 @@
     - `keys` is a list of your PGP/GPG key fingerprints.
 
     Specifying a GitHub account ensures that you automatically:
-    - get invited to the @NixOS/nixpkgs-maintainers team ;
-    - once you are part of the @NixOS org, OfBorg will request you review
+    - get invited to the @Botnix/nixpkgs-maintainers team ;
+    - once you are part of the @Botnix org, OfBorg will request you review
       pull requests that modify a package for which you are a maintainer.
 
     `handle == github` is strongly preferred whenever `github` is an acceptable attribute name and is short and convenient.
@@ -261,7 +261,7 @@
   };
   aanderse = {
     email = "aaron@fosslib.net";
-    matrix = "@aanderse:nixos.dev";
+    matrix = "@aanderse:botnix.dev";
     github = "aanderse";
     githubId = 7755101;
     name = "Aaron Andersen";
@@ -510,7 +510,7 @@
     }];
   };
   aerialx = {
-    email = "aaron+nixos@aaronlindsay.com";
+    email = "aaron+botnix@aaronlindsay.com";
     github = "AerialX";
     githubId = 117295;
     name = "Aaron Lindsay";
@@ -772,7 +772,7 @@
     name = "Albert Chae";
   };
   aldoborrero = {
-    email = "aldoborrero+nixos@pm.me";
+    email = "aldoborrero+botnix@pm.me";
     github = "aldoborrero";
     githubId = 82811;
     name = "Aldo Borrero";
@@ -1923,13 +1923,13 @@
     name = "averagebit";
   };
   averelld = {
-    email = "averell+nixos@rxd4.com";
+    email = "averell+botnix@rxd4.com";
     github = "averelld";
     githubId = 687218;
     name = "averelld";
   };
   avery = {
-    email = "averyl+nixos@protonmail.com";
+    email = "averyl+botnix@protonmail.com";
     github = "AveryLychee";
     githubId = 9147625;
     name = "Avery Lychee";
@@ -1941,7 +1941,7 @@
     name = "Aaron VonderHaar";
   };
   aviallon = {
-    email = "antoine-nixos@lesviallon.fr";
+    email = "antoine-botnix@lesviallon.fr";
     github = "aviallon";
     githubId = 7479436;
     name = "Antoine Viallon";
@@ -1965,7 +1965,7 @@
     name = "Alexander V. Nikolaev";
   };
   aw = {
-    email = "aw-nixos@meterriblecrew.net";
+    email = "aw-botnix@meterriblecrew.net";
     github = "herrwiese";
     githubId = 206242;
     name = "Andreas Wiese";
@@ -2539,7 +2539,7 @@
     name = "Bjørn Forsman";
   };
   bkchr = {
-    email = "nixos@kchr.de";
+    email = "botnix@kchr.de";
     github = "bkchr";
     githubId = 5718007;
     name = "Bastian Köcher";
@@ -2958,7 +2958,7 @@
   };
   cafkafk = {
     email = "christina@cafkafk.com";
-    matrix = "@cafkafk:nixos.dev";
+    matrix = "@cafkafk:botnix.dev";
     name = "Christina Sørensen";
     github = "cafkafk";
     githubId = 89321978;
@@ -3139,7 +3139,7 @@
     name = "Philipp Böschen";
   };
   caugner = {
-    email = "nixos@caugner.de";
+    email = "botnix@caugner.de";
     github = "caugner";
     githubId = 495429;
     name = "Claas Augner";
@@ -3148,7 +3148,7 @@
     email = "home@chrisaw.com";
     github = "cawilliamson";
     githubId = 1141769;
-    matrix = "@cawilliamson:nixos.dev";
+    matrix = "@cawilliamson:botnix.dev";
     name = "Christopher A. Williamson";
   };
   cbleslie = {
@@ -3471,7 +3471,7 @@
   };
   chuangzhu = {
     name = "Chuang Zhu";
-    email = "nixos@chuang.cz";
+    email = "botnix@chuang.cz";
     github = "chuangzhu";
     githubId = 31200881;
     keys = [{
@@ -3949,7 +3949,7 @@
     name = "Matías Lang";
   };
   criyle = {
-    email = "i+nixos@goj.ac";
+    email = "i+botnix@goj.ac";
     name = "Yang Gao";
     githubId = 6821729;
     github = "criyle";
@@ -3961,7 +3961,7 @@
     githubId = 72509152;
   };
   CRTified = {
-    email = "carl.schneider+nixos@rub.de";
+    email = "carl.schneider+botnix@rub.de";
     matrix = "@schnecfk:ruhr-uni-bochum.de";
     github = "CRTified";
     githubId = 2440581;
@@ -3986,7 +3986,7 @@
     name = "Henry Bubert";
   };
   CrystalGamma = {
-    email = "nixos@crystalgamma.de";
+    email = "botnix@crystalgamma.de";
     github = "CrystalGamma";
     githubId = 6297001;
     name = "Jona Stubbe";
@@ -4070,7 +4070,7 @@
     ];
   };
   cyplo = {
-    email = "nixos@cyplo.dev";
+    email = "botnix@cyplo.dev";
     matrix = "@cyplo:cyplo.dev";
     github = "cyplo";
     githubId = 217899;
@@ -5278,7 +5278,7 @@
     name = "éclairevoyant";
   };
   edanaher = {
-    email = "nixos@edanaher.net";
+    email = "botnix@edanaher.net";
     github = "edanaher";
     githubId = 984691;
     name = "Evan Danaher";
@@ -5516,7 +5516,7 @@
     name = "Elliott Villars";
   };
   ellis = {
-    email = "nixos@ellisw.net";
+    email = "botnix@ellisw.net";
     github = "ellis";
     githubId = 97852;
     name = "Ellis Whitehead";
@@ -5528,7 +5528,7 @@
     name = "Elnu";
   };
   elohmeier = {
-    email = "elo-nixos@nerdworks.de";
+    email = "elo-botnix@nerdworks.de";
     github = "elohmeier";
     githubId = 2536303;
     name = "Enno Lohmeier";
@@ -5541,7 +5541,7 @@
     name = "Will Fancher";
   };
   emantor = {
-    email = "rouven+nixos@czerwinskis.de";
+    email = "rouven+botnix@czerwinskis.de";
     github = "Emantor";
     githubId = 934284;
     name = "Rouven Czerwinski";
@@ -5868,7 +5868,7 @@
   };
   evalexpr = {
     name = "Jonathan Wilkins";
-    email = "nixos@wilkins.tech";
+    email = "botnix@wilkins.tech";
     matrix = "@evalexpr:matrix.org";
     github = "evalexpr";
     githubId = 23485511;
@@ -5896,7 +5896,7 @@
     name = "Evan Richter";
   };
   evax = {
-    email = "nixos@evax.fr";
+    email = "botnix@evax.fr";
     github = "evax";
     githubId = 599997;
     name = "evax";
@@ -5927,7 +5927,7 @@
   };
   evils = {
     email = "evils.devils@protonmail.com";
-    matrix = "@evils:nixos.dev";
+    matrix = "@evils:botnix.dev";
     github = "evils";
     githubId = 30512529;
     name = "Evils";
@@ -5957,7 +5957,7 @@
     name = "Andras Slemmer";
   };
   exi = {
-    email = "nixos@reckling.org";
+    email = "botnix@reckling.org";
     github = "exi";
     githubId = 449463;
     name = "Reno Reckling";
@@ -6032,7 +6032,7 @@
     githubId = 40316600;
   };
   fabianhauser = {
-    email = "fabian.nixos@fh2.ch";
+    email = "fabian.botnix@fh2.ch";
     github = "fabianhauser";
     githubId = 368799;
     name = "Fabian Hauser";
@@ -6047,7 +6047,7 @@
     name = "Fabián Heredia Montiel";
   };
   fadenb = {
-    email = "tristan.helmich+nixos@gmail.com";
+    email = "tristan.helmich+botnix@gmail.com";
     github = "fadenb";
     githubId = 878822;
     name = "Tristan Helmich";
@@ -6312,7 +6312,7 @@
     name = "Florian Franzen";
   };
   florianjacob = {
-    email = "projects+nixos@florianjacob.de";
+    email = "projects+botnix@florianjacob.de";
     github = "florianjacob";
     githubId = 1109959;
     name = "Florian Jacob";
@@ -7131,7 +7131,7 @@
     }];
   };
   gpl = {
-    email = "nixos-6c64ce18-bbbc-414f-8dcb-f9b6b47fe2bc@isopleth.org";
+    email = "botnix-6c64ce18-bbbc-414f-8dcb-f9b6b47fe2bc@isopleth.org";
     github = "gpl";
     githubId = 39648069;
     name = "isogram";
@@ -7161,7 +7161,7 @@
     name = "Graham Christensen";
   };
   gravndal = {
-    email = "gaute.ravndal+nixos@gmail.com";
+    email = "gaute.ravndal+botnix@gmail.com";
     github = "gravndal";
     githubId = 4656860;
     name = "Gaute Ravndal";
@@ -7466,7 +7466,7 @@
     }];
   };
   hectorj = {
-    email = "hector.jusforgues+nixos@gmail.com";
+    email = "hector.jusforgues+botnix@gmail.com";
     github = "hectorj";
     githubId = 2427959;
     name = "Hector Jusforgues";
@@ -7552,7 +7552,7 @@
     name = "Guanpeng Xu";
   };
   herbetom = {
-    email = "nixos@tomherbers.de";
+    email = "botnix@tomherbers.de";
     github = "herbetom";
     githubId = 15121114;
     name = "Tom Herbers";
@@ -7904,7 +7904,7 @@
   };
   iammrinal0 = {
     email = "nixpkgs@mrinalpurohit.in";
-    matrix = "@iammrinal0:nixos.dev";
+    matrix = "@iammrinal0:botnix.dev";
     github = "iAmMrinal0";
     githubId = 890062;
     name = "Mrinal";
@@ -8095,7 +8095,7 @@
     name = "Ivan Mincik";
   };
   imlonghao = {
-    email = "nixos@esd.cc";
+    email = "botnix@esd.cc";
     github = "imlonghao";
     githubId = 4951333;
     name = "Hao Long";
@@ -8567,7 +8567,7 @@
     name = "Jean-Baptiste Gosselin";
   };
   jboy = {
-    email = "jboy+nixos@bius.moe";
+    email = "jboy+botnix@bius.moe";
     githubId = 2187261;
     github = "jboynyc";
     matrix = "@jboy:utwente.io";
@@ -8856,7 +8856,7 @@
     name = "Ji-Haeng Huh";
   };
   jhillyerd = {
-    email = "james+nixos@hillyerd.com";
+    email = "james+botnix@hillyerd.com";
     github = "jhillyerd";
     githubId = 2502736;
     name = "James Hillyerd";
@@ -8874,7 +8874,7 @@
     githubId = 6127678;
   };
   jiehong = {
-    email = "nixos@majiehong.com";
+    email = "botnix@majiehong.com";
     github = "Jiehong";
     githubId = 1061229;
     name = "Jiehong Ma";
@@ -8974,7 +8974,7 @@
     name = "Jared Baur";
   };
   jmc-figueira = {
-    email = "business+nixos@jmc-figueira.dev";
+    email = "business+botnix@jmc-figueira.dev";
     github = "jmc-figueira";
     githubId = 6634716;
     name = "João Figueira";
@@ -9334,7 +9334,7 @@
     name = "Jean-Pierre PRUNARET";
   };
   jpotier = {
-    email = "jpo.contributes.to.nixos@marvid.fr";
+    email = "jpo.contributes.to.botnix@marvid.fr";
     github = "jpotier";
     githubId = 752510;
     name = "Martin Potier";
@@ -9352,7 +9352,7 @@
     name = "Curtis Jiang";
   };
   jqueiroz = {
-    email = "nixos@johnjq.com";
+    email = "botnix@johnjq.com";
     github = "jqueiroz";
     githubId = 4968215;
     name = "Jonathan Queiroz";
@@ -10781,7 +10781,7 @@
     name = "Andrey Donets";
   };
   lihop = {
-    email = "nixos@leroy.geek.nz";
+    email = "botnix@leroy.geek.nz";
     github = "lihop";
     githubId = 3696783;
     name = "Leroy Hopson";
@@ -11179,7 +11179,7 @@
     name = "Lukas Schmidt";
   };
   luis = {
-    email = "luis.nixos@gmail.com";
+    email = "luis.botnix@gmail.com";
     github = "Luis-Hebendanz";
     githubId = 22085373;
     name = "Luis Hebendanz";
@@ -11411,7 +11411,7 @@
     name = "Georges Dubus";
   };
   madonius = {
-    email = "nixos@madoni.us";
+    email = "botnix@madoni.us";
     github = "madonius";
     githubId = 1246752;
     name = "madonius";
@@ -11710,7 +11710,7 @@
     name = "Martin Ramm";
   };
   marzipankaiser = {
-    email = "nixos@gaisseml.de";
+    email = "botnix@gaisseml.de";
     github = "marzipankaiser";
     githubId = 2551444;
     name = "Marcial Gaißert";
@@ -11924,7 +11924,7 @@
     name = "Max Zerzouri";
   };
   maxhbr = {
-    email = "nixos@maxhbr.dev";
+    email = "botnix@maxhbr.dev";
     github = "maxhbr";
     githubId = 1187050;
     name = "Maximilian Huber";
@@ -12286,7 +12286,7 @@
   };
   mic92 = {
     email = "joerg@thalheim.io";
-    matrix = "@mic92:nixos.dev";
+    matrix = "@mic92:botnix.dev";
     github = "Mic92";
     githubId = 96200;
     name = "Jörg Thalheim";
@@ -12989,7 +12989,7 @@
     github = "msfjarvis";
     githubId = 13348378;
     name = "Harsh Shandilya";
-    email = "nixos@msfjarvis.dev";
+    email = "botnix@msfjarvis.dev";
     keys = [{
       fingerprint = "8F87 050B 0F9C B841 1515  7399 B784 3F82 3355 E9B9";
     }];
@@ -13049,7 +13049,7 @@
     githubId = 36740602;
   };
   MtP = {
-    email = "marko.nixos@poikonen.de";
+    email = "marko.botnix@poikonen.de";
     github = "MtP76";
     githubId = 2176611;
     name = "Marko Poikonen";
@@ -13733,7 +13733,7 @@
   };
   nixinator = {
     email = "33lockdown33@protonmail.com";
-    matrix = "@nixinator:nixos.dev";
+    matrix = "@nixinator:botnix.dev";
     github = "nixinator";
     githubId = 66913205;
     name = "Rick Sanchez";
@@ -13771,7 +13771,7 @@
     name = "Niko Pavlinek";
   };
   nloomans = {
-    email = "noah@nixos.noahloomans.com";
+    email = "noah@botnix.noahloomans.com";
     github = "nloomans";
     githubId = 7829481;
     name = "Noah Loomans";
@@ -14034,7 +14034,7 @@
     name = "Judson Lester";
   };
   nzbr = {
-    email = "nixos@nzbr.de";
+    email = "botnix@nzbr.de";
     github = "nzbr";
     githubId = 7851175;
     name = "nzbr";
@@ -14056,7 +14056,7 @@
     githubId = 103952141;
   };
   obadz = {
-    email = "obadz-nixos@obadz.com";
+    email = "obadz-botnix@obadz.com";
     github = "obadz";
     githubId = 3359345;
     name = "obadz";
@@ -14167,7 +14167,7 @@
     name = "Ollie Bunting";
   };
   oluceps = {
-    email = "nixos@oluceps.uk";
+    email = "botnix@oluceps.uk";
     github = "oluceps";
     githubId = 35628088;
     name = "oluceps";
@@ -14509,7 +14509,7 @@
     name = "Sebastian Galkin";
   };
   parasrah = {
-    email = "nixos@parasrah.com";
+    email = "botnix@parasrah.com";
     github = "Parasrah";
     githubId = 14935550;
     name = "Brad Pfannmuller";
@@ -14928,7 +14928,7 @@
     name = "Pierre Radermecker";
   };
   pierron = {
-    email = "nixos@nbp.name";
+    email = "botnix@nbp.name";
     github = "nbp";
     githubId = 1179566;
     name = "Nicolas B. Pierron";
@@ -14946,7 +14946,7 @@
     name = "Shogo Takata";
   };
   pingiun = {
-    email = "nixos@pingiun.com";
+    email = "botnix@pingiun.com";
     github = "pingiun";
     githubId = 1576660;
     name = "Jelle Besseling";
@@ -15088,7 +15088,7 @@
     name = "Patrick Mahoney";
   };
   pmenke = {
-    email = "nixos@pmenke.de";
+    email = "botnix@pmenke.de";
     github = "pmenke-de";
     githubId = 898922;
     name = "Philipp Menke";
@@ -15523,7 +15523,7 @@
     name = "Slim Cadoux";
   };
   puzzlewolf = {
-    email = "nixos@nora.pink";
+    email = "botnix@nora.pink";
     github = "puzzlewolf";
     githubId = 23097564;
     name = "Nora Widdecke";
@@ -15587,7 +15587,7 @@
     name = "Kenny Shen";
   };
   quadradical = {
-    email = "nixos@henryhiles.com";
+    email = "botnix@henryhiles.com";
     github = "Henry-Hiles";
     githubId = 71790868;
     name = "Henry Hiles";
@@ -16484,7 +16484,7 @@
     name = "Roman Timushev";
   };
   rtreffer = {
-    email = "treffer+nixos@measite.de";
+    email = "treffer+botnix@measite.de";
     github = "rtreffer";
     githubId = 61306;
     name = "Rene Treffer";
@@ -16734,7 +16734,7 @@
     name = "Samir Talwar";
   };
   samlich = {
-    email = "nixos@samli.ch";
+    email = "botnix@samli.ch";
     github = "samlich";
     githubId = 1349989;
     name = "samlich";
@@ -16881,7 +16881,7 @@
     name = "Sam Boosalis";
   };
   sbruder = {
-    email = "nixos@sbruder.de";
+    email = "botnix@sbruder.de";
     github = "sbruder";
     githubId = 15986681;
     name = "Simon Bruder";
@@ -16906,7 +16906,7 @@
   };
   schmittlauch = {
     name = "Trolli Schmittlauch";
-    email = "t.schmittlauch+nixos@orlives.de";
+    email = "t.schmittlauch+botnix@orlives.de";
     github = "schmittlauch";
     githubId = 1479555;
   };
@@ -16966,7 +16966,7 @@
     name = "Christian Rackerseder";
   };
   Scriptkiddi = {
-    email = "nixos@scriptkiddi.de";
+    email = "botnix@scriptkiddi.de";
     matrix = "@fritz.otlinghaus:helsinki-systems.de";
     github = "Scriptkiddi";
     githubId = 3598650;
@@ -17565,7 +17565,7 @@
     name = "Simon Jagoe";
   };
   sjau = {
-    email = "nixos@sjau.ch";
+    email = "botnix@sjau.ch";
     github = "sjau";
     githubId = 848812;
     name = "Stephan Jau";
@@ -17759,7 +17759,7 @@
     name = "Salar Rahmanian";
   };
   sohalt = {
-    email = "nixos@sohalt.net";
+    email = "botnix@sohalt.net";
     github = "Sohalt";
     githubId = 2157287;
     name = "sohalt";
@@ -17866,7 +17866,7 @@
     name = "spacefault";
   };
   spacefrogg = {
-    email = "spacefrogg-nixos@meterriblecrew.net";
+    email = "spacefrogg-botnix@meterriblecrew.net";
     github = "spacefrogg";
     githubId = 167881;
     name = "Michael Raitza";
@@ -18851,7 +18851,7 @@
     }];
   };
   thelegy = {
-    email = "mail+nixos@0jb.de";
+    email = "mail+botnix@0jb.de";
     github = "thelegy";
     githubId = 3105057;
     name = "Jan Beinke";
@@ -19031,7 +19031,7 @@
   };
   tilcreator = {
     name = "TilCreator";
-    email = "contact.nixos@tc-j.de";
+    email = "contact.botnix@tc-j.de";
     matrix = "@tilcreator:matrix.org";
     github = "TilCreator";
     githubId = 18621411;
@@ -19399,7 +19399,7 @@
     name = "Dmitry Geurkov";
   };
   truh = {
-    email = "jakob-nixos@truh.in";
+    email = "jakob-botnix@truh.in";
     github = "truh";
     githubId = 1183303;
     name = "Jakob Klepp";
@@ -20114,7 +20114,7 @@
     name = "Mikhail Volkhov";
   };
   vonfry = {
-    email = "nixos@vonfry.name";
+    email = "botnix@vonfry.name";
     github = "Vonfry";
     githubId = 3413119;
     name = "Vonfry";
@@ -20428,7 +20428,7 @@
     name = "Patrick Winter";
   };
   winter = {
-    email = "nixos@winter.cafe";
+    email = "botnix@winter.cafe";
     github = "winterqt";
     githubId = 78392041;
     name = "Winter";
@@ -20683,7 +20683,7 @@
     name = "Kamila Borowska";
   };
   xfnw = {
-    email = "xfnw+nixos@riseup.net";
+    email = "xfnw+botnix@riseup.net";
     github = "xfnw";
     githubId = 66233223;
     name = "Owen";
@@ -20713,7 +20713,7 @@
     name = "Xavier Naveira";
   };
   xnwdd = {
-    email = "nwdd+nixos@no.team";
+    email = "nwdd+botnix@no.team";
     github = "xNWDD";
     githubId = 3028542;
     name = "Guillermo NWDD";
@@ -21023,7 +21023,7 @@
   };
   yusdacra = {
     email = "y.bera003.06@protonmail.com";
-    matrix = "@yusdacra:nixos.dev";
+    matrix = "@yusdacra:botnix.dev";
     github = "yusdacra";
     githubId = 19897088;
     name = "Yusuf Bera Ertan";

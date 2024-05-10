@@ -47,7 +47,7 @@ buildGoModule rec {
     inherit (ui) offlineCache;
     updateScript = nix-update-script { };
     tests = {
-      nixos = nixosTests.gotify-server;
+      botnix = nixosTests.gotify-server;
     };
   };
 

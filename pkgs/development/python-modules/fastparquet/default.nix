@@ -68,7 +68,7 @@ buildPythonPackage rec {
     pytestCheckHook
   ];
 
-  # Workaround https://github.com/NixOS/nixpkgs/issues/123561
+  # Workaround https://github.com/nervosys/Botnix/issues/123561
   preCheck = ''
     mv fastparquet/test .
     rm -r fastparquet

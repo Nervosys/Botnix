@@ -67,7 +67,7 @@ in stdenv.mkDerivation rec {
   };
 
   patches = [
-    ./nixos.patch
+    ./botnix.patch
 
     modprobePatch
     libkmodPatch
@@ -84,7 +84,7 @@ in stdenv.mkDerivation rec {
   nouveauDeviceOptions = extraNouveauDeviceOptions;
 
   # the have() function is deprecated and not available to bash completions the
-  # way they are currently loaded in NixOS, so use _have. See #10936
+  # way they are currently loaded in Botnix, so use _have. See #10936
   postPatch = ''
     substituteInPlace scripts/bash_completion/bumblebee \
       --replace "have optirun" "_have optirun"

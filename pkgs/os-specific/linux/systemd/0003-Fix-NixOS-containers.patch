@@ -1,9 +1,9 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Eelco Dolstra <eelco.dolstra@logicblox.com>
 Date: Wed, 16 Apr 2014 10:59:28 +0200
-Subject: [PATCH] Fix NixOS containers
+Subject: [PATCH] Fix Botnix containers
 
-In NixOS containers, the init script is bind-mounted into the
+In Botnix containers, the init script is bind-mounted into the
 container, so checking early whether it exists will fail.
 ---
  src/nspawn/nspawn.c | 2 ++

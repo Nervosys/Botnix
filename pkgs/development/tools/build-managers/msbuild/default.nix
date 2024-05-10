@@ -46,7 +46,7 @@ stdenv.mkDerivation rec {
     glibcLocales
   ];
 
-  # https://github.com/NixOS/nixpkgs/issues/38991
+  # https://github.com/nervosys/Botnix/issues/38991
   # bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
   LOCALE_ARCHIVE = lib.optionalString stdenv.isLinux
       "${glibcLocales}/lib/locale/locale-archive";
@@ -69,10 +69,10 @@ stdenv.mkDerivation rec {
     export HOME=$(pwd)/fake-home
 
     cp ${nuget-config} NuGet.config
-    nuget sources Add -Name nixos -Source $(pwd)/nixos
+    nuget sources Add -Name botnix -Source $(pwd)/botnix
 
     for package in ${toString deps}; do
-      nuget add $package -Source nixos
+      nuget add $package -Source botnix
     done
 
     mkdir -p artifacts

@@ -28,7 +28,7 @@ let
     makeFlags = [
       "DESTDIR=${placeholder "out"}"
       "PREFIX=/."
-      # On NixOS we don't need to run ldconfig during build:
+      # On Botnix we don't need to run ldconfig during build:
       "LDCONFIG=echo"
     ];
   });

@@ -48,7 +48,7 @@ python3Packages.buildPythonApplication rec {
   dontWrapQtApps = true;
 
   # TODO: A bug in python wrapper
-  # see https://github.com/NixOS/nixpkgs/pull/75054#discussion_r357656916
+  # see https://github.com/nervosys/Botnix/pull/75054#discussion_r357656916
   preFixup = ''
     makeWrapperArgs="''${qtWrapperArgs[@]}"
   '';

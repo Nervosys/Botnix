@@ -140,7 +140,7 @@ stdenv.mkDerivation(finalAttrs: {
   ];
 
   preConfigure = ''
-    # see https://github.com/NixOS/nixpkgs/issues/114044, setting this through cmakeFlags does not work.
+    # see https://github.com/nervosys/Botnix/issues/114044, setting this through cmakeFlags does not work.
     cmakeFlagsArray+=(
       "-DTITLE_BAR_FORMAT_IDLE=${finalAttrs.pname} | ${finalAttrs.version} (nixpkgs) {}"
       "-DTITLE_BAR_FORMAT_RUNNING=${finalAttrs.pname} | ${finalAttrs.version} (nixpkgs) | {}"

@@ -277,7 +277,7 @@ effectiveStdenv.mkDerivation {
   ] ++ lib.optional enableCuda ./cuda_opt_flow.patch;
 
   # This prevents cmake from using libraries in impure paths (which
-  # causes build failure on non NixOS)
+  # causes build failure on non Botnix)
   postPatch = ''
     sed -i '/Add these standard paths to the search paths for FIND_LIBRARY/,/^\s*$/{d}' CMakeLists.txt
   '';
@@ -340,7 +340,7 @@ effectiveStdenv.mkDerivation {
       nvidia-optical-flow-sdk
     ] ++ lib.optionals enableCublas [
       # May start using the default $out instead once
-      # https://github.com/NixOS/nixpkgs/issues/271792
+      # https://github.com/nervosys/Botnix/issues/271792
       # has been addressed
       libcublas.static
       libcublas.lib
@@ -475,7 +475,7 @@ effectiveStdenv.mkDerivation {
     mkdir "$cxxdev"
   ''
   # fix deps not progagating from opencv4.cxxdev if cuda is disabled
-  # see https://github.com/NixOS/nixpkgs/issues/276691
+  # see https://github.com/nervosys/Botnix/issues/276691
   + lib.optionalString (!enableCuda) ''
     mkdir -p "$cxxdev/nix-support"
     echo "''${!outputDev}" >> "$cxxdev/nix-support/propagated-build-inputs"

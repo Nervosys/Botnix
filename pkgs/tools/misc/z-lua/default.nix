@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
     install -Dm755 z.lua $out/bin/z.lua
     wrapProgram $out/bin/z.lua --set LUA_CPATH "${lua52Packages.luafilesystem}/lib/lua/5.2/lfs.so" --set _ZL_USE_LFS 1;
-    # Create symlink for backwards compatibility. See: https://github.com/NixOS/nixpkgs/pull/96081
+    # Create symlink for backwards compatibility. See: https://github.com/nervosys/Botnix/pull/96081
     ln -s $out/bin/z.lua $out/bin/z
 
     runHook postInstall

@@ -74,7 +74,7 @@ stdenv.mkDerivation rec {
 
   installPhase =
     ''
-      # Delete unecessary libraries - these are provided by nixos.
+      # Delete unecessary libraries - these are provided by botnix.
       rm *.so.* *.so
       rm QtWebEngineProcess
       rm qt.conf

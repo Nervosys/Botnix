@@ -72,7 +72,7 @@ stdenv.mkDerivation rec {
       information:
       https://ccid.apdu.fr/
 
-      It can be enabled in /etc/nixos/configuration.nix by adding:
+      It can be enabled in /etc/botnix/configuration.nix by adding:
         services.pcscd.enable = true;
         services.pcscd.plugins = [ pkgs.acsccid ];
     '';

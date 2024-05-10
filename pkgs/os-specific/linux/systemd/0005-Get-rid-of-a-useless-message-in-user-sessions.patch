@@ -5,7 +5,7 @@ Subject: [PATCH] Get rid of a useless message in user sessions
 
 Namely lots of variants of
 
-  Unit nix-var-nix-db.mount is bound to inactive unit dev-disk-by\x2dlabel-nixos.device. Stopping, too.
+  Unit nix-var-nix-db.mount is bound to inactive unit dev-disk-by\x2dlabel-botnix.device. Stopping, too.
 
 in containers.
 ---

@@ -129,7 +129,7 @@ stdenv.mkDerivation rec {
       sha256 = "0iiz3c7fgfgl0dvx8sf5hv7a961xqnihwpz6j8r0ib9v8piwxh9a";
     })
     # Ensures generated desktop files work on store path change
-    ./0001-NixOS-Use-anbox-from-PATH-in-desktop-files.patch
+    ./0001-Botnix-Use-anbox-from-PATH-in-desktop-files.patch
     # Provide window icons
     (fetchpatch {
       url = "https://github.com/samueldr/anbox/commit/2387f4fcffc0e19e52e58fb6f8264fbe87aafe4d.patch";

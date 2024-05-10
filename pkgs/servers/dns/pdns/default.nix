@@ -89,7 +89,7 @@ stdenv.mkDerivation (finalAttrs: {
   doCheck = true;
 
   passthru.tests = {
-    nixos = nixosTests.powerdns;
+    botnix = nixosTests.powerdns;
   };
 
   meta = with lib; {

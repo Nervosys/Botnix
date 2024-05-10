@@ -46,7 +46,7 @@ buildPerlPackage rec {
   # Alpine packagers have not worried about running the tests until now:
   # https://git.alpinelinux.org/aports/tree/main/po4a/APKBUILD#n11
   #
-  # Disabling tests on Darwin until https://github.com/NixOS/nixpkgs/issues/236560 is resolved.
+  # Disabling tests on Darwin until https://github.com/nervosys/Botnix/issues/236560 is resolved.
   doCheck = (!stdenv.hostPlatform.isMusl) && (!stdenv.hostPlatform.isDarwin);
 
   checkPhase = ''

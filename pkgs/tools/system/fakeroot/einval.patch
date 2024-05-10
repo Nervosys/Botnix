@@ -1,9 +1,9 @@
 Ignore EINVAL errors.  This matters within user namespaces.
 
 See:
-https://github.com/NixOS/nixpkgs/issues/25901
+https://github.com/nervosys/Botnix/issues/25901
 https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=802612
-https://github.com/NixOS/nixpkgs/issues/10496
+https://github.com/nervosys/Botnix/issues/10496
 
 diff --git a/libfakeroot.c b/libfakeroot.c
 index 68a95fb..70da8bc 100644

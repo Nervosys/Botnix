@@ -30,7 +30,7 @@ In particular, we recommend:
 * adding `dconf.lib` for any software on Linux that reads [GSettings](#ssec-gnome-settings) (even transitively through e.g. GTK’s file manager)
 * adding `glib-networking` for any software that accesses network using GIO or libsoup – glib-networking contains a module that implements TLS support and loads system-wide proxy settings
 
-To allow software to use various virtual file systems, `gvfs` package can be also added. But that is usually an optional feature so we typically use `gvfs` from the system (e.g. installed globally using NixOS module).
+To allow software to use various virtual file systems, `gvfs` package can be also added. But that is usually an optional feature so we typically use `gvfs` from the system (e.g. installed globally using Botnix module).
 
 ### GdkPixbuf loaders {#ssec-gnome-gdk-pixbuf-loaders}
 
@@ -58,7 +58,7 @@ In the rare case you need to use icons from dependencies (e.g. when an app force
   '';
 ```
 
-To avoid costly file system access when locating icons, GTK, [as well as Qt](https://woboq.com/blog/qicon-reads-gtk-icon-cache-in-qt57.html), can rely on `icon-theme.cache` files from the themes' top-level directories. These files are generated using `gtk-update-icon-cache`, which is expected to be run whenever an icon is added or removed to an icon theme (typically an application icon into `hicolor` theme) and some programs do indeed run this after icon installation. However, since packages are installed into their own prefix by Nix, this would lead to conflicts. For that reason, `gtk3` provides a [setup hook](#ssec-gnome-hooks-gtk-drop-icon-theme-cache) that will clean the file from installation. Since most applications only ship their own icon that will be loaded on start-up, it should not affect them too much. On the other hand, icon themes are much larger and more widely used so we need to cache them. Because we recommend installing icon themes globally, we will generate the cache files from all packages in a profile using a NixOS module. You can enable the cache generation using `gtk.iconCache.enable` option if your desktop environment does not already do that.
+To avoid costly file system access when locating icons, GTK, [as well as Qt](https://woboq.com/blog/qicon-reads-gtk-icon-cache-in-qt57.html), can rely on `icon-theme.cache` files from the themes' top-level directories. These files are generated using `gtk-update-icon-cache`, which is expected to be run whenever an icon is added or removed to an icon theme (typically an application icon into `hicolor` theme) and some programs do indeed run this after icon installation. However, since packages are installed into their own prefix by Nix, this would lead to conflicts. For that reason, `gtk3` provides a [setup hook](#ssec-gnome-hooks-gtk-drop-icon-theme-cache) that will clean the file from installation. Since most applications only ship their own icon that will be loaded on start-up, it should not affect them too much. On the other hand, icon themes are much larger and more widely used so we need to cache them. Because we recommend installing icon themes globally, we will generate the cache files from all packages in a profile using a Botnix module. You can enable the cache generation using `gtk.iconCache.enable` option if your desktop environment does not already do that.
 
 ### Packaging icon themes {#ssec-icon-theme-packaging}
 
@@ -106,7 +106,7 @@ For convenience, it also adds `dconf.lib` for a GIO module implementing a GSetti
 
 - []{#ssec-gnome-hooks-glib} `glib` setup hook will populate `GSETTINGS_SCHEMAS_PATH` and then `wrapGAppsHook` will prepend it to `XDG_DATA_DIRS`.
 
-- []{#ssec-gnome-hooks-gdk-pixbuf} `gdk-pixbuf` setup hook will populate `GDK_PIXBUF_MODULE_FILE` with the path to biggest `loaders.cache` file from the dependencies containing [GdkPixbuf loaders](#ssec-gnome-gdk-pixbuf-loaders). This works fine when there are only two packages containing loaders (`gdk-pixbuf` and e.g. `librsvg`) – it will choose the second one, reasonably expecting that it will be bigger since it describes extra loader in addition to the default ones. But when there are more than two loader packages, this logic will break. One possible solution would be constructing a custom cache file for each package containing a program like `services/x11/gdk-pixbuf.nix` NixOS module does. `wrapGAppsHook` copies the `GDK_PIXBUF_MODULE_FILE` environment variable into the produced wrapper.
+- []{#ssec-gnome-hooks-gdk-pixbuf} `gdk-pixbuf` setup hook will populate `GDK_PIXBUF_MODULE_FILE` with the path to biggest `loaders.cache` file from the dependencies containing [GdkPixbuf loaders](#ssec-gnome-gdk-pixbuf-loaders). This works fine when there are only two packages containing loaders (`gdk-pixbuf` and e.g. `librsvg`) – it will choose the second one, reasonably expecting that it will be bigger since it describes extra loader in addition to the default ones. But when there are more than two loader packages, this logic will break. One possible solution would be constructing a custom cache file for each package containing a program like `services/x11/gdk-pixbuf.nix` Botnix module does. `wrapGAppsHook` copies the `GDK_PIXBUF_MODULE_FILE` environment variable into the produced wrapper.
 
 - []{#ssec-gnome-hooks-gtk-drop-icon-theme-cache} One of `gtk3`’s setup hooks will remove `icon-theme.cache` files from package’s icon theme directories to avoid conflicts. Icon theme packages should prevent this with `dontDropIconThemeCache = true;`.
 
@@ -114,7 +114,7 @@ For convenience, it also adds `dconf.lib` for a GIO module implementing a GSetti
 
 - []{#ssec-gnome-hooks-hicolor-icon-theme} `hicolor-icon-theme`’s setup hook will add icon themes to `XDG_ICON_DIRS`.
 
-- []{#ssec-gnome-hooks-gobject-introspection} `gobject-introspection` setup hook populates `GI_TYPELIB_PATH` variable with `lib/girepository-1.0` directories of dependencies, which is then added to wrapper by `wrapGAppsHook`. It also adds `share` directories of dependencies to `XDG_DATA_DIRS`, which is intended to promote GIR files but it also [pollutes the closures](https://github.com/NixOS/nixpkgs/issues/32790) of packages using `wrapGAppsHook`.
+- []{#ssec-gnome-hooks-gobject-introspection} `gobject-introspection` setup hook populates `GI_TYPELIB_PATH` variable with `lib/girepository-1.0` directories of dependencies, which is then added to wrapper by `wrapGAppsHook`. It also adds `share` directories of dependencies to `XDG_DATA_DIRS`, which is intended to promote GIR files but it also [pollutes the closures](https://github.com/nervosys/Botnix/issues/32790) of packages using `wrapGAppsHook`.
 
 - []{#ssec-gnome-hooks-gst-grl-plugins} Setup hooks of `gst_all_1.gstreamer` and `grilo` will populate the `GST_PLUGIN_SYSTEM_PATH_1_0` and `GRL_PLUGIN_PATH` variables, respectively, which will then be added to the wrapper by `wrapGAppsHook`.
 
@@ -197,7 +197,7 @@ mkDerivation {
 
 You can rely on applications depending on the library setting the necessary environment variables but that is often easy to miss. Instead we recommend to patch the paths in the source code whenever possible. Here are some examples:
 
-- []{#ssec-gnome-common-issues-unwrappable-package-gnome-shell-ext} [Replacing a `GI_TYPELIB_PATH` in GNOME Shell extension](https://github.com/NixOS/nixpkgs/blob/7bb8f05f12ca3cff9da72b56caa2f7472d5732bc/pkgs/desktops/gnome-3/core/gnome-shell-extensions/default.nix#L21-L24) – we are using `substituteAll` to include the path to a typelib into a patch.
+- []{#ssec-gnome-common-issues-unwrappable-package-gnome-shell-ext} [Replacing a `GI_TYPELIB_PATH` in GNOME Shell extension](https://github.com/nervosys/Botnix/blob/7bb8f05f12ca3cff9da72b56caa2f7472d5732bc/pkgs/desktops/gnome-3/core/gnome-shell-extensions/default.nix#L21-L24) – we are using `substituteAll` to include the path to a typelib into a patch.
 
 - []{#ssec-gnome-common-issues-unwrappable-package-gsettings} The following examples are hardcoding GSettings schema paths. To get the schema paths we use the functions
 
@@ -205,9 +205,9 @@ You can rely on applications depending on the library setting the necessary envi
 
   * `glib.makeSchemaPath` Takes a package output like `$out` and a derivation name. You should use this if the schemas you need to hardcode are in the same derivation.
 
-  []{#ssec-gnome-common-issues-unwrappable-package-gsettings-vala} [Hard-coding GSettings schema path in Vala plug-in (dynamically loaded library)](https://github.com/NixOS/nixpkgs/blob/7bb8f05f12ca3cff9da72b56caa2f7472d5732bc/pkgs/desktops/pantheon/apps/elementary-files/default.nix#L78-L86) – here, `substituteAll` cannot be used since the schema comes from the same package preventing us from pass its path to the function, probably due to a [Nix bug](https://github.com/NixOS/nix/issues/1846).
+  []{#ssec-gnome-common-issues-unwrappable-package-gsettings-vala} [Hard-coding GSettings schema path in Vala plug-in (dynamically loaded library)](https://github.com/nervosys/Botnix/blob/7bb8f05f12ca3cff9da72b56caa2f7472d5732bc/pkgs/desktops/pantheon/apps/elementary-files/default.nix#L78-L86) – here, `substituteAll` cannot be used since the schema comes from the same package preventing us from pass its path to the function, probably due to a [Nix bug](https://github.com/NixOS/nix/issues/1846).
 
-  []{#ssec-gnome-common-issues-unwrappable-package-gsettings-c} [Hard-coding GSettings schema path in C library](https://github.com/NixOS/nixpkgs/blob/29c120c065d03b000224872251bed93932d42412/pkgs/development/libraries/glib-networking/default.nix#L31-L34) – nothing special other than using [Coccinelle patch](https://github.com/NixOS/nixpkgs/pull/67957#issuecomment-527717467) to generate the patch itself.
+  []{#ssec-gnome-common-issues-unwrappable-package-gsettings-c} [Hard-coding GSettings schema path in C library](https://github.com/nervosys/Botnix/blob/29c120c065d03b000224872251bed93932d42412/pkgs/development/libraries/glib-networking/default.nix#L31-L34) – nothing special other than using [Coccinelle patch](https://github.com/nervosys/Botnix/pull/67957#issuecomment-527717467) to generate the patch itself.
 
 ### I need to wrap a binary outside `bin` and `libexec` directories. {#ssec-gnome-common-issues-weird-location}
 

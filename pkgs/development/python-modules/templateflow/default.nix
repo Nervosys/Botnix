@@ -33,7 +33,7 @@ buildPythonPackage rec {
   ];
 
   doCheck = false;  # most tests try to download data
-  #pythonImportsCheck = [ "templateflow" ];  # touches $HOME/.cache, hence needs https://github.com/NixOS/nixpkgs/pull/120300
+  #pythonImportsCheck = [ "templateflow" ];  # touches $HOME/.cache, hence needs https://github.com/nervosys/Botnix/pull/120300
 
   meta = with lib; {
     homepage = "https://templateflow.org/python-client";

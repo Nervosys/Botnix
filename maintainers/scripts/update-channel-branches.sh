@@ -55,8 +55,8 @@ for channelName in : $(curl -s "$NIXOS_CHANNELS" | sed -n '/folder/ { s,.*href="
     updateRef "remotes/$channelName" "$sha1"
 done
 
-echo "Fetching channels from nixos-version:"
-if currentSystem=$(nixos-version 2>/dev/null); then
+echo "Fetching channels from botnix-version:"
+if currentSystem=$(botnix-version 2>/dev/null); then
     # If the system is entirely build from a custom nixpkgs version,
     # then the version is not annotated in git version. This sed
     # expression is basically matching that the expressions end with
@@ -72,8 +72,8 @@ for revFile in : $(find -L "$HOME/.nix-defexpr/" -maxdepth 4 -name svn-revision)
 
     # Deconstruct a path such as, into:
     #
-    #   /home/luke/.nix-defexpr/channels_root/nixos/nixpkgs/svn-revision
-    #     channelName = root/nixos
+    #   /home/luke/.nix-defexpr/channels_root/botnix/nixpkgs/svn-revision
+    #     channelName = root/botnix
     #
     #   /home/luke/.nix-defexpr/channels/nixpkgs/svn-revision
     #     channelName = nixpkgs

@@ -1,4 +1,4 @@
-{ gcc12Stdenv # FIXME: Try removing this with a new ROCm release https://github.com/NixOS/nixpkgs/issues/271943
+{ gcc12Stdenv # FIXME: Try removing this with a new ROCm release https://github.com/nervosys/Botnix/issues/271943
 , callPackage
 , recurseIntoAttrs
 , symlinkJoin

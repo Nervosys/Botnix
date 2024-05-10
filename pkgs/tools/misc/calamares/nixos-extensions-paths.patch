@@ -38,7 +38,7 @@ index 445cbe1f1..da869d446 100644
  /** @brief Setup extra config and data dirs from the XDG variables.
   */
  DLLEXPORT void setXdgDirs();
-+/** @brief Setup extra config and data dirs fir NixOS.
++/** @brief Setup extra config and data dirs fir Botnix.
 + */
 +DLLEXPORT void setNixosDirs();
  /** @brief Are any extra directories configured? */

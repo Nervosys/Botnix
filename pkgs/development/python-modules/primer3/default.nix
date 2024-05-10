@@ -37,7 +37,7 @@ buildPythonPackage rec {
   # doesn't find extension modules installed in $out/${python.sitePackages},
   # and the tests rely upon them. This was initially reported upstream at
   # https://github.com/libnano/primer3-py/issues/120 and we investigate this
-  # downstream at: https://github.com/NixOS/nixpkgs/issues/255262.
+  # downstream at: https://github.com/nervosys/Botnix/issues/255262.
   preCheck = ''
     python setup.py build_ext --inplace
   '';

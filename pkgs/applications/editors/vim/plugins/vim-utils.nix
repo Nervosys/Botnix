@@ -11,7 +11,7 @@
 USAGE EXAMPLE
 =============
 
-Install Vim like this eg using nixos option environment.systemPackages which will provide
+Install Vim like this eg using botnix option environment.systemPackages which will provide
 vim-with-plugins in PATH:
 
   vim-full.customize {
@@ -88,7 +88,7 @@ usage example above.
 Then create a temp vim file and insert:
 
   let opts = {}
-  let opts.path_to_nixpkgs = '/etc/nixos/nixpkgs'
+  let opts.path_to_nixpkgs = '/etc/botnix/nixpkgs'
   let opts.cache_file = '/tmp/export-vim-plugin-for-nix-cache-file'
   let opts.plugin_dictionaries = map(readfile("vim-plugins"), 'eval(v:val)')
   " add more files

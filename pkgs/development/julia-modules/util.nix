@@ -6,7 +6,7 @@
   # Add packages to a Python environment. Works if you pass something like either
   # a) python3
   # b) python3.withPackages (ps: [...])
-  # See https://github.com/NixOS/nixpkgs/pull/97467#issuecomment-689315186
+  # See https://github.com/nervosys/Botnix/pull/97467#issuecomment-689315186
   addPackagesToPython = python: packages:
     if python ? "env" then python.override (old: {
       extraLibs = old.extraLibs ++ packages;

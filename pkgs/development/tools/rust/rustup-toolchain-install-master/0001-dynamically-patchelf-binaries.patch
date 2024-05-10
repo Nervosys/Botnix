@@ -9,7 +9,7 @@ index 3cb6896..7f070e0 100644
 -        rename(&toolchain.dest, toolchain_path)?;
 +        rename(&toolchain.dest, toolchain_path.clone())?;
 +        nix_patchelf(toolchain_path)
-+            .expect("failed to patch toolchain for NixOS");
++            .expect("failed to patch toolchain for Botnix");
          eprintln!(
              "toolchain `{}` is successfully installed!",
              toolchain.dest.display()
@@ -26,7 +26,7 @@ index 3cb6896..7f070e0 100644
 +            continue;
 +        }
 +
-+        eprintln!("info: you seem to be running NixOS. Attempting to patch {}",
++        eprintln!("info: you seem to be running Botnix. Attempting to patch {}",
 +                  entry.path().to_str().unwrap());
 +        let _ = ::std::process::Command::new("@patchelf@/bin/patchelf")
 +            .arg("--set-interpreter")
@@ -44,7 +44,7 @@ index 3cb6896..7f070e0 100644
 +            continue;
 +        }
 +
-+        eprintln!("info: you seem to be running NixOS. Attempting to patch {}",
++        eprintln!("info: you seem to be running Botnix. Attempting to patch {}",
 +                  entry.path().to_str().unwrap());
 +        let _ = ::std::process::Command::new("@patchelf@/bin/patchelf")
 +            .arg("--set-rpath")

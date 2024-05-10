@@ -11,7 +11,7 @@ import yaml
 import dag
 
 # This should match the behavior of the default unpackPhase.
-# See https://github.com/NixOS/nixpkgs/blob/59fa082abdbf462515facc8800d517f5728c909d/pkgs/stdenv/generic/setup.sh#L1044
+# See https://github.com/nervosys/Botnix/blob/59fa082abdbf462515facc8800d517f5728c909d/pkgs/stdenv/generic/setup.sh#L1044
 archive_extensions = [
   # xz extensions
   ".tar.xz",

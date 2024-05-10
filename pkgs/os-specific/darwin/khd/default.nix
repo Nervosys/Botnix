@@ -30,8 +30,8 @@ stdenv.mkDerivation rec {
     cp bin/khd $out/bin/khd
 
     mkdir -p $out/Library/LaunchDaemons
-    cp ${./org.nixos.khd.plist} $out/Library/LaunchDaemons/org.nixos.khd.plist
-    substituteInPlace $out/Library/LaunchDaemons/org.nixos.khd.plist --subst-var out
+    cp ${./org.botnix.khd.plist} $out/Library/LaunchDaemons/org.botnix.khd.plist
+    substituteInPlace $out/Library/LaunchDaemons/org.botnix.khd.plist --subst-var out
   '';
 
   meta = with lib; {

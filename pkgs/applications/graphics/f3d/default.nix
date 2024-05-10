@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
 
   cmakeFlags = [
     # conflict between VTK and Nixpkgs;
-    # see https://github.com/NixOS/nixpkgs/issues/89167
+    # see https://github.com/nervosys/Botnix/issues/89167
     "-DCMAKE_INSTALL_LIBDIR=lib"
     "-DCMAKE_INSTALL_INCLUDEDIR=include"
     "-DCMAKE_INSTALL_BINDIR=bin"

@@ -64,7 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     "--with-vncsrv=no"
     "--with-nogui"
 
-    # These will always be "yes" on NixOS
+    # These will always be "yes" on Botnix
     "--enable-ltdl-install=yes"
     "--enable-readline=yes"
     "--enable-all-optimizations=yes"

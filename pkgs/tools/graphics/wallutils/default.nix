@@ -25,7 +25,7 @@ buildGoModule rec {
   vendorHash = null;
 
   patches = [
-    ./000-add-nixos-dirs-to-default-wallpapers.patch
+    ./000-add-botnix-dirs-to-default-wallpapers.patch
   ];
 
   excludedPackages = [

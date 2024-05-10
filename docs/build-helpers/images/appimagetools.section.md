@@ -19,7 +19,7 @@ This means that you can pass the `extraInstallCommands` attribute, for example, 
 
 ::: {.note}
 In the past, `appimageTools` provided both `wrapType1` and `wrapType2`, to be used depending on the type of AppImage that was being wrapped.
-However, [those were unified early 2020](https://github.com/NixOS/nixpkgs/pull/81833), meaning that both `wrapType1` and `wrapType2` have the same behaviour now.
+However, [those were unified early 2020](https://github.com/nervosys/Botnix/pull/81833), meaning that both `wrapType1` and `wrapType2` have the same behaviour now.
 :::
 
 :::{.example #ex-wrapping-appimage-from-github}
@@ -82,7 +82,7 @@ This is usually used in Nixpkgs to install extra files in addition to [wrapping]
 
 ::: {.note}
 In the past, `appimageTools` provided both `extractType1` and `extractType2`, to be used depending on the type of AppImage that was being extracted.
-However, [those were unified early 2020](https://github.com/NixOS/nixpkgs/pull/81572), meaning that both `extractType1` and `extractType2` have the same behaviour as `extract` now.
+However, [those were unified early 2020](https://github.com/nervosys/Botnix/pull/81572), meaning that both `extractType1` and `extractType2` have the same behaviour as `extract` now.
 :::
 
 :::{.example #ex-extracting-appimage}

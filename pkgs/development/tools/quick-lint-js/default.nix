@@ -19,7 +19,7 @@ let
 
     cmakeFlags = [
       "-DQUICK_LINT_JS_ENABLE_BUILD_TOOLS=ON"
-      # Temporary workaround for https://github.com/NixOS/nixpkgs/pull/108496#issuecomment-1192083379
+      # Temporary workaround for https://github.com/nervosys/Botnix/pull/108496#issuecomment-1192083379
       "-DCMAKE_SKIP_BUILD_RPATH=ON"
     ];
     ninjaFlags = "quick-lint-js-build-tools";
@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
 
   cmakeFlags = [
     "-DQUICK_LINT_JS_USE_BUILD_TOOLS=${quick-lint-js-build-tools}/bin"
-    # Temporary workaround for https://github.com/NixOS/nixpkgs/pull/108496#issuecomment-1192083379
+    # Temporary workaround for https://github.com/nervosys/Botnix/pull/108496#issuecomment-1192083379
     "-DCMAKE_SKIP_BUILD_RPATH=ON"
   ];
 

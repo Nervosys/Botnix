@@ -11,7 +11,7 @@
 stdenv.mkDerivation (finalAttrs: {
   pname = "volk";
   # Version 2.5.1 seems to cause a build issue for aarch64-darwin, see:
-  # https://github.com/NixOS/nixpkgs/pull/160152#issuecomment-1043380478A
+  # https://github.com/nervosys/Botnix/pull/160152#issuecomment-1043380478A
   version = "2.5.0";
 
   src = fetchFromGitHub {

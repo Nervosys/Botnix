@@ -106,7 +106,7 @@ stdenv.mkDerivation (finalAttrs: {
     # don't abort on any warning
     sed -i 's,CFLAGS="$CFLAGS -Werror",,' configure.ac
 
-    # Make reboot work, shutdown is not in /sbin on NixOS
+    # Make reboot work, shutdown is not in /sbin on Botnix
     sed -i 's,/sbin/shutdown,shutdown,' lib/system/systemLinux.c
 
     # Fix paths to fuse3 (we do not use fuse2 so that is not modified)

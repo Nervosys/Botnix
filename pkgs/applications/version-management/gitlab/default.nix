@@ -171,7 +171,7 @@ stdenv.mkDerivation {
   ];
 
   patches = [
-    # Change hardcoded paths to the NixOS equivalent
+    # Change hardcoded paths to the Botnix equivalent
     ./remove-hardcoded-locations.patch
   ];
 
@@ -237,7 +237,7 @@ stdenv.mkDerivation {
     GITLAB_WORKHORSE_VERSION = data.passthru.GITLAB_WORKHORSE_VERSION;
     gitlabEnv.FOSS_ONLY = lib.boolToString (!gitlabEnterprise);
     tests = {
-      nixos-test-passes = nixosTests.gitlab;
+      botnix-test-passes = nixosTests.gitlab;
     };
   };
 

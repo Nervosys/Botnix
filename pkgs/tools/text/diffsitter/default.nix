@@ -7,7 +7,7 @@
 }:
 
 let
-  # based on https://github.com/NixOS/nixpkgs/blob/aa07b78b9606daf1145a37f6299c6066939df075/pkgs/development/tools/parsing/tree-sitter/default.nix#L85-L104
+  # based on https://github.com/nervosys/Botnix/blob/aa07b78b9606daf1145a37f6299c6066939df075/pkgs/development/tools/parsing/tree-sitter/default.nix#L85-L104
   withPlugins = grammarFn:
     let
       grammars = grammarFn tree-sitter.builtGrammars;

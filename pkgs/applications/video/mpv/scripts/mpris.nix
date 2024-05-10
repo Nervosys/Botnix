@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   installFlags = [ "SCRIPTS_DIR=${placeholder "out"}/share/mpv/scripts" ];
 
   # Otherwise, the shared object isn't `strip`ped. See:
-  # https://discourse.nixos.org/t/debug-why-a-derivation-has-a-reference-to-gcc/7009
+  # https://discourse.botnix.org/t/debug-why-a-derivation-has-a-reference-to-gcc/7009
   stripDebugList = [ "share/mpv/scripts" ];
   passthru.scriptName = "mpris.so";
 

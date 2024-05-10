@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
   strictDeps = true;
 
   mesonFlags = [
-    # TODO: https://github.com/NixOS/nixpkgs/issues/36468
+    # TODO: https://github.com/nervosys/Botnix/issues/36468
     "-Dc_args=-I${glib.dev}/include/gio-unix-2.0"
   ];
 

@@ -1,20 +1,20 @@
-# NixOS test for usbrelayd
+# Botnix test for usbrelayd
 #
-# It is not stored in nixos/tests directory, because it requires the
+# It is not stored in botnix/tests directory, because it requires the
 # USB relay connected to the host computer and as such, it cannot be
 # run automatically.
 #
 # Run this test as:
 #
-#     nix-build test.nix -A driverInteractive && ./result/bin/nixos-test-driver --no-interactive
+#     nix-build test.nix -A driverInteractive && ./result/bin/botnix-test-driver --no-interactive
 #
 # The interactive driver is required because the default
 # (non-interactive) driver uses qemu without support for passing USB
 # devices to the guest (see
-# https://discourse.nixos.org/t/hardware-dependent-nixos-tests/18564
+# https://discourse.botnix.org/t/hardware-dependent-botnix-tests/18564
 # for discussion of other alternatives).
 
-import ../../../../nixos/tests/make-test-python.nix ({ pkgs, ... }: {
+import ../../../../botnix/tests/make-test-python.nix ({ pkgs, ... }: {
   name = "usbrelayd";
 
   nodes.machine = {
@@ -38,7 +38,7 @@ import ../../../../nixos/tests/make-test-python.nix ({ pkgs, ... }: {
       pkgs.usbrelay
       pkgs.mosquitto
     ];
-    documentation.nixos.enable = false; # building nixos manual takes long time
+    documentation.botnix.enable = false; # building botnix manual takes long time
   };
 
   testScript = ''

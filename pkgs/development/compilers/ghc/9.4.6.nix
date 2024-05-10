@@ -207,7 +207,7 @@ stdenv.mkDerivation (rec {
     #
     # These cause problems as they're not eliminated by GHC's dead code
     # elimination on aarch64-darwin. (see
-    # https://github.com/NixOS/nixpkgs/issues/140774 for details).
+    # https://github.com/nervosys/Botnix/issues/140774 for details).
     ./Cabal-at-least-3.6-paths-fix-cycle-aarch64-darwin.patch
   ];
 
@@ -348,7 +348,7 @@ stdenv.mkDerivation (rec {
     # But GHC cannot currently produce outputs that are ready for `-pie` linking.
     # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.
     # See:
-    # * https://github.com/NixOS/nixpkgs/issues/129247
+    # * https://github.com/nervosys/Botnix/issues/129247
     # * https://gitlab.haskell.org/ghc/ghc/-/issues/19580
     ++ lib.optional stdenv.targetPlatform.isMusl "pie";
 

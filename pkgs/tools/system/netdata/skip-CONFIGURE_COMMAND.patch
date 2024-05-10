@@ -1,6 +1,6 @@
 Shrink closure size by avoiding paths embedded from configure call.
 
-https://github.com/NixOS/nixpkgs/issues/175693
+https://github.com/nervosys/Botnix/issues/175693
 diff --git a/daemon/buildinfo.c b/daemon/buildinfo.c
 index 56cde84fc..011e7579d 100644
 --- a/daemon/buildinfo.c

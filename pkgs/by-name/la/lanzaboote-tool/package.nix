@@ -43,7 +43,7 @@ rustPlatform.buildRustPackage rec {
   ];
 
   meta = with lib; {
-    description = "Lanzaboote UEFI tooling for SecureBoot enablement on NixOS systems";
+    description = "Lanzaboote UEFI tooling for SecureBoot enablement on Botnix systems";
     homepage = "https://github.com/nix-community/lanzaboote";
     license = licenses.gpl3Only;
     mainProgram = "lzbt";

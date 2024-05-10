@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
                      "--with-xml-catalog=${docbook_xml_dtd_412}/xml/dtd/docbook/catalog.xml"
                    ];
 
-  # https://github.com/NixOS/nixpkgs/pull/240893#issuecomment-1635347507
+  # https://github.com/nervosys/Botnix/pull/240893#issuecomment-1635347507
   NIX_LDFLAGS = [ "-lwebp" ];
 
   meta = with lib; {

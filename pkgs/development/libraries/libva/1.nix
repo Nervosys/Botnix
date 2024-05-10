@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
     ++ lib.optionals (!minimal) [ libva1-minimal libX11 libXext libXfixes wayland libffi libGL ];
   # TODO: share libs between minimal and !minimal - perhaps just symlink them
 
-  # Add FHS paths for non-NixOS applications.
+  # Add FHS paths for non-Botnix applications.
   configureFlags = [ "--with-drivers-path=${mesa.drivers.driverLink}/lib/dri:/usr/lib/dri:/usr/lib32/dri" ]
     ++ lib.optionals (!minimal) [ "--enable-glx" ];
 

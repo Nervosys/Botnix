@@ -672,7 +672,7 @@ in python.pkgs.buildPythonApplication rec {
     frontend = python.pkgs.home-assistant-frontend;
     intents = python.pkgs.home-assistant-intents;
     tests = {
-      nixos = nixosTests.home-assistant;
+      botnix = nixosTests.home-assistant;
       components = callPackage ./tests.nix { };
       version = testers.testVersion {
         package = home-assistant;

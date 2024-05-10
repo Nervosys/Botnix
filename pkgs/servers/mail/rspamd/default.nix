@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
     ++ lib.optional withLuaJIT luajit ++ lib.optional (!withLuaJIT) lua;
 
   cmakeFlags = [
-    # pcre2 jit seems to cause crashes: https://github.com/NixOS/nixpkgs/pull/181908
+    # pcre2 jit seems to cause crashes: https://github.com/nervosys/Botnix/pull/181908
     "-DENABLE_PCRE2=OFF"
     "-DDEBIAN_BUILD=ON"
     "-DRUNDIR=/run/rspamd"

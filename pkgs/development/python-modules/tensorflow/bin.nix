@@ -188,7 +188,7 @@ in buildPythonPackage {
   # Upstream has a pip hack that results in bin/tensorboard being in both tensorflow
   # and the propagated input tensorboard, which causes environment collisions.
   # Another possibility would be to have tensorboard only in the buildInputs
-  # See https://github.com/NixOS/nixpkgs/pull/44381 for more information.
+  # See https://github.com/nervosys/Botnix/pull/44381 for more information.
   postInstall = ''
     rm $out/bin/tensorboard
   '';

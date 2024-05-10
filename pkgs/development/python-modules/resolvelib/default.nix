@@ -10,7 +10,7 @@ buildPythonPackage rec {
   # Currently this package is only used by Ansible and breaking changes
   # are frequently introduced, so when upgrading ensure the new version
   # is compatible with Ansible
-  # https://github.com/NixOS/nixpkgs/pull/128636
+  # https://github.com/nervosys/Botnix/pull/128636
   # https://github.com/ansible/ansible/blob/devel/requirements.txt
   version = "0.5.5";
   format = "setuptools";

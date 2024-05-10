@@ -177,7 +177,7 @@ self: super: ({
   }) super.OpenCL;
 
   # cabal2nix likes to generate dependencies on hinotify when hfsevents is
-  # really required on darwin: https://github.com/NixOS/cabal2nix/issues/146.
+  # really required on darwin: https://github.com/Botnix/cabal2nix/issues/146.
   hinotify = self.hfsevents;
 
   # FSEvents API is very buggy and tests are unreliable. See
@@ -285,7 +285,7 @@ self: super: ({
       # but apparently been corrupted, causing reverse dependencies to fail.
       #
       # This workaround can be removed upon the next darwin stdenv rebuild,
-      # presumably https://github.com/NixOS/nixpkgs/pull/152850 or the next
+      # presumably https://github.com/nervosys/Botnix/pull/152850 or the next
       # full haskellPackages rebuild.
     '' + drv.postPatch or "";
   }) super.http-client-tls;
@@ -303,12 +303,12 @@ self: super: ({
       # but apparently been corrupted, causing reverse dependencies to fail.
       #
       # This workaround can be removed upon the next darwin stdenv rebuild,
-      # presumably https://github.com/NixOS/nixpkgs/pull/152850 or the next
+      # presumably https://github.com/nervosys/Botnix/pull/152850 or the next
       # full haskellPackages rebuild.
     '' + drv.postPatch or "";
   }) super.foldl;
 
-  # https://hydra.nixos.org/build/230964714/nixlog/1
+  # https://hydra.botnix.org/build/230964714/nixlog/1
   inline-c-cpp = appendPatch (pkgs.fetchpatch {
     url = "https://github.com/fpco/inline-c/commit/e8dc553b13bb847409fdced649a6a863323cff8a.patch";
     name = "revert-use-system-cxx-std-lib.patch";
@@ -344,15 +344,15 @@ self: super: ({
     libraryHaskellDepends = drv.libraryHaskellDepends ++ [ self.file-embed ];
   }) (disableCabalFlag "fixity-th" super.fourmolu);
 
-  # https://github.com/NixOS/nixpkgs/issues/149692
+  # https://github.com/nervosys/Botnix/issues/149692
   Agda = disableCabalFlag "optimise-heavily" super.Agda;
 
 } // lib.optionalAttrs pkgs.stdenv.isx86_64 {  # x86_64-darwin
 
   # tests appear to be failing to link or something:
-  # https://hydra.nixos.org/build/174540882/nixlog/9
+  # https://hydra.botnix.org/build/174540882/nixlog/9
   regex-rure = dontCheck super.regex-rure;
   # same
-  # https://hydra.nixos.org/build/174540882/nixlog/9
+  # https://hydra.botnix.org/build/174540882/nixlog/9
   jacinda = dontCheck super.jacinda;
 })

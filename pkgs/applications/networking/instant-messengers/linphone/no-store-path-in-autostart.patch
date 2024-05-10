@@ -15,7 +15,7 @@ index 868f8f44..2c61c648 100644
  		exec = QProcessEnvironment::systemEnvironment().value(QStringLiteral("APPIMAGE"));
  		qDebug() << "exec path autostart set appimage=" << exec;
  	}
-+	else if (binPath.startsWith("/nix/store")) { // Nix/NixOS
++	else if (binPath.startsWith("/nix/store")) { // Nix/Botnix
 +		exec = QStringLiteral("linphone");
 +		qDebug() << "exec path autostart set nix=" << exec;
 +	}

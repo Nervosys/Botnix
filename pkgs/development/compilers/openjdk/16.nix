@@ -69,7 +69,7 @@ let
     configureFlags = [
       "--with-boot-jdk=${openjdk-bootstrap.home}"
       "--with-version-build=${version.build}"
-      "--with-version-opt=nixos"
+      "--with-version-opt=botnix"
       "--with-version-pre="
       "--enable-unlimited-crypto"
       "--with-native-debug-symbols=internal"
@@ -137,7 +137,7 @@ let
       # Propagate the setJavaClassPath setup hook so that any package
       # that depends on the JDK has $CLASSPATH set up properly.
       mkdir -p $out/nix-support
-      #TODO or printWords?  cf https://github.com/NixOS/nixpkgs/pull/27427#issuecomment-317293040
+      #TODO or printWords?  cf https://github.com/nervosys/Botnix/pull/27427#issuecomment-317293040
       echo -n "${setJavaClassPath}" > $out/nix-support/propagated-build-inputs
 
       # Set JAVA_HOME automatically.

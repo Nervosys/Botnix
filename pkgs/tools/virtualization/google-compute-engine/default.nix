@@ -39,7 +39,7 @@ buildPythonPackage rec {
   '';
 
   postInstall = ''
-    # allows to install the package in `services.udev.packages` in NixOS
+    # allows to install the package in `services.udev.packages` in Botnix
     mkdir -p $out/lib/udev/rules.d
     cp -r google_config/udev/*.rules $out/lib/udev/rules.d
 

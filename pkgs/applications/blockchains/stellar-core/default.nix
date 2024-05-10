@@ -47,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
   enableParallelBuilding = true;
 
   preConfigure = ''
-    # Due to https://github.com/NixOS/nixpkgs/issues/8567 we cannot rely on
+    # Due to https://github.com/nervosys/Botnix/issues/8567 we cannot rely on
     # having the .git directory present, so directly provide the version
     substituteInPlace src/Makefile.am --replace '$$vers' 'stellar-core ${finalAttrs.version}';
 

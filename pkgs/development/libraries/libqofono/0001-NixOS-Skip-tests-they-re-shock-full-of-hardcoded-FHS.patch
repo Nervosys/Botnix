@@ -1,7 +1,7 @@
 From 8b508d427c4fd472639ba8d4a0d3b8ab69e3f2e3 Mon Sep 17 00:00:00 2001
 From: Samuel Dionne-Riel <samuel@dionne-riel.com>
 Date: Tue, 30 Mar 2021 16:37:52 -0400
-Subject: [PATCH] [NixOS] Skip tests, they're shock-full of hardcoded FHS paths
+Subject: [PATCH] [Botnix] Skip tests, they're shock-full of hardcoded FHS paths
 
 ---
  libqofono.pro | 4 +---

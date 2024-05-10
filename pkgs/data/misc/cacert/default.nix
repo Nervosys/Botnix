@@ -167,10 +167,10 @@ stdenv.mkDerivation rec {
         extraCertificateFile = ./test-cert-file.crt;
         extraCertificatesToFingerprint = {
           # String above
-          "NixOS cacert extra certificate string" = "A3:20:D0:84:96:97:25:FF:98:B8:A9:6D:A3:7C:89:95:6E:7A:77:21:92:F3:33:E9:31:AF:5E:03:CE:A9:E5:EE";
+          "Botnix cacert extra certificate string" = "A3:20:D0:84:96:97:25:FF:98:B8:A9:6D:A3:7C:89:95:6E:7A:77:21:92:F3:33:E9:31:AF:5E:03:CE:A9:E5:EE";
 
           # File
-          "NixOS cacert extra certificate file" = "88:B8:BE:A7:57:AC:F1:FE:D6:98:8B:50:E0:BD:0A:AE:88:C7:DF:70:26:E1:67:5E:F5:F6:91:27:FF:02:D4:A5";
+          "Botnix cacert extra certificate file" = "88:B8:BE:A7:57:AC:F1:FE:D6:98:8B:50:E0:BD:0A:AE:88:C7:DF:70:26:E1:67:5E:F5:F6:91:27:FF:02:D4:A5";
         };
         mapExtra = f: lib.concatStringsSep "\n" (lib.mapAttrsToList f extraCertificatesToFingerprint);
       in runCommand "verify-the-cacert-extra-output" {

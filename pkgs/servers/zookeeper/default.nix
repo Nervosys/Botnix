@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
 
   passthru = {
     tests = {
-      nixos = nixosTests.zookeeper;
+      botnix = nixosTests.zookeeper;
     };
     inherit jre;
   };

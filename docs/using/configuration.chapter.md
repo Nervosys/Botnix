@@ -14,7 +14,7 @@ Note that all this is checked during evaluation already, and the check includes 
 
 Each of these criteria can be altered in the nixpkgs configuration.
 
-The nixpkgs configuration for a NixOS system is set in the `configuration.nix`, as in the following example:
+The nixpkgs configuration for a Botnix system is set in the `configuration.nix`, as in the following example:
 
 ```nix
 {

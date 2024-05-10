@@ -101,7 +101,7 @@ stdenv.mkDerivation {
   dontPatchELF = true;
 
   # fortify hardening makes the filter crash
-  # https://github.com/NixOS/nixpkgs/issues/276125
+  # https://github.com/nervosys/Botnix/issues/276125
   hardeningDisable = [ "fortify3" ];
 
   meta = with lib; {

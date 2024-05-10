@@ -1,4 +1,4 @@
-{ # stdenv FIXME: Try changing back to this with a new ROCm release https://github.com/NixOS/nixpkgs/issues/271943
+{ # stdenv FIXME: Try changing back to this with a new ROCm release https://github.com/nervosys/Botnix/issues/271943
   gcc12Stdenv
 , callPackage
 , rocmUpdateScript

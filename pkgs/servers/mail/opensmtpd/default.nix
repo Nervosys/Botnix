@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    ./proc_path.diff # TODO: upstream to OpenSMTPD, see https://github.com/NixOS/nixpkgs/issues/54045
+    ./proc_path.diff # TODO: upstream to OpenSMTPD, see https://github.com/nervosys/Botnix/issues/54045
   ];
 
   postPatch = ''

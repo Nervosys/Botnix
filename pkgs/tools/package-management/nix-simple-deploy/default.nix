@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
   '';
 
   meta = with lib; {
-    description = "Deploy software or an entire NixOS system configuration to another NixOS system";
+    description = "Deploy software or an entire Botnix system configuration to another Botnix system";
     homepage = "https://github.com/misuzu/nix-simple-deploy";
     platforms = platforms.unix;
     license = with licenses; [ asl20 /* OR */ mit ];

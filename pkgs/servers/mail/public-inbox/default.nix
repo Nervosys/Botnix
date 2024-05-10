@@ -167,7 +167,7 @@ buildPerlPackage rec {
   '';
 
   passthru.tests = {
-    nixos-public-inbox = nixosTests.public-inbox;
+    botnix-public-inbox = nixosTests.public-inbox;
   };
 
   meta = with lib; {

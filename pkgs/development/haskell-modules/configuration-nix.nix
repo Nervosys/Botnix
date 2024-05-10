@@ -46,7 +46,7 @@ with haskellLib;
 # in the parent package set (`super`).
 self: super: builtins.intersectAttrs super {
 
-  # Apply NixOS-specific patches.
+  # Apply Botnix-specific patches.
   ghc-paths = appendPatch ./patches/ghc-paths-nix.patch super.ghc-paths;
 
   #######################################
@@ -334,7 +334,7 @@ self: super: builtins.intersectAttrs super {
     addBuildDepends [ pkgs.double-conversion ] super.double-conversion
   );
 
-  # https://github.com/NixOS/cabal2nix/issues/136 and https://github.com/NixOS/cabal2nix/issues/216
+  # https://github.com/Botnix/cabal2nix/issues/136 and https://github.com/Botnix/cabal2nix/issues/216
   gio = lib.pipe super.gio
     [ (disableHardening ["fortify"])
       (addBuildTool self.buildHaskellPackages.gtk2hs-buildtools)
@@ -456,7 +456,7 @@ self: super: builtins.intersectAttrs super {
   tz = addBuildDepends [ pkgs.tzdata ] super.tz;
   tzdata = addBuildDepends [ pkgs.tzdata ] super.tzdata;
 
-  # https://hydra.nixos.org/build/128665302/nixlog/3
+  # https://hydra.botnix.org/build/128665302/nixlog/3
   # Disable tests because they require a running dbus session
   xmonad-dbus = dontCheck super.xmonad-dbus;
 
@@ -534,7 +534,7 @@ self: super: builtins.intersectAttrs super {
   # https://github.com/bos/pcap/issues/5
   pcap = addExtraLibrary pkgs.libpcap super.pcap;
 
-  # https://github.com/NixOS/nixpkgs/issues/53336
+  # https://github.com/nervosys/Botnix/issues/53336
   greenclip = addExtraLibrary pkgs.xorg.libXdmcp super.greenclip;
 
   # The cabal files for these libraries do not list the required system dependencies.
@@ -1081,7 +1081,7 @@ self: super: builtins.intersectAttrs super {
 
   rel8 = pkgs.lib.pipe super.rel8 [
     (addTestToolDepend pkgs.postgresql)
-    # https://github.com/NixOS/nixpkgs/issues/198495
+    # https://github.com/nervosys/Botnix/issues/198495
     (overrideCabal { doCheck = pkgs.postgresql.doCheck; })
   ];
 

@@ -123,7 +123,7 @@ stdenv.mkDerivation rec {
 
   # What these replacings do?
   # - Disable the auto-updates (we'll run from a read-only directory);
-  # - Silence the checks (NixOS will enforce the PATH, it will only see the tools as we listed);
+  # - Silence the checks (Botnix will enforce the PATH, it will only see the tools as we listed);
   # - Use "tmux", we're not patching XTerm commands;
   # - Remove PWD and $0 references, forcing it to use the paths from store;
   # - Force our PATH to all tmux sessions.

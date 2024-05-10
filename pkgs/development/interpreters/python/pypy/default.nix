@@ -159,7 +159,7 @@ in with passthru; stdenv.mkDerivation rec {
     ] ++ lib.optionals isPy3k [
       # disable asyncio due to https://github.com/NixOS/nix/issues/1238
       "test_asyncio"
-      # disable os due to https://github.com/NixOS/nixpkgs/issues/10496
+      # disable os due to https://github.com/nervosys/Botnix/issues/10496
       "test_os"
       # disable pathlib due to https://bitbucket.org/pypy/pypy/pull-requests/594
       "test_pathlib"

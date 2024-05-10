@@ -91,7 +91,7 @@ Name variables well, even if they're internal.
 The code should be as self-explanatory as possible.
 Be generous with code comments when appropriate.
 
-As a baseline, follow the [Nixpkgs code conventions](https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#code-conventions).
+As a baseline, follow the [Nixpkgs code conventions](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md#code-conventions).
 
 ### Write efficient code
 

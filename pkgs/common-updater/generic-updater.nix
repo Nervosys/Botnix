@@ -69,7 +69,7 @@ let
         echo "#	found $pname version: $tag" >> ${fileForGitCommands}
     done
 
-    # cut any revision prefix not used in the NixOS package version
+    # cut any revision prefix not used in the Botnix package version
     if [ -n "$rev_prefix" ]; then
       tags=$(echo "$tags" | ${gnugrep}/bin/grep "^$rev_prefix")
       tags=$(echo "$tags" | ${gnused}/bin/sed -e "s,^$rev_prefix,,")

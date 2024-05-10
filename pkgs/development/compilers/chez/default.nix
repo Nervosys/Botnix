@@ -25,7 +25,7 @@ stdenv.mkDerivation (finalAttrs: {
   **
   ** We have to also fix a few occurrences to tools with absolute
   ** paths in some helper scripts, otherwise the build will fail on
-  ** NixOS or in any chroot build.
+  ** Botnix or in any chroot build.
   */
   patchPhase = ''
     substituteInPlace ./configure \

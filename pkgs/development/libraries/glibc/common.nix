@@ -68,23 +68,23 @@ stdenv.mkDerivation ({
        */
       ./2.38-master.patch.gz
 
-      /* Allow NixOS and Nix to handle the locale-archive. */
+      /* Allow Botnix and Nix to handle the locale-archive. */
       ./nix-locale-archive.patch
 
-      /* Don't use /etc/ld.so.cache, for non-NixOS systems.  */
+      /* Don't use /etc/ld.so.cache, for non-Botnix systems.  */
       ./dont-use-system-ld-so-cache.patch
 
       /* Don't use /etc/ld.so.preload, but /etc/ld-nix.so.preload.  */
       ./dont-use-system-ld-so-preload.patch
 
       /* The command "getconf CS_PATH" returns the default search path
-         "/bin:/usr/bin", which is inappropriate on NixOS machines. This
+         "/bin:/usr/bin", which is inappropriate on Botnix machines. This
          patch extends the search path by "/run/current-system/sw/bin". */
       ./fix_path_attribute_in_getconf.patch
 
       ./fix-x64-abi.patch
 
-      /* https://github.com/NixOS/nixpkgs/pull/137601 */
+      /* https://github.com/nervosys/Botnix/pull/137601 */
       ./nix-nss-open-files.patch
 
       ./0001-Revert-Remove-all-usage-of-BASH-or-BASH-in-installed.patch
@@ -93,7 +93,7 @@ stdenv.mkDerivation ({
          https://gitlab.archlinux.org/archlinux/packaging/packages/glibc/-/blob/e54d98e2d1aae4930ecad9404ef12234922d9dfd/reenable_DT_HASH.patch
 
          See also https://github.com/ValveSoftware/Proton/issues/6051
-         & https://github.com/NixOS/nixpkgs/pull/188492#issuecomment-1233802991
+         & https://github.com/nervosys/Botnix/pull/188492#issuecomment-1233802991
       */
       ./reenable_DT_HASH.patch
     ]

@@ -36,10 +36,10 @@ let
     # > `<module:Moneta>': uninitialized constant Moneta::Builder (NameError)
     #
     # Related:
-    # https://github.com/NixOS/nixpkgs/pull/76510
-    # https://github.com/NixOS/nixpkgs/pull/76765
-    # https://github.com/NixOS/nixpkgs/issues/83442
-    # https://github.com/NixOS/nixpkgs/issues/106545
+    # https://github.com/nervosys/Botnix/pull/76510
+    # https://github.com/nervosys/Botnix/pull/76765
+    # https://github.com/nervosys/Botnix/issues/83442
+    # https://github.com/nervosys/Botnix/issues/106545
     copyGemFiles = true;
   };
 

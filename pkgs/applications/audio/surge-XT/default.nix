@@ -85,7 +85,7 @@ stdenv.mkDerivation rec {
     "-lXrandr"
   ]);
 
-  # see https://github.com/NixOS/nixpkgs/pull/149487#issuecomment-991747333
+  # see https://github.com/nervosys/Botnix/pull/149487#issuecomment-991747333
   postPatch = ''
     export XDG_DOCUMENTS_DIR=$(mktemp -d)
   '';

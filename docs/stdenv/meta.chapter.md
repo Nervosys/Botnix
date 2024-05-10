@@ -25,7 +25,7 @@ It is expected that each meta-attribute is one of the following:
 ### `description` {#var-meta-description}
 
 A short (one-line) description of the package.
-This is displayed on [search.nixos.org](https://search.nixos.org/packages).
+This is displayed on [search.botnix.org](https://search.botnix.org/packages).
 
 Don’t include a period at the end. Don’t include newline characters. Capitalise the first character. For brevity, don’t repeat the name of package --- just describe what it does.
 
@@ -55,7 +55,7 @@ A link or a list of links to the location of Changelog for a package. A link may
 
 ### `license` {#var-meta-license}
 
-The license, or licenses, for the package. One from the attribute set defined in [`nixpkgs/lib/licenses.nix`](https://github.com/NixOS/nixpkgs/blob/master/lib/licenses.nix). At this moment using both a list of licenses and a single license is valid. If the license field is in the form of a list representation, then it means that parts of the package are licensed differently. Each license should preferably be referenced by their attribute. The non-list attribute value can also be a space delimited string representation of the contained attribute `shortNames` or `spdxIds`. The following are all valid examples:
+The license, or licenses, for the package. One from the attribute set defined in [`nixpkgs/lib/licenses.nix`](https://github.com/nervosys/Botnix/blob/master/lib/licenses.nix). At this moment using both a list of licenses and a single license is valid. If the license field is in the form of a list representation, then it means that parts of the package are licensed differently. Each license should preferably be referenced by their attribute. The non-list attribute value can also be a space delimited string representation of the contained attribute `shortNames` or `spdxIds`. The following are all valid examples:
 
 - Single license referenced by attribute (preferred) `lib.licenses.gpl3Only`.
 - Single license referenced by its attribute shortName (frowned upon) `"gpl3Only"`.
@@ -67,7 +67,7 @@ For details, see [Licenses](#sec-meta-license).
 
 ### `maintainers` {#var-meta-maintainers}
 
-A list of the maintainers of this Nix expression. Maintainers are defined in [`nixpkgs/maintainers/maintainer-list.nix`](https://github.com/NixOS/nixpkgs/blob/master/maintainers/maintainer-list.nix). There is no restriction to becoming a maintainer, just add yourself to that list in a separate commit titled “maintainers: add alice” in the same pull request, and reference maintainers with `maintainers = with lib.maintainers; [ alice bob ]`.
+A list of the maintainers of this Nix expression. Maintainers are defined in [`nixpkgs/maintainers/maintainer-list.nix`](https://github.com/nervosys/Botnix/blob/master/maintainers/maintainer-list.nix). There is no restriction to becoming a maintainer, just add yourself to that list in a separate commit titled “maintainers: add alice” in the same pull request, and reference maintainers with `maintainers = with lib.maintainers; [ alice bob ]`.
 
 ### `mainProgram` {#var-meta-mainProgram}
 
@@ -85,11 +85,11 @@ The list of Nix platform types on which the package is supported. Hydra builds p
 meta.platforms = lib.platforms.linux;
 ```
 
-Attribute Set `lib.platforms` defines [various common lists](https://github.com/NixOS/nixpkgs/blob/master/lib/systems/doubles.nix) of platforms types.
+Attribute Set `lib.platforms` defines [various common lists](https://github.com/nervosys/Botnix/blob/master/lib/systems/doubles.nix) of platforms types.
 
 ### `badPlatforms` {#var-meta-badPlatforms}
 
-The list of Nix [platform types](https://github.com/NixOS/nixpkgs/blob/b03ac42b0734da3e7be9bf8d94433a5195734b19/lib/meta.nix#L75-L81) on which the package is known not to be buildable.
+The list of Nix [platform types](https://github.com/nervosys/Botnix/blob/b03ac42b0734da3e7be9bf8d94433a5195734b19/lib/meta.nix#L75-L81) on which the package is known not to be buildable.
 Hydra will never create prebuilt binaries for these platform types, even if they are in [`meta.platforms`](#var-meta-platforms).
 In general it is preferable to set `meta.platforms = lib.platforms.all` and then exclude any platforms on which the package is known not to build.
 For example, a package which requires dynamic linking and cannot be linked statically could use this:
@@ -99,9 +99,9 @@ meta.platforms = lib.platforms.all;
 meta.badPlatforms = [ lib.systems.inspect.patterns.isStatic ];
 ```
 
-The [`lib.meta.availableOn`](https://github.com/NixOS/nixpkgs/blob/b03ac42b0734da3e7be9bf8d94433a5195734b19/lib/meta.nix#L95-L106) function can be used to test whether or not a package is available (i.e. buildable) on a given platform.
+The [`lib.meta.availableOn`](https://github.com/nervosys/Botnix/blob/b03ac42b0734da3e7be9bf8d94433a5195734b19/lib/meta.nix#L95-L106) function can be used to test whether or not a package is available (i.e. buildable) on a given platform.
 Some packages use this to automatically detect the maximum set of features with which they can be built.
-For example, `systemd` [requires dynamic linking](https://github.com/systemd/systemd/issues/20600#issuecomment-912338965), and [has a `meta.badPlatforms` setting](https://github.com/NixOS/nixpkgs/blob/b03ac42b0734da3e7be9bf8d94433a5195734b19/pkgs/os-specific/linux/systemd/default.nix#L752) similar to the one above.
+For example, `systemd` [requires dynamic linking](https://github.com/systemd/systemd/issues/20600#issuecomment-912338965), and [has a `meta.badPlatforms` setting](https://github.com/nervosys/Botnix/blob/b03ac42b0734da3e7be9bf8d94433a5195734b19/pkgs/os-specific/linux/systemd/default.nix#L752) similar to the one above.
 Packages which can be built with or without `systemd` support will use `lib.meta.availableOn` to detect whether or not `systemd` is available on the [`hostPlatform`](#ssec-cross-platform-parameters) for which they are being built; if it is not available (e.g. due to a statically-linked host platform like `pkgsStatic`) this support will be disabled by default.
 
 ### `tests` {#var-meta-tests}
@@ -131,9 +131,9 @@ Prefer `passthru.tests` for tests that are introduced in nixpkgs because:
 
 For more on how to write and run package tests, see [](#sec-package-tests).
 
-#### NixOS tests {#var-meta-tests-nixos}
+#### Botnix tests {#var-meta-tests-botnix}
 
-The NixOS tests are available as `nixosTests` in parameters of derivations. For instance, the OpenSMTPD derivation includes lines similar to:
+The Botnix tests are available as `nixosTests` in parameters of derivations. For instance, the OpenSMTPD derivation includes lines similar to:
 
 ```nix
 { /* ... */, nixosTests }:
@@ -145,7 +145,7 @@ The NixOS tests are available as `nixosTests` in parameters of derivations. For 
 }
 ```
 
-NixOS tests run in a VM, so they are slower than regular package tests. For more information see [NixOS module tests](https://nixos.org/manual/nixos/stable/#sec-nixos-tests).
+Botnix tests run in a VM, so they are slower than regular package tests. For more information see [Botnix module tests](https://nixos.org/manual/botnix/stable/#sec-botnix-tests).
 
 Alternatively, you can specify other derivations as tests. You can make use of
 the optional parameter to inject the correct package without
@@ -191,7 +191,7 @@ To be effective, it must be presented directly to an evaluation process that han
 
 ### `hydraPlatforms` {#var-meta-hydraPlatforms}
 
-The list of Nix platform types for which the [Hydra](https://github.com/nixos/hydra) [instance at `hydra.nixos.org`](https://nixos.org/hydra) will build the package. (Hydra is the Nix-based continuous build system.) It defaults to the value of `meta.platforms`. Thus, the only reason to set `meta.hydraPlatforms` is if you want `hydra.nixos.org` to build the package on a subset of `meta.platforms`, or not at all, e.g.
+The list of Nix platform types for which the [Hydra](https://github.com/botnix/hydra) [instance at `hydra.botnix.org`](https://nixos.org/hydra) will build the package. (Hydra is the Nix-based continuous build system.) It defaults to the value of `meta.platforms`. Thus, the only reason to set `meta.hydraPlatforms` is if you want `hydra.botnix.org` to build the package on a subset of `meta.platforms`, or not at all, e.g.
 
 ```nix
 meta.platforms = lib.platforms.linux;
@@ -200,7 +200,7 @@ meta.hydraPlatforms = [];
 
 ### `broken` {#var-meta-broken}
 
-If set to `true`, the package is marked as "broken", meaning that it won’t show up in [search.nixos.org](https://search.nixos.org/packages), and cannot be built or installed unless the environment variable [`NIXPKGS_ALLOW_BROKEN`](#opt-allowBroken) is set.
+If set to `true`, the package is marked as "broken", meaning that it won’t show up in [search.botnix.org](https://search.botnix.org/packages), and cannot be built or installed unless the environment variable [`NIXPKGS_ALLOW_BROKEN`](#opt-allowBroken) is set.
 Such unconditionally-broken packages should be removed from Nixpkgs eventually unless they are fixed.
 
 The value of this attribute can depend on a package's arguments, including `stdenv`.
@@ -223,7 +223,7 @@ However `meta.availableOn` currently examines only `meta.platforms` and `meta.ba
 
 ## Licenses {#sec-meta-license}
 
-The `meta.license` attribute should preferably contain a value from `lib.licenses` defined in [`nixpkgs/lib/licenses.nix`](https://github.com/NixOS/nixpkgs/blob/master/lib/licenses.nix), or in-place license description of the same format if the license is unlikely to be useful in another expression.
+The `meta.license` attribute should preferably contain a value from `lib.licenses` defined in [`nixpkgs/lib/licenses.nix`](https://github.com/nervosys/Botnix/blob/master/lib/licenses.nix), or in-place license description of the same format if the license is unlikely to be useful in another expression.
 
 Although it’s typically better to indicate the specific license, a few generic options are available:
 
@@ -249,7 +249,7 @@ This package supplies unfree, redistributable firmware. This is a separate value
 
 The value of a package's `meta.sourceProvenance` attribute specifies the provenance of the package's derivation outputs.
 
-If a package contains elements that are not built from the original source by a nixpkgs derivation, the `meta.sourceProvenance` attribute should be a list containing one or more value from `lib.sourceTypes` defined in [`nixpkgs/lib/source-types.nix`](https://github.com/NixOS/nixpkgs/blob/master/lib/source-types.nix).
+If a package contains elements that are not built from the original source by a nixpkgs derivation, the `meta.sourceProvenance` attribute should be a list containing one or more value from `lib.sourceTypes` defined in [`nixpkgs/lib/source-types.nix`](https://github.com/nervosys/Botnix/blob/master/lib/source-types.nix).
 
 Adding this information helps users who have needs related to build transparency and supply-chain security to gain some visibility into their installed software or set policy to allow or disallow installation based on source provenance.
 

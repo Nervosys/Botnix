@@ -56,7 +56,7 @@ mkDerivation rec {
 
   cmakeFlags = [
     # Building the manual and bundling licenses fails
-    # See https://github.com/NixOS/nixpkgs/issues/85306
+    # See https://github.com/nervosys/Botnix/issues/85306
     "-DLICENSING_PROVIDER:BOOL=OFF"
     "-DMapper_MANUAL_QTHELP:BOOL=OFF"
   ] ++ lib.optionals stdenv.isDarwin [

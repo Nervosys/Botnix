@@ -87,7 +87,7 @@ with pkgs;
   inherit lib config overlays;
 
   # do not import 'appendToName' to get consistent package-names with the same
-  # set of package-parameters: https://github.com/NixOS/nixpkgs/issues/68519
+  # set of package-parameters: https://github.com/nervosys/Botnix/issues/68519
   inherit (lib) lowPrio hiPrio makeOverridable;
 
   inherit (lib) recurseIntoAttrs;
@@ -144,17 +144,17 @@ with pkgs;
 
   nix-update-script = callPackage ../common-updater/nix-update.nix { };
 
-  ### Push NixOS tests inside the fixed point
+  ### Push Botnix tests inside the fixed point
 
-  # See also allTestsForSystem in nixos/release.nix
-  nixosTests = import ../../nixos/tests/all-tests.nix {
+  # See also allTestsForSystem in botnix/release.nix
+  nixosTests = import ../../botnix/tests/all-tests.nix {
     inherit pkgs;
     system = stdenv.hostPlatform.system;
     callTest = config: config.test;
   } // {
     # for typechecking of the scripts and evaluation of
     # the nodes, without running VMs.
-    allDrivers = import ../../nixos/tests/all-tests.nix {
+    allDrivers = import ../../botnix/tests/all-tests.nix {
       inherit pkgs;
       system = stdenv.hostPlatform.system;
       callTest = config: config.test.driver;
@@ -1117,7 +1117,7 @@ with pkgs;
   broadlink-cli = callPackage ../tools/misc/broadlink-cli { };
 
   fetchpatch = callPackage ../build-support/fetchpatch {
-    # 0.3.4 would change hashes: https://github.com/NixOS/nixpkgs/issues/25154
+    # 0.3.4 would change hashes: https://github.com/nervosys/Botnix/issues/25154
     patchutils = buildPackages.patchutils_0_3_3;
   } // {
     tests = pkgs.tests.fetchpatch;
@@ -3197,7 +3197,7 @@ with pkgs;
     zlib = zlib-ng.override { withZlibCompat = true; };
     withPerl = false;
     # We don't use `with` statement here on purpose!
-    # See https://github.com/NixOS/nixpkgs/pull/10474#discussion_r42369334
+    # See https://github.com/nervosys/Botnix/pull/10474#discussion_r42369334
     modules = [ nginxModules.rtmp nginxModules.dav nginxModules.moreheaders ];
   };
 
@@ -3206,7 +3206,7 @@ with pkgs;
     withPerl = false;
     withQuic = true;
     # We don't use `with` statement here on purpose!
-    # See https://github.com/NixOS/nixpkgs/pull/10474#discussion_r42369334
+    # See https://github.com/nervosys/Botnix/pull/10474#discussion_r42369334
     modules = [ nginxModules.rtmp nginxModules.dav nginxModules.moreheaders ];
     # Use latest quictls to allow http3 support
     openssl = quictls;
@@ -4573,8 +4573,8 @@ with pkgs;
     python = python3;
     boost = boost.override { enablePython = true; python = python3; };
   };
-  calamares-nixos = lowPrio (calamares.override { nixos-extensions = true; });
-  calamares-nixos-extensions = callPackage ../tools/misc/calamares-nixos-extensions { };
+  calamares-botnix = lowPrio (calamares.override { botnix-extensions = true; });
+  calamares-botnix-extensions = callPackage ../tools/misc/calamares-botnix-extensions { };
 
   calendar-cli = callPackage ../tools/networking/calendar-cli { };
 
@@ -6791,9 +6791,9 @@ with pkgs;
 
     # To see which `fmt` version Ceph upstream recommends, check its `src/fmt` submodule.
     #
-    # Ceph does not currently build with `fmt_10`; see https://github.com/NixOS/nixpkgs/issues/281027#issuecomment-1899128557
+    # Ceph does not currently build with `fmt_10`; see https://github.com/nervosys/Botnix/issues/281027#issuecomment-1899128557
     # If we want to switch for that before upstream fixes it, use this patch:
-    # https://github.com/NixOS/nixpkgs/pull/281858#issuecomment-1899648638
+    # https://github.com/nervosys/Botnix/pull/281858#issuecomment-1899648638
     fmt = fmt_9;
   })
     ceph
@@ -6893,7 +6893,7 @@ with pkgs;
 
   connmanFull = connman.override {
     # TODO: Why is this in `connmanFull` and not the default build? See TODO in
-    # nixos/modules/services/networking/connman.nix (near the assertions)
+    # botnix/modules/services/networking/connman.nix (near the assertions)
     enableNetworkManagerCompatibility = true;
     enableHh2serialGps = true;
     enableL2tp = true;
@@ -7545,7 +7545,7 @@ with pkgs;
   dmd = callPackage ../development/compilers/dmd ({
     inherit (darwin.apple_sdk.frameworks) Foundation;
   } // lib.optionalAttrs stdenv.isLinux {
-    # https://github.com/NixOS/nixpkgs/pull/206907#issuecomment-1527034123
+    # https://github.com/nervosys/Botnix/pull/206907#issuecomment-1527034123
     stdenv = gcc11Stdenv;
   });
 
@@ -7929,7 +7929,7 @@ with pkgs;
 
   elasticsearch7 = callPackage ../servers/search/elasticsearch/7.x.nix {
     util-linux = util-linuxMinimal;
-    jre_headless = jdk11_headless; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre_headless = jdk11_headless; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
   elasticsearch = elasticsearch7;
 
@@ -9574,7 +9574,7 @@ with pkgs;
 
   jing = res.jing-trang;
   jing-trang = callPackage ../tools/text/xml/jing-trang {
-    jdk_headless = jdk8_headless; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jdk_headless = jdk8_headless; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   jira-cli-go = callPackage ../development/tools/jira-cli-go { };
@@ -9779,7 +9779,7 @@ with pkgs;
     # 1. specific compiler errors about: AVFoundation, AudioToolbox, MediaToolbox
     # 2. the rest are added from here: https://github.com/keybase/client/blob/68bb8c893c5214040d86ea36f2f86fbb7fac8d39/go/chat/attachments/preview_darwin.go#L7
     #      #cgo LDFLAGS: -framework AVFoundation -framework CoreFoundation -framework ImageIO -framework CoreMedia  -framework Foundation -framework CoreGraphics -lobjc
-    #    with the exception of CoreFoundation, due to the warning in https://github.com/NixOS/nixpkgs/blob/master/pkgs/os-specific/darwin/apple-sdk/frameworks.nix#L25
+    #    with the exception of CoreFoundation, due to the warning in https://github.com/nervosys/Botnix/blob/master/pkgs/os-specific/darwin/apple-sdk/frameworks.nix#L25
     inherit (darwin.apple_sdk_11_0.frameworks) AVFoundation AudioToolbox ImageIO CoreMedia Foundation CoreGraphics MediaToolbox;
   };
 
@@ -11812,7 +11812,7 @@ with pkgs;
 
   pakcs = callPackage ../development/compilers/pakcs {
     # Doesn't compile with GHC 9.0 due to whitespace syntax changes
-    # see also https://github.com/NixOS/nixpkgs/issues/166108
+    # see also https://github.com/nervosys/Botnix/issues/166108
     haskellPackages = haskell.packages.ghc810;
   };
 
@@ -14853,9 +14853,9 @@ with pkgs;
   waf = callPackage ../development/tools/build-managers/waf { };
   # An alias to work around the splicing incidents
   # Related:
-  # https://github.com/NixOS/nixpkgs/issues/204303
-  # https://github.com/NixOS/nixpkgs/issues/211340
-  # https://github.com/NixOS/nixpkgs/issues/227327
+  # https://github.com/nervosys/Botnix/issues/204303
+  # https://github.com/nervosys/Botnix/issues/211340
+  # https://github.com/nervosys/Botnix/issues/227327
   wafHook = waf.hook;
 
   waf-tester = callPackage ../tools/security/waf-tester { };
@@ -15902,7 +15902,7 @@ with pkgs;
           stdenv.targetPlatform.hasSharedLibraries
 
           # temporarily disabled due to breakage;
-          # see https://github.com/NixOS/nixpkgs/pull/243249
+          # see https://github.com/nervosys/Botnix/pull/243249
           && !stdenv.targetPlatform.isWindows
           && !(stdenv.targetPlatform.useLLVM or false)
         ;
@@ -16657,7 +16657,7 @@ with pkgs;
   marst = callPackage ../development/compilers/marst { };
 
   mercury = callPackage ../development/compilers/mercury {
-    jdk_headless = openjdk8_headless; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jdk_headless = openjdk8_headless; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   microscheme = callPackage ../development/compilers/microscheme { };
@@ -16716,7 +16716,7 @@ with pkgs;
 
   mozart2 = callPackage ../development/compilers/mozart {
     emacs = emacs-nox;
-    jre_headless = jre8_headless; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre_headless = jre8_headless; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   mozart2-binary = callPackage ../development/compilers/mozart/binary.nix { };
@@ -17140,7 +17140,7 @@ with pkgs;
   };
 
   scalafix = callPackage ../development/tools/scalafix {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
   scalafmt = callPackage ../development/tools/scalafmt { };
 
@@ -18672,7 +18672,7 @@ with pkgs;
   # You should specify a different directory using an override in
   # packageOverrides to set extraConfig.
   #
-  # Example using Nix daemon (i.e. multiuser Nix install or on NixOS):
+  # Example using Nix daemon (i.e. multiuser Nix install or on Botnix):
   #    packageOverrides = pkgs: {
   #     ccacheWrapper = pkgs.ccacheWrapper.override {
   #       extraConfig = ''
@@ -19117,11 +19117,11 @@ with pkgs;
   pifpaf = callPackage ../development/tools/pifpaf { };
 
   pmd = callPackage ../development/tools/analysis/pmd {
-    openjdk = openjdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    openjdk = openjdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   jdepend = callPackage ../development/tools/analysis/jdepend {
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jdk = jdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   flex_2_5_35 = callPackage ../development/tools/parsing/flex/2.5.35.nix { };
@@ -21207,7 +21207,7 @@ with pkgs;
   };
 
   freetts = callPackage ../development/libraries/freetts {
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jdk = jdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   frog = res.languageMachines.frog;
@@ -22034,7 +22034,7 @@ with pkgs;
   imlib2 = callPackage ../development/libraries/imlib2 { };
   imlib2Full = imlib2.override {
     # Compilation error on Darwin with librsvg. For more information see:
-    # https://github.com/NixOS/nixpkgs/pull/166452#issuecomment-1090725613
+    # https://github.com/nervosys/Botnix/pull/166452#issuecomment-1090725613
     svgSupport = !stdenv.isDarwin;
     heifSupport = !stdenv.isDarwin;
     webpSupport = true;
@@ -23126,7 +23126,7 @@ with pkgs;
   libmatheval = callPackage ../development/libraries/libmatheval { };
 
   libmatthew_java = callPackage ../development/libraries/java/libmatthew-java {
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jdk = jdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   libmatroska = callPackage ../development/libraries/libmatroska { };
@@ -24570,8 +24570,8 @@ with pkgs;
   range-v3 = callPackage ../development/libraries/range-v3 { };
 
   rabbitmq-java-client = callPackage ../development/libraries/rabbitmq-java-client {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
+    jdk = jdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   rapidcheck = callPackage ../development/libraries/rapidcheck { };
@@ -24797,7 +24797,7 @@ with pkgs;
     };
   });
   # Pinned for hedgewars:
-  #   https://github.com/NixOS/nixpkgs/pull/274185#issuecomment-1856764786
+  #   https://github.com/nervosys/Botnix/pull/274185#issuecomment-1856764786
   SDL2_image_2_6 = SDL2_image.overrideAttrs (oldAttrs: {
     version = "2.6.3";
     src = fetchurl {
@@ -25724,7 +25724,7 @@ with pkgs;
   httpunit = callPackage ../development/libraries/java/httpunit { };
 
   javaCup = callPackage ../development/libraries/java/cup {
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jdk = jdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   jdom = callPackage ../development/libraries/java/jdom { };
@@ -26096,11 +26096,11 @@ with pkgs;
   cadvisor = callPackage ../servers/monitoring/cadvisor { };
 
   cassandra_3_0 = callPackage ../servers/nosql/cassandra/3.0.nix {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
     python = python2;
   };
   cassandra_3_11 = callPackage ../servers/nosql/cassandra/3.11.nix {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
     python = python2;
   };
   cassandra_4 = callPackage ../servers/nosql/cassandra/4.nix {
@@ -26204,7 +26204,7 @@ with pkgs;
   directx-headers = callPackage ../development/libraries/directx-headers { };
 
   directx-shader-compiler = callPackage ../tools/graphics/directx-shader-compiler {
-    # https://github.com/NixOS/nixpkgs/issues/216294
+    # https://github.com/nervosys/Botnix/issues/216294
     stdenv = if stdenv.cc.isGNU && stdenv.isi686 then gcc11Stdenv else stdenv;
   };
 
@@ -26262,8 +26262,8 @@ with pkgs;
   biboumi = callPackage ../servers/xmpp/biboumi { };
 
   elasticmq-server-bin = callPackage ../servers/elasticmq-server-bin {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
+    jdk = jdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   eventstore = callPackage ../servers/nosql/eventstore { };
@@ -26608,7 +26608,7 @@ with pkgs;
     zlib = zlib-ng.override { withZlibCompat = true; };
     withPerl = false;
     # We don't use `with` statement here on purpose!
-    # See https://github.com/NixOS/nixpkgs/pull/10474#discussion_r42369334
+    # See https://github.com/nervosys/Botnix/pull/10474#discussion_r42369334
     modules = [ nginxModules.rtmp nginxModules.dav nginxModules.moreheaders ];
     # Use latest boringssl to allow http3 support
     openssl = quictls;
@@ -26618,7 +26618,7 @@ with pkgs;
     zlib = zlib-ng.override { withZlibCompat = true; };
     withPerl = false;
     # We don't use `with` statement here on purpose!
-    # See https://github.com/NixOS/nixpkgs/pull/10474#discussion_r42369334
+    # See https://github.com/nervosys/Botnix/pull/10474#discussion_r42369334
     modules = [ nginxModules.rtmp nginxModules.dav nginxModules.moreheaders ];
   };
 
@@ -26627,7 +26627,7 @@ with pkgs;
     withKTLS = true;
     withPerl = false;
     # We don't use `with` statement here on purpose!
-    # See https://github.com/NixOS/nixpkgs/pull/10474#discussion_r42369334
+    # See https://github.com/nervosys/Botnix/pull/10474#discussion_r42369334
     modules = [ nginxModules.dav nginxModules.moreheaders ];
   };
 
@@ -31862,8 +31862,8 @@ with pkgs;
   };
 
   freemind = callPackage ../applications/misc/freemind {
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jdk = jdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   freenet = callPackage ../applications/networking/p2p/freenet {
@@ -32421,8 +32421,8 @@ with pkgs;
   inherit (callPackage ../applications/virtualization/singularity/packages.nix { })
     apptainer
     singularity
-    apptainer-overriden-nixos
-    singularity-overriden-nixos
+    apptainer-overriden-botnix
+    singularity-overriden-botnix
     ;
 
   sfwbar = callPackage ../applications/misc/sfwbar { };
@@ -33864,7 +33864,7 @@ with pkgs;
 
   nice-dcv-client = callPackage ../applications/networking/remote/nice-dcv-client { };
 
-  nixos-shell = callPackage ../tools/virtualization/nixos-shell { };
+  botnix-shell = callPackage ../tools/virtualization/botnix-shell { };
 
   nix-ld = callPackage ../os-specific/linux/nix-ld { };
 
@@ -36171,8 +36171,8 @@ with pkgs;
   vue = callPackage ../applications/misc/vue { };
 
   vuze = callPackage ../applications/networking/p2p/vuze {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
+    jdk = jdk8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   vwm = callPackage ../applications/window-managers/vwm { };
@@ -38623,7 +38623,7 @@ with pkgs;
   gwyddion = callPackage ../applications/science/chemistry/gwyddion { };
 
   jmol = callPackage ../applications/science/chemistry/jmol {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
 
   marvin = callPackage ../applications/science/chemistry/marvin { };
@@ -39524,7 +39524,7 @@ with pkgs;
   zchaff = callPackage ../applications/science/logic/zchaff { };
 
   tlaplus = callPackage ../applications/science/logic/tlaplus {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = jre8; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   };
   tlaplus18 = callPackage ../applications/science/logic/tlaplus/tlaplus18.nix {};
   tlaps = callPackage ../applications/science/logic/tlaplus/tlaps.nix {
@@ -40342,7 +40342,7 @@ with pkgs;
   # In general we only want keep the last three minor versions around that
   # correspond to the last three supported kubernetes versions:
   # https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions
-  # Exceptions are versions that we need to keep to allow upgrades from older NixOS releases
+  # Exceptions are versions that we need to keep to allow upgrades from older Botnix releases
   inherit (callPackage ../applications/networking/cluster/kops {})
     mkKops
     kops_1_26
@@ -40430,16 +40430,16 @@ with pkgs;
   nixops_unstable = callPackage ../applications/networking/cluster/nixops { };
 
   /*
-    Evaluate a NixOS configuration using this evaluation of Nixpkgs.
+    Evaluate a Botnix configuration using this evaluation of Nixpkgs.
 
     With this function you can write, for example, a package that
     depends on a custom virtual machine image.
 
     Parameter:  A module, path or list of those that represent the
-                configuration of the NixOS system to be constructed.
+                configuration of the Botnix system to be constructed.
 
     Result: An attribute set containing packages produced by this
-            evaluation of NixOS, such as toplevel, kernel and
+            evaluation of Botnix, such as toplevel, kernel and
             initialRamdisk.
             The result can be extended in the modules by defining
             extra attributes in system.build.
@@ -40449,7 +40449,7 @@ with pkgs;
     Example:
 
         let
-          myOS = pkgs.nixos ({ lib, pkgs, config, ... }: {
+          myOS = pkgs.botnix ({ lib, pkgs, config, ... }: {
 
             config.services.nginx = {
               enable = true;
@@ -40465,7 +40465,7 @@ with pkgs;
         in
           myOS.run-nginx
 
-    Unlike in plain NixOS, the nixpkgs.config and
+    Unlike in plain Botnix, the nixpkgs.config and
     nixpkgs.system options will be ignored by default. Instead,
     nixpkgs.pkgs will have the default value of pkgs as it was
     constructed right after invoking the nixpkgs function (e.g. the
@@ -40473,19 +40473,19 @@ with pkgs;
     but not the value of (import <nixpkgs> {} // { extra = ...; }).
 
     If you do want to use the config.nixpkgs options, you are
-    probably better off by calling nixos/lib/eval-config.nix
+    probably better off by calling botnix/lib/eval-config.nix
     directly, even though it is possible to set config.nixpkgs.pkgs.
 
-    For more information about writing NixOS modules, see
-    https://nixos.org/nixos/manual/index.html#sec-writing-modules
+    For more information about writing Botnix modules, see
+    https://nixos.org/botnix/manual/index.html#sec-writing-modules
 
     Note that you will need to have called Nixpkgs with the system
     parameter set to the right value for your deployment target.
   */
-  nixos =
+  botnix =
     configuration:
       let
-        c = import (path + "/nixos/lib/eval-config.nix") {
+        c = import (path + "/botnix/lib/eval-config.nix") {
               modules =
                 [(
                   { lib, ... }: {
@@ -40506,7 +40506,7 @@ with pkgs;
         c.config.system.build // c;
 
   /*
-    A NixOS/home-manager/arion/... module that sets the `pkgs` module argument.
+    A Botnix/home-manager/arion/... module that sets the `pkgs` module argument.
    */
   pkgsModule = { lib, options, ... }: {
     config =
@@ -40521,12 +40521,12 @@ with pkgs;
   };
 
   nixosOptionsDoc = attrs:
-    (import ../../nixos/lib/make-options-doc)
+    (import ../../botnix/lib/make-options-doc)
     ({ inherit pkgs lib; } // attrs);
 
-  nixos-install-tools = callPackage ../tools/nix/nixos-install-tools { };
+  botnix-install-tools = callPackage ../tools/nix/botnix-install-tools { };
 
-  nixos-render-docs = callPackage ../tools/nix/nixos-render-docs { };
+  botnix-render-docs = callPackage ../tools/nix/botnix-render-docs { };
 
   nixdoc = callPackage ../tools/nix/nixdoc { };
 
@@ -40563,7 +40563,7 @@ with pkgs;
 
   nix-melt = callPackage ../tools/nix/nix-melt { };
 
-  nixos-option = callPackage ../tools/nix/nixos-option {
+  botnix-option = callPackage ../tools/nix/botnix-option {
     nix = nixVersions.nix_2_15;
   };
 
@@ -40622,17 +40622,17 @@ with pkgs;
 
   rnix-hashes = callPackage ../tools/nix/rnix-hashes { };
 
-  nixos-artwork = callPackage ../data/misc/nixos-artwork { };
-  nixos-icons = callPackage ../data/misc/nixos-artwork/icons.nix { };
-  nixos-grub2-theme = callPackage ../data/misc/nixos-artwork/grub2-theme.nix { };
+  botnix-artwork = callPackage ../data/misc/botnix-artwork { };
+  botnix-icons = callPackage ../data/misc/botnix-artwork/icons.nix { };
+  botnix-grub2-theme = callPackage ../data/misc/botnix-artwork/grub2-theme.nix { };
 
-  nixos-bgrt-plymouth = callPackage ../data/themes/nixos-bgrt-plymouth { };
+  botnix-bgrt-plymouth = callPackage ../data/themes/botnix-bgrt-plymouth { };
 
-  nixos-container = callPackage ../tools/virtualization/nixos-container { };
+  botnix-container = callPackage ../tools/virtualization/botnix-container { };
 
-  nixos-generators = callPackage ../tools/nix/nixos-generators { };
+  botnix-generators = callPackage ../tools/nix/botnix-generators { };
 
-  nixos-rebuild = callPackage ../os-specific/linux/nixos-rebuild { };
+  botnix-rebuild = callPackage ../os-specific/linux/botnix-rebuild { };
 
   extra-container = callPackage ../tools/virtualization/extra-container { };
 
@@ -40678,7 +40678,7 @@ with pkgs;
     };
     mysql = mysql;
     pcre = pcre-cpp;
-    jre = openjdk19; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
+    jre = openjdk19; # TODO: remove override https://github.com/nervosys/Botnix/pull/89731
   });
 
   owmods-cli = callPackage ../applications/misc/owmods-cli {
@@ -41460,7 +41460,7 @@ with pkgs;
 
   mpvc = callPackage ../applications/misc/mpvc { };
 
-  # Overriding does not work when using callPackage on discord using import instead. (https://github.com/NixOS/nixpkgs/pull/179906)
+  # Overriding does not work when using callPackage on discord using import instead. (https://github.com/nervosys/Botnix/pull/179906)
   discord = import ../applications/networking/instant-messengers/discord {
     inherit lib stdenv;
     inherit (pkgs) callPackage fetchurl;

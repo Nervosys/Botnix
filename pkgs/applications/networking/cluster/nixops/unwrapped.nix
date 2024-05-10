@@ -17,7 +17,7 @@ buildPythonApplication rec {
   pyproject = true;
 
   src = fetchFromGitHub {
-    owner = "NixOS";
+    owner = "Botnix";
     repo = "nixops";
     rev = "053668e849bb369973cf265b7e8f38e66ef70138";
     hash = "sha256-Kus1Ls1tT8fVGLX0NakRXmjuz5/J/tfqU4TLOkiZqvo=";
@@ -55,8 +55,8 @@ buildPythonApplication rec {
   };
 
   meta = with lib; {
-    description = "A tool for deploying to NixOS machines in a network or cloud";
-    homepage = "https://github.com/NixOS/nixops";
+    description = "A tool for deploying to Botnix machines in a network or cloud";
+    homepage = "https://github.com/Botnix/nixops";
     license = licenses.lgpl3Only;
     maintainers = with lib.maintainers; [ aminechikhaoui roberth ];
     platforms = lib.platforms.unix;

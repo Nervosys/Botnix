@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out/share/fonts/misc
     cp *.otb $out/share/fonts/misc
 
-    # create fonts.dir so NixOS xorg module adds to fp
+    # create fonts.dir so Botnix xorg module adds to fp
     mkfontdir $out/share/fonts/misc
   '';
 

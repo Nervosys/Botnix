@@ -67,7 +67,7 @@ stdenv.mkDerivation (finalAttrs: {
     "-DSUPPORT_MPI=ON"
     "-DBUILD_CLIENTS_SAMPLES=${if buildSamples then "ON" else "OFF"}"
     # Manually define CMAKE_INSTALL_<DIR>
-    # See: https://github.com/NixOS/nixpkgs/pull/197838
+    # See: https://github.com/nervosys/Botnix/pull/197838
     "-DCMAKE_INSTALL_BINDIR=bin"
     "-DCMAKE_INSTALL_LIBDIR=lib"
     "-DCMAKE_INSTALL_INCLUDEDIR=include"

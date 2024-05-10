@@ -42,7 +42,7 @@
 , # An attribute set whose attributes express the availability of
   # certain features in this kernel.  E.g. `{ia32Emulation = true;}'
   # indicates a kernel that provides Intel wireless support.  Used in
-  # NixOS to implement kernel-specific behaviour.
+  # Botnix to implement kernel-specific behaviour.
   features ? {}
 
 , # Custom seed used for CONFIG_GCC_PLUGIN_RANDSTRUCT if enabled. This is
@@ -85,7 +85,7 @@ let
   # This is to make sure that ofborg actually detects changes in the kernel derivation
   # and pings all maintainers.
   #
-  # For further context, see https://github.com/NixOS/nixpkgs/pull/143113#issuecomment-953319957
+  # For further context, see https://github.com/nervosys/Botnix/pull/143113#issuecomment-953319957
   basicArgs = builtins.removeAttrs
     args
     (lib.filter (x: ! (builtins.elem x [ "version" "src" ])) (lib.attrNames args));
@@ -184,7 +184,7 @@ let
     enableParallelBuilding = true;
 
     passthru = rec {
-      module = import ../../../../nixos/modules/system/boot/kernel_config.nix;
+      module = import ../../../../botnix/modules/system/boot/kernel_config.nix;
       # used also in apache
       # { modules = [ { options = res.options; config = svc.config or svc; } ];
       #   check = false;
@@ -230,7 +230,7 @@ let
       overridableKernel = finalKernel // {
         override = args:
           lib.warn (
-            "override is stubbed for NixOS kernel tests, not applying changes these arguments: "
+            "override is stubbed for Botnix kernel tests, not applying changes these arguments: "
             + toString (lib.attrNames (lib.toFunction args { }))
           ) overridableKernel;
       };

@@ -46,7 +46,7 @@ rustPlatform.buildRustPackage rec {
     OPENSSL_NO_VENDOR = 1;
   } // lib.optionalAttrs stdenv.cc.isClang {
     NIX_CFLAGS_COMPILE = "-faligned-allocation";
-    # Work around https://github.com/NixOS/nixpkgs/issues/166205.
+    # Work around https://github.com/nervosys/Botnix/issues/166205.
     NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}";
   };
 

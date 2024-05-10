@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
   };
 
   mesonFlags = [
-    "-Dfedora=false" # not useful in NixOS or for NixOS users.
+    "-Dfedora=false" # not useful in Botnix or for Botnix users.
     "-Dgoabackend=${lib.boolToString enableBackend}"
     "-Dgtk_doc=${lib.boolToString enableBackend}"
     "-Dman=${lib.boolToString enableBackend}"

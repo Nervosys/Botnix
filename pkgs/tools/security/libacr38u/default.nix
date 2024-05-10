@@ -28,7 +28,7 @@ stdenv.mkDerivation {
       This package is needed to communicate with the ACR38U smartcard readers through
       the PC/SC Lite resource manager (pcscd).
 
-      It can be enabled in /etc/nixos/configuration.nix by adding:
+      It can be enabled in /etc/botnix/configuration.nix by adding:
         services.pcscd.enable = true;
         services.pcscd.plugins = [ libacr38u ];
 

@@ -6,7 +6,7 @@ index 80ffb496..ea064f97 100644
      MESSAGE = (
          "Warning! Please install `99-platformio-udev.rules`. \nMore details: "
          "https://docs.platformio.org/en/latest/core/installation/udev-rules.html"
-+        "On NixOS set `services.udev.packages = with pkgs; [ platformio-core.udev ];`."
++        "On Botnix set `services.udev.packages = with pkgs; [ platformio-core.udev ];`."
      )
  
  

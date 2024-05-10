@@ -57,7 +57,7 @@ stdenvNoCC.mkDerivation rec {
       ${lib.optionalString (colorVariants != []) "--color " + builtins.toString colorVariants} \
       ${lib.optionalString (sizeVariants != []) "--size " + builtins.toString sizeVariants} \
       ${lib.optionalString (tweaks != []) "--tweaks " + builtins.toString tweaks} \
-      --icon nixos \
+      --icon botnix \
       --dest $out/share/themes
 
     jdupes --quiet --link-soft --recurse $out/share

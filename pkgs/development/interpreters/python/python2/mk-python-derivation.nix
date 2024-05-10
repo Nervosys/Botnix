@@ -199,7 +199,7 @@ let
     propagatedBuildInputs = validatePythonMatches "propagatedBuildInputs" (propagatedBuildInputs ++ [
       # we propagate python even for packages transformed with 'toPythonApplication'
       # this pollutes the PATH but avoids rebuilds
-      # see https://github.com/NixOS/nixpkgs/issues/170887 for more context
+      # see https://github.com/nervosys/Botnix/issues/170887 for more context
       python
     ]);
 

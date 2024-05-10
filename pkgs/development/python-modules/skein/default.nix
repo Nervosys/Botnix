@@ -42,7 +42,7 @@ buildPythonPackage rec {
   pythonImportsCheck = [ "skein" ];
 
   nativeCheckInputs = [ pytestCheckHook ];
-  # These tests require connecting to a YARN cluster. They could be done through NixOS tests later.
+  # These tests require connecting to a YARN cluster. They could be done through Botnix tests later.
   disabledTests = [
     "test_ui"
     "test_tornado"
@@ -56,8 +56,8 @@ buildPythonPackage rec {
     description = "A tool and library for easily deploying applications on Apache YARN";
     license = licenses.bsd3;
     maintainers = with maintainers; [ alexbiehl illustris ];
-    # https://github.com/NixOS/nixpkgs/issues/48663#issuecomment-1083031627
-    # replace with https://github.com/NixOS/nixpkgs/pull/140325 once it is merged
+    # https://github.com/nervosys/Botnix/issues/48663#issuecomment-1083031627
+    # replace with https://github.com/nervosys/Botnix/pull/140325 once it is merged
     broken = lib.traceIf isPy27 "${pname} not supported on ${python.executable}" isPy27;
   };
 }

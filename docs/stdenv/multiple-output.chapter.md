@@ -12,7 +12,7 @@ A number of attributes can be used to work with a derivation with multiple outpu
 The attribute `outputs` is a list of strings, which are the names of the outputs.
 For each of these names, an identically named attribute is created, corresponding to that output.
 
-The attribute `meta.outputsToInstall` is used to determine the [default set of outputs to install](https://github.com/NixOS/nixpkgs/blob/08c3198f1c6fd89a09f8f0ea09b425028a34de3e/pkgs/stdenv/generic/check-meta.nix#L411-L426) when using the derivation name unqualified:
+The attribute `meta.outputsToInstall` is used to determine the [default set of outputs to install](https://github.com/nervosys/Botnix/blob/08c3198f1c6fd89a09f8f0ea09b425028a34de3e/pkgs/stdenv/generic/check-meta.nix#L411-L426) when using the derivation name unqualified:
 `bin`, or `out`, or the first specified output; as well as `man` if that is specified.
 
 ## Using a split package {#sec-multiple-outputs-using-split-packages}
@@ -45,7 +45,7 @@ A commonly adopted convention in `nixpkgs` is that executables provided by the p
 
 The `glibc` package is a deliberate single exception to the “binaries first” convention. The `glibc` has `libs` as its first output allowing the libraries provided by `glibc` to be referenced directly (e.g. `${glibc}/lib/ld-linux-x86-64.so.2`). The executables provided by `glibc` can be accessed via its `bin` attribute (e.g. `${lib.getBin stdenv.cc.libc}/bin/ldd`).
 
-The reason for why `glibc` deviates from the convention is because referencing a library provided by `glibc` is a very common operation among Nix packages. For instance, third-party executables packaged by Nix are typically patched and relinked with the relevant version of `glibc` libraries from Nix packages (please see the documentation on [patchelf](https://github.com/NixOS/patchelf) for more details).
+The reason for why `glibc` deviates from the convention is because referencing a library provided by `glibc` is a very common operation among Nix packages. For instance, third-party executables packaged by Nix are typically patched and relinked with the relevant version of `glibc` libraries from Nix packages (please see the documentation on [patchelf](https://github.com/Botnix/patchelf) for more details).
 
 ### File type groups {#multiple-output-file-type-groups}
 

@@ -141,7 +141,7 @@ let
     ] ++ lib.optionals stdenv.isLinux [
 
       # Disable the use of ldconfig in ctypes.util.find_library (since
-      # ldconfig doesn't work on NixOS), and don't use
+      # ldconfig doesn't work on Botnix), and don't use
       # ctypes.util.find_library during the loading of the uuid module
       # (since it will do a futile invocation of gcc (!) to find
       # libuuid, slowing down program startup a lot).

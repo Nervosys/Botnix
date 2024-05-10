@@ -2,7 +2,7 @@
 
 ## How to use Agda {#how-to-use-agda}
 
-Agda is available as the [agda](https://search.nixos.org/packages?channel=unstable&show=agda&from=0&size=30&sort=relevance&query=agda)
+Agda is available as the [agda](https://search.botnix.org/packages?channel=unstable&show=agda&from=0&size=30&sort=relevance&query=agda)
 package.
 
 The `agda` package installs an Agda-wrapper, which calls `agda` with `--library-file`

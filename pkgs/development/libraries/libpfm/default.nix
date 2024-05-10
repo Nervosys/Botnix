@@ -19,7 +19,7 @@ stdenv.mkDerivation (finalAttrs: {
   patches = [ ./fix-windows.patch ];
 
   # Upstream uses "WINDOWS" instead of "Windows" which is incorrect
-  # See: https://github.com/NixOS/nixpkgs/pull/252982#discussion_r1314346216
+  # See: https://github.com/nervosys/Botnix/pull/252982#discussion_r1314346216
   postPatch = ''
     substituteInPlace config.mk examples/Makefile \
       --replace '($(SYS),WINDOWS)' '($(SYS),Windows)'

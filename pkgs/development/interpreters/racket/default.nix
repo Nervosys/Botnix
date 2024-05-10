@@ -76,7 +76,7 @@ stdenv.mkDerivation rec {
   patches = [
     # Hardcode variant detection because we wrap the Racket binary making it
     # fail to detect its variant at runtime.
-    # See: https://github.com/NixOS/nixpkgs/issues/114993#issuecomment-812951247
+    # See: https://github.com/nervosys/Botnix/issues/114993#issuecomment-812951247
     ./force-cs-variant.patch
 
     # The entry point binary $out/bin/racket is codesigned at least once. The

@@ -1,6 +1,6 @@
 assignments {
   sound-server {
-    // original config matches on /usr/bin/..., but this is NixOS
+    // original config matches on /usr/bin/..., but this is Botnix
     pipewire
     pipewire-pulse
     jackd

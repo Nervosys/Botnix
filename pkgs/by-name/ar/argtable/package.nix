@@ -42,7 +42,7 @@ stdenv.mkDerivation (finalAttrs: {
     platforms = lib.platforms.all;
   };
 })
-# TODO: a NixOS test suite
+# TODO: a Botnix test suite
 # TODO: multiple outputs
 # TODO: documentation
 # TODO: build both shared and static libs

@@ -128,9 +128,9 @@ lib.warnIf (useHardenedMalloc != null)
   distributionIni = writeText "distribution.ini" (lib.generators.toINI {} {
     # Some light branding indicating this build uses our distro preferences
     Global = {
-      id = "nixos";
+      id = "botnix";
       version = "1.0";
-      about = "Tor Browser for NixOS";
+      about = "Tor Browser for Botnix";
     };
   });
 

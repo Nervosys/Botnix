@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
     longDescription = ''
       If kdiskmark is not run as root it can rely on polkit to get the necessary
       privileges. In this case you must install it with `environment.systemPackages`
-      on NixOS, nix-env will not work.
+      on Botnix, nix-env will not work.
     '';
     homepage = "https://github.com/JonMagon/KDiskMark";
     maintainers = [ maintainers.symphorien ];

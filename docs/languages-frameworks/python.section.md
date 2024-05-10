@@ -4,17 +4,17 @@
 
 ### Interpreters {#interpreters}
 
-| Package    | Aliases         | Interpreter |
-|------------|-----------------|-------------|
-| python27   | python2, python | CPython 2.7 |
-| python38   |                 | CPython 3.8 |
-| python39   |                 | CPython 3.9 |
-| python310  |                 | CPython 3.10 |
-| python311  | python3         | CPython 3.11 |
-| python312  |                 | CPython 3.12 |
-| python313  |                 | CPython 3.13 |
-| pypy27     | pypy2, pypy     | PyPy2.7 |
-| pypy39     | pypy3           | PyPy 3.9 |
+| Package   | Aliases         | Interpreter  |
+| --------- | --------------- | ------------ |
+| python27  | python2, python | CPython 2.7  |
+| python38  |                 | CPython 3.8  |
+| python39  |                 | CPython 3.9  |
+| python310 |                 | CPython 3.10 |
+| python311 | python3         | CPython 3.11 |
+| python312 |                 | CPython 3.12 |
+| python313 |                 | CPython 3.13 |
+| pypy27    | pypy2, pypy     | PyPy2.7      |
+| pypy39    | pypy3           | PyPy 3.9     |
 
 The Nix expressions for the interpreters can be found in
 `pkgs/development/interpreters/python`.
@@ -551,13 +551,13 @@ The main package set contains aliases to these package sets, e.g.
 
 #### Installing Python and packages {#installing-python-and-packages}
 
-The Nix and NixOS manuals explain how packages are generally installed. In the
+The Nix and Botnix manuals explain how packages are generally installed. In the
 case of Python and Nix, it is important to make a distinction between whether the
 package is considered an application or a library.
 
 Applications on Nix are typically installed into your user profile imperatively
-using `nix-env -i`, and on NixOS declaratively by adding the package name to
-`environment.systemPackages` in `/etc/nixos/configuration.nix`. Dependencies
+using `nix-env -i`, and on Botnix declaratively by adding the package name to
+`environment.systemPackages` in `/etc/botnix/configuration.nix`. Dependencies
 such as libraries are automatically installed and should not be installed
 explicitly.
 
@@ -639,12 +639,12 @@ that sets up an interpreter pointing to them. This matters much more for "big"
 modules like `pytorch` or `tensorflow`.
 
 Module names usually match their names on [pypi.org](https://pypi.org/), but
-you can use the [Nixpkgs search website](https://nixos.org/nixos/packages.html)
+you can use the [Nixpkgs search website](https://nixos.org/botnix/packages.html)
 to find them as well (along with non-python packages).
 
 At this point we can create throwaway experimental Python environments with
 arbitrary dependencies. This is a good way to get a feel for how the Python
-interpreter and dependencies work in Nix and NixOS, but to do some actual
+interpreter and dependencies work in Nix and Botnix, but to do some actual
 development, we'll want to make it a bit more persistent.
 
 ##### Running Python scripts and using `nix-shell` as shebang {#running-python-scripts-and-using-nix-shell-as-shebang}
@@ -704,7 +704,7 @@ can make it fully reproducible by pinning the `nixpkgs` import:
 ```python
 #!/usr/bin/env nix-shell
 #!nix-shell -i python3 -p "python3.withPackages (ps: [ ps.numpy ])"
-#!nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/e51209796c4262bfb8908e3d6d72302fe4e96f5f.tar.gz
+#!nix-shell -I nixpkgs=https://github.com/nervosys/Botnix/archive/e51209796c4262bfb8908e3d6d72302fe4e96f5f.tar.gz
 import numpy as np
 a = np.array([1,2])
 b = np.array([3,4])
@@ -834,10 +834,10 @@ If you get a conflict or prefer to keep the setup clean, you can have `nix-env`
 atomically *uninstall* all other imperatively installed packages and replace
 your profile with just `myEnv` by using the `--replace` flag.
 
-##### Environment defined in `/etc/nixos/configuration.nix` {#environment-defined-in-etcnixosconfiguration.nix}
+##### Environment defined in `/etc/botnix/configuration.nix` {#environment-defined-in-etcnixosconfiguration.nix}
 
 For the sake of completeness, here's how to install the environment system-wide
-on NixOS.
+on Botnix.
 
 ```nix
 { # ...
@@ -1837,7 +1837,7 @@ If you need to change a package's attribute(s) from `configuration.nix` you coul
 ```
 
 `python3Packages.twisted` is now globally overridden.
-All packages and also all NixOS services that reference `twisted`
+All packages and also all Botnix services that reference `twisted`
 (such as `services.buildbot-worker`) now use the new definition.
 Note that `python-super` refers to the old package set and `python-self`
 to the new, overridden version.
@@ -2090,10 +2090,10 @@ time for the majority of active Python projects to support the latest stable
 interpreter. To help ease the migration for Nixpkgs users
 between Python interpreters the schedule below will be used:
 
-| When | Event |
-| --- | --- |
+| When                | Event                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------- |
 | After YY.11 Release | Bump CPython package set window. The latest and previous latest stable should now be built. |
-| After YY.05 Release | Bump default CPython interpreter to latest stable. |
+| After YY.05 Release | Bump default CPython interpreter to latest stable.                                          |
 
 In practice, this means that the Python community will have had a stable interpreter
 for ~2 months before attempting to update the package set. And this will

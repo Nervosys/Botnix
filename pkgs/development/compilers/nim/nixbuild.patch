@@ -21,7 +21,7 @@ index f31ae94dd..debed9c07 100644
 +    # load libraries using an absolute path if one
 +    # can be derived from NIX_LDFLAGS.
 +    #
-+    # During Nix/NixOS packaging the line "define:nixbuild"
++    # During Nix/Botnix packaging the line "define:nixbuild"
 +    # should be appended to the ../../config/nim.cfg file
 +    # to enable this behavior by default.
 +    #

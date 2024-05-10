@@ -99,7 +99,7 @@ in stdenv.mkDerivation {
     })
   ++ [
     ./qt-dependency-paths.patch
-    # https://github.com/NixOS/nixpkgs/issues/123851
+    # https://github.com/nervosys/Botnix/issues/123851
     ./fix-audio-driver-loading.patch
     ./libxml-2.12.patch
     ./gcc-13.patch
@@ -241,7 +241,7 @@ in stdenv.mkDerivation {
     longDescription = ''
       VirtualBox is an x86 and AMD64/Intel64 virtualization product for enterprise and home use.
 
-      To install on NixOS, please use the option `virtualisation.virtualbox.host.enable = true`.
+      To install on Botnix, please use the option `virtualisation.virtualbox.host.enable = true`.
       Please also check other options under `virtualisation.virtualbox`.
     '';
     sourceProvenance = with lib.sourceTypes; [

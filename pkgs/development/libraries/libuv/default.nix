@@ -41,7 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
       "spawn_setuid_fails" "spawn_setgid_fails" "fs_chown" # user namespaces
       "getaddrinfo_fail" "getaddrinfo_fail_sync" "tcp_connect6_link_local"
       "threadpool_multiple_event_loops" # times out on slow machines
-      "get_passwd" # passed on NixOS but failed on other Linuxes
+      "get_passwd" # passed on Botnix but failed on other Linuxes
       "tcp_writealot" "udp_multicast_join" "udp_multicast_join6" "metrics_pool_events" # times out sometimes
       "fs_fstat" # https://github.com/libuv/libuv/issues/2235#issuecomment-1012086927
 
@@ -88,7 +88,7 @@ stdenv.mkDerivation (finalAttrs: {
   enableParallelBuilding = true;
 
   # separateDebugInfo breaks static build
-  # https://github.com/NixOS/nixpkgs/issues/219466
+  # https://github.com/nervosys/Botnix/issues/219466
   separateDebugInfo = !stdenv.hostPlatform.isStatic;
 
   doCheck =

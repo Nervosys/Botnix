@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ pkg-config autoreconfHook ];
 
-  # Use msbuild when https://github.com/NixOS/nixpkgs/pull/43680 is merged
+  # Use msbuild when https://github.com/nervosys/Botnix/pull/43680 is merged
   buildInputs = [ mono4 gtk-sharp-2_0 ];
 
   dontStrip = true;

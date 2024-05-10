@@ -53,7 +53,7 @@ in with pkgs; rec {
 
       meta = {
         # Increase priority to unblock nixpkgs-unstable
-        # https://github.com/NixOS/nixpkgs/pull/104679#issuecomment-732267288
+        # https://github.com/nervosys/Botnix/pull/104679#issuecomment-732267288
         schedulingPriority = 200;
       };
 
@@ -217,7 +217,7 @@ in with pkgs; rec {
 
     meta = {
       # Increase priority to unblock nixpkgs-unstable
-      # https://github.com/NixOS/nixpkgs/pull/104679#issuecomment-732267288
+      # https://github.com/nervosys/Botnix/pull/104679#issuecomment-732267288
       schedulingPriority = 200;
     };
 

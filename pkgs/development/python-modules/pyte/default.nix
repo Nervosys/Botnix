@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   postPatch = ''
-    # Remove pytest-runner dependency since it is not supported in the NixOS
+    # Remove pytest-runner dependency since it is not supported in the Botnix
     # sandbox
     sed -i '/pytest-runner/d' setup.py
   '';

@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
 
   preFixup = ''
     # TODO: Packages in non-standard directories not stripped.
-    # https://github.com/NixOS/nixpkgs/issues/141554
+    # https://github.com/nervosys/Botnix/issues/141554
     stripDebugList=modules
   '';
 

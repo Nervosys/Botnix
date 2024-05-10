@@ -14,7 +14,7 @@ buildGoModule rec {
 
   vendorHash = null;
 
-  # re date: https://github.com/NixOS/nixpkgs/pull/45997#issuecomment-418186178
+  # re date: https://github.com/nervosys/Botnix/pull/45997#issuecomment-418186178
   # > .. keep the derivation deterministic. Otherwise, we would have to rebuild it every time.
   ldflags = [
     "-X main.version=v${version}"

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2021 Nixpkgs/NixOS contributors
+# SPDX-FileCopyrightText: 2021 Nixpkgs/Botnix contributors
 ## Custom Nim builder for Nixpkgs.
 
 import std/[os, osproc, parseutils, sequtils, streams, strutils]

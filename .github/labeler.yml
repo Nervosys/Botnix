@@ -1,26 +1,26 @@
 "6.topic: agda":
   - doc/languages-frameworks/agda.section.md
-  - nixos/tests/agda.nix
+  - botnix/tests/agda.nix
   - pkgs/build-support/agda/**/*
   - pkgs/development/libraries/agda/**/*
   - pkgs/top-level/agda-packages.nix
 
 "6.topic: cinnamon":
   - pkgs/desktops/cinnamon/**/*
-  - nixos/modules/services/x11/desktop-managers/cinnamon.nix
-  - nixos/tests/cinnamon.nix
+  - botnix/modules/services/x11/desktop-managers/cinnamon.nix
+  - botnix/tests/cinnamon.nix
 
 "6.topic: emacs":
-  - nixos/modules/services/editors/emacs.nix
-  - nixos/modules/services/editors/emacs.xml
-  - nixos/tests/emacs-daemon.nix
+  - botnix/modules/services/editors/emacs.nix
+  - botnix/modules/services/editors/emacs.xml
+  - botnix/tests/emacs-daemon.nix
   - pkgs/applications/editors/emacs/elisp-packages/**/*
   - pkgs/applications/editors/emacs/**/*
   - pkgs/build-support/emacs/**/*
   - pkgs/top-level/emacs-packages.nix
 
 "6.topic: Enlightenment DE":
-  - nixos/modules/services/x11/desktop-managers/enlightenment.nix
+  - botnix/modules/services/x11/desktop-managers/enlightenment.nix
   - pkgs/desktops/enlightenment/**/*
   - pkgs/development/python-modules/python-efl/*
 
@@ -38,16 +38,16 @@
   - pkgs/build-support/fetch*/**/*
 
 "6.topic: flakes":
-  - '**/flake.nix'
+  - "**/flake.nix"
   - lib/systems/flake-systems.nix
-  - nixos/modules/config/nix-flakes.nix
+  - botnix/modules/config/nix-flakes.nix
 
 "6.topic: GNOME":
   - doc/languages-frameworks/gnome.section.md
-  - nixos/modules/services/desktops/gnome/**/*
-  - nixos/modules/services/x11/desktop-managers/gnome.nix
-  - nixos/tests/gnome-xorg.nix
-  - nixos/tests/gnome.nix
+  - botnix/modules/services/desktops/gnome/**/*
+  - botnix/modules/services/x11/desktop-managers/gnome.nix
+  - botnix/tests/gnome-xorg.nix
+  - botnix/tests/gnome.nix
   - pkgs/desktops/gnome/**/*
 
 "6.topic: golang":
@@ -68,7 +68,7 @@
 "6.topic: jupyter":
   - pkgs/development/python-modules/jupyter*/**/*
   - pkgs/development/python-modules/mkdocs-jupyter/*
-  - nixos/modules/services/development/jupyter/**/*
+  - botnix/modules/services/development/jupyter/**/*
   - pkgs/applications/editors/jupyter-kernels/**/*
   - pkgs/applications/editors/jupyter/**/*
 
@@ -86,16 +86,16 @@
   - pkgs/top-level/lua-packages.nix
 
 "6.topic: Lumina DE":
-  - nixos/modules/services/x11/desktop-managers/lumina.nix
+  - botnix/modules/services/x11/desktop-managers/lumina.nix
   - pkgs/desktops/lumina/**/*
 
 "6.topic: LXQt":
-  - nixos/modules/services/x11/desktop-managers/lxqt.nix
+  - botnix/modules/services/x11/desktop-managers/lxqt.nix
   - pkgs/desktops/lxqt/**/*
 
 "6.topic: mate":
-  - nixos/modules/services/x11/desktop-managers/mate.nix
-  - nixos/tests/mate.nix
+  - botnix/modules/services/x11/desktop-managers/mate.nix
+  - botnix/tests/mate.nix
   - pkgs/desktops/mate/**/*
 
 "6.topic: module system":
@@ -105,9 +105,9 @@
   - lib/tests/modules.sh
   - lib/tests/modules/**
 
-"6.topic: nixos":
-  - nixos/**/*
-  - pkgs/os-specific/linux/nixos-rebuild/**/*
+"6.topic: botnix":
+  - botnix/**/*
+  - pkgs/os-specific/linux/botnix-rebuild/**/*
 
 "6.topic: nim":
   - doc/languages-frameworks/nim.section.md
@@ -132,17 +132,17 @@
   - pkgs/top-level/ocaml-packages.nix
 
 "6.topic: pantheon":
-  - nixos/modules/services/desktops/pantheon/**/*
-  - nixos/modules/services/x11/desktop-managers/pantheon.nix
-  - nixos/modules/services/x11/display-managers/lightdm-greeters/pantheon.nix
-  - nixos/tests/pantheon.nix
+  - botnix/modules/services/desktops/pantheon/**/*
+  - botnix/modules/services/x11/desktop-managers/pantheon.nix
+  - botnix/modules/services/x11/display-managers/lightdm-greeters/pantheon.nix
+  - botnix/tests/pantheon.nix
   - pkgs/desktops/pantheon/**/*
 
 "6.topic: policy discussion":
   - .github/**/*
 
 "6.topic: printing":
-  - nixos/modules/services/printing/cupsd.nix
+  - botnix/modules/services/printing/cupsd.nix
   - pkgs/misc/cups/**/*
 
 "6.topic: python":
@@ -153,8 +153,8 @@
 
 "6.topic: qt/kde":
   - doc/languages-frameworks/qt.section.md
-  - nixos/modules/services/x11/desktop-managers/plasma5.nix
-  - nixos/tests/plasma5.nix
+  - botnix/modules/services/x11/desktop-managers/plasma5.nix
+  - botnix/tests/plasma5.nix
   - pkgs/applications/kde/**/*
   - pkgs/desktops/plasma-5/**/*
   - pkgs/development/libraries/kde-frameworks/**/*
@@ -178,7 +178,7 @@
 
 "6.topic: systemd":
   - pkgs/os-specific/linux/systemd/**/*
-  - nixos/modules/system/boot/systemd*/**/*
+  - botnix/modules/system/boot/systemd*/**/*
 
 "6.topic: TeX":
   - doc/languages-frameworks/texlive.section.md
@@ -189,16 +189,16 @@
   - doc/languages-frameworks/vim.section.md
   - pkgs/applications/editors/vim/**/*
   - pkgs/applications/editors/vim/plugins/**/*
-  - nixos/modules/programs/neovim.nix
+  - botnix/modules/programs/neovim.nix
   - pkgs/applications/editors/neovim/**/*
 
 "6.topic: vscode":
   - pkgs/applications/editors/vscode/**/*
 
 "6.topic: xfce":
-  - nixos/doc/manual/configuration/xfce.xml
-  - nixos/modules/services/x11/desktop-managers/xfce.nix
-  - nixos/tests/xfce.nix
+  - botnix/doc/manual/configuration/xfce.xml
+  - botnix/modules/services/x11/desktop-managers/xfce.nix
+  - botnix/tests/xfce.nix
   - pkgs/desktops/xfce/**/*
 
 "6.topic: zig":
@@ -206,11 +206,11 @@
   - doc/hooks/zig.section.md
 
 "8.has: changelog":
-  - nixos/doc/manual/release-notes/**/*
+  - botnix/doc/manual/release-notes/**/*
 
 "8.has: documentation":
   - doc/**/*
-  - nixos/doc/**/*
+  - botnix/doc/**/*
 
 "8.has: module (update)":
-  - nixos/modules/**/*
+  - botnix/modules/**/*

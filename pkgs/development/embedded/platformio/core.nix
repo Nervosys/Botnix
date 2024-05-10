@@ -33,7 +33,7 @@ with python3Packages; buildPythonApplication rec {
       src = ./use-local-spdx-license-list.patch;
       spdx_license_list_data = spdx-license-list-data.json;
     })
-    ./missing-udev-rules-nixos.patch
+    ./missing-udev-rules-botnix.patch
     (fetchpatch {
       # restore PYTHONPATH when calling scons
       # https://github.com/platformio/platformio-core/commit/097de2be98af533578671baa903a3ae825d90b94
@@ -87,7 +87,7 @@ with python3Packages; buildPythonApplication rec {
   ];
 
   # Install udev rules into a separate output so all of platformio-core is not a dependency if
-  # you want to use the udev rules on NixOS but not install platformio in your system packages.
+  # you want to use the udev rules on Botnix but not install platformio in your system packages.
   postInstall = ''
     mkdir -p $udev/lib/udev/rules.d
     cp platformio/assets/system/99-platformio-udev.rules $udev/lib/udev/rules.d/99-platformio-udev.rules

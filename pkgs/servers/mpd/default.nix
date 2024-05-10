@@ -182,7 +182,7 @@ let
         ++ lib.optional (builtins.elem "systemd" features_)
           "-Dsystemd_system_unit_dir=etc/systemd/system";
 
-      passthru.tests.nixos = nixosTests.mpd;
+      passthru.tests.botnix = nixosTests.mpd;
 
       meta = with lib; {
         description = "A flexible, powerful daemon for playing music";

@@ -1,6 +1,6 @@
 { callPackage
 , fetchFromGitHub
-, nixos
+, botnix
 , conmon
 }:
 let
@@ -31,7 +31,7 @@ let
 
       # Apptainer builders require explicit --with-suid / --without-suid flag
       # when building on a system with disabled unprivileged namespace.
-      # See https://github.com/NixOS/nixpkgs/pull/215690#issuecomment-1426954601
+      # See https://github.com/nervosys/Botnix/pull/215690#issuecomment-1426954601
       defaultToSuid = null;
     };
 
@@ -67,7 +67,7 @@ let
       defaultToSuid = true;
     };
 
-  genOverridenNixos = package: packageName: (nixos {
+  genOverridenNixos = package: packageName: (botnix {
     programs.singularity = {
       enable = true;
       inherit package;
@@ -77,7 +77,7 @@ let
       description = "";
       longDescription = ''
         This package produces identical store derivations to `pkgs.${packageName}`
-        overriden and installed by the NixOS module `programs.singularity`
+        overriden and installed by the Botnix module `programs.singularity`
         with default configuration.
 
         This is for binary substitutes only. Use pkgs.${packageName} instead.
@@ -88,6 +88,6 @@ in
 {
   inherit apptainer singularity;
 
-  apptainer-overriden-nixos = genOverridenNixos apptainer "apptainer";
-  singularity-overriden-nixos = genOverridenNixos singularity "singularity";
+  apptainer-overriden-botnix = genOverridenNixos apptainer "apptainer";
+  singularity-overriden-botnix = genOverridenNixos singularity "singularity";
 }

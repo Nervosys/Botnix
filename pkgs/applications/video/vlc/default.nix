@@ -241,7 +241,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   # - Touch plugins (plugins cache keyed off mtime and file size:
-  #     https://github.com/NixOS/nixpkgs/pull/35124#issuecomment-370552830
+  #     https://github.com/nervosys/Botnix/pull/35124#issuecomment-370552830
   # - Remove references to the Qt development headers (used in error messages)
   #
   # pkgsBuildBuild is used here because buildPackages.libvlc somehow

@@ -52,7 +52,7 @@ stdenv.mkDerivation {
     mkdir -p "$HOME"
 
     # avoid running out of memory with many threads in subprocesses, see
-    # https://github.com/NixOS/nixpkgs/pull/65802
+    # https://github.com/nervosys/Botnix/pull/65802
     export GLIBC_TUNABLES=glibc.malloc.arena_max=4
 
     echo "Running sage tests with arguments ${timeSpecifier} ${patienceSpecifier} ${testArgs}"

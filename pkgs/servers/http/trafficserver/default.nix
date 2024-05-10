@@ -107,7 +107,7 @@ stdenv.mkDerivation rec {
   '';
 
   configureFlags = [
-    "--enable-layout=NixOS"
+    "--enable-layout=Botnix"
     "--enable-experimental-plugins"
     (lib.enableFeature enableWCCP "wccp")
 

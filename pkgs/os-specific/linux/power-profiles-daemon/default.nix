@@ -69,7 +69,7 @@ stdenv.mkDerivation rec {
     glib
     polkit
     python3 # for cli tool
-    # Duplicate from nativeCheckInputs until https://github.com/NixOS/nixpkgs/issues/161570 is solved
+    # Duplicate from nativeCheckInputs until https://github.com/nervosys/Botnix/issues/161570 is solved
     umockdev
   ];
 
@@ -119,7 +119,7 @@ stdenv.mkDerivation rec {
 
   passthru = {
     tests = {
-      nixos = nixosTests.power-profiles-daemon;
+      botnix = nixosTests.power-profiles-daemon;
     };
   };
 

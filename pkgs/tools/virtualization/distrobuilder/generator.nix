@@ -1,12 +1,12 @@
 { stdenvNoCC, lib, src, version, makeWrapper, coreutils, findutils, gnugrep, systemd }:
 
 stdenvNoCC.mkDerivation {
-  name = "distrobuilder-nixos-generator";
+  name = "distrobuilder-botnix-generator";
 
   inherit src version;
 
   patches = [
-    ./nixos-generator.patch
+    ./botnix-generator.patch
   ];
 
   dontBuild = true;

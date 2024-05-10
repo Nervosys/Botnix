@@ -5,7 +5,7 @@
 , poetry-core
 , hetzner
 , nixops
-, nixos-modules-contrib
+, botnix-modules-contrib
 , typing-extensions
 }:
 
@@ -15,7 +15,7 @@ buildPythonPackage {
   pyproject = true;
 
   src = fetchFromGitHub {
-    owner = "NixOS";
+    owner = "Botnix";
     repo = "nixops-hetzner";
     rev = "bc7a68070c7371468bcc8bf6e36baebc6bd2da35";
     hash = "sha256-duK1Ui4VpbGSgGvfjTOddHSqHZ1FSy4L9Egg+FvZv04=";
@@ -37,7 +37,7 @@ buildPythonPackage {
 
   propagatedBuildInputs = [
     hetzner
-    nixos-modules-contrib
+    botnix-modules-contrib
     typing-extensions
   ];
 
@@ -47,7 +47,7 @@ buildPythonPackage {
 
   meta = with lib; {
     description = "Hetzner bare metal NixOps plugin";
-    homepage = "https://github.com/NixOS/nixops-hetzner";
+    homepage = "https://github.com/Botnix/nixops-hetzner";
     license = licenses.mit;
     maintainers = nixops.meta.maintainers;
   };

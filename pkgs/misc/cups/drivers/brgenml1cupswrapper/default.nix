@@ -39,7 +39,7 @@
 
         TODO: Address.
 
-     4. Since nixos 16.03 release, in `brother_lpdwrapper_BrGenML1`:
+     4. Since botnix 16.03 release, in `brother_lpdwrapper_BrGenML1`:
 
         > sh: grep: command not found
           sh: chmod: command not found

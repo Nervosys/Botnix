@@ -113,7 +113,7 @@ let
       nix-pythonprefix-mypy = callPackage ./tests/test_nix_pythonprefix {
         interpreter = python;
       };
-      # Make sure tkinter is importable. See https://github.com/NixOS/nixpkgs/issues/238990
+      # Make sure tkinter is importable. See https://github.com/nervosys/Botnix/issues/238990
       tkinter = callPackage ./tests/test_tkinter {
         interpreter = python;
       };

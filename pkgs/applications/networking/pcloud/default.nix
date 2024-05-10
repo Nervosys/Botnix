@@ -12,7 +12,7 @@
 # it as if it was a regular, good-ol' application requiring some standard path
 # fixes.
 #
-# ^1 https://github.com/NixOS/nixpkgs/issues/69338
+# ^1 https://github.com/nervosys/Botnix/issues/69338
 
 {
   # Build dependencies

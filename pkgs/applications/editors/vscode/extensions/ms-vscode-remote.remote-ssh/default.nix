@@ -15,7 +15,7 @@ let
   # otherwise we check if the globally installed Node
   # is usable.
   patch = ''
-    # Use Node from nixpkgs for NixOS hosts
+    # Use Node from nixpkgs for Botnix hosts
     #
 
     serverDir="$HOME/.vscode-server/bin/$COMMIT_ID"

@@ -221,7 +221,7 @@ backendStdenv.mkDerivation (
     # NOTE: We don't need to check for dev or doc, because those outputs are handled by
     # the multiple-outputs setup hook.
     # NOTE: moveToOutput operates on all outputs:
-    # https://github.com/NixOS/nixpkgs/blob/2920b6fc16a9ed5d51429e94238b28306ceda79e/pkgs/build-support/setup-hooks/multiple-outputs.sh#L105-L107
+    # https://github.com/nervosys/Botnix/blob/2920b6fc16a9ed5d51429e94238b28306ceda79e/pkgs/build-support/setup-hooks/multiple-outputs.sh#L105-L107
     installPhase =
       let
         mkMoveToOutputCommand =
@@ -287,7 +287,7 @@ backendStdenv.mkDerivation (
 
     # The out output leverages the same functionality which backs the `symlinkJoin` function in
     # Nixpkgs:
-    # https://github.com/NixOS/nixpkgs/blob/d8b2a92df48f9b08d68b0132ce7adfbdbc1fbfac/pkgs/build-support/trivial-builders/default.nix#L510
+    # https://github.com/nervosys/Botnix/blob/d8b2a92df48f9b08d68b0132ce7adfbdbc1fbfac/pkgs/build-support/trivial-builders/default.nix#L510
     #
     # That should allow us to emulate "fat" default outputs without having to actually create them.
     #
@@ -310,7 +310,7 @@ backendStdenv.mkDerivation (
 
     # Setting propagatedBuildInputs to false will prevent outputs known to the multiple-outputs
     # from depending on `out` by default.
-    # https://github.com/NixOS/nixpkgs/blob/2920b6fc16a9ed5d51429e94238b28306ceda79e/pkgs/build-support/setup-hooks/multiple-outputs.sh#L196
+    # https://github.com/nervosys/Botnix/blob/2920b6fc16a9ed5d51429e94238b28306ceda79e/pkgs/build-support/setup-hooks/multiple-outputs.sh#L196
     # Indeed, we want to do the opposite -- fat "out" outputs that contain all the other outputs.
     propagatedBuildOutputs = false;
 

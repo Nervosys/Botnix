@@ -70,7 +70,7 @@ stdenv.mkDerivation rec {
     remove-references-to -t $dev $(readlink -f $out/lib/libpmix.so)
 
     # Pin the compiler to the current version in a cross compiler friendly way.
-    # Same pattern as for openmpi (see https://github.com/NixOS/nixpkgs/pull/58964#discussion_r275059427).
+    # Same pattern as for openmpi (see https://github.com/nervosys/Botnix/pull/58964#discussion_r275059427).
     sed -i 's:compiler=.*:compiler=${targetPackages.stdenv.cc}/bin/${targetPackages.stdenv.cc.targetPrefix}cc:' \
       $dev/share/pmix/pmixcc-wrapper-data.txt
   '';

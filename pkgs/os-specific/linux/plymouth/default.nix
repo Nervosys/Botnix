@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
   patches = [
     # do not create unnecessary symlink to non-existent header-image.png
     ./dont-create-broken-symlink.patch
-    # add support for loading plugins from /run to assist NixOS module
+    # add support for loading plugins from /run to assist Botnix module
     ./add-runtime-plugin-path.patch
     # fix FHS hardcoded paths
     (substituteAll {
@@ -110,7 +110,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   # HACK: We want to install configuration files to $out/etc
-  # but Plymouth should read them from /etc on a NixOS system.
+  # but Plymouth should read them from /etc on a Botnix system.
   # With autotools, it was possible to override Make variables
   # at install time but Meson does not support this
   # so we need to convince it to install all files to a temporary

@@ -77,9 +77,9 @@ let
           ];
 
           REQJSON = builtins.toJSON {
-            "firstname" = "NixOS";
+            "firstname" = "Botnix";
             "lastname" = "Linux";
-            "email" = "someone@nixos.org";
+            "email" = "someone@botnix.org";
             "phone" = "+31 71 452 5670";
             "country" = "nl";
             "street" = "-";

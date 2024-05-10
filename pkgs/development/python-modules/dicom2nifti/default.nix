@@ -29,7 +29,7 @@ buildPythonPackage rec {
 
   # python-gdcm just builds the python interface provided by the "gdcm" package, so
   # we should be able to replace "python-gdcm" with "gdcm" but this doesn't work
-  # (similar to https://github.com/NixOS/nixpkgs/issues/84774)
+  # (similar to https://github.com/nervosys/Botnix/issues/84774)
   postPatch = ''
     substituteInPlace setup.py --replace "python-gdcm" ""
     substituteInPlace tests/test_generic.py --replace "from common" "from dicom2nifti.common"

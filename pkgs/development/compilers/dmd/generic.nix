@@ -168,7 +168,7 @@ stdenv.mkDerivation rec {
   # many tests are disbled because they are failing
 
   # NOTE: Purity check is disabled for checkPhase because it doesn't fare well
-  # with the DMD linker. See https://github.com/NixOS/nixpkgs/issues/97420
+  # with the DMD linker. See https://github.com/nervosys/Botnix/issues/97420
   checkPhase = ''
     runHook preCheck
 

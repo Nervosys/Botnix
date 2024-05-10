@@ -97,11 +97,11 @@
   # See doc/builders/testers.chapter.md or
   # https://nixos.org/manual/nixpkgs/unstable/#tester-runNixOSTest
   runNixOSTest =
-    let nixos = import ../../../nixos/lib {
+    let botnix = import ../../../botnix/lib {
       inherit lib;
     };
     in testModule:
-        nixos.runTest {
+        botnix.runTest {
           _file = "pkgs.runNixOSTest implementation";
           imports = [
             (lib.setDefaultModuleLocation "the argument that was passed to pkgs.runNixOSTest" testModule)
@@ -114,11 +114,11 @@
   # https://nixos.org/manual/nixpkgs/unstable/#tester-invalidateFetcherByDrvHash
   nixosTest =
     let
-      /* The nixos/lib/testing-python.nix module, preapplied with arguments that
+      /* The botnix/lib/testing-python.nix module, preapplied with arguments that
        * make sense for this evaluation of Nixpkgs.
        */
       nixosTesting =
-        (import ../../../nixos/lib/testing-python.nix {
+        (import ../../../botnix/lib/testing-python.nix {
           inherit (stdenv.hostPlatform) system;
           inherit pkgs;
           extraConfigurations = [(

@@ -48,7 +48,7 @@ buildPythonPackage {
   ];
 
   disabledTests = [
-    # TODO: mono does not work due to https://github.com/NixOS/nixpkgs/issues/7307
+    # TODO: mono does not work due to https://github.com/nervosys/Botnix/issues/7307
     "test_mono"
     "test_mono_debug"
     "test_mono_signal_chaining"

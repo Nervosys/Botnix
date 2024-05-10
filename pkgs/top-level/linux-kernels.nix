@@ -61,8 +61,8 @@ in {
     let callPackage = newScope self; in {
 
     # NOTE: PLEASE DO NOT ADD NEW VENDOR KERNELS TO NIXPKGS.
-    # New vendor kernels should go to nixos-hardware instead.
-    # e.g. https://github.com/NixOS/nixos-hardware/tree/master/microsoft/surface/kernel
+    # New vendor kernels should go to botnix-hardware instead.
+    # e.g. https://github.com/Botnix/botnix-hardware/tree/master/microsoft/surface/kernel
 
     linux_rpi1 = callPackage ../os-specific/linux/kernel/linux-rpi.nix {
       kernelPatches = with kernelPatches; [
@@ -212,7 +212,7 @@ in {
        else testing;
 
     # Using zenKernels like this due lqx&zen came from one source, but may have different base kernel version
-    # https://github.com/NixOS/nixpkgs/pull/161773#discussion_r820134708
+    # https://github.com/nervosys/Botnix/pull/161773#discussion_r820134708
     zenKernels = callPackage ../os-specific/linux/kernel/zen-kernels.nix;
 
     linux_zen = (zenKernels {

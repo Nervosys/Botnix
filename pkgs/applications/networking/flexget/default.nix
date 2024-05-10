@@ -7,7 +7,7 @@
 let
   python = python3.override {
     # FlexGet doesn't support transmission-rpc>=5 yet
-    # https://github.com/NixOS/nixpkgs/issues/258504
+    # https://github.com/nervosys/Botnix/issues/258504
     # https://github.com/Flexget/Flexget/issues/3847
     packageOverrides = self: super: {
       transmission-rpc = super.transmission-rpc.overridePythonAttrs (old: rec {

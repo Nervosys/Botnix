@@ -1,7 +1,7 @@
 # the original samsung-unified-linux-driver_1_00_36 has some paths
 # hardcoded in binary files
 #
-# nixos samsung-unified-linux-driver_1_00_36 tries to fix those paths
+# botnix samsung-unified-linux-driver_1_00_36 tries to fix those paths
 # by patching the binaries
 #
 # this module is needed to put the expected files in the new paths

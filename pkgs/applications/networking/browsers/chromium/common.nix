@@ -123,7 +123,7 @@ let
 
   # There currently isn't a (much) more concise way to get a stdenv
   # that uses lld as its linker without bootstrapping pkgsLLVM; see
-  # https://github.com/NixOS/nixpkgs/issues/142901
+  # https://github.com/nervosys/Botnix/issues/142901
   buildPlatformLlvmStdenv =
     let
       llvmPackages = pkgsBuildBuild.${llvmPackages_attrName};
@@ -310,7 +310,7 @@ let
       base64 --decode ${clangFormatPython3} > buildtools/linux64/clang-format
 
       # Add final newlines to scripts that do not end with one.
-      # This is a temporary workaround until https://github.com/NixOS/nixpkgs/pull/255463 (or similar) has been merged,
+      # This is a temporary workaround until https://github.com/nervosys/Botnix/pull/255463 (or similar) has been merged,
       # as patchShebangs hard-crashes when it encounters files that contain only a shebang and do not end with a final
       # newline.
       find . -type f -perm -0100 -exec sed -i -e '$a\' {} +
@@ -380,7 +380,7 @@ let
       blink_symbol_level = 0;
 
       # Google API key, see: https://www.chromium.org/developers/how-tos/api-keys
-      # Note: The API key is for NixOS/nixpkgs use ONLY.
+      # Note: The API key is for Botnix/nixpkgs use ONLY.
       # For your own distribution, please get your own set of keys.
       google_api_key = "AIzaSyDGi15Zwl11UNe6Y-5XW_upsfyw31qwZPI";
 

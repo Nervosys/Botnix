@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   version = "5.0-63503";
 
   src = fetchzip {
-    # https://github.com/NixOS/nixpkgs/issues/166886
+    # https://github.com/nervosys/Botnix/issues/166886
     urls = [
       "https://registrationcenter-download.intel.com/akdlm/irc_nas/11396/SRB5.0_linux64.zip"
       "http://registrationcenter-download.intel.com/akdlm/irc_nas/11396/SRB5.0_linux64.zip"

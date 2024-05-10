@@ -6,7 +6,7 @@
 , cryptography
 , libcloud
 , nixops
-, nixos-modules-contrib
+, botnix-modules-contrib
 }:
 
 buildPythonPackage {
@@ -38,7 +38,7 @@ buildPythonPackage {
   propagatedBuildInputs = [
     cryptography
     libcloud
-    nixos-modules-contrib
+    botnix-modules-contrib
   ];
 
   pythonImportsCheck = [ "nixops_gcp" ];

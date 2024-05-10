@@ -27,7 +27,7 @@ buildDotnetModule rec {
     openssl
   ];
 
-  # See https://github.com/NixOS/nixpkgs/pull/196648/commits/0fb17c04fe34ac45247d35a1e4e0521652d9c494
+  # See https://github.com/nervosys/Botnix/pull/196648/commits/0fb17c04fe34ac45247d35a1e4e0521652d9c494
   patches = [ ./add-runtime-identifier.patch ];
   postPatch = ''
     substituteInPlace pupdate.csproj \

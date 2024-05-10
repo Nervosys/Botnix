@@ -793,7 +793,7 @@ with self;
     hash = "1w003k1kw1lmyiqlk58gkxx8rac7dchiqlz6ah7aj7bh49b36ppf";
     meta.description = "Spawning sub-processes";
     buildInputs = [ ppx_expect ];
-    doCheck = false; # tests are broken on NixOS (absolute paths)
+    doCheck = false; # tests are broken on Botnix (absolute paths)
   };
 
   splay_tree = janePackage {

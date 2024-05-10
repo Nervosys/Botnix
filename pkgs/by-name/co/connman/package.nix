@@ -123,7 +123,7 @@ stdenv.mkDerivation (finalAttrs: {
     (enableFeature enableGadget "gadget")
     (enableFeature enableWifi "wifi")
     # enable IWD support for wifi as it doesn't require any new dependencies and
-    # it's easier for the NixOS module to use only one connman package when IWD
+    # it's easier for the Botnix module to use only one connman package when IWD
     # is requested
     (enableFeature enableWifi "iwd")
     (enableFeature enableBluetooth "bluetooth")

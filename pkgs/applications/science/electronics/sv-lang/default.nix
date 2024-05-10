@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
   };
 
   cmakeFlags = [
-    # fix for https://github.com/NixOS/nixpkgs/issues/144170
+    # fix for https://github.com/nervosys/Botnix/issues/144170
     "-DCMAKE_INSTALL_INCLUDEDIR=include"
     "-DCMAKE_INSTALL_LIBDIR=lib"
 

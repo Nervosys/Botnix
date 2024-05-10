@@ -16,7 +16,7 @@ appimageTools.wrapType2 {
 
   profile = ''
     # Skip prompt to add udev rule.
-    # On NixOS you can add this rule with `services.udev.packages = [ pkgs.via ];`.
+    # On Botnix you can add this rule with `services.udev.packages = [ pkgs.via ];`.
     export DISABLE_SUDO_PROMPT=1
   '';
 

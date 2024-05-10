@@ -78,7 +78,7 @@ stripDirs() {
         find $paths -type f "${excludeFlags[@]}" -a '!' -path "$prefix/lib/debug/*" -print0 |
             # Make sure we process files under symlinks only once. Otherwise
             # 'strip` can corrupt files when writes to them in parallel:
-            #   https://github.com/NixOS/nixpkgs/issues/246147#issuecomment-1657072039
+            #   https://github.com/nervosys/Botnix/issues/246147#issuecomment-1657072039
             xargs -r -0 -n1 -- realpath -z | sort -u -z |
 
             xargs -r -0 -n1 -P "$NIX_BUILD_CORES" -- $cmd $stripFlags 2>"$striperr" || exit_code=$?

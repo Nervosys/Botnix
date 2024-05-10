@@ -29,8 +29,8 @@ buildPythonApplication rec {
   #    https://github.com/mapproxy/mapproxy/blob/master/requirements-tests.txt
   #
   # 2) There are security issues with package Riak
-  #    https://github.com/NixOS/nixpkgs/issues/33876
-  #    https://github.com/NixOS/nixpkgs/pull/56480
+  #    https://github.com/nervosys/Botnix/issues/33876
+  #    https://github.com/nervosys/Botnix/pull/56480
   doCheck = false;
   meta = with lib; {
   description = "Open source proxy for geospatial data";

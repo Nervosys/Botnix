@@ -19,6 +19,6 @@ stdenv.mkDerivation rec {
     license = licenses.bsd3;
     maintainers = with maintainers; [ hexa ];
     platforms = platforms.unix;
-    broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/trunk/pim6sd.x86_64-darwin
+    broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/trunk/pim6sd.x86_64-darwin
   };
 }

@@ -66,7 +66,7 @@ python3.pkgs.buildPythonApplication rec {
     export HOME="$(mktemp -d)"
 
     git config --global user.name "Nix Builder"
-    git config --global user.email "nix-builder@nixos.org"
+    git config --global user.email "nix-builder@botnix.org"
     git init .
   '';
 

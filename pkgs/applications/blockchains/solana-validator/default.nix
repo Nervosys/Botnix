@@ -79,7 +79,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoBuildFlags = builtins.map (n: "--bin=${n}") solanaPkgs;
 
-  # weird errors. see https://github.com/NixOS/nixpkgs/issues/52447#issuecomment-852079285
+  # weird errors. see https://github.com/nervosys/Botnix/issues/52447#issuecomment-852079285
   # LLVM_CONFIG_PATH = "${llvm}/bin/llvm-config";
 
   nativeBuildInputs = [ pkg-config protobuf rustfmt perl rustPlatform.bindgenHook ];

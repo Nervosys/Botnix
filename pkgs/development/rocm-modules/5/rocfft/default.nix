@@ -42,7 +42,7 @@ stdenv.mkDerivation (finalAttrs: {
     "-DCMAKE_CXX_COMPILER=hipcc"
     "-DSQLITE_USE_SYSTEM_PACKAGE=ON"
     # Manually define CMAKE_INSTALL_<DIR>
-    # See: https://github.com/NixOS/nixpkgs/pull/197838
+    # See: https://github.com/nervosys/Botnix/pull/197838
     "-DCMAKE_INSTALL_BINDIR=bin"
     "-DCMAKE_INSTALL_LIBDIR=lib"
     "-DCMAKE_INSTALL_INCLUDEDIR=include"

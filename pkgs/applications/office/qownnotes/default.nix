@@ -61,8 +61,8 @@ stdenv.mkDerivation {
     makeWrapper $out/Applications/${appname}.app/Contents/MacOS/${appname} $out/bin/${pname}
   '';
 
-  # Tests QOwnNotes using the NixOS module by launching xterm:
-  passthru.tests.basic-nixos-module-functionality = nixosTests.qownnotes;
+  # Tests QOwnNotes using the Botnix module by launching xterm:
+  passthru.tests.basic-botnix-module-functionality = nixosTests.qownnotes;
 
   meta = with lib; {
     description = "Plain-text file notepad and todo-list manager with markdown support and Nextcloud/ownCloud integration";

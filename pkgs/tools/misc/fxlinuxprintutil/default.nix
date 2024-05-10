@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
 
   # https://support-fb.fujifilm.com/driver_downloads/fxlinuxpdf112119031.zip is gone
   src = fetchzip {
-    url = "https://github.com/NixOS/nixpkgs/files/12232817/fxlinuxpdf112119031.zip";
+    url = "https://github.com/nervosys/Botnix/files/12232817/fxlinuxpdf112119031.zip";
     sha256 = "1mv07ch6ysk9bknfmjqsgxb803sj6vfin29s9knaqv17jvgyh0n3";
   };
 

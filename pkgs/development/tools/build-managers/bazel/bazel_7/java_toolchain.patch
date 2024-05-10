@@ -6,7 +6,7 @@ index a8af76e90c..7f8b030f63 100644
      ],
  )
  
-+##### Nonprebuilt toolchains definitions for NixOS and nix build sandboxes ####
++##### Nonprebuilt toolchains definitions for Botnix and nix build sandboxes ####
 +
 +load("@rules_java//toolchains:default_java_toolchain.bzl", "default_java_toolchain", "NONPREBUILT_TOOLCHAIN_CONFIGURATION")
 +

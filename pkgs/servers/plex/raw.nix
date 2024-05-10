@@ -9,7 +9,7 @@
 
 # The raw package that fetches and extracts the Plex RPM. Override the source
 # and version of this derivation if you want to use a Plex Pass version of the
-# server, and the FHS userenv and corresponding NixOS module should
+# server, and the FHS userenv and corresponding Botnix module should
 # automatically pick up the changes.
 stdenv.mkDerivation rec {
   version = "1.32.8.7639-fb6452ebf";

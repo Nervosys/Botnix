@@ -8,9 +8,9 @@ Nixpkgs can be configured with a list of overlays, which are applied in order. T
 
 The list of overlays can be set either explicitly in a Nix expression, or through `<nixpkgs-overlays>` or user configuration files.
 
-### Set overlays in NixOS or Nix expressions {#sec-overlays-argument}
+### Set overlays in Botnix or Nix expressions {#sec-overlays-argument}
 
-On a NixOS system the value of the `nixpkgs.overlays` option, if present, is passed to the system Nixpkgs directly as an argument. Note that this does not affect the overlays for non-NixOS operations (e.g.  `nix-env`), which are [looked up](#sec-overlays-lookup) independently.
+On a Botnix system the value of the `nixpkgs.overlays` option, if present, is passed to the system Nixpkgs directly as an argument. Note that this does not affect the overlays for non-Botnix operations (e.g.  `nix-env`), which are [looked up](#sec-overlays-lookup) independently.
 
 The list of overlays can be passed explicitly when importing nixpkgs, for example `import <nixpkgs> { overlays = [ overlay1 overlay2 ]; }`.
 
@@ -38,7 +38,7 @@ If we are looking for overlays at a path, then there are two cases:
 
     -   Importing a top-level `default.nix` file, if it is a directory.
 
-Because overlays that are set in NixOS configuration do not affect non-NixOS operations such as `nix-env`, the `overlays.nix` option provides a convenient way to use the same overlays for a NixOS system configuration and user configuration: the same file can be used as `overlays.nix` and imported as the value of `nixpkgs.overlays`.
+Because overlays that are set in Botnix configuration do not affect non-Botnix operations such as `nix-env`, the `overlays.nix` option provides a convenient way to use the same overlays for a Botnix system configuration and user configuration: the same file can be used as `overlays.nix` and imported as the value of `nixpkgs.overlays`.
 
 ## Defining overlays {#sec-overlays-definition}
 
@@ -93,7 +93,7 @@ In Nixpkgs, we have multiple implementations of the BLAS/LAPACK numerical linear
 
     The AMD fork of the BLIS library, with attribute `amd-blis`, extends BLIS with optimizations for modern AMD CPUs. The changes are usually submitted to the upstream BLIS project after some time. However, AMD BLIS typically provides some performance improvements on AMD Zen CPUs. The complementary AMD LIBFLAME library, with attribute `amd-libflame`, provides a LAPACK implementation.
 
-Introduced in [PR #83888](https://github.com/NixOS/nixpkgs/pull/83888), we are able to override the `blas` and `lapack` packages to use different implementations, through the `blasProvider` and `lapackProvider` argument. This can be used to select a different provider. BLAS providers will have symlinks in `$out/lib/libblas.so.3` and `$out/lib/libcblas.so.3` to their respective BLAS libraries.  Likewise, LAPACK providers will have symlinks in `$out/lib/liblapack.so.3` and `$out/lib/liblapacke.so.3` to their respective LAPACK libraries. For example, Intel MKL is both a BLAS and LAPACK provider. An overlay can be created to use Intel MKL that looks like:
+Introduced in [PR #83888](https://github.com/nervosys/Botnix/pull/83888), we are able to override the `blas` and `lapack` packages to use different implementations, through the `blasProvider` and `lapackProvider` argument. This can be used to select a different provider. BLAS providers will have symlinks in `$out/lib/libblas.so.3` and `$out/lib/libcblas.so.3` to their respective BLAS libraries.  Likewise, LAPACK providers will have symlinks in `$out/lib/liblapack.so.3` and `$out/lib/liblapacke.so.3` to their respective LAPACK libraries. For example, Intel MKL is both a BLAS and LAPACK provider. An overlay can be created to use Intel MKL that looks like:
 
 ```nix
 self: super:

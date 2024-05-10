@@ -129,7 +129,7 @@ stdenv.mkDerivation rec {
   ];
 
   cmakeFlags = [
-    "-DDISTRIBUTOR=NixOS"
+    "-DDISTRIBUTOR=Botnix"
     "-DDOLPHIN_WC_REVISION=${src.rev}"
     "-DDOLPHIN_WC_DESCRIBE=${version}"
     "-DDOLPHIN_WC_BRANCH=master"

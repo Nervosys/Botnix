@@ -27,7 +27,7 @@ index 89bf8f6..5caa578 100644
  RTDECL(int) RTPathExecDir(char *pszPath, size_t cchPath);
  
 +/**
-+ * Gets the path to the NixOS setuid wrappers directory.
++ * Gets the path to the Botnix setuid wrappers directory.
 + *
 + * @returns iprt status code.
 + * @param   pszPath     Buffer where to store the path.
@@ -47,7 +47,7 @@ index 4ca981e..058ae7a 100644
  RTR3DECL(char *) RTProcGetExecutablePath(char *pszExecPath, size_t cbExecPath);
  
 +/**
-+ * Gets the path to the NixOS setuid wrappers directory.
++ * Gets the path to the Botnix setuid wrappers directory.
 + *
 + * @returns pszExecPath on success. NULL on buffer overflow or other errors.
 + *

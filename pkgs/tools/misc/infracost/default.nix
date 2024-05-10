@@ -26,7 +26,7 @@ buildGoModule rec {
 
     # checkFlags aren't correctly passed through via buildGoModule so we use buildFlagsArray
     # -short only runs the unit-tests tagged short
-    # move to checkFlags after https://github.com/NixOS/nixpkgs/pull/173702
+    # move to checkFlags after https://github.com/nervosys/Botnix/pull/173702
     buildFlagsArray+="-short"
 
     # remove tests that require networking

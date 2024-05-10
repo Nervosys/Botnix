@@ -15,7 +15,7 @@ Options:
    -h | --help    Show this help.
 
 This script is used to regenerate nixpkgs' Haskell package set, using the
-tool hackage2nix from the nixos/cabal2nix repo. hackage2nix looks at the
+tool hackage2nix from the botnix/cabal2nix repo. hackage2nix looks at the
 config files in pkgs/development/haskell-modules/configuration-hackage2nix
 and generates a Nix expression for package version specified there, using the
 Cabal files from the Hackage database (available under all-cabal-hashes) and
@@ -67,7 +67,7 @@ done
 HACKAGE2NIX="${HACKAGE2NIX:-hackage2nix}"
 
 # To prevent hackage2nix fails because of encoding.
-# See: https://github.com/NixOS/nixpkgs/pull/122023
+# See: https://github.com/nervosys/Botnix/pull/122023
 export LC_ALL=C.UTF-8
 
 config_dir=pkgs/development/haskell-modules/configuration-hackage2nix

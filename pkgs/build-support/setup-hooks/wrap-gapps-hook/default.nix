@@ -42,7 +42,7 @@ makeSetupHook {
     # to avoid falling back to “memory” backend. This is
     # required for GSettings-based settings to be persisted.
     # Unfortunately, it also requires the user to have dconf
-    # D-Bus service enabled globally (e.g. through a NixOS module).
+    # D-Bus service enabled globally (e.g. through a Botnix module).
     dconf.lib
   ];
   passthru = {
@@ -191,7 +191,7 @@ makeSetupHook {
       # which should add the path to derivation’s own typelibs
       # to GI_TYPELIB_PATH variable.
       # The resulting GI_TYPELIB_PATH should be picked up by the wrapper.
-      # https://github.com/NixOS/nixpkgs/issues/85515
+      # https://github.com/nervosys/Botnix/issues/85515
       typelib-self-user-has-gi-typelib-path = let
         tested = typelib-self-user;
       in testLib.runTest "typelib-self-user-has-gi-typelib-path" ''

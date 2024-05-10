@@ -45,9 +45,9 @@ stdenv.mkDerivation rec {
   #   location of rasdaemon config file, currently only used for CE PFA config
 
   # these are optional (for logging, DIMM label storage and user config)
-  # /var/lib/rasdaemon should be created by the NixOS module
+  # /var/lib/rasdaemon should be created by the Botnix module
   # /etc/ras/dimm_labels.d should probably be generated,
-  # from user supplied content, in the NixOS module
+  # from user supplied content, in the Botnix module
   # /etc/sysconfig/rasdaemon should be generated if there is user supplied content
   # and default to $out/etc/sysconfig/rasdaemon which should hold the supplied default
 

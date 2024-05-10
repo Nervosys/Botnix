@@ -82,9 +82,9 @@ stdenv.mkDerivation {
     ./normalize-var.patch
     # Prevent a compilation error on darwin
     ./darwin-targetconditionals.patch
-    # See: https://github.com/NixOS/nixpkgs/pull/186575
+    # See: https://github.com/nervosys/Botnix/pull/186575
     ../../common/compiler-rt/darwin-plistbuddy-workaround.patch
-    # See: https://github.com/NixOS/nixpkgs/pull/194634#discussion_r999829893
+    # See: https://github.com/nervosys/Botnix/pull/194634#discussion_r999829893
     ../../common/compiler-rt/armv7l-15.patch
   ];
 

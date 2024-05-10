@@ -199,7 +199,7 @@ let
 
            $ export ${remediation_env_var allow_attr}=1
            ${flakeNote}
-      b) For `nixos-rebuild` you can set
+      b) For `botnix-rebuild` you can set
         { nixpkgs.config.allow${allow_attr} = true; }
       in configuration.nix to override this.
       ${rebuild_amendment attrs}
@@ -222,7 +222,7 @@ let
 
              $ export NIXPKGS_ALLOW_INSECURE=1
              ${flakeNote}
-        b) for `nixos-rebuild` you can add ‘${getName attrs}’ to
+        b) for `botnix-rebuild` you can add ‘${getName attrs}’ to
            `nixpkgs.config.permittedInsecurePackages` in the configuration.nix,
            like so:
 
@@ -330,7 +330,7 @@ let
     timeout = int;
 
     # Needed for Hydra to expose channel tarballs:
-    # https://github.com/NixOS/hydra/blob/53335323ae79ca1a42643f58e520b376898ce641/doc/manual/src/jobs.md#meta-fields
+    # https://github.com/Botnix/hydra/blob/53335323ae79ca1a42643f58e520b376898ce641/doc/manual/src/jobs.md#meta-fields
     isHydraChannel = bool;
 
     # Weirder stuff that doesn't appear in the documentation?

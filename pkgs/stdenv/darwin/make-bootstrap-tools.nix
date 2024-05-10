@@ -14,7 +14,7 @@
 # PR. As to why stick with 11? That's just to keep the
 # bootstrap-tools unchanged.
 #
-# https://github.com/NixOS/nixpkgs/pull/267058/files#r1390889848
+# https://github.com/nervosys/Botnix/pull/267058/files#r1390889848
 , overlays ? [(self: super: { llvmPackages = super.llvmPackages_11; })]
 , crossSystem ? null
 , bootstrapFiles ? null
@@ -40,7 +40,7 @@ rec {
   })).overrideAttrs (oa: {
     # Increase header size to be able to inject extra RPATHs. Otherwise
     # x86_64-darwin build fails as:
-    #    https://cache.nixos.org/log/g5wyq9xqshan6m3kl21bjn1z88hx48rh-stdenv-bootstrap-tools.drv
+    #    https://cache.botnix.org/log/g5wyq9xqshan6m3kl21bjn1z88hx48rh-stdenv-bootstrap-tools.drv
     NIX_LDFLAGS = (oa.NIX_LDFLAGS or "") + " -headerpad_max_install_names";
   });
 
@@ -320,7 +320,7 @@ rec {
 
       tar xvf ${hello.src}
       cd hello-*
-      # stdenv bootstrap tools ship a broken libiconv.dylib https://github.com/NixOS/nixpkgs/issues/158331
+      # stdenv bootstrap tools ship a broken libiconv.dylib https://github.com/nervosys/Botnix/issues/158331
       am_cv_func_iconv=no ./configure --prefix=$out
       make
       make install
@@ -329,7 +329,7 @@ rec {
   };
 
   # The ultimate test: bootstrap a whole stdenv from the tools specified above and get a package set out of it
-  # TODO: uncomment once https://github.com/NixOS/nixpkgs/issues/222717 is resolved
+  # TODO: uncomment once https://github.com/nervosys/Botnix/issues/222717 is resolved
   /*
   test-pkgs = import test-pkgspath {
     # if the bootstrap tools are for another platform, we should be testing

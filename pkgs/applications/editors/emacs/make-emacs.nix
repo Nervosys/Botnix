@@ -345,7 +345,7 @@ mkDerivation (finalAttrs: {
     LIBRARY_PATH = lib.concatStringsSep ":" libGccJitLibraryPaths;
   } // lib.optionalAttrs (variant == "macport") {
     # Fixes intermittent segfaults when compiled with LLVM >= 7.0.
-    # See https://github.com/NixOS/nixpkgs/issues/127902
+    # See https://github.com/nervosys/Botnix/issues/127902
     NIX_CFLAGS_COMPILE = "-include ${./macport_noescape_noop.h}";
   };
 

@@ -12,10 +12,10 @@ binaries (without the reliance on external inputs):
 These are called "bootstrap files".
 
 Bootstrap files should always be fetched from hydra and uploaded to
-`tarballs.nixos.org` to guarantee that all the binaries were built from
+`tarballs.botnix.org` to guarantee that all the binaries were built from
 the code committed into `nixpkgs` repository.
 
-The uploads to `tarballs.nixos.org` are done by `@lovesegfault` today.
+The uploads to `tarballs.botnix.org` are done by `@lovesegfault` today.
 
 This document describes the procedure of updating bootstrap files in
 `nixpkgs`.
@@ -38,7 +38,7 @@ target:
    $ nix-build -A hello --argstr system i686-linux
    ```
 
-   To validate cross-targets `binfmt` `NixOS` helper can be useful.
+   To validate cross-targets `binfmt` `Botnix` helper can be useful.
    For `riscv64-unknown-linux-gnu` the `/etc/nixox/configuraqtion.nix`
    entry would be `boot.binfmt.emulatedSystems = [ "riscv64-linux" ]`.
 
@@ -51,7 +51,7 @@ target:
 There are two types of bootstrap files:
 
 - natively built `stdenvBootstrapTools.build` hydra jobs in
-  [`nixpkgs:trunk`](https://hydra.nixos.org/jobset/nixpkgs/trunk#tabs-jobs)
+  [`nixpkgs:trunk`](https://hydra.botnix.org/jobset/nixpkgs/trunk#tabs-jobs)
   jobset. Incomplete list of examples is:
 
   * `aarch64-unknown-linux-musl.nix`
@@ -60,7 +60,7 @@ There are two types of bootstrap files:
   These are Tier 1 hydra platforms.
 
 - cross-built by `bootstrapTools.build` hydra jobs in
-  [`nixpkgs:cross-trunk`](https://hydra.nixos.org/jobset/nixpkgs/cross-trunk#tabs-jobs)
+  [`nixpkgs:cross-trunk`](https://hydra.botnix.org/jobset/nixpkgs/cross-trunk#tabs-jobs)
   jobset. Incomplete list of examples is:
 
   * `mips64el-unknown-linux-gnuabi64.nix`
@@ -72,8 +72,8 @@ There are two types of bootstrap files:
   These are usually Tier 2 and lower targets.
 
 The `.build` job contains `/on-server/` subdirectory with binaries to
-be uploaded to `tarballs.nixos.org`.
-The files are uploaded to `tarballs.nixos.org` by writers to `S3` store.
+be uploaded to `tarballs.botnix.org`.
+The files are uploaded to `tarballs.botnix.org` by writers to `S3` store.
 
 ## TODOs
 

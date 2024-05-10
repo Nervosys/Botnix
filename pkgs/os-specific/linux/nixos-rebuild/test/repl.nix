@@ -1,7 +1,7 @@
 { lib,
   expect,
   nix,
-  nixos-rebuild,
+  botnix-rebuild,
   path,
   runCommand,
   stdenv,
@@ -31,11 +31,11 @@ let
   linuxSystem = lib.replaceStrings ["darwin"] ["linux"] stdenv.hostPlatform.system;
 
 in
-runCommand "test-nixos-rebuild-repl" {
+runCommand "test-botnix-rebuild-repl" {
   nativeBuildInputs = [
     expect
     nix
-    nixos-rebuild
+    botnix-rebuild
   ];
   nixpkgs =
     if builtins.pathExists (path + "/.git")
@@ -58,7 +58,7 @@ runCommand "test-nixos-rebuild-repl" {
   echo General setup
   ##################
 
-  export NIX_PATH=nixpkgs=$nixpkgs:nixos-config=$HOME/configuration.nix
+  export NIX_PATH=nixpkgs=$nixpkgs:botnix-config=$HOME/configuration.nix
   cat >> ~/configuration.nix <<EOF
   {
     boot.loader.grub.enable = false;
@@ -70,21 +70,21 @@ runCommand "test-nixos-rebuild-repl" {
   echo '{ }' > ~/hardware-configuration.nix
 
 
-  echo Test traditional NixOS configuration
+  echo Test traditional Botnix configuration
   #########################################
 
-  expect ${writeText "test-nixos-rebuild-repl-expect" ''
+  expect ${writeText "test-botnix-rebuild-repl-expect" ''
     ${expectSetup}
-    spawn nixos-rebuild repl --fast
+    spawn botnix-rebuild repl --fast
 
     expect "nix-repl> "
 
     send "config.networking.hostName\n"
-    expect "\"nixos\""
+    expect "\"botnix\""
   ''}
 
 
-  echo Test flake based NixOS configuration
+  echo Test flake based Botnix configuration
   #########################################
 
   # Switch to flake flavored environment
@@ -113,9 +113,9 @@ runCommand "test-nixos-rebuild-repl" {
 
   # cat -n ~/flake.nix
 
-  expect ${writeText "test-nixos-rebuild-repl-expect" ''
+  expect ${writeText "test-botnix-rebuild-repl-expect" ''
     ${expectSetup}
-    spawn sh -c "nixos-rebuild repl --fast --flake path:\$HOME#testconf"
+    spawn sh -c "botnix-rebuild repl --fast --flake path:\$HOME#testconf"
 
     expect_simple "nix-repl>"
 
@@ -135,7 +135,7 @@ runCommand "test-nixos-rebuild-repl" {
     send "lib?nixosSystem\n"
     expect_simple "true"
     expect_simple "nix-repl>"
-    send "lib?nixos\n"
+    send "lib?botnix\n"
     expect_simple "true"
   ''}
   echo

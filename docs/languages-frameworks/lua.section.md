@@ -59,7 +59,7 @@ nix-env -iA nixpkgs.myLuaEnv
 The environment is installed by referring to the attribute, and considering
 the `nixpkgs` channel was used.
 
-#### Lua environment defined in `/etc/nixos/configuration.nix` {#lua-environment-defined-in-etcnixosconfiguration.nix}
+#### Lua environment defined in `/etc/botnix/configuration.nix` {#lua-environment-defined-in-etcnixosconfiguration.nix}
 
 For the sake of completeness, here's another example how to install the environment system-wide.
 
@@ -132,7 +132,7 @@ Let's present the luarocks way first and the manual one in a second time.
 The site proposes two types of packages, the `rockspec` and the `src.rock`
 (equivalent of a [rockspec](https://github.com/luarocks/luarocks/wiki/Rockspec-format) but with the source).
 
-Luarocks-based packages are generated in [pkgs/development/lua-modules/generated-packages.nix](https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/lua-modules/generated-packages.nix) from
+Luarocks-based packages are generated in [pkgs/development/lua-modules/generated-packages.nix](https://github.com/nervosys/Botnix/tree/master/pkgs/development/lua-modules/generated-packages.nix) from
 the whitelist maintainers/scripts/luarocks-packages.csv and updated by running
 the package `luarocks-packages-updater`:
 
@@ -143,7 +143,7 @@ nix-shell -p luarocks-packages-updater --run luarocks-packages-updater
 
 [luarocks2nix](https://github.com/nix-community/luarocks) is a tool capable of generating nix derivations from both rockspec and src.rock (and favors the src.rock).
 The automation only goes so far though and some packages need to be customized.
-These customizations go in [pkgs/development/lua-modules/overrides.nix](https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/lua-modules/overrides.nix).
+These customizations go in [pkgs/development/lua-modules/overrides.nix](https://github.com/nervosys/Botnix/tree/master/pkgs/development/lua-modules/overrides.nix).
 For instance if the rockspec defines `external_dependencies`, these need to be manually added to the overrides.nix.
 
 You can try converting luarocks packages to nix packages with the command `nix-shell -p luarocks-nix` and then `luarocks nix PKG_NAME`.

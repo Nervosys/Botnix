@@ -32,7 +32,7 @@ mkDerivation rec {
   ];
 
   makeWrapperArgs = [
-    # hacky workaround for https://github.com/NixOS/nixpkgs/issues/59901
+    # hacky workaround for https://github.com/nervosys/Botnix/issues/59901
     "--set OMP_NUM_THREADS 1"
   ];
 

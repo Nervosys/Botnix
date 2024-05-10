@@ -13,7 +13,7 @@
 # For previous test-troubleshooting discussion, see [here][1].
 #
 # [0]: https://github.com/taiki-e/cargo-llvm-cov/issues/242
-# [1]: https://github.com/NixOS/nixpkgs/pull/197478
+# [1]: https://github.com/nervosys/Botnix/pull/197478
 
 { stdenv
 , lib

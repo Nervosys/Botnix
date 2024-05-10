@@ -11,15 +11,15 @@ Nixpkgs fetchers differ from built-in fetchers such as [`builtins.fetchTarball`]
 - Built-in fetchers do not use [substituters](https://nixos.org/manual/nix/stable/command-ref/conf-file#conf-substituters).
   Derivations produced by Nixpkgs fetchers will use any configured binary cache transparently.
 
-This significantly reduces the time needed to evaluate the entirety of Nixpkgs, and allows [Hydra](https://nixos.org/hydra) to retain and re-distribute sources used by Nixpkgs in the [public binary cache](https://cache.nixos.org).
+This significantly reduces the time needed to evaluate the entirety of Nixpkgs, and allows [Hydra](https://nixos.org/hydra) to retain and re-distribute sources used by Nixpkgs in the [public binary cache](https://cache.botnix.org).
 For these reasons, built-in fetchers are not allowed in Nixpkgs source code.
 
 The following table shows an overview of the differences:
 
-| Fetchers | Download | Output | Cache | Re-download when |
-|-|-|-|-|-|
+| Fetchers          | Download        | Output     | Cache                        | Re-download when                                                                            |
+| ----------------- | --------------- | ---------- | ---------------------------- | ------------------------------------------------------------------------------------------- |
 | `builtins.fetch*` | evaluation time | store path | `/nix/store`, `~/.cache/nix` | `tarball-ttl` expires, cache miss in `~/.cache/nix`, output store object not in local store |
-| `pkgs.fetch*` | build time | derivation | `/nix/store`, substituters | output store object not available |
+| `pkgs.fetch*`     | build time      | derivation | `/nix/store`, substituters   | output store object not available                                                           |
 
 ## Caveats {#chap-pkgs-fetchers-caveats}
 

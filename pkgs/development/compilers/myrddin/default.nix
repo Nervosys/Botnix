@@ -52,7 +52,7 @@ stdenv.mkDerivation rec {
     license = licenses.mit;
     maintainers = with maintainers; [ luc65r ];
     platforms = platforms.all;
-    # darwin: never built on Hydra https://hydra.nixos.org/job/nixpkgs/trunk/myrddin.x86_64-darwin
+    # darwin: never built on Hydra https://hydra.botnix.org/job/nixpkgs/trunk/myrddin.x86_64-darwin
     broken = (stdenv.isLinux && stdenv.isAarch64) || stdenv.isDarwin;
   };
 }

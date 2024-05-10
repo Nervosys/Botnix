@@ -55,7 +55,7 @@ python3.pkgs.buildPythonApplication rec {
   disabledTestPaths = [
     # Disabling git tests because they expect git to be preconfigured
     # with the user's details. See
-    # https://github.com/NixOS/nixpkgs/issues/94663
+    # https://github.com/nervosys/Botnix/issues/94663
     "tests/test_git.py"
   ];
 

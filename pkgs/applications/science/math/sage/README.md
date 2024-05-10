@@ -1,4 +1,4 @@
-# Sage on nixos
+# Sage on botnix
 
 Sage is a pretty complex package that depends on many other complex packages and patches some of those. As a result, the sage nix package is also quite complex.
 

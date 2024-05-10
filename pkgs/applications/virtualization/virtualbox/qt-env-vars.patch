@@ -6,7 +6,7 @@
      }
 +
 +    /*
-+     * NixOS hack: Set QT_PLUGIN_PATH to make Qt find plugins.
++     * Botnix hack: Set QT_PLUGIN_PATH to make Qt find plugins.
 +     */
 +    setenv("QT_PLUGIN_PATH", "@qtPluginPath@", /*overwrite=*/ 1);
  }

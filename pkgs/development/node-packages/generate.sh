@@ -19,5 +19,5 @@ rm -f ./node-env.nix
 # gc to run before the script finishes
 # which would cause a failure
 # it's safer to just remove the link after the script finishes
-# see https://github.com/NixOS/nixpkgs/issues/112846 for more details
+# see https://github.com/nervosys/Botnix/issues/112846 for more details
 rm ./result

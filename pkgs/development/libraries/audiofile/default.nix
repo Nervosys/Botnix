@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
   # have to run `make` that far first).
   #
   # Without this, the executables in this package (sfcommands and examples)
-  # fail to build: https://github.com/NixOS/nixpkgs/issues/103215
+  # fail to build: https://github.com/nervosys/Botnix/issues/103215
   #
   # There might be a more sensible way to do this with autotools, but I am not
   # smart enough to discover it.

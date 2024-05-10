@@ -192,7 +192,7 @@ def cli():
 @click.argument('rev', default='latest')
 @click.option('--reverse/--no-reverse', default=False, help='Print diffs from REV to current.')
 def print_diffs(rev, reverse):
-    """Print out diffs for files used as templates for the NixOS module.
+    """Print out diffs for files used as templates for the Botnix module.
 
     The current package version found in the nixpkgs worktree the
     script is run from will be used to download the "from" file and

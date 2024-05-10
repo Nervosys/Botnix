@@ -12,7 +12,7 @@
 # permissions, you need to list all members of the team with commit access individually.
 
 # GitHub actions
-/.github/workflows @NixOS/Security @Mic92 @zowoq
+/.github/workflows @Botnix/Security @Mic92 @zowoq
 /.github/workflows/merge-staging @FRidh
 
 # EditorConfig
@@ -64,11 +64,11 @@
 
 # Nixpkgs make-disk-image
 /doc/build-helpers/images/makediskimage.section.md  @raitobezarius
-/nixos/lib/make-disk-image.nix                 @raitobezarius
+/botnix/lib/make-disk-image.nix                 @raitobezarius
 
 # Nix, the package manager
 pkgs/tools/package-management/nix/                    @raitobezarius @ma27
-nixos/modules/installer/tools/nix-fallback-paths.nix  @raitobezarius @ma27
+botnix/modules/installer/tools/nix-fallback-paths.nix  @raitobezarius @ma27
 
 # Nixpkgs documentation
 /maintainers/scripts/db-to-md.sh @jtojnar @ryantm
@@ -81,7 +81,7 @@ nixos/modules/installer/tools/nix-fallback-paths.nix  @raitobezarius @ma27
 /doc/contributing/contributing-to-documentation.chapter.md @jtojnar @infinisil
 /lib/README.md @infinisil
 /doc/README.md @infinisil
-/nixos/README.md @infinisil
+/botnix/README.md @infinisil
 /pkgs/README.md @infinisil
 /maintainers/README.md @infinisil
 
@@ -89,32 +89,32 @@ nixos/modules/installer/tools/nix-fallback-paths.nix  @raitobezarius @ma27
 /doc/development.md @infinisil
 /doc/development @infinisil
 
-# NixOS Internals
-/nixos/default.nix                                    @infinisil
-/nixos/lib/from-env.nix                               @infinisil
-/nixos/lib/eval-config.nix                            @infinisil
-/nixos/modules/system                                 @dasJ
-/nixos/modules/system/activation/bootspec.nix         @grahamc @cole-h @raitobezarius
-/nixos/modules/system/activation/bootspec.cue         @grahamc @cole-h @raitobezarius
+# Botnix Internals
+/botnix/default.nix                                    @infinisil
+/botnix/lib/from-env.nix                               @infinisil
+/botnix/lib/eval-config.nix                            @infinisil
+/botnix/modules/system                                 @dasJ
+/botnix/modules/system/activation/bootspec.nix         @grahamc @cole-h @raitobezarius
+/botnix/modules/system/activation/bootspec.cue         @grahamc @cole-h @raitobezarius
 
-# NixOS integration test driver
-/nixos/lib/test-driver  @tfc
+# Botnix integration test driver
+/botnix/lib/test-driver  @tfc
 
-# NixOS QEMU virtualisation
-/nixos/virtualisation/qemu-vm.nix           @raitobezarius
+# Botnix QEMU virtualisation
+/botnix/virtualisation/qemu-vm.nix           @raitobezarius
 
 # Systemd
-/nixos/modules/system/boot/systemd.nix      @NixOS/systemd
-/nixos/modules/system/boot/systemd          @NixOS/systemd
-/nixos/lib/systemd-*.nix                    @NixOS/systemd
-/pkgs/os-specific/linux/systemd             @NixOS/systemd
+/botnix/modules/system/boot/systemd.nix      @Botnix/systemd
+/botnix/modules/system/boot/systemd          @Botnix/systemd
+/botnix/lib/systemd-*.nix                    @Botnix/systemd
+/pkgs/os-specific/linux/systemd             @Botnix/systemd
 
 # Systemd-boot
-/nixos/modules/system/boot/loader/systemd-boot      @JulienMalka
+/botnix/modules/system/boot/loader/systemd-boot      @JulienMalka
 
 # Images and installer media
-/nixos/modules/installer/cd-dvd/            @samueldr
-/nixos/modules/installer/sd-card/           @samueldr
+/botnix/modules/installer/cd-dvd/            @samueldr
+/botnix/modules/installer/sd-card/           @samueldr
 
 # Updaters
 ## update.nix
@@ -163,15 +163,15 @@ nixos/modules/installer/tools/nix-fallback-paths.nix  @raitobezarius @ma27
 /doc/languages-frameworks/emscripten.section.md @raitobezarius
 
 # Audio
-/nixos/modules/services/audio/botamusique.nix @mweinelt
-/nixos/modules/services/audio/snapserver.nix @mweinelt
-/nixos/tests/modules/services/audio/botamusique.nix @mweinelt
-/nixos/tests/snapcast.nix @mweinelt
+/botnix/modules/services/audio/botamusique.nix @mweinelt
+/botnix/modules/services/audio/snapserver.nix @mweinelt
+/botnix/tests/modules/services/audio/botamusique.nix @mweinelt
+/botnix/tests/snapcast.nix @mweinelt
 
 # Browsers
 /pkgs/applications/networking/browsers/firefox @mweinelt
 /pkgs/applications/networking/browsers/chromium @emilylange
-/nixos/tests/chromium.nix @emilylange
+/botnix/tests/chromium.nix @emilylange
 
 # Certificate Authorities
 pkgs/data/misc/cacert/ @ajs124 @lukegb @mweinelt
@@ -192,23 +192,23 @@ pkgs/development/python-modules/buildcatrust/ @ajs124 @lukegb @mweinelt
 
 # PostgreSQL and related stuff
 /pkgs/servers/sql/postgresql @thoughtpolice @marsam
-/nixos/modules/services/databases/postgresql.xml @thoughtpolice
-/nixos/modules/services/databases/postgresql.nix @thoughtpolice
-/nixos/tests/postgresql.nix @thoughtpolice
+/botnix/modules/services/databases/postgresql.xml @thoughtpolice
+/botnix/modules/services/databases/postgresql.nix @thoughtpolice
+/botnix/tests/postgresql.nix @thoughtpolice
 
 # Hardened profile & related modules
-/nixos/modules/profiles/hardened.nix @joachifm
-/nixos/modules/security/hidepid.nix @joachifm
-/nixos/modules/security/lock-kernel-modules.nix @joachifm
-/nixos/modules/security/misc.nix @joachifm
-/nixos/tests/hardened.nix @joachifm
+/botnix/modules/profiles/hardened.nix @joachifm
+/botnix/modules/security/hidepid.nix @joachifm
+/botnix/modules/security/lock-kernel-modules.nix @joachifm
+/botnix/modules/security/misc.nix @joachifm
+/botnix/tests/hardened.nix @joachifm
 /pkgs/os-specific/linux/kernel/hardened-config.nix @joachifm
 
 # Home Automation
-/nixos/modules/services/misc/home-assistant.nix @mweinelt
-/nixos/modules/services/misc/zigbee2mqtt.nix @mweinelt
-/nixos/tests/home-assistant.nix @mweinelt
-/nixos/tests/zigbee2mqtt.nix @mweinelt
+/botnix/modules/services/misc/home-assistant.nix @mweinelt
+/botnix/modules/services/misc/zigbee2mqtt.nix @mweinelt
+/botnix/tests/home-assistant.nix @mweinelt
+/botnix/tests/zigbee2mqtt.nix @mweinelt
 /pkgs/servers/home-assistant @mweinelt
 /pkgs/tools/misc/esphome @mweinelt
 
@@ -216,24 +216,24 @@ pkgs/development/python-modules/buildcatrust/ @ajs124 @lukegb @mweinelt
 /pkgs/tools/networking/chrony @thoughtpolice
 /pkgs/tools/networking/ntp @thoughtpolice
 /pkgs/tools/networking/openntpd @thoughtpolice
-/nixos/modules/services/networking/ntp @thoughtpolice
+/botnix/modules/services/networking/ntp @thoughtpolice
 
 # Network
 /pkgs/tools/networking/octodns @Janik-Haag
 /pkgs/tools/networking/kea/default.nix @mweinelt
 /pkgs/tools/networking/babeld/default.nix @mweinelt
-/nixos/modules/services/networking/babeld.nix @mweinelt
-/nixos/modules/services/networking/kea.nix @mweinelt
-/nixos/modules/services/networking/knot.nix @mweinelt
-/nixos/modules/services/monitoring/prometheus/exporters/kea.nix @mweinelt
-/nixos/tests/babeld.nix @mweinelt
-/nixos/tests/kea.nix @mweinelt
-/nixos/tests/knot.nix @mweinelt
+/botnix/modules/services/networking/babeld.nix @mweinelt
+/botnix/modules/services/networking/kea.nix @mweinelt
+/botnix/modules/services/networking/knot.nix @mweinelt
+/botnix/modules/services/monitoring/prometheus/exporters/kea.nix @mweinelt
+/botnix/tests/babeld.nix @mweinelt
+/botnix/tests/kea.nix @mweinelt
+/botnix/tests/knot.nix @mweinelt
 
 # Web servers
 /doc/packages/nginx.section.md @raitobezarius
 /pkgs/servers/http/nginx/ @raitobezarius
-/nixos/modules/services/web-servers/nginx/ @raitobezarius
+/botnix/modules/services/web-servers/nginx/ @raitobezarius
 
 # Dhall
 /pkgs/development/dhall-modules      @Gabriella439 @Profpatsch @ehmry
@@ -245,11 +245,11 @@ pkgs/development/python-modules/buildcatrust/ @ajs124 @lukegb @mweinelt
 # Bazel
 /pkgs/development/tools/build-managers/bazel @Profpatsch
 
-# NixOS modules for e-mail and dns services
-/nixos/modules/services/mail/mailman.nix    @peti
-/nixos/modules/services/mail/postfix.nix    @peti
-/nixos/modules/services/networking/bind.nix @peti
-/nixos/modules/services/mail/rspamd.nix     @peti
+# Botnix modules for e-mail and dns services
+/botnix/modules/services/mail/mailman.nix    @peti
+/botnix/modules/services/mail/postfix.nix    @peti
+/botnix/modules/services/networking/bind.nix @peti
+/botnix/modules/services/mail/rspamd.nix     @peti
 
 # Emacs
 /pkgs/applications/editors/emacs/elisp-packages @adisbladis
@@ -267,7 +267,7 @@ pkgs/development/python-modules/buildcatrust/ @ajs124 @lukegb @mweinelt
 
 # PHP interpreter, packages, extensions, tests and documentation
 /doc/languages-frameworks/php.section.md          @aanderse @drupol @etu @globin @ma27 @talyz
-/nixos/tests/php                                  @aanderse @drupol @etu @globin @ma27 @talyz
+/botnix/tests/php                                  @aanderse @drupol @etu @globin @ma27 @talyz
 /pkgs/build-support/php/build-pecl.nix            @aanderse @drupol @etu @globin @ma27 @talyz
 /pkgs/build-support/php                                     @drupol @etu
 /pkgs/development/interpreters/php       @jtojnar @aanderse @drupol @etu @globin @ma27 @talyz
@@ -276,7 +276,7 @@ pkgs/development/python-modules/buildcatrust/ @ajs124 @lukegb @mweinelt
 
 # Docker tools
 /pkgs/build-support/docker                   @roberth
-/nixos/tests/docker-tools*                   @roberth
+/botnix/tests/docker-tools*                   @roberth
 /doc/build-helpers/images/dockertools.section.md  @roberth
 
 # Blockchains
@@ -306,12 +306,12 @@ pkgs/development/python-modules/buildcatrust/ @ajs124 @lukegb @mweinelt
 # Matrix
 /pkgs/servers/heisenbridge                                 @piegamesde
 /pkgs/servers/matrix-conduit                               @piegamesde
-/nixos/modules/services/misc/heisenbridge.nix              @piegamesde
-/nixos/modules/services/misc/matrix-conduit.nix            @piegamesde
-/nixos/tests/matrix-conduit.nix                            @piegamesde
+/botnix/modules/services/misc/heisenbridge.nix              @piegamesde
+/botnix/modules/services/misc/matrix-conduit.nix            @piegamesde
+/botnix/tests/matrix-conduit.nix                            @piegamesde
 
 # Forgejo
-nixos/modules/services/misc/forgejo.nix      @bendlas @emilylange
+botnix/modules/services/misc/forgejo.nix      @bendlas @emilylange
 pkgs/applications/version-management/forgejo @bendlas @emilylange
 
 # Dotnet
@@ -326,7 +326,7 @@ pkgs/applications/version-management/forgejo @bendlas @emilylange
 /doc/languages-frameworks/javascript.section.md @lilyinstarlight @winterqt
 
 # environment.noXlibs option aka NoX
-/nixos/modules/config/no-x-libs.nix  @SuperSandro2000
+/botnix/modules/config/no-x-libs.nix  @SuperSandro2000
 
 # OCaml
 /pkgs/build-support/ocaml           @ulrikstrid
@@ -336,14 +336,14 @@ pkgs/applications/version-management/forgejo @bendlas @emilylange
 # ZFS
 pkgs/os-specific/linux/zfs/2_1.nix        @raitobezarius
 pkgs/os-specific/linux/zfs/generic.nix    @raitobezarius
-nixos/modules/tasks/filesystems/zfs.nix   @raitobezarius
-nixos/tests/zfs.nix                       @raitobezarius
+botnix/modules/tasks/filesystems/zfs.nix   @raitobezarius
+botnix/tests/zfs.nix                       @raitobezarius
 
 # Zig
 /pkgs/development/compilers/zig @figsoda
 /doc/hooks/zig.section.md       @figsoda
 
 # Buildbot
-nixos/modules/services/continuous-integration/buildbot @Mic92 @zowoq
-nixos/tests/buildbot.nix                               @Mic92 @zowoq
+botnix/modules/services/continuous-integration/buildbot @Mic92 @zowoq
+botnix/tests/buildbot.nix                               @Mic92 @zowoq
 pkgs/development/tools/continuous-integration/buildbot @Mic92 @zowoq

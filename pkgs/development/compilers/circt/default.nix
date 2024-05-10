@@ -48,7 +48,7 @@ stdenv.mkDerivation rec {
   # 2. When stdenv = clangStdenv, the `clang-tidy` binary appears in PATH via `clang-unwrapped`,
   #    which is always placed before `${clang-tools}/bin` in PATH. `clang-tidy` provided in
   #    `clang-unwrapped` cause tests failing because it is not wrapped to resolve header search paths.
-  #    https://github.com/NixOS/nixpkgs/issues/214945 discusses this issue.
+  #    https://github.com/nervosys/Botnix/issues/214945 discusses this issue.
   #
   # As a temporary fix, we disabled these tests when using clang stdenv
   # cannot use lib.optionalString as it creates an empty string, disabling all tests

@@ -2,16 +2,16 @@
 , perl
 , shadow
 , util-linux
-, configurationDirectory ? "/etc/nixos-containers"
-, stateDirectory ? "/var/lib/nixos-containers"
+, configurationDirectory ? "/etc/botnix-containers"
+, stateDirectory ? "/var/lib/botnix-containers"
 , nixosTests
 }:
 
 substituteAll {
-    name = "nixos-container";
+    name = "botnix-container";
     dir = "bin";
     isExecutable = true;
-    src = ./nixos-container.pl;
+    src = ./botnix-container.pl;
     perl = perl.withPackages (p: [ p.FileSlurp ]);
     su = "${shadow.su}/bin/su";
     utillinux = util-linux;
@@ -33,6 +33,6 @@ substituteAll {
     postInstall = ''
       t=$out/share/bash-completion/completions
       mkdir -p $t
-      cp ${./nixos-container-completion.sh} $t/nixos-container
+      cp ${./botnix-container-completion.sh} $t/botnix-container
     '';
 }

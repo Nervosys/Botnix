@@ -16,7 +16,7 @@ let
       { name = "fixedPoints"; baseName = "fixed-points"; description = "explicit recursion functions"; }
       { name = "lists"; description = "list manipulation functions"; }
       { name = "debug"; description = "debugging functions"; }
-      { name = "options"; description = "NixOS / nixpkgs option handling"; }
+      { name = "options"; description = "Botnix / nixpkgs option handling"; }
       { name = "path"; description = "path functions"; }
       { name = "filesystem"; description = "filesystem functions"; }
       { name = "fileset"; description = "file set functions"; }
@@ -50,7 +50,7 @@ let
           </para>
           <para>
             If you've used the EPUB manual in the past and it has been useful to you, please
-            <link xlink:href="https://github.com/NixOS/nixpkgs/issues/237234">let us know</link>.
+            <link xlink:href="https://github.com/nervosys/Botnix/issues/237234">let us know</link>.
           </para>
         </chapter>
       </book>
@@ -72,7 +72,7 @@ let
   '';
 
   # NB: This file describes the Nixpkgs manual, which happens to use module
-  #     docs infra originally developed for NixOS.
+  #     docs infra originally developed for Botnix.
   optionsDoc = pkgs.nixosOptionsDoc {
     inherit (pkgs.lib.evalModules {
       modules = [ ../pkgs/top-level/config.nix ];
@@ -87,7 +87,7 @@ let
               if hasPrefix (toString ../..) (toString decl)
               then
                 let subpath = removePrefix "/" (removePrefix (toString ../.) (toString decl));
-                in { url = "https://github.com/NixOS/nixpkgs/blob/master/${subpath}"; name = subpath; }
+                in { url = "https://github.com/nervosys/Botnix/blob/master/${subpath}"; name = subpath; }
               else decl)
             opt.declarations;
         };
@@ -96,13 +96,13 @@ in pkgs.stdenv.mkDerivation {
   name = "nixpkgs-manual";
 
   nativeBuildInputs = with pkgs; [
-    nixos-render-docs
+    botnix-render-docs
   ];
 
   src = ./.;
 
   postPatch = ''
-    ln -s ${optionsDoc.optionsJSON}/share/doc/nixos/options.json ./config-options.json
+    ln -s ${optionsDoc.optionsJSON}/share/doc/botnix/options.json ./config-options.json
   '';
 
   buildPhase = ''
@@ -124,7 +124,7 @@ in pkgs.stdenv.mkDerivation {
 
     cp -t out ./overrides.css ./style.css
 
-    nixos-render-docs manual html \
+    botnix-render-docs manual html \
       --manpage-urls ./manpage-urls.json \
       --revision ${pkgs.lib.trivial.revisionWithDefault (pkgs.rev or "master")} \
       --stylesheet style.css \

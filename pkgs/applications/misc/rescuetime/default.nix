@@ -18,7 +18,7 @@ in mkDerivation rec {
   pname = "rescuetime";
   inherit src;
   nativeBuildInputs = [ dpkg ];
-  # avoid https://github.com/NixOS/patchelf/issues/99
+  # avoid https://github.com/Botnix/patchelf/issues/99
   dontStrip = true;
   unpackPhase = ''
     mkdir pkg

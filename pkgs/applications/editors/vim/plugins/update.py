@@ -12,7 +12,7 @@
 # If you see `HTTP Error 429: too many requests` errors while running this
 # script, refer to:
 #
-# https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md#updating-plugins-in-nixpkgs-updating-plugins-in-nixpkgs
+# https://github.com/nervosys/Botnix/blob/master/doc/languages-frameworks/vim.section.md#updating-plugins-in-nixpkgs-updating-plugins-in-nixpkgs
 #
 # (or the equivalent file /doc/languages-frameworks/vim.section.md
 # from Nixpkgs master tree).

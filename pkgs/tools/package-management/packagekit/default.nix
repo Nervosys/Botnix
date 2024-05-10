@@ -70,7 +70,7 @@ stdenv.mkDerivation rec {
     (if enableSystemd then "-Dsystemd=true" else "-Dsystem=false")
     # often fails to build with nix updates
     # and remounts /nix/store as rw
-    # https://github.com/NixOS/nixpkgs/issues/177946
+    # https://github.com/nervosys/Botnix/issues/177946
     #"-Dpackaging_backend=nix"
     "-Ddbus_sys=${placeholder "out"}/share/dbus-1/system.d"
     "-Ddbus_services=${placeholder "out"}/share/dbus-1/system-services"
@@ -94,7 +94,7 @@ stdenv.mkDerivation rec {
   '';
 
   passthru.tests = {
-    nixos-test = nixosTests.packagekit;
+    botnix-test = nixosTests.packagekit;
   };
 
   meta = with lib; {

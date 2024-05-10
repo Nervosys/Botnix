@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
     # Also change /var/run to /run, since we shouldn't be using /var/run
     # anymore.
     # See also: http://lists.busybox.net/pipermail/busybox/2021-June/088866.html
-    ./0001-adjust-socket-paths-for-nixos.patch
+    ./0001-adjust-socket-paths-for-botnix.patch
   ];
 
   buildInputs = [ systemd ];

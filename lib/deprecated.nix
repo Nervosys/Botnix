@@ -164,7 +164,7 @@ rec {
   # The ordering / sorting / comparison is done based on the `outPath`
   # attribute of each derivation.
   # On some benchmarks, it performs up to 15 times faster than lib.closePropagation.
-  # See https://github.com/NixOS/nixpkgs/pull/194391 for details.
+  # See https://github.com/nervosys/Botnix/pull/194391 for details.
   closePropagationFast = list:
     builtins.map (x: x.val) (builtins.genericClosure {
       startSet = builtins.map (x: {

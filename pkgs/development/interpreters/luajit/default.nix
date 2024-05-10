@@ -56,7 +56,7 @@ let
   # LuaJIT requires build for 32bit architectures to be build on x86 not x86_64
   # TODO support also other build architectures. The ideal way would be to use
   # stdenv_32bit but that doesn't work due to host platform mismatch:
-  # https://github.com/NixOS/nixpkgs/issues/212494
+  # https://github.com/nervosys/Botnix/issues/212494
   buildStdenv = if buildPackages.stdenv.isx86_64 && stdenv.is32bit
     then buildPackages.pkgsi686Linux.buildPackages.stdenv
     else buildPackages.stdenv;

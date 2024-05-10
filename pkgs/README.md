@@ -46,7 +46,7 @@ Now that this is out of the way. To add a package to Nixpkgs:
 1. Checkout the Nixpkgs source tree:
 
    ```ShellSession
-   $ git clone https://github.com/NixOS/nixpkgs
+   $ git clone https://github.com/nervosys/Botnix
    $ cd nixpkgs
    ```
 
@@ -112,7 +112,7 @@ Now that this is out of the way. To add a package to Nixpkgs:
    $ nix-env -f . -iA libfoo
    ```
 
-7. Optionally commit the new package and open a pull request [to nixpkgs](https://github.com/NixOS/nixpkgs/pulls), or use [the Patches category](https://discourse.nixos.org/t/about-the-patches-category/477) on Discourse for sending a patch without a GitHub account.
+7. Optionally commit the new package and open a pull request [to nixpkgs](https://github.com/nervosys/Botnix/pulls), or use [the Patches category](https://discourse.botnix.org/t/about-the-patches-category/477) on Discourse for sending a patch without a GitHub account.
 
 ## Commit conventions
 
@@ -392,7 +392,7 @@ See the Nixpkgs manual for more details on [standard meta-attributes](https://ni
 ### Import From Derivation
 
 [Import From Derivation](https://nixos.org/manual/nix/unstable/language/import-from-derivation) (IFD) is disallowed in Nixpkgs for performance reasons:
-[Hydra](https://github.com/NixOS/hydra) evaluates the entire package set, and sequential builds during evaluation would increase evaluation times to become impractical.
+[Hydra](https://github.com/Botnix/hydra) evaluates the entire package set, and sequential builds during evaluation would increase evaluation times to become impractical.
 
 Import From Derivation can be worked around in some cases by committing generated intermediate files to version control and reading those instead.
 
@@ -410,8 +410,8 @@ In the file `pkgs/top-level/all-packages.nix` you can find fetch helpers, these 
 
   ```nix
   src = fetchgit {
-    url = "git@github.com:NixOS/nix.git"
-    url = "git://github.com/NixOS/nix.git";
+    url = "git@github.com:Botnix/nix.git"
+    url = "git://github.com/Botnix/nix.git";
     rev = "1f795f9f44607cc5bec70d1300150bfefcef2aae";
     hash = "sha256-7D4m+saJjbSFP5hOwpQq2FGR2rr+psQMTcyb1ZvtXsQ=";
   }
@@ -431,7 +431,7 @@ In the file `pkgs/top-level/all-packages.nix` you can find fetch helpers, these 
 
   ```nix
   src = fetchFromGitHub {
-    owner = "NixOS";
+    owner = "Botnix";
     repo = "nix";
     rev = "1f795f9f44607cc5bec70d1300150bfefcef2aae";
     hash = "sha256-7D4m+saJjbSFP5hOwpQq2FGR2rr+psQMTcyb1ZvtXsQ=";
@@ -441,7 +441,7 @@ In the file `pkgs/top-level/all-packages.nix` you can find fetch helpers, these 
 When fetching from GitHub, commits must always be referenced by their full commit hash. This is because GitHub shares commit hashes among all forks and returns `404 Not Found` when a short commit hash is ambiguous. It already happens for some short, 6-character commit hashes in `nixpkgs`.
 It is a practical vector for a denial-of-service attack by pushing large amounts of auto generated commits into forks and was already [demonstrated against GitHub Actions Beta](https://blog.teddykatz.com/2019/11/12/github-actions-dos.html).
 
-Find the value to put as `hash` by running `nix-shell -p nix-prefetch-github --run "nix-prefetch-github --rev 1f795f9f44607cc5bec70d1300150bfefcef2aae NixOS nix"`.
+Find the value to put as `hash` by running `nix-shell -p nix-prefetch-github --run "nix-prefetch-github --rev 1f795f9f44607cc5bec70d1300150bfefcef2aae Botnix nix"`.
 
 #### Obtaining source hash
 
@@ -478,7 +478,7 @@ Preferred source hash type is sha256. There are several ways to get it.
    > You must use one of these four fake hashes and not some arbitrarily-chosen hash.
    > See [here][secure-hashes]
 
-   This is last resort method when reconstructing source URL is non-trivial and `nix-prefetch-url -A` isn’t applicable (for example, [one of `kodi` dependencies](https://github.com/NixOS/nixpkgs/blob/d2ab091dd308b99e4912b805a5eb088dd536adb9/pkgs/applications/video/kodi/default.nix#L73)). The easiest way then would be replace hash with a fake one and rebuild. Nix build will fail and error message will contain desired hash.
+   This is last resort method when reconstructing source URL is non-trivial and `nix-prefetch-url -A` isn’t applicable (for example, [one of `kodi` dependencies](https://github.com/nervosys/Botnix/blob/d2ab091dd308b99e4912b805a5eb088dd536adb9/pkgs/applications/video/kodi/default.nix#L73)). The easiest way then would be replace hash with a fake one and rebuild. Nix build will fail and error message will contain desired hash.
 
 
 #### Obtaining hashes securely
@@ -584,14 +584,14 @@ We use jbidwatcher as an example for a discontinued project here.
 1. Push changes to your GitHub fork with `git push`
 1. Create a pull request against Nixpkgs. Mention the package maintainer.
 
-This is how the pull request looks like in this case: [https://github.com/NixOS/nixpkgs/pull/116470](https://github.com/NixOS/nixpkgs/pull/116470)
+This is how the pull request looks like in this case: [https://github.com/nervosys/Botnix/pull/116470](https://github.com/nervosys/Botnix/pull/116470)
 
 ## Package tests
 
 To run the main types of tests locally:
 
 - Run package-internal tests with `nix-build --attr pkgs.PACKAGE.passthru.tests`
-- Run [NixOS tests](https://nixos.org/manual/nixos/unstable/#sec-nixos-tests) with `nix-build --attr nixosTests.NAME`, where `NAME` is the name of the test listed in `nixos/tests/all-tests.nix`
+- Run [Botnix tests](https://nixos.org/manual/botnix/unstable/#sec-botnix-tests) with `nix-build --attr nixosTests.NAME`, where `NAME` is the name of the test listed in `botnix/tests/all-tests.nix`
 - Run [global package tests](https://nixos.org/manual/nixpkgs/unstable/#sec-package-tests) with `nix-build --attr tests.PACKAGE`, where `PACKAGE` is the name of the test listed in `pkgs/test/default.nix`
 - See `lib/tests/NAME.nix` for instructions on running specific library tests
 
@@ -599,11 +599,11 @@ Tests are important to ensure quality and make reviews and automatic updates eas
 
 The following types of tests exists:
 
-* [NixOS **module tests**](https://nixos.org/manual/nixos/stable/#sec-nixos-tests), which spawn one or more NixOS VMs. They exercise both NixOS modules and the packaged programs used within them. For example, a NixOS module test can start a web server VM running the `nginx` module, and a client VM running `curl` or a graphical `firefox`, and test that they can talk to each other and display the correct content.
-* Nix **package tests** are a lightweight alternative to NixOS module tests. They should be used to create simple integration tests for packages, but cannot test NixOS services, and some programs with graphical user interfaces may also be difficult to test with them.
+* [Botnix **module tests**](https://nixos.org/manual/botnix/stable/#sec-botnix-tests), which spawn one or more Botnix VMs. They exercise both Botnix modules and the packaged programs used within them. For example, a Botnix module test can start a web server VM running the `nginx` module, and a client VM running `curl` or a graphical `firefox`, and test that they can talk to each other and display the correct content.
+* Nix **package tests** are a lightweight alternative to Botnix module tests. They should be used to create simple integration tests for packages, but cannot test Botnix services, and some programs with graphical user interfaces may also be difficult to test with them.
 * The **`checkPhase` of a package**, which should execute the unit tests that are included in the source code of a package.
 
-Here in the nixpkgs manual we describe mostly _package tests_; for _module tests_ head over to the corresponding [section in the NixOS manual](https://nixos.org/manual/nixos/stable/#sec-nixos-tests).
+Here in the nixpkgs manual we describe mostly _package tests_; for _module tests_ head over to the corresponding [section in the Botnix manual](https://nixos.org/manual/botnix/stable/#sec-botnix-tests).
 
 ### Writing inline package tests
 
@@ -689,9 +689,9 @@ Here are examples of package tests:
 - [Libtorch test](development/libraries/science/math/libtorch/test/default.nix)
 - [Multiple tests for nanopb](development/libraries/nanopb/default.nix)
 
-### Linking NixOS module tests to a package
+### Linking Botnix module tests to a package
 
-Like [package tests][larger-package-tests] as shown above, [NixOS module tests](https://nixos.org/manual/nixos/stable/#sec-nixos-tests) can also be linked to a package, so that the tests can be easily run when changing the related package.
+Like [package tests][larger-package-tests] as shown above, [Botnix module tests](https://nixos.org/manual/botnix/stable/#sec-botnix-tests) can also be linked to a package, so that the tests can be easily run when changing the related package.
 
 For example, assuming we're packaging `nginx`, we can link its module test via `passthru.tests`:
 
@@ -729,17 +729,17 @@ Reviewing process:
 - Ensure that the code contains no typos.
 - Build the package locally.
   - Pull requests are often targeted to the master or staging branch, and building the pull request locally when it is submitted can trigger many source builds.
-  - It is possible to rebase the changes on nixos-unstable or nixpkgs-unstable for easier review by running the following commands from a nixpkgs clone.
+  - It is possible to rebase the changes on botnix-unstable or nixpkgs-unstable for easier review by running the following commands from a nixpkgs clone.
 
     ```ShellSession
-    $ git fetch origin nixos-unstable
+    $ git fetch origin botnix-unstable
     $ git fetch origin pull/PRNUMBER/head
-    $ git rebase --onto nixos-unstable BASEBRANCH FETCH_HEAD
+    $ git rebase --onto botnix-unstable BASEBRANCH FETCH_HEAD
     ```
 
-    - The first command fetches the nixos-unstable branch.
+    - The first command fetches the botnix-unstable branch.
     - The second command fetches the pull request changes, `PRNUMBER` is the number at the end of the pull request title and `BASEBRANCH` the base branch of the pull request.
-    - The third command rebases the pull request changes to the nixos-unstable branch.
+    - The third command rebases the pull request changes to the botnix-unstable branch.
   - The [nixpkgs-review](https://github.com/Mic92/nixpkgs-review) tool can be used to review a pull request content in a single command. `PRNUMBER` should be replaced by the number at the end of the pull request title. You can also provide the full github pull request url.
 
     ```ShellSession
@@ -842,7 +842,7 @@ Critical security fixes may by-pass the staging branches and be delivered direct
 Vulnerable packages in Nixpkgs are managed using issues.
 Currently opened ones can be found using the following:
 
-[github.com/NixOS/nixpkgs/issues?q=is:issue+is:open+"Vulnerability+roundup"](https://github.com/NixOS/nixpkgs/issues?q=is%3Aissue+is%3Aopen+%22Vulnerability+roundup%22)
+[github.com/Botnix/nixpkgs/issues?q=is:issue+is:open+"Vulnerability+roundup"](https://github.com/nervosys/Botnix/issues?q=is%3Aissue+is%3Aopen+%22Vulnerability+roundup%22)
 
 Each issue correspond to a vulnerable version of a package; As a consequence:
 
@@ -856,7 +856,7 @@ A "Vulnerability roundup" issue usually respects the following format:
 ```txt
 <link to relevant package search on search.nix.gsc.io>, <link to relevant files in Nixpkgs on GitHub>
 
-<list of related CVEs, their CVSS score, and the impacted NixOS version>
+<list of related CVEs, their CVSS score, and the impacted Botnix version>
 
 <list of the scanned Nixpkgs versions>
 

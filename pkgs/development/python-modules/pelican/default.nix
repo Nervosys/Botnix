@@ -114,7 +114,7 @@ buildPythonPackage rec {
 
   # We only want to patch shebangs in /bin, and not those
   # of the project scripts that are created by Pelican.
-  # See https://github.com/NixOS/nixpkgs/issues/30116
+  # See https://github.com/nervosys/Botnix/issues/30116
   dontPatchShebangs = true;
 
   postFixup = ''

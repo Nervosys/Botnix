@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   patches = [
     ./dont-hardcode-ar.patch
     # Fix warnings from preprocessor instructions.
-    # https://github.com/NixOS/nixpkgs/issues/59929
+    # https://github.com/nervosys/Botnix/issues/59929
     ./preprocessor-warnings.patch
     # `configure` defines a test `main` with an implicit `int` return, which clang 16 disallows.
     ./fix-configure-main.patch

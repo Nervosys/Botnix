@@ -339,7 +339,7 @@ let
     ];
 
     patches = [
-      # Load a separate NixOS site settings file
+      # Load a separate Botnix site settings file
       ./nixos_defaults.patch
 
       # Add a noninteractive admin creation task
@@ -422,7 +422,7 @@ let
       enabledPlugins = plugins;
       plugins = callPackage ./plugins/all-plugins.nix { inherit mkDiscoursePlugin; };
       ruby = rubyEnv.wrappedRuby;
-      tests = import ../../../../nixos/tests/discourse.nix {
+      tests = import ../../../../botnix/tests/discourse.nix {
         inherit (stdenv) system;
         inherit pkgs;
         package = pkgs.discourse.override args;

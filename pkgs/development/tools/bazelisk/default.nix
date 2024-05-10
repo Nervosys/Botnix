@@ -20,7 +20,7 @@ buildGoModule rec {
   meta = with lib; {
     description = "A user-friendly launcher for Bazel";
     longDescription = ''
-      BEWARE: This package does not work on NixOS.
+      BEWARE: This package does not work on Botnix.
     '';
     homepage = "https://github.com/bazelbuild/bazelisk";
     changelog = "https://github.com/bazelbuild/bazelisk/releases/tag/v${version}";

@@ -106,7 +106,7 @@ with self; {
       shortenPerlShebang $out/bin/ack
     '';
 
-    # tests fails on nixos and hydra because of different purity issues
+    # tests fails on botnix and hydra because of different purity issues
     doCheck = false;
 
     meta = {
@@ -341,7 +341,7 @@ with self; {
     meta = {
       description = "Gumbo parser library";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.AlienLibGumbo.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.AlienLibGumbo.x86_64-darwin
     };
   };
 
@@ -5451,7 +5451,7 @@ with self; {
       hash = "sha256-6Kf/Kpk7dqaa1t/9vlV1W+Vni4Tm7ElNzZq5Zvdm9Q4=";
     };
     patches = [
-      # See https://github.com/NixOS/nixpkgs/pull/93599
+      # See https://github.com/nervosys/Botnix/pull/93599
       ../development/perl-modules/crypt-openpgp-remove-impure-keygen-tests.patch
     ];
     buildInputs = [ TestException ];
@@ -6037,7 +6037,7 @@ with self; {
       homepage = "https://github.com/msgpack/msgpack-perl";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
       maintainers = [ maintainers.sgo ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.DataMessagePack.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.DataMessagePack.x86_64-darwin
     };
   };
 
@@ -6316,7 +6316,7 @@ with self; {
       description = "A selection of utilities for data and data types";
       homepage = "https://github.com/gfx/Perl-Data-Util";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.DataUtil.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.DataUtil.x86_64-darwin
     };
   };
 
@@ -7238,7 +7238,7 @@ with self; {
     meta = {
       description = "DBI driver for Sybase datasources";
       license = with lib.licenses; [ artistic1 gpl1Only ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.DBDsybase.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.DBDsybase.x86_64-darwin
     };
   };
 
@@ -9932,7 +9932,7 @@ with self; {
       description = "Determine MIME types of data or files using libmagic";
       homepage = "https://metacpan.org/release/File::LibMagic";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.FileLibMagic.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.FileLibMagic.x86_64-darwin
     };
   };
 
@@ -10893,7 +10893,7 @@ with self; {
       description = "(DEPRECATED) Perl interface to the 2.x series of the GNOME libraries";
       homepage = "https://gtk2-perl.sourceforge.net";
       license = with lib.licenses; [ lgpl21Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.Gnome2Canvas.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.Gnome2Canvas.x86_64-darwin
     };
   };
 
@@ -11247,7 +11247,7 @@ with self; {
     meta = {
       description = "(DEPRECATED) Perl interface to the EggTrayIcon library";
       license = with lib.licenses; [ gpl2Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.Gtk2TrayIcon.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.Gtk2TrayIcon.x86_64-darwin
     };
   };
 
@@ -11298,7 +11298,7 @@ with self; {
     meta = {
       description = "(DEPRECATED) Use single instance applications";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.Gtk2Unique.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.Gtk2Unique.x86_64-darwin
     };
   };
 
@@ -11541,7 +11541,7 @@ with self; {
     meta = {
       description = "Efficient shared mutable hash";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.HashSharedMem.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.HashSharedMem.x86_64-darwin
     };
   };
 
@@ -11642,7 +11642,7 @@ with self; {
       description = "Extremely fast HTML escaping";
       homepage = "https://github.com/tokuhirom/HTML-Escape";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.HTMLEscape.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.HTMLEscape.x86_64-darwin
     };
   };
 
@@ -12121,7 +12121,7 @@ with self; {
     };
     propagatedBuildInputs = [ HTTPDate ];
     buildInputs = [ TestDeep TestRequires URI ];
-    # Broken on Hydra since 2021-06-17: https://hydra.nixos.org/build/146507373
+    # Broken on Hydra since 2021-06-17: https://hydra.botnix.org/build/146507373
     doCheck = false;
     meta = {
       description = "A minimalist HTTP user agent cookie jar";
@@ -12234,7 +12234,7 @@ with self; {
       license = with lib.licenses; [ artistic1 gpl1Plus ];
       broken =
         stdenv.isi686 # loadable library and perl binaries are mismatched (got handshake key 0x7d40080, needed 0x7dc0080)
-        || stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.HTTPHeaderParserXS.x86_64-darwin
+        || stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.HTTPHeaderParserXS.x86_64-darwin
     };
   };
 
@@ -12485,7 +12485,7 @@ with self; {
       description = "Perl interface to libpng";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
       mainProgram = "pnginspect";
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.ImagePNGLibpng.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.ImagePNGLibpng.x86_64-darwin
     };
   };
 
@@ -13294,7 +13294,7 @@ with self; {
     buildInputs = [ FileWhich ];
     propagatedBuildInputs = [ Inline ];
 
-    # TODO: upgrade https://github.com/NixOS/nixpkgs/pull/89731
+    # TODO: upgrade https://github.com/nervosys/Botnix/pull/89731
     makeMakerFlags = [ "J2SDK=${pkgs.jdk8}" ];
 
     # FIXME: Apparently tests want to access the network.
@@ -13310,7 +13310,7 @@ with self; {
         available to the Perl program as if they had been written in Perl.
       '';
       license = with lib.licenses; [ artistic2 ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.InlineJava.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.InlineJava.x86_64-darwin
     };
   };
 
@@ -14020,7 +14020,7 @@ with self; {
       hash = "sha256-YD4n2mB7PocqZp16ZtdZgvCWkVPqstSyDDQTR7Tr2l8=";
     };
     # The tests fail if the distro it's built on isn't in the supported list.
-    # This includes NixOS.
+    # This includes Botnix.
     doCheck = false;
     meta = {
       description = "Perl extension to detect on which Linux distribution we are running";
@@ -15606,7 +15606,7 @@ with self; {
       description = "Fast XS implementation of MaxMind DB reader";
       homepage = "https://metacpan.org/release/MaxMind-DB-Reader-XS";
       license = with lib.licenses; [ artistic2 ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.MaxMindDBReaderXS.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.MaxMindDBReaderXS.x86_64-darwin
     };
   };
 
@@ -15624,7 +15624,7 @@ with self; {
       description = "Create MaxMind DB database files";
       homepage = "https://metacpan.org/release/MaxMind-DB-Writer";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.MaxMindDBWriter.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.MaxMindDBWriter.x86_64-darwin
     };
   };
 
@@ -18728,7 +18728,7 @@ with self; {
     meta = {
       description = "OOP Interface to FreeDB Server(s)";
       license = with lib.licenses; [ artistic1 ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.NetFreeDB.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.NetFreeDB.x86_64-darwin
     };
   };
 
@@ -19691,7 +19691,7 @@ with self; {
     NIX_CFLAGS_LINK = "-L${pkgs.zookeeper_mt.out}/lib -lzookeeper_mt";
     # Most tests are skipped as no server is available in the sandbox.
     # `t/35_log.t` seems to suffer from a race condition; remove it.  See
-    # https://github.com/NixOS/nixpkgs/pull/104889#issuecomment-737144513
+    # https://github.com/nervosys/Botnix/pull/104889#issuecomment-737144513
     preCheck = ''
       rm t/35_log.t
     '' + lib.optionalString stdenv.isDarwin ''
@@ -21806,7 +21806,7 @@ with self; {
       homepage = "https://github.com/kazeburo/POSIX-strftime-Compiler";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
       broken = stdenv.hostPlatform.isMusl; # Broken for Musl at 2023-01-14, reports:
-               # Nixpkgs: https://github.com/NixOS/nixpkgs/issues/210749
+               # Nixpkgs: https://github.com/nervosys/Botnix/issues/210749
                # Upstream: https://github.com/kazeburo/POSIX-strftime-Compiler/issues/8
     };
   };
@@ -23941,7 +23941,7 @@ with self; {
       description = "Libvirt Perl API";
       homepage = "https://libvirt.org";
       license = with lib.licenses; [ gpl2Plus artistic1 ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.SysVirt.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.SysVirt.x86_64-darwin
     };
   };
 
@@ -24527,7 +24527,7 @@ with self; {
       description = "A new and improved test harness with better Test2 integration";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
       mainProgram = "yath";
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.Test2Harness.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.Test2Harness.x86_64-darwin
     };
   };
 
@@ -25333,7 +25333,7 @@ with self; {
     meta = {
       description = "Assert that code does not cause growth in memory usage";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.TestMemoryGrowth.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.TestMemoryGrowth.x86_64-darwin
     };
   };
 
@@ -26576,7 +26576,7 @@ with self; {
     meta = {
       description = "Perl interface to iconv() codeset conversion function";
       license = with lib.licenses; [ artistic1 gpl1Plus ]; # taken from el6
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.TextIconv.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.TextIconv.x86_64-darwin
     };
   };
 
@@ -26833,7 +26833,7 @@ with self; {
       hash = "sha256-2juBQUxj+NkhjRFnRaiLlIxGyYsYdjT2KYkuVAAbw1o=";
     };
 
-    # In a NixOS chroot build, the tests fail because the font configuration
+    # In a Botnix chroot build, the tests fail because the font configuration
     # at /etc/fonts/font.conf is not available.
     doCheck = false;
 
@@ -27040,7 +27040,7 @@ with self; {
     meta = {
       description = "Remove accents from a string";
       license = with lib.licenses; [ gpl2Only ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.TextUnaccent.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.TextUnaccent.x86_64-darwin
     };
   };
 
@@ -28231,7 +28231,7 @@ with self; {
     meta = {
       description = "Use WWW::Mechanize with CGI applications";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
-      broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/nixpkgs/staging-next/perl534Packages.WWWMechanizeCGI.x86_64-darwin
+      broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/perl534Packages.WWWMechanizeCGI.x86_64-darwin
     };
   };
 

@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    # Since /etc is the domain of NixOS, not Nix, we cannot install files there.
+    # Since /etc is the domain of Botnix, not Nix, we cannot install files there.
     # But these are just placeholders so we do not need to install them at all.
     ./no-dummy-dirs-in-sysconfdir.patch
   ];

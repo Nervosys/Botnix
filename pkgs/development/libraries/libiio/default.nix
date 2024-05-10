@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-c5HsxCdp1cv5BGTQ/8dc8J893zk9ntbfAudLpqoQ1ow=";
   };
 
-  # Revert after https://github.com/NixOS/nixpkgs/issues/125008 is
+  # Revert after https://github.com/nervosys/Botnix/issues/125008 is
   # fixed properly
   patches = [ ./cmake-fix-libxml2-find-package.patch ];
 

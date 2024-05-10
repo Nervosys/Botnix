@@ -67,7 +67,7 @@ buildPythonApplication rec {
   ];
 
   # Fix ctypes finding library
-  # https://github.com/NixOS/nixpkgs/issues/7307
+  # https://github.com/nervosys/Botnix/issues/7307
   postPatch = lib.optionalString stdenv.isLinux ''
     substituteInPlace mkosi/run.py \
       --replace 'ctypes.util.find_library("c")' "'${stdenv.cc.libc}/lib/libc.so.6'"

@@ -50,7 +50,7 @@ buildPythonApplication {
   '';
 
   postInstall = ''
-    # Fix tray icon, see e.g. https://github.com/NixOS/nixpkgs/pull/43421
+    # Fix tray icon, see e.g. https://github.com/nervosys/Botnix/pull/43421
     wrapProgram $out/bin/hushboard \
       --set GDK_PIXBUF_MODULE_FILE "${librsvg.out}/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
 

@@ -28,7 +28,7 @@ EOF
 build-options-json() {
     nix-build --no-out-link --expr '
         let
-            sys = import ./nixos/default.nix {
+            sys = import ./botnix/default.nix {
                 configuration = {};
             };
         in
@@ -75,9 +75,9 @@ echo "Building options.json again ..."
 new_options=$(build-options-json)
 
 
-! cmp -s {$old_options,$new_options}/share/doc/nixos/options.json && {
+! cmp -s {$old_options,$new_options}/share/doc/botnix/options.json && {
     diff -U10 \
-        <(jq . <$old_options/share/doc/nixos/options.json) \
-        <(jq . <$new_options/share/doc/nixos/options.json) \
+        <(jq . <$old_options/share/doc/botnix/options.json) \
+        <(jq . <$new_options/share/doc/botnix/options.json) \
         | delta
 }

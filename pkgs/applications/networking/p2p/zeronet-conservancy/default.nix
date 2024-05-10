@@ -42,7 +42,7 @@ python3Packages.buildPythonApplication rec {
   '';
 
   passthru.tests = {
-    nixos-test = nixosTests.zeronet-conservancy;
+    botnix-test = nixosTests.zeronet-conservancy;
   };
 
   meta = with lib; {

@@ -22,7 +22,7 @@ buildPythonPackage rec {
   inherit version;
   format = "setuptools";
 
-  # See https://discourse.nixos.org/t/extracting-sub-directory-from-fetchgit-or-fetchurl-or-any-derivation/8830.
+  # See https://discourse.botnix.org/t/extracting-sub-directory-from-fetchgit-or-fetchurl-or-any-derivation/8830.
   src = "${repo}/tb_plugin";
 
   propagatedBuildInputs = [ pandas tensorboard ];

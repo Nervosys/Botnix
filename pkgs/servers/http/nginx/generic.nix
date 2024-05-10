@@ -47,7 +47,7 @@ let
 in
 
 assert lib.assertMsg (lib.unique moduleNames == moduleNames)
-  "nginx: duplicate modules: ${lib.concatStringsSep ", " moduleNames}. A common cause for this is that services.nginx.additionalModules adds a module which the nixos module itself already adds.";
+  "nginx: duplicate modules: ${lib.concatStringsSep ", " moduleNames}. A common cause for this is that services.nginx.additionalModules adds a module which the botnix module itself already adds.";
 
 stdenv.mkDerivation {
   inherit pname version nginxVersion;

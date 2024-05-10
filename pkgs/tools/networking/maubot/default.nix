@@ -20,7 +20,7 @@ let
       });
       # SQLAlchemy>=1,<1.4
       # SQLAlchemy 2.0's derivation is very different, so don't override, just write it from scratch
-      # (see https://github.com/NixOS/nixpkgs/blob/65dbed73949e4c0207e75dcc7271b29f9e457670/pkgs/development/python-modules/sqlalchemy/default.nix)
+      # (see https://github.com/nervosys/Botnix/blob/65dbed73949e4c0207e75dcc7271b29f9e457670/pkgs/development/python-modules/sqlalchemy/default.nix)
       sqlalchemy = final.buildPythonPackage rec {
         pname = "SQLAlchemy";
         version = "1.3.24";
@@ -130,7 +130,7 @@ let
       license = licenses.agpl3Plus;
       # Presumably, people running "nix run nixpkgs#maubot" will want to run the tool
       # for interacting with Maubot rather than Maubot itself, which should be used as
-      # a NixOS module.
+      # a Botnix module.
       mainProgram = "mbc";
       maintainers = with maintainers; [ chayleaf ];
     };

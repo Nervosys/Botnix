@@ -73,7 +73,7 @@ for module in $(< ~-/closure); do
     #   name:           unix
     #
     # There is a pending attempt to fix this:
-    #   https://github.com/NixOS/nixpkgs/pull/96153
+    #   https://github.com/nervosys/Botnix/pull/96153
     #   https://lore.kernel.org/linux-modules/20200823215433.j5gc5rnsmahpf43v@blumerang/T/#u
     #
     # For now, the workaround is just to filter out the extraneous lines out

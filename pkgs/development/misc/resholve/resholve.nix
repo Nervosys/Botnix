@@ -34,7 +34,7 @@ python27.pkgs.buildPythonApplication {
     installManPage resholve.1
   '';
 
-  # Do not propagate Python; may be obsoleted by nixos/nixpkgs#102613
+  # Do not propagate Python; may be obsoleted by botnix/nixpkgs#102613
   # for context on why, see abathur/resholve#20
   postFixup = ''
     rm $out/nix-support/propagated-build-inputs

@@ -29,7 +29,7 @@ python3.pkgs.buildPythonApplication rec {
 
   patches = [
     # Potentially can be dropped after the next release
-    # https://github.com/NixOS/nixpkgs/issues/271600
+    # https://github.com/nervosys/Botnix/issues/271600
     ./cookie-fix.patch
   ];
 

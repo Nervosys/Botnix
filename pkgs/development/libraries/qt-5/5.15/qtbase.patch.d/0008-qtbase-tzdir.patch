@@ -16,9 +16,9 @@ index 01f9a6cce0..910338205a 100644
  static QTzTimeZoneHash loadTzTimeZones()
  {
 -    QString path = QStringLiteral("/usr/share/zoneinfo/zone.tab");
-+    // Try TZDIR first, in case we're running on NixOS.
++    // Try TZDIR first, in case we're running on Botnix.
 +    QString path = QFile::decodeName(qgetenv("TZDIR")) + QStringLiteral("/zone.tab");
-+    // Fallback to traditional paths in case we are not on NixOS.
++    // Fallback to traditional paths in case we are not on Botnix.
 +    if (!QFile::exists(path))
 +        path = QStringLiteral("/usr/share/zoneinfo/zone.tab");
      if (!QFile::exists(path))
@@ -30,7 +30,7 @@ index 01f9a6cce0..910338205a 100644
      } else {
 -        // Open named tz, try modern path first, if fails try legacy path
 -        tzif.setFileName(QLatin1String("/usr/share/zoneinfo/") + QString::fromLocal8Bit(ianaId));
-+        // Try TZDIR first, in case we're running on NixOS
++        // Try TZDIR first, in case we're running on Botnix
 +        tzif.setFileName(QFile::decodeName(qgetenv("TZDIR")) + QStringLiteral("/") + QString::fromLocal8Bit(ianaId));
          if (!tzif.open(QIODevice::ReadOnly)) {
 -            tzif.setFileName(QLatin1String("/usr/lib/zoneinfo/") + QString::fromLocal8Bit(ianaId));

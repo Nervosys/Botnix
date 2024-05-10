@@ -171,7 +171,7 @@ let
   python = python310.override {
     packageOverrides = self: super: let cryptographyOverrideVersion = "40.0.1"; in {
       # Ceph does not support `cryptography` > 40 yet:
-      # * https://github.com/NixOS/nixpkgs/pull/281858#issuecomment-1899358602
+      # * https://github.com/nervosys/Botnix/pull/281858#issuecomment-1899358602
       # * Upstream issue: https://tracker.ceph.com/issues/63529
       #   > Python Sub-Interpreter Model Used by ceph-mgr Incompatible With Python Modules Based on PyO3
       #
@@ -202,12 +202,12 @@ let
         ];
 
         # Tests would require overriding `cryptography-vectors`, which is not currently
-        # possible/desired, see: https://github.com/NixOS/nixpkgs/pull/281858#pullrequestreview-1841421866
+        # possible/desired, see: https://github.com/nervosys/Botnix/pull/281858#pullrequestreview-1841421866
         doCheck = false;
       });
 
       # This is the most recent version of `pyopenssl` that's still compatible with `cryptography` 40.
-      # See https://github.com/NixOS/nixpkgs/pull/281858#issuecomment-1899358602
+      # See https://github.com/nervosys/Botnix/pull/281858#issuecomment-1899358602
       pyopenssl = super.pyopenssl.overridePythonAttrs (old: rec {
         version = "23.1.1";
         src = fetchPypi {
@@ -218,7 +218,7 @@ let
       });
 
       # Ceph does not support `kubernetes` >= 19, see:
-      #     https://github.com/NixOS/nixpkgs/pull/281858#issuecomment-1900324090
+      #     https://github.com/nervosys/Botnix/pull/281858#issuecomment-1900324090
       kubernetes = super.kubernetes.overridePythonAttrs (old: rec {
         version = "18.20.0";
         src = fetchFromGitHub {

@@ -57,7 +57,7 @@ mavenJdk8.buildMavenPackage rec {
       on Java Cards. It is made available as the `gp` executable.
 
       The executable requires the PC/SC daemon running for correct execution.
-      If you run NixOS, it can be enabled with `services.pcscd.enable = true;`.
+      If you run Botnix, it can be enabled with `services.pcscd.enable = true;`.
     '';
     homepage = "https://github.com/martinpaljak/GlobalPlatformPro";
     sourceProvenance = with sourceTypes; [

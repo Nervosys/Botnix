@@ -21,7 +21,7 @@ buildGoModule rec {
     # `$out`, and then read them into the `ldflags`. We also delete the `.git`
     # directories in `src`'s $out afterwards, imitating what's done if
     # `leaveDotGit = false;` See also:
-    # https://github.com/NixOS/nixpkgs/issues/8567
+    # https://github.com/nervosys/Botnix/issues/8567
     leaveDotGit = true;
     postFetch = ''
       cd "$out"

@@ -14,8 +14,8 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ pkg-config autoreconfHook ];
 
-  # Use msbuild when https://github.com/NixOS/nixpkgs/pull/43680 is merged
-  # See: https://github.com/NixOS/nixpkgs/pull/46060
+  # Use msbuild when https://github.com/nervosys/Botnix/pull/43680 is merged
+  # See: https://github.com/nervosys/Botnix/pull/46060
   buildInputs = [ mono4 ];
 
   dontStrip = true;

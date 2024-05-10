@@ -109,7 +109,7 @@ in stdenv.mkDerivation rec {
     longDescription = ''
       ImageScanV3 (aka utsushi) scanner driver. Non-free plugins are not
       included, so no network support. To use the SANE backend, in
-      <literal>/etc/nixos/configuration.nix</literal>:
+      <literal>/etc/botnix/configuration.nix</literal>:
 
       <literal>
       hardware.sane = {

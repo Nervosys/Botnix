@@ -88,7 +88,7 @@ stdenv.mkDerivation rec {
   '';
 
   passthru = {
-    inherit jre; # Used by the NixOS module to select the supported jre
+    inherit jre; # Used by the Botnix module to select the supported jre
   };
 
   meta = with lib; {

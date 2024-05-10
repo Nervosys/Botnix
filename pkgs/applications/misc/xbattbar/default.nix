@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   # The following patches are applied:
   # - sys-by-default: remove the APM checker binary, make the sys checker
   #   script the default. Rationale: checking battery status by /proc/apm is
-  #   extremely oldschool and does not work on NixOS, while the sysfs script
+  #   extremely oldschool and does not work on Botnix, while the sysfs script
   #   does.
   # - perl shebang patches for acpi/sys scripts
   # - unhardcode path to checker scripts

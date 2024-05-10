@@ -6,7 +6,7 @@
   haskellPackages,
   lib,
   makeBinaryWrapper,
-  nixos,
+  botnix,
   openssh,
   runc,
   stdenv,
@@ -40,8 +40,8 @@ in pkg.overrideAttrs (finalAttrs: o: {
           command = "hercules-ci-agent --help";
         };
       } // lib.optionalAttrs (stdenv.isLinux) {
-        # Does not test the package, but evaluation of the related NixOS module.
-        nixos-simple-config = (nixos {
+        # Does not test the package, but evaluation of the related Botnix module.
+        botnix-simple-config = (botnix {
           boot.loader.grub.enable = false;
           fileSystems."/".device = "bogus";
           services.hercules-ci-agent.enable = true;
@@ -49,7 +49,7 @@ in pkg.overrideAttrs (finalAttrs: o: {
           system.stateVersion = lib.trivial.release; # TEST ONLY
         }).config.system.build.toplevel;
 
-        nixos-many-options-config = (nixos ({ pkgs, ... }: {
+        botnix-many-options-config = (botnix ({ pkgs, ... }: {
           boot.loader.grub.enable = false;
           fileSystems."/".device = "bogus";
           services.hercules-ci-agent = {

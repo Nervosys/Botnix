@@ -36,7 +36,7 @@ mkDerivation rec {
     description = "GUI app and daemon to work with Mooltipass device via USB";
     longDescription = ''
       To install udev rules, add `services.udev.packages = [ pkgs.moolticute.udev ]`
-      into `nixos/configuration.nix`.
+      into `botnix/configuration.nix`.
     '';
     homepage = "https://github.com/mooltipass/moolticute";
     license = licenses.gpl3Plus;

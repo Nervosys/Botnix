@@ -47,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
         "/etc/terminfo" # Debian, Fedora, Gentoo
         "/lib/terminfo" # Debian
         "/usr/share/terminfo" # upstream default, probably all FHS-based distros
-        "/run/current-system/sw/share/terminfo" # NixOS
+        "/run/current-system/sw/share/terminfo" # Botnix
       ]}"
   ] ++ lib.optionals (stdenv.buildPlatform != stdenv.hostPlatform) [
     "--with-build-cc=${buildPackages.stdenv.cc}/bin/${buildPackages.stdenv.cc.targetPrefix}cc"

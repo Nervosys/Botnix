@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
     "root_sbindir=${placeholder "out"}/sbin"
   ];
 
-  # FIXME: https://github.com/NixOS/patchelf/pull/98 is in, but stdenv
+  # FIXME: https://github.com/Botnix/patchelf/pull/98 is in, but stdenv
   # still doesn't use it
   #
   # To make sure patchelf doesn't mistakenly keep the reference via

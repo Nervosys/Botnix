@@ -5,7 +5,7 @@
   ]
   ++ lib.optional stdenv.isDarwin "~/Library/Fonts"
   ++ [
-    # FHS paths for non-NixOS platforms
+    # FHS paths for non-Botnix platforms
     "/usr/share/fonts" "/usr/local/share/fonts"
   ]
   # darwin paths
@@ -18,7 +18,7 @@ runCommand "fonts.conf"
     nativeBuildInputs = [ libxslt ];
     buildInputs = [ fontconfig ];
     inherit fontDirectories;
-    # Add a default font for non-nixos systems, <1MB and in nixos defaults.
+    # Add a default font for non-botnix systems, <1MB and in botnix defaults.
     impureFontDirectories = impureFontDirectories ++ [ dejavu_fonts.minimal ];
   }
   ''

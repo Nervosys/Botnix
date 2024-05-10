@@ -22,7 +22,7 @@ in
 stdenv.mkDerivation rec {
   version = "0.12.4"; # also update communityModules
   pname = "prosody";
-  # The following community modules are necessary for the nixos module
+  # The following community modules are necessary for the botnix module
   # prosody module to comply with XEP-0423 and provide a working
   # default setup.
   nixosModuleDeps = [

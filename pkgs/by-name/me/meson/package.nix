@@ -32,7 +32,7 @@ python3.pkgs.buildPythonApplication rec {
     # meson removes everything else. With Nix, the locations of libraries
     # are not as predictable, therefore we need to keep them in the RPATH.
     # At the moment we are keeping the paths starting with /nix/store.
-    # https://github.com/NixOS/nixpkgs/issues/31222#issuecomment-365811634
+    # https://github.com/nervosys/Botnix/issues/31222#issuecomment-365811634
     (substituteAll {
       src = ./001-fix-rpath.patch;
       inherit (builtins) storeDir;
@@ -59,8 +59,8 @@ python3.pkgs.buildPythonApplication rec {
     ./004-gir-fallback-path.patch
 
     # Patch out default boost search paths to avoid impure builds on
-    # unsandboxed non-NixOS builds, see:
-    # https://github.com/NixOS/nixpkgs/issues/86131#issuecomment-711051774
+    # unsandboxed non-Botnix builds, see:
+    # https://github.com/nervosys/Botnix/issues/86131#issuecomment-711051774
     ./005-boost-Do-not-add-system-paths-on-nix.patch
 
     # Nixpkgs cctools does not have bitcode support.

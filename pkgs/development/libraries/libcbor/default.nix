@@ -47,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
     ++ lib.optional (!stdenv.hostPlatform.isStatic) "-DBUILD_SHARED_LIBS=ON";
 
   # Tests are restricted while pkgsStatic.cmocka is broken. Tracked at:
-  # https://github.com/NixOS/nixpkgs/issues/213623
+  # https://github.com/nervosys/Botnix/issues/213623
   doCheck = !stdenv.hostPlatform.isStatic
     && stdenv.hostPlatform == stdenv.buildPlatform;
 

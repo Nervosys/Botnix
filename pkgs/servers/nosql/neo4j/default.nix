@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
     $out/bin/neo4j-admin dbms set-initial-password neo4jadmin
   '';
 
-  passthru.tests.nixos = nixosTests.neo4j;
+  passthru.tests.botnix = nixosTests.neo4j;
 
   meta = with lib; {
     description = "A highly scalable, robust (fully ACID) native graph database";

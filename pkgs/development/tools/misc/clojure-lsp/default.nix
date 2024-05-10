@@ -38,7 +38,7 @@ buildGraalvmNativeImage rec {
     export HOME="$(mktemp -d)"
     ./${pname} --version | fgrep -q '${version}'
   ''
-  # TODO: fix classpath issue per https://github.com/NixOS/nixpkgs/pull/153770
+  # TODO: fix classpath issue per https://github.com/nervosys/Botnix/pull/153770
   #${babashka}/bin/bb integration-test ./${pname}
   + ''
     runHook postCheck

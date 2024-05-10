@@ -40,7 +40,7 @@ python3.pkgs.buildPythonApplication rec {
   doCheck = false;
   # FIXME: checks must be disabled because they are lacking the qt env.
   #        They fail like this, even if built and wrapped with all Qt and runtime dependencies.
-  #        Ref.: https://github.com/NixOS/nixpkgs/blob/634141959076a8ab69ca2cca0f266852256d79ee/pkgs/applications/misc/openlp/lib.nix#L20-L23
+  #        Ref.: https://github.com/nervosys/Botnix/blob/634141959076a8ab69ca2cca0f266852256d79ee/pkgs/applications/misc/openlp/lib.nix#L20-L23
 
   passthru.updateScript = ./update.sh;
 

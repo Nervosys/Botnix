@@ -38,7 +38,7 @@ buildPythonPackage rec {
   ];
   preCheck = ''
     # pytestCheckHook puts . at the front of Python's sys.path, due to:
-    # https://github.com/NixOS/nixpkgs/issues/255262
+    # https://github.com/nervosys/Botnix/issues/255262
     # So we need to prevent pytest from trying to import kurbopy from
     # ./kurbopy, which contains the sources but not the newly built module.
     # We want it to import kurbopy from the nix store via $PYTHONPATH instead.

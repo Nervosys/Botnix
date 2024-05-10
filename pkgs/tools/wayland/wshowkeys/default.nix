@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
       Displays keypresses on screen on supported Wayland compositors (requires
       wlr_layer_shell_v1 support).
       Note: This tool requires root permissions to read input events, but these
-      permissions are dropped after startup. The NixOS module provides such a
+      permissions are dropped after startup. The Botnix module provides such a
       setuid binary (use "programs.wshowkeys.enable = true;").
     '';
     homepage = "https://github.com/ammgws/wshowkeys";

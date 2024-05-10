@@ -40,7 +40,7 @@ rustPlatform.buildRustPackage rec {
   '';
 
   env = { OUCH_ARTIFACTS_FOLDER = "artifacts"; } //
-    # Work around https://github.com/NixOS/nixpkgs/issues/166205.
+    # Work around https://github.com/nervosys/Botnix/issues/166205.
     lib.optionalAttrs stdenv.cc.isClang { NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}"; };
 
   meta = with lib; {

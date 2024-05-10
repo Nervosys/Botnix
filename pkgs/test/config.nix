@@ -1,7 +1,7 @@
 { lib, ... }:
 lib.recurseIntoAttrs {
 
-  # https://github.com/NixOS/nixpkgs/issues/175196
+  # https://github.com/nervosys/Botnix/issues/175196
   allowPkgsInPermittedInsecurePackages =
     let pkgs = import ../.. {
           config = {

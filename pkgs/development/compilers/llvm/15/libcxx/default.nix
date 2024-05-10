@@ -49,14 +49,14 @@ stdenv.mkDerivation rec {
     ./gnu-install-dirs.patch
     # See:
     #   - https://reviews.llvm.org/D133566
-    #   - https://github.com/NixOS/nixpkgs/issues/214524#issuecomment-1429146432
+    #   - https://github.com/nervosys/Botnix/issues/214524#issuecomment-1429146432
     # !!! Drop in LLVM 16+
     (fetchpatch {
       url = "https://github.com/llvm/llvm-project/commit/57c7bb3ec89565c68f858d316504668f9d214d59.patch";
       hash = "sha256-AaM9A6tQ4YAw7uDqCIV4VaiUyLZv+unwcOqbakwW9/k=";
       relative = "libcxx";
     })
-    # fix for https://github.com/NixOS/nixpkgs/issues/269548
+    # fix for https://github.com/nervosys/Botnix/issues/269548
     # https://github.com/llvm/llvm-project/pull/77218
     (fetchpatch {
       name = "darwin-system-libcxxabi-link-flags.patch";

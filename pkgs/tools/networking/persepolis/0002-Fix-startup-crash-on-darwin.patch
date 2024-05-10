@@ -29,7 +29,7 @@ index 4d69929..9a9a7cf 100644
 -    ).scheduleNotification_(notification)
 +    print(f"""
 +Warning: Persepolis was installed from nixpkgs, which currently breaks notifications
-+         on macOS. Until https://github.com/NixOS/nixpkgs/issues/105156 is resolved,
++         on macOS. Until https://github.com/nervosys/Botnix/issues/105156 is resolved,
 +         this cannot be fixed. The notification that should've been displayed was:
 +
 +         title: {title}

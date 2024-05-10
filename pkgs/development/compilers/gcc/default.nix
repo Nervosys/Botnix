@@ -285,7 +285,7 @@ lib.pipe ((callFile ./common/builder.nix {}) ({
   ''
   + (
     lib.optionalString (targetPlatform != hostPlatform || stdenv.cc.libc != null)
-      # On NixOS, use the right path to the dynamic linker instead of
+      # On Botnix, use the right path to the dynamic linker instead of
       # `/lib/ld*.so'.
       (let
         libc = if libcCross != null then libcCross else stdenv.cc.libc;

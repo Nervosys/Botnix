@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     substituteInPlace modules/20-uptime \
       --replace "uptime -p" "${procps}/bin/uptime -p"
 
-    # does not work on nixos
+    # does not work on botnix
     rm modules/41-updates
   '';
 

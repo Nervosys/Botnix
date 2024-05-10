@@ -1,6 +1,6 @@
 {lib, stdenv, fetchFromGitHub
 , gsasl, gnutls, pkg-config, cmake, zlib, libtasn1, libgcrypt, gtk3
-# this will not work on non-nixos systems
+# this will not work on non-botnix systems
 , sendmailPath ? "/run/wrappers/bin/sendmail"
 }:
 

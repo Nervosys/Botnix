@@ -1,7 +1,7 @@
 From 2643b06889605e6096174fb48dcb64a49b252217 Mon Sep 17 00:00:00 2001
 From: Michael Weiss <dev.primeos@gmail.com>
 Date: Sun, 17 Nov 2019 20:30:08 +0100
-Subject: [PATCH] lscollection: Add NixOS paths to DefaultWallpaperDirectories
+Subject: [PATCH] lscollection: Add Botnix paths to DefaultWallpaperDirectories
 
 ---
  collections.go | 3 +++

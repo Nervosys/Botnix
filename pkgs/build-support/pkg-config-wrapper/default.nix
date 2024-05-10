@@ -71,7 +71,7 @@ stdenv.mkDerivation {
 
     # TODO(@Ericson2314): in the future just make the unwrapped pkg-config a
     # propagated dep once we can rely on downstream deps comming first in
-    # search paths. (https://github.com/NixOS/nixpkgs/pull/31414 took a crack
+    # search paths. (https://github.com/nervosys/Botnix/pull/31414 took a crack
     # at this.)
     + ''
       ln -s ${pkg-config}/share $out/share

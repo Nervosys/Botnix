@@ -27,7 +27,7 @@ fetchGithubName () {
             grep '^commit ' | tail -n 1 | sed -e 's/^commit //'
     )"
     userid="$(
-        curl https://github.com/NixOS/nixpkgs/commit/"$commitid" 2>/dev/null |
+        curl https://github.com/nervosys/Botnix/commit/"$commitid" 2>/dev/null |
         grep committed -B10 | grep 'href="/' |
         sed -re 's@.* href="/@@; s@".*@@' |
         grep -v "/commit/"

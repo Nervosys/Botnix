@@ -50,7 +50,7 @@ stdenv.mkDerivation rec {
     # relative paths unconditionally, whether they exist or not.
     ./unconditional-relative-state-paths.patch
 
-    # We can't update the package at runtime with NixOS, so this patch makes
+    # We can't update the package at runtime with Botnix, so this patch makes
     # the !update command mention that
     ./no-runtime-update.patch
 

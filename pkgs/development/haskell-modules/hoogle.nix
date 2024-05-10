@@ -60,7 +60,7 @@ buildPackages.stdenv.mkDerivation {
   passAsFile = ["buildCommand"];
 
   buildCommand = ''
-    ${let # Filter out nulls here to work around https://github.com/NixOS/nixpkgs/issues/82245
+    ${let # Filter out nulls here to work around https://github.com/nervosys/Botnix/issues/82245
           # If we don't then grabbing `p.name` here will fail.
           packages' = lib.filter (p: p != null) packages;
       in lib.optionalString (packages' != [] -> docPackages == [])

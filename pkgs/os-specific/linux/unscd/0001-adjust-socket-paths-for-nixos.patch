@@ -1,7 +1,7 @@
 From 9d76d183a97cb667a1ab6d95af69d6db745215df Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Milan=20P=C3=A4ssler?= <milan@petabyte.dev>
 Date: Tue, 1 Jun 2021 16:55:45 +0200
-Subject: [PATCH] adjust socket paths for nixos
+Subject: [PATCH] adjust socket paths for botnix
 
 The original unscd would crash, because it is not allowed to create its
 legacy socket at /var/run/.nscd_socket.

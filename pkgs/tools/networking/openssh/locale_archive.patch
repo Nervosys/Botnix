@@ -6,7 +6,7 @@ index 58826db1..658dd911 100644
  	if (getenv("TZ"))
  		child_set_env(&env, &envsize, "TZ", getenv("TZ"));
  
-+	/* NixOS path to the glibc locale archive, to be set in the systemd job */
++	/* Botnix path to the glibc locale archive, to be set in the systemd job */
 +	if (getenv("LOCALE_ARCHIVE"))
 +		child_set_env(&env, &envsize, "LOCALE_ARCHIVE", getenv("LOCALE_ARCHIVE"));
 +

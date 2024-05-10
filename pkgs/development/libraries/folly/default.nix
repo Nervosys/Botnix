@@ -65,7 +65,7 @@ stdenv.mkDerivation rec {
     "-DCMAKE_LIBRARY_ARCHITECTURE=${if stdenv.isx86_64 then "x86_64" else "dummy"}"
 
     # ensure correct dirs in $dev/lib/pkgconfig/libfolly.pc
-    # see https://github.com/NixOS/nixpkgs/issues/144170
+    # see https://github.com/nervosys/Botnix/issues/144170
     "-DCMAKE_INSTALL_INCLUDEDIR=include"
     "-DCMAKE_INSTALL_LIBDIR=lib"
   ];
@@ -74,7 +74,7 @@ stdenv.mkDerivation rec {
   outputs = [ "out" "dev" ];
 
   # patch prefix issues again
-  # see https://github.com/NixOS/nixpkgs/issues/144170
+  # see https://github.com/nervosys/Botnix/issues/144170
   postFixup = ''
     substituteInPlace $dev/lib/cmake/${pname}/${pname}-targets-release.cmake  \
       --replace '$'{_IMPORT_PREFIX}/lib/ $out/lib/

@@ -157,8 +157,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   passthru.tests = {
     inherit gnutls;
-    nixos-test = nixosTests.unbound;
-    nixos-test-exporter = nixosTests.prometheus-exporters.unbound;
+    botnix-test = nixosTests.unbound;
+    botnix-test-exporter = nixosTests.prometheus-exporters.unbound;
   };
 
   meta = with lib; {

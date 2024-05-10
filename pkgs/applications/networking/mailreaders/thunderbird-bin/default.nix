@@ -152,7 +152,7 @@ stdenv.mkDerivation {
   buildInputs = [ gtk3 adwaita-icon-theme ];
 
   # "strip" after "patchelf" may break binaries.
-  # See: https://github.com/NixOS/patchelf/issues/10
+  # See: https://github.com/Botnix/patchelf/issues/10
   dontStrip = true;
   dontPatchELF = true;
 

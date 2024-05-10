@@ -42,7 +42,7 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [ makeWrapper ];
 
-  patches = [ ./nixos-paths.patch ];
+  patches = [ ./botnix-paths.patch ];
   postPatch = ''
     rm lib/hollywood/speedometer
     rm bin/wallstreet

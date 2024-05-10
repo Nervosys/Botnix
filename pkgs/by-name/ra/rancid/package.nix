@@ -25,7 +25,7 @@ let
 
   # The installer executes ping to figure out how to call it and then sets the full path to the
   # binary. This script "handles" it by pretending everything is OK and has very much not been
-  # tested on !NixOS.
+  # tested on !Botnix.
   wrappedPing = writeShellScriptBin "ping" ''
     for b in /run/wrappers/bin/ping /usr/bin/ping /usr/local/bin/ping; do
       if [ -x "$b" ]; then

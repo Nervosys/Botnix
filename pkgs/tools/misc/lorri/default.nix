@@ -59,7 +59,7 @@ in (rustPlatform.buildRustPackage rec {
       cp ${src}/nix/runtime-closure.nix.template ${toString ./runtime-closure.nix.template}
     '';
     tests = {
-      nixos = nixosTests.lorri;
+      botnix = nixosTests.lorri;
     };
   };
 

@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    # disable tests which fail in NixOS sandbox (trying to access the network)
+    # disable tests which fail in Botnix sandbox (trying to access the network)
     ./sandbox_tests.patch
   ];
 
@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
   mesonFlags = [
     "-Duse_geoip=${if withGeo then "en" else "dis"}abled"
     "-Duse_maxminddb=disabled"
-    # runtime linking doesn't work on NixOS anyway
+    # runtime linking doesn't work on Botnix anyway
     "-Duse_runtime_linking=disabled"
   ];
 

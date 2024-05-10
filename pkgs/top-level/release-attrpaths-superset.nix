@@ -82,7 +82,7 @@ let
     overrideScope = true;
     overrideScope' = true;
 
-    # Special case: lib/types.nix leaks into a lot of nixos-related
+    # Special case: lib/types.nix leaks into a lot of botnix-related
     # derivations, and does not eval deeply.
     type = true;
   };

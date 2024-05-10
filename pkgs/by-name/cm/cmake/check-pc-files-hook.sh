@@ -8,7 +8,7 @@ cmakePcfileCheckPhase() {
             echo "$grepout"
             echo "It is very likely that paths are being joined improperly."
             echo 'ex: "${prefix}/@CMAKE_INSTALL_LIBDIR@" should be "@CMAKE_INSTALL_FULL_LIBDIR@"'
-            echo "Please see https://github.com/NixOS/nixpkgs/issues/144170 for more details."
+            echo "Please see https://github.com/nervosys/Botnix/issues/144170 for more details."
             exit 1
             } 1>&2
         fi

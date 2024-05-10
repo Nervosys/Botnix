@@ -18,7 +18,7 @@
 
 * _Welcome to Botnix!_
 * We are working on our first major release: `Botnix 1.0 Torbjörn` (pronounced *torr-beyourn*, meaning "Bear of Thor") &#128059;
-* `Botnix` works out-of-the-box using standard `NixOS` conventions and is currently in active development.
+* `Botnix` works out-of-the-box using standard `Botnix` conventions and is currently in active development.
 * Join us in building the future of robot operating systems! See the [Contributing](#contributing) section. We welcome contributions from all.
 
 ## Vision
@@ -27,7 +27,7 @@
 
 ## Introduction
 
-`Botnix` is the first operating system (OS) and Linux distribution for multi-agent and -domain *autonomous systems*, *intelligent robotic systems*, or [*embodiment*](https://arxiv.org/abs/2103.04918) as it is known in the artificial intelligence (AI) research community. `Botnix` stands for "Robot Linux" or "Robotics Linux". **Our goal is to create the ideal OS for intelligent robotic systems in-the-wild**, built on the widely deployed and field-tested Linux kernel and the powerful Nix [software deployment model](https://edolstra.github.io/pubs/phd-thesis.pdf). `Botnix` provides the `Botpkgs` or "Bot packages" software repository, a domain-specific subset of the 80,000+ packages found in the [Nixpkgs](https://github.com/nixos/nixpkgs/) repository. `Botnix` is a single-purpose, battle-hardened variant of `NixOS` using the same declarative design. It is a production-grade OS that supports state-of-the-art research in AI for robotics.
+`Botnix` is the first operating system (OS) and Linux distribution for multi-agent and -domain *autonomous systems*, *intelligent robotic systems*, or [*embodiment*](https://arxiv.org/abs/2103.04918) as it is known in the artificial intelligence (AI) research community. `Botnix` stands for "Robot Linux" or "Robotics Linux". **Our goal is to create the ideal OS for intelligent robotic systems in-the-wild**, built on the widely deployed and field-tested Linux kernel and the powerful Nix [software deployment model](https://edolstra.github.io/pubs/phd-thesis.pdf). `Botnix` provides the `Botpkgs` or "Bot packages" software repository, a domain-specific subset of the 80,000+ packages found in the [Nixpkgs](https://github.com/nixos/nixpkgs/) repository. `Botnix` is a single-purpose, battle-hardened variant of `Botnix` using the same declarative design. It is a production-grade OS that supports state-of-the-art research in AI for robotics.
 
 `Botnix` is designed with the future in mind. As a community of [Builders](https://a16z.com/its-time-to-build/), we aim to accelerate the development and deployment of AI for robotics. The `Botnix` software and community are free and open-source. We welcome contributions from all individuals, organizations, and industries. *We are grateful for your support!*
 
@@ -53,7 +53,7 @@ At present, we are focusing on the `Agent` mode.
 
 ## Documentation
 
-Below you can find documentation for Robotics Linux (`Botnix`), Robotics Packages (`Botpkgs`), and `AutonomySim` from [Nervosys](https://nervosys.ai/), as well as related [NixOS Foundation](https://nixos.org/community/index.html) projects.
+Below you can find documentation for Robotics Linux (`Botnix`), Robotics Packages (`Botpkgs`), and `AutonomySim` from [Nervosys](https://nervosys.ai/), as well as related [Botnix Foundation](https://nixos.org/community/index.html) projects.
 
 ### Botnix and Botpkgs
 
@@ -65,9 +65,9 @@ Below you can find documentation for Robotics Linux (`Botnix`), Robotics Package
 
 * [AutonomySim](https://nervosys.github.io/AutonomySim/) - The simulation engine for autonomous systems
 
-### NixOS, Nixpkgs, Nix
+### Botnix, Nixpkgs, Nix
 
-* [NixOS Manual](https://nixos.org/nixos/manual/) - how to install, configure, and maintain a purely-functional Linux distribution
+* [Botnix Manual](https://nixos.org/nixos/manual/) - how to install, configure, and maintain a purely-functional Linux distribution
 * [Nixpkgs Manual](https://nixos.org/nixpkgs/manual/) - contributing to Nixpkgs and using programming-language-specific Nix expressions
 * [Nix Manual](https://nixos.org/nix/manual/) - how to write Nix expressions (programs), and how to use Nix command line tools
 
@@ -84,35 +84,35 @@ Like many of you, we are thrilled about recent advances in open-source AI and ro
 7. While [Ubuntu](https://ubuntu.com/robotics/) is the most popular Linux OS, and Ubuntu Core is intended for robotics among other things, it has all of the limitations of Debian plus proprietary Snaps, a closed source, and a high price. *Robotics should be open to everyone*.
 8. [The Yocto Project](https://www.yoctoproject.org/) and the related [OpenEmbedded layers for ROS](https://github.com/ros/meta-ros) is a major step in the right direction, but OSes must be hand-crafted and lack the powerful Nix system for configuring and deploying robotic systems, which we call RoboDevSecOps.
 9. [OSTree](https://ostreedev.github.io/ostree/) is yet another solution designed without robotics in mind that must be arduously adapted to our use case.
-10. [GNU Guix](https://guix.gnu.org/) is the next best thing to `NixOS` with some theoretical advantages. In practice though, we found `Guix` to be less reliable and supported than `NixOS`. While the potential there, we were more comfortable moving forward with the large and rapidly growing `Nix` community.
+10. [GNU Guix](https://guix.gnu.org/) is the next best thing to `Botnix` with some theoretical advantages. In practice though, we found `Guix` to be less reliable and supported than `Botnix`. While the potential there, we were more comfortable moving forward with the large and rapidly growing `Nix` community.
 11. We love unikernels or Library operating systems (libOSes), but they are often slow and painful to deploy using common tools. Thankfully `Nix` can automate the process. That's right, you can use `Nix` to [build and deploy unikernels](https://tarides.com/blog/2022-12-14-hillingar-mirageos-unikernels-on-nixos/). The two systems are not mutually exclusive.
 
-After careful consideration, we decided that the focus of `Botnix` substantially differs from that of `NixOS` and other communities, given our sole focus on AI for robotics. There are numerous drivers and applications that are relevant to a general-purpose OS, but not to our use case. Removing this overhead allows us to be more efficient. We want to accelerate robotics, and to do so, we must be focused.
+After careful consideration, we decided that the focus of `Botnix` substantially differs from that of `Botnix` and other communities, given our sole focus on AI for robotics. There are numerous drivers and applications that are relevant to a general-purpose OS, but not to our use case. Removing this overhead allows us to be more efficient. We want to accelerate robotics, and to do so, we must be focused.
 
 Last, we felt that the Apache 2.0 license might be better suited to commercial adoption.
 
 ## Related Projects
 
-All official `NixOS` project sources are maintained at the [NixOS organization](https://github.com/NixOS/) on GitHub:
+All official `Botnix` project sources are maintained at the [Botnix organization](https://github.com/Botnix/) on GitHub:
 
 * [Nix](https://github.com/NixOS/nix/) - a purely functional package manager
-* [NixOps](https://github.com/NixOS/nixops/) - a tool to remotely deploy NixOS machines
-* [NixOS hardware](https://github.com/NixOS/nixos-hardware/) - NixOS profiles to optimize settings for different hardware
-* [Nix RFCs](https://github.com/NixOS/rfcs/) - the formal process for making substantial changes to the community
-* [NixOS homepage](https://github.com/NixOS/nixos-homepage/) - the [NixOS.org](https://nixos.org/) website
-* [NixOS Artwork](https://github.com/NixOS/nixos-artwork/) - the NixOS artwork
-* [Hydra](https://github.com/NixOS/hydra/) - the NixOS continuous integration (CI) system
+* [NixOps](https://github.com/Botnix/nixops/) - a tool to remotely deploy Botnix machines
+* [Botnix hardware](https://github.com/Botnix/nixos-hardware/) - Botnix profiles to optimize settings for different hardware
+* [Nix RFCs](https://github.com/Botnix/rfcs/) - the formal process for making substantial changes to the community
+* [Botnix homepage](https://github.com/Botnix/nixos-homepage/) - the [Botnix.org](https://nixos.org/) website
+* [Botnix Artwork](https://github.com/Botnix/nixos-artwork/) - the Botnix artwork
+* [Hydra](https://github.com/Botnix/hydra/) - the Botnix continuous integration (CI) system
 
 ## Continuous Integration and Deployment (CI/CD)
 
 `Botnix` and `Botpkgs` are built and tested using [GitHub Actions](https://docs.github.com/en/actions).
 
-`Nixpkgs` and `NixOS` are built and tested using the `Nix`-based [Hydra](https://hydra.nixos.org/) CI/CD system.
+`Nixpkgs` and `Botnix` are built and tested using the `Nix`-based [Hydra](https://hydra.nixos.org/) CI/CD system.
 
 * [Continuous package builds for unstable/master](https://hydra.nixos.org/jobset/nixos/trunk-combined)
-* [Continuous package builds for the NixOS 23.11 release](https://hydra.nixos.org/jobset/nixos/release-23.11)
+* [Continuous package builds for the Botnix 23.11 release](https://hydra.nixos.org/jobset/nixos/release-23.11)
 * [Tests for unstable/master](https://hydra.nixos.org/job/nixos/trunk-combined/tested#tabs-constituents)
-* [Tests for the NixOS 23.11 release](https://hydra.nixos.org/job/nixos/release-23.11/tested#tabs-constituents)
+* [Tests for the Botnix 23.11 release](https://hydra.nixos.org/job/nixos/release-23.11/tested#tabs-constituents)
 
 Artifacts successfully built with Hydra are published to the `Nixpkgs` [https://cache.nixos.org/](cache).
 When building and testing succeed, the `Nixpkgs` expressions are distributed via [Nix channels](https://nixos.org/manual/nix/stable/package-management/channels.html).
@@ -125,7 +125,7 @@ For information on becoming a contributor, see the following section.
 
 ## Contributing
 
-`Botnix` implements a Linux distribution for AI and robotics based on `NixOS`, `Nixpkgs`, and `Nix`. In essence, `Botnix` and `Botpkgs` represent a paired down, domain-specific, security hardened, real-time variant of `NixOS` and `Nixpkgs` with first class support for artificial intelligence (AI) and popular robotics workflows.
+`Botnix` implements a Linux distribution for AI and robotics based on `Botnix`, `Nixpkgs`, and `Nix`. In essence, `Botnix` and `Botpkgs` represent a paired down, domain-specific, security hardened, real-time variant of `Botnix` and `Nixpkgs` with first class support for artificial intelligence (AI) and popular robotics workflows.
 
 Community contributions are *strongly encouraged* via GitHub Issues and Pull Requests. For more information about contributing to the project, please visit the [contributing page](https://github.com/nervosys/botnix/blob/master/CONTRIBUTING.md).
 
@@ -187,7 +187,7 @@ A manuscript on the design and implementation of `Botnix` is forthcoming.
 
 ## Donations
 
-`Botnix` is made possible by [Nervosys](https://nervosys.ai/), the Linux Foundation, NixOS Foundation, and countless contributors to related projects.
+`Botnix` is made possible by [Nervosys](https://nervosys.ai/), the Linux Foundation, Botnix Foundation, and countless contributors to related projects.
 
 We need your support to ensure the success of `Botnix` development. Reach out to us at opensource@nervosys.ai to learn how you can support this project.
 

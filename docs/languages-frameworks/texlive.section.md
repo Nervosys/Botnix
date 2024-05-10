@@ -212,7 +212,7 @@ EOF
 ## LuaLaTeX font cache {#sec-language-texlive-lualatex-font-cache}
 
 The font cache for LuaLaTeX is written to `$HOME`.
-Therefore, it is necessary to set `$HOME` to a writable path, e.g. [before using LuaLaTeX in nix derivations](https://github.com/NixOS/nixpkgs/issues/180639):
+Therefore, it is necessary to set `$HOME` to a writable path, e.g. [before using LuaLaTeX in nix derivations](https://github.com/nervosys/Botnix/issues/180639):
 ```nix
 runCommandNoCC "lualatex-hello-world" {
   buildInputs = [ texliveFull ];
@@ -223,7 +223,7 @@ runCommandNoCC "lualatex-hello-world" {
 ''
 ```
 
-Additionally, [the cache of a user can diverge from the nix store](https://github.com/NixOS/nixpkgs/issues/278718).
+Additionally, [the cache of a user can diverge from the nix store](https://github.com/nervosys/Botnix/issues/278718).
 To resolve font issues that might follow, the cache can be removed by the user:
 ```ShellSession
 luaotfload-tool --cache=erase --flush-lookups --force

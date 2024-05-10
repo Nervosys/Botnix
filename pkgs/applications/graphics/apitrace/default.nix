@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
 
   postFixup = ''
 
-    # Since https://github.com/NixOS/nixpkgs/pull/60985, we add `/run-opengl-driver[-32]`
+    # Since https://github.com/nervosys/Botnix/pull/60985, we add `/run-opengl-driver[-32]`
     # to the `RUNPATH` of dispatcher libraries `dlopen()` ing OpenGL drivers.
     # `RUNPATH` doesn't propagate throughout the whole application, but only
     # from the module performing the `dlopen()`.

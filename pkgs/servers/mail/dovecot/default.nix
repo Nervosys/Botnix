@@ -59,7 +59,7 @@ stdenv.mkDerivation rec {
   patches = [
     # Make dovecot look for plugins in /etc/dovecot/modules
     # so we can symlink plugins from several packages there.
-    # The symlinking needs to be done in NixOS.
+    # The symlinking needs to be done in Botnix.
     ./2.3.x-module_dir.patch
     # fix openssl 3.0 compatibility
     (fetchpatch {

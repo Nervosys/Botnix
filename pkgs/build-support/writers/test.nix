@@ -102,7 +102,7 @@ lib.recurseIntoAttrs {
       print(y[0]['test'])
     '');
 
-    # Commented out because of this issue: https://github.com/NixOS/nixpkgs/issues/39356
+    # Commented out because of this issue: https://github.com/nervosys/Botnix/issues/39356
 
     #pypy2 = expectSuccessBin (writePyPy2Bin "test-writers-pypy2-bin" { libraries = [ pypy2Packages.enum ]; } ''
     #  from enum import Enum
@@ -200,7 +200,7 @@ lib.recurseIntoAttrs {
       print(y[0]['test'])
     '');
 
-    # Commented out because of this issue: https://github.com/NixOS/nixpkgs/issues/39356
+    # Commented out because of this issue: https://github.com/nervosys/Botnix/issues/39356
 
     #pypy2 = expectSuccessBin (writePyPy2Bin "test-writers-pypy2-bin" { libraries = [ pypy2Packages.enum ]; } ''
     #  from enum import Enum

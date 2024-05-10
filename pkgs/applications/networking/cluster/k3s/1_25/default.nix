@@ -280,7 +280,7 @@ buildGoModule rec {
   # We override most of buildPhase due to peculiarities in k3s's build.
   # Specifically, it has a 'go generate' which runs part of the package. See
   # this comment:
-  # https://github.com/NixOS/nixpkgs/pull/158089#discussion_r799965694
+  # https://github.com/nervosys/Botnix/pull/158089#discussion_r799965694
   # So, why do we use buildGoModule at all? For the `vendorHash` / `go mod download` stuff primarily.
   buildPhase = ''
     patchShebangs ./scripts/package-cli ./scripts/download ./scripts/build-upload

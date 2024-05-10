@@ -13,7 +13,7 @@
 , wlr-protocols
 , pixman
 , libdrm
-, nixos-artwork
+, botnix-artwork
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -30,7 +30,7 @@ stdenv.mkDerivation (finalAttrs: {
   postPatch = ''
     substituteInPlace examples/tinywl/OutputDelegate.qml \
       --replace "/usr/share/wallpapers/deepin/desktop.jpg" \
-                "${nixos-artwork.wallpapers.simple-blue}/share/backgrounds/nixos/nix-wallpaper-simple-blue.png"
+                "${botnix-artwork.wallpapers.simple-blue}/share/backgrounds/botnix/nix-wallpaper-simple-blue.png"
   '';
 
   nativeBuildInputs = [

@@ -59,7 +59,7 @@ buildPythonPackage rec {
 
   # Configuration so that the tests work
   preCheck = ''
-    HOME=$TEMP ${git}/bin/git config --global user.email "nix-builder@nixos.org"
+    HOME=$TEMP ${git}/bin/git config --global user.email "nix-builder@botnix.org"
     HOME=$TEMP ${git}/bin/git config --global user.name "Nix Builder"
     HOME=$TEMP ${git}/bin/git config --global pull.ff only
     HOME=$TEMP make setup_gpg

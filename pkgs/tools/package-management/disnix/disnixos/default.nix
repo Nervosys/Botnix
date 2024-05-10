@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
   buildInputs = [ socat dysnomia disnix getopt ];
 
   meta = {
-    description = "Provides complementary NixOS infrastructure deployment to Disnix";
+    description = "Provides complementary Botnix infrastructure deployment to Disnix";
     license = lib.licenses.lgpl21Plus;
     maintainers = [ lib.maintainers.sander ];
     platforms = lib.platforms.linux;

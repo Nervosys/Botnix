@@ -2035,13 +2035,13 @@ self: super: with self; {
 
   chex = callPackage ../development/python-modules/chex { };
 
-  chiabip158 = throw "chiabip158 has been removed. see https://github.com/NixOS/nixpkgs/pull/270254";
+  chiabip158 = throw "chiabip158 has been removed. see https://github.com/nervosys/Botnix/pull/270254";
 
-  chiapos = throw "chiapos has been removed. see https://github.com/NixOS/nixpkgs/pull/270254";
+  chiapos = throw "chiapos has been removed. see https://github.com/nervosys/Botnix/pull/270254";
 
-  chiavdf = throw "chiavdf has been removed. see https://github.com/NixOS/nixpkgs/pull/270254";
+  chiavdf = throw "chiavdf has been removed. see https://github.com/nervosys/Botnix/pull/270254";
 
-  chia-rs = throw "chia-rs has been removed. see https://github.com/NixOS/nixpkgs/pull/270254";
+  chia-rs = throw "chia-rs has been removed. see https://github.com/nervosys/Botnix/pull/270254";
 
   chirpstack-api = callPackage ../development/python-modules/chirpstack-api { };
 
@@ -2211,13 +2211,13 @@ self: super: with self; {
 
   clustershell = callPackage ../development/python-modules/clustershell { };
 
-  clvm = throw "clvm has been removed. see https://github.com/NixOS/nixpkgs/pull/270254";
+  clvm = throw "clvm has been removed. see https://github.com/nervosys/Botnix/pull/270254";
 
-  clvm-rs = throw "clvm-rs has been removed. see https://github.com/NixOS/nixpkgs/pull/270254";
+  clvm-rs = throw "clvm-rs has been removed. see https://github.com/nervosys/Botnix/pull/270254";
 
-  clvm-tools = throw "clvm-tools has been removed. see https://github.com/NixOS/nixpkgs/pull/270254";
+  clvm-tools = throw "clvm-tools has been removed. see https://github.com/nervosys/Botnix/pull/270254";
 
-  clvm-tools-rs = throw "clvm-tools-rs has been removed. see https://github.com/NixOS/nixpkgs/pull/270254";
+  clvm-tools-rs = throw "clvm-tools-rs has been removed. see https://github.com/nervosys/Botnix/pull/270254";
 
   cma = callPackage ../development/python-modules/cma { };
 

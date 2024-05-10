@@ -222,7 +222,7 @@ in stdenv.mkDerivation {
       $out/libexec/darling/usr/libexec/darling/mldr
   '';
 
-  passthru.tests.nixos = nixosTests.darling;
+  passthru.tests.botnix = nixosTests.darling;
 
   meta = with lib; {
     description = "Open-source Darwin/macOS emulation layer for Linux";

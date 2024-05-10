@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
   checkFlags = [
     # test broken with rust 1.69:
     # * https://github.com/evcxr/evcxr/issues/294
-    # * https://github.com/NixOS/nixpkgs/issues/229524
+    # * https://github.com/nervosys/Botnix/issues/229524
     "--skip=check_for_errors"
   ];
 

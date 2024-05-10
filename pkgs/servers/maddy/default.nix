@@ -54,7 +54,7 @@ buildGoModule rec {
 
   env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.cc.isClang "-Wno-error=strict-prototypes";
 
-  passthru.tests.nixos = nixosTests.maddy;
+  passthru.tests.botnix = nixosTests.maddy;
 
   meta = with lib; {
     description = "Composable all-in-one mail server";

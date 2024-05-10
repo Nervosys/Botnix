@@ -67,7 +67,7 @@ buildPythonPackage rec {
   # modules imported as `msprime._msprime` to be unavailable, failing the
   # tests. This deletes the `msprime` folder such that only what's installed in
   # $out is used for the imports. See also discussion at:
-  # https://github.com/NixOS/nixpkgs/issues/255262
+  # https://github.com/nervosys/Botnix/issues/255262
   preCheck = ''
     rm -r msprime
   '';

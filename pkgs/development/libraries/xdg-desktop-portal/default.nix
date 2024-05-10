@@ -44,7 +44,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   patches = [
     # The icon validator copied from Flatpak needs to access the gdk-pixbuf loaders
-    # in the Nix store and cannot bind FHS paths since those are not available on NixOS.
+    # in the Nix store and cannot bind FHS paths since those are not available on Botnix.
     (runCommand "icon-validator.patch" { } ''
       # Flatpak uses a different path
       substitute "${flatpak.icon-validator-patch}" "$out" \
@@ -55,7 +55,7 @@ stdenv.mkDerivation (finalAttrs: {
     ./installed-tests-path.patch
 
     # `XDG_DESKTOP_PORTAL_DIR` originally was used for upstream tests. But we are making use
-    # of this in the NixOS module, this actually blocks any configs from being loaded since
+    # of this in the Botnix module, this actually blocks any configs from being loaded since
     # configs are not expected to be placed in a portal implementation or even under the
     # `share/xdg-desktop-portal/portals/` path.
     ./separate-env-for-portal-config.patch
@@ -121,7 +121,7 @@ stdenv.mkDerivation (finalAttrs: {
     # Upstream disables a few tests in CI upstream as they are known to
     # be flaky. Let's disable those downstream as hydra exhibits similar
     # flakes:
-    #   https://github.com/NixOS/nixpkgs/pull/270085#issuecomment-1840053951
+    #   https://github.com/nervosys/Botnix/pull/270085#issuecomment-1840053951
     export TEST_IN_CI=1
   '';
 

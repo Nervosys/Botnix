@@ -10,7 +10,7 @@ mkDerivation {
   pname = "cabal2nix";
   version = "unstable-2024-01-04";
   src = fetchzip {
-    url = "https://github.com/NixOS/cabal2nix/archive/e394e96c51cc7a2858145e710fbedbb2cb57f6ec.tar.gz";
+    url = "https://github.com/Botnix/cabal2nix/archive/e394e96c51cc7a2858145e710fbedbb2cb57f6ec.tar.gz";
     sha256 = "0rzmyx2i2z3w2ibg4rbaasq0581sa7bf8n1cih6v3j6phzgl3058";
   };
   postUnpack = "sourceRoot+=/cabal2nix; echo source root reset to $sourceRoot";
@@ -35,7 +35,7 @@ mkDerivation {
     export PATH="$PWD/dist/build/cabal2nix:$PATH"
     export HOME="$TMPDIR/home"
   '';
-  homepage = "https://github.com/nixos/cabal2nix#readme";
+  homepage = "https://github.com/botnix/cabal2nix#readme";
   description = "Convert Cabal files into Nix build instructions";
   license = lib.licenses.bsd3;
 }

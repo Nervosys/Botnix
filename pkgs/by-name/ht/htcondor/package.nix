@@ -49,7 +49,7 @@ stdenv.mkDerivation rec {
   ];
 
 
-  cmakeFlags = [ "-DSYSTEM_NAME=NixOS" "-DWITH_PYTHON_BINDINGS=false" ];
+  cmakeFlags = [ "-DSYSTEM_NAME=Botnix" "-DWITH_PYTHON_BINDINGS=false" ];
 
   meta = with lib; {
     homepage = "https://htcondor.org/";

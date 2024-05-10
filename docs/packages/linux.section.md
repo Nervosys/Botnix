@@ -1,18 +1,18 @@
 # Linux kernel {#sec-linux-kernel}
 
-The Nix expressions to build the Linux kernel are in [`pkgs/os-specific/linux/kernel`](https://github.com/NixOS/nixpkgs/blob/master/pkgs/os-specific/linux/kernel).
+The Nix expressions to build the Linux kernel are in [`pkgs/os-specific/linux/kernel`](https://github.com/nervosys/Botnix/blob/master/pkgs/os-specific/linux/kernel).
 
-The function [`pkgs.buildLinux`](https://github.com/NixOS/nixpkgs/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/generic.nix) builds a kernel with [common configuration values](https://github.com/NixOS/nixpkgs/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/common-config.nix).
+The function [`pkgs.buildLinux`](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/generic.nix) builds a kernel with [common configuration values](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/common-config.nix).
 This is the preferred option unless you have a very specific use case.
-Most kernels packaged in Nixpkgs are built that way, and it will also generate kernels suitable for NixOS.
-[`pkgs.linuxManualConfig`](https://github.com/NixOS/nixpkgs/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/manual-config.nix) requires a complete configuration to be passed.
+Most kernels packaged in Nixpkgs are built that way, and it will also generate kernels suitable for Botnix.
+[`pkgs.linuxManualConfig`](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/manual-config.nix) requires a complete configuration to be passed.
 It has fewer additional features than `pkgs.buildLinux`, which provides common configuration values and exposes the `features` attribute, as explained below.
 
 Both functions have an argument `kernelPatches` which should be a list of `{name, patch, extraConfig}` attribute sets, where `name` is the name of the patch (which is included in the kernel’s `meta.description` attribute), `patch` is the patch itself (possibly compressed), and `extraConfig` (optional) is a string specifying extra options to be concatenated to the kernel configuration file (`.config`).
 
-The kernel derivation created with `pkgs.buildLinux` exports an attribute `features` specifying whether optional functionality is or isn’t enabled. This is used in NixOS to implement kernel-specific behaviour.
+The kernel derivation created with `pkgs.buildLinux` exports an attribute `features` specifying whether optional functionality is or isn’t enabled. This is used in Botnix to implement kernel-specific behaviour.
 
-If you are using a kernel packaged in Nixpkgs, you can customize it by overriding its arguments. For details on how each argument affects the generated kernel, refer to [the `pkgs.buildLinux` source code](https://github.com/NixOS/nixpkgs/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/generic.nix).
+If you are using a kernel packaged in Nixpkgs, you can customize it by overriding its arguments. For details on how each argument affects the generated kernel, refer to [the `pkgs.buildLinux` source code](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/generic.nix).
 
 :::{.example #ex-overriding-kernel-derivation}
 
@@ -81,7 +81,7 @@ If necessary, the version string can be slightly modified to explicitly mark it 
 
 :::
 
-Additional attributes can be used with `linuxManualConfig` for further customisation. You're encouraged to read [the `pkgs.linuxManualConfig` source code](https://github.com/NixOS/nixpkgs/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/manual-config.nix) to understand how to use them.
+Additional attributes can be used with `linuxManualConfig` for further customisation. You're encouraged to read [the `pkgs.linuxManualConfig` source code](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/manual-config.nix) to understand how to use them.
 
 To edit the `.config` file for Linux X.Y from within Nix, proceed as follows:
 

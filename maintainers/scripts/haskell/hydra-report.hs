@@ -126,7 +126,7 @@ newtype JobName = JobName { unJobName :: Text }
 -- | Datatype representing the result of querying the build evals of the
 -- haskell-updates Hydra jobset.
 --
--- The URL <https://hydra.nixos.org/eval/EVAL_ID/builds> (where @EVAL_ID@ is a
+-- The URL <https://hydra.botnix.org/eval/EVAL_ID/builds> (where @EVAL_ID@ is a
 -- value like 1792418) returns a list of 'Build'.
 data Build = Build
    { job :: JobName
@@ -199,10 +199,10 @@ hydraQuery responseType option query = do
   let customHeaderOpt =
         header
           "User-Agent"
-          "hydra-report.hs/v1 (nixpkgs;maintainers/scripts/haskell) pls fix https://github.com/NixOS/nixos-org-configurations/issues/270"
+          "hydra-report.hs/v1 (nixpkgs;maintainers/scripts/haskell) pls fix https://github.com/Botnix/botnix-org-configurations/issues/270"
       customTimeoutOpt = responseTimeout 900_000_000 -- 15 minutes
       opts = customHeaderOpt <> customTimeoutOpt <> option
-      url = foldl' (/:) (https "hydra.nixos.org") query
+      url = foldl' (/:) (https "hydra.botnix.org") query
   responseBody <$> req GET url NoReqBody responseType opts
 
 hydraJSONQuery :: FromJSON a => Option 'Https -> [Text] -> Req a
@@ -583,10 +583,10 @@ printJob evalId (PkgName name) (Table mapping, maintainers) =
    platforms :: [Platform]
    platforms = toList $ Set.fromList (snd <$> Map.keys mapping)
 
-   label pf (BuildResult s i) = "[[" <> platformIcon pf <> icon s <> "]](https://hydra.nixos.org/build/" <> showT i <> ")"
+   label pf (BuildResult s i) = "[[" <> platformIcon pf <> icon s <> "]](https://hydra.botnix.org/build/" <> showT i <> ")"
 
 makeSearchLink :: Int -> Text -> Text -> Text
-makeSearchLink evalId linkLabel query = "[" <> linkLabel <> "](" <> "https://hydra.nixos.org/eval/" <> showT evalId <> "?filter=" <> query <> ")"
+makeSearchLink evalId linkLabel query = "[" <> linkLabel <> "](" <> "https://hydra.botnix.org/eval/" <> showT evalId <> "?filter=" <> query <> ")"
 
 statusToNumSummary :: StatusSummary -> NumSummary
 statusToNumSummary = fmap getSum . foldMap (fmap Sum . jobTotals)
@@ -601,11 +601,11 @@ evalLine :: Eval -> UTCTime -> Text
 evalLine Eval{id, jobsetevalinputs = JobsetEvalInputs{nixpkgs = Nixpkgs{revision}}} fetchTime =
    "*evaluation ["
     <> showT id
-    <> "](https://hydra.nixos.org/eval/"
+    <> "](https://hydra.botnix.org/eval/"
     <> showT id
     <> ") of nixpkgs commit ["
     <> Text.take 7 revision
-    <> "](https://github.com/NixOS/nixpkgs/commits/"
+    <> "](https://github.com/nervosys/Botnix/commits/"
     <> revision
     <> ") as of "
     <> Text.pack (formatTime defaultTimeLocale "%Y-%m-%d %H:%M UTC" fetchTime)
@@ -629,10 +629,10 @@ printBuildSummary eval@Eval{id} fetchTime summary topBrokenRdeps =
          <> ["","*⤴️: The number of packages that depend (directly or indirectly) on this package (if any). If two numbers are shown the first (lower) number considers only packages which currently have enabled hydra jobs, i.e. are not marked broken. The second (higher) number considers all packages.*",""]
          <> footer
   where
-   footer = ["*Report generated with [maintainers/scripts/haskell/hydra-report.hs](https://github.com/NixOS/nixpkgs/blob/haskell-updates/maintainers/scripts/haskell/hydra-report.hs)*"]
+   footer = ["*Report generated with [maintainers/scripts/haskell/hydra-report.hs](https://github.com/nervosys/Botnix/blob/haskell-updates/maintainers/scripts/haskell/hydra-report.hs)*"]
 
    headline =
-      [ "### [haskell-updates build report from hydra](https://hydra.nixos.org/jobset/nixpkgs/haskell-updates)"
+      [ "### [haskell-updates build report from hydra](https://hydra.botnix.org/jobset/nixpkgs/haskell-updates)"
       , evalLine eval fetchTime
       ]
 
@@ -750,8 +750,8 @@ printBuildSummary eval@Eval{id} fetchTime summary topBrokenRdeps =
          )
 
    tldr = case (errors, warnings) of
-            ([],[]) -> ["🟢 **Ready to merge** (if there are no [evaluation errors](https://hydra.nixos.org/jobset/nixpkgs/haskell-updates))"]
-            ([],_) -> ["🟡 **Potential issues** (and possibly [evaluation errors](https://hydra.nixos.org/jobset/nixpkgs/haskell-updates))"]
+            ([],[]) -> ["🟢 **Ready to merge** (if there are no [evaluation errors](https://hydra.botnix.org/jobset/nixpkgs/haskell-updates))"]
+            ([],_) -> ["🟡 **Potential issues** (and possibly [evaluation errors](https://hydra.botnix.org/jobset/nixpkgs/haskell-updates))"]
             _ -> ["🔴 **Branch not mergeable**"]
    warnings =
       if' (Unfinished > maybe Success worstState maintainedJob) "`maintained` jobset failed." <>
@@ -805,7 +805,7 @@ printMarkBrokenList reqLogs = do
                   -- Fetch build log from hydra to figure out the cause of the error.
                   build_log <- ByteString.lines <$> hydraPlainQuery ["build", showT id, "nixlog", "1", "raw"]
                   pure $ safeLast $ mapMaybe probableErrorCause build_log
-            liftIO $ putStrLn $ "  - " <> Text.unpack name <> " # " <> error_message <> " in job https://hydra.nixos.org/build/" <> show id <> " at " <> formatTime defaultTimeLocale "%Y-%m-%d" fetchTime
+            liftIO $ putStrLn $ "  - " <> Text.unpack name <> " # " <> error_message <> " in job https://hydra.botnix.org/build/" <> show id <> " at " <> formatTime defaultTimeLocale "%Y-%m-%d" fetchTime
          _ -> pure ()
 
 {- | This function receives a line from a Nix Haskell builder build log and returns a possible error cause.

@@ -52,7 +52,7 @@ buildPythonPackage rec {
   ];
 
   # Fix tests for Darwin build. See:
-  # https://github.com/NixOS/nixpkgs/pull/74716#issuecomment-598546916
+  # https://github.com/nervosys/Botnix/pull/74716#issuecomment-598546916
   __darwinAllowLocalNetworking = true;
 
   meta = with lib; {

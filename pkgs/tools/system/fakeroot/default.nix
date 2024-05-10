@@ -59,7 +59,7 @@ stdenv.mkDerivation (finalAttrs: {
         package = finalAttrs.finalPackage;
       };
       # A lightweight *unit* test that exercises fakeroot and fakechroot together:
-      nixos-etc = nixosTests.etc.test-etc-fakeroot;
+      botnix-etc = nixosTests.etc.test-etc-fakeroot;
     };
   };
 

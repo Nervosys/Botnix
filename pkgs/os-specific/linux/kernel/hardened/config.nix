@@ -6,7 +6,7 @@
 # boot via sysctl or kernel cmdline are left enabled here, for improved
 # flexibility.
 #
-# See also <nixos/modules/profiles/hardened.nix>
+# See also <botnix/modules/profiles/hardened.nix>
 
 { stdenv, lib, version }:
 

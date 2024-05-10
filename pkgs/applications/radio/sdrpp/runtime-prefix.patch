@@ -3,7 +3,7 @@ From: Nikolay Korotkiy <sikmir@gmail.com>
 Date: Fri, 29 Oct 2021 01:38:21 +0300
 Subject: [PATCH] Fix sdrpp breaking every time the package is rebuilt.
 
-On NixOS, the INSTALL_PREFIX changes on every rebuild to the package, but sdrpp
+On Botnix, the INSTALL_PREFIX changes on every rebuild to the package, but sdrpp
 fills it in as part of the default config and then installs that config
 to the users home folder. Fix this by not substituting @INSTALL_PREFIX@ in the
 default config until runtime.

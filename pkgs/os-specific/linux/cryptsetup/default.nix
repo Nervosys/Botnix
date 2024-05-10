@@ -7,7 +7,7 @@
 , programs ? {}
   # The release tarballs contain precomputed manpage files, so we don't need
   # to run asciidoctor on the man sources. By avoiding asciidoctor, we make
-  # the bare NixOS build hash independent of changes to the ruby ecosystem,
+  # the bare Botnix build hash independent of changes to the ruby ecosystem,
   # saving mass-rebuilds.
 , rebuildMan ? false
 }:
@@ -65,7 +65,7 @@ stdenv.mkDerivation rec {
 
   passthru = {
     tests = {
-      nixos =
+      botnix =
         lib.optionalAttrs stdenv.hostPlatform.isLinux (
           lib.recurseIntoAttrs (
             lib.filterAttrs

@@ -103,7 +103,7 @@ buildPythonApplication rec {
     export HOME=$TMPDIR
   '';
 
-  # https://github.com/NixOS/nixpkgs/issues/149812
+  # https://github.com/nervosys/Botnix/issues/149812
   # https://nixos.org/manual/nixpkgs/stable/#ssec-gnome-hooks-gobject-introspection
   strictDeps = false;
 

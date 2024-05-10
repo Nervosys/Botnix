@@ -58,7 +58,7 @@ let result = stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ autoPatchelfHook makeWrapper ];
 
-  # See: https://github.com/NixOS/patchelf/issues/10
+  # See: https://github.com/Botnix/patchelf/issues/10
   dontStrip = 1;
 
   installPhase = ''
@@ -75,7 +75,7 @@ let result = stdenv.mkDerivation rec {
     rm -rf $out/man/ja*
 
     # Remove embedded freetype to avoid problems like
-    # https://github.com/NixOS/nixpkgs/issues/57733
+    # https://github.com/nervosys/Botnix/issues/57733
     find "$out" -name 'libfreetype.so*' -delete
 
     # Propagate the setJavaClassPath setup hook from the JDK so that

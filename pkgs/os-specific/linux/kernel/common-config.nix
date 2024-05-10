@@ -47,7 +47,7 @@ let
       DEBUG_INFO_BTF            = whenAtLeast "5.2" (option yes);
       # Allow loading modules with mismatched BTFs
       # FIXME: figure out how to actually make BTFs reproducible instead
-      # See https://github.com/NixOS/nixpkgs/pull/181456 for details.
+      # See https://github.com/nervosys/Botnix/pull/181456 for details.
       MODULE_ALLOW_BTF_MISMATCH = whenAtLeast "5.18" (option yes);
       BPF_LSM                   = whenAtLeast "5.7" (option yes);
       DEBUG_KERNEL              = yes;
@@ -182,7 +182,7 @@ let
       CLS_U32_PERF       = yes;
       CLS_U32_MARK       = yes;
       BPF_JIT            = whenPlatformHasEBPFJit yes;
-      BPF_JIT_ALWAYS_ON  = whenPlatformHasEBPFJit no; # whenPlatformHasEBPFJit yes; # see https://github.com/NixOS/nixpkgs/issues/79304
+      BPF_JIT_ALWAYS_ON  = whenPlatformHasEBPFJit no; # whenPlatformHasEBPFJit yes; # see https://github.com/nervosys/Botnix/issues/79304
       HAVE_EBPF_JIT      = whenPlatformHasEBPFJit yes;
       BPF_STREAM_PARSER  = yes;
       XDP_SOCKETS        = yes;
@@ -621,7 +621,7 @@ let
     };
 
     container = {
-      NAMESPACES     = yes; #  Required by 'unshare' used by 'nixos-install'
+      NAMESPACES     = yes; #  Required by 'unshare' used by 'botnix-install'
       RT_GROUP_SCHED = no;
       CGROUP_DEVICE  = yes;
       CGROUP_HUGETLB = yes;
@@ -728,7 +728,7 @@ let
     };
 
     "9p" = {
-      # Enable the 9P cache to speed up NixOS VM tests.
+      # Enable the 9P cache to speed up Botnix VM tests.
       "9P_FSCACHE"      = option yes;
       "9P_FS_POSIX_ACL" = option yes;
     };
@@ -787,7 +787,7 @@ let
 
     misc = let
       # Use zstd for kernel compression if 64-bit and newer than 5.9, otherwise xz.
-      # i686 issues: https://github.com/NixOS/nixpkgs/pull/117961#issuecomment-812106375
+      # i686 issues: https://github.com/nervosys/Botnix/pull/117961#issuecomment-812106375
       useZstd = stdenv.buildPlatform.is64bit && versionAtLeast version "5.9";
     in {
       KERNEL_XZ            = mkIf (!useZstd) yes;
@@ -1011,7 +1011,7 @@ let
       RTC_HCTOSYS = option yes;
     } // optionalAttrs (stdenv.hostPlatform.system == "x86_64-linux" || stdenv.hostPlatform.system == "aarch64-linux") {
       # Enable CPU/memory hotplug support
-      # Allows you to dynamically add & remove CPUs/memory to a VM client running NixOS without requiring a reboot
+      # Allows you to dynamically add & remove CPUs/memory to a VM client running Botnix without requiring a reboot
       ACPI_HOTPLUG_CPU = yes;
       ACPI_HOTPLUG_MEMORY = yes;
       MEMORY_HOTPLUG = yes;
@@ -1027,7 +1027,7 @@ let
       # Enables support for the Allwinner Display Engine 2.0
       SUN8I_DE2_CCU = yes;
 
-      # See comments on https://github.com/NixOS/nixpkgs/commit/9b67ea9106102d882f53d62890468071900b9647
+      # See comments on https://github.com/nervosys/Botnix/commit/9b67ea9106102d882f53d62890468071900b9647
       CRYPTO_AEGIS128_SIMD = whenAtLeast "5.4" no;
 
       # Distros should configure the default as a kernel option.

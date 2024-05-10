@@ -93,7 +93,7 @@ let
   # Development packages required for compilation.
   appBuildDeps =
     let
-      # https://discourse.nixos.org/t/handling-transitive-c-dependencies/5942/3
+      # https://discourse.botnix.org/t/handling-transitive-c-dependencies/5942/3
       deps = pkg: builtins.filter lib.isDerivation ((pkg.buildInputs or [ ]) ++ (pkg.propagatedBuildInputs or [ ]));
       collect = pkg: lib.unique ([ pkg ] ++ deps pkg ++ builtins.concatMap collect (deps pkg));
     in

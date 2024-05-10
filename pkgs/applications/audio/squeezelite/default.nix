@@ -41,7 +41,7 @@ let
 
 in
 stdenv.mkDerivation {
-  # the nixos module uses the pname as the binary name
+  # the botnix module uses the pname as the binary name
   pname = binName;
   # versions are specified in `squeezelite.h`
   # see https://github.com/ralph-irving/squeezelite/issues/29

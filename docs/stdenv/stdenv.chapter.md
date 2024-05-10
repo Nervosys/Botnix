@@ -17,7 +17,7 @@ stdenv.mkDerivation {
 ```
 
 (`stdenv` needs to be in scope, so if you write this in a separate Nix expression from `pkgs/all-packages.nix`, you need to pass it as a function argument.) Specifying a `name` and a `src` is the absolute minimum Nix requires. For convenience, you can also use `pname` and `version` attributes and `mkDerivation` will automatically set `name` to `"${pname}-${version}"` by default.
-**Since [RFC 0035](https://github.com/NixOS/rfcs/pull/35), this is preferred for packages in Nixpkgs**, as it allows us to reuse the version easily:
+**Since [RFC 0035](https://github.com/Botnix/rfcs/pull/35), this is preferred for packages in Nixpkgs**, as it allows us to reuse the version easily:
 
 ```nix
 stdenv.mkDerivation rec {
@@ -504,7 +504,7 @@ A script to be run by `maintainers/scripts/update.nix` when the package is match
   ```
 
 ::: {.tip}
-A common pattern is to use the [`nix-update-script`](https://github.com/NixOS/nixpkgs/blob/master/pkgs/common-updater/nix-update.nix) attribute provided in Nixpkgs, which runs [`nix-update`](https://github.com/Mic92/nix-update):
+A common pattern is to use the [`nix-update-script`](https://github.com/nervosys/Botnix/blob/master/pkgs/common-updater/nix-update.nix) attribute provided in Nixpkgs, which runs [`nix-update`](https://github.com/Mic92/nix-update):
 
 ```nix
 passthru.updateScript = nix-update-script { };
@@ -1403,7 +1403,7 @@ This setup hook patches installed scripts to add Nix store paths to their sheban
 The [generic builder][generic-builder] populates `PATH` from inputs of the derivation.
 :::
 
-[generic-builder]: https://github.com/NixOS/nixpkgs/blob/19d4f7dc485f74109bd66ef74231285ff797a823/pkgs/stdenv/generic/builder.sh
+[generic-builder]: https://github.com/nervosys/Botnix/blob/19d4f7dc485f74109bd66ef74231285ff797a823/pkgs/stdenv/generic/builder.sh
 
 #### Invocation {#patch-shebangs.sh-invocation}
 
@@ -1458,9 +1458,9 @@ The file [`patch-shebangs.sh`][patch-shebangs.sh] defines the [`patchShebangs`][
 
 If you need to run `patchShebangs` at build time, it must be called explicitly within [one of the build phases](#sec-stdenv-phases).
 
-[patch-shebangs.sh]: https://github.com/NixOS/nixpkgs/blob/19d4f7dc485f74109bd66ef74231285ff797a823/pkgs/build-support/setup-hooks/patch-shebangs.sh
-[patchShebangs]: https://github.com/NixOS/nixpkgs/blob/19d4f7dc485f74109bd66ef74231285ff797a823/pkgs/build-support/setup-hooks/patch-shebangs.sh#L24-L105
-[patchShebangsAuto]: https://github.com/NixOS/nixpkgs/blob/19d4f7dc485f74109bd66ef74231285ff797a823/pkgs/build-support/setup-hooks/patch-shebangs.sh#L107-L119
+[patch-shebangs.sh]: https://github.com/nervosys/Botnix/blob/19d4f7dc485f74109bd66ef74231285ff797a823/pkgs/build-support/setup-hooks/patch-shebangs.sh
+[patchShebangs]: https://github.com/nervosys/Botnix/blob/19d4f7dc485f74109bd66ef74231285ff797a823/pkgs/build-support/setup-hooks/patch-shebangs.sh#L24-L105
+[patchShebangsAuto]: https://github.com/nervosys/Botnix/blob/19d4f7dc485f74109bd66ef74231285ff797a823/pkgs/build-support/setup-hooks/patch-shebangs.sh#L107-L119
 
 ### `audit-tmpdir.sh` {#audit-tmpdir.sh}
 
@@ -1624,7 +1624,7 @@ The following flags are disabled by default and should be enabled with `hardenin
 
 #### `pie` {#pie}
 
-This flag is disabled by default for normal `glibc` based NixOS package builds, but enabled by default for `musl` based package builds.
+This flag is disabled by default for normal `glibc` based Botnix package builds, but enabled by default for `musl` based package builds.
 
 Adds the `-fPIE` compiler and `-pie` linker options. Position Independent Executables are needed to take advantage of Address Space Layout Randomization, supported by modern kernel versions. While ASLR can already be enforced for data areas in the stack and heap (brk and mmap), the code areas must be compiled as position-independent. Shared libraries already do this with the `pic` flag, so they gain ASLR automatically, but binary .text regions need to be build with `pie` to gain ASLR. When this happens, ROP attacks are much harder since there are no static locations to bounce off of during a memory corruption attack.
 

@@ -112,7 +112,7 @@ stdenv.mkDerivation rec {
     "--datadir=${system}/share"
     "--sysconfdir=/etc"
     "-Dsystemdsystemunitdir=${placeholder "out"}/lib/systemd/system"
-    "-Dpolkitd_user=polkituser" #TODO? <nixos> config.ids.uids.polkituser
+    "-Dpolkitd_user=polkituser" #TODO? <botnix> config.ids.uids.polkituser
     "-Dos_type=redhat" # only affects PAM includes
     "-Dintrospection=${lib.boolToString withIntrospection}"
     "-Dtests=${lib.boolToString doCheck}"
@@ -123,7 +123,7 @@ stdenv.mkDerivation rec {
   ];
 
   # HACK: We want to install policy files files to $out/share but polkit
-  # should read them from /run/current-system/sw/share on a NixOS system.
+  # should read them from /run/current-system/sw/share on a Botnix system.
   # Similarly for config files in /etc.
   # With autotools, it was possible to override Make variables
   # at install time but Meson does not support this
@@ -137,7 +137,7 @@ stdenv.mkDerivation rec {
     patchShebangs test/polkitbackend/polkitbackendjsauthoritytest-wrapper.py
 
     # ‘libpolkit-agent-1.so’ should call the setuid wrapper on
-    # NixOS.  Hard-coding the path is kinda ugly.  Maybe we can just
+    # Botnix.  Hard-coding the path is kinda ugly.  Maybe we can just
     # call through $PATH, but that might have security implications.
     substituteInPlace src/polkitagent/polkitagentsession.c \
       --replace   'PACKAGE_PREFIX "/lib/polkit-1/'   '"${setuid}/'

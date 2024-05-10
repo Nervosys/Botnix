@@ -45,7 +45,7 @@ buildPythonPackage rec {
   ];
 
   # Fix a ModuleNotFoundError. Investigated at:
-  # https://github.com/NixOS/nixpkgs/issues/255262
+  # https://github.com/nervosys/Botnix/issues/255262
   preCheck = ''
     cd $out
   '';

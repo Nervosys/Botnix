@@ -15,7 +15,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = [ chardet dnspython lmtpd python-daemon six click ];
 
   # Darwin tests fail without this. See:
-  # https://github.com/NixOS/nixpkgs/pull/82166#discussion_r399909846
+  # https://github.com/nervosys/Botnix/pull/82166#discussion_r399909846
   __darwinAllowLocalNetworking = true;
 
   # The tests use salmon executable installed by salmon itself so we need to add

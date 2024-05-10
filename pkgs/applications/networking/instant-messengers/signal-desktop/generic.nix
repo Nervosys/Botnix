@@ -130,7 +130,7 @@ in stdenv.mkDerivation rec {
   dontConfigure = true;
   dontPatchELF = true;
   # We need to run autoPatchelf manually with the "no-recurse" option, see
-  # https://github.com/NixOS/nixpkgs/pull/78413 for the reasons.
+  # https://github.com/nervosys/Botnix/pull/78413 for the reasons.
   dontAutoPatchelf = true;
 
   installPhase = ''

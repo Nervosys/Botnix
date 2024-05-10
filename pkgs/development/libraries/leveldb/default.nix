@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
   patches = [
     # Re-enable RTTI. Needed for e.g. Ceph to compile properly.
-    # See https://github.com/NixOS/nixpkgs/issues/147801,
+    # See https://github.com/nervosys/Botnix/issues/147801,
     # https://github.com/google/leveldb/issues/731,
     # https://lists.ceph.io/hyperkitty/list/dev@ceph.io/thread/K4OSAA4AJS2V7FQI6GNCKCK3IRQDBQRS/.
     (fetchpatch {

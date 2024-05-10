@@ -5,7 +5,7 @@ Subject: [PATCH] Load configs from /etc but fallback to /nix/store
 
 This change will load all configuration files from /etc, to make it easy
 to override them, but fallback to /nix/store/.../etc/sway/config to make
-Sway work out-of-the-box with the default configuration on non NixOS
+Sway work out-of-the-box with the default configuration on non Botnix
 systems.
 
 Original patch by Michael Weiss, updated for Sway 1.6 by Patrick Hilhorst

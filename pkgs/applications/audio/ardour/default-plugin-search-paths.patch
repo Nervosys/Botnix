@@ -1,12 +1,12 @@
 From 1217722e4bf6c65b5c24da17a7de4bf712ca6775 Mon Sep 17 00:00:00 2001
 From: Tamara Schmitz <tamara.zoe.schmitz@posteo.de>
 Date: Sat, 17 Jun 2023 14:05:53 +0200
-Subject: [PATCH] add NixOS plugin paths as default search paths
+Subject: [PATCH] add Botnix plugin paths as default search paths
 
-Since NixOS uses unusual paths, we should tell Ardour about this. During
+Since Botnix uses unusual paths, we should tell Ardour about this. During
 first launch, Ardour does indeed check for environmentals but not when
 you press the "Reset to Defaults" button in the Settings menu. This
-path fixes this by including NixOS paths in the defaults.
+path fixes this by including Botnix paths in the defaults.
 ---
  libs/ardour/plugin_manager.cc | 5 +++--
  libs/ardour/search_paths.cc   | 4 ++++

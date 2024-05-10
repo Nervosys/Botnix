@@ -1,7 +1,7 @@
 { lib, stdenv, fetchFromGitHub, postgresql, openssl, nixosTests } :
 stdenv.mkDerivation rec {
   pname = "pgmanage";
-  # The last release 11.0.1 from 2018 fails the NixOS test
+  # The last release 11.0.1 from 2018 fails the Botnix test
   # probably because of PostgreSQL-12 incompatibility.
   # Fortunately the latest master does succeed the test.
   version = "unstable-2022-05-11";

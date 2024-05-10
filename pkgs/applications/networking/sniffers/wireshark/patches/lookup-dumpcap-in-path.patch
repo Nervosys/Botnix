@@ -3,7 +3,7 @@ From: =?UTF-8?q?Bj=C3=B8rn=20Forsman?= <bjorn.forsman@gmail.com>
 Date: Thu, 27 Oct 2022 20:56:07 +0200
 Subject: [PATCH] Lookup dumpcap in PATH
 
-NixOS patch: Look for dumpcap in PATH first, because there may be a
+Botnix patch: Look for dumpcap in PATH first, because there may be a
 dumpcap wrapper that we want to use instead of the default
 non-setuid dumpcap binary.
 
@@ -34,7 +34,7 @@ index 01e9510a27..e439098298 100644
 
 -    /* Find the absolute path of the dumpcap executable. */
 -    exename = get_executable_path("dumpcap");
-+    /* NixOS patch: Look for dumpcap in PATH first, because there may be a
++    /* Botnix patch: Look for dumpcap in PATH first, because there may be a
 +     * dumpcap wrapper that we want to use instead of the default
 +     * non-setuid dumpcap binary. */
 +    if (system("command -v dumpcap >/dev/null") == 0) {

@@ -99,7 +99,7 @@ buildPythonPackage rec {
   ];
 
   disabledTests = [
-    # It's unclear if the failures are related to libxml2, https://github.com/NixOS/nixpkgs/pull/123890
+    # It's unclear if the failures are related to libxml2, https://github.com/nervosys/Botnix/pull/123890
     "test_nested_css"
     "test_nested_xpath"
     "test_flavor_detection"

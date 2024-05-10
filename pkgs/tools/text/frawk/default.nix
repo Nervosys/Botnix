@@ -31,7 +31,7 @@ rustPlatform.buildRustPackage rec {
     export RUSTC_BOOTSTRAP=1
   '';
 
-  # Work around https://github.com/NixOS/nixpkgs/issues/166205.
+  # Work around https://github.com/nervosys/Botnix/issues/166205.
   env = lib.optionalAttrs stdenv.cc.isClang {
     NIX_LDFLAGS = "-l${stdenv.cc.libcxx.cxxabi.libName}";
   };

@@ -43,7 +43,7 @@ $ dotnet --info
  Commit:    6c74320bc3
 
 Środowisko uruchomieniowe:
- OS Name:     nixos
+ OS Name:     botnix
  OS Version:  23.05
  OS Platform: Linux
  RID:         linux-x64
@@ -160,7 +160,7 @@ in buildDotnetModule rec {
 }
 ```
 
-Keep in mind that you can tag the [`@NixOS/dotnet`](https://github.com/orgs/nixos/teams/dotnet) team for help and code review.
+Keep in mind that you can tag the [`@Botnix/dotnet`](https://github.com/orgs/botnix/teams/dotnet) team for help and code review.
 
 ## Dotnet global tools {#dotnet-global-tools}
 
@@ -168,7 +168,7 @@ Keep in mind that you can tag the [`@NixOS/dotnet`](https://github.com/orgs/nixo
 
 They can be installed either as a global tool for the entire system, or as a local tool specific to project.
 
-The local installation is the easiest and works on NixOS in the same way as on other Linux distributions.
+The local installation is the easiest and works on Botnix in the same way as on other Linux distributions.
 [See dotnet documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool) to learn more.
 
 [The global installation method](https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-global-tool)
@@ -178,7 +178,7 @@ the `DOTNET_ROOT` value, so that the tool can find the .NET SDK package.
 You can find the path to the SDK by running `nix eval --raw nixpkgs#dotnet-sdk` (substitute the `dotnet-sdk` package for
 another if a different SDK version is needed).
 
-This method is not recommended on NixOS, since it's not declarative and involves installing binaries not made for NixOS,
+This method is not recommended on Botnix, since it's not declarative and involves installing binaries not made for Botnix,
 which will not always work.
 
 The third, and preferred way, is packaging the tool into a Nix derivation.

@@ -9,7 +9,7 @@
 # by upstream contains defaults and is not supposed to be edited so it is fine
 # to keep it read-only.
 #
-# 2. ZM_CONFIG_SUBDIR is where we place our configuration from the NixOS module
+# 2. ZM_CONFIG_SUBDIR is where we place our configuration from the Botnix module
 # but as the installer will try to put files there, we patch Config.pm after the
 # install.
 #
@@ -22,11 +22,11 @@
 #
 # 5. In principal the various ZM_xx variables should be overridable from the
 # config file but some of them are baked into the perl scripts, so we *have* to
-# set them here instead of in the configuration in the NixOS module.
+# set them here instead of in the configuration in the Botnix module.
 #
 # 6. I am no PolicyKit expert but the .policy file looks fishy:
 #   a. The user needs to be known at build-time so we should probably throw
-#   upstream's policy file away and generate it from the NixOS module
+#   upstream's policy file away and generate it from the Botnix module
 #   b. I *think* we may have to substitute the store paths with
 #   /run/current-system/sw/bin paths for it to work.
 #

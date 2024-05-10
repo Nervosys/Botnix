@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
     appstream-glib
   ];
 
-  # ad-hoc fix for https://github.com/NixOS/nixpkgs/issues/50855
+  # ad-hoc fix for https://github.com/nervosys/Botnix/issues/50855
   # until we fix gettext's envHook
   preBuild = ''
     export GETTEXTDATADIRS="$GETTEXTDATADIRS_FOR_BUILD"

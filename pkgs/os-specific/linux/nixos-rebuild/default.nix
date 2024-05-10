@@ -12,11 +12,11 @@
 , installShellFiles
 }:
 let
-  fallback = import ./../../../../nixos/modules/installer/tools/nix-fallback-paths.nix;
+  fallback = import ./../../../../botnix/modules/installer/tools/nix-fallback-paths.nix;
 in
 substituteAll {
-  name = "nixos-rebuild";
-  src = ./nixos-rebuild.sh;
+  name = "botnix-rebuild";
+  src = ./botnix-rebuild.sh;
   dir = "bin";
   isExecutable = true;
   inherit runtimeShell nix;
@@ -28,26 +28,26 @@ substituteAll {
     installShellFiles
   ];
   postInstall = ''
-    installManPage ${./nixos-rebuild.8}
+    installManPage ${./botnix-rebuild.8}
 
     installShellCompletion \
       --bash ${./_nixos-rebuild}
   '';
 
-  # run some a simple installer tests to make sure nixos-rebuild still works for them
+  # run some a simple installer tests to make sure botnix-rebuild still works for them
   passthru.tests = {
-    install-bootloader = nixosTests.nixos-rebuild-install-bootloader;
+    install-bootloader = nixosTests.botnix-rebuild-install-bootloader;
     repl = callPackage ./test/repl.nix {};
     simple-installer = nixosTests.installer.simple;
-    specialisations = nixosTests.nixos-rebuild-specialisations;
-    target-host = nixosTests.nixos-rebuild-target-host;
+    specialisations = nixosTests.botnix-rebuild-specialisations;
+    target-host = nixosTests.botnix-rebuild-target-host;
   };
 
   meta = {
-    description = "Rebuild your NixOS configuration and switch to it, on local hosts and remote.";
-    homepage = "https://github.com/NixOS/nixpkgs/tree/master/pkgs/os-specific/linux/nixos-rebuild";
+    description = "Rebuild your Botnix configuration and switch to it, on local hosts and remote.";
+    homepage = "https://github.com/nervosys/Botnix/tree/master/pkgs/os-specific/linux/botnix-rebuild";
     license = lib.licenses.mit;
     maintainers = [ lib.maintainers.Profpatsch ];
-    mainProgram = "nixos-rebuild";
+    mainProgram = "botnix-rebuild";
   };
 }

@@ -337,7 +337,7 @@ end:"''"},{begin:'"',end:'"'}]
 },i=[e.NUMBER_MODE,e.HASH_COMMENT_MODE,e.C_BLOCK_COMMENT_MODE,a,{
 begin:/[a-zA-Z0-9-_]+(\s*=)/,returnBegin:!0,relevance:0,contains:[{
 className:"attr",begin:/\S+/,relevance:.2}]}];return s.contains=i,{name:"Nix",
-aliases:["nixos"],keywords:n,contains:i}}})();hljs.registerLanguage("nix",e)
+aliases:["botnix"],keywords:n,contains:i}}})();hljs.registerLanguage("nix",e)
 })();/*! `shell` grammar compiled for Highlight.js 11.9.0 */
 (()=>{var s=(()=>{"use strict";return s=>({name:"Shell Session",
 aliases:["console","shellsession"],contains:[{className:"meta.prompt",

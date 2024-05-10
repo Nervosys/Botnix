@@ -88,8 +88,8 @@ automatically. It could be useful to, for example:
 [Ultralisp]: https://ultralisp.org/
 [jzon]: https://github.com/Zulu-Inuoe/jzon
 [cl-tar]: https://gitlab.common-lisp.net/cl-tar/cl-tar
-[bootstrap tools]: https://github.com/NixOS/nixpkgs/tree/master/pkgs/stdenv/linux/bootstrap-files
-[nixpkgs]: https://github.com/NixOS/nixpkgs
+[bootstrap tools]: https://github.com/nervosys/Botnix/tree/master/pkgs/stdenv/linux/bootstrap-files
+[nixpkgs]: https://github.com/nervosys/Botnix
 
 ## Windows note
 

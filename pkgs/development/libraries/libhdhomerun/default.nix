@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    ./nixos-darwin-no-fat-dylib.patch
+    ./botnix-darwin-no-fat-dylib.patch
   ];
 
   makeFlags = [

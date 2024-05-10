@@ -49,8 +49,8 @@ let
         PORTABLE_ID = pname;
         PORTABLE_PRETTY_NAME = description;
         HOME_URL = homepage;
-        ID = "nixos";
-        PRETTY_NAME = "NixOS";
+        ID = "botnix";
+        PRETTY_NAME = "Botnix";
         BUILD_ID = "rolling";
       };
       os-release = pkgs.writeText "os-release"

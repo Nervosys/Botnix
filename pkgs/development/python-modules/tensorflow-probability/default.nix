@@ -64,7 +64,7 @@ let
 
       installPhase = ''
         # work around timestamp issues
-        # https://github.com/NixOS/nixpkgs/issues/270#issuecomment-467583872
+        # https://github.com/nervosys/Botnix/issues/270#issuecomment-467583872
         export SOURCE_DATE_EPOCH=315532800
 
         # First build, then move. Otherwise pip_pkg would create the dir $out

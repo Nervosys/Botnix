@@ -97,7 +97,7 @@ stdenv.mkDerivation rec {
     longDescription = ''
       Manage processes and monitor system resources.
       To use the wingpanel indicator in this application, see the Pantheon
-      section in the NixOS manual.
+      section in the Botnix manual.
     '';
     homepage = "https://github.com/stsdc/monitor";
     maintainers = with maintainers; [ xiorcale ] ++ teams.pantheon.members;

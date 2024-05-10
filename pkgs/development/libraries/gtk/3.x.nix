@@ -180,7 +180,7 @@ stdenv.mkDerivation (finalAttrs: {
   env.NIX_CFLAGS_COMPILE = "-DG_ENABLE_DEBUG -DG_DISABLE_CAST_CHECKS";
 
   postPatch = ''
-    # See https://github.com/NixOS/nixpkgs/issues/132259
+    # See https://github.com/nervosys/Botnix/issues/132259
     substituteInPlace meson.build \
       --replace "x11_enabled = false" ""
 
@@ -204,7 +204,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   postInstall = lib.optionalString (!stdenv.isDarwin) ''
-    # The updater is needed for nixos env and it's tiny.
+    # The updater is needed for botnix env and it's tiny.
     moveToOutput bin/gtk-update-icon-cache "$out"
     # Launcher
     moveToOutput bin/gtk-launch "$out"

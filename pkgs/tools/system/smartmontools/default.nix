@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
 
   configureFlags = [
     "--with-scriptpath=${scriptPath}"
-    # does not work on NixOS
+    # does not work on Botnix
     "--without-update-smart-drivedb"
   ];
 

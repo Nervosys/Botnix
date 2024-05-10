@@ -1,7 +1,7 @@
 From cb61e856c4357d9787f7a2313bacb1c3b2133d36 Mon Sep 17 00:00:00 2001
 From: Samuel Dionne-Riel <samuel@dionne-riel.com>
 Date: Fri, 4 Jun 2021 19:05:53 -0400
-Subject: [PATCH] [NixOS] Use `anbox` from PATH in desktop files
+Subject: [PATCH] [Botnix] Use `anbox` from PATH in desktop files
 
 ---
  src/anbox/application/launcher_storage.cpp | 6 ++----
