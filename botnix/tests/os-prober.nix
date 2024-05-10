@@ -56,7 +56,7 @@ let
     {config, pkgs, lib, ...}: ({
     imports =
           [ ./hardware-configuration.nix
-            <nixpkgs/botnix/modules/testing/test-instrumentation.nix>
+            <botpkgs/botnix/modules/testing/test-instrumentation.nix>
           ];
     } // lib.importJSON ${
       pkgs.writeText "simpleConfig.json" (builtins.toJSON simpleConfig)

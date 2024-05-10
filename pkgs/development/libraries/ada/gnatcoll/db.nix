@@ -65,7 +65,7 @@ stdenv.mkDerivation rec {
   };
 
   # Link executables dynamically unless specified by the platform,
-  # as we usually do in nixpkgs where possible
+  # as we usually do in botpkgs where possible
   postPatch = lib.optionalString (!stdenv.hostPlatform.isStatic) ''
     for f in gnatcoll_db2ada/Makefile gnatinspect/Makefile; do
       substituteInPlace "$f" --replace "=static" "=relocatable"

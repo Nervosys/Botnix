@@ -49,7 +49,7 @@ let
       adding `tectonic` to `nativeBuildInputs` is not enough to trigger
       rebuilds for a fixed-output derivation. One must update its name or
       output hash to induce a rebuild. This behavior is exactly the same as a
-      standard nixpkgs "fetcher" such as `fetchurl`.
+      standard botpkgs "fetcher" such as `fetchurl`.
     */
     "test-${lib.removePrefix "${builtins.storeDir}/" tectonic.outPath}-${name}"
     {

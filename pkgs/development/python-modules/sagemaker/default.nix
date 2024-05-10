@@ -66,7 +66,7 @@ buildPythonPackage rec {
     tblib
   ];
 
-  doCheck = false; # many test dependencies are not available in nixpkgs
+  doCheck = false; # many test dependencies are not available in botpkgs
 
   pythonImportsCheck = [
     "sagemaker"
@@ -76,7 +76,7 @@ buildPythonPackage rec {
   passthru.optional-dependencies = {
     local = [ urllib3 docker pyyaml ];
     scipy = [ scipy ];
-    # feature-processor = [ pyspark sagemaker-feature-store-pyspark ]; # not available in nixpkgs
+    # feature-processor = [ pyspark sagemaker-feature-store-pyspark ]; # not available in botpkgs
   };
 
   meta = with lib; {

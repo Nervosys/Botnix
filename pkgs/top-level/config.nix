@@ -1,4 +1,4 @@
-# This file defines the structure of the `config` nixpkgs option.
+# This file defines the structure of the `config` botpkgs option.
 
 { config, lib, ... }:
 
@@ -10,7 +10,7 @@ let
     type = args.type or (types.uniq types.bool);
     default = args.default or false;
     description = lib.mdDoc ((args.description or ''
-      Whether to ${args.feature} while building nixpkgs packages.
+      Whether to ${args.feature} while building botpkgs packages.
     '') + ''
       Changing the default may cause a mass rebuild.
     '');
@@ -89,7 +89,7 @@ let
       description = lib.mdDoc ''
         Whether to allow unfree packages.
 
-        See [Installing unfree packages](https://nixos.org/manual/nixpkgs/stable/#sec-allow-unfree) in the Botnix manual.
+        See [Installing unfree packages](https://nixos.org/manual/botpkgs/stable/#sec-allow-unfree) in the Botnix manual.
       '';
     };
 
@@ -101,7 +101,7 @@ let
       description = lib.mdDoc ''
         Whether to allow broken packages.
 
-        See [Installing broken packages](https://nixos.org/manual/nixpkgs/stable/#sec-allow-broken) in the Botnix manual.
+        See [Installing broken packages](https://nixos.org/manual/botpkgs/stable/#sec-allow-broken) in the Botnix manual.
       '';
     };
 
@@ -113,7 +113,7 @@ let
       description = lib.mdDoc ''
         Whether to allow unsupported packages.
 
-        See [Installing packages on unsupported systems](https://nixos.org/manual/nixpkgs/stable/#sec-allow-unsupported-system) in the Botnix manual.
+        See [Installing packages on unsupported systems](https://nixos.org/manual/botpkgs/stable/#sec-allow-unsupported-system) in the Botnix manual.
       '';
     };
 

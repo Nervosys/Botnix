@@ -28,7 +28,7 @@
 
       This expression should fetch
        -  the *nix* vscode extension from whatever source defined in the
-          default nixpkgs extensions set `vscodeExtensions`.
+          default botpkgs extensions set `vscodeExtensions`.
 
        -  the *code-runner* vscode extension from the marketplace using the
           following url:

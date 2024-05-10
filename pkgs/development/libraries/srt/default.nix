@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
     #  because the absolute path is interpreted with root at $out).
     "-DCMAKE_INSTALL_INCLUDEDIR=include"
     "-DENABLE_SHARED=${if stdenv.hostPlatform.isStatic then "OFF" else "ON"}"
-    # TODO Remove this when https://github.com/Haivision/srt/issues/538 is fixed and available to nixpkgs
+    # TODO Remove this when https://github.com/Haivision/srt/issues/538 is fixed and available to botpkgs
     # Workaround for the fact that srt incorrectly disables GNUInstallDirs when LIBDIR is specified,
     # see https://github.com/nervosys/Botnix/pull/54463#discussion_r249878330
     "-UCMAKE_INSTALL_LIBDIR"

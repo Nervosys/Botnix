@@ -70,13 +70,13 @@ if __name__ == "__main__":
 
     hashes = grabDepHashes("sha256sums=('")
 
-    nixpkgs = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).decode("utf-8").strip('\n')
+    botpkgs = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).decode("utf-8").strip('\n')
     btduFolder = "/pkgs/tools/misc/btdu/"
-    with open(nixpkgs + btduFolder + "default.nix", 'r') as arq:
+    with open(botpkgs + btduFolder + "default.nix", 'r') as arq:
         derivation = arq.readlines()
 
     derivation = updateVersions(btdu,ae,btrfs,ncurses,containers,derivation)
     derivation = updateHashes(btdu,ae,btrfs,ncurses,containers,derivation)
 
-    with open(nixpkgs + btduFolder + "default.nix", 'w') as arq:
+    with open(botpkgs + btduFolder + "default.nix", 'w') as arq:
         arq.writelines(derivation)

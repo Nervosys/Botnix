@@ -4,7 +4,7 @@
 <!--
   this is the top-level structure file for the nixos manual.
 
-  the manual structure extends the nixpkgs commonmark further with include
+  the manual structure extends the botpkgs commonmark further with include
   blocks to allow better organization of input text. there are six types of
   include blocks: preface, parts, chapters, sections, appendix, and options.
   each type except `options`` corresponds to the docbook elements of (roughly)

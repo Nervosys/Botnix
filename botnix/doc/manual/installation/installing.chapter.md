@@ -413,7 +413,7 @@ Use the following commands:
     If you're using the graphical ISO image, other editors may be
     available (such as `vim`). If you have network access, you can also
     install other editors -- for instance, you can install Emacs by
-    running `nix-env -f '<nixpkgs>' -iA emacs`.
+    running `nix-env -f '<botpkgs>' -iA emacs`.
 
     BIOS systems
 

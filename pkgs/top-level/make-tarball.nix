@@ -2,40 +2,40 @@
    also builds the documentation and tests whether the Nix expressions
    evaluate correctly. */
 
-{ nixpkgs
+{ botpkgs
 , officialRelease
 , supportedSystems
-, pkgs ? import nixpkgs.outPath {}
+, pkgs ? import botpkgs.outPath {}
 , nix ? pkgs.nix
 , lib-tests ? import ../../lib/tests/release.nix { inherit pkgs; }
 }:
 
 pkgs.releaseTools.sourceTarball {
-  name = "nixpkgs-tarball";
-  src = nixpkgs;
+  name = "botpkgs-tarball";
+  src = botpkgs;
 
   inherit officialRelease;
   version = pkgs.lib.fileContents ../../.version;
   versionSuffix = "pre${
-    if nixpkgs ? lastModified
-    then builtins.substring 0 8 (nixpkgs.lastModifiedDate or nixpkgs.lastModified)
-    else toString (nixpkgs.revCount or 0)}.${nixpkgs.shortRev or "dirty"}";
+    if botpkgs ? lastModified
+    then builtins.substring 0 8 (botpkgs.lastModifiedDate or botpkgs.lastModified)
+    else toString (botpkgs.revCount or 0)}.${botpkgs.shortRev or "dirty"}";
 
   buildInputs = with pkgs; [ nix.out jq lib-tests brotli ];
 
   configurePhase = ''
     eval "$preConfigure"
-    releaseName=nixpkgs-$VERSION$VERSION_SUFFIX
+    releaseName=botpkgs-$VERSION$VERSION_SUFFIX
     echo -n $VERSION_SUFFIX > .version-suffix
-    echo -n ${nixpkgs.rev or nixpkgs.shortRev or "dirty"} > .git-revision
+    echo -n ${botpkgs.rev or botpkgs.shortRev or "dirty"} > .git-revision
     echo "release name is $releaseName"
     echo "git-revision is $(cat .git-revision)"
   '';
 
   requiredSystemFeatures = [ "big-parallel" ]; # 1 thread but ~36G RAM (!) see #227945
 
-  nixpkgs-basic-release-checks = import ./nixpkgs-basic-release-checks.nix
-   { inherit nix pkgs nixpkgs supportedSystems; };
+  botpkgs-basic-release-checks = import ./botpkgs-basic-release-checks.nix
+   { inherit nix pkgs botpkgs supportedSystems; };
 
   dontBuild = false;
 
@@ -45,7 +45,7 @@ pkgs.releaseTools.sourceTarball {
     set -o pipefail
 
     export NIX_STATE_DIR=$TMPDIR
-    export NIX_PATH=nixpkgs=$TMPDIR/barf.nix
+    export NIX_PATH=botpkgs=$TMPDIR/barf.nix
     opts=(--option build-users-group "")
     nix-store --init
 
@@ -66,7 +66,7 @@ pkgs.releaseTools.sourceTarball {
     echo "generating packages.json"
     mkdir -p $out/nix-support
     echo -n '{"version":2,"packages":' > tmp
-    nix-env -f . -I nixpkgs=$src -qa --meta --json --show-trace --arg config 'import ${./packages-config.nix}' "''${opts[@]}" >> tmp
+    nix-env -f . -I botpkgs=$src -qa --meta --json --show-trace --arg config 'import ${./packages-config.nix}' "''${opts[@]}" >> tmp
     echo -n '}' >> tmp
     packages=$out/packages.json.br
     < tmp sed "s|$(pwd)/||g" | jq -c | brotli -9 > $packages

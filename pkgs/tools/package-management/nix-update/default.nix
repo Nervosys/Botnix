@@ -3,8 +3,8 @@
 , fetchFromGitHub
 , nix
 , nix-prefetch-git
-, nixpkgs-fmt
-, nixpkgs-review
+, botpkgs-fmt
+, botpkgs-review
 }:
 
 python3.pkgs.buildPythonApplication rec {
@@ -24,7 +24,7 @@ python3.pkgs.buildPythonApplication rec {
   ];
 
   makeWrapperArgs = [
-    "--prefix" "PATH" ":" (lib.makeBinPath [ nix nix-prefetch-git nixpkgs-fmt nixpkgs-review ])
+    "--prefix" "PATH" ":" (lib.makeBinPath [ nix nix-prefetch-git botpkgs-fmt botpkgs-review ])
   ];
 
   checkPhase = ''

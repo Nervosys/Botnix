@@ -86,7 +86,7 @@ buildPythonPackage rec {
   '';
 
   pytestFlagsArray = [
-    # this file tries importing `deepspeed`, which is not yet packaged in nixpkgs
+    # this file tries importing `deepspeed`, which is not yet packaged in botpkgs
     "--ignore=tests/test_huggingface_api.py"
   ];
 

@@ -167,7 +167,7 @@ if [[ -z $system ]]; then
         echo "building the configuration in $BOTNIX_CONFIG..."
         nix-build --out-link "$outLink" --store "$mountPoint" "${extraBuildFlags[@]}" \
             --extra-substituters "$sub" \
-            '<nixpkgs/botnix>' -A system -I "botnix-config=$BOTNIX_CONFIG" "${verbosity[@]}"
+            '<botpkgs/botnix>' -A system -I "botnix-config=$BOTNIX_CONFIG" "${verbosity[@]}"
     else
         echo "building the flake in $flake..."
         nix "${flakeFlags[@]}" build "$flake#$flakeAttr.config.system.build.toplevel" \

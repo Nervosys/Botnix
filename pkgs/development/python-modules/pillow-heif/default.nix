@@ -72,7 +72,7 @@ buildPythonPackage rec {
 
   disabledTests = lib.optionals stdenv.isDarwin [
     # https://github.com/bigcat88/pillow_heif/issues/89
-    # not reproducible in nixpkgs
+    # not reproducible in botpkgs
     "test_opencv_crash"
   ] ++ lib.optionals (stdenv.isLinux && stdenv.isAarch64) [
     # RuntimeError: Encoder plugin generated an error: Unsupported bit depth: Bit depth not supported by x265

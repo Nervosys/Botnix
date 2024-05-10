@@ -34,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
   preConfigure = lib.optionalString stdenv.isDarwin ''
     # The configure script assumes dependencies on Darwin are installed via
     # Homebrew or MacPorts and hardcodes assumptions about the paths of
-    # dependencies which fails the nixpkgs configurePhase.
+    # dependencies which fails the botpkgs configurePhase.
     substituteInPlace configure --replace 'xdarwin' 'xhomebrew'
   '';
 

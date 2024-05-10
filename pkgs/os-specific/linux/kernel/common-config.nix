@@ -1,6 +1,6 @@
 # WARNING/NOTE: whenever you want to add an option here you need to either
 # * mark it as an optional one with `option`,
-# * or make sure it works for all the versions in nixpkgs,
+# * or make sure it works for all the versions in botpkgs,
 # * or check for which kernel versions it will work (using kernel
 #   changelog, google or whatever) and mark it with `whenOlder` or
 #   `whenAtLeast`.
@@ -382,7 +382,7 @@ let
     };
 
     # Enables Rust support in the Linux kernel. This is currently not enabled by default, because it occasionally requires
-    # patching the Linux kernel for the specific Rust toolchain in nixpkgs. These patches usually take a bit
+    # patching the Linux kernel for the specific Rust toolchain in botpkgs. These patches usually take a bit
     # of time to appear and this would hold up Linux kernel and Rust toolchain updates.
     #
     # Once Rust in the kernel has more users, we can reconsider enabling it by default.

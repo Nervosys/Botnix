@@ -96,7 +96,7 @@ self: super: {
       executableHaskellDepends = drv.executableToolDepends or [] ++ [ self.repline ];
     }) super.hnix);
 
-  haskell-language-server =  throw "haskell-language-server dropped support for ghc 8.10 in version 2.3.0.0 please use a newer ghc version or an older nixpkgs version";
+  haskell-language-server =  throw "haskell-language-server dropped support for ghc 8.10 in version 2.3.0.0 please use a newer ghc version or an older botpkgs version";
 
   ghc-lib-parser = doDistribute self.ghc-lib-parser_9_2_8_20230729;
   ghc-lib-parser-ex = doDistribute self.ghc-lib-parser-ex_9_2_1_1;

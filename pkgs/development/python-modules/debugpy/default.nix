@@ -31,7 +31,7 @@ buildPythonPackage rec {
   };
 
   patches = [
-    # Use nixpkgs version instead of versioneer
+    # Use botpkgs version instead of versioneer
     (substituteAll {
       src = ./hardcode-version.patch;
       inherit version;

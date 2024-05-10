@@ -8,7 +8,7 @@ In this document and related Nix expressions, we use the term, _BEAM_, to descri
 
 ### Elixir {#elixir}
 
-nixpkgs follows the [official elixir deprecation schedule](https://hexdocs.pm/elixir/compatibility-and-deprecations.html) and keeps the last 5 released versions of Elixir available.
+botpkgs follows the [official elixir deprecation schedule](https://hexdocs.pm/elixir/compatibility-and-deprecations.html) and keeps the last 5 released versions of Elixir available.
 
 ## Structure {#beam-structure}
 
@@ -60,7 +60,7 @@ $ nix-shell -p beamPackages.rebar3
 
 ```nix
 let
-  pkgs = import <nixpkgs> { config = {}; overlays = []; };
+  pkgs = import <botpkgs> { config = {}; overlays = []; };
 in
 pkgs.mkShell {
   packages = [ pkgs.beamPackages.rebar3 ];
@@ -92,7 +92,7 @@ there are 3 steps, frontend dependencies (javascript), backend dependencies (eli
 
 ##### mixRelease - Frontend dependencies (javascript) {#mix-release-javascript-deps}
 
-For phoenix projects, inside of nixpkgs you can either use yarn2nix (mkYarnModule) or node2nix. An example with yarn2nix can be found [here](https://github.com/nervosys/Botnix/blob/master/pkgs/servers/web-apps/plausible/default.nix#L39). An example with node2nix will follow. To package something outside of nixpkgs, you have alternatives like [npmlock2nix](https://github.com/nix-community/npmlock2nix) or [nix-npm-buildpackage](https://github.com/serokell/nix-npm-buildpackage)
+For phoenix projects, inside of botpkgs you can either use yarn2nix (mkYarnModule) or node2nix. An example with yarn2nix can be found [here](https://github.com/nervosys/Botnix/blob/master/pkgs/servers/web-apps/plausible/default.nix#L39). An example with node2nix will follow. To package something outside of botpkgs, you have alternatives like [npmlock2nix](https://github.com/nix-community/npmlock2nix) or [nix-npm-buildpackage](https://github.com/serokell/nix-npm-buildpackage)
 
 ##### mixRelease - backend dependencies (mix) {#mix-release-mix-deps}
 
@@ -100,7 +100,7 @@ There are 2 ways to package backend dependencies. With mix2nix and with a fixed-
 
 ###### mix2nix {#mix2nix}
 
-`mix2nix` is a cli tool available in nixpkgs. it will generate a nix expression from a mix.lock file. It is quite standard in the 2nix tool series.
+`mix2nix` is a cli tool available in botpkgs. it will generate a nix expression from a mix.lock file. It is quite standard in the 2nix tool series.
 
 Note that currently mix2nix can't handle git dependencies inside the mix.lock file. If you have git dependencies, you can either add them manually (see [example](https://github.com/nervosys/Botnix/blob/master/pkgs/servers/pleroma/default.nix#L20)) or use the FOD method.
 
@@ -169,7 +169,7 @@ Note that if after you've replaced the value, nix suggests another hash, then mi
 Here is how your `default.nix` file would look for a phoenix project.
 
 ```nix
-with import <nixpkgs> { };
+with import <botpkgs> { };
 
 let
   # beam.interpreters.erlang_26 is available if you need a particular version
@@ -288,7 +288,7 @@ in
 Usually, we need to create a `shell.nix` file and do our development inside of the environment specified therein. Just install your version of Erlang and any other interpreters, and then use your normal build tools. As an example with Elixir:
 
 ```nix
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 
 with pkgs;
 let
@@ -301,7 +301,7 @@ mkShell {
 
 ### Using an overlay {#beam-using-overlays}
 
-If you need to use an overlay to change some attributes of a derivation, e.g. if you need a bugfix from a version that is not yet available in nixpkgs, you can override attributes such as `version` (and the corresponding `hash`) and then use this overlay in your development environment:
+If you need to use an overlay to change some attributes of a derivation, e.g. if you need a bugfix from a version that is not yet available in botpkgs, you can override attributes such as `version` (and the corresponding `hash`) and then use this overlay in your development environment:
 
 #### `shell.nix` {#beam-using-overlays-shell.nix}
 
@@ -313,7 +313,7 @@ let
         sha256 = "sha256-t0ic1LcC7EV3avWGdR7VbyX7pGDpnJSW1ZvwvQUPC3w=";
       };
     });
-  pkgs = import <nixpkgs> { overlays = [ elixir_1_13_1_overlay ]; };
+  pkgs = import <botpkgs> { overlays = [ elixir_1_13_1_overlay ]; };
 in
 with pkgs;
 mkShell {
@@ -328,7 +328,7 @@ mkShell {
 Here is an example `shell.nix`.
 
 ```nix
-with import <nixpkgs> { };
+with import <botpkgs> { };
 
 let
   # define packages to install

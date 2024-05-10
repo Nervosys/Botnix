@@ -36,7 +36,7 @@ with python3Packages; buildPythonApplication rec {
     gnupg1
   ];
 
-  # remove b/c doesn't list all dependencies, and requires a few packages not in nixpkgs
+  # remove b/c doesn't list all dependencies, and requires a few packages not in botpkgs
   postPatch = ''
     rm test-requirements.txt
   '';

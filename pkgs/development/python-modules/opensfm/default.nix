@@ -55,7 +55,7 @@ buildPythonPackage rec {
   patches = [
     ./0002-cmake-find-system-distributed-gtest.patch
     ./0003-cmake-use-system-pybind11.patch
-    ./0004-pybind_utils.h-conflicts-with-nixpkgs-pybind.patch
+    ./0004-pybind_utils.h-conflicts-with-botpkgs-pybind.patch
     ./fix-scripts.patch
   ];
   postPatch = ''

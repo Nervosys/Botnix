@@ -157,8 +157,8 @@ stdenv.mkDerivation ({
         PATH=${lib.makeBinPath [ common-updater-scripts coreutils git gnused ]}
         latest=$(list-git-tags --url=https://github.com/erlang/otp.git | sed -n 's/^OTP-${major}/${major}/p' | sort -V | tail -1)
         if [ "$latest" != "${version}" ]; then
-          nixpkgs="$(git rev-parse --show-toplevel)"
-          nix_file="$nixpkgs/pkgs/development/interpreters/erlang/${major}.nix"
+          botpkgs="$(git rev-parse --show-toplevel)"
+          nix_file="$botpkgs/pkgs/development/interpreters/erlang/${major}.nix"
           update-source-version ${baseName}R${major} "$latest" --version-key=version --print-changes --file="$nix_file"
         else
           echo "${baseName}R${major} is already up-to-date"

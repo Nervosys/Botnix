@@ -55,7 +55,7 @@ Maven defines default versions for its core plugins, e.g. `maven-compiler-plugin
 
 When `maven` is upgraded, `mvnHash` for the derivation must be updated as well: otherwise, the project will be built on the derivation of old plugins, and fail because the requested plugins are missing.
 
-This clearly prevents automatic upgrades of Maven: a manual effort must be made throughout nixpkgs by any maintainer wishing to push the upgrades.
+This clearly prevents automatic upgrades of Maven: a manual effort must be made throughout botpkgs by any maintainer wishing to push the upgrades.
 
 To make sure that your package does not add extra manual effort when upgrading Maven, explicitly define versions for all plugins. You can check if this is the case by adding the following plugin to your (parent) POM:
 
@@ -162,7 +162,7 @@ This file is then given to the `buildMaven` function, and it returns 2 attribute
 Here is an [example](https://github.com/fzakaria/botnix-maven-example/blob/main/build-maven-repository.nix) of building the Maven repository
 
 ```nix
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <botpkgs> { } }:
 with pkgs;
 (buildMaven ./project-info.json).repo
 ```

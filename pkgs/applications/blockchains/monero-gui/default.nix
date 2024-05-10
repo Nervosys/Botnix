@@ -61,7 +61,7 @@ stdenv.mkDerivation rec {
       --replace 'QApplication::applicationDirPath() + "' '"${monero-cli}/bin'
 
     # 1: only build external deps, *not* the full monero
-    # 2: use nixpkgs libraries
+    # 2: use botpkgs libraries
     substituteInPlace CMakeLists.txt \
       --replace 'add_subdirectory(monero)' \
                 'add_subdirectory(monero EXCLUDE_FROM_ALL)' \

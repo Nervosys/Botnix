@@ -101,9 +101,9 @@ stdenv.mkDerivation (args // {
   enableParallelInstalling = false;
 
   # Workaround lack of parallelism support among top-level targets:
-  # we place nixpkgs-specific targets to a separate file and set
+  # we place botpkgs-specific targets to a separate file and set
   # sequential order among them as a single rule.
-  makefile = ./Makefile.nixpkgs;
+  makefile = ./Makefile.botpkgs;
   buildFlags = if useNativeCompilers
     then ["nixpkgs_world_bootstrap_world_opt"]
     else ["nixpkgs_world"];

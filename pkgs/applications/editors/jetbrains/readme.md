@@ -6,9 +6,9 @@ To test the build process of every IDE (as well as the process for adding plugin
  - Get the ide you want and call `jetbrains.plugins.addPlugins` with a list of plugins you want to add.
  - The list of plugins can be a list of ids or names (as in `plugins/plugins.json`)
  - Example: `jetbrains.plugins.addPlugins jetbrains.pycharm-professional [ "nixidea" ]`
- - The list can also contain a drv giving a `.jar` or `.zip` (this is how you use a plugin not added to nixpkgs)
+ - The list can also contain a drv giving a `.jar` or `.zip` (this is how you use a plugin not added to botpkgs)
 
-### How to add a new plugin to nixpkgs
+### How to add a new plugin to botpkgs
  - Find the page for the plugin on https://plugins.jetbrains.com
  - Find the id (it's the number after https://plugins.jetbrains.com/plugin/)
  - Run `plugins/update_plugins.py` add (plugin id)
@@ -35,7 +35,7 @@ To test the build process of every IDE (as well as the process for adding plugin
  - Add an entry in `default.nix`
 
 ### TODO:
- - move/copy plugin docs to nixpkgs manual
+ - move/copy plugin docs to botpkgs manual
  - replace `libxcrypt-legacy` with `libxcrypt` when supported
  - make `jetbrains-remote-dev.patch` cleaner
  - is extraLdPath needed for IDEA?
@@ -43,14 +43,14 @@ To test the build process of every IDE (as well as the process for adding plugin
  - from source builds:
    - remove timestamps in output `.jar` of `jps-bootstrap`
    - automated update scripts
-   - fetch `.jar` s from stuff built in nixpkgs when available
-     - what stuff built in nixpkgs provides `.jar`s we care about?
+   - fetch `.jar` s from stuff built in botpkgs when available
+     - what stuff built in botpkgs provides `.jar`s we care about?
        - kotlin
    - make `configurePhase` respect `$NIX_BUILD_CORES`
    - make the subdir of the resulting tar.gz always have a release number (2023.2.2) instead of a build number (232.9921.89)
  - jdk:
    - build on darwin
-   - use chromium stuff built by nixpkgs for jcef?
+   - use chromium stuff built by botpkgs for jcef?
    - make `buildPhase` respect `$NIX_BUILD_CORES`
    - automated update script?
  - on `aarch64-linux`:

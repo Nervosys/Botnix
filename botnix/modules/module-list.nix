@@ -132,7 +132,7 @@
   ./misc/mandoc.nix
   ./misc/meta.nix
   ./misc/nixops-autoluks.nix
-  ./misc/nixpkgs.nix
+  ./misc/botpkgs.nix
   ./misc/passthru.nix
   ./misc/version.nix
   ./misc/wordlist.nix

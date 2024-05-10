@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
       keyboard, multimedia keys and buttons for starting applications. Even
       powering on the computer via Wake On Lan is supported.
     '';
-    # never built on aarch64-darwin, x86_64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin, x86_64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin;
   };
 }

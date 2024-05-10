@@ -289,7 +289,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "nixpkgs-check-by-name"
+name = "botpkgs-check-by-name"
 version = "0.1.0"
 dependencies = [
  "anyhow",

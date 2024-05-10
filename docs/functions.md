@@ -1,6 +1,6 @@
 # Functions reference {#chap-functions}
 
-The nixpkgs repository has several utility functions to manipulate Nix expressions.
+The botpkgs repository has several utility functions to manipulate Nix expressions.
 
 ```{=include=} sections
 functions/library.md

@@ -52,7 +52,7 @@ stdenv.mkDerivation (finalAttrs: {
     license = lib.licenses.bsd2;
     maintainers = with lib.maintainers; [ AndersonTorres ];
     platforms = lib.platforms.unix;
-    # never built on Hydra: https://hydra.botnix.org/job/nixpkgs/trunk/jove.x86_64-darwin
+    # never built on Hydra: https://hydra.nixos.org/job/botpkgs/trunk/jove.x86_64-darwin
     broken = stdenv.isDarwin;
   };
 })

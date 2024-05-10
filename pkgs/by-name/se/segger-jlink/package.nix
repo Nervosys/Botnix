@@ -50,8 +50,8 @@ let
       unfree licenses as well.
 
       configuration.nix:
-        nixpkgs.config.allowUnfree = true;
-        nixpkgs.config.segger-jlink.acceptLicense = true;
+        botpkgs.config.allowUnfree = true;
+        botpkgs.config.segger-jlink.acceptLicense = true;
 
       config.nix:
         allowUnfree = true;

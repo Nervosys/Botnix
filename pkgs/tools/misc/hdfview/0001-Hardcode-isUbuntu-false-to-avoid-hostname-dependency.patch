@@ -4,7 +4,7 @@ Date: Fri, 15 Jul 2022 10:13:23 +0800
 Subject: [PATCH] Hardcode isUbuntu=false to avoid hostname dependency.
 
 The original build.xml detects whether the system is ubuntu based on its
-hostname, which is useless in nixpkgs and brings additional dependency.
+hostname, which is useless in botpkgs and brings additional dependency.
 
 As suggested by @risicle in #180613, we can simply hardcode isUbuntu to
 false.

@@ -7,9 +7,9 @@ nix-update
 
 cd "$(dirname "$0")"
 
-nixpkgs=../../../..
-node_packages="$nixpkgs/pkgs/development/node-packages"
-pgrok="$nixpkgs/pkgs/tools/networking/pgrok"
+botpkgs=../../../..
+node_packages="$botpkgs/pkgs/development/node-packages"
+pgrok="$botpkgs/pkgs/tools/networking/pgrok"
 
 TARGET_VERSION_REMOTE=$(curl -s https://api.github.com/repos/pgrok/pgrok/releases/latest | jq -r ".tag_name")
 TARGET_VERSION=${TARGET_VERSION_REMOTE#v}

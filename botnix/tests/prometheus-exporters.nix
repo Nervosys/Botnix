@@ -234,7 +234,7 @@ let
       exporterTest = ''
         wait_for_unit("prometheus-domain-exporter.service")
         wait_for_open_port(9222)
-        succeed("curl -sSf 'http://localhost:9222/probe?target=botnix.org'")
+        succeed("curl -sSf 'http://localhost:9222/probe?target=nixos.org'")
       '';
     };
 
@@ -1234,7 +1234,7 @@ let
       };
       metricProvider = {
         # Mock rtl_433 binary to return a dummy metric stream.
-        nixpkgs.overlays = [
+        botpkgs.overlays = [
           (self: super: {
             rtl_433 = self.runCommand "rtl_433" { } ''
               mkdir -p "$out/bin"
@@ -1274,7 +1274,7 @@ let
         services.sabnzbd.enable = true;
 
         # unrar is required for sabnzbd
-        nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [ "unrar" ];
+        botpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [ "unrar" ];
 
         # extract the generated api key before starting
         systemd.services.sabnzbd-apikey = {

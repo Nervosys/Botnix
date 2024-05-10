@@ -69,7 +69,7 @@ self: super: builtins.intersectAttrs super {
         -e "s/@@GHC_VERSION@@/${self.ghc.version}/" \
         -e "s/@@BOOT_PKGS@@/$BOOT_PKGS/" \
         -e "s/@@ABI_HASHES@@/$(for dep in $BOOT_PKGS; do printf "%s:" "$dep" && ghc-pkg-${self.ghc.version} field $dep abi --simple-output ; done | tr '\n' ' ' | xargs)/" \
-        -e "s!Consider installing ghc.* via ghcup or build HLS from source.!Visit https://nixos.org/manual/nixpkgs/unstable/#haskell-language-server to learn how to correctly install a matching hls for your ghc with nix.!" \
+        -e "s!Consider installing ghc.* via ghcup or build HLS from source.!Visit https://nixos.org/manual/botpkgs/unstable/#haskell-language-server to learn how to correctly install a matching hls for your ghc with nix.!" \
         bindist/wrapper.in > "$out/bin/haskell-language-server"
       ln -s "$out/bin/haskell-language-server" "$out/bin/haskell-language-server-${self.ghc.version}"
       chmod +x "$out/bin/haskell-language-server"
@@ -456,7 +456,7 @@ self: super: builtins.intersectAttrs super {
   tz = addBuildDepends [ pkgs.tzdata ] super.tz;
   tzdata = addBuildDepends [ pkgs.tzdata ] super.tzdata;
 
-  # https://hydra.botnix.org/build/128665302/nixlog/3
+  # https://hydra.nixos.org/build/128665302/nixlog/3
   # Disable tests because they require a running dbus session
   xmonad-dbus = dontCheck super.xmonad-dbus;
 
@@ -620,7 +620,7 @@ self: super: builtins.intersectAttrs super {
   # RPATH also needs to be propagated when using static linking. GHC automatically handles this for
   # us when we patch the cabal file (Link options will be recored in the ghc package registry).
   #
-  # Additional note: nixpkgs' freeglut and macOS's OpenGL implementation do not cooperate,
+  # Additional note: botpkgs' freeglut and macOS's OpenGL implementation do not cooperate,
   # so disable this on Darwin only
   ${if pkgs.stdenv.isDarwin then null else "GLUT"} = overrideCabal (drv: {
     pkg-configDepends = drv.pkg-configDepends or [] ++ [
@@ -925,7 +925,7 @@ self: super: builtins.intersectAttrs super {
       '';
     }) (addBuildTool pkgs.buildPackages.makeWrapper super.cut-the-crap);
 
-  # Compiling the readme throws errors and has no purpose in nixpkgs
+  # Compiling the readme throws errors and has no purpose in botpkgs
   aeson-gadt-th =
     disableCabalFlag "build-readme" (doJailbreak super.aeson-gadt-th);
 
@@ -1034,7 +1034,7 @@ self: super: builtins.intersectAttrs super {
   # same for logging-facade
   logging-facade = dontCheck super.logging-facade;
 
-  # Since this package is primarily used by nixpkgs maintainers and is probably
+  # Since this package is primarily used by botpkgs maintainers and is probably
   # not used to link against by anyone, we can make it’s closure smaller and
   # add its runtime dependencies in `haskellPackages` (as opposed to cabal2nix).
   cabal2nix-unstable = overrideCabal

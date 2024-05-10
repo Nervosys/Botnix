@@ -3,4 +3,4 @@ let
     config = {};
     overlays = [];
   };
-in pkgs.tests.nixpkgs-check-by-name.shell
+in pkgs.tests.botpkgs-check-by-name.shell

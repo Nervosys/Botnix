@@ -1,12 +1,12 @@
 /*
   To run:
 
-      cd nixpkgs
+      cd botpkgs
       nix-build -A tests.trivial-builders.writeTextFile
 
   or to run an individual test case
 
-      cd nixpkgs
+      cd botpkgs
       nix-build -A tests.trivial-builders.writeTextFile.foo
 */
 { lib, runCommand, runtimeShell, writeTextFile }:

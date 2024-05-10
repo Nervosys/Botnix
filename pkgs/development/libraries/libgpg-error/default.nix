@@ -45,7 +45,7 @@ in stdenv.mkDerivation (rec {
     # For some reason, /bin/sh on OpenIndiana leads to this at the end of the
     # `config.status' run:
     #   ./config.status[1401]: shift: (null): bad number
-    # (See <https://hydra.botnix.org/build/2931046/nixlog/1/raw>.)
+    # (See <https://hydra.nixos.org/build/2931046/nixlog/1/raw>.)
     # Thus, re-run it with Bash.
     lib.optionalString stdenv.isSunOS ''
       ${stdenv.shell} config.status

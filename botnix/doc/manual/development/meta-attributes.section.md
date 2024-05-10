@@ -32,7 +32,7 @@ file.
 -   `maintainers` contains a list of the module maintainers.
 
 -   `doc` points to a valid [Botpkgs-flavored CommonMark](
-      https://nixos.org/manual/nixpkgs/unstable/#sec-contributing-markup
+      https://nixos.org/manual/botpkgs/unstable/#sec-contributing-markup
     ) file containing the module
     documentation. Its contents is automatically added to
     [](#ch-configuration). Changes to a module documentation have to
@@ -44,7 +44,7 @@ file.
 
 -  `buildDocsInSandbox` indicates whether the option documentation for the
    module can be built in a derivation sandbox. This option is currently only
-   honored for modules shipped by nixpkgs. User modules and modules taken from
+   honored for modules shipped by botpkgs. User modules and modules taken from
    `NIXOS_EXTRA_MODULE_PATH` are always built outside of the sandbox, as has
    been the case in previous releases.
 
@@ -55,7 +55,7 @@ file.
    (such as option descriptions) to the `options` and `lib` module arguments and
    the `pkgs.formats` attribute of the `pkgs` argument, `config` and the rest of
    `pkgs` are disallowed and will cause doc build failures when used. This
-   restriction is necessary because we cannot reproduce the full nixpkgs
+   restriction is necessary because we cannot reproduce the full botpkgs
    instantiation with configuration and overlays from a system configuration
    inside the sandbox. The `options` argument only includes options of modules
    that are also built inside the sandbox, referencing an option of a module

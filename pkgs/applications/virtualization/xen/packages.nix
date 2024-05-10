@@ -28,10 +28,10 @@ rec {
     meta = {
       description = "slim";
       longDescription = ''
-        Slimmed-down version of Xen that reuses nixpkgs packages as
+        Slimmed-down version of Xen that reuses botpkgs packages as
         much as possible. Different parts may get out of sync, but
         this builds faster and uses less space than vanilla. Use with
-        `qemu_xen` from nixpkgs.
+        `qemu_xen` from botpkgs.
       '';
     };
   };
@@ -47,7 +47,7 @@ rec {
       longDescription = ''
         Slimmed-down version of Xen without `qemu-traditional` (you
         don't need it if you don't know what it is). Use with
-        `qemu_xen-light` from nixpkgs.
+        `qemu_xen-light` from botpkgs.
       '';
     };
   };

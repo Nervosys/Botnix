@@ -1,4 +1,4 @@
-# Not part of the public API – for use within nixpkgs only
+# Not part of the public API – for use within botpkgs only
 #
 # Usage:
 # ```nix

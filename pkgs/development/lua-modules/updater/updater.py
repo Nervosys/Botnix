@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # format:
-# $ nix run nixpkgs#python3Packages.black -- update.py
+# $ nix run botpkgs#python3Packages.black -- update.py
 # type-check:
-# $ nix run nixpkgs#python3Packages.mypy -- update.py
+# $ nix run botpkgs#python3Packages.mypy -- update.py
 # linted:
-# $ nix run nixpkgs#python3Packages.flake8 -- --ignore E501,E265,E402 update.py
+# $ nix run botpkgs#python3Packages.flake8 -- --ignore E501,E265,E402 update.py
 
 import inspect
 import os
@@ -32,7 +32,7 @@ TMP_FILE = "$(mktemp)"
 GENERATED_NIXFILE = "pkgs/development/lua-modules/generated-packages.nix"
 
 HEADER = """/* {GENERATED_NIXFILE} is an auto-generated file -- DO NOT EDIT!
-Regenerate it with: nix run nixpkgs#update-luarocks-packages
+Regenerate it with: nix run botpkgs#update-luarocks-packages
 You can customize the generated packages in pkgs/development/lua-modules/overrides.nix
 */
 """.format(

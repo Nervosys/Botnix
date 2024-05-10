@@ -20,7 +20,7 @@ buildPythonPackage rec {
   inherit (cppe) pname version src meta;
 
   # The python interface requires eigen3, but builds from a checkout in tree.
-  # Using the nixpkgs version instead.
+  # Using the botpkgs version instead.
   postPatch = ''
     substituteInPlace setup.py \
       --replace "external/eigen3" "${eigen}/include/eigen3"

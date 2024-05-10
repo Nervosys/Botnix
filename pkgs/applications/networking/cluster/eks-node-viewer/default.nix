@@ -16,7 +16,7 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-X=main.builtBy=nixpkgs"
+    "-X=main.builtBy=botpkgs"
     "-X=main.commit=${src.rev}"
     "-X=main.version=${version}"
   ];

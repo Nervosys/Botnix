@@ -31,7 +31,7 @@ in stdenv.mkDerivation (finalAttrs: {
   src = fetchurl {
     url = "https://static.rust-lang.org/dist/rustc-${version}-src.tar.gz";
     inherit sha256;
-    # See https://nixos.org/manual/nixpkgs/stable/#using-git-bisect-on-the-rust-compiler
+    # See https://nixos.org/manual/botpkgs/stable/#using-git-bisect-on-the-rust-compiler
     passthru.isReleaseTarball = true;
   };
 

@@ -66,7 +66,7 @@ let
       mkdir -p "$out/lib/erlang/lib/${name}-${version}"
       for reldir in src ebin priv include; do
         [ -d "$reldir" ] || continue
-        # $out/lib/erlang/lib is a convention used in nixpkgs for compiled BEAM packages
+        # $out/lib/erlang/lib is a convention used in botpkgs for compiled BEAM packages
         cp -Hrt "$out/lib/erlang/lib/${name}-${version}" "$reldir"
       done
       runHook postInstall

@@ -1,10 +1,10 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i bash -p nix curl gnused -I nixpkgs=.
+#! nix-shell -i bash -p nix curl gnused -I botpkgs=.
 
 # On Hackage every package description shows a category "Distributions" which
 # lists a "Botnix" version.
 # This script uploads a csv to hackage which will update the displayed versions
-# based on the current versions in nixpkgs. This happens with a simple http
+# based on the current versions in botpkgs. This happens with a simple http
 # request.
 
 # For authorization you just need to have any valid hackage account. This

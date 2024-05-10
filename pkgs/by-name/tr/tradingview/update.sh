@@ -25,8 +25,8 @@ echo "Latest release is $upstream_version from $last_updated."
 # Read the current TradingView version.
 #
 
-nixpkgs="$(git rev-parse --show-toplevel)"
-tradingview_nix="$nixpkgs/pkgs/by-name/tr/tradingview/package.nix"
+botpkgs="$(git rev-parse --show-toplevel)"
+tradingview_nix="$botpkgs/pkgs/by-name/tr/tradingview/package.nix"
 current_nix_version=$(
   grep 'version\s*=' "$tradingview_nix" \
   | sed -Ene 's/.*"(.*)".*/\1/p'
@@ -57,7 +57,7 @@ sed --regexp-extended \
 
 export NIXPKGS_ALLOW_UNFREE=1
 
-if ! nix-build -A tradingview "$nixpkgs"; then
+if ! nix-build -A tradingview "$botpkgs"; then
   echo "The updated TradingView failed to build."
   exit 1
 fi

@@ -104,7 +104,7 @@ buildPythonApplication rec {
   '';
 
   # https://github.com/nervosys/Botnix/issues/149812
-  # https://nixos.org/manual/nixpkgs/stable/#ssec-gnome-hooks-gobject-introspection
+  # https://nixos.org/manual/botpkgs/stable/#ssec-gnome-hooks-gobject-introspection
   strictDeps = false;
 
   meta = with lib; {

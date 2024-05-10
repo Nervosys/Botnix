@@ -60,7 +60,7 @@ stdenv.mkDerivation rec {
     Security
   ]);
 
-  # Darwin needs to link against gettext from nixpkgs instead of the one vendored by gettext-sys
+  # Darwin needs to link against gettext from botpkgs instead of the one vendored by gettext-sys
   # because the vendored copy does not build with newer versions of clang.
   env = lib.optionalAttrs stdenv.isDarwin {
     GETTEXT_BIN_DIR = "${lib.getBin gettext}/bin";

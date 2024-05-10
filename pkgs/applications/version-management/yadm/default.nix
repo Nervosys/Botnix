@@ -87,7 +87,7 @@ resholve.mkDerivation rec {
         # "$TRANSCRYPT_PROGRAM" = [ "transcrypt" ];
         "$J2CLI_PROGRAM" = [ "j2" ];
         "$ESH_PROGRAM" = [ "esh" ];
-        # not in nixpkgs (yet)
+        # not in botpkgs (yet)
         # "$ENVTPL_PROGRAM" = [ "envtpl" ];
         # "$LSB_RELEASE_PROGRAM" = [ "lsb_release" ];
       };
@@ -98,7 +98,7 @@ resholve.mkDerivation rec {
         "$hook_command" = true; # ~git hooks?
         "exec" = [ "$YADM_BOOTSTRAP" ]; # yadm bootstrap script
 
-        # not in nixpkgs
+        # not in botpkgs
         "$ENVTPL_PROGRAM" = true;
         "$LSB_RELEASE_PROGRAM" = true;
       };

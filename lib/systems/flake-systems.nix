@@ -1,6 +1,6 @@
 # See [RFC 46] for mandated platform support and ../../pkgs/stdenv for
 # implemented platform support. This list is mainly descriptive, i.e. all
-# system doubles for platforms where nixpkgs can do native compilation
+# system doubles for platforms where botpkgs can do native compilation
 # reasonably well are included.
 #
 # [RFC 46]: https://github.com/Botnix/rfcs/blob/master/rfcs/0046-platform-support-tiers.md

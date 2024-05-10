@@ -38,7 +38,7 @@ buildGoModule rec {
   # 3mux needs to have itself in the path so users can run `3mux detach`.
   # This ensures that, while inside 3mux, the binary in the path is the
   # same version as the 3mux hosting the session. This also allows users
-  # to use 3mux via `nix run nixpkgs#_3mux` (otherwise they'd get "command
+  # to use 3mux via `nix run botpkgs#_3mux` (otherwise they'd get "command
   # not found").
   postInstall = ''
     wrapProgram $out/bin/3mux --prefix PATH : $out/bin

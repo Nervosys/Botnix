@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
   dontPatchELF = true;
   dontWrapGApps = true;
 
-  # TODO: migrate off autoPatchelfHook and use nixpkgs' electron
+  # TODO: migrate off autoPatchelfHook and use botpkgs' electron
   nativeBuildInputs = [ autoPatchelfHook squashfsTools makeWrapper wrapGAppsHook ];
 
   buildInputs = [

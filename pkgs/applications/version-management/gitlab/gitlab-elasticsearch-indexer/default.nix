@@ -4,7 +4,7 @@ buildGoModule rec {
   pname = "gitlab-elasticsearch-indexer";
   version = "4.6.0";
 
-  # nixpkgs-update: no auto update
+  # botpkgs-update: no auto update
   src = fetchFromGitLab {
     owner = "gitlab-org";
     repo = "gitlab-elasticsearch-indexer";

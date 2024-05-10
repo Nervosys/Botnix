@@ -380,7 +380,7 @@ let
       blink_symbol_level = 0;
 
       # Google API key, see: https://www.chromium.org/developers/how-tos/api-keys
-      # Note: The API key is for Botnix/nixpkgs use ONLY.
+      # Note: The API key is for Botnix/botpkgs use ONLY.
       # For your own distribution, please get your own set of keys.
       google_api_key = "AIzaSyDGi15Zwl11UNe6Y-5XW_upsfyw31qwZPI";
 
@@ -404,7 +404,7 @@ let
       # To fix the build as we don't provide libffi_pic.a
       # (ld.lld: error: unable to find library -l:libffi_pic.a):
       use_system_libffi = true;
-      # Use nixpkgs Rust compiler instead of the one shipped by Chromium.
+      # Use botpkgs Rust compiler instead of the one shipped by Chromium.
       rust_sysroot_absolute = "${buildPackages.rustc}";
       # Rust is enabled for M121+, see next section:
       enable_rust = false;

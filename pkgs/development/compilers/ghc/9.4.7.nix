@@ -339,7 +339,7 @@ stdenv.mkDerivation (rec {
 
   hardeningDisable =
     [ "format" ]
-    # In nixpkgs, musl based builds currently enable `pie` hardening by default
+    # In botpkgs, musl based builds currently enable `pie` hardening by default
     # (see `defaultHardeningFlags` in `make-derivation.nix`).
     # But GHC cannot currently produce outputs that are ready for `-pie` linking.
     # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.

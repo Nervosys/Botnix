@@ -69,6 +69,6 @@ stdenv.mkDerivation rec {
     license = licenses.mit;
     maintainers = with maintainers; [ ];
     platforms = platforms.unix;
-    broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/trunk/gthree.x86_64-darwin
+    broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/botpkgs/trunk/gthree.x86_64-darwin
   };
 }

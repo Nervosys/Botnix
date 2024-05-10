@@ -6,7 +6,7 @@
 stdenv.mkDerivation rec {
   pname = "fasthenry";
   # later versions are Windows only ports
-  # nixpkgs-update: no auto update
+  # botpkgs-update: no auto update
   version = "3.0.1";
 
   # we don't use the original MIT code at

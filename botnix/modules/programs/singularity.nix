@@ -25,7 +25,7 @@ in
         ```Nix
         { config, lib, pkgs, ... }:
         {
-          nixpkgs.overlays = [
+          botpkgs.overlays = [
             (final: prev: {
               _singularity-orig = prev.singularity;
               singularity = config.programs.singularity.packageOverriden;

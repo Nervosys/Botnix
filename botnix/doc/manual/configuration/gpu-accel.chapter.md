@@ -26,7 +26,7 @@ directory which is scanned by the ICL loader for ICD files. For example:
 
 ```ShellSession
 $ export \
-  OCL_ICD_VENDORS=`nix-build '<nixpkgs>' --no-out-link -A rocmPackages.clr.icd`/etc/OpenCL/vendors/
+  OCL_ICD_VENDORS=`nix-build '<botpkgs>' --no-out-link -A rocmPackages.clr.icd`/etc/OpenCL/vendors/
 ```
 
 The second mechanism is to add the OpenCL driver package to
@@ -102,7 +102,7 @@ example:
 
 ```ShellSession
 $ export \
-  VK_ICD_FILENAMES=`nix-build '<nixpkgs>' --no-out-link -A amdvlk`/share/vulkan/icd.d/amd_icd64.json
+  VK_ICD_FILENAMES=`nix-build '<botpkgs>' --no-out-link -A amdvlk`/share/vulkan/icd.d/amd_icd64.json
 ```
 
 The second mechanism is to add the Vulkan driver package to
@@ -163,7 +163,7 @@ environment.variables.VK_ICD_FILENAMES =
 is an open-source library and API specification, which provides access to
 graphics hardware acceleration capabilities for video processing.
 
-VA-API drivers are loaded by `libva`. The version in nixpkgs is built to search
+VA-API drivers are loaded by `libva`. The version in botpkgs is built to search
 the opengl driver path, so drivers can be installed in
 [](#opt-hardware.opengl.extraPackages).
 
@@ -219,11 +219,11 @@ other::---
 If you disabled (this functionality of) `systemd-logind`, you may need
 to add the user to the `video` group and log in again.
 
-### Mixing different versions of nixpkgs {#sec-gpu-accel-common-issues-mixing-nixpkgs}
+### Mixing different versions of botpkgs {#sec-gpu-accel-common-issues-mixing-botpkgs}
 
 The *Installable Client Driver* (ICD) mechanism used by OpenCL and
 Vulkan loads runtimes into its address space using `dlopen`. Mixing an
-ICD loader mechanism and runtimes from different version of nixpkgs may
+ICD loader mechanism and runtimes from different version of botpkgs may
 not work. For example, if the ICD loader uses an older version of glibc
 than the runtime, the runtime may not be loadable due to missing
 symbols. Unfortunately, the loader will generally be quiet about such

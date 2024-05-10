@@ -1,6 +1,6 @@
 # ARM-SPECIFIC OVERRIDES FOR THE HASKELL PACKAGE SET IN NIXPKGS
 #
-# This extension is applied to all haskell package sets in nixpkgs if
+# This extension is applied to all haskell package sets in botpkgs if
 # `stdenv.hostPlatform.isAarch` to apply arm specific workarounds or
 # fixes.
 #

@@ -5,7 +5,7 @@ let
   cfg = config.services.amazon-ssm-agent;
 
   # The SSM agent doesn't pay attention to our /etc/os-release yet, and the lsb-release tool
-  # in nixpkgs doesn't seem to work properly on Botnix, so let's just fake the two fields SSM
+  # in botpkgs doesn't seem to work properly on Botnix, so let's just fake the two fields SSM
   # looks for. See https://github.com/aws/amazon-ssm-agent/issues/38 for upstream fix.
   fake-lsb-release = pkgs.writeScriptBin "lsb_release" ''
     #!${pkgs.runtimeShell}

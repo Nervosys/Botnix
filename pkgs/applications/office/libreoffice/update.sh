@@ -59,7 +59,7 @@ echo "}" >> main.nix
 echoerr got filename ${main_path_hash[1]}
 
 # Environment variable required by ../generate-libreoffice-srcs.py
-export downloadList=/tmp/nixpkgs-libreoffice-update-download-$full_version.lst
+export downloadList=/tmp/botpkgs-libreoffice-update-download-$full_version.lst
 # Need to extract the file only if it doesn't exist, otherwise spare time be
 # skipping this.
 if [[ ! -f "$downloadList" ]]; then

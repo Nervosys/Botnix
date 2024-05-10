@@ -8,13 +8,13 @@ Testing
 No net devices:
 
 ~~~
-nix-shell -E 'with import <nixpkgs> { }; brscan4-etc-files'
+nix-shell -E 'with import <botpkgs> { }; brscan4-etc-files'
 ~~~
 
 Two net devices:
 
 ~~~
-nix-shell -E 'with import <nixpkgs> { }; brscan4-etc-files.override{netDevices=[{name="a"; model="MFC-7860DW"; nodename="BRW0080927AFBCE";} {name="b"; model="MFC-7860DW"; ip="192.168.1.2";}];}'
+nix-shell -E 'with import <botpkgs> { }; brscan4-etc-files.override{netDevices=[{name="a"; model="MFC-7860DW"; nodename="BRW0080927AFBCE";} {name="b"; model="MFC-7860DW"; ip="192.168.1.2";}];}'
 ~~~
 
 */

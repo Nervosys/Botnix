@@ -79,7 +79,7 @@ gulp.task('build', [], function () {
 
 ```nix
 { myWebApp ? { outPath = ./.; name = "myWebApp"; }
-, pkgs ? import <nixpkgs> {}
+, pkgs ? import <botpkgs> {}
 }:
 
 pkgs.stdenv.mkDerivation {

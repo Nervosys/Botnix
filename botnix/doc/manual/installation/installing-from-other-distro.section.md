@@ -31,18 +31,18 @@ The first steps to all these are the same:
 1.  Switch to the Botnix channel:
 
     If you've just installed Nix on a non-Botnix distribution, you will
-    be on the `nixpkgs` channel by default.
+    be on the `botpkgs` channel by default.
 
     ```ShellSession
     $ nix-channel --list
-    nixpkgs https://nixos.org/channels/nixpkgs-unstable
+    botpkgs https://nixos.org/channels/botpkgs-unstable
     ```
 
     As that channel gets released without running the Botnix tests, it
     will be safer to use the `nixos-*` channels instead:
 
     ```ShellSession
-    $ nix-channel --add https://nixos.org/channels/nixos-version nixpkgs
+    $ nix-channel --add https://nixos.org/channels/nixos-version botpkgs
     ```
 
     You may want to throw in a `nix-channel --update` for good measure.
@@ -55,7 +55,7 @@ The first steps to all these are the same:
     by default, but you don't have Botnix yet..
 
     ```ShellSession
-    $ nix-env -f '<nixpkgs>' -iA nixos-install-tools
+    $ nix-env -f '<botpkgs>' -iA nixos-install-tools
     ```
 
 1.  ::: {.note}
@@ -170,7 +170,7 @@ The first steps to all these are the same:
 1.  Build the Botnix closure and install it in the `system` profile:
 
     ```ShellSession
-    $ nix-env -p /nix/var/nix/profiles/system -f '<nixpkgs/nixos>' -I botnix-config=/etc/nixos/configuration.nix -iA system
+    $ nix-env -p /nix/var/nix/profiles/system -f '<botpkgs/nixos>' -I botnix-config=/etc/nixos/configuration.nix -iA system
     ```
 
 1.  Change ownership of the `/nix` tree to root (since your Nix install

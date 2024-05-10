@@ -46,7 +46,7 @@ fi
 @getopt@/bin/getopt --test > /dev/null && rc=$? || rc=$?
 if [[ $rc -ne 4 ]]; then
   # This shouldn't happen.
-  echo "Warning: Enhanced getopt not supported, please open an issue in nixpkgs." >&2
+  echo "Warning: Enhanced getopt not supported, please open an issue in botpkgs." >&2
 else
   # Define all short and long options.
   SHORT=hvsnrvmpioa
@@ -109,7 +109,7 @@ done
 
 
 KERNEL_NAME_VAL=@uSystem@
-NODENAME_VAL=nixpkgs
+NODENAME_VAL=botpkgs
 KERNEL_RELEASE_VAL=@modDirVersion@
 # #1-Botnix SMP PREEMPT_DYNAMIC Wed Dec 14 10:41:06 UTC 2022
 KERNEL_VERSION_VAL="#1-Botnix Tue Jan 1 00:00:00 UTC 1980"

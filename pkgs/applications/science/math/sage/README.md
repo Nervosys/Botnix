@@ -6,7 +6,7 @@ Don't feel discouraged to fix, simplify or improve things though. The individual
 
 ## The sage build is broken
 
-First you should find out which change to nixpkgs is at fault (if you don't already know). You can use `git-bisect` for that (see the manpage).
+First you should find out which change to botpkgs is at fault (if you don't already know). You can use `git-bisect` for that (see the manpage).
 
 If the build broke as a result of a package update, try those solutions in order:
 
@@ -26,7 +26,7 @@ Then make the needed changes and generate a patch with `git diff`:
 
 ```
 [user@localhost ~]$ <make changes>
-[user@localhost ~]$ git diff -u > /path/to/nixpkgs/pkgs/applications/science/math/sage/patches/name-of-patch.patch
+[user@localhost ~]$ git diff -u > /path/to/botpkgs/pkgs/applications/science/math/sage/patches/name-of-patch.patch
 ```
 
 Now just add the patch to `sage-src.nix` and test your changes. If they fix the problem, submit a PR upstream (refer to sages [Developer's Guide](http://doc.sagemath.org/html/en/developer/index.html) for further details).
@@ -42,5 +42,5 @@ If the problem is not obvious, you can try to first update sage to an intermedia
 
 ## Well, that didn't help!
 
-If you couldn't fix the problem, create a GitHub issue on the nixpkgs repo and ping the sage maintainers (as listed in the sage package).
+If you couldn't fix the problem, create a GitHub issue on the botpkgs repo and ping the sage maintainers (as listed in the sage package).
 Describe what you did and why it didn't work. Afterwards it would be great if you help the next guy out and improve this documentation!

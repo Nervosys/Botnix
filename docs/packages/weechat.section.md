@@ -64,7 +64,7 @@ weechat.override {
 }
 ```
 
-In `nixpkgs` there's a subpackage which contains derivations for WeeChat scripts. Such derivations expect a `passthru.scripts` attribute, which contains a list of all scripts inside the store path. Furthermore, all scripts have to live in `$out/share`. An exemplary derivation looks like this:
+In `botpkgs` there's a subpackage which contains derivations for WeeChat scripts. Such derivations expect a `passthru.scripts` attribute, which contains a list of all scripts inside the store path. Furthermore, all scripts have to live in `$out/share`. An exemplary derivation looks like this:
 
 ```nix
 { stdenv, fetchurl }:

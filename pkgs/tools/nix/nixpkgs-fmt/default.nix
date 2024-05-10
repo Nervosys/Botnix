@@ -1,6 +1,6 @@
 { lib, rustPlatform, fetchFromGitHub }:
 rustPlatform.buildRustPackage rec {
-  pname = "nixpkgs-fmt";
+  pname = "botpkgs-fmt";
   version = "1.3.0";
 
   src = fetchFromGitHub {
@@ -13,10 +13,10 @@ rustPlatform.buildRustPackage rec {
   cargoSha256 = "sha256-yIwCBm46sgrpTt45uCyyS7M6V0ReGUXVu7tyrjdNqeQ=";
 
   meta = with lib; {
-    description = "Nix code formatter for nixpkgs";
-    homepage = "https://nix-community.github.io/nixpkgs-fmt";
+    description = "Nix code formatter for botpkgs";
+    homepage = "https://nix-community.github.io/botpkgs-fmt";
     license = licenses.asl20;
     maintainers = with maintainers; [ zimbatm ];
-    mainProgram = "nixpkgs-fmt";
+    mainProgram = "botpkgs-fmt";
   };
 }

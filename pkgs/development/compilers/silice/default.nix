@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     patchShebangs antlr/antlr.sh
-    # use nixpkgs version
+    # use botpkgs version
     rm -r python/pybind11
   '';
 
@@ -71,7 +71,7 @@ stdenv.mkDerivation rec {
       };
     in {
       # a selection of test projects that build with the FPGA tools in
-      # nixpkgs
+      # botpkgs
       audio_sdcard_streamer = testProject "audio_sdcard_streamer";
       bram_interface = testProject "bram_interface";
       blinky = testProject "blinky";

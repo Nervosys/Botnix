@@ -79,7 +79,7 @@ buildPythonPackage rec {
     # The tests in `examples` are not designed to be executed from a single test
     # session and thus either have the modules that conflict with each other or
     # wrong import paths, depending on how they're invoked. Many tests also have
-    # dependencies that are not packaged in `nixpkgs` (`clu`, `jgraph`,
+    # dependencies that are not packaged in `botpkgs` (`clu`, `jgraph`,
     # `tensorflow_datasets`, `vocabulary`) so the benefits of trying to run them
     # would be limited anyway.
     "examples/*"

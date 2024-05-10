@@ -40,7 +40,7 @@ rec {
   })).overrideAttrs (oa: {
     # Increase header size to be able to inject extra RPATHs. Otherwise
     # x86_64-darwin build fails as:
-    #    https://cache.botnix.org/log/g5wyq9xqshan6m3kl21bjn1z88hx48rh-stdenv-bootstrap-tools.drv
+    #    https://cache.nixos.org/log/g5wyq9xqshan6m3kl21bjn1z88hx48rh-stdenv-bootstrap-tools.drv
     NIX_LDFLAGS = (oa.NIX_LDFLAGS or "") + " -headerpad_max_install_names";
   });
 
@@ -97,7 +97,7 @@ rec {
       cp -d ${xz.bin}/bin/xz $out/bin
       cp ${cpio}/bin/cpio $out/bin
 
-      # This used to be in-nixpkgs, but now is in the bundle
+      # This used to be in-botpkgs, but now is in the bundle
       # because I can't be bothered to make it partially static
       cp ${curl_.bin}/bin/curl $out/bin
       cp -d ${curl_.out}/lib/libcurl*.dylib $out/lib

@@ -25,7 +25,7 @@ buildGoModule rec {
     "-X ${t}.Version=${version}"
     "-X ${t}.Revision=${src.rev}"
     "-X ${t}.Branch=unknown"
-    "-X ${t}.BuildUser=nix@nixpkgs"
+    "-X ${t}.BuildUser=nix@botpkgs"
     "-X ${t}.BuildDate=unknown"
     "-X ${t}.GoVersion=${lib.getVersion go}"
   ];

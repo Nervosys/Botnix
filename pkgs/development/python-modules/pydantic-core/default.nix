@@ -73,7 +73,7 @@ let
     ];
 
     disabledTestPaths = [
-      # no point in benchmarking in nixpkgs build farm
+      # no point in benchmarking in botpkgs build farm
       "tests/benchmarks"
     ];
 

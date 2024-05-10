@@ -80714,11 +80714,11 @@
         }
     },
     {
-        "ename": "nixpkgs-fmt",
+        "ename": "botpkgs-fmt",
         "commit": "36f9451ad54c787f9e94bfda0e71de99da94be34",
         "sha256": "1j9k4r25iylmrg0hbjb8jamrci3jxyrpx2baawmcyhqgxiz3lcz8",
         "fetcher": "github",
-        "repo": "purcell/emacs-nixpkgs-fmt",
+        "repo": "purcell/emacs-botpkgs-fmt",
         "unstable": {
             "version": [
                 20200327,

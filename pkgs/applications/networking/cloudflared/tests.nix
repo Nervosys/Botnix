@@ -14,7 +14,7 @@ in
     } ''
     set -e
     cloudflared update 2>&1 | tee output.txt
-    if ! grep "cloudflared was installed by nixpkgs" output.txt
+    if ! grep "cloudflared was installed by botpkgs" output.txt
     then
       echo "cloudflared's output didn't contain the package manager name"
       exit 1

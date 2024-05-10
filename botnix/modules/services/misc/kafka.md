@@ -35,7 +35,7 @@ Note that dotted options in the upstream docs do _not_ correspond to nested Nix 
 
 Care should be taken, especially when migrating clusters from the old module, to ensure that the same intended configuration is reproduced faithfully via `settings`.
 
-To assist in the comparison, the final config can be inspected by building the config file itself, ie. with: `nix-build <nixpkgs/botnix> -A config.services.apache-kafka.configFiles.serverProperties`.
+To assist in the comparison, the final config can be inspected by building the config file itself, ie. with: `nix-build <botpkgs/botnix> -A config.services.apache-kafka.configFiles.serverProperties`.
 
 Notable changes to be aware of include:
 

@@ -70,7 +70,7 @@ stdenv.mkDerivation rec {
     # workaround for missing CMAKE_INSTALL_DATAROOTDIR
     # in pkgs/development/tools/build-managers/cmake/setup-hook.sh
     "-DCMAKE_INSTALL_DATAROOTDIR=${placeholder "out"}/share"
-    # qtdeclarative in nixpkgs does not provide qmlsc
+    # qtdeclarative in botpkgs does not provide qmlsc
     # fix can't find Qt6QmlCompilerPlusPrivate
     "-DQT_NO_FIND_QMLSC=TRUE"
     "-DWITH_DOCS=ON"

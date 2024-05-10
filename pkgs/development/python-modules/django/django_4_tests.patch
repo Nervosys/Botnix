@@ -24,7 +24,7 @@ index 36f22d5f09..6cc6888980 100644
  
      @ignore_warnings(category=RemovedInDjango50Warning)
      @skipUnless(crypt, "no crypt module to generate password.")
-+    @skip("Legacy crypt algorithms are unsupported in nixpkgs")
++    @skip("Legacy crypt algorithms are unsupported in botpkgs")
      @override_settings(
          PASSWORD_HASHERS=["django.contrib.auth.hashers.CryptPasswordHasher"]
      )

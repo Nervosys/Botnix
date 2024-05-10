@@ -12,7 +12,7 @@
 # postInstall = ''
 #   wrapProgram $out/bin/extract --prefix GST_PLUGIN_SYSTEM_PATH_1_0 : "$GST_PLUGIN_SYSTEM_PATH_1_0"
 # '';
-# See also <https://nixos.org/nixpkgs/manual/#sec-language-gnome>.
+# See also <https://nixos.org/botpkgs/manual/#sec-language-gnome>.
 , gtkSupport ? true, glib, gtk3
 , videoSupport ? true, ffmpeg_4, libmpeg2
 }:

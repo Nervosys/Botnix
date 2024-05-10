@@ -76,7 +76,7 @@ stdenv.mkDerivation {
 
     "-DDISABLE_SYSTEM_DYNARMIC=ON"
     "-DDISABLE_SYSTEM_GLSLANG=ON" # The following imported targets are referenced, but are missing: SPIRV-Tools-opt
-    "-DDISABLE_SYSTEM_LODEPNG=ON" # Not packaged in nixpkgs
+    "-DDISABLE_SYSTEM_LODEPNG=ON" # Not packaged in botpkgs
     "-DDISABLE_SYSTEM_VMA=ON"
     "-DDISABLE_SYSTEM_XBYAK=ON"
 

@@ -47,7 +47,7 @@ in stdenv.mkDerivation {
   ] ++ lib.optionals mod kernel.moduleBuildDependencies;
 
   propagatedBuildInputs = [
-    # Propagated to support current DPDK users in nixpkgs which statically link
+    # Propagated to support current DPDK users in botpkgs which statically link
     # with the framework (e.g. odp-dpdk).
     rdma-core
     # Requested by pkg-config.

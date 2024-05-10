@@ -27,9 +27,9 @@ stdenv.mkDerivation rec {
     OSNAME="Botpkgs"
     PREFIX="$out"
     LD_OHASH="-lutil"
-    # Use symlinks instead of hardlinks (more commonly used in nixpkgs)
+    # Use symlinks instead of hardlinks (more commonly used in botpkgs)
     LN="ln -sf"
-    # nixpkgs doesn't have sbin, install makewhatis to bin
+    # botpkgs doesn't have sbin, install makewhatis to bin
     SBINDIR="$PREFIX/bin"
     CC=${stdenv.cc.targetPrefix}cc
     AR=${stdenv.cc.bintools.targetPrefix}ar

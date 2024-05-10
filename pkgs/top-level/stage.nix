@@ -251,7 +251,7 @@ let
       then self
       else nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
 
-    # NOTE: each call to extend causes a full nixpkgs rebuild, adding ~130MB
+    # NOTE: each call to extend causes a full botpkgs rebuild, adding ~130MB
     #       of allocations. DO NOT USE THIS IN NIXPKGS.
     #
     # Extend the package set with a single overlay. This preserves

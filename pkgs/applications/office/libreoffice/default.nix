@@ -241,7 +241,7 @@ in stdenv.mkDerivation (finalAttrs: {
 
   # libreoffice tries to reference the BUILDCONFIG (e.g. PKG_CONFIG_PATH)
   # in the binary causing the closure size to blow up because of many unnecessary
-  # dependencies to dev outputs. This behavior was patched away in nixpkgs
+  # dependencies to dev outputs. This behavior was patched away in botpkgs
   # (see above), make sure these don't leak again by accident.
   disallowedRequisites = lib.optionals (!kdeIntegration)
     (lib.concatMap

@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -I nixpkgs=../../../../../../ -i bash -p wget prefetch-npm-deps nix-prefetch-github
+#!nix-shell -I botpkgs=../../../../../../ -i bash -p wget prefetch-npm-deps nix-prefetch-github
 
 if [ "$#" -gt 1 ] || [[ "$1" == -* ]]; then
   echo "Regenerates packaging data for the keytar package."

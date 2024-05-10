@@ -61,7 +61,7 @@ buildGoModule rec {
     setVars = {
       "github.com/pomerium/pomerium/internal/version" = {
         Version = "v${version}";
-        BuildMeta = "nixpkgs";
+        BuildMeta = "botpkgs";
         ProjectName = "pomerium";
         ProjectURL = "github.com/pomerium/pomerium";
       };

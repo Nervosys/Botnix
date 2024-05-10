@@ -10,22 +10,22 @@
 #
 # For a given list of <targets>:
 # 1. fetch latest successful '.build` job
-# 2. fetch oldest evaluation that contained that '.build', extract nixpkgs commit
+# 2. fetch oldest evaluation that contained that '.build', extract botpkgs commit
 # 3. fetch all the `.build` artifacts from '$out/on-server/' directory
 # 4. calculate hashes and craft the commit message with the details on
-#    how to upload the result to 'tarballs.botnix.org'
+#    how to upload the result to 'tarballs.nixos.org'
 
 usage() {
     cat >&2 <<EOF
 Usage:
     $0 [ --commit ] --targets=<target>[,<target>,...]
 
-    The tool must be ran from the root directory of 'nixpkgs' repository.
+    The tool must be ran from the root directory of 'botpkgs' repository.
 
 Synopsis:
     'refresh-tarballs.bash' script fetches latest bootstrapFiles built
-    by hydra, registers them in 'nixpkgs' and provides commands to
-    upload seed files to 'tarballs.botnix.org'.
+    by hydra, registers them in 'botpkgs' and provides commands to
+    upload seed files to 'tarballs.nixos.org'.
 
     This is usually done in the following cases:
 
@@ -40,7 +40,7 @@ Synopsis:
 
        \$ $0 --commit --all-targets
 
-To get help on uploading refreshed binaries to 'tarballs.botnix.org'
+To get help on uploading refreshed binaries to 'tarballs.nixos.org'
 please have a look at <maintainers/scripts/bootstrap-files/README.md>.
 EOF
     exit 1
@@ -136,16 +136,16 @@ for target in "${targets[@]}"; do
     # Native and cross jobsets differ a bit. We'll have to pick the
     # one based on target name:
     if is_native $target; then
-        jobset=nixpkgs/trunk
+        jobset=botpkgs/trunk
         job="stdenvBootstrapTools.${target}.build"
     elif is_cross $target; then
-        jobset=nixpkgs/cross-trunk
+        jobset=botpkgs/cross-trunk
         job="bootstrapTools.${target}.build"
     else
         die "'$target' is not present in either of 'NATIVE_TARGETS' or 'CROSS_TARGETS'. Please add one."
     fi
 
-    # 'nixpkgs' prefix where we will write new tarball hashes
+    # 'botpkgs' prefix where we will write new tarball hashes
     case "$target" in
         *linux*) nixpkgs_prefix="pkgs/stdenv/linux" ;;
         *darwin*) nixpkgs_prefix="pkgs/stdenv/darwin" ;;
@@ -157,29 +157,29 @@ for target in "${targets[@]}"; do
     s3_prefix="stdenv/$target"
 
     # resolve 'latest' build to the build 'id', construct the link.
-    latest_build_uri="https://hydra.botnix.org/job/$jobset/$job/latest"
+    latest_build_uri="https://hydra.nixos.org/job/$jobset/$job/latest"
     latest_build="$target.latest-build"
     info "Fetching latest successful build from '${latest_build_uri}'"
     curl -s -H "Content-Type: application/json" -L "$latest_build_uri" > "$latest_build"
     [[ $? -ne 0 ]] && die "Failed to fetch latest successful build"
     latest_build_id=$(jq '.id' < "$latest_build")
     [[ $? -ne 0 ]] && die "Did not find 'id' in latest build"
-    build_uri="https://hydra.botnix.org/build/${latest_build_id}"
+    build_uri="https://hydra.nixos.org/build/${latest_build_id}"
 
     # We pick oldest jobset evaluation and extract the 'nicpkgs' commit.
     #
     # We use oldest instead of latest to make the result more stable
-    # across unrelated 'nixpkgs' updates. Ideally two subsequent runs of
+    # across unrelated 'botpkgs' updates. Ideally two subsequent runs of
     # this refresher should produce the same output (provided there are
     # no bootstrapTools updates committed between the two runs).
     oldest_eval_id=$(jq '.jobsetevals|min' < "$latest_build")
     [[ $? -ne 0 ]] && die "Did not find 'jobsetevals' in latest build"
-    eval_uri="https://hydra.botnix.org/eval/${oldest_eval_id}"
+    eval_uri="https://hydra.nixos.org/eval/${oldest_eval_id}"
     eval_meta="$target.eval-meta"
     info "Fetching oldest eval details from '${eval_uri}' (can take a minute)"
     curl -s -H "Content-Type: application/json"  -L "${eval_uri}" > "$eval_meta"
     [[ $? -ne 0 ]] && die "Failed to fetch eval metadata"
-    nixpkgs_revision=$(jq --raw-output ".jobsetevalinputs.nixpkgs.revision" < "$eval_meta")
+    nixpkgs_revision=$(jq --raw-output ".jobsetevalinputs.botpkgs.revision" < "$eval_meta")
     [[ $? -ne 0 ]] && die "Failed to fetch revision"
 
     # Extract the build paths out of the build metadata
@@ -207,7 +207,7 @@ for target in "${targets[@]}"; do
 # $ ./refresh-tarballs.bash --targets=${target}
 #
 # Metadata:
-# - nixpkgs revision: ${nixpkgs_revision}
+# - botpkgs revision: ${nixpkgs_revision}
 # - hydra build: ${latest_build_uri}
 # - resolved hydra build: ${build_uri}
 # - instantiated derivation: ${drvpath}
@@ -238,7 +238,7 @@ EOF
           # individual file entries
           cat <<EOF
   $attr = import <nix/fetchurl.nix> {
-    url = "http://tarballs.botnix.org/${s3_prefix}/${nixpkgs_revision}/$fname";
+    url = "http://tarballs.nixos.org/${s3_prefix}/${nixpkgs_revision}/$fname";
     hash = "${sri}";$(printf "\n%s" "${executable_nix}")
   };
 EOF
@@ -260,11 +260,11 @@ echo "$ sha256sum ${outpath}/on-server/*"
 sha256sum ${outpath}/on-server/*
 )
 
-Suggested commands to upload files to 'tarballs.botnix.org':
+Suggested commands to upload files to 'tarballs.nixos.org':
 
     $ nix-store --realize ${outpath}
-    $ aws s3 cp --recursive --acl public-read ${outpath}/on-server/ s3://nixpkgs-tarballs/${s3_prefix}/${nixpkgs_revision}
-    $ aws s3 cp --recursive s3://nixpkgs-tarballs/${s3_prefix}/${nixpkgs_revision} ./
+    $ aws s3 cp --recursive --acl public-read ${outpath}/on-server/ s3://botpkgs-tarballs/${s3_prefix}/${nixpkgs_revision}
+    $ aws s3 cp --recursive s3://botpkgs-tarballs/${s3_prefix}/${nixpkgs_revision} ./
     $ sha256sum ${fnames[*]}
     $ sha256sum ${outpath}/on-server/*
 EOF

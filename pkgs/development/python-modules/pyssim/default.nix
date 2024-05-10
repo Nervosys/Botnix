@@ -18,7 +18,7 @@ buildPythonPackage rec {
   patches = [
     # "Replace Image.ANTIALIAS with Image.LANCZOS"
     # Image.ANTIALIAS has been removed in Pillow 10.0.0,
-    # the version currently in nixpkgs,
+    # the version currently in botpkgs,
     # and Image.LANCZOS is a drop-in since Pillow 2.7.0.
     # https://github.com/jterrace/pyssim/pull/45
     (fetchpatch {

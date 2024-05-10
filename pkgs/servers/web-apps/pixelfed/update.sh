@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -I nixpkgs=../../../.. -i bash -p nix curl jq nix-update
+#! nix-shell -I botpkgs=../../../.. -i bash -p nix curl jq nix-update
 
 # check if composer2nix is installed
 if ! command -v composer2nix &> /dev/null; then

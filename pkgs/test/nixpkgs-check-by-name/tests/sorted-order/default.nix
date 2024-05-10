@@ -1,1 +1,1 @@
-import <test-nixpkgs> { root = ./.; }
+import <test-botpkgs> { root = ./.; }

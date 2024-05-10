@@ -117,7 +117,7 @@ rustPlatform.buildRustPackage {
     sed -e '/pub mod playground/d' \
         -i cli/src/lib.rs
     sed -e 's/playground,//' \
-        -e 's/playground::serve(&current_dir.*$/println!("ERROR: web-ui is not available in this nixpkgs build; enable the webUISupport"); std::process::exit(1);/' \
+        -e 's/playground::serve(&current_dir.*$/println!("ERROR: web-ui is not available in this botpkgs build; enable the webUISupport"); std::process::exit(1);/' \
         -i cli/src/main.rs
   '';
 

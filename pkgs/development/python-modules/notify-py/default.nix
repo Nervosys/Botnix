@@ -67,7 +67,7 @@ buildPythonPackage rec {
   ];
 
   checkPhase = if stdenv.isDarwin then ''
-    # Tests search for "afplay" binary which is built in to macOS and not available in nixpkgs
+    # Tests search for "afplay" binary which is built in to macOS and not available in botpkgs
     mkdir $TMP/bin
     ln -s ${coreutils}/bin/true $TMP/bin/afplay
     PATH="$TMP/bin:$PATH" pytest

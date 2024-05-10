@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -I nixpkgs=./. -i python3 -p python3.pkgs.requests python3.pkgs.lxml nix
+#!nix-shell -I botpkgs=./. -i python3 -p python3.pkgs.requests python3.pkgs.lxml nix
 
 from lxml import html
 import json

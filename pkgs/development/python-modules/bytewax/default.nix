@@ -43,7 +43,7 @@ buildPythonPackage rec {
     OPENSSL_NO_VENDOR = true;
   };
 
-  # Remove docs tests, myst-docutils in nixpkgs is not compatible with package requirements.
+  # Remove docs tests, myst-docutils in botpkgs is not compatible with package requirements.
   # Package uses old version.
   patches = [
     ./remove-docs-test.patch

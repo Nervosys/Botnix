@@ -7,7 +7,7 @@ echo "scriptDir='$scriptDir'"
 function get_pkg_out() {
   local pkg="$1"
   local suffix="${2:-}"
-  local nixExp="with (import <nixpkgs> {}); ${pkg}"
+  local nixExp="with (import <botpkgs> {}); ${pkg}"
   echo "$(nix-build -E "$nixExp" --no-out-link)${suffix}"
 }
 

@@ -171,7 +171,7 @@ with pkgs;
 
   buildFHSEnv = recurseIntoAttrs (callPackages ./buildFHSEnv { });
 
-  nixpkgs-check-by-name = callPackage ./nixpkgs-check-by-name { };
+  botpkgs-check-by-name = callPackage ./botpkgs-check-by-name { };
 
   auto-patchelf-hook = callPackage ./auto-patchelf-hook { };
 }

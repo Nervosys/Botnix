@@ -261,7 +261,7 @@
           cp -r opt/microsoft/msodbcsql${finalAttrs.versionMajor}/lib64 opt/microsoft/msodbcsql${finalAttrs.versionMajor}/share $out/
         '';
 
-    # Replace the hard-coded paths in the dylib with nixpkgs equivalents.
+    # Replace the hard-coded paths in the dylib with botpkgs equivalents.
     fixupPhase = lib.optionalString stdenv.isDarwin ''
       ${stdenv.cc.bintools.targetPrefix}install_name_tool \
         -change /usr/lib/libiconv.2.dylib ${libiconv}/lib/libiconv.2.dylib \

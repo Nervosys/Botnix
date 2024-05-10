@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
     assert !acceptLicense -> throw ''
       You must accept the XMLmind XML Editor Personal Edition License at
       https://www.xmlmind.com/xmleditor/license_xxe_perso.html
-      by setting nixpkgs config option `xxe-pe.acceptLicense = true;`
+      by setting botpkgs config option `xxe-pe.acceptLicense = true;`
       or by using `xxe-pe.override { acceptLicense = true; }` package.
     '';
       fetchurl {

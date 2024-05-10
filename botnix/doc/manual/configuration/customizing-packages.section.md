@@ -80,7 +80,7 @@ two instances of the package. If you want to have everything depend on
 your customised instance, you can apply a *global* override as follows:
 
 ```nix
-nixpkgs.config.packageOverrides = pkgs:
+botpkgs.config.packageOverrides = pkgs:
   { emacs = pkgs.emacs.override { gtk = pkgs.gtk3; };
   };
 ```
@@ -88,6 +88,6 @@ nixpkgs.config.packageOverrides = pkgs:
 The effect of this definition is essentially equivalent to modifying the
 `emacs` attribute in the Botpkgs source tree. Any package in Botpkgs
 that depends on `emacs` will be passed your customised instance.
-(However, the value `pkgs.emacs` in `nixpkgs.config.packageOverrides`
+(However, the value `pkgs.emacs` in `botpkgs.config.packageOverrides`
 refers to the original rather than overridden instance, to prevent an
 infinite recursion.)

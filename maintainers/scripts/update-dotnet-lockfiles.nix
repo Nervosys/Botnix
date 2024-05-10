@@ -3,7 +3,7 @@
 
       nix-shell maintainers/scripts/update-dotnet-lockfiles.nix
 
-  This script finds all the derivations in nixpkgs that have a 'fetch-deps'
+  This script finds all the derivations in botpkgs that have a 'fetch-deps'
   attribute, and runs all of them sequentially. This is useful to test changes
   to 'fetch-deps', 'nuget-to-nix', or other changes to the dotnet build
   infrastructure. Regular updates should be done through the individual packages
@@ -49,7 +49,7 @@ let
   fetchScripts = map (p: p.fetch-deps) packages;
 
 in pkgs.stdenv.mkDerivation {
-  name = "nixpkgs-update-dotnet-lockfiles";
+  name = "botpkgs-update-dotnet-lockfiles";
   buildCommand = ''
     echo ""
     echo "----------------------------------------------------------------"

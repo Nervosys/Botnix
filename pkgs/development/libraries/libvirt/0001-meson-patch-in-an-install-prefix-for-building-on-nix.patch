@@ -3,7 +3,7 @@ From: Euan Kemp <euank@euank.com>
 Date: Thu, 14 Jan 2021 00:32:00 -0800
 Subject: [PATCH] meson: patch in an install prefix for building on nix
 
-Used in the nixpkgs version of libvirt so that we can install things in
+Used in the botpkgs version of libvirt so that we can install things in
 the nix store, but read them from the root filesystem.
 ---
  meson.build                       |  9 ++++++++

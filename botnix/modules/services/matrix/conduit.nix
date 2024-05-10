@@ -94,7 +94,7 @@ in
                 Whether to allow Conduit to automatically contact
                 <https://conduit.rs> hourly to check for important Conduit news.
 
-                Disabled by default because nixpkgs handles updates.
+                Disabled by default because botpkgs handles updates.
               '';
             };
           };

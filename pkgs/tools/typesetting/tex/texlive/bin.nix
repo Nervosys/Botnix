@@ -67,7 +67,7 @@ let
 ;
 
     configureFlags = [
-      "--with-banner-add=/botnix.org"
+      "--with-banner-add=/nixos.org"
       "--disable-missing" # terminate if a requested program or feature must be
                           # disabled, e.g., due to missing libraries
       "--disable-native-texlive-build" # do not build for the TeX Live binary distribution

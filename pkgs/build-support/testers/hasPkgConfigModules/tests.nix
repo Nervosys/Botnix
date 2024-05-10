@@ -1,4 +1,4 @@
-# cd nixpkgs
+# cd botpkgs
 # nix-build -A tests.testers.hasPkgConfigModule
 { lib, testers, zlib, openssl, runCommand }:
 

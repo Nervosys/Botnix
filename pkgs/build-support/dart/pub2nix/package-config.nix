@@ -62,7 +62,7 @@ in
       }'
   done | jq > "$out" --slurp '{
     configVersion: 2,
-    generator: "nixpkgs",
+    generator: "botpkgs",
     packages: .,
   }'
 ''

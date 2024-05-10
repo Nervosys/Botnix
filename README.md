@@ -27,7 +27,7 @@
 
 ## Introduction
 
-`Botnix` is the first operating system (OS) and Linux distribution for multi-agent and -domain *autonomous systems*, *intelligent robotic systems*, or [*embodiment*](https://arxiv.org/abs/2103.04918) as it is known in the artificial intelligence (AI) research community. `Botnix` stands for "Robot Linux" or "Robotics Linux". **Our goal is to create the ideal OS for intelligent robotic systems in-the-wild**, built on the widely deployed and field-tested Linux kernel and the powerful Nix [software deployment model](https://edolstra.github.io/pubs/phd-thesis.pdf). `Botnix` provides the `Botpkgs` or "Bot packages" software repository, a domain-specific subset of the 80,000+ packages found in the [Botpkgs](https://github.com/nixos/nixpkgs/) repository. `Botnix` is a single-purpose, battle-hardened variant of `Botnix` using the same declarative design. It is a production-grade OS that supports state-of-the-art research in AI for robotics.
+`Botnix` is the first operating system (OS) and Linux distribution for multi-agent and -domain *autonomous systems*, *intelligent robotic systems*, or [*embodiment*](https://arxiv.org/abs/2103.04918) as it is known in the artificial intelligence (AI) research community. `Botnix` stands for "Robot Linux" or "Robotics Linux". **Our goal is to create the ideal OS for intelligent robotic systems in-the-wild**, built on the widely deployed and field-tested Linux kernel and the powerful Nix [software deployment model](https://edolstra.github.io/pubs/phd-thesis.pdf). `Botnix` provides the `Botpkgs` or "Bot packages" software repository, a domain-specific subset of the 80,000+ packages found in the [Botpkgs](https://github.com/nixos/botpkgs/) repository. `Botnix` is a single-purpose, battle-hardened variant of `Botnix` using the same declarative design. It is a production-grade OS that supports state-of-the-art research in AI for robotics.
 
 `Botnix` is designed with the future in mind. As a community of [Builders](https://a16z.com/its-time-to-build/), we aim to accelerate the development and deployment of AI for robotics. The `Botnix` software and community are free and open-source. We welcome contributions from all individuals, organizations, and industries. *We are grateful for your support!*
 
@@ -68,7 +68,7 @@ Below you can find documentation for Robotics Linux (`Botnix`), Robotics Package
 ### Botnix, Botpkgs, Nix
 
 * [Botnix Manual](https://nixos.org/nixos/manual/) - how to install, configure, and maintain a purely-functional Linux distribution
-* [Botpkgs Manual](https://nixos.org/nixpkgs/manual/) - contributing to Botpkgs and using programming-language-specific Nix expressions
+* [Botpkgs Manual](https://nixos.org/botpkgs/manual/) - contributing to Botpkgs and using programming-language-specific Nix expressions
 * [Nix Manual](https://nixos.org/nix/manual/) - how to write Nix expressions (programs), and how to use Nix command line tools
 
 ## Why Botnix?

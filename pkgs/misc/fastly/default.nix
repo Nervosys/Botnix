@@ -18,7 +18,7 @@ buildGoModule rec {
     rev = "refs/tags/v${version}";
     hash = "sha256-XlfTtA4jYFrs1W8pyulkqbhrRt8vS+oPB/g9/tIW8Ws=";
     # The git commit is part of the `fastly version` original output;
-    # leave that output the same in nixpkgs. Use the `.git` directory
+    # leave that output the same in botpkgs. Use the `.git` directory
     # to retrieve the commit SHA, and remove the directory afterwards,
     # since it is not needed after that.
     leaveDotGit = true;

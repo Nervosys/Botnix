@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     license = licenses.gpl2Plus;
     maintainers = with maintainers; [ puffnfresh veprbl ];
     platforms = platforms.unix;
-    # never built on aarch64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin && stdenv.isAarch64;
     mainProgram = "motion";
   };

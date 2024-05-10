@@ -6,8 +6,8 @@ set -eou pipefail
 latest_linux_version=$(curl -L --silent https://slack.com/downloads/linux | sed -n 's/.*Version \([0-9\.]\+\).*/\1/p')
 latest_mac_version=$(curl -L --silent https://slack.com/downloads/mac | sed -n 's/.*Version \([0-9\.]\+\).*/\1/p')
 
-nixpkgs="$(git rev-parse --show-toplevel)"
-slack_nix="$nixpkgs/pkgs/applications/networking/instant-messengers/slack/default.nix"
+botpkgs="$(git rev-parse --show-toplevel)"
+slack_nix="$botpkgs/pkgs/applications/networking/instant-messengers/slack/default.nix"
 nixpkgs_linux_version=$(cat "$slack_nix" | sed -n 's/.*x86_64-linux-version = \"\([0-9\.]\+\)\";.*/\1/p')
 nixpkgs_mac_version=$(cat "$slack_nix" | sed -n 's/.*x86_64-darwin-version = \"\([0-9\.]\+\)\";.*/\1/p')
 nixpkgs_mac_arm_version=$(cat "$slack_nix" | sed -n 's/.*aarch64-darwin-version = \"\([0-9\.]\+\)\";.*/\1/p')
@@ -15,7 +15,7 @@ nixpkgs_mac_arm_version=$(cat "$slack_nix" | sed -n 's/.*aarch64-darwin-version 
 if [[ "$nixpkgs_linux_version" == "$latest_linux_version" && \
       "$nixpkgs_mac_version" == "$latest_mac_version" && \
       "$nixpkgs_mac_arm_version" == "$latest_mac_version" ]]; then
-  echo "nixpkgs versions are all up to date!"
+  echo "botpkgs versions are all up to date!"
   exit 0
 fi
 
@@ -33,7 +33,7 @@ sed -i "s/x86_64-linux-sha256 = \".*\"/x86_64-linux-sha256 = \"${linux_sha256}\"
 sed -i "s/x86_64-darwin-sha256 = \".*\"/x86_64-darwin-sha256 = \"${mac_sha256}\"/" "$slack_nix"
 sed -i "s/aarch64-darwin-sha256 = \".*\"/aarch64-darwin-sha256 = \"${mac_arm_sha256}\"/" "$slack_nix"
 
-if ! nix-build -A slack "$nixpkgs" --arg config '{ allowUnfree = true; }'; then
+if ! nix-build -A slack "$botpkgs" --arg config '{ allowUnfree = true; }'; then
   echo "The updated slack failed to build."
   exit 1
 fi

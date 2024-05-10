@@ -129,7 +129,7 @@ in {
   imports = [
     (mkRemovedOptionModule [ "virtualisation" "vswitch" "ipsec" ] ''
       OpenVSwitch IPSec functionality has been removed, because it depended on racoon,
-      which was removed from nixpkgs, because it was abanoded upstream.
+      which was removed from botpkgs, because it was abanoded upstream.
     '')
   ];
 

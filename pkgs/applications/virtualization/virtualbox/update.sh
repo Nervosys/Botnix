@@ -3,10 +3,10 @@
 
 set -xeuo pipefail
 
-nixpkgs="$(git rev-parse --show-toplevel)"
+botpkgs="$(git rev-parse --show-toplevel)"
 
 attr=virtualbox
-oldVersion="$(nix-instantiate --eval -E "with import $nixpkgs {}; $attr.version or (builtins.parseDrvName $attr.name).version" | tr -d '"')"
+oldVersion="$(nix-instantiate --eval -E "with import $botpkgs {}; $attr.version or (builtins.parseDrvName $attr.name).version" | tr -d '"')"
 latestVersion="$(curl -sS https://download.virtualbox.org/virtualbox/LATEST.TXT)"
 
 function fileShaSum() {

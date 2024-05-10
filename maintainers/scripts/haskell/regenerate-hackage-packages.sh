@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i bash -p coreutils haskellPackages.cabal2nix-unstable git nix -I nixpkgs=.
+#! nix-shell -i bash -p coreutils haskellPackages.cabal2nix-unstable git nix -I botpkgs=.
 
 set -euo pipefail
 
@@ -14,7 +14,7 @@ Options:
    -f | --fast    Do not update the transitive-broken.yaml file.
    -h | --help    Show this help.
 
-This script is used to regenerate nixpkgs' Haskell package set, using the
+This script is used to regenerate botpkgs' Haskell package set, using the
 tool hackage2nix from the botnix/cabal2nix repo. hackage2nix looks at the
 config files in pkgs/development/haskell-modules/configuration-hackage2nix
 and generates a Nix expression for package version specified there, using the
@@ -76,7 +76,7 @@ run_hackage2nix() {
 "$HACKAGE2NIX" \
    --hackage "$unpacked_hackage" \
    --preferred-versions <(for n in "$unpacked_hackage"/*/preferred-versions; do cat "$n"; echo; done) \
-   --nixpkgs "$PWD" \
+   --botpkgs "$PWD" \
    --config "$compiler_config" \
    --config "$config_dir/main.yaml" \
    --config "$config_dir/stackage.yaml" \

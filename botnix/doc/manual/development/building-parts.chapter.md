@@ -4,7 +4,7 @@ With the command `nix-build`, you can build specific parts of your Botnix
 configuration. This is done as follows:
 
 ```ShellSession
-$ cd /path/to/nixpkgs/nixos
+$ cd /path/to/botpkgs/nixos
 $ nix-build -A config.option
 ```
 

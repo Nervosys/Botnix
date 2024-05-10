@@ -21,7 +21,7 @@ python3Packages.buildPythonApplication rec {
   };
 
   patches = [
-    # nixpkgs has a newer pillow version
+    # botpkgs has a newer pillow version
     ./update-pillow.patch
   ];
 

@@ -251,7 +251,7 @@ impure-cmds // appleSourcePackages // chooseLibs // {
           # macos-builder profile directly.
           virtualisation.host = { inherit pkgs; };
 
-          nixpkgs.hostPlatform = lib.mkDefault (toGuest stdenv.hostPlatform.system);
+          botpkgs.hostPlatform = lib.mkDefault (toGuest stdenv.hostPlatform.system);
         };
 
         system = null;
@@ -261,10 +261,10 @@ impure-cmds // appleSourcePackages // chooseLibs // {
       botnix.config.system.build.macos-builder-installer) { modules = [ ]; };
 
   linux-builder-x86_64 = self.linux-builder.override {
-    modules = [ { nixpkgs.hostPlatform = "x86_64-linux"; } ];
+    modules = [ { botpkgs.hostPlatform = "x86_64-linux"; } ];
   };
 
 } // lib.optionalAttrs config.allowAliases {
-  builder = throw "'darwin.builder' has been changed and renamed to 'darwin.linux-builder'. The default ssh port is now 31022. Please update your configuration or override the port back to 22. See https://nixos.org/manual/nixpkgs/unstable/#sec-darwin-builder"; # added 2023-07-06
+  builder = throw "'darwin.builder' has been changed and renamed to 'darwin.linux-builder'. The default ssh port is now 31022. Please update your configuration or override the port back to 22. See https://nixos.org/manual/botpkgs/unstable/#sec-darwin-builder"; # added 2023-07-06
 });
 }

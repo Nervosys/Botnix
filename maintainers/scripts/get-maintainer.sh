@@ -2,7 +2,7 @@
 #!nix-shell -i bash -p jq ncurses
 # shellcheck shell=bash
 
-# Get a nixpkgs maintainer's metadata as a JSON object
+# Get a botpkgs maintainer's metadata as a JSON object
 #  see HELP_MESSAGE just below, or README.md.
 
 set -euo pipefail

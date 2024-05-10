@@ -90,7 +90,7 @@ def nix_prefetch_url(url: str) -> Tuple[str, Path]:
 def verify_openpgp_signature(
     *, name: str, trusted_key: Path, sig_path: Path, data_path: Path,
 ) -> bool:
-    with TemporaryDirectory(suffix=".nixpkgs-gnupg-home") as gnupg_home_str:
+    with TemporaryDirectory(suffix=".botpkgs-gnupg-home") as gnupg_home_str:
         gnupg_home = Path(gnupg_home_str)
         run("gpg", "--homedir", gnupg_home, "--import", trusted_key)
         keyring = gnupg_home / "pubring.kbx"

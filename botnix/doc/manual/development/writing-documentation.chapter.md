@@ -14,7 +14,7 @@ subdirectory of the Botpkgs repository.
 You can quickly validate your edits with `make`:
 
 ```ShellSession
-$ cd /path/to/nixpkgs/nixos/doc/manual
+$ cd /path/to/botpkgs/nixos/doc/manual
 $ nix-shell
 nix-shell$ devmode
 ```

@@ -9,7 +9,7 @@
 # Let's detect this situation to give a more meaningful error
 # message. The following two lines are carefully written to be both valid Perl
 # and Bash.
-printf "Perl script erroneously interpreted as shell script,\ndoes target platform match nixpkgs.crossSystem platform?\n" && exit 1
+printf "Perl script erroneously interpreted as shell script,\ndoes target platform match botpkgs.crossSystem platform?\n" && exit 1
     if 0;
 
 use strict;

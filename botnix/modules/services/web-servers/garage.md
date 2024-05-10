@@ -68,7 +68,7 @@ This is inspired from how Nextcloud does it.
 While patch-level updates are no problem and can be done directly in the
 package-expression (and should be backported to supported stable branches after that),
 major-releases should be added in a new attribute (e.g. Garage `v0.8.0`
-should be available in `nixpkgs` as `pkgs.garage_0_8_0`).
+should be available in `botpkgs` as `pkgs.garage_0_8_0`).
 To provide simple upgrade paths it's generally useful to backport those as well to stable
 branches. As long as the package-default isn't altered, this won't break existing setups.
 After that, the versioning-warning in the `garage`-module should be
@@ -79,7 +79,7 @@ on fresh setups.
 If major-releases will be abandoned by upstream, we should check first if those are needed
 in Botnix for a safe upgrade-path before removing those. In that case we should keep those
 packages, but mark them as insecure in an expression like this (in
-`<nixpkgs/pkgs/tools/filesystem/garage/default.nix>`):
+`<botpkgs/pkgs/tools/filesystem/garage/default.nix>`):
 ```
 /* ... */
 {

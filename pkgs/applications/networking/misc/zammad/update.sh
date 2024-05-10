@@ -4,7 +4,7 @@ set -euo pipefail
 
 if [ "$#" -gt 2 ] || [[ "$1" == -* ]]; then
   echo "Regenerates packaging data for the zammad packages."
-  echo "Usage: $0 [package name] [zammad directory in nixpkgs]"
+  echo "Usage: $0 [package name] [zammad directory in botpkgs]"
   exit 1
 fi
 

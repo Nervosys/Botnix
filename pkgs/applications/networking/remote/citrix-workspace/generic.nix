@@ -211,9 +211,9 @@ stdenv.mkDerivation rec {
   dontAutoPatchelf = true;
   preFixup = ''
     find $out/opt/citrix-icaclient/lib -name "libopencv_imgcodecs.so.*" | while read -r fname; do
-      # lib needs libtiff.so.5, but nixpkgs provides libtiff.so.6
+      # lib needs libtiff.so.5, but botpkgs provides libtiff.so.6
       patchelf --replace-needed libtiff.so.5 libtiff.so $fname
-      # lib needs libjpeg.so.8, but nixpkgs provides libjpeg.so.9
+      # lib needs libjpeg.so.8, but botpkgs provides libjpeg.so.9
       patchelf --replace-needed libjpeg.so.8 libjpeg.so $fname
     done
   '';

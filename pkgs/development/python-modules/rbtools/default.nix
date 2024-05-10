@@ -23,7 +23,7 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [ six texttable tqdm colorama setuptools ];
 
-  # The kgb test dependency is not in nixpkgs
+  # The kgb test dependency is not in botpkgs
   doCheck = false;
 
   meta = with lib; {

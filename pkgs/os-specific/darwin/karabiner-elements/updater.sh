@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -I nixpkgs=./. -i bash -p curl jq common-updater-scripts
+#!nix-shell -I botpkgs=./. -i bash -p curl jq common-updater-scripts
 set -eo pipefail
 
 new_version="$(curl -s  "https://api.github.com/repos/pqrs-org/Karabiner-Elements/releases/latest" | jq -r '.tag_name | ltrimstr("v")')"

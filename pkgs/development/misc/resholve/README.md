@@ -36,7 +36,7 @@ Each "solution" (k=v pair) in this attrset describes one resholve invocation.
 
 ## Basic `resholve.mkDerivation` Example
 
-Here's a simple example of how `resholve.mkDerivation` is already used in nixpkgs:
+Here's a simple example of how `resholve.mkDerivation` is already used in botpkgs:
 
 <!-- TODO: figure out how to pull this externally? -->
 
@@ -164,7 +164,7 @@ that the `resholve` CLI expects. Here's an overview:
 | prologue    | `<file>`               | insert file before resolved script                                                                                |
 | epilogue    | `<file>`               | insert file after resolved script                                                                                 |
 
-<!-- TODO: section below is largely custom for nixpkgs, but I would LIKE to wurst it. -->
+<!-- TODO: section below is largely custom for botpkgs, but I would LIKE to wurst it. -->
 
 ## Controlling resolution with directives
 
@@ -192,7 +192,7 @@ handle any potential problems it encounters with directives. There are currently
    - dynamic (variable) arguments to commands known to accept/run other commands
 
 > NOTE: resholve has a (growing) number of directives detailed in `man resholve`
-> via `nixpkgs.resholve` (though protections against run-time use of python2 in nixpkgs mean you'll have to set `NIXPKGS_ALLOW_INSECURE=1` to pull resholve into nix-shell).
+> via `botpkgs.resholve` (though protections against run-time use of python2 in botpkgs mean you'll have to set `NIXPKGS_ALLOW_INSECURE=1` to pull resholve into nix-shell).
 
 Each of these 3 types is represented by its own attrset, where you can think
 of the key as a scope. The value should be:
@@ -247,7 +247,7 @@ commands was limited to one level for a hard-coded list of builtins and
 external commands. resholve can now resolve these recursively.
 
 This feature combines information (_lore_) that the resholve Nix API
-obtains via binlore ([nixpkgs](../../tools/analysis/binlore), [repo](https://github.com/abathur/resholve)),
+obtains via binlore ([botpkgs](../../tools/analysis/binlore), [repo](https://github.com/abathur/resholve)),
 with some rules (internal to resholve) for locating sub-executions in
 some of the more common commands.
 

@@ -26,11 +26,11 @@ in rebar3Relx rec {
 
     latest=$(list-git-tags | sort -V | tail -1)
     if [ "$latest" != "${version}" ]; then
-      nixpkgs="$(git rev-parse --show-toplevel)"
-      nix_path="$nixpkgs/pkgs/development/beam-modules/elvis-erlang"
+      botpkgs="$(git rev-parse --show-toplevel)"
+      nix_path="$botpkgs/pkgs/development/beam-modules/elvis-erlang"
       update-source-version elvis-erlang "$latest" --version-key=version --print-changes --file="$nix_path/default.nix"
       tmpdir=$(mktemp -d)
-      cp -R $(nix-build $nixpkgs --no-out-link -A elvis-erlang.src)/* "$tmpdir"
+      cp -R $(nix-build $botpkgs --no-out-link -A elvis-erlang.src)/* "$tmpdir"
       (cd "$tmpdir" && HOME=. rebar3 nix lock -o "$nix_path/rebar-deps.nix")
     else
       echo "${repo} is already up-to-date"

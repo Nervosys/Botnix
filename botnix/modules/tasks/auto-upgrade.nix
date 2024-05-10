@@ -68,8 +68,8 @@ in {
           Any additional flags passed to {command}`botnix-rebuild`.
 
           If you are using flakes and use a local repo you can add
-          {command}`[ "--update-input" "nixpkgs" "--commit-lock-file" ]`
-          to update nixpkgs.
+          {command}`[ "--update-input" "botpkgs" "--commit-lock-file" ]`
+          to update botpkgs.
         '';
       };
 
@@ -178,7 +178,7 @@ in {
     system.autoUpgrade.flags = (if cfg.flake == null then
         [ "--no-build-output" ] ++ optionals (cfg.channel != null) [
           "-I"
-          "nixpkgs=${cfg.channel}/nixexprs.tar.xz"
+          "botpkgs=${cfg.channel}/nixexprs.tar.xz"
         ]
       else
         [ "--flake ${cfg.flake}" ]);

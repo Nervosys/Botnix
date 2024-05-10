@@ -376,4 +376,4 @@ for package in "${packages[@]}"; do
 
 done
 
-nixpkgs-fmt ${source_file}
+botpkgs-fmt ${source_file}

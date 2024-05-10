@@ -21,7 +21,7 @@
 # the modified source files from k2pdfopt and replacing the corresponding
 # source files in the upstream packages. Since the files are intended for a
 # particular version of the upstream package, this would not allow us to easily
-# use updates to those packages in nixpkgs.
+# use updates to those packages in botpkgs.
 # 2) Manually produce patches which can be applied against the upstream
 # project, and have the same effect as replacing those files.  This is what I
 # believe k2pdfopt should do this for us anyway.  The benefit of creating and
@@ -74,8 +74,8 @@ in stdenv.mkDerivation rec {
   let
     # We use specific versions of these sources below to match the versions
     # used in the k2pdfopt source. Note that this does _not_ need to match the
-    # version used elsewhere in nixpkgs, since it is only used to create the
-    # patch that can then be applied to the version in nixpkgs.
+    # version used elsewhere in botpkgs, since it is only used to create the
+    # patch that can then be applied to the version in botpkgs.
     mupdf_patch = mkPatch {
       name = "mupdf";
       src = fetchurl {

@@ -3,7 +3,7 @@
 ## Installation {#installation}
 
 Define an environment for R that contains all the libraries that you'd like to
-use by adding the following snippet to your $HOME/.config/nixpkgs/config.nix file:
+use by adding the following snippet to your $HOME/.config/botpkgs/config.nix file:
 
 ```nix
 {
@@ -23,9 +23,9 @@ use by adding the following snippet to your $HOME/.config/nixpkgs/config.nix fil
 }
 ```
 
-Then you can use `nix-env -f "<nixpkgs>" -iA rEnv` to install it into your user
+Then you can use `nix-env -f "<botpkgs>" -iA rEnv` to install it into your user
 profile. The set of available libraries can be discovered by running the
-command `nix-env -f "<nixpkgs>" -qaP -A rPackages`. The first column from that
+command `nix-env -f "<botpkgs>" -qaP -A rPackages`. The first column from that
 output is the name that has to be passed to rWrapper in the code snipped above.
 
 However, if you'd like to add a file to your project source to make the
@@ -33,7 +33,7 @@ environment available for other contributors, you can create a `default.nix`
 file like so:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 {
   myProject = stdenv.mkDerivation {
     name = "myProject";
@@ -74,14 +74,14 @@ environment, see `rstudioWrapper`, which functions similarly to
 }
 ```
 
-Then like above, `nix-env -f "<nixpkgs>" -iA rstudioEnv` will install
+Then like above, `nix-env -f "<botpkgs>" -iA rstudioEnv` will install
 this into your user profile.
 
 Alternatively, you can create a self-contained `shell.nix` without the need to
 modify any configuration files:
 
 ```nix
-{ pkgs ? import <nixpkgs> {}
+{ pkgs ? import <botpkgs> {}
 }:
 
 pkgs.rstudioWrapper.override {

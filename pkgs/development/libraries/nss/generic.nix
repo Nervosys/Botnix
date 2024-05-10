@@ -79,7 +79,7 @@ stdenv.mkDerivation rec {
             if platform.isLittleEndian then "ppc64le" else "ppc64"
           )
         else platform.parsed.cpu.name;
-      # yes, this is correct. nixpkgs uses "host" for the platform the binary will run on whereas nss uses "host" for the platform that the build is running on
+      # yes, this is correct. botpkgs uses "host" for the platform the binary will run on whereas nss uses "host" for the platform that the build is running on
       target = getArch stdenv.hostPlatform;
       host = getArch stdenv.buildPlatform;
     in

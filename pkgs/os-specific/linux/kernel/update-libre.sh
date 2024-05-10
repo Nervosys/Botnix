@@ -2,8 +2,8 @@
 #! nix-shell -i bash -p nix-prefetch-svn git curl
 set -euo pipefail
 
-nixpkgs="$(git rev-parse --show-toplevel)"
-path="$nixpkgs/pkgs/os-specific/linux/kernel/linux-libre.nix"
+botpkgs="$(git rev-parse --show-toplevel)"
+path="$botpkgs/pkgs/os-specific/linux/kernel/linux-libre.nix"
 
 old_rev="$(grep -o 'rev = ".*"' "$path" | awk -F'"' '{print $2}')"
 old_sha256="$(grep -o 'sha256 = ".*"' "$path" | awk -F'"' '{print $2}')"
@@ -28,6 +28,6 @@ sed -i -e "s/rev = \".*\"/rev = \"$rev\"/" \
 
 if [ -n "${COMMIT-}" ]; then
     git commit -qm "linux_latest-libre: $old_rev -> $rev" "$path" \
-       $nixpkgs/pkgs/os-specific/linux/kernel/linux-libre.nix
+       $botpkgs/pkgs/os-specific/linux/kernel/linux-libre.nix
     echo "Updated linux_latest-libre $old_rev -> $rev"
 fi

@@ -21,7 +21,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-X main.BuildVersion=${version}"
-    "-X main.BuildVersionLabel=nixpkgs"
+    "-X main.BuildVersionLabel=botpkgs"
   ];
 
   meta = with lib; {

@@ -18,7 +18,7 @@ in {
         { fsType = "tmpfs";
           options = [ "mode=1777" "noauto" ];
         };
-        # Tests https://discourse.botnix.org/t/how-to-make-a-derivations-executables-have-the-s-permission/8555
+        # Tests https://discourse.nixos.org/t/how-to-make-a-derivations-executables-have-the-s-permission/8555
         "/user-mount/point" = {
           device = "/user-mount/source";
           fsType = "none";

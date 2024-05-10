@@ -12,13 +12,13 @@ Nix comes with certain defaults about what packages can and cannot be installed,
 
 Note that all this is checked during evaluation already, and the check includes any package that is evaluated. In particular, all build-time dependencies are checked. `nix-env -qa` will (attempt to) hide any packages that would be refused.
 
-Each of these criteria can be altered in the nixpkgs configuration.
+Each of these criteria can be altered in the botpkgs configuration.
 
-The nixpkgs configuration for a Botnix system is set in the `configuration.nix`, as in the following example:
+The botpkgs configuration for a Botnix system is set in the `configuration.nix`, as in the following example:
 
 ```nix
 {
-  nixpkgs.config = {
+  botpkgs.config = {
     allowUnfree = true;
   };
 }
@@ -26,7 +26,7 @@ The nixpkgs configuration for a Botnix system is set in the `configuration.nix`,
 
 However, this does not allow unfree software for individual users. Their configurations are managed separately.
 
-A user's nixpkgs configuration is stored in a user-specific configuration file located at `~/.config/nixpkgs/config.nix`. For example:
+A user's botpkgs configuration is stored in a user-specific configuration file located at `~/.config/botpkgs/config.nix`. For example:
 
 ```nix
 {
@@ -131,7 +131,7 @@ There are several ways to tweak how Nix handles a package which has been marked 
 
     Note that `allowlistedLicenses` only applies to unfree licenses unless `allowUnfree` is enabled. It is not a generic allowlist for all types of licenses. `blocklistedLicenses` applies to all licenses.
 
-A complete list of licenses can be found in the file `lib/licenses.nix` of the nixpkgs tree.
+A complete list of licenses can be found in the file `lib/licenses.nix` of the botpkgs tree.
 
 ## Installing insecure packages {#sec-allow-insecure}
 
@@ -171,7 +171,7 @@ There are several ways to tweak how Nix handles a package which has been marked 
 
 ## Modify packages via `packageOverrides` {#sec-modify-via-packageOverrides}
 
-You can define a function called `packageOverrides` in your local `~/.config/nixpkgs/config.nix` to override Nix packages. It must be a function that takes pkgs as an argument and returns a modified set of packages.
+You can define a function called `packageOverrides` in your local `~/.config/botpkgs/config.nix` to override Nix packages. It must be a function that takes pkgs as an argument and returns a modified set of packages.
 
 ```nix
 {
@@ -196,7 +196,7 @@ source: ../config-options.json
 
 ### Build an environment {#sec-building-environment}
 
-Using `packageOverrides`, it is possible to manage packages declaratively. This means that we can list all of our desired packages within a declarative Nix expression. For example, to have `aspell`, `bc`, `ffmpeg`, `coreutils`, `gdb`, `nixUnstable`, `emscripten`, `jq`, `nox`, and `silver-searcher`, we could use the following in `~/.config/nixpkgs/config.nix`:
+Using `packageOverrides`, it is possible to manage packages declaratively. This means that we can list all of our desired packages within a declarative Nix expression. For example, to have `aspell`, `bc`, `ffmpeg`, `coreutils`, `gdb`, `nixUnstable`, `emscripten`, `jq`, `nox`, and `silver-searcher`, we could use the following in `~/.config/botpkgs/config.nix`:
 
 ```nix
 {
@@ -220,7 +220,7 @@ Using `packageOverrides`, it is possible to manage packages declaratively. This 
 }
 ```
 
-To install it into our environment, you can just run `nix-env -iA nixpkgs.myPackages`. If you want to load the packages to be built from a working copy of `nixpkgs` you just run `nix-env -f. -iA myPackages`. To explore what's been installed, just look through `~/.nix-profile/`. You can see that a lot of stuff has been installed. Some of this stuff is useful some of it isn't. Let's tell Botpkgs to only link the stuff that we want:
+To install it into our environment, you can just run `nix-env -iA botpkgs.myPackages`. If you want to load the packages to be built from a working copy of `botpkgs` you just run `nix-env -f. -iA myPackages`. To explore what's been installed, just look through `~/.nix-profile/`. You can see that a lot of stuff has been installed. Some of this stuff is useful some of it isn't. Let's tell Botpkgs to only link the stuff that we want:
 
 ```nix
 {

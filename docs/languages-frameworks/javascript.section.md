@@ -40,12 +40,12 @@ Guidelines of package managers, recommend to commit those lock files to the repo
 
 It's better to try to use a Nix tool that understand the lock file. Using a different tool might give you hard to understand error because different packages have been installed. An example of problems that could arise can be found [here](https://github.com/nervosys/Botnix/pull/126629). Upstream use NPM, but this is an attempt to package it with `yarn2nix` (that uses yarn.lock).
 
-Using a different tool forces to commit a lock file to the repository. Those files are fairly large, so when packaging for nixpkgs, this approach does not scale well.
+Using a different tool forces to commit a lock file to the repository. Those files are fairly large, so when packaging for botpkgs, this approach does not scale well.
 
 Exceptions to this rule are:
 
-- When you encounter one of the bugs from a Nix tool. In each of the tool specific instructions, known problems will be detailed. If you have a problem with a particular tool, then it's best to try another tool, even if this means you will have to recreate a lock file and commit it to nixpkgs. In general `yarn2nix` has less known problems and so a simple search in nixpkgs will reveal many yarn.lock files committed.
-- Some lock files contain particular version of a package that has been pulled off NPM for some reason. In that case, you can recreate upstream lock (by removing the original and `npm install`, `yarn`, ...) and commit this to nixpkgs.
+- When you encounter one of the bugs from a Nix tool. In each of the tool specific instructions, known problems will be detailed. If you have a problem with a particular tool, then it's best to try another tool, even if this means you will have to recreate a lock file and commit it to botpkgs. In general `yarn2nix` has less known problems and so a simple search in botpkgs will reveal many yarn.lock files committed.
+- Some lock files contain particular version of a package that has been pulled off NPM for some reason. In that case, you can recreate upstream lock (by removing the original and `npm install`, `yarn`, ...) and commit this to botpkgs.
 - The only tool that supports workspaces (a feature of NPM that helps manage sub-directories with different package.json from a single top level package.json) is `yarn2nix`. If upstream has workspaces you should try `yarn2nix`.
 
 ### Try to use upstream package.json {#javascript-upstream-package-json}
@@ -80,7 +80,7 @@ Exceptions to this rule are:
 
 Each tool has an abstraction to just build the node_modules (dependencies) directory. You can always use the `stdenv.mkDerivation` with the node_modules to build the package (symlink the node_modules directory and then use the package build command). The node_modules abstraction can be also used to build some web framework frontends. For an example of this see how [plausible](https://github.com/nervosys/Botnix/blob/master/pkgs/servers/web-apps/plausible/default.nix) is built. `mkYarnModules` to make the derivation containing node_modules. Then when building the frontend you can just symlink the node_modules directory.
 
-## Javascript packages inside nixpkgs {#javascript-packages-nixpkgs}
+## Javascript packages inside botpkgs {#javascript-packages-botpkgs}
 
 The [pkgs/development/node-packages](https://github.com/nervosys/Botnix/blob/master/pkgs/development/node-packages) folder contains a generated collection of [NPM packages](https://npmjs.com/) that can be installed with the Nix package manager.
 
@@ -105,9 +105,9 @@ After you have identified the correct system, you need to override your package 
     });
 ```
 
-### Adding and Updating Javascript packages in nixpkgs {#javascript-adding-or-updating-packages}
+### Adding and Updating Javascript packages in botpkgs {#javascript-adding-or-updating-packages}
 
-To add a package from NPM to nixpkgs:
+To add a package from NPM to botpkgs:
 
 1. Modify [pkgs/development/node-packages/node-packages.json](https://github.com/nervosys/Botnix/blob/master/pkgs/development/node-packages/node-packages.json) to add, update or remove package entries to have it included in `nodePackages` and `nodePackages_latest`.
 2. Run the script:
@@ -134,7 +134,7 @@ To add a package from NPM to nixpkgs:
 
 For more information about the generation process, consult the [README.md](https://github.com/svanderburg/node2nix) file of the `node2nix` tool.
 
-To update NPM packages in nixpkgs, run the same `generate.sh` script:
+To update NPM packages in botpkgs, run the same `generate.sh` script:
 
 ```sh
 ./pkgs/development/node-packages/generate.sh
@@ -356,7 +356,7 @@ mkYarnPackage rec {
   - Exporting the headers in `npm_config_nodedir` comes from this issue: <https://github.com/nodejs/node-gyp/issues/1191#issuecomment-301243919>
 - `offlineCache` (described [above](#javascript-yarn2nix-preparation)) must be specified to avoid [Import From Derivation](#ssec-import-from-derivation) (IFD) when used inside Botpkgs.
 
-## Outside Botpkgs {#javascript-outside-nixpkgs}
+## Outside Botpkgs {#javascript-outside-botpkgs}
 
 There are some other tools available, which are written in the Nix language.
 These that can't be used inside Botpkgs because they require [Import From Derivation](#ssec-import-from-derivation), which is not allowed in Botpkgs.

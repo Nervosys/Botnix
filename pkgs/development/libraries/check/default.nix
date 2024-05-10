@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   # fortify breaks the libcompat vsnprintf implementation
   hardeningDisable = lib.optionals (stdenv.hostPlatform.isMusl && (stdenv.hostPlatform != stdenv.buildPlatform)) [ "fortify" ];
 
-  # Test can randomly fail: https://hydra.botnix.org/build/7243912
+  # Test can randomly fail: https://hydra.nixos.org/build/7243912
   doCheck = false;
 
   buildInputs = lib.optional stdenv.isDarwin CoreServices;

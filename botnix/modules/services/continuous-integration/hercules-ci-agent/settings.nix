@@ -66,7 +66,7 @@ let
         type = format.type;
         defaultText = literalExpression ''
           {
-            agent.source = "..."; # One of "nixpkgs", "flake", "override"
+            agent.source = "..."; # One of "botpkgs", "flake", "override"
             lib.version = "...";
             pkgs.version = "...";
           }
@@ -140,7 +140,7 @@ let
       labels = {
         agent.source =
           if packageOption.highestPrio == (lib.modules.mkOptionDefault { }).priority
-          then "nixpkgs"
+          then "botpkgs"
           else lib.mkOptionDefault "override";
         pkgs.version = pkgs.lib.version;
         lib.version = lib.version;

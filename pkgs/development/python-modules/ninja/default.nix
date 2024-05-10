@@ -39,7 +39,7 @@ buildPythonPackage rec {
     description = "A small build system with a focus on speed";
     longDescription = ''
       This is a stub of the ninja package on PyPI that uses the ninja program
-      provided by nixpkgs instead of downloading ninja from the web.
+      provided by botpkgs instead of downloading ninja from the web.
     '';
     homepage = "https://github.com/scikit-build/ninja-python-distributions";
     license = licenses.asl20;

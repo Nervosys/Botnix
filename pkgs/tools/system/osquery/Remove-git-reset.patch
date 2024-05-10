@@ -2,7 +2,7 @@ From: Jack Baldry <jack.baldry@grafana.com>
 Date: Tue, 15 Nov 2022 13:48:07 -0400
 Subject: [PATCH] Remove git reset
 
-This is not required for nixpkgs builds because we are not working in
+This is not required for botpkgs builds because we are not working in
 the source repository and therefore do not need to be careful about
 updating submodule content.
 

@@ -1,7 +1,7 @@
 # Source: https://git.helsinki.tools/helsinki-systems/nc4nix/-/raw/main/nc-versions.nix
 # Licensed under: MIT
 
-# this file is used to figure out which versions of nextcloud we have in nixpkgs
+# this file is used to figure out which versions of nextcloud we have in botpkgs
 { pkgs ? import ../../../.. {}, lib ? pkgs.lib }:
 let
   n = lib.mapAttrsToList (_: v: v.version) (

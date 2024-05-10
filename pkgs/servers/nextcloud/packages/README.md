@@ -11,7 +11,7 @@ https://apps.nextcloud.com. The id corresponds to the last part in the app url,
 for example `breezedark` for the app with the url
 `https://apps.nextcloud.com/apps/breezedark`.
 
-To regenerate the nixpkgs nextcloudPackages set, run:
+To regenerate the botpkgs nextcloudPackages set, run:
 
 ```
 ./generate.sh

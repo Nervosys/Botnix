@@ -10,10 +10,10 @@
 }:
 
 # Jupyter console:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter-console.withSingleKernel cpp17-kernel'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter-console.withSingleKernel cpp17-kernel'
 
 # Jupyter notebook:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter.override { definitions = { cpp17 = cpp17-kernel; }; }'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter.override { definitions = { cpp17 = cpp17-kernel; }; }'
 
 let
   xeus-cling = callPackage ./xeus-cling.nix {};

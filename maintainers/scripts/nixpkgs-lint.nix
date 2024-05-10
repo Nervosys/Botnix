@@ -1,7 +1,7 @@
 { stdenv, lib, makeWrapper, perl, perlPackages }:
 
 stdenv.mkDerivation {
-  name = "nixpkgs-lint-1";
+  name = "botpkgs-lint-1";
 
   nativeBuildInputs = [ makeWrapper ];
   buildInputs = [ perl perlPackages.XMLSimple ];
@@ -12,8 +12,8 @@ stdenv.mkDerivation {
   installPhase =
     ''
       mkdir -p $out/bin
-      cp ${./nixpkgs-lint.pl} $out/bin/nixpkgs-lint
-      wrapProgram $out/bin/nixpkgs-lint --set PERL5LIB $PERL5LIB
+      cp ${./botpkgs-lint.pl} $out/bin/botpkgs-lint
+      wrapProgram $out/bin/botpkgs-lint --set PERL5LIB $PERL5LIB
     '';
 
   meta = with lib; {

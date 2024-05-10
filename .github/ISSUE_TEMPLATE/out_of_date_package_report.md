@@ -17,7 +17,7 @@ Type the name of your package and try to find an open pull request for the packa
 If you find an open pull request, you can review it!
 There's a high chance that you'll have the new version right away while helping the community!
 -->
-- [ ] Checked the [nixpkgs pull requests](https://github.com/nervosys/Botnix/pulls)
+- [ ] Checked the [botpkgs pull requests](https://github.com/nervosys/Botnix/pulls)
 
 **Notify maintainers**
 

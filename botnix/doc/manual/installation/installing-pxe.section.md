@@ -5,11 +5,11 @@ setup.
 
 These instructions assume that you have an existing PXE or iPXE
 infrastructure and want to add the Botnix installer as another
-option. To build the necessary files from your current version of nixpkgs,
+option. To build the necessary files from your current version of botpkgs,
 you can run:
 
 ```ShellSession
-nix-build -A netboot.x86_64-linux '<nixpkgs/nixos/release.nix>'
+nix-build -A netboot.x86_64-linux '<botpkgs/nixos/release.nix>'
 ```
 
 This will create a `result` directory containing: \* `bzImage` -- the

@@ -31,7 +31,7 @@ buildGoModule rec {
         "mongotop"
       ]; in
     ''
-      # move vendored codes so nixpkgs go builder could find it
+      # move vendored codes so botpkgs go builder could find it
       runHook preBuild
 
       ${lib.concatMapStrings (t: ''

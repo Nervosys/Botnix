@@ -21,7 +21,7 @@ buildPythonPackage rec {
     rev = "refs/tags/v${version}";
     hash = "sha256-epWunA5FULmCuTABl3uckFuNaSEpqJxtp0n0loCb6Q0=";
     # Since this upstream patch (https://github.com/jax-ml/ml_dtypes/commit/1bfd097e794413b0d465fa34f2eff0f3828ff521),
-    # the attempts to use the nixpkgs packaged eigen dependency have failed.
+    # the attempts to use the botpkgs packaged eigen dependency have failed.
     # Hence, we rely on the bundled eigen library.
     fetchSubmodules = true;
   };

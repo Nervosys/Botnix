@@ -9,7 +9,7 @@ import ./make-test-python.nix ({ pkgs, lib, ... }: {
 
         environment.systemPackages = [ pkgs.minecraft ];
 
-        nixpkgs.config.allowUnfree = true;
+        botpkgs.config.allowUnfree = true;
 
         test-support.displayManager.auto.user = user.name;
       };

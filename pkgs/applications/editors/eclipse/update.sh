@@ -1,6 +1,6 @@
 #!/usr/bin/env nix-shell
 #! nix-shell -i bash --pure -p curl cacert libxml2 yq nix jq
-#! nix-shell -I nixpkgs=https://github.com/nervosys/Botnix/archive/3c7487575d9445185249a159046cc02ff364bff8.tar.gz
+#! nix-shell -I botpkgs=https://github.com/nervosys/Botnix/archive/3c7487575d9445185249a159046cc02ff364bff8.tar.gz
 #                                                                ^
 #                                                                |
 #                   botnix-unstable ~ 2023-07-06 -----------------/

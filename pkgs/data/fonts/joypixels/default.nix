@@ -43,8 +43,8 @@ let
     unfree licenses.
 
     configuration.nix:
-      nixpkgs.config.allowUnfree = true;
-      nixpkgs.config.joypixels.acceptLicense = true;
+      botpkgs.config.allowUnfree = true;
+      botpkgs.config.joypixels.acceptLicense = true;
 
     config.nix:
       allowUnfree = true;

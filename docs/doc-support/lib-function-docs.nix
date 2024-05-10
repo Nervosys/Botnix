@@ -1,14 +1,14 @@
 # Generates the documentation for library functions via nixdoc.
 
-{ pkgs, nixpkgs, libsets }:
+{ pkgs, botpkgs, libsets }:
 
 with pkgs;
 
 let
-  locationsJSON = import ./lib-function-locations.nix { inherit pkgs nixpkgs libsets; };
+  locationsJSON = import ./lib-function-locations.nix { inherit pkgs botpkgs libsets; };
 in
 stdenv.mkDerivation {
-  name = "nixpkgs-lib-docs";
+  name = "botpkgs-lib-docs";
   src = ../../lib;
 
   buildInputs = [ nixdoc ];

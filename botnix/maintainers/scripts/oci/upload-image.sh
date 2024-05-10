@@ -4,7 +4,7 @@ set -euo pipefail
 
 script_dir="$(dirname $(readlink -f $0))"
 nixpkgs_root="$script_dir/../../../.."
-export NIX_PATH="nixpkgs=$nixpkgs_root"
+export NIX_PATH="botpkgs=$nixpkgs_root"
 
 cat - <<EOF
 This script will locally build a Botnix image and upload it as a Custom Image
@@ -26,7 +26,7 @@ else
 fi
 
 cli="$(
-  nix-build '<nixpkgs>' \
+  nix-build '<botpkgs>' \
     --no-out-link \
     -A oci-cli
 )"

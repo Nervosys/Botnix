@@ -149,7 +149,7 @@ stdenv.mkDerivation (finalAttrs: {
   # ignore any missing optional dependencies like alsa, pulseaudio,
   # some x11 libs, wayland, etc if they are missing on the system
   # and/or work with wide array of versions of said libraries. In
-  # nixpkgs, however, we don't need any of that. Moreover, since we
+  # botpkgs, however, we don't need any of that. Moreover, since we
   # don't have a global ld-cache we have to stuff all the propagated
   # libraries into rpath by hand or else some applications that use
   # SDL API that requires said libraries will fail to start.

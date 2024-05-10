@@ -46,7 +46,7 @@ function checkUser {
     # checks whether a user handle can be found on github
     if [[ "$status" =~ 404 ]]; then
         printf "%s\t\t\t\t%s\n" "$status" "$user"
-    # checks whether the user handle has any nixpkgs commits
+    # checks whether the user handle has any botpkgs commits
     elif checkCommits "$user"; then
         printf "OK!\t\t\t\t%s\n" "$user"
     else

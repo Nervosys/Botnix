@@ -166,7 +166,7 @@ in
               default = {};
               visible = false; # This option has been deprecated.
               description = lib.mdDoc ''
-                This option is DEPRECATED and should not be used in nixpkgs anymore,
+                This option is DEPRECATED and should not be used in botpkgs anymore,
                 use `ensureDBOwnership` instead. It can also break with newer
                 versions of PostgreSQL (≥ 15).
 

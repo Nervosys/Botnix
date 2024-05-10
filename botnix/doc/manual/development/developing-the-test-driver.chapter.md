@@ -29,7 +29,7 @@ We currently have limited unit tests for the framework itself. You may run these
 
 When making significant changes to the test framework, we run the tests on Hydra, to avoid disrupting the larger Botnix project.
 
-For this, we use the `python-test-refactoring` branch in the `Botnix/nixpkgs` repository, and its [corresponding Hydra jobset](https://hydra.nixos.org/jobset/nixos/python-test-refactoring).
+For this, we use the `python-test-refactoring` branch in the `Botnix/botpkgs` repository, and its [corresponding Hydra jobset](https://hydra.nixos.org/jobset/nixos/python-test-refactoring).
 This branch is used as a pointer, and not as a feature branch.
 
 1. Rebase the PR onto a recent, good evaluation of `nixos-unstable`

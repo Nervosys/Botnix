@@ -31,7 +31,7 @@ buildGoModule rec {
 
   nativeBuildInputs = [ installShellFiles ];
 
-  ldflags = [ "-s" "-w" "-X github.com/gohugoio/hugo/common/hugo.vendorInfo=nixpkgs" ];
+  ldflags = [ "-s" "-w" "-X github.com/gohugoio/hugo/common/hugo.vendorInfo=botpkgs" ];
 
   postInstall = let emulator = stdenv.hostPlatform.emulator buildPackages; in ''
     ${emulator} $out/bin/hugo gen man

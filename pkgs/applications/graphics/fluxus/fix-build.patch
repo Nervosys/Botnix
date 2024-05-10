@@ -1,7 +1,7 @@
 scons does not use os environment by default:
   https://scons.org/doc/2.1.0/HTML/scons-user/x1750.html
 
-nixpkgs' cc-wrapper on the other hand relies on various NIX_* variables
+botpkgs' cc-wrapper on the other hand relies on various NIX_* variables
 to be passed through like NIX_CFLAGS_COMPILE_BEFORE.
 
 While at it ported to python3-style print().

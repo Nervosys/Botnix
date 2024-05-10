@@ -288,15 +288,15 @@ let format' = format; in let
 
   useEFIBoot = touchEFIVars;
 
-  nixpkgs = cleanSource pkgs.path;
+  botpkgs = cleanSource pkgs.path;
 
   # FIXME: merge with channel.nix / make-channel.nix.
   channelSources = pkgs.runCommand "botnix-${config.system.botnix.version}" {} ''
     mkdir -p $out
-    cp -prd ${nixpkgs.outPath} $out/botnix
+    cp -prd ${botpkgs.outPath} $out/botnix
     chmod -R u+w $out/botnix
-    if [ ! -e $out/botnix/nixpkgs ]; then
-      ln -s . $out/botnix/nixpkgs
+    if [ ! -e $out/botnix/botpkgs ]; then
+      ln -s . $out/botnix/botpkgs
     fi
     rm -rf $out/botnix/.git
     echo -n ${config.system.botnix.versionSuffix} > $out/botnix/.version-suffix
@@ -316,8 +316,8 @@ let format' = format; in let
     ++ lib.optional deterministic gptfdisk
     ++ stdenv.initialPath);
 
-  # I'm preserving the line below because I'm going to search for it across nixpkgs to consolidate
-  # image building logic. The comment right below this now appears in 4 different places in nixpkgs :)
+  # I'm preserving the line below because I'm going to search for it across botpkgs to consolidate
+  # image building logic. The comment right below this now appears in 4 different places in botpkgs :)
   # !!! should use XML.
   sources = map (x: x.source) contents;
   targets = map (x: x.target) contents;

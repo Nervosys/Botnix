@@ -7,9 +7,9 @@ BUCKET_NAME="${BUCKET_NAME:-botnix-cloud-images}"
 TIMESTAMP="$(date +%Y%m%d%H%M)"
 export TIMESTAMP
 
-nix-build '<nixpkgs/botnix/lib/eval-config.nix>' \
+nix-build '<botpkgs/botnix/lib/eval-config.nix>' \
    -A config.system.build.googleComputeImage \
-   --arg modules "[ <nixpkgs/botnix/modules/virtualisation/google-compute-image.nix> ]" \
+   --arg modules "[ <botpkgs/botnix/modules/virtualisation/google-compute-image.nix> ]" \
    --argstr system x86_64-linux \
    -o gce \
    -j 10

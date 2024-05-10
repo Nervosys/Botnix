@@ -6,7 +6,7 @@ but better than not checking them at all on hydra.
 
 To run this test:
 
-    nixpkgs$ nix-build -A tests.botnix-functions
+    botpkgs$ nix-build -A tests.botnix-functions
 
  */
 { pkgs, lib, stdenv, ... }:

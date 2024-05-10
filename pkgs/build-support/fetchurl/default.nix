@@ -158,7 +158,7 @@ stdenvNoCC.mkDerivation ((
   urls = urls_;
 
   # If set, prefer the content-addressable mirrors
-  # (http://tarballs.botnix.org) over the original URLs.
+  # (http://tarballs.nixos.org) over the original URLs.
   preferHashedMirrors = true;
 
   # New-style output content requirements.

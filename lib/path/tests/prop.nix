@@ -6,7 +6,7 @@
 # If `normalise` fails to evaluate, the attribute value is set to `""`.
 # If not, the resulting value is normalised again and an appropriate attribute set added to the output list.
 {
-  # The path to the nixpkgs lib to use
+  # The path to the botpkgs lib to use
   libpath,
   # A flat directory containing files with randomly-generated
   # path-like values

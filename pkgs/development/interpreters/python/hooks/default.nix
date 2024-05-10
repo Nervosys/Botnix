@@ -65,7 +65,7 @@ in {
       # A test to ensure that this hook never propagates any of its dependencies
       #   into the build environment.
       # This prevents false positive alerts raised by catchConflictsHook.
-      # Such conflicts don't happen within the standard nixpkgs python package
+      # Such conflicts don't happen within the standard botpkgs python package
       #   set, but in downstream projects that build packages depending on other
       #   versions of this hook's dependencies.
       passthru.tests = import ./pypa-build-hook-test.nix {

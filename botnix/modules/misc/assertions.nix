@@ -30,5 +30,5 @@ with lib;
     };
 
   };
-  # impl of assertions is in <nixpkgs/botnix/modules/system/activation/top-level.nix>
+  # impl of assertions is in <botpkgs/botnix/modules/system/activation/top-level.nix>
 }

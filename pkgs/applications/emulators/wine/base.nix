@@ -115,7 +115,7 @@ stdenv.mkDerivation ((lib.optionalAttrs (buildScript != null) {
       (lib.optional (lib.versionOlder version "8.12") ./darwin-metal-compat-pre8.12.patch)
       (lib.optional (lib.versionOlder version "8.18") ./darwin-metal-compat-pre8.18.patch)
       (lib.optional (lib.versionAtLeast version "8.18") ./darwin-metal-compat.patch)
-      # Wine requires `qos.h`, which is not included by default on the 10.12 SDK in nixpkgs.
+      # Wine requires `qos.h`, which is not included by default on the 10.12 SDK in botpkgs.
       ./darwin-qos.patch
     ]
     ++ patches';

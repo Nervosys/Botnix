@@ -63,7 +63,7 @@ rustPlatform.buildRustPackage rec {
     wrapProgram $out/bin/cargo-lambda --prefix PATH : ${lib.makeBinPath [ zig ]}
   '';
 
-  CARGO_LAMBDA_BUILD_INFO = "(nixpkgs)";
+  CARGO_LAMBDA_BUILD_INFO = "(botpkgs)";
 
   passthru.updateScript = nix-update-script { };
 

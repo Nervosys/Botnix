@@ -5,7 +5,7 @@ You can run tests using `nix-build`. For example, to run the test
 you do:
 
 ```ShellSession
-$ cd /my/git/clone/of/nixpkgs
+$ cd /my/git/clone/of/botpkgs
 $ nix-build -A nixosTests.login
 ```
 

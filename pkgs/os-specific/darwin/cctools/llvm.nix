@@ -16,7 +16,7 @@ let
   useLLVMOtool = lib.versionAtLeast llvmVersion "13";
 
   # Older versions of `strip` cause problems for the version of `codesign_allocate` available in
-  # the version of cctools in nixpkgs. The version of `codesign_allocate` in cctools-1005.2 does
+  # the version of cctools in botpkgs. The version of `codesign_allocate` in cctools-1005.2 does
   # not appear to have issues, but the source is not available yet (as of June 2023).
   useLLVMStrip = lib.versionAtLeast llvmVersion "15" || lib.versionAtLeast cctoolsVersion "1005.2";
 

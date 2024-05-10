@@ -34,7 +34,7 @@
      nix-build maintainers/scripts/haskell/test-configurations.nix \
        --arg skipEvalErrors false --keep-going
 
-   You can also disable checking broken packages by passing a nixpkgs config:
+   You can also disable checking broken packages by passing a botpkgs config:
 
      nix-build maintainers/scripts/haskell/test-configurations.nix \
        --arg config '{ allowBroken = false; }' --keep-going

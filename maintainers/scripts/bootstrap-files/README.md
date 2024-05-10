@@ -1,10 +1,10 @@
 # Bootstrap files
 
-Currently `nixpkgs` builds most of it's packages using bootstrap seed
+Currently `botpkgs` builds most of it's packages using bootstrap seed
 binaries (without the reliance on external inputs):
 
 - `bootstrap-tools`: an archive with the compiler toolchain and other
-  helper tools enough to build the rest of the `nixpkgs`.
+  helper tools enough to build the rest of the `botpkgs`.
 - initial binaries needed to unpack `bootstrap-tools.*`. On `linux`
   it's just `busybox`, on `darwin` it's `sh`, `bzip2`, `mkdir` and
   `cpio`. These binaries can be executed directly from the store.
@@ -12,13 +12,13 @@ binaries (without the reliance on external inputs):
 These are called "bootstrap files".
 
 Bootstrap files should always be fetched from hydra and uploaded to
-`tarballs.botnix.org` to guarantee that all the binaries were built from
-the code committed into `nixpkgs` repository.
+`tarballs.nixos.org` to guarantee that all the binaries were built from
+the code committed into `botpkgs` repository.
 
-The uploads to `tarballs.botnix.org` are done by `@lovesegfault` today.
+The uploads to `tarballs.nixos.org` are done by `@lovesegfault` today.
 
 This document describes the procedure of updating bootstrap files in
-`nixpkgs`.
+`botpkgs`.
 
 ## How to request the bootstrap seed update
 
@@ -51,7 +51,7 @@ target:
 There are two types of bootstrap files:
 
 - natively built `stdenvBootstrapTools.build` hydra jobs in
-  [`nixpkgs:trunk`](https://hydra.botnix.org/jobset/nixpkgs/trunk#tabs-jobs)
+  [`botpkgs:trunk`](https://hydra.nixos.org/jobset/botpkgs/trunk#tabs-jobs)
   jobset. Incomplete list of examples is:
 
   * `aarch64-unknown-linux-musl.nix`
@@ -60,7 +60,7 @@ There are two types of bootstrap files:
   These are Tier 1 hydra platforms.
 
 - cross-built by `bootstrapTools.build` hydra jobs in
-  [`nixpkgs:cross-trunk`](https://hydra.botnix.org/jobset/nixpkgs/cross-trunk#tabs-jobs)
+  [`botpkgs:cross-trunk`](https://hydra.nixos.org/jobset/botpkgs/cross-trunk#tabs-jobs)
   jobset. Incomplete list of examples is:
 
   * `mips64el-unknown-linux-gnuabi64.nix`
@@ -72,8 +72,8 @@ There are two types of bootstrap files:
   These are usually Tier 2 and lower targets.
 
 The `.build` job contains `/on-server/` subdirectory with binaries to
-be uploaded to `tarballs.botnix.org`.
-The files are uploaded to `tarballs.botnix.org` by writers to `S3` store.
+be uploaded to `tarballs.nixos.org`.
+The files are uploaded to `tarballs.nixos.org` by writers to `S3` store.
 
 ## TODOs
 

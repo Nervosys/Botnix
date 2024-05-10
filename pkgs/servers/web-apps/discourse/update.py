@@ -123,7 +123,7 @@ class DiscourseRepo:
 
 
 def _call_nix_update(pkg, version):
-    """Call nix-update from nixpkgs root dir."""
+    """Call nix-update from botpkgs root dir."""
     nixpkgs_path = Path(__file__).parent / '../../../../'
     return subprocess.check_output(['nix-update', pkg, '--version', version], cwd=nixpkgs_path)
 
@@ -194,7 +194,7 @@ def cli():
 def print_diffs(rev, reverse):
     """Print out diffs for files used as templates for the Botnix module.
 
-    The current package version found in the nixpkgs worktree the
+    The current package version found in the botpkgs worktree the
     script is run from will be used to download the "from" file and
     REV used to download the "to" file for the diff, unless the
     '--reverse' flag is specified.

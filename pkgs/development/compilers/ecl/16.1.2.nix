@@ -93,7 +93,7 @@ stdenv.mkDerivation rec {
     license = licenses.mit;
     maintainers = lib.teams.lisp.members;
     platforms = platforms.unix;
-    # never built on aarch64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin && stdenv.isAarch64;
   };
 }

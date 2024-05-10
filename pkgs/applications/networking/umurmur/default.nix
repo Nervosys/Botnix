@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
     license = licenses.bsd3;
     homepage = "https://github.com/umurmur/umurmur";
     platforms = platforms.all;
-    # never built on aarch64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin && stdenv.isAarch64;
     mainProgram = "umurmurd";
   };

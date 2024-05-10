@@ -49,7 +49,7 @@ import ./make-test-python.nix ({ pkgs, lib, ...} : {
             " --data 'message=Docs'"
             " --data 'firstname=Bob'"
             " --data 'lastname=Foobar'"
-            " --data 'email=bob.foobar@botnix.org'"
+            " --data 'email=bob.foobar@nixos.org'"
             " --data 'password=verysafe'"
             " -f localhost:3000/api/setup"
         ).format(dbhash)

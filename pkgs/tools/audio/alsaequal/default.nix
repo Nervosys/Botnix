@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
   # Borrowed from Arch Linux's AUR
   patches = [
     # Adds executable permissions to resulting libraries
-    # and changes their destination directory from "usr/lib/alsa-lib" to "lib/alsa-lib" to better align with nixpkgs filesystem hierarchy.
+    # and changes their destination directory from "usr/lib/alsa-lib" to "lib/alsa-lib" to better align with botpkgs filesystem hierarchy.
     ./makefile.patch
     # Fixes control port check, which resulted in false error.
     ./false_error.patch

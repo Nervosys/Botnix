@@ -45,7 +45,7 @@ The following parameters are specific to `buildNimPackage`:
 Nim lockfiles are created with the `nim_lk` utility.
 Run `nim_lk` with the source directory as an argument and it will print a lockfile to stdout.
 ```sh
-$ cd nixpkgs
+$ cd botpkgs
 $ nix build -f . ttop.src
 $ nix run -f . nim_lk ./result | jq --sort-keys > pkgs/by-name/tt/ttop/lock.json
 ```

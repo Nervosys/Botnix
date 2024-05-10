@@ -131,7 +131,7 @@ let
         #
         # 3. Specifying overrides on the wrapper is unsupported.
         #
-        # See nixpkgs#158620 for details.
+        # See botpkgs#158620 for details.
         overrideDerivation = f:
           (package.overrideDerivation f).withPlugins plugins;
         overrideAttrs = f:

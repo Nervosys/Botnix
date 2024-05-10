@@ -21,7 +21,7 @@ python3Packages.buildPythonApplication rec {
   ];
 
   patches = [
-    # requires specific old versions of dependencies which have been updated in nixpkgs
+    # requires specific old versions of dependencies which have been updated in botpkgs
     ./remove_requirements.patch
 
     # author reads a private property that changed between versions

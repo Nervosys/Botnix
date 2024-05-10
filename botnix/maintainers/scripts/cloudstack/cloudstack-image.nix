@@ -1,4 +1,4 @@
-# nix-build '<nixpkgs/botnix>' -A config.system.build.cloudstackImage --arg configuration "{ imports = [ ./botnix/maintainers/scripts/cloudstack/cloudstack-image.nix ]; }"
+# nix-build '<botpkgs/botnix>' -A config.system.build.cloudstackImage --arg configuration "{ imports = [ ./botnix/maintainers/scripts/cloudstack/cloudstack-image.nix ]; }"
 
 { config, lib, pkgs, ... }:
 
@@ -12,7 +12,7 @@
     configFile = pkgs.writeText "configuration.nix"
       ''
         {
-          imports = [ <nixpkgs/botnix/modules/virtualisation/cloudstack-config.nix> ];
+          imports = [ <botpkgs/botnix/modules/virtualisation/cloudstack-config.nix> ];
         }
       '';
   };

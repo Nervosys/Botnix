@@ -24,7 +24,7 @@ name = "core"
 version = "0.0.0"
 
 [[package]]
-name = "nixpkgs-sysroot-stub-crate"
+name = "botpkgs-sysroot-stub-crate"
 version = "0.0.0"
 dependencies = [
  "alloc",

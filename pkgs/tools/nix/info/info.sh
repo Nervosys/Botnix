@@ -103,7 +103,7 @@ desc_multi_user() {
 }
 
 desc_nixpkgs_path() {
-    nixev '<nixpkgs>' 2>/dev/null || echo "not found"
+    nixev '<botpkgs>' 2>/dev/null || echo "not found"
 }
 
 channel_facts() {
@@ -171,4 +171,4 @@ fi
 
 fact "version" "$(nix-env --version)"
 channel_facts
-last_fact "nixpkgs" "$(desc_nixpkgs_path)"
+last_fact "botpkgs" "$(desc_nixpkgs_path)"

@@ -21,7 +21,7 @@ let
           [ ./hardware-configuration.nix
             ${if flake
               then "" # Still included, but via installer/flake.nix
-              else "<nixpkgs/botnix/modules/testing/test-instrumentation.nix>"}
+              else "<botpkgs/botnix/modules/testing/test-instrumentation.nix>"}
           ];
 
         networking.hostName = "thatworked";
@@ -382,10 +382,10 @@ let
           # we use readlink to find a Botpkgs source.
           pkgs=$(readlink -f /nix/var/nix/profiles/per-user/root/channels)/botnix
           if ! [[ -e $pkgs/pkgs/top-level/default.nix ]]; then
-            echo 1>&2 "$pkgs does not seem to be a nixpkgs source. Please fix the test so that pkgs points to a nixpkgs source.";
+            echo 1>&2 "$pkgs does not seem to be a botpkgs source. Please fix the test so that pkgs points to a botpkgs source.";
             exit 1;
           fi
-          sed -e s^@nixpkgs@^$pkgs^ -i /root/my-config/flake.nix
+          sed -e s^@botpkgs@^$pkgs^ -i /root/my-config/flake.nix
         """)
 
       with subtest("Switch to flake based config"):
@@ -409,9 +409,9 @@ let
           [[ "[ ]" == "$(nix-instantiate builtins.nixPath --eval --expr)" ]]
         """)
 
-      with subtest("<nixpkgs> does not resolve"):
+      with subtest("<botpkgs> does not resolve"):
         machine.succeed("""
-          ! nix-instantiate '<nixpkgs>' --eval --expr
+          ! nix-instantiate '<botpkgs>' --eval --expr
         """)
 
       with subtest("Evaluate flake config in fresh env without nix-channel"):
@@ -651,7 +651,7 @@ let
   };
   # disable zfs so we can support latest kernel if needed
   no-zfs-module = {
-    nixpkgs.overlays = [(final: super: {
+    botpkgs.overlays = [(final: super: {
       zfs = super.zfs.overrideAttrs(_: {meta.platforms = [];});}
     )];
   };

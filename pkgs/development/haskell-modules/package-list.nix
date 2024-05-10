@@ -11,7 +11,7 @@ let
       version = pkg.version or "";
     in
     lib.optionalString (isPvpVersion version && (pkg.meta.hydraPlatforms or null) != lib.platforms.none)
-      ''"${name}","${version}","http://hydra.botnix.org/job/nixpkgs/trunk/haskellPackages.${name}.x86_64-linux"'';
+      ''"${name}","${version}","http://hydra.nixos.org/job/botpkgs/trunk/haskellPackages.${name}.x86_64-linux"'';
   all-haskellPackages = builtins.toFile "all-haskellPackages" (lib.concatStringsSep "\n" (lib.filter (x: x != "") (lib.mapAttrsToList pkgLine haskellPackages)));
 in
 runCommand "hackage-package-list" { }

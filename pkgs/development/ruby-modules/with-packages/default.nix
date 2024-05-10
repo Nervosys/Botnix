@@ -2,7 +2,7 @@
 
 /*
 Example usage:
-nix-shell -E "(import <nixpkgs> {}).ruby.withPackages (pkgs: with pkgs; [ pry nokogiri ])"
+nix-shell -E "(import <botpkgs> {}).ruby.withPackages (pkgs: with pkgs; [ pry nokogiri ])"
 
 You can also use this for writing ruby scripts that run anywhere that has nix
 using a nix-shell shebang:
@@ -10,7 +10,7 @@ using a nix-shell shebang:
   #!nix-shell -i ruby -p "ruby.withPackages (pkgs: with pkgs; [ pry nokogiri ])"
 
 
-Run the following in the nixpkgs root directory to update the ruby-packages.nix:
+Run the following in the botpkgs root directory to update the ruby-packages.nix:
 ./maintainers/scripts/update-ruby-packages
 */
 

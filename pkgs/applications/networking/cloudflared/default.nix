@@ -22,7 +22,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-X main.Version=${version}"
-    "-X github.com/cloudflare/cloudflared/cmd/cloudflared/updater.BuiltForPackageManager=nixpkgs"
+    "-X github.com/cloudflare/cloudflared/cmd/cloudflared/updater.BuiltForPackageManager=botpkgs"
   ];
 
   preCheck = ''

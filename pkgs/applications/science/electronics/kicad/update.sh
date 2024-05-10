@@ -27,7 +27,7 @@ export TMPDIR=/tmp
 # remove items left in /nix/store?
 # reuse hashes of already checked revs (to avoid redownloading testing's packages3d)
 
-# nixpkgs' update.nix passes in UPDATE_NIX_PNAME to indicate which package is being updated
+# botpkgs' update.nix passes in UPDATE_NIX_PNAME to indicate which package is being updated
 # assigning a default value to that as shellcheck doesn't like the use of unassigned variables
 : "${UPDATE_NIX_PNAME:=""}"
 # update.nix can also parse JSON output of this script to formulate a commit

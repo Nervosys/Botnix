@@ -1,6 +1,6 @@
 Resolve messy situation with uintptr_t and stdint.h
 
-Platforms common in nixpkgs will have stdint.h - thereby we avoid problems
+Platforms common in botpkgs will have stdint.h - thereby we avoid problems
 that seem complicated to avoid.  References:
 https://gitlab.com/cmocka/cmocka/-/issues/38#note_1286565655
 https://git.alpinelinux.org/aports/plain/main/cmocka/musl_uintptr.patch?id=6a15dd0d0ba9cc354a621fb359ca5e315ff2eabd

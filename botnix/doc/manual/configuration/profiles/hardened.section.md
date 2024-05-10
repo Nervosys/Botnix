@@ -9,7 +9,7 @@ available to processes through the `/sys` and
 feature of the kernel, which stops Nix from being able to build anything
 (this particular setting can be overridden via
 [](#opt-security.allowUserNamespaces)). See the
-[profile source](https://github.com/nixos/nixpkgs/tree/master/nixos/modules/profiles/hardened.nix)
+[profile source](https://github.com/nixos/botpkgs/tree/master/nixos/modules/profiles/hardened.nix)
 for further detail on which settings are altered.
 
 ::: {.warning}

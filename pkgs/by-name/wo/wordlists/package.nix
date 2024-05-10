@@ -64,7 +64,7 @@ in symlinkJoin {
       ```
 
       you can use this with nix-shell by doing:
-      {command}`nix-shell -p 'wordlists.override { lists = with (import <nixpkgs> {}); [ nmap ]; }'
+      {command}`nix-shell -p 'wordlists.override { lists = with (import <botpkgs> {}); [ nmap ]; }'
       If you want to add a new package that provides wordlist/s the convention
       is to copy it to {file}`$out/share/wordlists/myNewWordlist`.
     '';

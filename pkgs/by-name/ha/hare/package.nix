@@ -115,7 +115,7 @@ stdenv.mkDerivation (finalAttrs: {
   enableParallelBuilding = true;
 
   # Append the distribution name to the version
-  env.LOCALVER = "nixpkgs";
+  env.LOCALVER = "botpkgs";
 
   strictDeps = true;
 

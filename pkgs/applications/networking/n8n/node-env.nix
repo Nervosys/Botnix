@@ -69,7 +69,7 @@ let
       elif [ -d "$src" ]
       then
           # Get a stripped name (without hash) of the source directory.
-          # On old nixpkgs it's already set internally.
+          # On old botpkgs it's already set internally.
           if [ -z "$strippedName" ]
           then
               strippedName="$(stripHash $src)"

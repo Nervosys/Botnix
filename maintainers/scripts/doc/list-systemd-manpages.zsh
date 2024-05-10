@@ -2,7 +2,7 @@
 #!nix-shell -i zsh -p zsh
 set -euo pipefail
 
-# cd into nixpkgs' root, get the store path of `systemd.man`
+# cd into botpkgs' root, get the store path of `systemd.man`
 cd "$(dirname "$0")/../../.."
 SYSTEMD_MAN_DIR="$(nix-build -A systemd.man)/share/man"
 

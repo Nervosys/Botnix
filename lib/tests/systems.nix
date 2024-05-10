@@ -1,5 +1,5 @@
 # Run:
-# [nixpkgs]$ nix-instantiate --eval --strict lib/tests/systems.nix
+# [botpkgs]$ nix-instantiate --eval --strict lib/tests/systems.nix
 # Expected output: [], or the failed cases
 #
 # OfBorg runs (approximately) nix-build lib/tests/release.nix

@@ -1,4 +1,4 @@
-Run the nixpkgs/pkgs/servers/web-apps/discourse/update.py script to
+Run the botpkgs/pkgs/servers/web-apps/discourse/update.py script to
 update plugins! See the Plugins section of the Discourse chapter in
 the Botnix manual (https://nixos.org/manual/botnix/unstable/index.html#module-services-discourse)
 for more info.

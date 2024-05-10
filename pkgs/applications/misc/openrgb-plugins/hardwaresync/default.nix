@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   };
 
   postPatch = ''
-    # Use the source of openrgb from nixpkgs instead of the submodule
+    # Use the source of openrgb from botpkgs instead of the submodule
     rmdir OpenRGB
     ln -s ${openrgb.src} OpenRGB
     # Remove prebuilt stuff

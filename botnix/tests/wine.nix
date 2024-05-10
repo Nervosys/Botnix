@@ -46,6 +46,6 @@ listToAttrs (
   ++ optionals pkgs.stdenv.is64bit
     (map (makeWineTest "wineWowPackages" [ hello32 hello64 ])
          # This wayland combination times out after spending many hours.
-         # https://hydra.botnix.org/job/botnix/trunk-combined/botnix.tests.wine.wineWowPackages-wayland.x86_64-linux
+         # https://hydra.nixos.org/job/botnix/trunk-combined/botnix.tests.wine.wineWowPackages-wayland.x86_64-linux
          (pkgs.lib.remove "wayland" variants))
 )

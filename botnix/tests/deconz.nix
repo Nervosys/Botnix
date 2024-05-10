@@ -10,7 +10,7 @@ in
   ];
 
   nodes.machine = { config, pkgs, lib, ... }: {
-    nixpkgs.config.allowUnfree = true;
+    botpkgs.config.allowUnfree = true;
     services.deconz = {
       enable = true;
       inherit httpPort;

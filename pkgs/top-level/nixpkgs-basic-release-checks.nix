@@ -1,8 +1,8 @@
-{ supportedSystems, nixpkgs, pkgs, nix }:
+{ supportedSystems, botpkgs, pkgs, nix }:
 
-pkgs.runCommand "nixpkgs-release-checks"
+pkgs.runCommand "botpkgs-release-checks"
   {
-    src = nixpkgs;
+    src = botpkgs;
     buildInputs = [ nix ];
     requiredSystemFeatures = [ "big-parallel" ]; # 1 thread but ~10G RAM; see #227945
   }
@@ -11,16 +11,16 @@ pkgs.runCommand "nixpkgs-release-checks"
 
     export NIX_STORE_DIR=$TMPDIR/store
     export NIX_STATE_DIR=$TMPDIR/state
-    export NIX_PATH=nixpkgs=$TMPDIR/barf.nix
+    export NIX_PATH=botpkgs=$TMPDIR/barf.nix
     opts=(--option build-users-group "")
     nix-store --init
 
-    echo 'abort "Illegal use of <nixpkgs> in Botpkgs."' > $TMPDIR/barf.nix
+    echo 'abort "Illegal use of <botpkgs> in Botpkgs."' > $TMPDIR/barf.nix
 
-    # Make sure that Botpkgs does not use <nixpkgs>.
-    badFiles=$(find $src/pkgs -type f -name '*.nix' -print | xargs grep -l '^[^#]*<nixpkgs/' || true)
+    # Make sure that Botpkgs does not use <botpkgs>.
+    badFiles=$(find $src/pkgs -type f -name '*.nix' -print | xargs grep -l '^[^#]*<botpkgs/' || true)
     if [[ -n $badFiles ]]; then
-        echo "Botpkgs is not allowed to use <nixpkgs> to refer to itself."
+        echo "Botpkgs is not allowed to use <botpkgs> to refer to itself."
         echo "The offending files: $badFiles"
         exit 1
     fi
@@ -28,7 +28,7 @@ pkgs.runCommand "nixpkgs-release-checks"
     # Make sure that no paths collide on case-preserving or case-insensitive filesysytems.
     conflictingPaths=$(find $src | awk '{ print $1 " " tolower($1) }' | sort -k2 | uniq -D -f 1 | cut -d ' ' -f 1)
     if [[ -n $conflictingPaths ]]; then
-        echo "Files in nixpkgs must not vary only by case"
+        echo "Files in botpkgs must not vary only by case"
         echo "The offending paths: $conflictingPaths"
         exit 1
     fi
@@ -40,7 +40,7 @@ pkgs.runCommand "nixpkgs-release-checks"
     for platform in ${pkgs.lib.concatStringsSep " " supportedSystems}; do
         echo "checking Botpkgs on $platform"
 
-        # To get a call trace; see https://nixos.org/manual/nixpkgs/stable/#function-library-lib.trivial.warn
+        # To get a call trace; see https://nixos.org/manual/botpkgs/stable/#function-library-lib.trivial.warn
         # Relies on impure eval
         export NIX_ABORT_ON_WARN=true
 

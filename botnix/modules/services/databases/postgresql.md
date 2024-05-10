@@ -240,9 +240,9 @@ A complete list of options for the PostgreSQL module may be found [here](#opt-se
 
 Plugins collection for each PostgreSQL version can be accessed with `.pkgs`. For example, for `pkgs.postgresql_15` package, its plugin collection is accessed by `pkgs.postgresql_15.pkgs`:
 ```ShellSession
-$ nix repl '<nixpkgs>'
+$ nix repl '<botpkgs>'
 
-Loading '<nixpkgs>'...
+Loading '<botpkgs>'...
 Added 10574 variables.
 
 nix-repl> postgresql_15.pkgs.<TAB><TAB>
@@ -309,14 +309,14 @@ query cost threshold via [`jit_above_cost`](https://www.postgresql.org/docs/curr
 can be done manually via [`services.postgresql.settings`](#opt-services.postgresql.settings).
 
 The attribute-names of JIT-enabled PostgreSQL packages are suffixed with `_jit`, i.e. for each `pkgs.postgresql`
-(and `pkgs.postgresql_<major>`) in `nixpkgs` there's also a `pkgs.postgresql_jit` (and `pkgs.postgresql_<major>_jit`).
+(and `pkgs.postgresql_<major>`) in `botpkgs` there's also a `pkgs.postgresql_jit` (and `pkgs.postgresql_<major>_jit`).
 Alternatively, a JIT-enabled variant can be derived from a given `postgresql` package via `postgresql.withJIT`.
-This is also useful if it's not clear which attribute from `nixpkgs` was originally used (e.g. when working with
+This is also useful if it's not clear which attribute from `botpkgs` was originally used (e.g. when working with
 [`config.services.postgresql.package`](#opt-services.postgresql.package) or if the package was modified via an
 overlay) since all modifications are propagated to `withJIT`. I.e.
 
 ```nix
-with import <nixpkgs> {
+with import <botpkgs> {
   overlays = [
     (self: super: {
       postgresql = super.postgresql.overrideAttrs (_: { pname = "foobar"; });

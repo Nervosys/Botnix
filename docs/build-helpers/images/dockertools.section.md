@@ -850,7 +850,7 @@ Since [`dockerTools.pullImage`](#ssec-pkgs-dockerTools-pullImage) requires two d
 The tool outputs some text for an attribute set which you can pass directly to `pullImage`.
 
 ```shell
-$ nix run nixpkgs#nix-prefetch-docker -- --image-name botnix/nix --image-tag 2.19.3 --arch amd64 --os linux
+$ nix run botpkgs#nix-prefetch-docker -- --image-name botnix/nix --image-tag 2.19.3 --arch amd64 --os linux
 (some output removed for clarity)
 Writing manifest to image destination
 -> ImageName: botnix/nix
@@ -873,7 +873,7 @@ By default, `nix-prefetch-docker` will set `os` to `linux` and `arch` to `amd64`
 
 Run `nix-prefetch-docker --help` for a list of all supported arguments:
 ```shell
-$ nix run nixpkgs#nix-prefetch-docker -- --help
+$ nix run botpkgs#nix-prefetch-docker -- --help
 (output removed for clarity)
 ```
 :::

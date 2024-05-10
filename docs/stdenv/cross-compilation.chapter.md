@@ -115,7 +115,7 @@ software floating point emulation.  `libgcc` would be a "target→ *" dependency
 
 * `g++` allows inline assembler code, so it depends on access to a copy of the `gas` assembler.  This would be a "host→ target" dependency with triple `(foo, bar, baz)`.
 
-* `g++` (and `gcc`) include a library `libgccjit.so`, which wrap the compiler in a library to create a just-in-time compiler.  In nixpkgs, this library is in the `libgccjit` package; if C++ required that programs have access to a JIT, `g++` would need to add a "target→ target" dependency for `libgccjit` with triple `(foo, baz, baz)`.  This would ensure that the compiler ships with a copy of `libgccjit` which both executes on and generates code for the `baz`-platform.
+* `g++` (and `gcc`) include a library `libgccjit.so`, which wrap the compiler in a library to create a just-in-time compiler.  In botpkgs, this library is in the `libgccjit` package; if C++ required that programs have access to a JIT, `g++` would need to add a "target→ target" dependency for `libgccjit` with triple `(foo, baz, baz)`.  This would ensure that the compiler ships with a copy of `libgccjit` which both executes on and generates code for the `baz`-platform.
 
 * If `g++` itself linked against `libgccjit.so` (for example, to allow compile-time-evaluated C++ expressions), then the `libgccjit` package used to provide this functionality would be a "host→ host" dependency of `g++`: it is code which runs on the `host` and emits code for execution on the `host`.
 
@@ -131,10 +131,10 @@ makeFlags = [ "CC=${stdenv.cc.targetPrefix}cc" ];
 ```
 
 #### How do I avoid compiling a GCC cross-compiler from source? {#cross-qa-avoid-compiling-gcc-cross-compiler}
-On less powerful machines, it can be inconvenient to cross-compile a package only to find out that GCC has to be compiled from source, which could take up to several hours. Botpkgs maintains a limited [cross-related jobset on Hydra](https://hydra.botnix.org/jobset/nixpkgs/cross-trunk), which tests cross-compilation to various platforms from build platforms "x86\_64-darwin", "x86\_64-linux", and "aarch64-linux".  See `pkgs/top-level/release-cross.nix` for the full list of target platforms and packages.  For instance, the following invocation fetches the pre-built cross-compiled GCC for `armv6l-unknown-linux-gnueabihf` and builds GNU Hello from source.
+On less powerful machines, it can be inconvenient to cross-compile a package only to find out that GCC has to be compiled from source, which could take up to several hours. Botpkgs maintains a limited [cross-related jobset on Hydra](https://hydra.nixos.org/jobset/botpkgs/cross-trunk), which tests cross-compilation to various platforms from build platforms "x86\_64-darwin", "x86\_64-linux", and "aarch64-linux".  See `pkgs/top-level/release-cross.nix` for the full list of target platforms and packages.  For instance, the following invocation fetches the pre-built cross-compiled GCC for `armv6l-unknown-linux-gnueabihf` and builds GNU Hello from source.
 
 ```ShellSession
-$ nix-build '<nixpkgs>' -A pkgsCross.raspberryPi.hello
+$ nix-build '<botpkgs>' -A pkgsCross.raspberryPi.hello
 ```
 
 #### What if my package’s build system needs to build a C program to be run under the build environment? {#cross-qa-build-c-program-in-build-environment}
@@ -176,14 +176,14 @@ Example of an error which this fixes.
 Botpkgs can be instantiated with `localSystem` alone, in which case there is no cross-compiling and everything is built by and for that system, or also with `crossSystem`, in which case packages run on the latter, but all building happens on the former. Both parameters take the same schema as the 3 (build, host, and target) platforms defined in the previous section. As mentioned above, `lib.systems.examples` has some platforms which are used as arguments for these parameters in practice. You can use them programmatically, or on the command line:
 
 ```ShellSession
-$ nix-build '<nixpkgs>' --arg crossSystem '(import <nixpkgs/lib>).systems.examples.fooBarBaz' -A whatever
+$ nix-build '<botpkgs>' --arg crossSystem '(import <botpkgs/lib>).systems.examples.fooBarBaz' -A whatever
 ```
 
 ::: {.note}
 Eventually we would like to make these platform examples an unnecessary convenience so that
 
 ```ShellSession
-$ nix-build '<nixpkgs>' --arg crossSystem '{ config = "<arch>-<os>-<vendor>-<abi>"; }' -A whatever
+$ nix-build '<botpkgs>' --arg crossSystem '{ config = "<arch>-<os>-<vendor>-<abi>"; }' -A whatever
 ```
 
 works in the vast majority of cases. The problem today is dependencies on other sorts of configuration which aren't given proper defaults. We rely on the examples to crudely to set those configuration parameters in some vaguely sane manner on the users behalf. Issue [\#34274](https://github.com/nervosys/Botnix/issues/34274) tracks this inconvenience along with its root cause in crufty configuration options.
@@ -192,7 +192,7 @@ works in the vast majority of cases. The problem today is dependencies on other 
 While one is free to pass both parameters in full, there's a lot of logic to fill in missing fields. As discussed in the previous section, only one of `system`, `config`, and `parsed` is needed to infer the other two. Additionally, `libc` will be inferred from `parse`. Finally, `localSystem.system` is also _impurely_ inferred based on the platform evaluation occurs. This means it is often not necessary to pass `localSystem` at all, as in the command-line example in the previous paragraph.
 
 ::: {.note}
-Many sources (manual, wiki, etc) probably mention passing `system`, `platform`, along with the optional `crossSystem` to Botpkgs: `import <nixpkgs> { system = ..; platform = ..; crossSystem = ..; }`. Passing those two instead of `localSystem` is still supported for compatibility, but is discouraged. Indeed, much of the inference we do for these parameters is motivated by compatibility as much as convenience.
+Many sources (manual, wiki, etc) probably mention passing `system`, `platform`, along with the optional `crossSystem` to Botpkgs: `import <botpkgs> { system = ..; platform = ..; crossSystem = ..; }`. Passing those two instead of `localSystem` is still supported for compatibility, but is discouraged. Indeed, much of the inference we do for these parameters is motivated by compatibility as much as convenience.
 :::
 
 One would think that `localSystem` and `crossSystem` overlap horribly with the three `*Platforms` (`buildPlatform`, `hostPlatform,` and `targetPlatform`; see `stage.nix` or the manual). Actually, those identifiers are purposefully not used here to draw a subtle but important distinction: While the granularity of having 3 platforms is necessary to properly *build* packages, it is overkill for specifying the user's *intent* when making a build plan or package set. A simple "build vs deploy" dichotomy is adequate: the sliding window principle described in the previous section shows how to interpolate between the these two "end points" to get the 3 platform triple for each bootstrapping stage. That means for any package a given package set, even those not bound on the top level but only reachable via dependencies or `buildPackages`, the three platforms will be defined as one of `localSystem` or `crossSystem`, with the former replacing the latter as one traverses build-time dependencies. A last simple difference is that `crossSystem` should be null when one doesn't want to cross-compile, while the `*Platform`s are always non-null. `localSystem` is always non-null.

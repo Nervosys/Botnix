@@ -1,6 +1,6 @@
 { # The pkgs used for dependencies for the testing itself
   # Don't test properties of pkgs.lib, but rather the lib in the parent directory
-  pkgs ? import ../.. {} // { lib = throw "pkgs.lib accessed, but the lib tests should use nixpkgs' lib path directly!"; },
+  pkgs ? import ../.. {} // { lib = throw "pkgs.lib accessed, but the lib tests should use botpkgs' lib path directly!"; },
   nix ? pkgs-nixVersions.stable,
   nixVersions ? [ pkgs-nixVersions.minimum nix pkgs-nixVersions.unstable ],
   pkgs-nixVersions ? import ./nix-for-tests.nix { inherit pkgs; },
@@ -9,7 +9,7 @@
 let
   lib = import ../.;
   testWithNix = nix:
-    pkgs.runCommand "nixpkgs-lib-tests-nix-${nix.version}" {
+    pkgs.runCommand "botpkgs-lib-tests-nix-${nix.version}" {
       buildInputs = [
         (import ./check-eval.nix)
         (import ./maintainers.nix {
@@ -66,7 +66,7 @@ let
 
 in
   pkgs.symlinkJoin {
-    name = "nixpkgs-lib-tests";
+    name = "botpkgs-lib-tests";
     paths = map testWithNix nixVersions ++
 
       #

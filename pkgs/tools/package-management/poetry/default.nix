@@ -6,7 +6,7 @@ let
       poetry = self.callPackage ./unwrapped.nix { };
 
       # The versions of Poetry and poetry-core need to match exactly,
-      # and poetry-core in nixpkgs requires a staging cycle to be updated,
+      # and poetry-core in botpkgs requires a staging cycle to be updated,
       # so apply an override here.
       #
       # We keep the override around even when the versions match, as

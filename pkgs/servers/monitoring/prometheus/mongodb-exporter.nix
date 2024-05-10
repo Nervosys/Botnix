@@ -25,7 +25,7 @@ buildGoModule rec {
   subPackages = [ "." ];
 
   # those check depends on docker;
-  # nixpkgs doesn't have mongodb application available;
+  # botpkgs doesn't have mongodb application available;
   doCheck = false;
 
   meta = with lib;

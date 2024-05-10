@@ -8,13 +8,13 @@ follows:
 
 ```ShellSession
 $ git clone https://github.com/nervosys/Botnix
-$ cd nixpkgs
+$ cd botpkgs
 $ git remote update origin
 ```
 
-This will check out the latest Botpkgs sources to `./nixpkgs` the Botnix
-sources to `./nixpkgs/nixos`. (The Botnix source tree lives in a
-subdirectory of the Botpkgs repository.) The `nixpkgs` repository has
+This will check out the latest Botpkgs sources to `./botpkgs` the Botnix
+sources to `./botpkgs/nixos`. (The Botnix source tree lives in a
+subdirectory of the Botpkgs repository.) The `botpkgs` repository has
 branches that correspond to each Botpkgs/Botnix channel (see
 [](#sec-upgrading) for more information about channels). Thus, the
 Git branch `origin/nixos-17.03` will contain the latest built and tested
@@ -57,16 +57,16 @@ If you want to rebuild your system using your (modified) sources, you
 need to tell `nixos-rebuild` about them using the `-I` flag:
 
 ```ShellSession
-# nixos-rebuild switch -I nixpkgs=/my/sources/nixpkgs
+# nixos-rebuild switch -I botpkgs=/my/sources/botpkgs
 ```
 
 If you want `nix-env` to use the expressions in `/my/sources`, use
 `nix-env -f
-  /my/sources/nixpkgs`, or change the default by adding a symlink in
+  /my/sources/botpkgs`, or change the default by adding a symlink in
 `~/.nix-defexpr`:
 
 ```ShellSession
-$ ln -s /my/sources/nixpkgs ~/.nix-defexpr/nixpkgs
+$ ln -s /my/sources/botpkgs ~/.nix-defexpr/botpkgs
 ```
 
 You may want to delete the symlink `~/.nix-defexpr/channels_root` to

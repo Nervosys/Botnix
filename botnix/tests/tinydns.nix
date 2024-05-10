@@ -27,7 +27,7 @@ import ./make-test-python.nix ({ lib, ...} : {
     #   nameserver # [    6.105872] mmap: tinydns (842): VmData 331776 exceed data ulimit 300000. Update limits or use boot option ignore_rlimit_data.
     #
     # which was reported in https://github.com/nervosys/Botnix/issues/119066.
-    # Without the patch <nixpkgs/pkgs/tools/networking/djbdns/softlimit.patch>
+    # Without the patch <botpkgs/pkgs/tools/networking/djbdns/softlimit.patch>
     # it fails on the 10th iteration.
     nameserver.succeed(
         """

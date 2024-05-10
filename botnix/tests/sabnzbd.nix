@@ -10,7 +10,7 @@ import ./make-test-python.nix ({ pkgs, lib, ... }: {
     };
 
     # unrar is unfree
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "unrar" ];
+    botpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "unrar" ];
   };
 
   testScript = ''

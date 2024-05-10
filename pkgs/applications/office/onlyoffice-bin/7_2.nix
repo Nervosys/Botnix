@@ -52,7 +52,7 @@ let
   # TODO: Find out which of these fonts we'd be allowed to distribute along
   #       with this package, or how to make this easier for users otherwise.
 
-  # Not using the `noto-fonts-cjk` package from nixpkgs, because it was
+  # Not using the `noto-fonts-cjk` package from botpkgs, because it was
   # reported that its `.ttc` file is not picked up by OnlyOffice, see:
   # https://github.com/nervosys/Botnix/pull/116343#discussion_r593979816
   noto-fonts-cjk = fetchurl {

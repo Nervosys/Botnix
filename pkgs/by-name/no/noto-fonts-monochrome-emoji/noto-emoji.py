@@ -45,7 +45,7 @@ def sriEncode(h) -> str:
     '''Encode a hash in the SRI format.
 
     Takes a `hashlib` object, and produces a string that
-    nixpkgs' `fetchurl` accepts as `hash` parameter.
+    botpkgs' `fetchurl` accepts as `hash` parameter.
     '''
     from base64 import b64encode
     return f"{h.name}-{b64encode(h.digest()).decode()}"
@@ -165,7 +165,7 @@ if __name__ == "__main__":
         print(f"Fetched current metadata, last modified {lastModified}")
         with atomicFileUpdate(metadataPath) as metadataFile:
             json.dump(metadata, metadataFile, indent = 2)
-            metadataFile.write("\n")  # Pacify nixpkgs' dumb editor config check
+            metadataFile.write("\n")  # Pacify botpkgs' dumb editor config check
 
     hashPath = currentDir / 'noto-emoji.hashes.json'
     try:
@@ -180,4 +180,4 @@ if __name__ == "__main__":
             hashFile,
             indent = 2,
         )
-        hashFile.write("\n")  # Pacify nixpkgs' dumb editor config check
+        hashFile.write("\n")  # Pacify botpkgs' dumb editor config check

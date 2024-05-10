@@ -50,7 +50,7 @@ class BaseConverter(Converter[md.TR], Generic[md.TR]):
         return [ (k, self._options[k]) for k in keys ]
 
     def _format_decl_def_loc(self, loc: OptionLoc) -> tuple[Optional[str], str]:
-        # locations can be either plain strings (specific to nixpkgs), or attrsets
+        # locations can be either plain strings (specific to botpkgs), or attrsets
         # { name = "foo/bar.nix"; url = "https://github.com/....."; }
         if isinstance(loc, str):
             # Hyperlink the filename either to the Botnix github
@@ -67,7 +67,7 @@ class BaseConverter(Converter[md.TR], Generic[md.TR]):
             # /nix/store/<hash> prefix by the default location of botnix
             # sources.
             if not loc.startswith('/'):
-                name = f"<nixpkgs/{loc}>"
+                name = f"<botpkgs/{loc}>"
             elif 'nixops' in loc and '/nix/' in loc:
                 name = f"<nixops/{loc[loc.find('/nix/') + 5:]}>"
             else:
@@ -252,7 +252,7 @@ class DocBookConverter(BaseConverter[OptionsDocBookRenderer]):
             ]
         result += [
             '<variablelist xmlns:xlink="http://www.w3.org/1999/xlink"',
-            '               xmlns:botnix="tag:botnix.org"',
+            '               xmlns:botnix="tag:nixos.org"',
             '               xmlns="http://docbook.org/ns/docbook"',
             f'              xml:id="{self._varlist_id}">',
         ]

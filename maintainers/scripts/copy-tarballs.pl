@@ -1,7 +1,7 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -i perl -p perl perlPackages.NetAmazonS3 perlPackages.FileSlurp perlPackages.JSON perlPackages.LWPProtocolHttps nixUnstable nixUnstable.perl-bindings
 
-# This command uploads tarballs to tarballs.botnix.org, the
+# This command uploads tarballs to tarballs.nixos.org, the
 # content-addressed cache used by fetchurl as a fallback for when
 # upstream tarballs disappear or change. Usage:
 #
@@ -11,7 +11,7 @@
 #
 # 2) To upload all files obtained via calls to fetchurl in a Nix derivation:
 #
-#    $ copy-tarballs.pl --expr '(import <nixpkgs> {}).hello'
+#    $ copy-tarballs.pl --expr '(import <botpkgs> {}).hello'
 
 use strict;
 use warnings;
@@ -64,7 +64,7 @@ if (not defined $ENV{DEBUG}) {
           host                  => "s3-eu-west-1.amazonaws.com",
         });
 
-    $bucket = $s3->bucket("nixpkgs-tarballs") or die;
+    $bucket = $s3->bucket("botpkgs-tarballs") or die;
 }
 
 my $doWrite = 0;
@@ -148,7 +148,7 @@ elsif (defined $expr) {
 
     # Evaluate find-tarballs.nix.
     my $pid = open(JSON, "-|", "nix-instantiate", "--eval", "--json", "--strict",
-                   "<nixpkgs/maintainers/scripts/find-tarballs.nix>",
+                   "<botpkgs/maintainers/scripts/find-tarballs.nix>",
                    "--arg", "expr", $expr);
     my $stdout = <JSON>;
     waitpid($pid, 0);

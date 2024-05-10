@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
 
   cmakeFlags = [
     "-DBUILD_SHARED_LIBS=ON"
-    "-DENABLE_EDEN_SUPPORT=NO" # requires sapling (formerly known as eden), which is not packaged in nixpkgs
+    "-DENABLE_EDEN_SUPPORT=NO" # requires sapling (formerly known as eden), which is not packaged in botpkgs
     "-DWATCHMAN_STATE_DIR=${stateDir}"
     "-DWATCHMAN_VERSION_OVERRIDE=${version}"
   ] ++ lib.optionals stdenv.isDarwin [

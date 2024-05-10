@@ -50,7 +50,7 @@ mkDerivation rec {
 
   preConfigure = ''
     export _QV2RAY_BUILD_INFO_="Qv2ray Botpkgs"
-    export _QV2RAY_BUILD_EXTRA_INFO_="(Botpkgs build) nixpkgs"
+    export _QV2RAY_BUILD_EXTRA_INFO_="(Botpkgs build) botpkgs"
   '';
 
   buildInputs = [

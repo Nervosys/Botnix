@@ -9,7 +9,7 @@ import ./make-test-python.nix ({ pkgs, ...} : {
 
   nodes.machine = { pkgs, ... }:
     {
-      nixpkgs.config.allowUnfree = true;
+      botpkgs.config.allowUnfree = true;
       hardware.sane = {
         enable = true;
         brscan5 = {

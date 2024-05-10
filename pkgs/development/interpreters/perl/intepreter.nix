@@ -136,9 +136,9 @@ stdenv.mkDerivation (rec {
   preConfigure = ''
     cat > config.over <<EOF
     ${lib.optionalString (stdenv.hostPlatform.isLinux && stdenv.hostPlatform.isGnu) ''osvers="gnulinux"''}
-    myuname="nixpkgs"
-    myhostname="nixpkgs"
-    cf_by="nixpkgs"
+    myuname="botpkgs"
+    myhostname="botpkgs"
+    cf_by="botpkgs"
     cf_time="$(date -d "@$SOURCE_DATE_EPOCH")"
     EOF
 

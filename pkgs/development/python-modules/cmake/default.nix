@@ -34,7 +34,7 @@ buildPythonPackage rec {
     description = "CMake is an open-source, cross-platform family of tools designed to build, test and package software";
     longDescription = ''
       This is a stub of the cmake package on PyPI that uses the cmake program
-      provided by nixpkgs instead of downloading cmake from the web.
+      provided by botpkgs instead of downloading cmake from the web.
     '';
     homepage = "https://github.com/scikit-build/cmake-python-distributions";
     license = licenses.asl20;

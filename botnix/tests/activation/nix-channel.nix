@@ -15,7 +15,7 @@
 
     assert machine.succeed("cat /root/.nix-channels") == "${nodes.machine.system.defaultChannel} botnix\n"
 
-    nixpkgs_unstable_channel = "https://nixos.org/channels/nixpkgs-unstable nixpkgs"
+    nixpkgs_unstable_channel = "https://nixos.org/channels/botpkgs-unstable botpkgs"
     machine.succeed(f"echo '{nixpkgs_unstable_channel}' > /root/.nix-channels")
 
     machine.reboot()

@@ -1,4 +1,4 @@
-# EditorConfig configuration for nixpkgs
+# EditorConfig configuration for botpkgs
 # https://EditorConfig.org
 
 # Top-most EditorConfig file
@@ -17,7 +17,7 @@ end_of_line = unset
 insert_final_newline = unset
 trim_trailing_whitespace = unset
 
-# see https://nixos.org/nixpkgs/manual/#chap-conventions
+# see https://nixos.org/botpkgs/manual/#chap-conventions
 
 # Match json/lockfiles/markdown/nix/perl/python/ruby/shell/docbook files, set indent to spaces
 [*.{json,lock,md,nix,pl,pm,py,rb,sh,xml}]
@@ -56,7 +56,7 @@ trim_trailing_whitespace = unset
 indent_size = unset
 
 # Although Markdown/CommonMark allows using two trailing spaces to denote
-# a hard line break, we do not use that feature in nixpkgs since
+# a hard line break, we do not use that feature in botpkgs since
 # it forces the surrounding paragraph to become a <literallayout> which
 # does not wrap reasonably.
 # Instead of a hard line break, start a new paragraph by inserting a blank line.

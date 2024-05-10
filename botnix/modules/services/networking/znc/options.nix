@@ -104,7 +104,7 @@ in
           "znc", global modules "webadmin" and "adminlog" will be enabled by
           default, and more, all controlled through the
           {option}`services.znc.confOptions.*` options.
-          You can use {command}`nix-instantiate --eval --strict '<nixpkgs/botnix>' -A config.services.znc.config`
+          You can use {command}`nix-instantiate --eval --strict '<botpkgs/botnix>' -A config.services.znc.config`
           to view the current value of the config.
 
           In any case, if you need more flexibility,

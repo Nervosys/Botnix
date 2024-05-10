@@ -27,7 +27,7 @@ var ${bucket:=botnix-amis}
 var ${service_role_name:=vmimport}
 
 # Output of the command:
-# $ nix-shell -I nixpkgs=. -p awscli --run 'aws ec2 describe-regions --region us-east-1 --all-regions --query "Regions[].{Name:RegionName}" --output text | sort | sed -e s/^/\ \ /'
+# $ nix-shell -I botpkgs=. -p awscli --run 'aws ec2 describe-regions --region us-east-1 --all-regions --query "Regions[].{Name:RegionName}" --output text | sort | sed -e s/^/\ \ /'
 var ${regions:=
   af-south-1
   ap-east-1

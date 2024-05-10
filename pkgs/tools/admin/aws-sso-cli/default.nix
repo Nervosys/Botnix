@@ -20,7 +20,7 @@ buildGoModule rec {
 
   ldflags = [
     "-X main.Version=${version}"
-    "-X main.Tag=nixpkgs"
+    "-X main.Tag=botpkgs"
   ];
 
   postInstall = ''

@@ -1,4 +1,4 @@
-# The standard set of gems in nixpkgs including potential fixes.
+# The standard set of gems in botpkgs including potential fixes.
 #
 # The gemset is derived from two points of entry:
 # - An attrset describing a gem, including version, source and dependencies
@@ -142,13 +142,13 @@ in
   };
 
   rdiscount = attrs: {
-    # Use discount from nixpkgs instead of vendored version
+    # Use discount from botpkgs instead of vendored version
     dontBuild = false;
     buildInputs = [ discount ];
     patches = [
       # Adapted from Debian:
       # https://sources.debian.org/data/main/r/ruby-rdiscount/2.1.8-1/debian/patches/01_use-system-libmarkdown.patch
-      ./rdiscount-use-nixpkgs-libmarkdown.patch
+      ./rdiscount-use-botpkgs-libmarkdown.patch
     ];
   };
 

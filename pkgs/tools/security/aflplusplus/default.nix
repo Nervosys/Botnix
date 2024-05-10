@@ -55,7 +55,7 @@ let
         --replace 'getenv("AFL_PATH")' "(getenv(\"AFL_PATH\") ? getenv(\"AFL_PATH\") : \"$out/lib/afl\")"
 
       substituteInPlace src/afl-ld-lto.c \
-        --replace 'LLVM_BINDIR' '"/nixpkgs-patched-does-not-exist"'
+        --replace 'LLVM_BINDIR' '"/botpkgs-patched-does-not-exist"'
 
       # Remove the rest of the line
       sed -i 's|LLVM_BINDIR = .*|LLVM_BINDIR = |' utils/aflpp_driver/GNUmakefile

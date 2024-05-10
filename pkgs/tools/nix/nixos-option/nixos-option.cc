@@ -606,8 +606,8 @@ void printOne(Context &ctx, Out &out, const std::string &path) {
 int main(int argc, char **argv) {
   bool recursive = false;
   std::string path = ".";
-  std::string optionsExpr = "(import <nixpkgs/botnix> {}).options";
-  std::string configExpr = "(import <nixpkgs/botnix> {}).config";
+  std::string optionsExpr = "(import <botpkgs/botnix> {}).options";
+  std::string configExpr = "(import <botpkgs/botnix> {}).config";
   std::vector<std::string> args;
 
   struct MyArgs : nix::LegacyArgs, nix::MixEvalArgs {

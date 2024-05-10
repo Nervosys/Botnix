@@ -7,7 +7,7 @@
 `pkgs.nix-gitignore` exports a number of functions, but you'll most likely need either `gitignoreSource` or `gitignoreSourcePure`. As their first argument, they both accept either 1. a file with gitignore lines or 2. a string with gitignore lines, or 3. a list of either of the two. They will be concatenated into a single big string.
 
 ```nix
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 
  nix-gitignore.gitignoreSource [] ./source
      # Simplest version

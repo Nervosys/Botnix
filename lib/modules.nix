@@ -62,7 +62,7 @@ let
           decls
       ));
 
-  /* See https://nixos.org/manual/nixpkgs/unstable/#module-system-lib-evalModules
+  /* See https://nixos.org/manual/botpkgs/unstable/#module-system-lib-evalModules
      or file://./../doc/module-system/module-system.chapter.md
 
      !!! Please think twice before adding to this argument list! The more
@@ -151,7 +151,7 @@ let
 
               Some arguments are already passed by default, of which the
               following *cannot* be changed with this option:
-              - {var}`lib`: The nixpkgs library.
+              - {var}`lib`: The botpkgs library.
               - {var}`config`: The results of all options after merging the values from all modules together.
               - {var}`options`: The options declared in all modules.
               - {var}`specialArgs`: The `specialArgs` argument passed to `evalModules`.
@@ -166,9 +166,9 @@ let
 
                 For Botnix, `specialArgs` includes
                 {var}`modulesPath`, which allows you to import
-                extra modules from the nixpkgs package tree without having to
+                extra modules from the botpkgs package tree without having to
                 somehow make the module aware of the location of the
-                `nixpkgs` or Botnix directories.
+                `botpkgs` or Botnix directories.
                 ```
                 { modulesPath, ... }: {
                   imports = [
@@ -178,8 +178,8 @@ let
                 ```
 
               For Botnix, the default value for this option includes at least this argument:
-              - {var}`pkgs`: The nixpkgs package set according to
-                the {option}`nixpkgs.pkgs` option.
+              - {var}`pkgs`: The botpkgs package set according to
+                the {option}`botpkgs.pkgs` option.
             '';
           };
 
@@ -1132,7 +1132,7 @@ let
 
     /*
       Release number of the first release that contains the rename, ignoring backports.
-      Set it to the upcoming release, matching the nixpkgs/.version file.
+      Set it to the upcoming release, matching the botpkgs/.version file.
     */
     sinceRelease,
 
@@ -1302,7 +1302,7 @@ let
   };
 
   private = lib.mapAttrs
-    (k: lib.warn "External use of `lib.modules.${k}` is deprecated. If your use case isn't covered by non-deprecated functions, we'd like to know more and perhaps support your use case well, instead of providing access to these low level functions. In this case please open an issue in https://github.com/nervosys/nixpkgs/issues/.")
+    (k: lib.warn "External use of `lib.modules.${k}` is deprecated. If your use case isn't covered by non-deprecated functions, we'd like to know more and perhaps support your use case well, instead of providing access to these low level functions. In this case please open an issue in https://github.com/nervosys/botpkgs/issues/.")
     {
       inherit
         applyModuleArgsIfFunction

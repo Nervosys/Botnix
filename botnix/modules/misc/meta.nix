@@ -12,8 +12,8 @@ let
   listOfMaintainers = types.listOf maintainer // {
     # Returns list of
     #   { "module-file" = [
-    #        "maintainer1 <first@botnix.org>"
-    #        "maintainer2 <second@botnix.org>" ];
+    #        "maintainer1 <first@nixos.org>"
+    #        "maintainer2 <second@nixos.org>" ];
     #   }
     merge = loc: defs:
       zipAttrs

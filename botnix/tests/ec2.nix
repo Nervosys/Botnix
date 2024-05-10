@@ -121,9 +121,9 @@ in {
 
       {
         imports = [
-          <nixpkgs/botnix/modules/virtualisation/amazon-image.nix>
-          <nixpkgs/botnix/modules/testing/test-instrumentation.nix>
-          <nixpkgs/botnix/modules/profiles/qemu-guest.nix>
+          <botpkgs/botnix/modules/virtualisation/amazon-image.nix>
+          <botpkgs/botnix/modules/testing/test-instrumentation.nix>
+          <botpkgs/botnix/modules/profiles/qemu-guest.nix>
         ];
         environment.etc.testFile = {
           text = "whoa";

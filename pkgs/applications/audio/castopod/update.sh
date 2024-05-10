@@ -2,8 +2,8 @@
 #! nix-shell -i bash -p curl jq
 set -euo pipefail
 
-nixpkgs="$(git rev-parse --show-toplevel)"
-castopod_nix="$nixpkgs/pkgs/applications/audio/castopod/default.nix"
+botpkgs="$(git rev-parse --show-toplevel)"
+castopod_nix="$botpkgs/pkgs/applications/audio/castopod/default.nix"
 
 # https://www.meetup.com/api/guide/#p02-querying-section
 query='
@@ -71,7 +71,7 @@ echo "$json"
 TAG=$(echo $json | jq -r '.data.project.releases.nodes[].tagName')
 ASSET_URL=$(echo $json | jq -r '.data.project.releases.nodes[].assets.links.nodes[].url' | grep .tar.gz$)
 
-CURRENT_VERSION=$(nix eval -f "$nixpkgs" --raw castopod.version)
+CURRENT_VERSION=$(nix eval -f "$botpkgs" --raw castopod.version)
 VERSION=${TAG:1}
 
 if [[ "$CURRENT_VERSION" == "$VERSION" ]]; then

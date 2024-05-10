@@ -4,7 +4,7 @@ Certain calls in glibc require access to runtime files found in `/etc` such as `
 
 On non-Botnix distributions these files are typically provided by packages (i.e., [netbase](https://packages.debian.org/sid/netbase)) if not already pre-installed in your distribution. This can cause non-reproducibility for code if they rely on these files being present.
 
-If [iana-etc](https://hydra.botnix.org/job/botnix/trunk-combined/nixpkgs.iana-etc.x86_64-linux) is part of your `buildInputs`, then it will set the environment variables `NIX_ETC_PROTOCOLS` and `NIX_ETC_SERVICES` to the corresponding files in the package through a setup hook.
+If [iana-etc](https://hydra.nixos.org/job/botnix/trunk-combined/botpkgs.iana-etc.x86_64-linux) is part of your `buildInputs`, then it will set the environment variables `NIX_ETC_PROTOCOLS` and `NIX_ETC_SERVICES` to the corresponding files in the package through a setup hook.
 
 
 ```bash

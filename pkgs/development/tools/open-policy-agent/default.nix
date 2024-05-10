@@ -7,7 +7,7 @@
 , enableWasmEval ? false
 }:
 
-assert enableWasmEval && stdenv.isDarwin -> builtins.throw "building with wasm on darwin is failing in nixpkgs";
+assert enableWasmEval && stdenv.isDarwin -> builtins.throw "building with wasm on darwin is failing in botpkgs";
 
 buildGoModule rec {
   pname = "open-policy-agent";

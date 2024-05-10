@@ -90,8 +90,8 @@ stdenv.mkDerivation rec {
       oldVersion="$(nix-instantiate --eval -E "with import ./. {}; lib.getVersion ${pname}" | tr -d '"')"
       latestTag="$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags ${repo} "$versionSelect" | tail --lines=1 | cut --delimiter='/' --fields=3 | sed 's|^v||g')"
       if [ "$oldVersion" != "$latestTag" ]; then
-        nixpkgs="$(git rev-parse --show-toplevel)"
-        default_nix="$nixpkgs/pkgs/development/compilers/scala/2.x.nix"
+        botpkgs="$(git rev-parse --show-toplevel)"
+        default_nix="$botpkgs/pkgs/development/compilers/scala/2.x.nix"
         update-source-version ${pname} "$latestTag" --version-key=version --print-changes
         nixfmt "$default_nix"
       else

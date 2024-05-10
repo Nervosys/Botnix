@@ -2,9 +2,9 @@
 
 # Tests lib/sources.nix
 # Run:
-# [nixpkgs]$ lib/tests/sources.sh
+# [botpkgs]$ lib/tests/sources.sh
 # or:
-# [nixpkgs]$ nix-build lib/tests/release.nix
+# [botpkgs]$ nix-build lib/tests/release.nix
 
 set -euo pipefail
 shopt -s inherit_errexit
@@ -17,9 +17,9 @@ die() {
 }
 
 if test -n "${TEST_LIB:-}"; then
-  NIX_PATH=nixpkgs="$(dirname "$TEST_LIB")"
+  NIX_PATH=botpkgs="$(dirname "$TEST_LIB")"
 else
-  NIX_PATH=nixpkgs="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.."; pwd)"
+  NIX_PATH=botpkgs="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.."; pwd)"
 fi
 export NIX_PATH
 
@@ -40,7 +40,7 @@ crudeUnquoteJSON() {
 
 touch {README.md,module.o,foo.bar}
 
-dir="$(nix-instantiate --eval --strict --read-write-mode --json --expr '(with import <nixpkgs/lib>; "${
+dir="$(nix-instantiate --eval --strict --read-write-mode --json --expr '(with import <botpkgs/lib>; "${
   cleanSource ./.
 }")' | crudeUnquoteJSON)"
 (cd "$dir"; find) | sort -f | diff -U10 - <(cat <<EOF
@@ -51,7 +51,7 @@ EOF
 ) || die "cleanSource 1"
 
 
-dir="$(nix-instantiate --eval --strict --read-write-mode --json --expr '(with import <nixpkgs/lib>; "${
+dir="$(nix-instantiate --eval --strict --read-write-mode --json --expr '(with import <botpkgs/lib>; "${
   cleanSourceWith { src = '"$work"'; filter = path: type: ! hasSuffix ".bar" path; }
 }")' | crudeUnquoteJSON)"
 (cd "$dir"; find) | sort -f | diff -U10 - <(cat <<EOF
@@ -61,7 +61,7 @@ dir="$(nix-instantiate --eval --strict --read-write-mode --json --expr '(with im
 EOF
 ) || die "cleanSourceWith 1"
 
-dir="$(nix-instantiate --eval --strict --read-write-mode --json --expr '(with import <nixpkgs/lib>; "${
+dir="$(nix-instantiate --eval --strict --read-write-mode --json --expr '(with import <botpkgs/lib>; "${
   cleanSourceWith { src = cleanSource '"$work"'; filter = path: type: ! hasSuffix ".bar" path; }
 }")' | crudeUnquoteJSON)"
 (cd "$dir"; find) | sort -f | diff -U10 - <(cat <<EOF

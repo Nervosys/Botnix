@@ -210,7 +210,7 @@ in
 {
 
   imports = [
-    (mkRemovedOptionModule [ "boot" "zfs" "enableLegacyCrypto" ] "The corresponding package was removed from nixpkgs.")
+    (mkRemovedOptionModule [ "boot" "zfs" "enableLegacyCrypto" ] "The corresponding package was removed from botpkgs.")
   ];
 
   ###### interface

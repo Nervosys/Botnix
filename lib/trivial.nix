@@ -168,12 +168,12 @@ in {
     seq deepSeq genericClosure;
 
 
-  ## nixpkgs version strings
+  ## botpkgs version strings
 
-  /* Returns the current full nixpkgs version number. */
+  /* Returns the current full botpkgs version number. */
   version = release + versionSuffix;
 
-  /* Returns the current nixpkgs release number as string. */
+  /* Returns the current botpkgs release number as string. */
   release = lib.strings.fileContents ../.version;
 
   /* The latest release that is supported, at the time of release branch-off,
@@ -195,26 +195,26 @@ in {
      release branch-off, if applicable). See `oldestSupportedRelease`. */
   isInOldestRelease =
     /* Release number of feature introduction as an integer, e.g. 2111 for 21.11.
-       Set it to the upcoming release, matching the nixpkgs/.version file.
+       Set it to the upcoming release, matching the botpkgs/.version file.
     */
     release:
       release <= lib.trivial.oldestSupportedRelease;
 
-  /* Returns the current nixpkgs release code name.
+  /* Returns the current botpkgs release code name.
 
      On each release the first letter is bumped and a new animal is chosen
      starting with that new letter.
   */
   codeName = "Uakari";
 
-  /* Returns the current nixpkgs version suffix as string. */
+  /* Returns the current botpkgs version suffix as string. */
   versionSuffix =
     let suffixFile = ../.version-suffix;
     in if pathExists suffixFile
     then lib.strings.fileContents suffixFile
     else "pre-git";
 
-  /* Attempts to return the the current revision of nixpkgs and
+  /* Attempts to return the the current revision of botpkgs and
      returns the supplied default value otherwise.
 
      Type: revisionWithDefault :: string -> string
@@ -388,8 +388,8 @@ in {
 
     Example:
 
-        throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
-        lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
+        throwIfNot (lib.isList overlays) "The overlays argument to botpkgs must be a list."
+        lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to botpkgs must be functions.") (r: r) overlays
         pkgs
 
   */

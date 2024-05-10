@@ -30,7 +30,7 @@ rustPlatform.buildRustPackage rec {
   OPENSSL_LIB_DIR = "${lib.getLib openssl}/lib";
   OPENSSL_DIR="${lib.getDev openssl}";
 
-  # TODO check why rust compilation fails by including the rocksdb from nixpkgs
+  # TODO check why rust compilation fails by including the rocksdb from botpkgs
   # Used by build.rs in the rocksdb-sys crate. If we don't set these, it would
   # try to build RocksDB from source.
   # ROCKSDB_INCLUDE_DIR="${rocksdb}/include";

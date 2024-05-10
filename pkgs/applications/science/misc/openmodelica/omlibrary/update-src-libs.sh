@@ -9,7 +9,7 @@ chko() {
     trap "rm -rf $T" EXIT INT PIPE
     cd $T
     cat >check.nix <<EOF
-with import <nixpkgs> {};
+with import <botpkgs> {};
 fetchgit `cat $CWD/../mkderivation/src-main.nix`
 EOF
     nix-build check.nix
@@ -20,7 +20,7 @@ EOF
 getsha256() {
   URL=$(echo "$1" | sed 's/^"\(.*\)"$/\1/')
   REV=$(echo "$2" | sed 's/^"\(.*\)"$/\1/')
-  SHA=$(nix run nixpkgs.nix-prefetch-git -c nix-prefetch-git --fetch-submodules "$URL" "$REV" 2>/dev/null | sed -n 's/.*"sha256": "\(.*\)",/\1/g p')
+  SHA=$(nix run botpkgs.nix-prefetch-git -c nix-prefetch-git --fetch-submodules "$URL" "$REV" 2>/dev/null | sed -n 's/.*"sha256": "\(.*\)",/\1/g p')
   echo "{ url = $1; rev = $2; sha256 = \"$SHA\"; fetchSubmodules = true; }"
 }
 

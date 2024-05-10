@@ -14,7 +14,7 @@ If this project is not setuptools-based, pass
 
 to buildPythonApplication/buildPythonPackage or another appropriate value as described here:
 
-  https://nixos.org/manual/nixpkgs/stable/#buildpythonpackage-function
+  https://nixos.org/manual/botpkgs/stable/#buildpythonpackage-function
 EOF
         false
     fi

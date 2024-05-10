@@ -1,7 +1,7 @@
 # Minica can provide a CA key and cert, plus a key
 # and cert for our fake CA server's Web Front End (WFE).
 {
-  pkgs ? import <nixpkgs> {},
+  pkgs ? import <botpkgs> {},
   minica ? pkgs.minica,
   runCommandCC ? pkgs.runCommandCC,
 }:

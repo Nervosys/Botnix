@@ -9,7 +9,7 @@ stdenv.mkDerivation {
   # Workaround build failure on -fno-common toolchains:
   #   ld: textdlg.o:(.bss+0x0): multiple definition of `someString';
   #     configsettings.o:(.bss+0x0): first defined here
-  # TODO: the workaround can be removed once nixpkgs updates to 1.6.0.
+  # TODO: the workaround can be removed once botpkgs updates to 1.6.0.
   env.NIX_CFLAGS_COMPILE = "-fcommon";
 
   preConfigure = ''

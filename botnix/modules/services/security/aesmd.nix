@@ -91,7 +91,7 @@ in
 
     # Make sure the AESM service can find the SGX devices until
     # https://github.com/intel/linux-sgx/issues/772 is resolved
-    # and updated in nixpkgs.
+    # and updated in botpkgs.
     hardware.cpu.intel.sgx.enableDcapCompat = mkForce true;
 
     systemd.services.aesmd =

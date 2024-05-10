@@ -426,7 +426,7 @@ trap cleanup EXIT
 # Re-execute botnix-rebuild from the Botpkgs tree.
 if [[ -z $_NIXOS_REBUILD_REEXEC && -n $canRun && -z $fast ]]; then
     if [[ -z $flake ]]; then
-        if p=$(runCmd nix-build --no-out-link --expr 'with import <nixpkgs/botnix> {}; config.system.build.botnix-rebuild' "${extraBuildFlags[@]}"); then
+        if p=$(runCmd nix-build --no-out-link --expr 'with import <botpkgs/botnix> {}; config.system.build.botnix-rebuild' "${extraBuildFlags[@]}"); then
             SHOULD_REEXEC=1
         fi
     else
@@ -492,13 +492,13 @@ prebuiltNix() {
 if [[ -n $buildNix && -z $flake ]]; then
     log "building Nix..."
     nixDrv=
-    if ! nixDrv="$(runCmd nix-instantiate '<nixpkgs/botnix>' --add-root "$tmpDir/nix.drv" --indirect -A config.nix.package.out "${extraBuildFlags[@]}")"; then
-        if ! nixDrv="$(runCmd nix-instantiate '<nixpkgs>' --add-root "$tmpDir/nix.drv" --indirect -A nix "${extraBuildFlags[@]}")"; then
-            if ! nixStorePath="$(runCmd nix-instantiate --eval '<nixpkgs/botnix/modules/installer/tools/nix-fallback-paths.nix>' -A "$(nixSystem)" | sed -e 's/^"//' -e 's/"$//')"; then
+    if ! nixDrv="$(runCmd nix-instantiate '<botpkgs/botnix>' --add-root "$tmpDir/nix.drv" --indirect -A config.nix.package.out "${extraBuildFlags[@]}")"; then
+        if ! nixDrv="$(runCmd nix-instantiate '<botpkgs>' --add-root "$tmpDir/nix.drv" --indirect -A nix "${extraBuildFlags[@]}")"; then
+            if ! nixStorePath="$(runCmd nix-instantiate --eval '<botpkgs/botnix/modules/installer/tools/nix-fallback-paths.nix>' -A "$(nixSystem)" | sed -e 's/^"//' -e 's/"$//')"; then
                 nixStorePath="$(prebuiltNix "$(uname -m)")"
             fi
             if ! runCmd nix-store -r "$nixStorePath" --add-root "${tmpDir}/nix" --indirect \
-                --option extra-binary-caches https://cache.botnix.org/; then
+                --option extra-binary-caches https://cache.nixos.org/; then
                 log "warning: don't know how to get latest Nix"
             fi
             # Older version of nix-store -r don't support --add-root.
@@ -507,7 +507,7 @@ if [[ -n $buildNix && -z $flake ]]; then
                 remoteNixStorePath="$(runCmd prebuiltNix "$(buildHostCmd uname -m)")"
                 remoteNix="$remoteNixStorePath/bin"
                 if ! buildHostCmd nix-store -r "$remoteNixStorePath" \
-                  --option extra-binary-caches https://cache.botnix.org/ >/dev/null; then
+                  --option extra-binary-caches https://cache.nixos.org/ >/dev/null; then
                     remoteNix=
                     log "warning: don't know how to get latest Nix"
                 fi
@@ -531,10 +531,10 @@ fi
 # Update the version suffix if we're building from Git (so that
 # botnix-version shows something useful).
 if [[ -n $canRun && -z $flake ]]; then
-    if nixpkgs=$(runCmd nix-instantiate --find-file nixpkgs "${extraBuildFlags[@]}"); then
-        suffix=$(runCmd $SHELL "$nixpkgs/botnix/modules/installer/tools/get-version-suffix" "${extraBuildFlags[@]}" || true)
+    if botpkgs=$(runCmd nix-instantiate --find-file botpkgs "${extraBuildFlags[@]}"); then
+        suffix=$(runCmd $SHELL "$botpkgs/botnix/modules/installer/tools/get-version-suffix" "${extraBuildFlags[@]}" || true)
         if [ -n "$suffix" ]; then
-            echo -n "$suffix" > "$nixpkgs/.version-suffix" || true
+            echo -n "$suffix" > "$botpkgs/.version-suffix" || true
         fi
     fi
 fi
@@ -549,7 +549,7 @@ if [ "$action" = repl ]; then
     # You should feel free to improve its behavior, as well as resolve tech
     # debt in "breaking" ways. Humans adapt quite well.
     if [[ -z $flake ]]; then
-        exec nix repl '<nixpkgs/botnix>' "${extraBuildFlags[@]}"
+        exec nix repl '<botpkgs/botnix>' "${extraBuildFlags[@]}"
     else
         if [[ -n "${lockFlags[0]}" ]]; then
             # nix repl itself does not support locking flags
@@ -697,7 +697,7 @@ if [ -z "$rollback" ]; then
     log "building the system configuration..."
     if [[ "$action" = switch || "$action" = boot ]]; then
         if [[ -z $flake ]]; then
-            pathToConfig="$(nixBuild '<nixpkgs/botnix>' --no-out-link -A system "${extraBuildFlags[@]}")"
+            pathToConfig="$(nixBuild '<botpkgs/botnix>' --no-out-link -A system "${extraBuildFlags[@]}")"
         else
             pathToConfig="$(nixFlakeBuild "$flake#$flakeAttr.config.system.build.toplevel" "${extraBuildFlags[@]}" "${lockFlags[@]}")"
         fi
@@ -705,19 +705,19 @@ if [ -z "$rollback" ]; then
         targetHostSudoCmd nix-env -p "$profile" --set "$pathToConfig"
     elif [[ "$action" = test || "$action" = build || "$action" = dry-build || "$action" = dry-activate ]]; then
         if [[ -z $flake ]]; then
-            pathToConfig="$(nixBuild '<nixpkgs/botnix>' -A system -k "${extraBuildFlags[@]}")"
+            pathToConfig="$(nixBuild '<botpkgs/botnix>' -A system -k "${extraBuildFlags[@]}")"
         else
             pathToConfig="$(nixFlakeBuild "$flake#$flakeAttr.config.system.build.toplevel" "${extraBuildFlags[@]}" "${lockFlags[@]}")"
         fi
     elif [ "$action" = build-vm ]; then
         if [[ -z $flake ]]; then
-            pathToConfig="$(nixBuild '<nixpkgs/botnix>' -A vm -k "${extraBuildFlags[@]}")"
+            pathToConfig="$(nixBuild '<botpkgs/botnix>' -A vm -k "${extraBuildFlags[@]}")"
         else
             pathToConfig="$(nixFlakeBuild "$flake#$flakeAttr.config.system.build.vm" "${extraBuildFlags[@]}" "${lockFlags[@]}")"
         fi
     elif [ "$action" = build-vm-with-bootloader ]; then
         if [[ -z $flake ]]; then
-            pathToConfig="$(nixBuild '<nixpkgs/botnix>' -A vmWithBootLoader -k "${extraBuildFlags[@]}")"
+            pathToConfig="$(nixBuild '<botpkgs/botnix>' -A vmWithBootLoader -k "${extraBuildFlags[@]}")"
         else
             pathToConfig="$(nixFlakeBuild "$flake#$flakeAttr.config.system.build.vmWithBootLoader" "${extraBuildFlags[@]}" "${lockFlags[@]}")"
         fi

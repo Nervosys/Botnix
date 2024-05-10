@@ -1,12 +1,12 @@
 # k3s versions
 
-K3s, Kubernetes, and other clustered software has the property of not being able to update atomically. Most software in nixpkgs, like for example bash, can be updated as part of a "botnix-rebuild switch" without having to worry about the old and the new bash interacting in some way.
+K3s, Kubernetes, and other clustered software has the property of not being able to update atomically. Most software in botpkgs, like for example bash, can be updated as part of a "botnix-rebuild switch" without having to worry about the old and the new bash interacting in some way.
 
 K3s/Kubernetes, on the other hand, is typically run across several Botnix machines, and each Botnix machine is updated independently. As such, different versions of the package and Botnix module must maintain compatibility with each other through temporary version skew during updates.
 
 The upstream Kubernetes project [documents this in their version-skew policy](https://kubernetes.io/releases/version-skew-policy/#supported-component-upgrade-order).
 
-Within nixpkgs, we strive to maintain a valid "upgrade path" that does not run
+Within botpkgs, we strive to maintain a valid "upgrade path" that does not run
 afoul of the upstream version skew policy.
 
 ## Upstream release cadence and support
@@ -17,7 +17,7 @@ This is documented upstream [here](https://kubernetes.io/releases/patch-releases
 
 In short, a new Kubernetes version is released roughly every 4 months, and each release is supported for a little over 1 year.
 
-Any version that is not supported by upstream should be dropped from nixpkgs.
+Any version that is not supported by upstream should be dropped from botpkgs.
 
 ## Versions in Botnix releases
 

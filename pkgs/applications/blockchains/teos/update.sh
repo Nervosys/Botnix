@@ -4,9 +4,9 @@ set -euo pipefail
 
 # Fetch latest release, update derivation
 scriptDir=$(cd "${BASH_SOURCE[0]%/*}" && pwd)
-nixpkgs=$(realpath "$scriptDir"/../../../..)
+botpkgs=$(realpath "$scriptDir"/../../../..)
 
-oldVersion=$(nix-instantiate --eval -E "(import \"$nixpkgs\" { config = {}; overlays = []; }).teos.version" | tr -d '"')
+oldVersion=$(nix-instantiate --eval -E "(import \"$botpkgs\" { config = {}; overlays = []; }).teos.version" | tr -d '"')
 version=$(curl -s --show-error "https://api.github.com/repos/talaia-labs/rust-teos/releases/latest" | jq -r '.tag_name' | tail -c +2)
 
 if [[ $version == $oldVersion ]]; then
@@ -25,7 +25,7 @@ git -C "$repo" checkout "tags/v${version}"
 rm -rf "${repo}/.git"
 hashcheck=$(nix hash path "$repo")
 
-(cd "$nixpkgs" && update-source-version teos "$version" "$hashcheck")
+(cd "$botpkgs" && update-source-version teos "$version" "$hashcheck")
 sed -i 's|cargoHash = .*|cargoHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";|' "${scriptDir}/default.nix"
 echo
 echo "rust-teos: $oldVersion -> $version"

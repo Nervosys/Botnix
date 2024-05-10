@@ -191,9 +191,9 @@ in {
         source /etc/profile
         export PATH="''${MPATH}:''${PATH}";
 
-        if ! test -f ~/.nixpkgs/config.nix; then
-          mkdir -p ~/.nixpkgs/
-          echo "{ allowUnfree = true; }" > ~/.nixpkgs/config.nix
+        if ! test -f ~/.botpkgs/config.nix; then
+          mkdir -p ~/.botpkgs/
+          echo "{ allowUnfree = true; }" > ~/.botpkgs/config.nix
         fi
 
         mkdir -p config

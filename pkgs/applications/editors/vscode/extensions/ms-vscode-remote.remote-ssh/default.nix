@@ -15,7 +15,7 @@ let
   # otherwise we check if the globally installed Node
   # is usable.
   patch = ''
-    # Use Node from nixpkgs for Botnix hosts
+    # Use Node from botpkgs for Botnix hosts
     #
 
     serverDir="$HOME/.vscode-server/bin/$COMMIT_ID"
@@ -26,8 +26,8 @@ let
     if ! nodeVersion=$($serverNode -v); then
       echo "VS Code Node Version: $nodeVersion"
 
-      if ! nix-build "<nixpkgs>" -A patchelf --out-link "$serverDir/patchelf" || ! "$serverDir/patchelf/bin/patchelf" --version; then
-        echo "Failed to get patchelf from nixpkgs"
+      if ! nix-build "<botpkgs>" -A patchelf --out-link "$serverDir/patchelf" || ! "$serverDir/patchelf/bin/patchelf" --version; then
+        echo "Failed to get patchelf from botpkgs"
       fi
 
       if [ -e $serverNode.orig ]; then
@@ -36,16 +36,16 @@ let
         cp $serverNode $serverNode.orig
       fi
 
-      if ! nix-build "<nixpkgs>" -A bintools --out-link $serverDir/bintools; then
-        echo "Failed to build bintools from nixpkgs"
+      if ! nix-build "<botpkgs>" -A bintools --out-link $serverDir/bintools; then
+        echo "Failed to build bintools from botpkgs"
       fi
 
       INTERPRETER=$(cat $serverDir/bintools/nix-support/dynamic-linker)
 
       echo "Interpreter from bintools: $INTERPRETER"
 
-      if ! nix-build "<nixpkgs>" -A stdenv.cc.cc.lib --out-link $serverDir/cc; then
-        echo "Failed to build stdenv.cc.cc.lib from nixpkgs"
+      if ! nix-build "<botpkgs>" -A stdenv.cc.cc.lib --out-link $serverDir/cc; then
+        echo "Failed to build stdenv.cc.cc.lib from botpkgs"
       fi
 
       if ! $serverDir/patchelf/bin/patchelf --set-interpreter $INTERPRETER --set-rpath $serverDir/cc-lib/lib $serverNode; then

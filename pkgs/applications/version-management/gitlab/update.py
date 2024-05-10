@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -I nixpkgs=../../../.. -i python3 -p bundix bundler nix-update nix nix-universal-prefetch python3 python3Packages.requests python3Packages.click python3Packages.click-log python3Packages.packaging prefetch-yarn-deps git
+#! nix-shell -I botpkgs=../../../.. -i python3 -p bundix bundler nix-update nix nix-universal-prefetch python3 python3Packages.requests python3Packages.click python3Packages.click-log python3Packages.packaging prefetch-yarn-deps git
 
 import click
 import click_log
@@ -132,7 +132,7 @@ def _get_data_json():
 
 
 def _call_nix_update(pkg, version):
-    """calls nix-update from nixpkgs root dir"""
+    """calls nix-update from botpkgs root dir"""
     return subprocess.check_output(
         ["nix-update", pkg, "--version", version], cwd=NIXPKGS_PATH
     )

@@ -31,7 +31,7 @@ Most files in this directory are definitions of sub-libraries, but there are a f
 
 ### Module system
 
-The [module system](https://nixos.org/manual/nixpkgs/#module-system) spans multiple sub-libraries:
+The [module system](https://nixos.org/manual/botpkgs/#module-system) spans multiple sub-libraries:
 - [`modules.nix`](modules.nix): `lib.modules` for the core functions and anything not relating to option definitions
 - [`options.nix`](options.nix): `lib.options` for anything relating to option definitions
 - [`types.nix`](types.nix): `lib.types` for module system types
@@ -102,7 +102,7 @@ That said, don't optimise prematurely, especially in new code.
 ## Reference documentation
 
 Reference documentation for library functions is written above each function as a multi-line comment.
-These comments are processed using [nixdoc](https://github.com/nix-community/nixdoc) and [rendered in the Botpkgs manual](https://nixos.org/manual/nixpkgs/stable/#chap-functions).
+These comments are processed using [nixdoc](https://github.com/nix-community/nixdoc) and [rendered in the Botpkgs manual](https://nixos.org/manual/botpkgs/stable/#chap-functions).
 The nixdoc README describes the [comment format](https://github.com/nix-community/nixdoc#comment-format).
 
 See [doc/README.md](../doc/README.md) for how to build the manual.

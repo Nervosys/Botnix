@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -I nixpkgs=./ -i python3 -p "python3.withPackages (ps: with ps; [ requests ])" -p git -p nix-prefetch-github
+#!nix-shell -I botpkgs=./ -i python3 -p "python3.withPackages (ps: with ps; [ requests ])" -p git -p nix-prefetch-github
 
 import json
 import os
@@ -20,7 +20,7 @@ GET_REPO_THREADS = int(os.environ.get("GET_REPO_THREADS", 8))
 # `True` and they're similar to `fetchgit` options. Also if for some reason you
 # need to pin a specific revision, set `rev` to a commit.
 # To generate the hash file for your new core, you can run `update_cores.py
-# <core>`. The script needs to be run from the root of your `nixpkgs` clone.
+# <core>`. The script needs to be run from the root of your `botpkgs` clone.
 # Do not forget to add your core to `cores.nix` file with the proper overrides
 # so the core can be build.
 CORES = {

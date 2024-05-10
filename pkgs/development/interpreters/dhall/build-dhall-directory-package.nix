@@ -4,7 +4,7 @@
 # argument into `src` and `file` in such a way that you can easily override
 # the `file`
 #
-# This function is used by `dhall-to-nixpkgs` when given a directory
+# This function is used by `dhall-to-botpkgs` when given a directory
 lib.makePackageOverridable
   ( { # Arguments passed through to `buildDhallPackage`
       name

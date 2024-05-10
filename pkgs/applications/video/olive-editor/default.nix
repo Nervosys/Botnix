@@ -89,7 +89,7 @@ stdenv.mkDerivation {
     license = licenses.gpl3;
     maintainers = [ maintainers.balsoft ];
     platforms = platforms.unix;
-    # never built on aarch64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin && stdenv.isAarch64;
     mainProgram = "olive-editor";
   };

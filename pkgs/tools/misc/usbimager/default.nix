@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
     # windows and darwin could work, but untested
     # feel free add them if you have a machine to test
     platforms = with platforms; linux;
-    # never built on aarch64-linux since first introduction in nixpkgs
+    # never built on aarch64-linux since first introduction in botpkgs
     broken = stdenv.isLinux && stdenv.isAarch64;
     mainProgram = "usbimager";
   };

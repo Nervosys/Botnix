@@ -28,7 +28,7 @@ rustPlatform.buildRustPackage rec {
   doCheck = true;
 
   # The current implementation of rbspy fails to detect the version of ruby
-  # from nixpkgs during tests.
+  # from botpkgs during tests.
   preCheck = ''
     substituteInPlace src/core/process.rs \
       --replace /usr/bin/which '${which}/bin/which'

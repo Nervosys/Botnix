@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-export NIX_PATH=nixpkgs=$(dirname $(readlink -f $0))/../../../..
+export NIX_PATH=botpkgs=$(dirname $(readlink -f $0))/../../../..
 export BOTNIX_CONFIG=$(dirname $(readlink -f $0))/../../../modules/virtualisation/oci-image.nix
 
 if (( $# < 1 )); then
@@ -17,7 +17,7 @@ fi
 
 system="$1"; shift
 
-nix-build '<nixpkgs/botnix>' \
+nix-build '<botpkgs/botnix>' \
     -A config.system.build.OCIImage \
     --argstr system "$system" \
     --option system-features kvm \

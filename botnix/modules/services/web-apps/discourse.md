@@ -215,7 +215,7 @@ using the [](#opt-services.discourse.plugins)
 option. Pre-packaged plugins are provided in
 `<your_discourse_package_here>.plugins`. If
 you want the full suite of plugins provided through
-`nixpkgs`, you can also set the [](#opt-services.discourse.package) option to
+`botpkgs`, you can also set the [](#opt-services.discourse.package) option to
 `pkgs.discourseAllPlugins`.
 
 Plugins can be built with the
@@ -223,7 +223,7 @@ Plugins can be built with the
 function. Normally, it should suffice to provide a
 `name` and `src` attribute. If
 the plugin has Ruby dependencies, however, they need to be
-packaged in accordance with the [Developing with Ruby](https://nixos.org/manual/nixpkgs/stable/#developing-with-ruby)
+packaged in accordance with the [Developing with Ruby](https://nixos.org/manual/botpkgs/stable/#developing-with-ruby)
 section of the Botpkgs manual and the
 appropriate gem options set in `bundlerEnvArgs`
 (normally `gemdir` is sufficient). A plugin's
@@ -234,7 +234,7 @@ Ruby dependencies are listed in its
 verbatim.
 
 Much of the packaging can be done automatically by the
-{file}`nixpkgs/pkgs/servers/web-apps/discourse/update.py`
+{file}`botpkgs/pkgs/servers/web-apps/discourse/update.py`
 script - just add the plugin to the `plugins`
 list in the `update_plugins` function and run
 the script:

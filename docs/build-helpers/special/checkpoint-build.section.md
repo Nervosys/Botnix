@@ -22,7 +22,7 @@ changedVBox = pkgs.virtualbox.overrideAttrs (old: {
 
 ## Example {#sec-checkpoint-build-example}
 ```nix
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 let
   inherit (pkgs.checkpointBuildTools)
     prepareCheckpointBuild

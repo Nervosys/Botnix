@@ -10,7 +10,7 @@ let self = stdenv.mkDerivation rec {
   };
 
   #outputs TODO: split $cxx due to libstdc++ dependency
-  # maybe let ghc use a version with *.so shared with rest of nixpkgs and *.a added
+  # maybe let ghc use a version with *.so shared with rest of botpkgs and *.a added
   # - see #5855 for related discussion
   outputs = [ "out" "dev" "info" ];
   passthru.static = self.out;
@@ -71,7 +71,7 @@ let self = stdenv.mkDerivation rec {
     maintainers = [ ];
     platforms = lib.platforms.all;
     badPlatforms = [ "x86_64-darwin" ];
-    # never built on aarch64-darwin, aarch64-linux since first introduction in nixpkgs
+    # never built on aarch64-darwin, aarch64-linux since first introduction in botpkgs
     broken = (stdenv.isDarwin && stdenv.isAarch64) || (stdenv.isLinux && stdenv.isAarch64);
   };
 };

@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -I nixpkgs=. -i bash -p delta jq perl
+#! nix-shell -I botpkgs=. -i bash -p delta jq perl
 
 set -euo pipefail
 shopt -s inherit_errexit

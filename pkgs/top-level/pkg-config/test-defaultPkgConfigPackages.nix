@@ -1,4 +1,4 @@
-# cd nixpkgs
+# cd botpkgs
 # nix-build -A tests.pkg-config.defaultPkgConfigPackages
 { lib, pkg-config, defaultPkgConfigPackages, runCommand, testers }:
 let

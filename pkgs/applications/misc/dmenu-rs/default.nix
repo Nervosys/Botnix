@@ -46,7 +46,7 @@ stdenv.mkDerivation rec {
 
   # The dmenu-rs repository does not include a Cargo.lock because of its
   # dynamic build and plugin support. Generating it with make and checking it
-  # in to nixpkgs here was the easiest way to supply it to rustPlatform.
+  # in to botpkgs here was the easiest way to supply it to rustPlatform.
   # See: https://github.com/Shizcow/dmenu-rs/issues/34#issuecomment-757415584
   cargoDeps = rustPlatform.importCargoLock {
     lockFile = ./Cargo.lock;
@@ -63,7 +63,7 @@ stdenv.mkDerivation rec {
     fix-broken-make-install-patch
   ];
 
-  # Copy the Cargo.lock stored here in nixpkgs into the build directory.
+  # Copy the Cargo.lock stored here in botpkgs into the build directory.
   postPatch = ''
     cp ${./Cargo.lock} src/Cargo.lock
   '';

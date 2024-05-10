@@ -155,7 +155,7 @@ let
   /*
     Get the commit id of a git repo.
 
-    Example: commitIdFromGitRepo <nixpkgs/.git>
+    Example: commitIdFromGitRepo <botpkgs/.git>
   */
   commitIdFromGitRepo = path:
     let commitIdOrError = _commitIdFromGitRepoOrError path;
@@ -165,7 +165,7 @@ let
 
   # Returns `{ value = commitHash }` or `{ error = "... message ..." }`.
 
-  # Example: commitIdFromGitRepo <nixpkgs/.git>
+  # Example: commitIdFromGitRepo <botpkgs/.git>
   # not exported, used for commitIdFromGitRepo
   _commitIdFromGitRepoOrError =
     let readCommitFromFile = file: path:

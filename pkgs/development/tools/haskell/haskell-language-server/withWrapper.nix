@@ -4,10 +4,10 @@
 , haskell
 
 # Which GHC versions this hls can support.
-# These are looked up in nixpkgs as `pkgs.haskell.packages."ghc${version}`.
+# These are looked up in botpkgs as `pkgs.haskell.packages."ghc${version}`.
 # Run
-#  $ nix-instantiate --eval -E 'with import <nixpkgs> {}; builtins.attrNames pkgs.haskell.packages'
-# to list for your nixpkgs version.
+#  $ nix-instantiate --eval -E 'with import <botpkgs> {}; builtins.attrNames pkgs.haskell.packages'
+# to list for your botpkgs version.
 , supportedGhcVersions ? [ "94" ]
 
 # Whether to build hls with the dynamic run-time system.
@@ -77,7 +77,7 @@ assert
 #
 # pkgs.haskell-language-server.override { supportedGhcVersions = [ "90" "92"]; }
 #
-# for example. Read more about this in the haskell-language-server section of the nixpkgs manual.
+# for example. Read more about this in the haskell-language-server section of the botpkgs manual.
 #
 let
   inherit (haskell.lib.compose)

@@ -21,7 +21,7 @@ let self = stdenv.mkDerivation rec {
   };
 
   #outputs TODO: split $cxx due to libstdc++ dependency
-  # maybe let ghc use a version with *.so shared with rest of nixpkgs and *.a added
+  # maybe let ghc use a version with *.so shared with rest of botpkgs and *.a added
   # - see #5855 for related discussion
   outputs = [ "out" "dev" "info" ];
   passthru.static = self.out;
@@ -35,7 +35,7 @@ let self = stdenv.mkDerivation rec {
     (lib.enableFeature cxx "cxx")
     # Build a "fat binary", with routines for several sub-architectures
     # (x86), except on Solaris where some tests crash with "Memory fault".
-    # See <https://hydra.botnix.org/build/2760931>, for instance.
+    # See <https://hydra.nixos.org/build/2760931>, for instance.
     #
     # no darwin because gmp uses ASM that clang doesn't like
     (lib.enableFeature (!stdenv.isSunOS && stdenv.hostPlatform.isx86) "fat")

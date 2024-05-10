@@ -40,7 +40,7 @@
 # some exceptions.
 # K3s also carries patches to some packages (such as containerd and cni
 # plugins), so we intentionally use the k3s versions of those binaries for k3s,
-# even if the upstream version of those binaries exist in nixpkgs already. In
+# even if the upstream version of those binaries exist in botpkgs already. In
 # the end, that means we have a thick k3s binary that behaves like the upstream
 # one for the most part.
 # However, k3s also bundles several pieces of unpatched software, from the
@@ -151,7 +151,7 @@ let
   # a bunch of bindata that it unpacks at runtime into directories (either the
   # user's home directory or /var/lib/rancher if run as root).
   # This bindata includes both binaries and configuration.
-  # In order to let nixpkgs do all its autostripping/patching/etc, we split this into two derivations.
+  # In order to let botpkgs do all its autostripping/patching/etc, we split this into two derivations.
   # First, we build all the binaries that get packed into the thick k3s binary
   # (and output them from one derivation so they'll all be suitably patched up).
   # Then, we bundle those binaries into our thick k3s binary and use that as

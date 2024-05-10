@@ -3,7 +3,7 @@
 /* usage: (sorry, its still impure but works!)
 
 impure directory:
-mkdir /opt/gutenprint; sudo cp -r $(nix-build -A gutenprintBin -f $NIXPGS_ALL) /opt/gutenprint
+mkdir /opt/gutenprint; sudo cp -r $(nix-build -A gutenprintBin -f $BOTPGS_ALL) /opt/gutenprint
 
 add the following lines to bindirCmds property of  printing/cupsd.nix:
 

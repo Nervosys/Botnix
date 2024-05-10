@@ -35,7 +35,7 @@ buildPythonPackage rec {
   ];
 
   postPatch = ''
-    # Packages in nixpkgs is different than the module name
+    # Packages in botpkgs is different than the module name
     substituteInPlace setup.py \
       --replace "ffmpeg" "ffmpeg-python"
   '';

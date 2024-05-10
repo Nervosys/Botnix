@@ -46,7 +46,7 @@ async def run_update_script(nixpkgs_root: str, merge_lock: asyncio.Lock, temp_di
         await check_subprocess('git', 'reset', '--hard', '--quiet', 'HEAD', cwd=worktree)
 
         # Update scripts can use $(dirname $0) to get their location but we want to run
-        # their clones in the git worktree, not in the main nixpkgs repo.
+        # their clones in the git worktree, not in the main botpkgs repo.
         update_script_command = map(lambda arg: re.sub(r'^{0}'.format(re.escape(nixpkgs_root)), worktree, arg), update_script_command)
 
     eprint(f" - {package['name']}: UPDATING ...")
@@ -88,7 +88,7 @@ async def run_update_script(nixpkgs_root: str, merge_lock: asyncio.Lock, temp_di
 def make_worktree() -> Generator[Tuple[str, str], None, None]:
     with tempfile.TemporaryDirectory() as wt:
         branch_name = f'update-{os.path.basename(wt)}'
-        target_directory = f'{wt}/nixpkgs'
+        target_directory = f'{wt}/botpkgs'
 
         subprocess.run(['git', 'worktree', 'add', '-b', branch_name, target_directory])
         yield (target_directory, branch_name)

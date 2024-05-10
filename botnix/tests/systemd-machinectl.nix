@@ -34,7 +34,7 @@ import ./make-test-python.nix ({ pkgs, ... }:
       networking.useNetworkd = true;
       networking.useDHCP = false;
 
-      # do not try to access cache.botnix.org
+      # do not try to access cache.nixos.org
       nix.settings.substituters = lib.mkForce [ ];
 
       # auto-start container

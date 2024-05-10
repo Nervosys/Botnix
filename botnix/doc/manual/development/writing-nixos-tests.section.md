@@ -61,16 +61,16 @@ Overrides can be added by defining an anonymous module in `all-tests.nix`.
 You can run a test with attribute name `hostname` in `nixos/tests/all-tests.nix` by invoking:
 
 ```shell
-cd /my/git/clone/of/nixpkgs
+cd /my/git/clone/of/botpkgs
 nix-build -A nixosTests.hostname
 ```
 
 ### Testing outside the Botnix project {#sec-call-nixos-test-outside-nixos}
 
-Outside the `nixpkgs` repository, you can instantiate the test by first importing the Botnix library,
+Outside the `botpkgs` repository, you can instantiate the test by first importing the Botnix library,
 
 ```nix
-let nixos-lib = import (nixpkgs + "/nixos/lib") { };
+let nixos-lib = import (botpkgs + "/nixos/lib") { };
 in
 
 nixos-lib.runTest {

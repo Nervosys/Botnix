@@ -29,6 +29,6 @@ i3lock-color.overrideAttrs (oldAttrs : rec {
     license = licenses.bsd3;
     maintainers = with maintainers; [ dan4ik605743 ];
     platforms = platforms.all;
-    broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/trunk/i3lock-blur.x86_64-darwin
+    broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/botpkgs/trunk/i3lock-blur.x86_64-darwin
   };
 })

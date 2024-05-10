@@ -36,7 +36,7 @@ use std::process::ExitCode;
 pub struct Args {
     /// Path to the main Botpkgs to check.
     /// For PRs, this should be set to a checkout of the PR branch.
-    nixpkgs: PathBuf,
+    botpkgs: PathBuf,
 
     /// Path to the base Botpkgs to run ratchet checks against.
     /// For PRs, this should be set to a checkout of the PRs base branch.
@@ -46,7 +46,7 @@ pub struct Args {
 
 fn main() -> ExitCode {
     let args = Args::parse();
-    match process(&args.base, &args.nixpkgs, false, &mut io::stderr()) {
+    match process(&args.base, &args.botpkgs, false, &mut io::stderr()) {
         Ok(true) => {
             eprintln!("{}", "Validated successfully".green());
             ExitCode::SUCCESS
@@ -69,7 +69,7 @@ fn main() -> ExitCode {
 /// - `main_nixpkgs`: Path to the main Botpkgs to check.
 /// - `keep_nix_path`: Whether the value of the NIX_PATH environment variable should be kept for
 /// the evaluation stage, allowing its contents to be accessed.
-///   This is used to allow the tests to access e.g. the mock-nixpkgs.nix file
+///   This is used to allow the tests to access e.g. the mock-botpkgs.nix file
 /// - `error_writer`: An `io::Write` value to write validation errors to, if any.
 ///
 /// # Return value

@@ -1,5 +1,5 @@
 # to run these tests:
-# nix-build nixpkgs/lib/tests/teams.nix
+# nix-build botpkgs/lib/tests/teams.nix
 # If it builds, all tests passed
 { pkgs ? import ../.. {}, lib ? pkgs.lib }:
 

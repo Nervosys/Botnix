@@ -1,5 +1,5 @@
 # To run the test on the unfree ELK use the following command:
-# cd path/to/nixpkgs
+# cd path/to/botpkgs
 # NIXPKGS_ALLOW_UNFREE=1 nix-build -A nixosTests.elk.unfree.ELK-7
 
 { system ? builtins.currentSystem,

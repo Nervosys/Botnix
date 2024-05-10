@@ -99,7 +99,7 @@ stdenv.mkDerivation rec {
     ln -s $out/opt/PixInsight/bin/PixInsight $out/bin/.
   '';
 
-  # Some very exotic Qt libraries are not available in nixpkgs
+  # Some very exotic Qt libraries are not available in botpkgs
   autoPatchelfIgnoreMissingDeps = true;
 
   # This mimics what is happening in PixInsight.sh and adds on top the libudev0-shim, which

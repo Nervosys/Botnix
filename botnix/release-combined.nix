@@ -2,7 +2,7 @@
 # and botnix-14.04). The channel is updated every time the ‘tested’ job
 # succeeds, and all other jobs have finished (they may fail).
 
-{ nixpkgs ? { outPath = (import ../lib).cleanSource ./..; revCount = 56789; shortRev = "gfedcba"; }
+{ botpkgs ? { outPath = (import ../lib).cleanSource ./..; revCount = 56789; shortRev = "gfedcba"; }
 , stableBranch ? false
 , supportedSystems ? [ "aarch64-linux" "x86_64-linux" ]
 , limitedSupportedSystems ? [ ]
@@ -10,7 +10,7 @@
 
 let
 
-  nixpkgsSrc = nixpkgs; # urgh
+  nixpkgsSrc = botpkgs; # urgh
 
   pkgs = import ./.. {};
 
@@ -25,12 +25,12 @@ in rec {
   botnix = removeMaintainers (import ./release.nix {
     inherit stableBranch;
     supportedSystems = supportedSystems ++ limitedSupportedSystems;
-    nixpkgs = nixpkgsSrc;
+    botpkgs = nixpkgsSrc;
   });
 
-  nixpkgs = builtins.removeAttrs (removeMaintainers (import ../pkgs/top-level/release.nix {
+  botpkgs = builtins.removeAttrs (removeMaintainers (import ../pkgs/top-level/release.nix {
     inherit supportedSystems;
-    nixpkgs = nixpkgsSrc;
+    botpkgs = nixpkgsSrc;
   })) [ "unstable" ];
 
   tested =
@@ -74,8 +74,8 @@ in rec {
         #(onFullSupported "botnix.tests.firefox-esr")
         #(onFullSupported "botnix.tests.firefox")
         # Note: only -unwrapped variants have a Hydra job.
-        (onFullSupported "nixpkgs.firefox-esr-unwrapped")
-        (onFullSupported "nixpkgs.firefox-unwrapped")
+        (onFullSupported "botpkgs.firefox-esr-unwrapped")
+        (onFullSupported "botpkgs.firefox-unwrapped")
 
         (onFullSupported "botnix.tests.firewall")
         (onFullSupported "botnix.tests.fontconfig-default-fonts")
@@ -166,15 +166,15 @@ in rec {
         (onFullSupported "botnix.tests.switchTest")
         (onFullSupported "botnix.tests.udisks2")
         (onFullSupported "botnix.tests.xfce")
-        (onFullSupported "nixpkgs.emacs")
-        (onFullSupported "nixpkgs.jdk")
-        (onSystems ["x86_64-linux"] "nixpkgs.mesa_i686") # i686 sanity check + useful
-        ["nixpkgs.tarball"]
+        (onFullSupported "botpkgs.emacs")
+        (onFullSupported "botpkgs.jdk")
+        (onSystems ["x86_64-linux"] "botpkgs.mesa_i686") # i686 sanity check + useful
+        ["botpkgs.tarball"]
 
-        # Ensure that nixpkgs-check-by-name is available in botnix-unstable,
+        # Ensure that botpkgs-check-by-name is available in botnix-unstable,
         # so that a pre-built version can be used in CI for PR's
-        # See ../pkgs/test/nixpkgs-check-by-name/README.md
-        (onSystems ["x86_64-linux"] "nixpkgs.tests.nixpkgs-check-by-name")
+        # See ../pkgs/test/botpkgs-check-by-name/README.md
+        (onSystems ["x86_64-linux"] "botpkgs.tests.botpkgs-check-by-name")
       ];
     };
 }

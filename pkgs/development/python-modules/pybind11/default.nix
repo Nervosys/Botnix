@@ -92,7 +92,7 @@ in buildPythonPackage rec {
   ];
 
   disabledTestPaths = [
-    # require dependencies not available in nixpkgs
+    # require dependencies not available in botpkgs
     "tests/test_embed/test_trampoline.py"
     "tests/test_embed/test_interpreter.py"
     # numpy changed __repr__ output of numpy dtypes

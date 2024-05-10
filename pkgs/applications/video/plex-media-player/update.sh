@@ -3,9 +3,9 @@
 
 set -xeuo pipefail
 
-nixpkgs="$(git rev-parse --show-toplevel)"
+botpkgs="$(git rev-parse --show-toplevel)"
 
-oldVersion="$(nix-instantiate --eval -E "with import $nixpkgs {}; plex-media-player.version or (builtins.parseDrvName plex-media-player.name).version" | tr -d '"')"
+oldVersion="$(nix-instantiate --eval -E "with import $botpkgs {}; plex-media-player.version or (builtins.parseDrvName plex-media-player.name).version" | tr -d '"')"
 latestTag="$(curl -s https://api.github.com/repos/plexinc/plex-media-player/tags  | jq -r '.[] | .name' | sort --version-sort | tail -1)"
 latestVersion="$(expr $latestTag : 'v\(.*\)-.*')"
 latestHash="$(expr $latestTag : 'v.*-\(.*\)')"
@@ -17,7 +17,7 @@ if [ ! "$oldVersion" = "$latestVersion" ]; then
   update-source-version plex-media-player "${latestVersion}" $expectedHash
 
   # extract the webClientBuildId from the source folder
-  src="$(nix-build --no-out-link $nixpkgs -A plex-media-player.src)"
+  src="$(nix-build --no-out-link $botpkgs -A plex-media-player.src)"
   webClientBuildId="$(grep 'set(WEB_CLIENT_BUILD_ID' $src/CMakeModules/WebClient.cmake | cut -d' ' -f2 | tr -d ')')"
 
   # retreive the included cmake file and hash
@@ -33,7 +33,7 @@ if [ ! "$oldVersion" = "$latestVersion" ]; then
   webClientTv="$(nix-prefetch-url "https://artifacts.plex.tv/web-client-pmp/${webClientBuildId}/web-client-tv-${webClientTvBuildId}.tar.xz")"
 
   # update deps.nix
-  cat > $nixpkgs/pkgs/applications/video/plex-media-player/deps.nix <<EOF
+  cat > $botpkgs/pkgs/applications/video/plex-media-player/deps.nix <<EOF
 { fetchurl }:
 
 rec {
@@ -64,7 +64,7 @@ rec {
 }
 EOF
 
-  git add "$nixpkgs"/pkgs/applications/video/plex-media-player/{default,deps}.nix
+  git add "$botpkgs"/pkgs/applications/video/plex-media-player/{default,deps}.nix
   git commit -m "plex-media-player: ${oldVersion} -> ${latestVersion}"
 else
   echo "plex-media-player is already up-to-date"

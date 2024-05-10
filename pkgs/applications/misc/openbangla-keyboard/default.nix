@@ -80,7 +80,7 @@ stdenv.mkDerivation rec {
     license = lib.licenses.gpl3Plus;
     maintainers = with lib.maintainers; [ eclairevoyant hqurve ];
     platforms = lib.platforms.linux;
-    # never built on aarch64-linux since first introduction in nixpkgs
+    # never built on aarch64-linux since first introduction in botpkgs
     broken = stdenv.isLinux && stdenv.isAarch64;
   };
 }

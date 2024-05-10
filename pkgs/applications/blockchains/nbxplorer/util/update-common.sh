@@ -14,10 +14,10 @@ pkgName=$1
 : ${refetch:=}
 
 scriptDir=$(cd "${BASH_SOURCE[0]%/*}" && pwd)
-nixpkgs=$(realpath "$scriptDir"/../../../../..)
+botpkgs=$(realpath "$scriptDir"/../../../../..)
 
 evalNixpkgs() {
-  nix eval --impure --raw --expr "(with import \"$nixpkgs\" {}; $1)"
+  nix eval --impure --raw --expr "(with import \"$botpkgs\" {}; $1)"
 }
 
 getRepo() {
@@ -26,7 +26,7 @@ getRepo() {
 }
 
 getLatestVersionTag() {
-  "$nixpkgs"/pkgs/common-updater/scripts/list-git-tags --url=https://github.com/$(getRepo) 2>/dev/null \
+  "$botpkgs"/pkgs/common-updater/scripts/list-git-tags --url=https://github.com/$(getRepo) 2>/dev/null \
     | sort -V | tail -1 | sed 's|^v||'
 }
 
@@ -38,7 +38,7 @@ else
 fi
 
 if [[ $newVersion == $oldVersion && ! $refetch ]]; then
-  echo "nixpkgs already has the latest version $newVersion"
+  echo "botpkgs already has the latest version $newVersion"
   echo "Run this script with env var refetch=1 to re-verify the content hash via GPG"
   echo "and to recreate deps.nix. This is useful for reviewing a version update."
   exit 0
@@ -67,10 +67,10 @@ echo "Updating $pkgName: $oldVersion -> $newVersion"
 if [[ $newVersion == $oldVersion ]]; then
   # Temporarily set a source version that doesn't equal $newVersion so that $newHash
   # is always updated in the next call to update-source-version.
-  (cd "$nixpkgs" && update-source-version "$pkgName" "0" "0000000000000000000000000000000000000000000000000000")
+  (cd "$botpkgs" && update-source-version "$pkgName" "0" "0000000000000000000000000000000000000000000000000000")
 fi
-(cd "$nixpkgs" && update-source-version "$pkgName" "$newVersion" "$newHash")
+(cd "$botpkgs" && update-source-version "$pkgName" "$newVersion" "$newHash")
 echo
 
 # Create deps file
-$(nix-build "$nixpkgs" -A $pkgName.fetch-deps --no-out-link)
+$(nix-build "$botpkgs" -A $pkgName.fetch-deps --no-out-link)

@@ -44,7 +44,7 @@ stdenv.mkDerivation (finalAttrs:  {
     ++ lib.optionals (!isWindows && glfwSupport) [ glfw ]
     ++ lib.optionals isWindows [ windows.pthreads ];
 
-  # Build with the Vulkan SDK in nixpkgs.
+  # Build with the Vulkan SDK in botpkgs.
   preConfigure = ''
     rm -rf include/spirv/include include/vulkan/include
     mkdir -p include/spirv/include include/vulkan/include

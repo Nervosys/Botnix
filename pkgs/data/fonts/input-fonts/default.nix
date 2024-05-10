@@ -17,8 +17,8 @@ let
     unfree licenses.
 
     configuration.nix:
-      nixpkgs.config.allowUnfree = true;
-      nixpkgs.config.input-fonts.acceptLicense = true;
+      botpkgs.config.allowUnfree = true;
+      botpkgs.config.input-fonts.acceptLicense = true;
 
     config.nix:
       allowUnfree = true;

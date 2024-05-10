@@ -13,7 +13,7 @@ import ./make-test-python.nix (
           services.nar-serve = {
             enable = true;
             # Connect to the localhost nginx instead of the default
-            # https://cache.botnix.org
+            # https://cache.nixos.org
             cacheURL = "http://localhost/";
           };
           environment.systemPackages = [

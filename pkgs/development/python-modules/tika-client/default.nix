@@ -28,7 +28,7 @@ buildPythonPackage rec {
   ];
   # Almost all of the tests (all except one in 0.1.0) fail since there
   # is no tika http API endpoint reachable. Since tika is not yet
-  # packaged for nixpkgs, it seems like an unreasonable amount of effort
+  # packaged for botpkgs, it seems like an unreasonable amount of effort
   # fixing these tests.
   doChecks = false;
 

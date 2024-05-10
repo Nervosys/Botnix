@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-nixpkgs="$(git rev-parse --show-toplevel || (printf 'Could not find root of nixpkgs repo\nAre we running from within the nixpkgs git repo?\n' >&2; exit 1))"
+botpkgs="$(git rev-parse --show-toplevel || (printf 'Could not find root of botpkgs repo\nAre we running from within the botpkgs git repo?\n' >&2; exit 1))"
 
 attr="${UPDATE_NIX_ATTR_PATH:-touchosc}"
 version="$(curl -sSL https://hexler.net/touchosc/appcast/linux | xmllint --xpath '/rss/channel/item/enclosure/@*[local-name()="version"]' - | cut -d= -f2- | tr -d '"' | head -n1)"
@@ -19,15 +19,15 @@ nixeval() {
         systemargs=()
     fi
 
-    nix --extra-experimental-features nix-command eval --json --impure "${systemargs[@]}" -f "$nixpkgs" "$1" | jq -r .
+    nix --extra-experimental-features nix-command eval --json --impure "${systemargs[@]}" -f "$botpkgs" "$1" | jq -r .
 }
 
 findpath() {
-    path="$(nix --extra-experimental-features nix-command eval --json --impure -f "$nixpkgs" "$1.meta.position" | jq -r . | cut -d: -f1)"
-    outpath="$(nix --extra-experimental-features nix-command eval --json --impure --expr "builtins.fetchGit \"$nixpkgs\"")"
+    path="$(nix --extra-experimental-features nix-command eval --json --impure -f "$botpkgs" "$1.meta.position" | jq -r . | cut -d: -f1)"
+    outpath="$(nix --extra-experimental-features nix-command eval --json --impure --expr "builtins.fetchGit \"$botpkgs\"")"
 
     if [ -n "$outpath" ]; then
-        path="${path/$(echo "$outpath" | jq -r .)/$nixpkgs}"
+        path="${path/$(echo "$outpath" | jq -r .)/$botpkgs}"
     fi
 
     echo "$path"

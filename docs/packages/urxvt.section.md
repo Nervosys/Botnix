@@ -4,7 +4,7 @@ Urxvt, also known as rxvt-unicode, is a highly customizable terminal emulator.
 
 ## Configuring urxvt {#sec-urxvt-conf}
 
-In `nixpkgs`, urxvt is provided by the package `rxvt-unicode`. It can be configured to include your choice of plugins, reducing its closure size from the default configuration which includes all available plugins. To make use of this functionality, use an overlay or directly install an expression that overrides its configuration, such as:
+In `botpkgs`, urxvt is provided by the package `rxvt-unicode`. It can be configured to include your choice of plugins, reducing its closure size from the default configuration which includes all available plugins. To make use of this functionality, use an overlay or directly install an expression that overrides its configuration, such as:
 
 ```nix
 rxvt-unicode.override {
@@ -30,11 +30,11 @@ To get a list of all the plugins available, open the Nix REPL and run
 
 ```ShellSession
 $ nix repl
-:l <nixpkgs>
+:l <botpkgs>
 map (p: p.name) pkgs.rxvt-unicode.plugins
 ```
 
-Alternatively, if your shell is bash or zsh and have completion enabled, type `nixpkgs.rxvt-unicode.plugins.<tab>`.
+Alternatively, if your shell is bash or zsh and have completion enabled, type `botpkgs.rxvt-unicode.plugins.<tab>`.
 
 In addition to `plugins` the options `extraDeps` and `perlDeps` can be used to install extra packages. `extraDeps` can be used, for example, to provide `xsel` (a clipboard manager) to the clipboard plugin, without installing it globally:
 

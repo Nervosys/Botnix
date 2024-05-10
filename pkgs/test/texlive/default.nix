@@ -451,7 +451,7 @@ rec {
         # texlive-scripts: requires texlive.infra's TeXLive::TLUtils under TEXMFROOT
         "fmtutil" "fmtutil-sys" "fmtutil-user"
 
-        # texlive-scripts: not used in nixpkgs, need updmap in PATH
+        # texlive-scripts: not used in botpkgs, need updmap in PATH
         "updmap-sys" "updmap-user"
       ];
 

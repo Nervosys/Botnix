@@ -70,7 +70,7 @@ in stdenv.mkDerivation {
   dontWrapQtApps = true;
 
   # Shared libraries don't work, because of rpath troubles with the current
-  # nixpkgs cmake approach. It wants to call a binary at build time, just
+  # botpkgs cmake approach. It wants to call a binary at build time, just
   # built and requiring one of the shared objects.
   # At least, we use -fPIC for other packages to be able to use this in shared
   # objects.

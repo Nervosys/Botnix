@@ -12,7 +12,7 @@
 #
 # By parsing the files, a dictionary mapping integrations to requirements and dependencies is created.
 # For all of these requirements and the dependencies' requirements,
-# nixpkgs' python3Packages are searched for appropriate names.
+# botpkgs' python3Packages are searched for appropriate names.
 # Then, a Nix attribute set mapping integration name to dependencies is created.
 
 import json

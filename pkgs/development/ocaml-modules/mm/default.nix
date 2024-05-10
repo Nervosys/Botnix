@@ -18,7 +18,7 @@ buildDunePackage rec {
   };
 
   buildInputs = [ dune-configurator ];
-  propagatedBuildInputs = [ alsa ao mad pulseaudio theora ]; # ocamlsdl is blocked in nixpkgs from building for ocaml >= 4.06
+  propagatedBuildInputs = [ alsa ao mad pulseaudio theora ]; # ocamlsdl is blocked in botpkgs from building for ocaml >= 4.06
 
   meta = with lib; {
     homepage = "https://github.com/savonet/ocaml-mm";

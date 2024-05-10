@@ -84,7 +84,7 @@ let
     installPhase = attrs.installPhase or ''
       runHook preInstall
 
-      # This uses the install path convention established by nixpkgs maintainers
+      # This uses the install path convention established by botpkgs maintainers
       # for all beam packages. Changing this will break compatibility with other
       # builder functions like buildRebar3 and buildErlangMk.
       mkdir -p "$out/lib/erlang/lib/${name}-${version}"

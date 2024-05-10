@@ -40,7 +40,7 @@ If you want to change the kernel configuration, you can use the
 instance, to enable support for the kernel debugger KGDB:
 
 ```nix
-nixpkgs.config.packageOverrides = pkgs: pkgs.lib.recursiveUpdate pkgs {
+botpkgs.config.packageOverrides = pkgs: pkgs.lib.recursiveUpdate pkgs {
   linuxKernel.kernels.linux_5_10 = pkgs.linuxKernel.kernels.linux_5_10.override {
     extraConfig = ''
       KGDB y
@@ -84,7 +84,7 @@ available parameters, run `sysctl -a`.
 
 ## Building a custom kernel {#sec-linux-config-customizing}
 
-Please refer to the Botpkgs manual for the various ways of [building a custom kernel](https://nixos.org/nixpkgs/manual#sec-linux-kernel).
+Please refer to the Botpkgs manual for the various ways of [building a custom kernel](https://nixos.org/botpkgs/manual#sec-linux-kernel).
 
 To use your custom kernel package in your Botnix configuration, set
 
@@ -112,13 +112,13 @@ boot.kernelPatches = [
 
 ## Developing kernel modules {#sec-linux-config-developing-modules}
 
-This section was moved to the [Botpkgs manual](https://nixos.org/nixpkgs/manual#sec-linux-kernel-developing-modules).
+This section was moved to the [Botpkgs manual](https://nixos.org/botpkgs/manual#sec-linux-kernel-developing-modules).
 
 ## ZFS {#sec-linux-zfs}
 
 It's a common issue that the latest stable version of ZFS doesn't support the latest
 available Linux kernel. It is recommended to use the latest available LTS that's compatible
-with ZFS. Usually this is the default kernel provided by nixpkgs (i.e. `pkgs.linuxPackages`).
+with ZFS. Usually this is the default kernel provided by botpkgs (i.e. `pkgs.linuxPackages`).
 
 Alternatively, it's possible to pin the system to the latest available kernel
 version _that is supported by ZFS_ like this:

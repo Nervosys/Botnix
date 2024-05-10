@@ -88,7 +88,7 @@ in stdenv.mkDerivation rec {
     sed -i '1 i #compdef gcloud' $out/share/zsh/site-functions/_gcloud
 
     # This directory contains compiled mac binaries. We used crcmod from
-    # nixpkgs instead.
+    # botpkgs instead.
     rm -r $out/google-cloud-sdk/platform/gsutil/third_party/crcmod \
           $out/google-cloud-sdk/platform/gsutil/third_party/crcmod_osx
 

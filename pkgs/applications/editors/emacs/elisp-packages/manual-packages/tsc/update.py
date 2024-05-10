@@ -18,10 +18,10 @@ import re
 import requests
 
 
-def eval_drv(nixpkgs: str, expr: str) -> Any:
+def eval_drv(botpkgs: str, expr: str) -> Any:
     expr = "\n".join(
         (
-            "with (import %s {});" % nixpkgs,
+            "with (import %s {});" % botpkgs,
             expr,
         )
     )
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     cwd = sys.argv[1]
 
     # This should point to the root default.nix of Botpkgs tree
-    nixpkgs = abspath(join(cwd, "../../../../../../.."))
+    botpkgs = abspath(join(cwd, "../../../../../../.."))
 
     tag_name = requests.get(
         "https://api.github.com/repos/emacs-tree-sitter/elisp-tree-sitter/releases/latest"
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         f.flush()
 
         drv_path = eval_drv(
-            nixpkgs,
+            botpkgs,
             """
         rustPlatform.buildRustPackage rec {
           pname = "tsc-dyn";

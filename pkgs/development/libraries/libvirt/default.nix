@@ -108,12 +108,12 @@ assert enableCeph -> isLinux;
 assert enableGlusterfs -> isLinux;
 assert enableZfs -> isLinux;
 
-# if you update, also bump <nixpkgs/pkgs/development/python-modules/libvirt/default.nix> and SysVirt in <nixpkgs/pkgs/top-level/perl-packages.nix>
+# if you update, also bump <botpkgs/pkgs/development/python-modules/libvirt/default.nix> and SysVirt in <botpkgs/pkgs/top-level/perl-packages.nix>
 stdenv.mkDerivation rec {
   pname = "libvirt";
   # NOTE: You must also bump:
-  # <nixpkgs/pkgs/development/python-modules/libvirt/default.nix>
-  # SysVirt in <nixpkgs/pkgs/top-level/perl-packages.nix>
+  # <botpkgs/pkgs/development/python-modules/libvirt/default.nix>
+  # SysVirt in <botpkgs/pkgs/top-level/perl-packages.nix>
   version = "10.0.0";
 
   src = fetchFromGitLab {
@@ -344,7 +344,7 @@ stdenv.mkDerivation rec {
       --replace "$out/bin"              '${gettext}/bin' \
       --replace 'lock/subsys'           'lock' \
       --replace 'gettext.sh'            'gettext.sh
-    # Added in nixpkgs:
+    # Added in botpkgs:
     gettext() { "${gettext}/bin/gettext" "$@"; }
     '
   '' + lib.optionalString isLinux ''

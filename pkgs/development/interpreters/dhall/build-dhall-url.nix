@@ -10,7 +10,7 @@
 # a `.cache/` directory with the actual contents of the Dhall file from the
 # suppiled URL.
 #
-# This function is primarily used by `dhall-to-nixpkgs directory --fixed-output-derivations`.
+# This function is primarily used by `dhall-to-botpkgs directory --fixed-output-derivations`.
 
 { # URL of the input Dhall file.
   # example: "https://raw.githubusercontent.com/cdepillabout/example-dhall-repo/c1b0d0327146648dcf8de997b2aa32758f2ed735/example1.dhall"

@@ -66,7 +66,7 @@ while (( n < nParams )); do
 done
 
 # If the caller has set -platform_version, trust they're doing the right thing.
-# This will be the typical case for clang in nixpkgs.
+# This will be the typical case for clang in botpkgs.
 if [ ! "$havePlatformVersionFlag" ]; then
     if [ ! "$haveDarwinSDKVersion" ] && [ ! "$haveDarwinPlatformVersion" ]; then
         # Nothing provided. Use the modern "-platform_version" to set both.

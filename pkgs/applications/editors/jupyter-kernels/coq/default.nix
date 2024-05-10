@@ -9,13 +9,13 @@
 }:
 
 # Jupyter console:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter-console.withSingleKernel coq-kernel.definition'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter-console.withSingleKernel coq-kernel.definition'
 
 # Jupyter console with packages:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter-console.withSingleKernel (coq-kernel.definitionWithPackages [coqPackages.bignums])'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter-console.withSingleKernel (coq-kernel.definitionWithPackages [coqPackages.bignums])'
 
 # Jupyter notebook:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter.override { definitions.coq = coq-kernel.definition; }'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter.override { definitions.coq = coq-kernel.definition; }'
 
 let
   python = python3.withPackages (ps: [ ps.traitlets ps.jupyter-core ps.ipykernel (callPackage ./kernel.nix {}) ]);

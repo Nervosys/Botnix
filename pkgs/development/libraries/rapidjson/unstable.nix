@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   patches = lib.optionals buildTests [
-    ./0000-unstable-use-nixpkgs-gtest.patch
+    ./0000-unstable-use-botpkgs-gtest.patch
     # https://github.com/Tencent/rapidjson/issues/2214
     ./0001-unstable-valgrind-suppress-failures.patch
   ];

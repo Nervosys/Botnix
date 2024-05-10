@@ -29,7 +29,7 @@
 # The Linphone Qt desktop app uses this SDK as submodule as well.
 #
 # So, in order to update the desktop app to a new release, one has to follow
-# the submodule chain and update the corresponding derivations here, in nixpkgs,
+# the submodule chain and update the corresponding derivations here, in botpkgs,
 # with the corresponding version number (or commit hash)
 
 mkDerivation rec {

@@ -1,6 +1,6 @@
 { lib
 , stdenv
-, # nixpkgs functions
+, # botpkgs functions
   buildGoModule
 , buildVimPlugin
 , fetchFromGitHub

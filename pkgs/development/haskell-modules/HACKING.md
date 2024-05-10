@@ -48,7 +48,7 @@ In this section we create the PR for merging `haskell-updates` into `master`.
     $ ./maintainers/scripts/haskell/regenerate-hackage-packages.sh --do-commit
     ```
 
-1.  Push these commits to the `haskell-updates` branch of the Botnix/nixpkgs repository.
+1.  Push these commits to the `haskell-updates` branch of the Botnix/botpkgs repository.
 
 1.  Open a PR on Botpkgs for merging `haskell-updates` into `master`.  The recommended
     PR title and body text are described in the `merge-and-open-pr.sh` section.
@@ -57,7 +57,7 @@ In this section we create the PR for merging `haskell-updates` into `master`.
 
 After you've done the previous steps, Hydra will start building the new and
 updated Haskell packages.  You can see the progress Hydra is making at
-https://hydra.botnix.org/jobset/nixpkgs/haskell-updates.  This Hydra jobset is
+https://hydra.nixos.org/jobset/botpkgs/haskell-updates.  This Hydra jobset is
 defined in the file [release-haskell.nix](../../top-level/release-haskell.nix).
 
 ### Notify Maintainers
@@ -91,8 +91,8 @@ may be marked broken before merging `haskell-updates` into `master`.
 
 After getting the build report, you can see which packages and Hydra jobs are
 failing to build.  The most important jobs are the
-[`maintained`](https://hydra.botnix.org/job/nixpkgs/haskell-updates/maintained) and
-[`mergeable`](https://hydra.botnix.org/job/nixpkgs/haskell-updates/mergeable)
+[`maintained`](https://hydra.nixos.org/job/botpkgs/haskell-updates/maintained) and
+[`mergeable`](https://hydra.nixos.org/job/botpkgs/haskell-updates/mergeable)
 jobs. These are both defined in
 [`release-haskell.nix`](../../top-level/release-haskell.nix).
 
@@ -237,7 +237,7 @@ opening the next one.  When you want to merge the currently open
     `haskell-updates` branch.  (This can be skipped if `master` has recently
     been merged into `haskell-updates`.)
 
-1.  Go to https://hydra.botnix.org/jobset/nixpkgs/haskell-updates and force an
+1.  Go to https://hydra.nixos.org/jobset/botpkgs/haskell-updates and force an
     evaluation of the `haskell-updates` jobset.  See one of the following
     sections for how to do this.  Make sure there are no evaluation errors.  If
     there are remaining evaluation errors, fix them before continuing with this
@@ -249,7 +249,7 @@ opening the next one.  When you want to merge the currently open
     $ ./maintainers/scripts/haskell/merge-and-open-pr.sh PR_NUM_OF_CURRENT_HASKELL_UPDATES_PR
     ```
 
-    Find the PR number easily [here](https://github.com/nervosys/nixpkgs/pulls?q=is%3Apr+is%3Aopen+head%3Ahaskell-updates)
+    Find the PR number easily [here](https://github.com/nervosys/botpkgs/pulls?q=is%3Apr+is%3Aopen+head%3Ahaskell-updates)
 
     This does the following things:
 
@@ -281,12 +281,12 @@ running this takes only a few seconds.
 Here are some additional tips that didn't fit in above.
 
 -   Hydra tries to evaluate the `haskell-updates` branch (in the
-    [`nixpkgs:haskell-updates`](https://hydra.botnix.org/jobset/nixpkgs/haskell-updates)
+    [`botpkgs:haskell-updates`](https://hydra.nixos.org/jobset/botpkgs/haskell-updates)
     jobset) every 4 hours.  It is possible to force a new Hydra evaluation without
     waiting 4 hours by the following steps:
 
     1. Log into Hydra with your GitHub or Google account.
-    1. Go to the [nixpkgs:haskell-updates](https://hydra.botnix.org/jobset/nixpkgs/haskell-updates) jobset.
+    1. Go to the [botpkgs:haskell-updates](https://hydra.nixos.org/jobset/botpkgs/haskell-updates) jobset.
     1. Click the `Actions` button.
     1. Select `Evaluate this jobset`.
     1. If you refresh the page, there should be a new `Evaluation running since:` line.
@@ -321,7 +321,7 @@ Here are some additional tips that didn't fit in above.
     as described above.
 
 -   The Haskell team members generally hang out in the Matrix room
-    [#haskell:botnix.org](https://matrix.to/#/#haskell:botnix.org).
+    [#haskell:nixos.org](https://matrix.to/#/#haskell:nixos.org).
 
 -   This is a checklist for things that need to happen when a new
     member is added to the Botpkgs Haskell team.
@@ -336,7 +336,7 @@ Here are some additional tips that didn't fit in above.
     1.  Add the person as a maintainer for the following packages
         on Hackage:
         - https://hackage.haskell.org/package/cabal2nix
-        - https://hackage.haskell.org/package/distribution-nixpkgs
+        - https://hackage.haskell.org/package/distribution-botpkgs
         - https://hackage.haskell.org/package/hackage-db
         - https://hackage.haskell.org/package/jailbreak-cabal
         - https://hackage.haskell.org/package/language-nix

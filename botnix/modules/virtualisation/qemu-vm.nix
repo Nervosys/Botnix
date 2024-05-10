@@ -674,7 +674,7 @@ in
       };
 
     virtualisation.host.pkgs = mkOption {
-      type = options.nixpkgs.pkgs.type;
+      type = options.botpkgs.pkgs.type;
       default = pkgs;
       defaultText = literalExpression "pkgs";
       example = literalExpression ''

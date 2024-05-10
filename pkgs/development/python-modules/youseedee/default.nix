@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   patches = [
     # Load data files from the unicode-character-database package instead of
-    # downloading them from the internet. (nixpkgs-specific, not upstreamable)
+    # downloading them from the internet. (botpkgs-specific, not upstreamable)
     (substituteAll {
       src = ./0001-use-packaged-unicode-data.patch;
       ucd_dir = "${unicode-character-database}/share/unicode";

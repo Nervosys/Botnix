@@ -118,7 +118,7 @@ let
 
           If you share configuration examples that use this option, you MUST include this warning so that users are informed.
 
-          You may freely use this option within `nixpkgs`, and future changes will account for those use sites.
+          You may freely use this option within `botpkgs`, and future changes will account for those use sites.
           :::
         '';
         type = types.submodule {

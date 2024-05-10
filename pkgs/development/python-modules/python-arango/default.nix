@@ -70,7 +70,7 @@ buildPythonPackage rec {
   # failing with: `166: Illegal instruction` if not run on arangodb's
   # specified architecture.
   #
-  # nonetheless, the client library should remain in nixpkgs - since
+  # nonetheless, the client library should remain in botpkgs - since
   # the client library will talk to arangodb across the network and
   # architecture issues will be irrelevant.
   doCheck = false;

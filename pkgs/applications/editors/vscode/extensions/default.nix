@@ -9,7 +9,7 @@
 , jdk
 , llvmPackages
 , llvmPackages_14
-, nixpkgs-fmt
+, botpkgs-fmt
 , protobuf
 , jq
 , shellcheck
@@ -409,9 +409,9 @@ let
         };
       };
 
-      b4dm4n.vscode-nixpkgs-fmt = buildVscodeMarketplaceExtension {
+      b4dm4n.vscode-botpkgs-fmt = buildVscodeMarketplaceExtension {
         mktplcRef = {
-          name = "nixpkgs-fmt";
+          name = "botpkgs-fmt";
           publisher = "B4dM4n";
           version = "0.0.1";
           sha256 = "sha256-vz2kU36B1xkLci2QwLpl/SBEhfSWltIDJ1r7SorHcr8=";
@@ -419,7 +419,7 @@ let
         nativeBuildInputs = [ jq moreutils ];
         postInstall = ''
           cd "$out/$installPrefix"
-          jq '.contributes.configuration.properties."nixpkgs-fmt.path".default = "${nixpkgs-fmt}/bin/nixpkgs-fmt"' package.json | sponge package.json
+          jq '.contributes.configuration.properties."botpkgs-fmt.path".default = "${botpkgs-fmt}/bin/botpkgs-fmt"' package.json | sponge package.json
         '';
         meta = {
           license = lib.licenses.mit;

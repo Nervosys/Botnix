@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -I nixpkgs=../../../ -i bash -p nix curl jq prefetch-yarn-deps nix-prefetch-github
+#!nix-shell -I botpkgs=../../../ -i bash -p nix curl jq prefetch-yarn-deps nix-prefetch-github
 
 ORG="matrix-org"
 PROJ="matrix-appservice-discord"

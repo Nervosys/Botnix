@@ -1,10 +1,10 @@
-# This function produces a lib overlay to be used by the nixpkgs
-# & nixpkgs/lib flakes to provide meaningful values for
+# This function produces a lib overlay to be used by the botpkgs
+# & botpkgs/lib flakes to provide meaningful values for
 # `lib.trivial.version` et al..
 #
 # Internal and subject to change, don't use this anywhere else!
 # Instead, consider using a public interface, such as this flake here
-# in this directory, `lib/`, or use the nixpkgs flake, which applies
+# in this directory, `lib/`, or use the botpkgs flake, which applies
 # this logic for you in its `lib` output attribute.
 
 self: # from the flake

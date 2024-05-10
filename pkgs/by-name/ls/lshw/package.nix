@@ -12,7 +12,7 @@
 stdenv.mkDerivation rec {
   pname = "lshw";
   # Fix repology.org by not including the prefixed B, otherwise the `pname` attr
-  # gets filled as `lshw-B.XX.XX` in `nix-env --query --available --attr nixpkgs.lshw --meta`
+  # gets filled as `lshw-B.XX.XX` in `nix-env --query --available --attr botpkgs.lshw --meta`
   # See https://github.com/NixOS/nix/pull/4463 for a definitive fix
   version = "02.20";
 

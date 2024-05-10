@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
   buildInputs = [ python3 libxslt tex ]
     ++ lib.optionals enableAllFeatures [ imagemagick fig2dev ];
 
-  # TODO: dblatex tries to execute texindy command, but nixpkgs doesn't have
+  # TODO: dblatex tries to execute texindy command, but botpkgs doesn't have
   # that yet. In Ubuntu, texindy is a part of the xindy package.
   preConfigure = ''
     sed -i 's|self.install_layout == "deb"|False|' setup.py

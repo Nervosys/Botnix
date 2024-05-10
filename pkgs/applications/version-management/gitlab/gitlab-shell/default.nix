@@ -4,7 +4,7 @@ buildGoModule rec {
   pname = "gitlab-shell";
   version = "14.33.0";
 
-  # nixpkgs-update: no auto update
+  # botpkgs-update: no auto update
   src = fetchFromGitLab {
     owner = "gitlab-org";
     repo = "gitlab-shell";

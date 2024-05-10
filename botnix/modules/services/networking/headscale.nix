@@ -436,7 +436,7 @@ in {
       listen_addr = mkDefault "${cfg.address}:${toString cfg.port}";
 
       # Turn off update checks since the origin of our package
-      # is nixpkgs and not Github.
+      # is botpkgs and not Github.
       disable_check_updates = true;
 
       unix_socket = "${runDir}/headscale.sock";

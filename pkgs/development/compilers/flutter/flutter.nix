@@ -48,7 +48,7 @@ let
         # cases, unexpected output is handled gracefully, but commands are never
         # expected to fail completely. A blank repository needs to be created.
         rm -rf .git # Remove any existing Git directory
-        git init -b nixpkgs
+        git init -b botpkgs
         GIT_AUTHOR_NAME=Botpkgs GIT_COMMITTER_NAME=Botpkgs \
         GIT_AUTHOR_EMAIL= GIT_COMMITTER_EMAIL= \
         GIT_AUTHOR_DATE='1/1/1970 00:00:00 +0000' GIT_COMMITTER_DATE='1/1/1970 00:00:00 +0000' \

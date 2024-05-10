@@ -35,7 +35,7 @@ in buildDunePackage rec {
 
   preCheck = ''
     export HOME=$TMPDIR
-    git config --global user.email "nix-builder@botnix.org"
+    git config --global user.email "nix-builder@nixos.org"
     git config --global user.name "Nix Builder"
 
     # it fails when it tries to reference "./make_check_deterministic.exe"

@@ -17,7 +17,7 @@ buildGoModule rec {
 
   postPatch = ''
     echo v${version} > build/version/version.txt
-    echo nixpkgs     > build/version/package.txt
+    echo botpkgs     > build/version/package.txt
   '';
 
   vendorHash = "sha256-27WwvhX4QHmhBbg8/OFA7MKo34jwngkDQ/ahqV3N4qY=";

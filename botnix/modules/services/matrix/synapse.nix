@@ -115,7 +115,7 @@ in {
     '')
     (mkRemovedOptionModule [ "services" "matrix-synapse" "create_local_database" ] ''
       Database configuration must be done manually. An exemplary setup is demonstrated in
-      <nixpkgs/botnix/tests/matrix/synapse.nix>
+      <botpkgs/botnix/tests/matrix/synapse.nix>
     '')
     (mkRemovedOptionModule [ "services" "matrix-synapse" "web_client" ] "")
     (mkRemovedOptionModule [ "services" "matrix-synapse" "room_invite_state_types" ] ''

@@ -7,7 +7,7 @@
 Several versions of PHP are available on Nix, each of which having a
 wide variety of extensions and libraries available.
 
-The different versions of PHP that nixpkgs provides are located under
+The different versions of PHP that botpkgs provides are located under
 attributes named based on major and minor version number; e.g.,
 `php81` is PHP 8.1.
 
@@ -17,7 +17,7 @@ Botnix. See [PHP Supported
 Versions](https://www.php.net/supported-versions.php).
 
 The attribute `php` refers to the version of PHP considered most
-stable and thoroughly tested in nixpkgs for any given release of
+stable and thoroughly tested in botpkgs for any given release of
 Botnix - not necessarily the latest major release from upstream.
 
 All available PHP attributes are wrappers around their respective

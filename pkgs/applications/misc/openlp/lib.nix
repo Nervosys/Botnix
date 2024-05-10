@@ -28,7 +28,7 @@ buildPythonPackage rec {
   #
   #     Available platform plugins are: wayland-egl, wayland, wayland-xcomposite-egl, wayland-xcomposite-glx.
   #
-  # See also https://discourse.botnix.org/t/qt-plugin-path-unset-in-test-phase/
+  # See also https://discourse.nixos.org/t/qt-plugin-path-unset-in-test-phase/
 
   #nativeCheckInputs = [ mock nose ];
   nativeBuildInputs = [ qt5.qttools ];
@@ -93,7 +93,7 @@ buildPythonPackage rec {
       Bugs which affect this software packaged in Botpkgs:
 
       1. The package must disable checks, because they are lacking the qt env.
-         (see pkg source and https://discourse.botnix.org/t/qt-plugin-path-unset-in-test-phase/)
+         (see pkg source and https://discourse.nixos.org/t/qt-plugin-path-unset-in-test-phase/)
       2. There is a segfault on exit. Not a real problem, according to debug log, everything
          shuts down correctly. Maybe related to https://forums.openlp.org/discussion/3620/crash-on-exit.
          Plan: Wait for OpenLP-3, since it is already in beta 1

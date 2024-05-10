@@ -35,7 +35,7 @@ mkDerivation rec {
     homepage = "https://github.com/LongSoft/uefitool";
     license = licenses.bsd2;
     maintainers = with maintainers; [ ];
-    # uefitool supposedly works on other platforms, but their build script only works on linux in nixpkgs
+    # uefitool supposedly works on other platforms, but their build script only works on linux in botpkgs
     platforms = platforms.linux;
   };
 }

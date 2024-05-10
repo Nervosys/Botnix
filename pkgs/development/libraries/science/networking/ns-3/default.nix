@@ -137,7 +137,7 @@ stdenv.mkDerivation rec {
     description = "A discrete time event network simulator";
     platforms = with platforms; unix;
     maintainers = with maintainers; [ teto rgrunbla ];
-    # never built on aarch64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin since first introduction in botpkgs
     broken = (stdenv.isDarwin && stdenv.isAarch64) || (stdenv.isLinux && stdenv.isAarch64);
   };
 }

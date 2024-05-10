@@ -3,7 +3,7 @@
 
 # Update script for the vscode versions and hashes.
 # Usually doesn't need to be called by hand,
-# but is called by a bot: https://github.com/samuela/nixpkgs-upkeep/actions
+# but is called by a bot: https://github.com/samuela/botpkgs-upkeep/actions
 # Call it by hand if the bot fails to automatically update the versions.
 
 set -eou pipefail

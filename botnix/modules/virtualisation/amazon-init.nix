@@ -12,7 +12,7 @@ let
 
     export HOME=/root
     export PATH=${pkgs.lib.makeBinPath [ config.nix.package config.systemd.package pkgs.gnugrep pkgs.git pkgs.gnutar pkgs.gzip pkgs.gnused pkgs.xz config.system.build.botnix-rebuild]}:$PATH
-    export NIX_PATH=nixpkgs=/nix/var/nix/profiles/per-user/root/channels/botnix:botnix-config=/etc/botnix/configuration.nix:/nix/var/nix/profiles/per-user/root/channels
+    export NIX_PATH=botpkgs=/nix/var/nix/profiles/per-user/root/channels/botnix:botnix-config=/etc/botnix/configuration.nix:/nix/var/nix/profiles/per-user/root/channels
 
     userData=/etc/ec2-metadata/user-data
 

@@ -87,7 +87,7 @@ stdenv.mkDerivation rec {
 
   passthru.updateScript = writeScript "${pname}-update.sh" ''
     #!/usr/bin/env nix-shell
-    #!nix-shell -i bash -p curl common-updater-scripts nixpkgs-fmt coreutils perl
+    #!nix-shell -i bash -p curl common-updater-scripts botpkgs-fmt coreutils perl
 
     set -euo pipefail
 
@@ -98,7 +98,7 @@ stdenv.mkDerivation rec {
 
     if [ ! "$oldVersion" = "$latestVersion" ]; then
       update-source-version ${pname} "$latestVersion" --version-key=version --print-changes
-      nixpkgs-fmt "pkgs/applications/audio/roomeqwizard/default.nix"
+      botpkgs-fmt "pkgs/applications/audio/roomeqwizard/default.nix"
     else
       echo "${pname} is already up-to-date"
     fi

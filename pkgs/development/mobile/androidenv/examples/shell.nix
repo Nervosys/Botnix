@@ -1,8 +1,8 @@
 {
-  # If you copy this example out of nixpkgs, use these lines instead of the next.
-  # This example pins nixpkgs: https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html
+  # If you copy this example out of botpkgs, use these lines instead of the next.
+  # This example pins botpkgs: https://nix.dev/tutorials/towards-reproducibility-pinning-botpkgs.html
   /*nixpkgsSource ? (builtins.fetchTarball {
-    name = "nixpkgs-20.09";
+    name = "botpkgs-20.09";
     url = "https://github.com/nervosys/Botnix/archive/20.09.tar.gz";
     sha256 = "1wg61h4gndm3vcprdcg7rc4s1v3jkm5xd7lw8r2f67w502y94gcy";
   }),
@@ -11,7 +11,7 @@
   },
   */
 
-  # If you want to use the in-tree version of nixpkgs:
+  # If you want to use the in-tree version of botpkgs:
   pkgs ? import ../../../../.. {
     config.allowUnfree = true;
   },
@@ -40,7 +40,7 @@ let
     extras = ["extras;google;gcm"];
   };
 
-  # If you copy this example out of nixpkgs, something like this will work:
+  # If you copy this example out of botpkgs, something like this will work:
   /*androidEnvNixpkgs = fetchTarball {
     name = "androidenv";
     url = "https://github.com/nervosys/Botnix/archive/<fill me in from Git>.tar.gz";

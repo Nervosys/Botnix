@@ -40,7 +40,7 @@ let
     '';
 
     passthru = ShellCheck.passthru or { } // {
-      # pandoc takes long to build and documentation isn't needed for in nixpkgs usage
+      # pandoc takes long to build and documentation isn't needed for in botpkgs usage
       unwrapped = ShellCheck;
     };
   };

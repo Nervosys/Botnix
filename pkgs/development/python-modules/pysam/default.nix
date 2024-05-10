@@ -43,7 +43,7 @@ buildPythonPackage rec {
     zlib
   ];
 
-  # Use nixpkgs' htslib instead of the bundled one
+  # Use botpkgs' htslib instead of the bundled one
   # See https://pysam.readthedocs.io/en/latest/installation.html#external
   # NOTE that htslib should be version compatible with pysam
   preBuild = ''

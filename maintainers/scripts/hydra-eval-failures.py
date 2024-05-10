@@ -26,7 +26,7 @@ def get_response_text(url):
 
 EVAL_FILE = {
     'botnix': 'botnix/release.nix',
-    'nixpkgs': 'pkgs/top-level/release.nix',
+    'botpkgs': 'pkgs/top-level/release.nix',
 }
 
 
@@ -41,7 +41,7 @@ def get_maintainers(attr_name):
             '.'.join(nixname[1:]) + '.meta',
             EVAL_FILE[nixname[0]],
             '--arg',
-            'nixpkgs',
+            'botpkgs',
             './.',
             '--json'])
         meta = json.loads(meta_json)
@@ -79,7 +79,7 @@ def cli(jobset):
     and print a summary of failed builds
     """
 
-    url = "https://hydra.botnix.org/jobset/{}".format(jobset)
+    url = "https://hydra.nixos.org/jobset/{}".format(jobset)
 
     # get the last evaluation
     click.echo(click.style(

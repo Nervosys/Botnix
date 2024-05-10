@@ -11,7 +11,7 @@
 # The interactive driver is required because the default
 # (non-interactive) driver uses qemu without support for passing USB
 # devices to the guest (see
-# https://discourse.botnix.org/t/hardware-dependent-botnix-tests/18564
+# https://discourse.nixos.org/t/hardware-dependent-botnix-tests/18564
 # for discussion of other alternatives).
 
 import ../../../../botnix/tests/make-test-python.nix ({ pkgs, ... }: {

@@ -6,17 +6,17 @@ See the [CONTRIBUTING.md](../CONTRIBUTING.md) document for more general informat
 ## Overview
 
 - [`top-level`](./top-level): Entrypoints, package set aggregations
-  - [`impure.nix`](./top-level/impure.nix), [`default.nix`](./top-level/default.nix), [`config.nix`](./top-level/config.nix): Definitions for the evaluation entry point of `import <nixpkgs>`
-  - [`stage.nix`](./top-level/stage.nix), [`all-packages.nix`](./top-level/all-packages.nix), [`by-name-overlay.nix`](./top-level/by-name-overlay.nix), [`splice.nix`](./top-level/splice.nix): Definitions for the top-level attribute set made available through `import <nixpkgs> {…}`
+  - [`impure.nix`](./top-level/impure.nix), [`default.nix`](./top-level/default.nix), [`config.nix`](./top-level/config.nix): Definitions for the evaluation entry point of `import <botpkgs>`
+  - [`stage.nix`](./top-level/stage.nix), [`all-packages.nix`](./top-level/all-packages.nix), [`by-name-overlay.nix`](./top-level/by-name-overlay.nix), [`splice.nix`](./top-level/splice.nix): Definitions for the top-level attribute set made available through `import <botpkgs> {…}`
   - `*-packages.nix`, [`linux-kernels.nix`](./top-level/linux-kernels.nix), [`unixtools.nix`](./top-level/unixtools.nix): Aggregations of nested package sets defined in `development`
   - [`aliases.nix`](./top-level/aliases.nix), [`python-aliases.nix`](./top-level/python-aliases.nix): Aliases for package definitions that have been renamed or removed
-  - `release*.nix`, [`make-tarball.nix`](./top-level/make-tarball.nix), [`packages-config.nix`](./top-level/packages-config.nix), [`metrics.nix`](./top-level/metrics.nix), [`nixpkgs-basic-release-checks.nix`](./top-level/nixpkgs-basic-release-checks.nix): Entry-points and utilities used by Hydra for continuous integration
+  - `release*.nix`, [`make-tarball.nix`](./top-level/make-tarball.nix), [`packages-config.nix`](./top-level/packages-config.nix), [`metrics.nix`](./top-level/metrics.nix), [`botpkgs-basic-release-checks.nix`](./top-level/botpkgs-basic-release-checks.nix): Entry-points and utilities used by Hydra for continuous integration
 - [`development`](./development)
   - `*-modules`, `*-packages`, `*-pkgs`: Package definitions for nested package sets
   - All other directories loosely categorise top-level package definitions, see [category hierarchy][categories]
-- [`build-support`](./build-support): [Builders](https://nixos.org/manual/nixpkgs/stable/#part-builders)
-  - `fetch*`: [Fetchers](https://nixos.org/manual/nixpkgs/stable/#chap-pkgs-fetchers)
-- [`stdenv`](./stdenv): [Standard environment](https://nixos.org/manual/nixpkgs/stable/#part-stdenv)
+- [`build-support`](./build-support): [Builders](https://nixos.org/manual/botpkgs/stable/#part-builders)
+  - `fetch*`: [Fetchers](https://nixos.org/manual/botpkgs/stable/#chap-pkgs-fetchers)
+- [`stdenv`](./stdenv): [Standard environment](https://nixos.org/manual/botpkgs/stable/#part-stdenv)
 - [`pkgs-lib`](./pkgs-lib): Definitions for utilities that need packages but are not needed for packages
 - [`test`](./test): Tests not directly associated with any specific packages
 - [`by-name`](./by-name): Top-level packages organised by name ([docs](./by-name/README.md))
@@ -30,7 +30,7 @@ Before adding a new package, please consider the following questions:
 
 * Is the package ready for general use? We don't want to include projects that are too immature or are going to be abandoned immediately. In case of doubt, check with upstream.
 * Does the project have a clear license statement? Remember that software is unfree by default (all rights reserved), and merely providing access to the source code does not imply its redistribution. In case of doubt, ask upstream.
-* How realistic is it that it will be used by other people? It's good that nixpkgs caters to various niches, but if it's a niche of 5 people it's probably too small.
+* How realistic is it that it will be used by other people? It's good that botpkgs caters to various niches, but if it's a niche of 5 people it's probably too small.
 * Are you willing to maintain the package? You should care enough about the package to be willing to keep it up and running for at least one complete Botpkgs' release life-cycle.
 
 If any of these questions' answer is no, then you should probably not add the package.
@@ -47,7 +47,7 @@ Now that this is out of the way. To add a package to Botpkgs:
 
    ```ShellSession
    $ git clone https://github.com/nervosys/Botnix
-   $ cd nixpkgs
+   $ cd botpkgs
    ```
 
 2. Create a package directory `pkgs/by-name/so/some-package` where `some-package` is the package name and `so` is the lowercased 2-letter prefix of the package name:
@@ -90,7 +90,7 @@ Now that this is out of the way. To add a package to Botpkgs:
 
    - Add yourself as the maintainer of the package.
 
-   - All other [`meta`](https://nixos.org/manual/nixpkgs/stable/#chap-meta) attributes are optional, but it’s still a good idea to provide at least the `description`, `homepage` and [`license`](https://nixos.org/manual/nixpkgs/stable/#sec-meta-license).
+   - All other [`meta`](https://nixos.org/manual/botpkgs/stable/#chap-meta) attributes are optional, but it’s still a good idea to provide at least the `description`, `homepage` and [`license`](https://nixos.org/manual/botpkgs/stable/#sec-meta-license).
 
    - You can use `nix-prefetch-url url` to get the SHA-256 hash of source distributions. There are similar commands as `nix-prefetch-git` and `nix-prefetch-hg` available in `nix-prefetch-scripts` package.
 
@@ -98,7 +98,7 @@ Now that this is out of the way. To add a package to Botpkgs:
 
    The exact syntax and semantics of the Nix expression language, including the built-in function, are [described in the Nix manual](https://nixos.org/manual/nix/stable/language/).
 
-5. To test whether the package builds, run the following command from the root of the nixpkgs source tree:
+5. To test whether the package builds, run the following command from the root of the botpkgs source tree:
 
    ```ShellSession
    $ nix-build -A some-package
@@ -112,7 +112,7 @@ Now that this is out of the way. To add a package to Botpkgs:
    $ nix-env -f . -iA libfoo
    ```
 
-7. Optionally commit the new package and open a pull request [to nixpkgs](https://github.com/nervosys/Botnix/pulls), or use [the Patches category](https://discourse.botnix.org/t/about-the-patches-category/477) on Discourse for sending a patch without a GitHub account.
+7. Optionally commit the new package and open a pull request [to botpkgs](https://github.com/nervosys/Botnix/pulls), or use [the Patches category](https://discourse.nixos.org/t/about-the-patches-category/477) on Discourse for sending a patch without a GitHub account.
 
 ## Commit conventions
 
@@ -387,7 +387,7 @@ All versions of a package _must_ be included in `all-packages.nix` to make sure 
 * `meta.mainProgram` must be set when appropriate.
 * `meta.maintainers` must be set for new packages.
 
-See the Botpkgs manual for more details on [standard meta-attributes](https://nixos.org/nixpkgs/manual/#sec-standard-meta-attributes).
+See the Botpkgs manual for more details on [standard meta-attributes](https://nixos.org/botpkgs/manual/#sec-standard-meta-attributes).
 
 ### Import From Derivation
 
@@ -400,7 +400,7 @@ Import From Derivation can be worked around in some cases by committing generate
 
 ### Fetching Sources
 
-There are multiple ways to fetch a package source in nixpkgs. The general guideline is that you should package reproducible sources with a high degree of availability. Right now there is only one fetcher which has mirroring support and that is `fetchurl`. Note that you should also prefer protocols which have a corresponding proxy environment variable.
+There are multiple ways to fetch a package source in botpkgs. The general guideline is that you should package reproducible sources with a high degree of availability. Right now there is only one fetcher which has mirroring support and that is `fetchurl`. Note that you should also prefer protocols which have a corresponding proxy environment variable.
 
 You can find many source fetch helpers in `pkgs/build-support/fetch*`.
 
@@ -438,7 +438,7 @@ In the file `pkgs/top-level/all-packages.nix` you can find fetch helpers, these 
   }
   ```
 
-When fetching from GitHub, commits must always be referenced by their full commit hash. This is because GitHub shares commit hashes among all forks and returns `404 Not Found` when a short commit hash is ambiguous. It already happens for some short, 6-character commit hashes in `nixpkgs`.
+When fetching from GitHub, commits must always be referenced by their full commit hash. This is because GitHub shares commit hashes among all forks and returns `404 Not Found` when a short commit hash is ambiguous. It already happens for some short, 6-character commit hashes in `botpkgs`.
 It is a practical vector for a denial-of-service attack by pushing large amounts of auto generated commits into forks and was already [demonstrated against GitHub Actions Beta](https://blog.teddykatz.com/2019/11/12/github-actions-dos.html).
 
 Find the value to put as `hash` by running `nix-shell -p nix-prefetch-github --run "nix-prefetch-github --rev 1f795f9f44607cc5bec70d1300150bfefcef2aae Botnix nix"`.
@@ -449,7 +449,7 @@ Preferred source hash type is sha256. There are several ways to get it.
 
 1. Prefetch URL (with `nix-prefetch-XXX URL`, where `XXX` is one of `url`, `git`, `hg`, `cvs`, `bzr`, `svn`). Hash is printed to stdout.
 
-2. Prefetch by package source (with `nix-prefetch-url '<nixpkgs>' -A PACKAGE.src`, where `PACKAGE` is package attribute name). Hash is printed to stdout.
+2. Prefetch by package source (with `nix-prefetch-url '<botpkgs>' -A PACKAGE.src`, where `PACKAGE` is package attribute name). Hash is printed to stdout.
 
     This works well when you've upgraded existing package version and want to find out new hash, but is useless if package can't be accessed by attribute or package has multiple sources (`.srcs`, architecture-dependent sources, etc).
 
@@ -508,9 +508,9 @@ patches = [
 ];
 ```
 
-Otherwise, you can add a `.patch` file to the `nixpkgs` repository. In the interest of keeping our maintenance burden to a minimum, only patches that are unique to `nixpkgs` should be added in this way.
+Otherwise, you can add a `.patch` file to the `botpkgs` repository. In the interest of keeping our maintenance burden to a minimum, only patches that are unique to `botpkgs` should be added in this way.
 
-If a patch is available online but does not cleanly apply, it can be modified in some fixed ways by using additional optional arguments for `fetchpatch`. Check [the `fetchpatch` reference](https://nixos.org/manual/nixpkgs/unstable/#fetchpatch) for details.
+If a patch is available online but does not cleanly apply, it can be modified in some fixed ways by using additional optional arguments for `fetchpatch`. Check [the `fetchpatch` reference](https://nixos.org/manual/botpkgs/unstable/#fetchpatch) for details.
 
 ```nix
 patches = [ ./0001-changes.patch ];
@@ -536,7 +536,7 @@ If you do need to do create this sort of patch file, one way to do so is with gi
 4. Use git to create a diff, and pipe the output to a patch file:
 
     ```ShellSession
-    $ git diff -a > nixpkgs/pkgs/the/package/0001-changes.patch
+    $ git diff -a > botpkgs/pkgs/the/package/0001-changes.patch
     ```
 
 ## Deprecating/removing packages
@@ -592,7 +592,7 @@ To run the main types of tests locally:
 
 - Run package-internal tests with `nix-build --attr pkgs.PACKAGE.passthru.tests`
 - Run [Botnix tests](https://nixos.org/manual/botnix/unstable/#sec-botnix-tests) with `nix-build --attr nixosTests.NAME`, where `NAME` is the name of the test listed in `botnix/tests/all-tests.nix`
-- Run [global package tests](https://nixos.org/manual/nixpkgs/unstable/#sec-package-tests) with `nix-build --attr tests.PACKAGE`, where `PACKAGE` is the name of the test listed in `pkgs/test/default.nix`
+- Run [global package tests](https://nixos.org/manual/botpkgs/unstable/#sec-package-tests) with `nix-build --attr tests.PACKAGE`, where `PACKAGE` is the name of the test listed in `pkgs/test/default.nix`
 - See `lib/tests/NAME.nix` for instructions on running specific library tests
 
 Tests are important to ensure quality and make reviews and automatic updates easy.
@@ -603,7 +603,7 @@ The following types of tests exists:
 * Nix **package tests** are a lightweight alternative to Botnix module tests. They should be used to create simple integration tests for packages, but cannot test Botnix services, and some programs with graphical user interfaces may also be difficult to test with them.
 * The **`checkPhase` of a package**, which should execute the unit tests that are included in the source code of a package.
 
-Here in the nixpkgs manual we describe mostly _package tests_; for _module tests_ head over to the corresponding [section in the Botnix manual](https://nixos.org/manual/botnix/stable/#sec-botnix-tests).
+Here in the botpkgs manual we describe mostly _package tests_; for _module tests_ head over to the corresponding [section in the Botnix manual](https://nixos.org/manual/botnix/stable/#sec-botnix-tests).
 
 ### Writing inline package tests
 
@@ -675,7 +675,7 @@ runCommand "${pname}-tests" { meta.timeout = 60; }
 You can run these tests with:
 
 ```ShellSession
-$ cd path/to/nixpkgs
+$ cd path/to/botpkgs
 $ nix-build -A phoronix-test-suite.tests
 ```
 
@@ -729,7 +729,7 @@ Reviewing process:
 - Ensure that the code contains no typos.
 - Build the package locally.
   - Pull requests are often targeted to the master or staging branch, and building the pull request locally when it is submitted can trigger many source builds.
-  - It is possible to rebase the changes on botnix-unstable or nixpkgs-unstable for easier review by running the following commands from a nixpkgs clone.
+  - It is possible to rebase the changes on botnix-unstable or botpkgs-unstable for easier review by running the following commands from a botpkgs clone.
 
     ```ShellSession
     $ git fetch origin botnix-unstable
@@ -740,10 +740,10 @@ Reviewing process:
     - The first command fetches the botnix-unstable branch.
     - The second command fetches the pull request changes, `PRNUMBER` is the number at the end of the pull request title and `BASEBRANCH` the base branch of the pull request.
     - The third command rebases the pull request changes to the botnix-unstable branch.
-  - The [nixpkgs-review](https://github.com/Mic92/nixpkgs-review) tool can be used to review a pull request content in a single command. `PRNUMBER` should be replaced by the number at the end of the pull request title. You can also provide the full github pull request url.
+  - The [botpkgs-review](https://github.com/Mic92/botpkgs-review) tool can be used to review a pull request content in a single command. `PRNUMBER` should be replaced by the number at the end of the pull request title. You can also provide the full github pull request url.
 
     ```ShellSession
-    $ nix-shell -p nixpkgs-review --run "nixpkgs-review pr PRNUMBER"
+    $ nix-shell -p botpkgs-review --run "botpkgs-review pr PRNUMBER"
     ```
 - Run every binary.
 
@@ -842,7 +842,7 @@ Critical security fixes may by-pass the staging branches and be delivered direct
 Vulnerable packages in Botpkgs are managed using issues.
 Currently opened ones can be found using the following:
 
-[github.com/Botnix/nixpkgs/issues?q=is:issue+is:open+"Vulnerability+roundup"](https://github.com/nervosys/Botnix/issues?q=is%3Aissue+is%3Aopen+%22Vulnerability+roundup%22)
+[github.com/Botnix/botpkgs/issues?q=is:issue+is:open+"Vulnerability+roundup"](https://github.com/nervosys/Botnix/issues?q=is%3Aissue+is%3Aopen+%22Vulnerability+roundup%22)
 
 Each issue correspond to a vulnerable version of a package; As a consequence:
 

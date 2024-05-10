@@ -33,7 +33,7 @@ __pycache__
 update-git-commits.txt
 
 # JetBrains IDEA module declaration file
-/nixpkgs.iml
+/botpkgs.iml
 
 # Botnix: omit packages irrelevant to robotics
 /pkgs/games/

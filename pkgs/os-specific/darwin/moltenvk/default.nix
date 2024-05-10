@@ -60,7 +60,7 @@ stdenv.mkDerivation (finalAttrs: {
     substituteInPlace Scripts/gen_moltenvk_rev_hdr.sh \
       --replace-fail '$'''{BUILT_PRODUCTS_DIR}' "$NIX_BUILD_TOP/$sourceRoot/build/include" \
       --replace-fail '$(git rev-parse HEAD)' ${finalAttrs.src.rev}
-    # Use the SPIRV-Cross packaged in nixpkgs instead of one built specifically for MoltenVK.
+    # Use the SPIRV-Cross packaged in botpkgs instead of one built specifically for MoltenVK.
     substituteInPlace MoltenVK/MoltenVK.xcodeproj/project.pbxproj \
       --replace-fail SPIRV_CROSS_NAMESPACE_OVERRIDE=MVK_spirv_cross SPIRV_CROSS_NAMESPACE_OVERRIDE=spirv_cross
     substituteInPlace MoltenVKShaderConverter/MoltenVKShaderConverter.xcodeproj/project.pbxproj \

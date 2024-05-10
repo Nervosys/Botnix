@@ -19,6 +19,6 @@ node2nix \
   --registry https://gitlab.com/api/v4/packages/npm \
   --registry-scope '@mx-puppet'
 
-sed -i 's|<nixpkgs>|../../..|' node-composition.nix
+sed -i 's|<botpkgs>|../../..|' node-composition.nix
 
 rm -f package.json

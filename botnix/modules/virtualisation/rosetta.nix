@@ -14,7 +14,7 @@ in
 
         This feature requires the system to be a virtualised guest on an Apple silicon host.
 
-        The default settings are suitable for the [UTM](https://docs.getutm.app/) virtualisation [package](https://search.botnix.org/packages?channel=unstable&show=utm&from=0&size=1&sort=relevance&type=packages&query=utm).
+        The default settings are suitable for the [UTM](https://docs.getutm.app/) virtualisation [package](https://search.nixos.org/packages?channel=unstable&show=utm&from=0&size=1&sort=relevance&type=packages&query=utm).
         Make sure to select 'Apple Virtualization' as the virtualisation engine and then tick the 'Enable Rosetta' option.
       '';
     };

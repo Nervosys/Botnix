@@ -147,7 +147,7 @@ let
       ln -s ${git} $out/share/${pname}/resources/app.asar.unpacked/git
 
       # GitKraken expects the CA bundle to be located in the bundled git directory. Since we replace it with
-      # the one from nixpkgs, which doesn't provide a CA bundle, we need to explicitly set its location at runtime
+      # the one from botpkgs, which doesn't provide a CA bundle, we need to explicitly set its location at runtime
       makeWrapper $out/share/${pname}/gitkraken $out/bin/gitkraken \
         --set GIT_SSL_CAINFO "${cacert}/etc/ssl/certs/ca-bundle.crt" \
         "''${gappsWrapperArgs[@]}"

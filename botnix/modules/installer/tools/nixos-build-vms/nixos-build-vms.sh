@@ -49,5 +49,5 @@ then
 fi
 
 # Build a network of VMs
-nix-build '<nixpkgs/botnix/modules/installer/tools/botnix-build-vms/build-vms.nix>' \
+nix-build '<botpkgs/botnix/modules/installer/tools/botnix-build-vms/build-vms.nix>' \
     --argstr networkExpr "$networkExpr" "${nixBuildArgs[@]}"

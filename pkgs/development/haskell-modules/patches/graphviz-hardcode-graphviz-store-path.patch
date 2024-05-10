@@ -30,7 +30,7 @@ index 20e7dbe..514c29d 100644
  -- | Is the Graphviz suite of tools installed?  This is determined by
  --   whether @dot@ is available in the @PATH@.
 +--
-+--   Note: With nixpkgs, this will always return 'True' as graphviz'
++--   Note: With botpkgs, this will always return 'True' as graphviz'
 +--   store paths are hardcoded instead of looking at @PATH@.
  isGraphvizInstalled :: IO Bool
 -isGraphvizInstalled = liftM isJust . findExecutable $ showCmd Dot

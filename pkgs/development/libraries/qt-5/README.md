@@ -39,7 +39,7 @@ facilitate maintenance, a fork of the upstream repository is created for each pa
 - [qtdeclarative](https://github.com/ttuegel/qtdeclarative)
 - [qtwebengine](https://github.com/ttuegel/qtwebengine)
 
-In each repository, the patches are contained in a branch named `nixpkgs/$major`
+In each repository, the patches are contained in a branch named `botpkgs/$major`
 for each major version. Please make a pull request to add or update any patch
 which will be maintained in Botpkgs.
 
@@ -48,7 +48,7 @@ Botpkgs. To recreate the patch for module `$module` (e.g. `qtbase`) at version
 `$version` (e.g. `5.9.1`) in the branch `$major` (e.g. `5.9`),
 
 1. Clone the fork for `$module` from the list above.
-2. Checkout the active branch, `git checkout nixpkgs/$major`.
+2. Checkout the active branch, `git checkout botpkgs/$major`.
 3. Compare the patched branch to the release tag,
    `git diff v$version > $module.patch`.
 4. Copy `$module.patch` into the Botpkgs tree.
@@ -59,7 +59,7 @@ To update module `$module` to version `$version` from an older version in the
 same branch `$major`,
 
 1. Clone the fork for `$module` from the list above.
-2. Checkout the active branch, `git checkout nixpkgs/$major`.
+2. Checkout the active branch, `git checkout botpkgs/$major`.
 3. Merge the new version into the active branch,
    `git merge --no-ff v$version`.
 4. Fix any conflicts.
@@ -73,7 +73,7 @@ To update module `$module` from `$oldversion` in branch `$oldmajor` to version
 
 1. Clone the fork for `$module` from the list above.
 2. Checkout a new branch for the new major version,
-   `git checkout -b nixpkgs/$major nixpkgs/$oldmajor`.
+   `git checkout -b botpkgs/$major botpkgs/$oldmajor`.
 3. Rebase the patches from `$oldversion` onto the new branch,
    `git rebase v$oldversion --onto v$version`.
 4. Fix any conflicts.

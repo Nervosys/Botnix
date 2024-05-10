@@ -60,7 +60,7 @@ is shown in [Example: Structure of Botnix Modules](#ex-module-syntax).
 The meaning of each part is as follows.
 
 -   The first line makes the current Nix expression a function. The variable
-    `pkgs` contains Botpkgs (by default, it takes the `nixpkgs` entry of
+    `pkgs` contains Botpkgs (by default, it takes the `botpkgs` entry of
     `NIX_PATH`, see the [Nix manual](https://nixos.org/manual/nix/stable/#sec-common-env)
     for further details), while `config` contains the full system
     configuration. This line can be omitted if there is no reference to

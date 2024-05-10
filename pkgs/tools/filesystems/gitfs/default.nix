@@ -16,7 +16,7 @@ python3Packages.buildPythonApplication rec {
     echo > requirements.txt
 
     # NOTE: As of gitfs 0.5.2, The pygit2 release that upstream uses is a major
-    # version behind the one packaged in nixpkgs.
+    # version behind the one packaged in botpkgs.
     substituteInPlace gitfs/mounter.py --replace \
       'from pygit2.remote import RemoteCallbacks' \
       'from pygit2 import RemoteCallbacks'

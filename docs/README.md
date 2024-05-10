@@ -8,8 +8,8 @@ For tutorials, guides and explanations, contribute to <https://nix.dev/> instead
 For documentation only relevant for contributors, use Markdown files and code comments in the source code.
 
 Rendered documentation:
-- [Unstable (from master)](https://nixos.org/manual/nixpkgs/unstable/)
-- [Stable (from latest release)](https://nixos.org/manual/nixpkgs/stable/)
+- [Unstable (from master)](https://nixos.org/manual/botpkgs/unstable/)
+- [Stable (from latest release)](https://nixos.org/manual/botpkgs/stable/)
 
 The rendering tool is [botnix-render-docs](../pkgs/tools/nix/botnix-render-docs/src/nixos_render_docs), sometimes abbreviated `nrd`.
 
@@ -18,11 +18,11 @@ The rendering tool is [botnix-render-docs](../pkgs/tools/nix/botnix-render-docs/
 You can quickly check your edits with `nix-build`:
 
 ```ShellSession
-$ cd /path/to/nixpkgs
+$ cd /path/to/botpkgs
 $ nix-build doc
 ```
 
-If the build succeeds, the manual will be in `./result/share/doc/nixpkgs/manual.html`.
+If the build succeeds, the manual will be in `./result/share/doc/botpkgs/manual.html`.
 
 ### devmode
 
@@ -199,7 +199,7 @@ You, as the writer of documentation, are still in charge of its content.
 - When showing inputs/outputs of any [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop), such as a shell or the Nix REPL, use a format as you'd see in the REPL, while trying to visually separate inputs from outputs.
   This means that for a shell, you should use a format like the following:
   ```shell
-  $ nix-build -A hello '<nixpkgs>' \
+  $ nix-build -A hello '<botpkgs>' \
     --option require-sigs false \
     --option trusted-substituters file:///tmp/hello-cache \
     --option substituters file:///tmp/hello-cache
@@ -289,7 +289,7 @@ and after code fencing
 ```
 
 Defining examples through the `example` fencing class adds them to a "List of Examples" section after the Table of Contents.
-Though this is not shown in the rendered documentation on botnix.org.
+Though this is not shown in the rendered documentation on nixos.org.
 
 #### Figures
 
@@ -303,7 +303,7 @@ To define a referencable figure use the following fencing:
 ```
 
 Defining figures through the `figure` fencing class adds them to a `List  of Figures` after the `Table of Contents`.
-Though this is not shown in the rendered documentation on botnix.org.
+Though this is not shown in the rendered documentation on nixos.org.
 
 #### Footnotes
 

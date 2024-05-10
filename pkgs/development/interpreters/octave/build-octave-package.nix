@@ -1,6 +1,6 @@
 # Generic builder for GNU Octave libraries.
 # This is a file that contains nested functions. The first, outer, function
-# is the library- and package-wide details, such as the nixpkgs library, any
+# is the library- and package-wide details, such as the botpkgs library, any
 # additional configuration provided, and the namePrefix to use (based on the
 # pname and version of Octave), the octave package, etc.
 

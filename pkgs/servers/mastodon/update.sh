@@ -100,7 +100,7 @@ in
   yarnHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
 }
 EOF
-SOURCE_DIR="$(nix-build --no-out-link -E '(import <nixpkgs> {}).callPackage ./source.nix {}')"
+SOURCE_DIR="$(nix-build --no-out-link -E '(import <botpkgs> {}).callPackage ./source.nix {}')"
 
 echo "Creating gemset.nix"
 bundix --lockfile="$SOURCE_DIR/Gemfile.lock" --gemfile="$SOURCE_DIR/Gemfile"

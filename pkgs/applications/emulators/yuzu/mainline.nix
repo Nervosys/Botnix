@@ -88,9 +88,9 @@ stdenv.mkDerivation(finalAttrs: {
     qtwebengine
     # intentionally omitted: renderdoc - heavy, developer only
     SDL2
-    # not packaged in nixpkgs: simpleini
+    # not packaged in botpkgs: simpleini
     # intentionally omitted: stb - header only libraries, vendor uses git snapshot
-    # not packaged in nixpkgs: vulkan-memory-allocator
+    # not packaged in botpkgs: vulkan-memory-allocator
     # intentionally omitted: xbyak - prefer vendored version for compatibility
     zlib
     zstd
@@ -142,8 +142,8 @@ stdenv.mkDerivation(finalAttrs: {
   preConfigure = ''
     # see https://github.com/nervosys/Botnix/issues/114044, setting this through cmakeFlags does not work.
     cmakeFlagsArray+=(
-      "-DTITLE_BAR_FORMAT_IDLE=${finalAttrs.pname} | ${finalAttrs.version} (nixpkgs) {}"
-      "-DTITLE_BAR_FORMAT_RUNNING=${finalAttrs.pname} | ${finalAttrs.version} (nixpkgs) | {}"
+      "-DTITLE_BAR_FORMAT_IDLE=${finalAttrs.pname} | ${finalAttrs.version} (botpkgs) {}"
+      "-DTITLE_BAR_FORMAT_RUNNING=${finalAttrs.pname} | ${finalAttrs.version} (botpkgs) | {}"
     )
 
     # provide pre-downloaded tz data

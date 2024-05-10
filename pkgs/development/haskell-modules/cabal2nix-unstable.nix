@@ -1,6 +1,6 @@
 # This file defines cabal2nix-unstable, used by maintainers/scripts/haskell/regenerate-hackage-packages.sh.
 { mkDerivation, aeson, ansi-wl-pprint, base, bytestring, Cabal
-, containers, deepseq, directory, distribution-nixpkgs, fetchzip
+, containers, deepseq, directory, distribution-botpkgs, fetchzip
 , filepath, hackage-db, hopenssl, hpack, language-nix, lens, lib
 , monad-par, monad-par-extras, mtl, optparse-applicative, pretty
 , process, split, tasty, tasty-golden, text, time, transformers
@@ -18,13 +18,13 @@ mkDerivation {
   isExecutable = true;
   libraryHaskellDepends = [
     aeson ansi-wl-pprint base bytestring Cabal containers deepseq
-    directory distribution-nixpkgs filepath hackage-db hopenssl hpack
+    directory distribution-botpkgs filepath hackage-db hopenssl hpack
     language-nix lens optparse-applicative pretty process split text
     time transformers yaml
   ];
   executableHaskellDepends = [
     aeson base bytestring Cabal containers directory
-    distribution-nixpkgs filepath hopenssl language-nix lens monad-par
+    distribution-botpkgs filepath hopenssl language-nix lens monad-par
     monad-par-extras mtl optparse-applicative pretty
   ];
   testHaskellDepends = [

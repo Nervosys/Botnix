@@ -170,7 +170,7 @@ let
       substituteInPlace libhb/hb.c \
         --replace 'return hb_version;' 'return "${version}";'
 
-      # Force using nixpkgs dependencies
+      # Force using botpkgs dependencies
       sed -i '/MODULES += contrib/d' make/include/main.defs
       sed -e 's/^[[:space:]]*\(meson\|ninja\|nasm\)[[:space:]]*= ToolProbe.*$//g' \
           -e '/    ## Additional library and tool checks/,/    ## MinGW specific library and tool checks/d' \

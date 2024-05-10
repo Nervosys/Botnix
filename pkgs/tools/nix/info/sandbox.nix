@@ -1,5 +1,5 @@
 let
-  pkgs = import <nixpkgs> {};
+  pkgs = import <botpkgs> {};
 in pkgs.runCommand "diagnostics-sandbox"
   { }
   ''

@@ -89,7 +89,7 @@ buildDhallPackage {
 # ./example.nix
 
 let
-  nixpkgs = builtins.fetchTarball {
+  botpkgs = builtins.fetchTarball {
     url    = "https://github.com/nervosys/Botnix/archive/94b2848559b12a8ed1fe433084686b2a81123c99.tar.gz";
     hash = "sha256-B4Q3c6IvTLg3Q92qYa8y+i4uTaphtFdjp+Ir3QQjdN0=";
   };
@@ -105,7 +105,7 @@ let
     });
   };
 
-  pkgs = import nixpkgs { config = {}; overlays = [ overlay ]; };
+  pkgs = import botpkgs { config = {}; overlays = [ overlay ]; };
 
 in
   pkgs
@@ -297,14 +297,14 @@ terms of `buildDhallPackage` that accepts the following arguments:
 Additionally, `buildDhallGitHubPackage` accepts the same arguments as
 `fetchFromGitHub`, such as `hash` or `fetchSubmodules`.
 
-## `dhall-to-nixpkgs` {#ssec-dhall-dhall-to-nixpkgs}
+## `dhall-to-botpkgs` {#ssec-dhall-dhall-to-botpkgs}
 
-You can use the `dhall-to-nixpkgs` command-line utility to automate
+You can use the `dhall-to-botpkgs` command-line utility to automate
 packaging Dhall code.  For example:
 
 ```ShellSession
-$ nix-shell -p haskellPackages.dhall-nixpkgs nix-prefetch-git
-[nix-shell]$ dhall-to-nixpkgs github https://github.com/Gabriella439/dhall-semver.git
+$ nix-shell -p haskellPackages.dhall-botpkgs nix-prefetch-git
+[nix-shell]$ dhall-to-botpkgs github https://github.com/Gabriella439/dhall-semver.git
 { buildDhallGitHubPackage, Prelude }:
   buildDhallGitHubPackage {
     name = "dhall-semver";
@@ -323,7 +323,7 @@ $ nix-shell -p haskellPackages.dhall-nixpkgs nix-prefetch-git
 ```
 
 :::{.note}
-`nix-prefetch-git` is added to the `nix-shell -p` invocation above, because it has to be in `$PATH` for `dhall-to-nixpkgs` to work.
+`nix-prefetch-git` is added to the `nix-shell -p` invocation above, because it has to be in `$PATH` for `dhall-to-botpkgs` to work.
 :::
 
 The utility takes care of automatically detecting remote imports and converting
@@ -331,7 +331,7 @@ them to package dependencies.  You can also use the utility on local
 Dhall directories, too:
 
 ```ShellSession
-$ dhall-to-nixpkgs directory ~/proj/dhall-semver
+$ dhall-to-botpkgs directory ~/proj/dhall-semver
 { buildDhallDirectoryPackage, Prelude }:
   buildDhallDirectoryPackage {
     name = "proj";
@@ -345,14 +345,14 @@ $ dhall-to-nixpkgs directory ~/proj/dhall-semver
 
 ### Remote imports as fixed-output derivations {#ssec-dhall-remote-imports-as-fod}
 
-`dhall-to-nixpkgs` has the ability to fetch and build remote imports as
+`dhall-to-botpkgs` has the ability to fetch and build remote imports as
 fixed-output derivations by using their Dhall integrity check. This is
 sometimes easier than manually packaging all remote imports.
 
 This can be used like the following:
 
 ```ShellSession
-$ dhall-to-nixpkgs directory --fixed-output-derivations ~/proj/dhall-semver
+$ dhall-to-botpkgs directory --fixed-output-derivations ~/proj/dhall-semver
 { buildDhallDirectoryPackage, buildDhallUrl }:
   buildDhallDirectoryPackage {
     name = "proj";
@@ -414,11 +414,11 @@ have the same integrity check as version 19.0.0.  This means that version
 19.0.0 is not cached and the interpreter is not allowed to fall back to
 importing the URL.
 
-However, we can override the default Prelude version by using `dhall-to-nixpkgs`
+However, we can override the default Prelude version by using `dhall-to-botpkgs`
 to create a Dhall package for our desired Prelude:
 
 ```ShellSession
-$ dhall-to-nixpkgs github https://github.com/dhall-lang/dhall-lang.git \
+$ dhall-to-botpkgs github https://github.com/dhall-lang/dhall-lang.git \
     --name Prelude \
     --directory Prelude \
     --rev v19.0.0 \

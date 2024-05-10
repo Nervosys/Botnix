@@ -71,7 +71,7 @@ rustPlatform.buildRustPackage rec {
   # The UI needs to be in place before the tests are run.
   postBuild = ''
     # We don't compile the wasm-part form source, as there isn't a rustc for
-    # wasm32-unknown-unknown in nixpkgs yet.
+    # wasm32-unknown-unknown in botpkgs yet.
     mkdir $out
     cp -r server/web_ui/pkg $out/ui
   '';

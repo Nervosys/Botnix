@@ -3,7 +3,7 @@
 ## Introduction {#ssec-octave-introduction}
 
 Octave is a modular scientific programming language and environment.
-A majority of the packages supported by Octave from their [website](https://octave.sourceforge.io/packages.php) are packaged in nixpkgs.
+A majority of the packages supported by Octave from their [website](https://octave.sourceforge.io/packages.php) are packaged in botpkgs.
 
 ## Structure {#ssec-octave-structure}
 
@@ -39,7 +39,7 @@ $ nix-shell -p 'octave.withPackages (ps: with ps; [ symbolic ])'
 This will also work in a `shell.nix` file.
 
 ```nix
-{ pkgs ? import <nixpkgs> { }}:
+{ pkgs ? import <botpkgs> { }}:
 
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [

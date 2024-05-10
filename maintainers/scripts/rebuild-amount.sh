@@ -11,7 +11,7 @@ fi
 if [ "$#" != 1 ] && [ "$#" != 2 ]; then
     cat <<EOF
     Usage: $0 [--print] from-commit-spec [to-commit-spec]
-        You need to be in a git-controlled nixpkgs tree.
+        You need to be in a git-controlled botpkgs tree.
         The current state of the tree will be used if the second commit is missing.
 
         Examples:
@@ -61,7 +61,7 @@ nixexpr() {
             );
 
           # Some of these contain explicit references to platform(s) we want to avoid;
-          # some even (transitively) depend on ~/.nixpkgs/config.nix (!)
+          # some even (transitively) depend on ~/.botpkgs/config.nix (!)
           blacklist = [
             "tarball" "metrics" "manual"
             "darwin-tested" "unstable" "stdenvBootstrapTools"
@@ -101,7 +101,7 @@ newPkgs() {
     comm -13 "${list[@]}"
 }
 
-# Prepare nixpkgs trees.
+# Prepare botpkgs trees.
 declare -a tree
 for i in 1 2; do
     if [ -n "${!i}" ]; then # use the given commit

@@ -95,7 +95,7 @@ Auto updates for Nextcloud apps can be enabled using
     This error usually occurs if the initial installation
     ({command}`nextcloud-occ maintenance:install`) has failed. After that, the application
     is not installed, but the upgrade is attempted to be executed. Further context can
-    be found in [Botnix/nixpkgs#111175](https://github.com/nervosys/Botnix/issues/111175).
+    be found in [Botnix/botpkgs#111175](https://github.com/nervosys/Botnix/issues/111175).
 
     First of all, it makes sense to find out what went wrong by looking at the logs
     of the installation via {command}`journalctl -u nextcloud-setup` and try to fix
@@ -193,7 +193,7 @@ adds some notes how Nextcloud updates should be rolled out in the future.
 While minor and patch-level updates are no problem and can be done directly in the
 package-expression (and should be backported to supported stable branches after that),
 major-releases should be added in a new attribute (e.g. Nextcloud `v19.0.0`
-should be available in `nixpkgs` as `pkgs.nextcloud19`).
+should be available in `botpkgs` as `pkgs.nextcloud19`).
 To provide simple upgrade paths it's generally useful to backport those as well to stable
 branches. As long as the package-default isn't altered, this won't break existing setups.
 After that, the versioning-warning in the `nextcloud`-module should be
@@ -204,7 +204,7 @@ on fresh setups.
 If major-releases will be abandoned by upstream, we should check first if those are needed
 in Botnix for a safe upgrade-path before removing those. In that case we should keep those
 packages, but mark them as insecure in an expression like this (in
-`<nixpkgs/pkgs/servers/nextcloud/default.nix>`):
+`<botpkgs/pkgs/servers/nextcloud/default.nix>`):
 ```
 /* ... */
 {

@@ -19,7 +19,7 @@
 , nodePackages
 , speechd
 , withTTS ? true
-  # Enables the use of vencord from nixpkgs instead of
+  # Enables the use of vencord from botpkgs instead of
   # letting vesktop manage it's own version
 , withSystemVencord ? true
 }:
@@ -115,7 +115,7 @@ stdenv.mkDerivation (finalAttrs: {
       -c.electronVersion=${electron.version}
   '';
 
-  # this is consistent with other nixpkgs electron packages and upstream, as far as I am aware
+  # this is consistent with other botpkgs electron packages and upstream, as far as I am aware
   installPhase =
     let
       # this is mainly required for venmic

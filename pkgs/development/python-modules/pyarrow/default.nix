@@ -113,7 +113,7 @@ buildPythonPackage rec {
     # Deselect a single test because pyarrow prints a 2-line error message where
     # only a single line is expected. The additional line of output comes from
     # the glog library which is an optional dependency of arrow-cpp that is
-    # enabled in nixpkgs.
+    # enabled in botpkgs.
     # Upstream Issue: https://issues.apache.org/jira/browse/ARROW-11393
     "--deselect=pyarrow/tests/test_memory.py::test_env_var"
     # these tests require access to s3 via the internet

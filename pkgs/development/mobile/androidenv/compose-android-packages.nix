@@ -326,7 +326,7 @@ rec {
     ${lib.concatMapStringsSep "\n" (str: "  - ${str}") licenseNames}
 
     a)
-      by setting nixpkgs config option 'android_sdk.accept_license = true;'.
+      by setting botpkgs config option 'android_sdk.accept_license = true;'.
     b)
       by an environment variable for a single invocation of the nix tools.
         $ export NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE=1

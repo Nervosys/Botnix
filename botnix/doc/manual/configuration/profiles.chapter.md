@@ -1,15 +1,15 @@
 # Profiles {#ch-profiles}
 
 In some cases, it may be desirable to take advantage of commonly-used,
-predefined configurations provided by nixpkgs, but different from those
+predefined configurations provided by botpkgs, but different from those
 that come as default. This is a role fulfilled by Botnix's Profiles,
-which come as files living in `<nixpkgs/nixos/modules/profiles>`. That
+which come as files living in `<botpkgs/nixos/modules/profiles>`. That
 is to say, expected usage is to add them to the imports list of your
 `/etc/configuration.nix` as such:
 
 ```nix
 imports = [
-  <nixpkgs/nixos/modules/profiles/profile-name.nix>
+  <botpkgs/nixos/modules/profiles/profile-name.nix>
 ];
 ```
 

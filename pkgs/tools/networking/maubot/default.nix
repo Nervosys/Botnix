@@ -128,7 +128,7 @@ let
       homepage = "https://maubot.xyz/";
       changelog = "https://github.com/maubot/maubot/blob/v${version}/CHANGELOG.md";
       license = licenses.agpl3Plus;
-      # Presumably, people running "nix run nixpkgs#maubot" will want to run the tool
+      # Presumably, people running "nix run botpkgs#maubot" will want to run the tool
       # for interacting with Maubot rather than Maubot itself, which should be used as
       # a Botnix module.
       mainProgram = "mbc";

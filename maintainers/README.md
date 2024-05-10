@@ -169,6 +169,6 @@ to the team without an approval by at least one existing member.
 
 # Maintainer scripts
 
-Various utility scripts, which are mainly useful for nixpkgs maintainers,
+Various utility scripts, which are mainly useful for botpkgs maintainers,
 are available under `./scripts/`.  See its [README](./scripts/README.md)
 for further information.

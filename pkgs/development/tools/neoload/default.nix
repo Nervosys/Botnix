@@ -8,7 +8,7 @@
 if !licenseAccepted then throw ''
     You have to accept the neoload EULA at
     https://www.neotys.com/documents/legal/eula/neoload/eula_en.html
-    by setting nixpkgs config option 'neoload.accept_license = true';
+    by setting botpkgs config option 'neoload.accept_license = true';
   ''
 else assert licenseAccepted;
 

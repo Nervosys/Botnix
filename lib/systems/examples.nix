@@ -1,4 +1,4 @@
-# These can be passed to nixpkgs as either the `localSystem` or
+# These can be passed to botpkgs as either the `localSystem` or
 # `crossSystem`. They are put here for user convenience, but also used by cross
 # tests and linux cross stdenv building, so handle with care!
 { lib }:

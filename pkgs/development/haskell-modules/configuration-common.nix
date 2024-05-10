@@ -1,11 +1,11 @@
 # COMMON OVERRIDES FOR THE HASKELL PACKAGE SET IN NIXPKGS
 #
 # This file contains haskell package overrides that are shared by all
-# haskell package sets provided by nixpkgs and distributed via the official
+# haskell package sets provided by botpkgs and distributed via the official
 # Botnix hydra instance.
 #
 # Overrides that would also make sense for custom haskell package sets not provided
-# as part of nixpkgs and that are specific to Nix should go in configuration-nix.nix
+# as part of botpkgs and that are specific to Nix should go in configuration-nix.nix
 #
 # See comment at the top of configuration-nix.nix for more information about this
 # distinction.
@@ -190,7 +190,7 @@ self: super: {
     })
   ] super.aeson);
 
-  # 2023-06-28: Test error: https://hydra.botnix.org/build/225565149
+  # 2023-06-28: Test error: https://hydra.nixos.org/build/225565149
   orbits = dontCheck super.orbits;
 
   # Fixes the build if Cabal >= 3.10.2 is used for Setup.hs, as it got stricter
@@ -635,7 +635,7 @@ self: super: {
   }) super.HTF;
   htsn = dontCheck super.htsn;
   htsn-import = dontCheck super.htsn-import;
-  http-link-header = dontCheck super.http-link-header; # non deterministic failure https://hydra.botnix.org/build/75041105
+  http-link-header = dontCheck super.http-link-header; # non deterministic failure https://hydra.nixos.org/build/75041105
   influxdb = dontCheck super.influxdb;
   integer-roots = dontCheck super.integer-roots; # requires an old version of smallcheck, will be fixed in > 1.0
   itanium-abi = dontCheck super.itanium-abi;
@@ -704,7 +704,7 @@ self: super: {
   static-resources = dontCheck super.static-resources;
   strive = dontCheck super.strive;                      # fails its own hlint test with tons of warnings
   svndump = dontCheck super.svndump;
-  tar = dontCheck super.tar; #https://hydra.botnix.org/build/25088435/nixlog/2 (fails only on 32-bit)
+  tar = dontCheck super.tar; #https://hydra.nixos.org/build/25088435/nixlog/2 (fails only on 32-bit)
   th-printf = dontCheck super.th-printf;
   thumbnail-plus = dontCheck super.thumbnail-plus;
   tickle = dontCheck super.tickle;
@@ -719,7 +719,7 @@ self: super: {
   xsd = dontCheck super.xsd;
   zip-archive = dontCheck super.zip-archive;  # https://github.com/jgm/zip-archive/issues/57
 
-  # 2023-06-26: Test failure: https://hydra.botnix.org/build/224869905
+  # 2023-06-26: Test failure: https://hydra.nixos.org/build/224869905
   comfort-blas = dontCheck super.comfort-blas;
 
   # 2022-06-26: Too strict lower bound on semialign.
@@ -1116,7 +1116,7 @@ self: super: {
   # https://github.com/bmillwood/applicative-quoters/issues/6
   applicative-quoters = doJailbreak super.applicative-quoters;
 
-  # https://hydra.botnix.org/build/42769611/nixlog/1/raw
+  # https://hydra.nixos.org/build/42769611/nixlog/1/raw
   # note: the library is unmaintained, no upstream issue
   dataenc = doJailbreak super.dataenc;
 
@@ -1275,9 +1275,9 @@ self: super: {
   dhall = self.generateOptparseApplicativeCompletions [ "dhall" ] super.dhall;
   dhall-json = self.generateOptparseApplicativeCompletions ["dhall-to-json" "dhall-to-yaml"] super.dhall-json;
   # 2023-12-19: jailbreaks due to hnix-0.17 https://github.com/dhall-lang/dhall-haskell/pull/2559
-  # until dhall-nix 1.1.26+, dhall-nixpkgs 1.0.10+
+  # until dhall-nix 1.1.26+, dhall-botpkgs 1.0.10+
   dhall-nix = self.generateOptparseApplicativeCompletions [ "dhall-to-nix" ] (doJailbreak super.dhall-nix);
-  dhall-nixpkgs = self.generateOptparseApplicativeCompletions [ "dhall-to-nixpkgs" ] (doJailbreak super.dhall-nixpkgs);
+  dhall-botpkgs = self.generateOptparseApplicativeCompletions [ "dhall-to-botpkgs" ] (doJailbreak super.dhall-botpkgs);
   dhall-yaml = self.generateOptparseApplicativeCompletions ["dhall-to-yaml-ng" "yaml-to-dhall"] super.dhall-yaml;
 
   crypton-connection = super.crypton-connection.override {
@@ -1411,7 +1411,7 @@ self: super: {
     overrideCabal
       (drv: {
         postPatch = drv.postPatch or "" + ''
-          # patch out TCP usage: https://nixos.org/manual/nixpkgs/stable/#sec-postgresqlTestHook-tcp
+          # patch out TCP usage: https://nixos.org/manual/botpkgs/stable/#sec-postgresqlTestHook-tcp
           sed -i test/PostgreSQL/Test.hs \
             -e s^host=localhost^^
         '';
@@ -1528,7 +1528,7 @@ self: super: {
     overrideCabal
       (drv: {
         postPatch = drv.postPath or "" + ''
-          # patch out TCP usage: https://nixos.org/manual/nixpkgs/stable/#sec-postgresqlTestHook-tcp
+          # patch out TCP usage: https://nixos.org/manual/botpkgs/stable/#sec-postgresqlTestHook-tcp
           # NOTE: upstream host variable takes only two values...
           sed -i test/PgInit.hs \
             -e s^'host=" <> host <> "'^^
@@ -1755,7 +1755,7 @@ self: super: {
   #   PATH.
   # - Patch can be removed on next package set bump (for v0.2.11)
 
-  # 2023-06-26: Test failure: https://hydra.botnix.org/build/225081865
+  # 2023-06-26: Test failure: https://hydra.nixos.org/build/225081865
   update-nix-fetchgit = let
       deps = [ pkgs.git pkgs.nix pkgs.nix-prefetch-git ];
     in lib.pipe  super.update-nix-fetchgit [
@@ -2640,7 +2640,7 @@ self: super: {
       ${drv.postPatch or ""}
       rm Setup.hs
     '';
-    # doctest suite uses doctest-parallel which still doesn't work in nixpkgs
+    # doctest suite uses doctest-parallel which still doesn't work in botpkgs
     testTarget = "tests";
   }) super.conduit-aeson;
 
@@ -2810,7 +2810,7 @@ self: super: {
     editedCabalFile = null;
   }) super.true-name);
 
-  # ffmpeg-light works against the ffmpeg-4 API, but the default ffmpeg in nixpkgs is ffmpeg-5.
+  # ffmpeg-light works against the ffmpeg-4 API, but the default ffmpeg in botpkgs is ffmpeg-5.
   # https://github.com/nervosys/Botnix/pull/220972#issuecomment-1484017192
   ffmpeg-light = super.ffmpeg-light.override { ffmpeg = pkgs.ffmpeg_4; };
 

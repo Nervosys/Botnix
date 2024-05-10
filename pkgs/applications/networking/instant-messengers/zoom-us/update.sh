@@ -4,7 +4,7 @@
 set -eu -o pipefail
 
 scriptDir=$(cd "${BASH_SOURCE[0]%/*}" && pwd)
-nixpkgs=$(realpath "$scriptDir"/../../../../..)
+botpkgs=$(realpath "$scriptDir"/../../../../..)
 
 echo >&2 "=== Obtaining version data from https://zoom.us/rest/download ..."
 linux_data=$(curl -Ls 'https://zoom.us/rest/download?os=linux' | jq .result.downloadVO)
@@ -26,9 +26,9 @@ hash_x86_64_darwin=$(nix hash to-sri --type sha256 $(nix-prefetch-url --type sha
 hash_x86_64_linux=$(nix hash to-sri --type sha256 $(nix-prefetch-url --type sha256 "https://zoom.us/client/${version_x86_64_linux}/zoom_x86_64.pkg.tar.xz"))
 
 echo >&2 "=== Updating default.nix ..."
-# update-source-version expects to be at the root of nixpkgs
-(cd "$nixpkgs" && update-source-version zoom-us "$version_aarch64_darwin" $hash_aarch64_darwin --system=aarch64-darwin --version-key=versions.aarch64-darwin)
-(cd "$nixpkgs" && update-source-version zoom-us "$version_x86_64_darwin" $hash_x86_64_darwin --system=x86_64-darwin --version-key=versions.x86_64-darwin)
-(cd "$nixpkgs" && update-source-version zoom-us "$version_x86_64_linux" $hash_x86_64_linux --system=x86_64-linux --version-key=versions.x86_64-linux)
+# update-source-version expects to be at the root of botpkgs
+(cd "$botpkgs" && update-source-version zoom-us "$version_aarch64_darwin" $hash_aarch64_darwin --system=aarch64-darwin --version-key=versions.aarch64-darwin)
+(cd "$botpkgs" && update-source-version zoom-us "$version_x86_64_darwin" $hash_x86_64_darwin --system=x86_64-darwin --version-key=versions.x86_64-darwin)
+(cd "$botpkgs" && update-source-version zoom-us "$version_x86_64_linux" $hash_x86_64_linux --system=x86_64-linux --version-key=versions.x86_64-linux)
 
 echo >&2 "=== Done!"

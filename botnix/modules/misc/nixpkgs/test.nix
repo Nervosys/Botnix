@@ -1,33 +1,33 @@
-# [nixpkgs]$ nix-build -A nixosTests.nixpkgs --show-trace
+# [botpkgs]$ nix-build -A nixosTests.botpkgs --show-trace
 
 { evalMinimalConfig, pkgs, lib, stdenv }:
 let
   eval = mod: evalMinimalConfig {
-    imports = [ ../nixpkgs.nix mod ];
+    imports = [ ../botpkgs.nix mod ];
   };
   withHost = eval {
-    nixpkgs.hostPlatform = "aarch64-linux";
+    botpkgs.hostPlatform = "aarch64-linux";
   };
   withHostAndBuild = eval {
-    nixpkgs.hostPlatform = "aarch64-linux";
-    nixpkgs.buildPlatform = "aarch64-darwin";
+    botpkgs.hostPlatform = "aarch64-linux";
+    botpkgs.buildPlatform = "aarch64-darwin";
   };
   ambiguous = {
     _file = "ambiguous.nix";
-    nixpkgs.hostPlatform = "aarch64-linux";
-    nixpkgs.buildPlatform = "aarch64-darwin";
-    nixpkgs.system = "x86_64-linux";
-    nixpkgs.localSystem.system = "x86_64-darwin";
-    nixpkgs.crossSystem.system = "i686-linux";
+    botpkgs.hostPlatform = "aarch64-linux";
+    botpkgs.buildPlatform = "aarch64-darwin";
+    botpkgs.system = "x86_64-linux";
+    botpkgs.localSystem.system = "x86_64-darwin";
+    botpkgs.crossSystem.system = "i686-linux";
     imports = [
       { _file = "repeat.nix";
-        nixpkgs.hostPlatform = "aarch64-linux";
+        botpkgs.hostPlatform = "aarch64-linux";
       }
     ];
   };
   getErrors = module:
     let
-      uncheckedEval = lib.evalModules { modules = [ ../nixpkgs.nix module ]; };
+      uncheckedEval = lib.evalModules { modules = [ ../botpkgs.nix module ]; };
     in map (ass: ass.message) (lib.filter (ass: !ass.assertion) uncheckedEval.config.assertions);
 
   readOnlyUndefined = evalMinimalConfig {
@@ -36,36 +36,36 @@ let
 
   readOnlyBad = evalMinimalConfig {
     imports = [ ./read-only.nix ];
-    nixpkgs.pkgs = { };
+    botpkgs.pkgs = { };
   };
 
   readOnly = evalMinimalConfig {
     imports = [ ./read-only.nix ];
-    nixpkgs.pkgs = pkgs;
+    botpkgs.pkgs = pkgs;
   };
 
   readOnlyBadConfig = evalMinimalConfig {
     imports = [ ./read-only.nix ];
-    nixpkgs.pkgs = pkgs;
-    nixpkgs.config.allowUnfree = true; # do in pkgs instead!
+    botpkgs.pkgs = pkgs;
+    botpkgs.config.allowUnfree = true; # do in pkgs instead!
   };
 
   readOnlyBadOverlays = evalMinimalConfig {
     imports = [ ./read-only.nix ];
-    nixpkgs.pkgs = pkgs;
-    nixpkgs.overlays = [ (_: _: {}) ]; # do in pkgs instead!
+    botpkgs.pkgs = pkgs;
+    botpkgs.overlays = [ (_: _: {}) ]; # do in pkgs instead!
   };
 
   readOnlyBadHostPlatform = evalMinimalConfig {
     imports = [ ./read-only.nix ];
-    nixpkgs.pkgs = pkgs;
-    nixpkgs.hostPlatform = "foo-linux"; # do in pkgs instead!
+    botpkgs.pkgs = pkgs;
+    botpkgs.hostPlatform = "foo-linux"; # do in pkgs instead!
   };
 
   readOnlyBadBuildPlatform = evalMinimalConfig {
     imports = [ ./read-only.nix ];
-    nixpkgs.pkgs = pkgs;
-    nixpkgs.buildPlatform = "foo-linux"; # do in pkgs instead!
+    botpkgs.pkgs = pkgs;
+    botpkgs.buildPlatform = "foo-linux"; # do in pkgs instead!
   };
 
   throws = x: ! (builtins.tryEval x).success;
@@ -74,7 +74,7 @@ in
 lib.recurseIntoAttrs {
   invokeNixpkgsSimple =
     (eval {
-      nixpkgs.system = stdenv.hostPlatform.system;
+      botpkgs.system = stdenv.hostPlatform.system;
     })._module.args.pkgs.hello;
   assertions =
     assert withHost._module.args.pkgs.stdenv.hostPlatform.system == "aarch64-linux";
@@ -84,28 +84,28 @@ lib.recurseIntoAttrs {
     assert builtins.trace (lib.head (getErrors ambiguous))
       getErrors ambiguous ==
         [''
-          Your system configures nixpkgs with the platform parameters:
-          nixpkgs.hostPlatform, with values defined in:
+          Your system configures botpkgs with the platform parameters:
+          botpkgs.hostPlatform, with values defined in:
             - repeat.nix
             - ambiguous.nix
-          nixpkgs.buildPlatform, with values defined in:
+          botpkgs.buildPlatform, with values defined in:
             - ambiguous.nix
 
           However, it also defines the legacy options:
-          nixpkgs.system, with values defined in:
+          botpkgs.system, with values defined in:
             - ambiguous.nix
-          nixpkgs.localSystem, with values defined in:
+          botpkgs.localSystem, with values defined in:
             - ambiguous.nix
-          nixpkgs.crossSystem, with values defined in:
+          botpkgs.crossSystem, with values defined in:
             - ambiguous.nix
 
           For a future proof system configuration, we recommend to remove
           the legacy definitions.
         ''];
     assert getErrors {
-        nixpkgs.localSystem = pkgs.stdenv.hostPlatform;
-        nixpkgs.hostPlatform = pkgs.stdenv.hostPlatform;
-        nixpkgs.pkgs = pkgs;
+        botpkgs.localSystem = pkgs.stdenv.hostPlatform;
+        botpkgs.hostPlatform = pkgs.stdenv.hostPlatform;
+        botpkgs.pkgs = pkgs;
       } == [];
 
 
@@ -120,9 +120,9 @@ lib.recurseIntoAttrs {
     # read-only.nix does not provide legacy options, for the sake of simplicity
     # If you're bothered by this, upgrade your configs to use the new *Platform
     # options.
-    assert !readOnly.options.nixpkgs?system;
-    assert !readOnly.options.nixpkgs?localSystem;
-    assert !readOnly.options.nixpkgs?crossSystem;
+    assert !readOnly.options.botpkgs?system;
+    assert !readOnly.options.botpkgs?localSystem;
+    assert !readOnly.options.botpkgs?crossSystem;
 
     pkgs.emptyFile;
 }

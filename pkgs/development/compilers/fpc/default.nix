@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
     substituteInPlace fpcsrc/compiler/systems/t_linux.pas --subst-var-by dynlinker-prefix "${glibc}"
     substituteInPlace fpcsrc/compiler/systems/t_linux.pas --subst-var-by syslibpath "${glibc}/lib"
     # Replace the `codesign --remove-signature` command with a custom script, since `codesign` is not available
-    # in nixpkgs
+    # in botpkgs
     # Remove the -no_uuid strip flag which does not work on llvm-strip, only
     # Apple strip.
     substituteInPlace fpcsrc/compiler/Makefile \

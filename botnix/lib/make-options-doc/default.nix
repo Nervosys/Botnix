@@ -65,9 +65,9 @@ let
   #
   # Each element of `relatedPackages` can be either
   # - a string:  that will be interpreted as an attribute name from `pkgs` and turned into a link
-  #              to search.botnix.org,
+  #              to search.nixos.org,
   # - a list:    that will be interpreted as an attribute path from `pkgs` and turned into a link
-  #              to search.botnix.org,
+  #              to search.nixos.org,
   # - an attrset: that can specify `name`, `path`, `comment`
   #   (either of `name`, `path` is required, the rest are optional).
   #
@@ -84,7 +84,7 @@ let
           name = args.name or (lib.concatStringsSep "." args.path);
         in ''
           - [${lib.optionalString (title != null) "${title} aka "}`pkgs.${name}`](
-              https://search.botnix.org/packages?show=${name}&sort=relevance&query=${name}
+              https://search.nixos.org/packages?show=${name}&sort=relevance&query=${name}
             )${
               lib.optionalString (args ? comment) "\n\n  ${args.comment}"
             }
@@ -142,7 +142,7 @@ in rec {
         $baseJSON $options \
         > $dst/options.json
 
-    if grep /nixpkgs/botnix/modules $dst/options.json; then
+    if grep /botpkgs/botnix/modules $dst/options.json; then
       echo "The manual appears to depend on the location of Botpkgs, which is bad"
       echo "since this prevents sharing via the Botnix channel.  This is typically"
       echo "caused by an option default that refers to a relative path (see above"

@@ -36,13 +36,13 @@ As explained [in the `nix-shell` section](https://nixos.org/manual/nix/stable/co
 Say we want to have Ruby, `nokogori`, and `pry`. Consider a `shell.nix` file with:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 ruby.withPackages (ps: with ps; [ nokogiri pry ])
 ```
 
 What's happening here?
 
-1. We begin with importing the Nix Packages collections. `import <nixpkgs>` imports the `<nixpkgs>` function, `{}` calls it and the `with` statement brings all attributes of `nixpkgs` in the local scope. These attributes form the main package set.
+1. We begin with importing the Nix Packages collections. `import <botpkgs>` imports the `<botpkgs>` function, `{}` calls it and the `with` statement brings all attributes of `botpkgs` in the local scope. These attributes form the main package set.
 2. Then we create a Ruby environment with the `withPackages` function.
 3. The `withPackages` function expects us to provide a function as an argument that takes the set of all ruby gems and returns a list of packages to include in the environment. Here, we select the packages `nokogiri` and `pry` from the package set.
 
@@ -146,7 +146,7 @@ Two places that allow this modification are the `ruby` derivation, or `bundlerEn
 Here's the `ruby` one:
 
 ```nix
-{ pg_version ? "10", pkgs ? import <nixpkgs> { } }:
+{ pg_version ? "10", pkgs ? import <botpkgs> { } }:
 let
   myRuby = pkgs.ruby.override {
     defaultGemConfig = pkgs.defaultGemConfig // {
@@ -162,7 +162,7 @@ in myRuby.withPackages (ps: with ps; [ pg ])
 And an example with `bundlerEnv`:
 
 ```nix
-{ pg_version ? "10", pkgs ? import <nixpkgs> { } }:
+{ pg_version ? "10", pkgs ? import <botpkgs> { } }:
 let
   gems = pkgs.bundlerEnv {
     name = "gems-for-some-project";
@@ -182,7 +182,7 @@ And finally via overlays:
 ```nix
 { pg_version ? "10" }:
 let
-  pkgs = import <nixpkgs> {
+  pkgs = import <botpkgs> {
     overlays = [
       (self: super: {
         defaultGemConfig = super.defaultGemConfig // {
@@ -231,17 +231,17 @@ Now that you know how to get a working Ruby environment with Nix, it's time to g
 
 All gems in the standard set are automatically generated from a single `Gemfile`. The dependency resolution is done with `bundler` and makes it more likely that all gems are compatible to each other.
 
-In order to add a new gem to nixpkgs, you can put it into the `/pkgs/development/ruby-modules/with-packages/Gemfile` and run `./maintainers/scripts/update-ruby-packages`.
+In order to add a new gem to botpkgs, you can put it into the `/pkgs/development/ruby-modules/with-packages/Gemfile` and run `./maintainers/scripts/update-ruby-packages`.
 
 To test that it works, you can then try using the gem with:
 
 ```shell
-NIX_PATH=nixpkgs=$PWD nix-shell -p "ruby.withPackages (ps: with ps; [ name-of-your-gem ])"
+NIX_PATH=botpkgs=$PWD nix-shell -p "ruby.withPackages (ps: with ps; [ name-of-your-gem ])"
 ```
 
 ### Packaging applications {#packaging-applications}
 
-A common task is to add a ruby executable to nixpkgs, popular examples would be `chef`, `jekyll`, or `sass`. A good way to do that is to use the `bundlerApp` function, that allows you to make a package that only exposes the listed executables, otherwise the package may cause conflicts through common paths like `bin/rake` or `bin/bundler` that aren't meant to be used.
+A common task is to add a ruby executable to botpkgs, popular examples would be `chef`, `jekyll`, or `sass`. A good way to do that is to use the `bundlerApp` function, that allows you to make a package that only exposes the listed executables, otherwise the package may cause conflicts through common paths like `bin/rake` or `bin/bundler` that aren't meant to be used.
 
 The absolute easiest way to do that is to write a `Gemfile` along these lines:
 

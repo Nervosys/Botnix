@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
         https://developer.ibm.com/docloud/blog/2017/12/20/cplex-optimization-studio-12-8-now-available/
 
         Set `cplex.releasePath = /path/to/download;` in your
-        ~/.config/nixpkgs/config.nix for `nix-*` commands, or
+        ~/.config/botpkgs/config.nix for `nix-*` commands, or
         `config.cplex.releasePath = /path/to/download;` in your
         `configuration.nix` for Botnix.
       ''

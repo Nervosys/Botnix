@@ -35,7 +35,7 @@ let
   # messages and make problems easier to spot.
   inHydra = config.inHydra or false;
   # Allow the user to opt-into additional warnings, e.g.
-  # import <nixpkgs> { config = { showDerivationWarnings = [ "maintainerless" ]; }; }
+  # import <botpkgs> { config = { showDerivationWarnings = [ "maintainerless" ]; }; }
   showWarnings = config.showDerivationWarnings;
 
   getName = attrs: attrs.name or ("${attrs.pname or "«name-missing»"}-${attrs.version or "«version-missing»"}");
@@ -180,7 +180,7 @@ let
     ''
 
       Alternatively you can configure a predicate to allow specific packages:
-        { nixpkgs.config.${predicateConfigAttr} = pkg: builtins.elem (lib.getName pkg) [
+        { botpkgs.config.${predicateConfigAttr} = pkg: builtins.elem (lib.getName pkg) [
             "${getName attrs}"
           ];
         }
@@ -200,12 +200,12 @@ let
            $ export ${remediation_env_var allow_attr}=1
            ${flakeNote}
       b) For `botnix-rebuild` you can set
-        { nixpkgs.config.allow${allow_attr} = true; }
+        { botpkgs.config.allow${allow_attr} = true; }
       in configuration.nix to override this.
       ${rebuild_amendment attrs}
       c) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
         { allow${allow_attr} = true; }
-      to ~/.config/nixpkgs/config.nix.
+      to ~/.config/botpkgs/config.nix.
     '';
 
   remediate_insecure = attrs:
@@ -223,18 +223,18 @@ let
              $ export NIXPKGS_ALLOW_INSECURE=1
              ${flakeNote}
         b) for `botnix-rebuild` you can add ‘${getName attrs}’ to
-           `nixpkgs.config.permittedInsecurePackages` in the configuration.nix,
+           `botpkgs.config.permittedInsecurePackages` in the configuration.nix,
            like so:
 
              {
-               nixpkgs.config.permittedInsecurePackages = [
+               botpkgs.config.permittedInsecurePackages = [
                  "${getName attrs}"
                ];
              }
 
         c) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
            ‘${getName attrs}’ to `permittedInsecurePackages` in
-           ~/.config/nixpkgs/config.nix, like so:
+           ~/.config/botpkgs/config.nix, like so:
 
              {
                permittedInsecurePackages = [

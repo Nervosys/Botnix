@@ -6,7 +6,7 @@ buildGoModule rec {
   # Version 1.3.2 has runtime failures with Go 1.19
   # https://github.com/nervosys/Botnix/issues/219343
   # https://github.com/shadowsocks/v2ray-plugin/issues/292
-  # nixpkgs-update: no auto update
+  # botpkgs-update: no auto update
 
   src = fetchFromGitHub {
     owner = "shadowsocks";

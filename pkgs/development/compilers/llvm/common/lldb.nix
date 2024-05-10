@@ -181,7 +181,7 @@ stdenv.mkDerivation (rec {
       larger LLVM Project, such as the Clang expression parser and LLVM
       disassembler.
     '';
-    # llvm <10 never built on aarch64-darwin since first introduction in nixpkgs
+    # llvm <10 never built on aarch64-darwin since first introduction in botpkgs
     broken =
       (lib.versionOlder release_version "11" && stdenv.isDarwin && stdenv.isAarch64)
         || (((lib.versions.major release_version) == "13") && stdenv.isDarwin);

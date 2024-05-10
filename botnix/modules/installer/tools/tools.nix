@@ -135,7 +135,7 @@ in
     system.botnix-generate-config.configuration = mkDefault ''
       # Edit this configuration file to define what should be installed on
       # your system. Help is available in the configuration.nix(5) man page, on
-      # https://search.botnix.org/options and in the Botnix manual (`botnix-help`).
+      # https://search.nixos.org/options and in the Botnix manual (`botnix-help`).
 
       { config, lib, pkgs, ... }:
 

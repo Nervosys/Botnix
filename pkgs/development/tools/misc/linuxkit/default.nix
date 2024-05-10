@@ -37,7 +37,7 @@ buildGoModule rec {
 
   # - Because this package definition doesn't build using the source's Makefile,
   #   we must manually call the sign target.
-  # - The binary stripping that nixpkgs does by default in the
+  # - The binary stripping that botpkgs does by default in the
   #   fixup phase removes such signing and entitlements, so we have to sign
   #   after stripping.
   # - Finally, at the start of the fixup phase, the working directory is

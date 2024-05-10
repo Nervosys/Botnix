@@ -42,6 +42,6 @@ buildGoModule {
     license = licenses.bsd3;
     maintainers = [ ];
     broken = stdenv.isAarch64
-      || stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/staging-next/dcs.x86_64-darwin
+      || stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/botpkgs/staging-next/dcs.x86_64-darwin
   };
 }

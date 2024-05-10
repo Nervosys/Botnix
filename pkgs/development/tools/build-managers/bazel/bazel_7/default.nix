@@ -81,14 +81,14 @@ let
     # WORKSPACE:
     #
     #     nixpkgs_git_repository(
-    #         name = "nixpkgs",
+    #         name = "botpkgs",
     #         revision = "def5124ec8367efdba95a99523dd06d918cb0ae8",
     #     )
     #
     #     # This defines an external Bazel workspace.
     #     nixpkgs_package(
     #         name = "bison",
-    #         repositories = { "nixpkgs": "@nixpkgs//:default.nix" },
+    #         repositories = { "botpkgs": "@botpkgs//:default.nix" },
     #     )
     #
     # some/BUILD.bazel:
@@ -293,7 +293,7 @@ stdenv.mkDerivation rec {
           scripts/bootstrap/compile.sh \
           tools/osx/BUILD
 
-        # nixpkgs's libSystem cannot use pthread headers directly, must import GCD headers instead
+        # botpkgs's libSystem cannot use pthread headers directly, must import GCD headers instead
         sed -i -e "/#include <pthread\/spawn.h>/i #include <dispatch/dispatch.h>" src/main/cpp/blaze_util_darwin.cc
 
         # XXX: What do these do ?
@@ -575,7 +575,7 @@ stdenv.mkDerivation rec {
     #
     #     nix-build . -A bazel_7.tests
     #
-    # in the nixpkgs checkout root to exercise them locally.
+    # in the botpkgs checkout root to exercise them locally.
     tests = callPackage ./tests.nix {
       inherit Foundation bazel_self lockfile repoCache;
     };

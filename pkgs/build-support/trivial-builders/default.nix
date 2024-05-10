@@ -185,11 +185,11 @@ rec {
       '';
 
   # See doc/build-helpers/trivial-build-helpers.chapter.md
-  # or https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-text-writing
+  # or https://nixos.org/manual/botpkgs/unstable/#trivial-builder-text-writing
   writeText = name: text: writeTextFile { inherit name text; };
 
   # See doc/build-helpers/trivial-build-helpers.chapter.md
-  # or https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-text-writing
+  # or https://nixos.org/manual/botpkgs/unstable/#trivial-builder-text-writing
   writeTextDir = path: text: writeTextFile {
     inherit text;
     name = builtins.baseNameOf path;
@@ -197,11 +197,11 @@ rec {
   };
 
   # See doc/build-helpers/trivial-build-helpers.chapter.md
-  # or https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-text-writing
+  # or https://nixos.org/manual/botpkgs/unstable/#trivial-builder-text-writing
   writeScript = name: text: writeTextFile { inherit name text; executable = true; };
 
   # See doc/build-helpers/trivial-build-helpers.chapter.md
-  # or https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-text-writing
+  # or https://nixos.org/manual/botpkgs/unstable/#trivial-builder-text-writing
   writeScriptBin = name: text: writeTextFile {
     inherit name text;
     executable = true;
@@ -209,7 +209,7 @@ rec {
   };
 
   # See doc/build-helpers/trivial-build-helpers.chapter.md
-  # or https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-text-writing
+  # or https://nixos.org/manual/botpkgs/unstable/#trivial-builder-text-writing
   writeShellScript = name: text:
     writeTextFile {
       inherit name;
@@ -224,7 +224,7 @@ rec {
     };
 
   # See doc/build-helpers/trivial-build-helpers.chapter.md
-  # or https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-text-writing
+  # or https://nixos.org/manual/botpkgs/unstable/#trivial-builder-text-writing
   writeShellScriptBin = name: text:
     writeTextFile {
       inherit name;
@@ -241,7 +241,7 @@ rec {
     };
 
   # See doc/build-helpers/trivial-build-helpers.chapter.md
-  # or https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-text-writing
+  # or https://nixos.org/manual/botpkgs/unstable/#trivial-builder-text-writing
   writeShellApplication =
     {
       /*
@@ -496,7 +496,7 @@ rec {
     structure (top-level bin/, share/, etc), but with all actual files being symlinks to
     the files in the input derivations.
 
-    symlinkJoin is used many places in nixpkgs to create a single derivation
+    symlinkJoin is used many places in botpkgs to create a single derivation
     that appears to contain binaries, libraries, documentation, etc from
     multiple input derivations.
 
@@ -881,7 +881,7 @@ rec {
 
     Example:
 
-    # Patching nixpkgs:
+    # Patching botpkgs:
 
     applyPatches {
       src = pkgs.path;

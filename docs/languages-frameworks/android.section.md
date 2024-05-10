@@ -9,7 +9,7 @@ The first use case is deploying the SDK with a desired set of plugins or subsets
 of an SDK.
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 let
   androidComposition = androidenv.composeAndroidPackages {
@@ -130,7 +130,7 @@ We can also deploy subsets of the Android SDK. For example, to only the
 `platform-tools` package, you can evaluate the following expression:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 let
   androidComposition = androidenv.composeAndroidPackages {
@@ -150,7 +150,7 @@ The following Nix expression can be used to deploy the entire SDK with all basic
 plugins:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 androidenv.androidPkgs_9_0.androidsdk
 ```
@@ -158,7 +158,7 @@ androidenv.androidPkgs_9_0.androidsdk
 It is also possible to use one plugin only:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 androidenv.androidPkgs_9_0.platform-tools
 ```
@@ -171,7 +171,7 @@ requires.
 
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 androidenv.buildApp {
   name = "MyAndroidApp";
@@ -213,7 +213,7 @@ An emulator spawn script can be configured by invoking the `emulateApp {}`
 function:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 androidenv.emulateApp {
   name = "emulate-MyAndroidApp";
@@ -229,7 +229,7 @@ It is also possible to specify an APK to deploy inside the emulator
 and the package and activity names to launch it:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 androidenv.emulateApp {
   name = "emulate-MyAndroidApp";

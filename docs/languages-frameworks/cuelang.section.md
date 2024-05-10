@@ -43,7 +43,7 @@ pkgs.writeCueValidator
 
 Another example, given the following `validator.nix` :
 ```
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 let
   genericValidator = version:
   pkgs.writeCueValidator

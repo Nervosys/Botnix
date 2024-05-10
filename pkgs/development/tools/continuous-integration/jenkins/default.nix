@@ -55,8 +55,8 @@ stdenv.mkDerivation rec {
 
       if [ ! "$oldVersion" = "$version" ]; then
         update-source-version jenkins "$version" "$hash"
-        nixpkgs="$(git rev-parse --show-toplevel)"
-        default_nix="$nixpkgs/pkgs/development/tools/continuous-integration/jenkins/default.nix"
+        botpkgs="$(git rev-parse --show-toplevel)"
+        default_nix="$botpkgs/pkgs/development/tools/continuous-integration/jenkins/default.nix"
         nixfmt "$default_nix"
       else
         echo "jenkins is already up-to-date"

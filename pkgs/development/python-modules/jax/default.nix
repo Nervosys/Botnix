@@ -71,7 +71,7 @@ buildPythonPackage rec {
   dontUsePytestXdist = true;
 
   # NOTE: Don't run the tests in the expiremental directory as they require flax
-  # which creates a circular dependency. See https://discourse.botnix.org/t/how-to-nix-ify-python-packages-with-circular-dependencies/14648/2.
+  # which creates a circular dependency. See https://discourse.nixos.org/t/how-to-nix-ify-python-packages-with-circular-dependencies/14648/2.
   # Not a big deal, this is how the JAX docs suggest running the test suite
   # anyhow.
   pytestFlagsArray = [
@@ -92,7 +92,7 @@ buildPythonPackage rec {
   ] ++ lib.optionals usingMKL [
     # See
     #  * https://github.com/google/jax/issues/9705
-    #  * https://discourse.botnix.org/t/getting-different-results-for-the-same-build-on-two-equally-configured-machines/17921
+    #  * https://discourse.nixos.org/t/getting-different-results-for-the-same-build-on-two-equally-configured-machines/17921
     #  * https://github.com/nervosys/Botnix/issues/161960
     "test_custom_linear_solve_cholesky"
     "test_custom_root_with_aux"

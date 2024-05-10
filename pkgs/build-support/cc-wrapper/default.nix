@@ -26,7 +26,7 @@
   if isClang then true
 
   # Never add these flags for a build!=host cross-compiler or a host!=target
-  # ("cross-built-native") compiler; currently nixpkgs has a special build
+  # ("cross-built-native") compiler; currently botpkgs has a special build
   # path for these (`crossStageStatic`).  Hopefully at some point that build
   # path will be merged with this one and this conditional will be removed.
   else if (with stdenvNoCC; buildPlatform != hostPlatform || hostPlatform != targetPlatform) then false
@@ -36,7 +36,7 @@
   # no trouble finding its own libraries.
   else if (cc.passthru.isFromBootstrapFiles or false) then false
 
-  # Add these flags when wrapping `xgcc` (the first compiler that nixpkgs builds)
+  # Add these flags when wrapping `xgcc` (the first compiler that botpkgs builds)
   else if (cc.passthru.isXgcc or false) then true
 
   # Add these flags when wrapping `stdenv.cc`
@@ -46,7 +46,7 @@
   # prevent these flags from being added when wrapping *old* versions of gcc
   # (e.g. `gcc6Stdenv`), since they will cause the old gcc to get `-B` and
   # `-L` flags pointing at the new gcc's libstdc++ headers.  Example failure:
-  # https://hydra.botnix.org/build/213125495
+  # https://hydra.nixos.org/build/213125495
   else false
 
 # the derivation at which the `-B` and `-L` flags added by `useCcForLibs` will point
@@ -116,9 +116,9 @@ let
   # The following two functions, `isGccArchSupported` and
   # `isGccTuneSupported`, only handle those situations where a flag
   # (`-march` or `-mtune`) is accepted by one compiler but rejected
-  # by another, and both compilers are relevant to nixpkgs.  We are
+  # by another, and both compilers are relevant to botpkgs.  We are
   # not trying to maintain a complete list of all flags accepted by
-  # all versions of all compilers ever in nixpkgs.
+  # all versions of all compilers ever in botpkgs.
   #
   # The two main cases of interest are:
   #
@@ -368,7 +368,7 @@ stdenv.mkDerivation {
 
       # this symlink points to the unwrapped gnat's output "out". It is used by
       # our custom gprconfig compiler description to find GNAT's ada runtime. See
-      # ../../development/tools/build-managers/gprbuild/{boot.nix, nixpkgs-gnat.xml}
+      # ../../development/tools/build-managers/gprbuild/{boot.nix, botpkgs-gnat.xml}
       ln -sf ${cc} $out/nix-support/gprconfig-gnat-unwrapped
     ''
 

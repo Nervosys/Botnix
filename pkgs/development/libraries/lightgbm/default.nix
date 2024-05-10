@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   # The R package build results in a special binary file
   # that contains a subset of the .so file use for the CLI
   # and python version. In general, the CRAN version from
-  # nixpkgs's r-modules should be used, but this non-standard
+  # botpkgs's r-modules should be used, but this non-standard
   # build allows for enabling CUDA support and other features
   # which aren't included in the CRAN release. Build with:
   # nix-build -E "with (import $NIXPKGS{}); \

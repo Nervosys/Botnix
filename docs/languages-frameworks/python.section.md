@@ -227,7 +227,7 @@ override first the Python interpreter and pass `packageOverrides` which contains
 the overrides for packages in the package set.
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 (let
   python = let
@@ -364,7 +364,7 @@ This example shows how to create an environment that has the Pyramid Web Framewo
 Saving the following as `default.nix`
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 python3.buildEnv.override {
   extraLibs = [ python3Packages.pyramid ];
@@ -385,7 +385,7 @@ packages installed. This is somewhat comparable to `virtualenv`. For example,
 running `nix-shell` with the following `shell.nix`
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 (python3.buildEnv.override {
   extraLibs = with python3Packages; [
@@ -415,7 +415,7 @@ of the packages to be included in the environment. Using the [`withPackages`](#p
 example for the Pyramid Web Framework environment can be written like this:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 python.withPackages (ps: [ ps.pyramid ])
 ```
@@ -425,7 +425,7 @@ version as an argument to the function. In the above example, `ps` equals
 `pythonPackages`. But you can also easily switch to using python3:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 python3.withPackages (ps: [ ps.pyramid ])
 ```
@@ -437,7 +437,7 @@ supports the `env` attribute. The `shell.nix` file from the previous section can
 thus be also written like this:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 (python3.withPackages (ps: with ps; [
   numpy
@@ -495,7 +495,7 @@ Warning: `shellPhase` is executed only if `setup.py` exists.
 Given a `default.nix`:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 python3Packages.buildPythonPackage {
   name = "myproject";
@@ -598,7 +598,7 @@ By default `nix-shell` will start a `bash` session with this interpreter in our
 `PATH`, so if we then run:
 
 ```Python console
-[nix-shell:~/src/nixpkgs]$ python3
+[nix-shell:~/src/botpkgs]$ python3
 Python 3.11.3 (main, Apr  4 2023, 22:36:41) [GCC 12.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import numpy; import toolz
@@ -699,12 +699,12 @@ system.
 
 By default it is pulling the import checkout of Botpkgs itself from our nix
 channel, which is nice as it cache aligns with our other package builds, but we
-can make it fully reproducible by pinning the `nixpkgs` import:
+can make it fully reproducible by pinning the `botpkgs` import:
 
 ```python
 #!/usr/bin/env nix-shell
 #!nix-shell -i python3 -p "python3.withPackages (ps: [ ps.numpy ])"
-#!nix-shell -I nixpkgs=https://github.com/nervosys/Botnix/archive/e51209796c4262bfb8908e3d6d72302fe4e96f5f.tar.gz
+#!nix-shell -I botpkgs=https://github.com/nervosys/Botnix/archive/e51209796c4262bfb8908e3d6d72302fe4e96f5f.tar.gz
 import numpy as np
 a = np.array([1,2])
 b = np.array([3,4])
@@ -730,7 +730,7 @@ Say we want to have Python 3.11, `numpy` and `toolz`, like before,
 in an environment. We can add a `shell.nix` file describing our dependencies:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 (python311.withPackages (ps: with ps; [
   numpy
   toolz
@@ -744,9 +744,9 @@ with each other and with CI builders.
 
 What's happening here?
 
-1. We begin with importing the Nix Packages collections. `import <nixpkgs>`
-   imports the `<nixpkgs>` function, `{}` calls it and the `with` statement
-   brings all attributes of `nixpkgs` in the local scope. These attributes form
+1. We begin with importing the Nix Packages collections. `import <botpkgs>`
+   imports the `<botpkgs>` function, `{}` calls it and the `with` statement
+   brings all attributes of `botpkgs` in the local scope. These attributes form
    the main package set.
 2. Then we create a Python 3.11 environment with the [`withPackages`](#python.withpackages-function) function, as before.
 3. The [`withPackages`](#python.withpackages-function) function expects us to provide a function as an argument
@@ -757,7 +757,7 @@ What's happening here?
 To combine this with `mkShell` you can:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 let
   pythonEnv = python311.withPackages (ps: [
     ps.numpy
@@ -793,11 +793,11 @@ This can be useful to have things like vim/emacs editors and plugins or shell
 tools "just work" without having to set them up, or when running other software
 that expects packages to be installed globally.
 
-To create your own custom environment, create a file in `~/.config/nixpkgs/overlays/`
+To create your own custom environment, create a file in `~/.config/botpkgs/overlays/`
 that looks like this:
 
 ```nix
-# ~/.config/nixpkgs/overlays/myEnv.nix
+# ~/.config/botpkgs/overlays/myEnv.nix
 self: super: {
   myEnv = super.buildEnv {
     name = "myEnv";
@@ -857,7 +857,7 @@ Now that you know the basics to be up and running, it is time to take a step
 back and take a deeper look at how Python packages are packaged on Nix. Then,
 we will look at how you can use development mode with your code.
 
-#### Python library packages in Botpkgs {#python-library-packages-in-nixpkgs}
+#### Python library packages in Botpkgs {#python-library-packages-in-botpkgs}
 
 With Nix all packages are built by functions. The main function in Nix for
 building Python libraries is [`buildPythonPackage`](#buildpythonpackage-function). Let's see how we can build the
@@ -928,7 +928,7 @@ The following expression creates a derivation for the `toolz` package,
 and adds it along with a `numpy` package to a Python environment.
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 ( let
     my_toolz = python311.pkgs.buildPythonPackage rec {
@@ -971,7 +971,7 @@ So, what did we do here? Well, we took the Nix expression that we used earlier
 to build a Python environment, and said that we wanted to include our own
 version of `toolz`, named `my_toolz`. To introduce our own package in the scope
 of [`withPackages`](#python.withpackages-function) we used a `let` expression. You can see that we used
-`ps.numpy` to select numpy from the nixpkgs package set (`ps`). We did not take
+`ps.numpy` to select numpy from the botpkgs package set (`ps`). We did not take
 `toolz` from the Botpkgs package set this time, but instead took our own version
 that we introduced with the `let` expression.
 
@@ -1220,7 +1220,7 @@ To filter tests using pytest, one can do the following:
 
 `--ignore` will tell pytest to ignore that file or directory from being
 collected as part of a test run. This is useful is a file uses a package
-which is not available in nixpkgs, thus skipping that test file is much
+which is not available in botpkgs, thus skipping that test file is much
 easier than having to create a new package.
 
 `-k` is used to define a predicate for test names. In this example, we are
@@ -1464,7 +1464,7 @@ Indeed, we can just add any package we like to have in our environment to
 [`propagatedBuildInputs`](#var-stdenv-propagatedBuildInputs).
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 with python311Packages;
 
 buildPythonPackage rec {
@@ -1538,7 +1538,7 @@ It takes an argument [`buildPythonPackage`](#buildpythonpackage-function). We no
 `callPackage` in the definition of our environment
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 ( let
     toolz = callPackage /path/to/toolz/release.nix {
@@ -1573,7 +1573,7 @@ We can override the interpreter and pass `packageOverrides`. In the following
 example we rename the `pandas` package and build it.
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 (let
   python = let
@@ -1600,7 +1600,7 @@ environment that uses it. All packages in the Python package set will now use
 the updated `scipy` version.
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 ( let
     packageOverrides = self: super: {
@@ -1622,7 +1622,7 @@ If you want the whole of Botpkgs to use your modifications, then you can use
 
 ```nix
 let
-  pkgs = import <nixpkgs> {};
+  pkgs = import <botpkgs> {};
   newpkgs = import pkgs.path { overlays = [ (self: super: {
     python310 = let
       packageOverrides = python-self: python-super: {
@@ -1716,7 +1716,7 @@ Create this `default.nix` file, together with a `requirements.txt` and
 execute `nix-shell`.
 
 ```nix
-with import <nixpkgs> { };
+with import <botpkgs> { };
 
 let
   pythonPackages = python3Packages;
@@ -1732,7 +1732,7 @@ in pkgs.mkShell rec {
     # dropping into the shell
     pythonPackages.venvShellHook
 
-    # Those are dependencies that we would like to use from nixpkgs, which will
+    # Those are dependencies that we would like to use from botpkgs, which will
     # add them to PYTHONPATH and thus make them accessible from within the venv.
     pythonPackages.numpy
     pythonPackages.requests
@@ -1770,7 +1770,7 @@ needed, you can define your own shell hook and adapt to your needs like in the
 following example:
 
 ```nix
-with import <nixpkgs> { };
+with import <botpkgs> { };
 
 let
   venvDir = "./.venv";
@@ -1820,7 +1820,7 @@ folder and not downloaded again.
 If you need to change a package's attribute(s) from `configuration.nix` you could do:
 
 ```nix
-  nixpkgs.config.packageOverrides = super: {
+  botpkgs.config.packageOverrides = super: {
     python3 = super.python3.override {
       packageOverrides = python-self: python-super: {
         twisted = python-super.twisted.overridePythonAttrs (oldAttrs: {
@@ -1950,12 +1950,12 @@ Note this method is preferred over adding parameters to builders, as that can
 result in packages depending on different variants and thereby causing
 collisions.
 
-### How to contribute a Python package to nixpkgs? {#tools}
+### How to contribute a Python package to botpkgs? {#tools}
 
-Packages inside nixpkgs must use the [`buildPythonPackage`](#buildpythonpackage-function) or [`buildPythonApplication`](#buildpythonapplication-function) function directly,
+Packages inside botpkgs must use the [`buildPythonPackage`](#buildpythonpackage-function) or [`buildPythonApplication`](#buildpythonapplication-function) function directly,
 because we can only provide security support for non-vendored dependencies.
 
-We recommend [nix-init](https://github.com/nix-community/nix-init) for creating new python packages within nixpkgs,
+We recommend [nix-init](https://github.com/nix-community/nix-init) for creating new python packages within botpkgs,
 as it already prefetches the source, parses dependencies for common formats and prefills most things in `meta`.
 
 ### Are Python interpreters built deterministically? {#deterministic-builds}
@@ -2080,7 +2080,7 @@ $ maintainers/scripts/update-python-libraries --target minor --commit --use-pkgs
 ## CPython Update Schedule {#python-cpython-update-schedule}
 
 With [PEP 602](https://www.python.org/dev/peps/pep-0602/), CPython now
-follows a yearly release cadence. In nixpkgs, all supported interpreters
+follows a yearly release cadence. In botpkgs, all supported interpreters
 are made available, but only the most recent two
 interpreters package sets are built; this is a compromise between being
 the latest interpreter, and what the majority of the Python packages support.

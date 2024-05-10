@@ -11,7 +11,7 @@ on:
       - 'lib/**'
 
 jobs:
-  nixpkgs:
+  botpkgs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Botnix'
     steps:
@@ -25,8 +25,8 @@ jobs:
           extra_nix_config: sandbox = true
       - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
         with:
-          # This cache is for the nixpkgs repo checks and should not be trusted or used elsewhere.
-          name: nixpkgs-ci
+          # This cache is for the botpkgs repo checks and should not be trusted or used elsewhere.
+          name: botpkgs-ci
           signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
       - name: Building Botpkgs manual
-        run: NIX_PATH=nixpkgs=$(pwd) nix-build --option restrict-eval true pkgs/top-level/release.nix -A manual -A manual.tests
+        run: NIX_PATH=botpkgs=$(pwd) nix-build --option restrict-eval true pkgs/top-level/release.nix -A manual -A manual.tests

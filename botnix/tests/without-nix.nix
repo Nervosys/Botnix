@@ -6,7 +6,7 @@ import ./make-test-python.nix ({ lib, ... }: {
 
   nodes.machine = { ... }: {
     nix.enable = false;
-    nixpkgs.overlays = [
+    botpkgs.overlays = [
       (self: super: {
         nix = throw "don't want to use pkgs.nix";
         nixVersions = lib.mapAttrs (k: throw "don't want to use pkgs.nixVersions.${k}") super.nixVersions;

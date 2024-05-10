@@ -1,4 +1,4 @@
-/* The top-level package collection of nixpkgs.
+/* The top-level package collection of botpkgs.
  * It is sorted by categories corresponding to the folder names in the /pkgs
  * folder. Inside the categories packages are roughly sorted by alphabet, but
  * strict sorting has been long lost due to merges. Please use the full-text
@@ -13,14 +13,14 @@ with pkgs;
 {
   # A module system style type tag
   #
-  # Allows the nixpkgs fixpoint, usually known as `pkgs` to be distinguished
+  # Allows the botpkgs fixpoint, usually known as `pkgs` to be distinguished
   # nominally.
   #
   #     pkgs._type == "pkgs"
   #     pkgs.pkgsStatic._type == "pkgs"
   #
   # Design note:
-  # While earlier stages of nixpkgs fixpoint construction are supertypes of this
+  # While earlier stages of botpkgs fixpoint construction are supertypes of this
   # stage, they're generally not usable in places where a `pkgs` is expected.
   # (earlier stages being the various `super` variables that precede
   # all-packages.nix)
@@ -122,7 +122,7 @@ with pkgs;
 
   nix-generate-from-cpan = callPackage ../../maintainers/scripts/nix-generate-from-cpan.nix { };
 
-  nixpkgs-lint = callPackage ../../maintainers/scripts/nixpkgs-lint.nix { };
+  botpkgs-lint = callPackage ../../maintainers/scripts/botpkgs-lint.nix { };
 
   common-updater-scripts = callPackage ../common-updater/scripts.nix { };
 
@@ -1432,7 +1432,7 @@ with pkgs;
 
   makeHardcodeGsettingsPatch = callPackage ../build-support/make-hardcode-gsettings-patch { };
 
-  # intended to be used like nix-build -E 'with import <nixpkgs> { }; enableDebugging fooPackage'
+  # intended to be used like nix-build -E 'with import <botpkgs> { }; enableDebugging fooPackage'
   enableDebugging = pkg: pkg.override { stdenv = stdenvAdapters.keepDebugInfo pkg.stdenv; };
 
   findXMLCatalogs = makeSetupHook {
@@ -3441,7 +3441,7 @@ with pkgs;
 
   bootspec = callPackage ../tools/misc/bootspec { };
 
-  # Derivation's result is not used by nixpkgs. Useful for validation for
+  # Derivation's result is not used by botpkgs. Useful for validation for
   # regressions of bootstrapTools on hydra and on ofborg. Example:
   #     pkgsCross.aarch64-multiplatform.freshBootstrapTools.build
   freshBootstrapTools = if stdenv.hostPlatform.isDarwin then
@@ -5421,7 +5421,7 @@ with pkgs;
 
   texFunctions = callPackage ../tools/typesetting/tex/nix pkgs;
 
-  # TeX Live; see https://nixos.org/nixpkgs/manual/#sec-language-texlive
+  # TeX Live; see https://nixos.org/botpkgs/manual/#sec-language-texlive
   texlive = callPackage ../tools/typesetting/tex/texlive { };
   inherit (texlive.schemes) texliveBasic texliveBookPub texliveConTeXt texliveFull texliveGUST texliveInfraOnly texliveMedium texliveMinimal texliveSmall texliveTeTeX;
 
@@ -6097,7 +6097,7 @@ with pkgs;
 
   nodepy-runtime = with python3.pkgs; toPythonApplication nodepy-runtime;
 
-  nixpkgs-pytools = with python3.pkgs; toPythonApplication nixpkgs-pytools;
+  botpkgs-pytools = with python3.pkgs; toPythonApplication botpkgs-pytools;
 
   nostr-rs-relay = callPackage ../servers/nostr-rs-relay { };
 
@@ -15824,8 +15824,8 @@ with pkgs;
   # Meant for packages that fail with newer than gcc10.
   gcc10StdenvCompat = if stdenv.cc.isGNU && lib.versionAtLeast stdenv.cc.version "11" then gcc10Stdenv else stdenv;
 
-  # This is not intended for use in nixpkgs but for providing a faster-running
-  # compiler to nixpkgs users by building gcc with reproducibility-breaking
+  # This is not intended for use in botpkgs but for providing a faster-running
+  # compiler to botpkgs users by building gcc with reproducibility-breaking
   # profile-guided optimizations
   fastStdenv = overrideCC gccStdenv (wrapNonDeterministicGcc gccStdenv buildPackages.gcc_latest);
 
@@ -17484,7 +17484,7 @@ with pkgs;
 
   dhall-nix = haskell.lib.compose.justStaticExecutables haskellPackages.dhall-nix;
 
-  dhall-nixpkgs = haskell.lib.compose.justStaticExecutables haskellPackages.dhall-nixpkgs;
+  dhall-botpkgs = haskell.lib.compose.justStaticExecutables haskellPackages.dhall-botpkgs;
 
   dhall-yaml = haskell.lib.compose.justStaticExecutables haskellPackages.dhall-yaml;
 
@@ -18664,7 +18664,7 @@ with pkgs;
   ccache = callPackage ../development/tools/misc/ccache { };
 
   # Wrapper that works as gcc or g++
-  # It can be used by setting in nixpkgs config like this, for example:
+  # It can be used by setting in botpkgs config like this, for example:
   #    replaceStdenv = { pkgs }: pkgs.ccacheStdenv;
   # But if you build in chroot, you should have that path in chroot
   # If instantiated directly, it will use $HOME/.ccache as the cache directory,
@@ -18912,7 +18912,7 @@ with pkgs;
   };
 
   # distccWrapper: wrapper that works as gcc or g++
-  # It can be used by setting in nixpkgs config like this, for example:
+  # It can be used by setting in botpkgs config like this, for example:
   #    replaceStdenv = { pkgs }: pkgs.distccStdenv;
   # But if you build in chroot, a default 'nix' will create
   # a new net namespace, and won't have network access.
@@ -31091,7 +31091,7 @@ with pkgs;
 
   dwm = callPackage ../applications/window-managers/dwm {
     # dwm is configured entirely through source modification. Allow users to
-    # specify patches through nixpkgs.config.dwm.patches
+    # specify patches through botpkgs.config.dwm.patches
     patches = config.dwm.patches or [];
   };
 
@@ -40465,16 +40465,16 @@ with pkgs;
         in
           myOS.run-nginx
 
-    Unlike in plain Botnix, the nixpkgs.config and
-    nixpkgs.system options will be ignored by default. Instead,
-    nixpkgs.pkgs will have the default value of pkgs as it was
-    constructed right after invoking the nixpkgs function (e.g. the
-    value of import <nixpkgs> { overlays = [./my-overlay.nix]; }
-    but not the value of (import <nixpkgs> {} // { extra = ...; }).
+    Unlike in plain Botnix, the botpkgs.config and
+    botpkgs.system options will be ignored by default. Instead,
+    botpkgs.pkgs will have the default value of pkgs as it was
+    constructed right after invoking the botpkgs function (e.g. the
+    value of import <botpkgs> { overlays = [./my-overlay.nix]; }
+    but not the value of (import <botpkgs> {} // { extra = ...; }).
 
-    If you do want to use the config.nixpkgs options, you are
+    If you do want to use the config.botpkgs options, you are
     probably better off by calling botnix/lib/eval-config.nix
-    directly, even though it is possible to set config.nixpkgs.pkgs.
+    directly, even though it is possible to set config.botpkgs.pkgs.
 
     For more information about writing Botnix modules, see
     https://nixos.org/botnix/manual/index.html#sec-writing-modules
@@ -40489,8 +40489,8 @@ with pkgs;
               modules =
                 [(
                   { lib, ... }: {
-                    config.nixpkgs.pkgs = lib.mkDefault pkgs;
-                    config.nixpkgs.localSystem = lib.mkDefault stdenv.hostPlatform;
+                    config.botpkgs.pkgs = lib.mkDefault pkgs;
+                    config.botpkgs.localSystem = lib.mkDefault stdenv.hostPlatform;
                   }
                 )] ++ (
                   if builtins.isList configuration
@@ -40510,9 +40510,9 @@ with pkgs;
    */
   pkgsModule = { lib, options, ... }: {
     config =
-      if options?nixpkgs.pkgs then {
-        # legacy / nixpkgs.nix style
-        nixpkgs.pkgs = pkgs;
+      if options?botpkgs.pkgs then {
+        # legacy / botpkgs.nix style
+        botpkgs.pkgs = pkgs;
       }
       else {
         # minimal
@@ -40598,7 +40598,7 @@ with pkgs;
 
   nix-universal-prefetch = callPackage ../tools/package-management/nix-universal-prefetch { };
 
-  nixpkgs-review = callPackage ../tools/package-management/nixpkgs-review { };
+  botpkgs-review = callPackage ../tools/package-management/botpkgs-review { };
 
   nix-serve = callPackage ../tools/package-management/nix-serve { };
 
@@ -40614,11 +40614,11 @@ with pkgs;
 
   nixfmt = haskellPackages.nixfmt.bin;
 
-  nixpkgs-fmt = callPackage ../tools/nix/nixpkgs-fmt { };
+  botpkgs-fmt = callPackage ../tools/nix/botpkgs-fmt { };
 
-  nixpkgs-hammering = callPackage ../tools/nix/nixpkgs-hammering { };
+  botpkgs-hammering = callPackage ../tools/nix/botpkgs-hammering { };
 
-  nixpkgs-lint-community = callPackage ../tools/nix/nixpkgs-lint { };
+  botpkgs-lint-community = callPackage ../tools/nix/botpkgs-lint { };
 
   rnix-hashes = callPackage ../tools/nix/rnix-hashes { };
 

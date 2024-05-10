@@ -89,7 +89,7 @@ stdenv.mkDerivation rec {
     maintainers = with lib.maintainers; [ magnetophon PowerUser64 ];
     mainProgram = "Cardinal";
     platforms = lib.platforms.all;
-    # never built on aarch64-darwin, x86_64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin, x86_64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin;
   };
 }

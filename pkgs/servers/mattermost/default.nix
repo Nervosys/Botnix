@@ -32,7 +32,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-X github.com/mattermost/mattermost/server/public/model.Version=${version}"
-    "-X github.com/mattermost/mattermost/server/public/model.BuildNumber=${version}-nixpkgs"
+    "-X github.com/mattermost/mattermost/server/public/model.BuildNumber=${version}-botpkgs"
     "-X github.com/mattermost/mattermost/server/public/model.BuildDate=1970-01-01"
     "-X github.com/mattermost/mattermost/server/public/model.BuildHash=v${version}"
     "-X github.com/mattermost/mattermost/server/public/model.BuildHashEnterprise=none"

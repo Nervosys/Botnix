@@ -58,7 +58,7 @@ in
             "spec" = { ... };
           };
         }
-        // import <nixpkgs/botnix/modules/services/cluster/kubernetes/dns.nix> { cfg = config.services.kubernetes; };
+        // import <botpkgs/botnix/modules/services/cluster/kubernetes/dns.nix> { cfg = config.services.kubernetes; };
       '';
     };
 

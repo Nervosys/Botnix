@@ -54,7 +54,7 @@
 , withSuggested ? false # Install (most) suggested tools
 , hplip
 , sane-backends
-# , pnputils # pnputils (lspnp) isn't currently in nixpkgs and appears to be poorly maintained
+# , pnputils # pnputils (lspnp) isn't currently in botpkgs and appears to be poorly maintained
 }:
 
 stdenv.mkDerivation rec {

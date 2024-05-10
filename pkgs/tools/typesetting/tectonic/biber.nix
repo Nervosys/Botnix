@@ -3,14 +3,14 @@
   as an optional runtime dependency of `tectonic`.
 
   The development of tectonic is slowing down recently, such that its `biber`
-  dependency has been lagging behind the one in the nixpkgs `texlive` bundle.
+  dependency has been lagging behind the one in the botpkgs `texlive` bundle.
   See:
 
   https://github.com/tectonic-typesetting/tectonic/discussions/1122
 
-  It is now feasible to track the biber dependency in nixpkgs, as the
+  It is now feasible to track the biber dependency in botpkgs, as the
   version bump is not very frequent, and it would provide a more complete
-  user experience of tectonic in nixpkgs.
+  user experience of tectonic in botpkgs.
 */
 
 { lib

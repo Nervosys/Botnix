@@ -1,12 +1,12 @@
 /*
     Test CUDA packages.
 
-    This release file will not be tested on hydra.botnix.org
+    This release file will not be tested on hydra.nixos.org
     because it requires unfree software.
 
     Test for example like this:
 
-        $ hydra-eval-jobs pkgs/top-level/release-cuda.nix --option restrict-eval false -I foo=. --arg nixpkgs '{ outPath = ./.; revCount = 0; shortRev = "aabbcc"; }'
+        $ hydra-eval-jobs pkgs/top-level/release-cuda.nix --option restrict-eval false -I foo=. --arg botpkgs '{ outPath = ./.; revCount = 0; shortRev = "aabbcc"; }'
 
 */
 
@@ -14,7 +14,7 @@
   supportedSystems ? [
     "x86_64-linux"
   ]
-, # Attributes passed to nixpkgs.
+, # Attributes passed to botpkgs.
   nixpkgsArgs ? { config = { allowUnfree = true; inHydra = true; }; }
 }:
 

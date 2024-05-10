@@ -3,8 +3,8 @@
 #   "generate"
 # See https://github.com/kolloch/crate2nix for more info.
 
-{ nixpkgs ? <nixpkgs>
-, pkgs ? import nixpkgs { config = {}; }
+{ botpkgs ? <botpkgs>
+, pkgs ? import botpkgs { config = {}; }
 , lib ? pkgs.lib
 , stdenv ? pkgs.stdenv
 , buildRustCrateForPkgs ? if buildRustCrate != null

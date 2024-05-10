@@ -356,7 +356,7 @@ let
         inherit (config.virtualisation.virtualbox.host) enableHardening;
       in lib.mkIf enableHardening (lib.singleton "vboxusers");
       virtualisation.virtualbox.host.enableExtensionPack = useExtensionPack;
-      nixpkgs.config.allowUnfree = useExtensionPack;
+      botpkgs.config.allowUnfree = useExtensionPack;
     };
 
     testScript = ''

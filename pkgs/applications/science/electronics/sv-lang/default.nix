@@ -61,7 +61,7 @@ stdenv.mkDerivation rec {
   ];
 
   # TODO: a mysterious linker error occurs when building the unittests on darwin.
-  # The error occurs when using catch2_3 in nixpkgs, not when fetching catch2_3 using CMake
+  # The error occurs when using catch2_3 in botpkgs, not when fetching catch2_3 using CMake
   doCheck = !stdenv.isDarwin;
 
   meta = with lib; {

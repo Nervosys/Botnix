@@ -55,7 +55,7 @@ buildPythonPackage rec {
       pandas = [ pandas ];
       async = [ tornado ];
       sqlalchemy = [ sqlalchemy ];
-      # druid has a `cli` extra, but it doesn't work with nixpkgs pygments
+      # druid has a `cli` extra, but it doesn't work with botpkgs pygments
     };
   };
 

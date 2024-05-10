@@ -3,7 +3,7 @@ From: Andreas Rammhold <andreas@rammhold.de>
 Date: Thu, 2 Nov 2023 17:32:07 +0100
 Subject: [PATCH] NIXOS: don't ignore PYTHONPATH
 
-On Botnix or rather within nixpkgs we provide the runtime Python
+On Botnix or rather within botpkgs we provide the runtime Python
 packages via the PYTHONPATH environment variable. FreeCAD tries its
 best to ignore Python environment variables that are being inherited
 from the environment. For Python versions >=3.11 it also tries to

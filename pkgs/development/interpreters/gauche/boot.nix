@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
     "--with-zlib=${zlib}"
     "--with-ca-bundle=${cacert}/etc/ssl/certs/ca-bundle.crt"
     # TODO: Enable slib
-    #       Current slib in nixpkgs is specialized to Guile
+    #       Current slib in botpkgs is specialized to Guile
     # "--with-slib=${slibGuile}/lib/slib"
   ];
 

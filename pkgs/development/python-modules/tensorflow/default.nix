@@ -271,7 +271,7 @@ let
       "astunparse_archive"
       "boringssl"
       "com_google_absl"
-      # Not packaged in nixpkgs
+      # Not packaged in botpkgs
       # "com_github_googleapis_googleapis"
       # "com_github_googlecloudplatform_google_cloud_cpp"
       "com_github_grpc_grpc"

@@ -132,6 +132,6 @@ stdenv.mkDerivation rec {
       (x86 ++ power ++ s390x ++ armv7 ++ aarch64 ++ mips)
       (darwin ++ freebsd ++ illumos ++ linux);
     badPlatforms = [ lib.systems.inspect.platformPatterns.isStatic ];
-    broken = stdenv.isDarwin; # https://hydra.botnix.org/build/128521440/nixlog/2
+    broken = stdenv.isDarwin; # https://hydra.nixos.org/build/128521440/nixlog/2
   };
 }

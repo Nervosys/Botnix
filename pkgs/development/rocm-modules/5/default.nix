@@ -342,7 +342,7 @@ in rec {
 
   ## Meta ##
   # Emulate common ROCm meta layout
-  # These are mainly for users. I strongly suggest NOT using these in nixpkgs derivations
+  # These are mainly for users. I strongly suggest NOT using these in botpkgs derivations
   # Don't put these into `propagatedBuildInputs` unless you want PATH/PYTHONPATH issues!
   # See: https://rocm.docs.amd.com/en/docs-5.7.1/_images/image.004.png
   # See: https://rocm.docs.amd.com/en/docs-5.7.1/deploy/linux/os-native/package_manager_integration.html

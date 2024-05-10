@@ -92,7 +92,7 @@ let
     SUPPORT_PKG = retdec-support;
   } // lib.optionalAttrs enableTests {
     KEYSTONE = keystone;
-    # nixpkgs googletest is used
+    # botpkgs googletest is used
     # GOOGLETEST = googletest;
   };
 

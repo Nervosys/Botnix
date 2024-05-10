@@ -73,7 +73,7 @@ in stdenv.mkDerivation {
 
     ${skawarePackages.cleanPackaging.checkForRemainingFiles}
 
-    # we don’t use this, but nixpkgs requires it
+    # we don’t use this, but botpkgs requires it
     touch $out
   '';
 

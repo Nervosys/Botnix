@@ -37,7 +37,7 @@ runCommand "test-botnix-rebuild-repl" {
     nix
     botnix-rebuild
   ];
-  nixpkgs =
+  botpkgs =
     if builtins.pathExists (path + "/.git")
     then lib.cleanSource path
     else path;
@@ -58,7 +58,7 @@ runCommand "test-botnix-rebuild-repl" {
   echo General setup
   ##################
 
-  export NIX_PATH=nixpkgs=$nixpkgs:botnix-config=$HOME/configuration.nix
+  export NIX_PATH=botpkgs=$botpkgs:botnix-config=$HOME/configuration.nix
   cat >> ~/configuration.nix <<EOF
   {
     boot.loader.grub.enable = false;
@@ -94,13 +94,13 @@ runCommand "test-botnix-rebuild-repl" {
   EOF
 
   # Make the config pure
-  echo '{ nixpkgs.hostPlatform = "${linuxSystem}"; }' > ~/hardware-configuration.nix
+  echo '{ botpkgs.hostPlatform = "${linuxSystem}"; }' > ~/hardware-configuration.nix
 
   cat >~/flake.nix <<EOF
   {
-    inputs.nixpkgs.url = "path:$nixpkgs";
-    outputs = { nixpkgs, ... }: {
-      nixosConfigurations.testconf = nixpkgs.lib.nixosSystem {
+    inputs.botpkgs.url = "path:$botpkgs";
+    outputs = { botpkgs, ... }: {
+      nixosConfigurations.testconf = botpkgs.lib.nixosSystem {
         modules = [
           ./configuration.nix
           # Let's change it up a bit

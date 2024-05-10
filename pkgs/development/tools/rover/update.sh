@@ -4,9 +4,9 @@
 set -eu -o pipefail
 
 dirname=$(realpath "$(dirname "$0")")
-nixpkgs=$(realpath "${dirname}/../../../..")
+botpkgs=$(realpath "${dirname}/../../../..")
 
-old_rover_version=$(nix eval --raw -f "$nixpkgs" rover.version)
+old_rover_version=$(nix eval --raw -f "$botpkgs" rover.version)
 rover_url=https://api.github.com/repos/apollographql/rover/releases/latest
 rover_tag=$(curl "$rover_url" | jq --raw-output ".tag_name")
 rover_version="$(expr "$rover_tag" : 'v\(.*\)')"
@@ -44,7 +44,7 @@ sed --in-place \
 # Update cargoSha256
 echo "Computing cargoSha256"
 cargoSha256=$(
-    nix-prefetch "{ sha256 }: (import $nixpkgs {}).rover.cargoDeps.overrideAttrs (_: { outputHash = sha256; })"
+    nix-prefetch "{ sha256 }: (import $botpkgs {}).rover.cargoDeps.overrideAttrs (_: { outputHash = sha256; })"
 )
 sed --in-place \
     "s|cargoSha256 = \".*\"|cargoSha256 = \"$cargoSha256\"|" \

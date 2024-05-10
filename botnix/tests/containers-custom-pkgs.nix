@@ -23,7 +23,7 @@ in {
     containers.test = {
       autoStart = true;
       config = { pkgs, config, ... }: {
-        nixpkgs.pkgs = customPkgs;
+        botpkgs.pkgs = customPkgs;
         system.extraDependencies = [ pkgs.hello ];
       };
     };

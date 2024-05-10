@@ -46,8 +46,8 @@
     "strictoverflow"
   ] ++ lib.optional (
     # Musl-based platforms will keep "pie", other platforms will not.
-    # If you change this, make sure to update section `{#sec-hardening-in-nixpkgs}`
-    # in the nixpkgs manual to inform users about the defaults.
+    # If you change this, make sure to update section `{#sec-hardening-in-botpkgs}`
+    # in the botpkgs manual to inform users about the defaults.
     targetPlatform.libc == "musl"
     # Except when:
     #    - static aarch64, where compilation works, but produces segfaulting dynamically linked binaries.

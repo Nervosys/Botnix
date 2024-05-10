@@ -101,7 +101,7 @@ let
     # (2) To stop Python from importing the wrong directory, i.e. the one in the build dir, not the one in nix store, `skimage` dir should be removed or renamed;
     # (3) Therefore, tests should be run on the installed package in nix store.
 
-    # See e.g. https://discourse.botnix.org/t/cant-import-cythonized-modules-at-checkphase/14207 on why the following is needed.
+    # See e.g. https://discourse.nixos.org/t/cant-import-cythonized-modules-at-checkphase/14207 on why the following is needed.
     preCheck = ''
       rm -r skimage
     '';

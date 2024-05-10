@@ -43,7 +43,7 @@ in
         default =
           if cfg.channel.enable
           then [
-            "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/botnix"
+            "botpkgs=/nix/var/nix/profiles/per-user/root/channels/botnix"
             "botnix-config=/etc/botnix/configuration.nix"
             "/nix/var/nix/profiles/per-user/root/channels"
           ]
@@ -51,7 +51,7 @@ in
         defaultText = ''
           if nix.channel.enable
           then [
-            "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/botnix"
+            "botpkgs=/nix/var/nix/profiles/per-user/root/channels/botnix"
             "botnix-config=/etc/botnix/configuration.nix"
             "/nix/var/nix/profiles/per-user/root/channels"
           ]
@@ -60,7 +60,7 @@ in
         description = lib.mdDoc ''
           The default Nix expression search path, used by the Nix
           evaluator to look up paths enclosed in angle brackets
-          (e.g. `<nixpkgs>`).
+          (e.g. `<botpkgs>`).
         '';
       };
     };

@@ -38,7 +38,7 @@ buildPythonPackage rec {
   };
 
   # snowflake-connector-python requires arrow 10.0.1, which we don't have in
-  # nixpkgs, so we cannot build the C extensions that use it. thus, patch out
+  # botpkgs, so we cannot build the C extensions that use it. thus, patch out
   # cython and pyarrow from the build dependencies
   #
   # keep an eye on following issue for improvements to this situation:

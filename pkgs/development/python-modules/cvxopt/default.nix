@@ -33,7 +33,7 @@ buildPythonPackage rec {
   buildInputs = [ blas lapack ];
 
   # similar to Gsl, glpk, fftw there is also a dsdp interface
-  # but dsdp is not yet packaged in nixpkgs
+  # but dsdp is not yet packaged in botpkgs
   env = {
     CVXOPT_BLAS_LIB = "blas";
     CVXOPT_LAPACK_LIB = "lapack";

@@ -8,7 +8,7 @@
 
    $ nix-build pkgs/top-level/release.nix -A coreutils.x86_64-linux
 */
-{ nixpkgs ? { outPath = (import ../../lib).cleanSource ../..; revCount = 1234; shortRev = "abcdef"; revision = "0000000000000000000000000000000000000000"; }
+{ botpkgs ? { outPath = (import ../../lib).cleanSource ../..; revCount = 1234; shortRev = "abcdef"; revision = "0000000000000000000000000000000000000000"; }
 , officialRelease ? false
   # The platform doubles for which we build Botpkgs.
 , supportedSystems ? [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ]
@@ -24,7 +24,7 @@
   ]
   # Strip most of attributes when evaluating to spare memory usage
 , scrubJobs ? true
-  # Attributes passed to nixpkgs. Don't build packages marked as unfree.
+  # Attributes passed to botpkgs. Don't build packages marked as unfree.
 , nixpkgsArgs ? { config = {
     allowUnfree = false;
     inHydra = true;
@@ -63,16 +63,16 @@ let
   ] (arch: builtins.elem "${arch}-darwin" supportedSystems);
 
   nonPackageJobs =
-    { tarball = import ./make-tarball.nix { inherit pkgs nixpkgs officialRelease supportedSystems; };
+    { tarball = import ./make-tarball.nix { inherit pkgs botpkgs officialRelease supportedSystems; };
 
-      metrics = import ./metrics.nix { inherit pkgs nixpkgs; };
+      metrics = import ./metrics.nix { inherit pkgs botpkgs; };
 
-      manual = import ../../doc { inherit pkgs nixpkgs; };
+      manual = import ../../doc { inherit pkgs botpkgs; };
       lib-tests = import ../../lib/tests/release.nix { inherit pkgs; };
       pkgs-lib-tests = import ../pkgs-lib/tests { inherit pkgs; };
 
       darwin-tested = if supportDarwin.x86_64 then pkgs.releaseTools.aggregate
-        { name = "nixpkgs-darwin-${jobs.tarball.version}";
+        { name = "botpkgs-darwin-${jobs.tarball.version}";
           meta.description = "Release-critical builds for the Botpkgs darwin channel";
           constituents =
             [ jobs.tarball
@@ -82,7 +82,7 @@ let
               jobs.go.x86_64-darwin
               jobs.mariadb.x86_64-darwin
               jobs.nix.x86_64-darwin
-              jobs.nixpkgs-review.x86_64-darwin
+              jobs.botpkgs-review.x86_64-darwin
               jobs.nix-info.x86_64-darwin
               jobs.nix-info-tested.x86_64-darwin
               jobs.openssh.x86_64-darwin
@@ -121,7 +121,7 @@ let
         } else null;
 
       unstable = pkgs.releaseTools.aggregate
-        { name = "nixpkgs-${jobs.tarball.version}";
+        { name = "botpkgs-${jobs.tarball.version}";
           meta.description = "Release-critical builds for the Botpkgs unstable channel";
           constituents =
             [ jobs.tarball
@@ -137,7 +137,7 @@ let
               jobs.pandoc.x86_64-linux
               jobs.python3.x86_64-linux
               # Needed by contributors to test PRs (by inclusion of the PR template)
-              jobs.nixpkgs-review.x86_64-linux
+              jobs.botpkgs-review.x86_64-linux
               # Needed for support
               jobs.nix-info.x86_64-linux
               jobs.nix-info-tested.x86_64-linux
@@ -169,7 +169,7 @@ let
               jobs.cachix.x86_64-darwin
               jobs.go.x86_64-darwin
               jobs.python3.x86_64-darwin
-              jobs.nixpkgs-review.x86_64-darwin
+              jobs.botpkgs-review.x86_64-darwin
               jobs.nix.x86_64-darwin
               jobs.nix-info.x86_64-darwin
               jobs.nix-info-tested.x86_64-darwin
@@ -196,7 +196,7 @@ let
               jobs.cachix.aarch64-darwin
               jobs.go.aarch64-darwin
               jobs.python3.aarch64-darwin
-              jobs.nixpkgs-review.aarch64-darwin
+              jobs.botpkgs-review.aarch64-darwin
               jobs.nix.aarch64-darwin
               jobs.nix-info.aarch64-darwin
               jobs.nix-info-tested.aarch64-darwin

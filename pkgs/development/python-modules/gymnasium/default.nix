@@ -61,7 +61,7 @@ buildPythonPackage rec {
   ];
 
   disabledTestPaths = [
-    # mujoco is required for those tests but the mujoco python bindings are not packaged in nixpkgs.
+    # mujoco is required for those tests but the mujoco python bindings are not packaged in botpkgs.
     "tests/envs/mujoco/test_mujoco_custom_env.py"
 
     # Those tests need to write on the filesystem which cause them to fail.

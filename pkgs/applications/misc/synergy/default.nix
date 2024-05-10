@@ -48,7 +48,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    # Without this OpenSSL from nixpkgs is not detected
+    # Without this OpenSSL from botpkgs is not detected
     ./darwin-non-static-openssl.patch
   ] ++ lib.optionals (stdenv.isDarwin && !(darwin.apple_sdk.frameworks ? UserNotifications)) [
     # We cannot include UserNotifications because of a build failure in the Apple SDK.

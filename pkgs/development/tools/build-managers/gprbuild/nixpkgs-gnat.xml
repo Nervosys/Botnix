@@ -15,7 +15,7 @@
   -->
   <compiler_description>
     <!-- We would like to name this something different, so users
-         of gprconfig know this is something custom, nixpkgs-related,
+         of gprconfig know this is something custom, botpkgs-related,
          but unfortunately the knowledge base depends on the name of
          the compiler for e. g. linker settings.
     -->

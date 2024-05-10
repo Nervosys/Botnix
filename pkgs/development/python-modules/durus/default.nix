@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "sha256:1gzxg43zawwgqjrfixvcrilwpikb1ix9b7710rsl5ffk7q50yi3c";
   };
 
-  # Checks disabled due to missing python unittest framework 'sancho' in nixpkgs
+  # Checks disabled due to missing python unittest framework 'sancho' in botpkgs
   doCheck = false;
 
   pythonImportsCheck = [

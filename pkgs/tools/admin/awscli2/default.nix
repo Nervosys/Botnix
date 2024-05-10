@@ -15,7 +15,7 @@ let
     pkgs = python3.pkgs.overrideScope (final: prev: {
       sphinx = prev.sphinx.overridePythonAttrs (prev: {
         disabledTests = prev.disabledTests ++ [
-          "test_check_link_response_only" # fails on hydra https://hydra.botnix.org/build/242624087/nixlog/1
+          "test_check_link_response_only" # fails on hydra https://hydra.nixos.org/build/242624087/nixlog/1
         ];
       });
       ruamel-yaml = prev.ruamel-yaml.overridePythonAttrs (prev: {

@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
 
   buildPhase = ''
     runHook preBuild
-    ./BUILDSCRIPT_MULTIPROC.bash44${lib.optionalString stdenv.isDarwin " --config nixpkgs-darwin"}
+    ./BUILDSCRIPT_MULTIPROC.bash44${lib.optionalString stdenv.isDarwin " --config botpkgs-darwin"}
     runHook postBuild
   '';
 

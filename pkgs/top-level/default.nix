@@ -52,10 +52,10 @@ in let
   inherit (lib) throwIfNot;
 
   checked =
-    throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
-    lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
-    throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
-    lib.foldr (x: throwIfNot (lib.isFunction x) "All crossOverlays passed to nixpkgs must be functions.") (r: r) crossOverlays
+    throwIfNot (lib.isList overlays) "The overlays argument to botpkgs must be a list."
+    lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to botpkgs must be functions.") (r: r) overlays
+    throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to botpkgs must be a list."
+    lib.foldr (x: throwIfNot (lib.isFunction x) "All crossOverlays passed to botpkgs must be functions.") (r: r) crossOverlays
     ;
 
   localSystem = lib.systems.elaborate args.localSystem;
@@ -90,7 +90,7 @@ in let
     modules = [
       ./config.nix
       ({ options, ... }: {
-        _file = "nixpkgs.config";
+        _file = "botpkgs.config";
         config = config1;
       })
     ];
@@ -103,7 +103,7 @@ in let
   # A few packages make a new package set to draw their dependencies from.
   # (Currently to get a cross tool chain, or forced-i686 package.) Rather than
   # give `all-packages.nix` all the arguments to this function, even ones that
-  # don't concern it, we give it this function to "re-call" nixpkgs, inheriting
+  # don't concern it, we give it this function to "re-call" botpkgs, inheriting
   # whatever arguments it doesn't explicitly provide. This way,
   # `all-packages.nix` doesn't know more than it needs too.
   #
@@ -121,7 +121,7 @@ in let
   # NB!!! This thing gets its `config` argument from `args`, i.e. it's actually
   # `config0`. It is important to keep it to `config0` format (as opposed to the
   # result of `evalModules`, i.e. the `config` variable above) throughout all
-  # nixpkgs evaluations since the above function `config0 -> config` implemented
+  # botpkgs evaluations since the above function `config0 -> config` implemented
   # via `evalModules` is not idempotent. In other words, if you add `config` to
   # `newArgs`, expect strange very hard to debug errors! (Yes, I'm speaking from
   # experience here.)

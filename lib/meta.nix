@@ -95,7 +95,7 @@ rec {
     # which contains a simple platform string.
     #
     # Avoiding an attrset allocation results in significant  performance gains (~2-30) across the board in OfBorg
-    # because this is a hot path for nixpkgs.
+    # because this is a hot path for botpkgs.
     if isString elem then platform ? system && elem == platform.system
     else matchAttrs (
       # Normalize platform attrset.

@@ -118,7 +118,7 @@ stdenv.mkDerivation rec {
     pnpm install --offline --frozen-lockfile --no-optional --ignore-script
     chmod -R +w ../node_modules
     pnpm rebuild
-    # Use cargo-tauri from nixpkgs instead of pnpm tauri from npm
+    # Use cargo-tauri from botpkgs instead of pnpm tauri from npm
     cargo tauri build -b deb
   '';
 

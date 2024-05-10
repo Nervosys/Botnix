@@ -70,10 +70,10 @@ stdenv.mkDerivation {
       --with-kb=${gprConfigKbSrc} \
       --prefix=$out
 
-    # Install custom compiler description which can detect nixpkgs'
+    # Install custom compiler description which can detect botpkgs'
     # GNAT wrapper as a proper Ada compiler. The default compiler
     # description expects the runtime library to be installed in
-    # the same prefix which isn't the case for nixpkgs. As a
+    # the same prefix which isn't the case for botpkgs. As a
     # result, it would detect the unwrapped GNAT as a proper
     # compiler which is unable to produce working binaries.
     #
@@ -82,7 +82,7 @@ stdenv.mkDerivation {
     # created by the cc-wrapper to find the associated runtime
     # libraries and use gnatmake instead of gnatls to find GNAT's
     # bin directory.
-    install -m644 ${./nixpkgs-gnat.xml} $out/share/gprconfig/nixpkgs-gnat.xml
+    install -m644 ${./botpkgs-gnat.xml} $out/share/gprconfig/botpkgs-gnat.xml
 
     runHook postInstall
   '';

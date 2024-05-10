@@ -79,13 +79,13 @@ buildPythonPackage rec {
     "protobuf"
 
     # As of apache-beam v2.45.0, the requirement is httplib2>=0.8,<0.21.0, but
-    # the current (2023-02-08) nixpkgs's httplib2 version is 0.21.0. This can be
+    # the current (2023-02-08) botpkgs's httplib2 version is 0.21.0. This can be
     # removed once beam is upgraded since the current requirement on master is
     # for httplib2>=0.8,<0.22.0.
     "httplib2"
 
     # As of apache-beam v2.45.0, the requirement is pyarrow<10.0.0,>=0.15.1, but
-    # the current (2023-02-22) nixpkgs's pyarrow version is 11.0.0.
+    # the current (2023-02-22) botpkgs's pyarrow version is 11.0.0.
     "pyarrow"
   ];
 
@@ -183,7 +183,7 @@ buildPythonPackage rec {
   disabledTests = [
     # The reasons of failures for these tests are unclear.
     # They reproduce in Docker with Ubuntu 22.04
-    # (= they're not `nixpkgs`-specific) but given the upstream uses
+    # (= they're not `botpkgs`-specific) but given the upstream uses
     # quite elaborate testing infra with containers and multiple
     # different runners - I don't expect them to help debugging these
     # when running via our (= custom from their PoV) testing infra.

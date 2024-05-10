@@ -8,7 +8,7 @@
 #
 # To build:
 #
-#   nix-build '<nixpkgs>' -A make-minimal-bootstrap-sources
+#   nix-build '<botpkgs>' -A make-minimal-bootstrap-sources
 #
 
 { lib

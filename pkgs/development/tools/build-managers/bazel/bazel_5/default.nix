@@ -79,14 +79,14 @@ let
     # WORKSPACE:
     #
     #     nixpkgs_git_repository(
-    #         name = "nixpkgs",
+    #         name = "botpkgs",
     #         revision = "def5124ec8367efdba95a99523dd06d918cb0ae8",
     #     )
     #
     #     # This defines an external Bazel workspace.
     #     nixpkgs_package(
     #         name = "bison",
-    #         repositories = { "nixpkgs": "@nixpkgs//:default.nix" },
+    #         repositories = { "botpkgs": "@botpkgs//:default.nix" },
     #     )
     #
     # some/BUILD.bazel:
@@ -215,7 +215,7 @@ stdenv.mkDerivation rec {
   #
   #     nix-build . -A bazel_5.tests
   #
-  # in the nixpkgs checkout root to exercise them locally.
+  # in the botpkgs checkout root to exercise them locally.
   passthru.tests =
     let
       runLocal = name: attrs: script:
@@ -368,7 +368,7 @@ stdenv.mkDerivation rec {
 
       substituteInPlace scripts/bootstrap/compile.sh --replace ' -mmacosx-version-min=10.9' ""
 
-      # nixpkgs's libSystem cannot use pthread headers directly, must import GCD headers instead
+      # botpkgs's libSystem cannot use pthread headers directly, must import GCD headers instead
       sed -i -e "/#include <pthread\/spawn.h>/i #include <dispatch/dispatch.h>" src/main/cpp/blaze_util_darwin.cc
 
       # clang installed from Xcode has a compatibility wrapper that forwards

@@ -12,20 +12,20 @@ let
 
   src = fetchFromGitHub {
     owner = "jtojnar";
-    repo = "nixpkgs-hammering";
+    repo = "botpkgs-hammering";
     rev = "8e33fc1e7b3b311ce3ba9c5c8c9e7cf89041b893";
     hash = "sha256-D9c6EZMHy0aldzMxj4Ivw1YXNuG6MzyoEQlehEcxMBI=";
   };
 
   meta = with lib; {
-    description = "A set of nit-picky rules that aim to point out and explain common mistakes in nixpkgs package pull requests";
-    homepage = "https://github.com/jtojnar/nixpkgs-hammering";
+    description = "A set of nit-picky rules that aim to point out and explain common mistakes in botpkgs package pull requests";
+    homepage = "https://github.com/jtojnar/botpkgs-hammering";
     license = licenses.mit;
     maintainers = with maintainers; [ figsoda ];
   };
 
   rust-checks = rustPlatform.buildRustPackage {
-    pname = "nixpkgs-hammering-rust-checks";
+    pname = "botpkgs-hammering-rust-checks";
     inherit version src meta;
     sourceRoot = "${src.name}/rust-checks";
     cargoHash = "sha256-GIheha/AYH0uD61ck6TcpDz1gh1o5UxL/ojeZ/kHI8E=";
@@ -33,7 +33,7 @@ let
 in
 
 stdenv.mkDerivation {
-  pname = "nixpkgs-hammering";
+  pname = "botpkgs-hammering";
 
   inherit version src;
 
@@ -46,8 +46,8 @@ stdenv.mkDerivation {
 
     AST_CHECK_NAMES=$(find ${rust-checks}/bin -maxdepth 1 -type f -printf "%f:")
 
-    install -Dt $out/bin tools/nixpkgs-hammer
-    wrapProgram $out/bin/nixpkgs-hammer \
+    install -Dt $out/bin tools/botpkgs-hammer
+    wrapProgram $out/bin/botpkgs-hammer \
       --prefix PATH : ${lib.makeBinPath [ nix rust-checks ]} \
       --set AST_CHECK_NAMES ''${AST_CHECK_NAMES%:}
 
@@ -57,6 +57,6 @@ stdenv.mkDerivation {
   '';
 
   meta = meta // {
-    mainProgram = "nixpkgs-hammer";
+    mainProgram = "botpkgs-hammer";
   };
 }

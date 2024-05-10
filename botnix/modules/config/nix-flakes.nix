@@ -39,18 +39,18 @@ in
             options = {
               from = mkOption {
                 type = referenceAttrs;
-                example = { type = "indirect"; id = "nixpkgs"; };
+                example = { type = "indirect"; id = "botpkgs"; };
                 description = lib.mdDoc "The flake reference to be rewritten.";
               };
               to = mkOption {
                 type = referenceAttrs;
-                example = { type = "github"; owner = "my-org"; repo = "my-nixpkgs"; };
+                example = { type = "github"; owner = "my-org"; repo = "my-botpkgs"; };
                 description = lib.mdDoc "The flake reference {option}`from` is rewritten to.";
               };
               flake = mkOption {
                 type = types.nullOr types.attrs;
                 default = null;
-                example = literalExpression "nixpkgs";
+                example = literalExpression "botpkgs";
                 description = lib.mdDoc ''
                   The flake input {option}`from` is rewritten to.
                 '';
@@ -60,8 +60,8 @@ in
                 default = true;
                 description = lib.mdDoc ''
                   Whether the {option}`from` reference needs to match exactly. If set,
-                  a {option}`from` reference like `nixpkgs` does not
-                  match with a reference like `nixpkgs/botnix-20.03`.
+                  a {option}`from` reference like `botpkgs` does not
+                  match with a reference like `botpkgs/botnix-20.03`.
                 '';
               };
             };

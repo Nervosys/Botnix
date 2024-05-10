@@ -5,9 +5,9 @@ set -euo pipefail
 # Fetch latest release, GPG-verify the tag, update derivation
 
 scriptDir=$(cd "${BASH_SOURCE[0]%/*}" && pwd)
-nixpkgs=$(realpath "$scriptDir"/../../../..)
+botpkgs=$(realpath "$scriptDir"/../../../..)
 
-oldVersion=$(nix-instantiate --eval -E "(import \"$nixpkgs\" { config = {}; overlays = []; }).electrs.version" | tr -d '"')
+oldVersion=$(nix-instantiate --eval -E "(import \"$botpkgs\" { config = {}; overlays = []; }).electrs.version" | tr -d '"')
 version=$(curl -s --show-error "https://api.github.com/repos/romanz/electrs/releases/latest" | jq -r '.tag_name' | tail -c +2)
 
 if [[ $version == $oldVersion ]]; then
@@ -34,7 +34,7 @@ git -C $repo verify-tag v${version}
 rm -rf $repo/.git
 hash=$(nix hash path $repo)
 
-(cd "$nixpkgs" && update-source-version electrs "$version" "$hash")
+(cd "$botpkgs" && update-source-version electrs "$version" "$hash")
 sed -i 's|cargoHash = .*|cargoHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";|' "$scriptDir/default.nix"
 echo
 echo "electrs: $oldVersion -> $version"

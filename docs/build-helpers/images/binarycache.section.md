@@ -35,7 +35,7 @@ Build the cache on a machine.
 Note that the command still builds the exact nix package above, but adds some boilerplate to build it directly from an expression.
 
 ```shellSession
-$ nix-build -E 'let pkgs = import <nixpkgs> {}; in pkgs.callPackage ({ mkBinaryCache, hello }: mkBinaryCache { rootPaths = [hello]; }) {}'
+$ nix-build -E 'let pkgs = import <botpkgs> {}; in pkgs.callPackage ({ mkBinaryCache, hello }: mkBinaryCache { rootPaths = [hello]; }) {}'
 /nix/store/azf7xay5xxdnia4h9fyjiv59wsjdxl0g-binary-cache
 ```
 
@@ -48,7 +48,7 @@ $ scp result host2:/tmp/hello-cache
 At this point, the cache can be used as a substituter when building derivations on `host2`:
 
 ```shellSession
-$ nix-build -A hello '<nixpkgs>' \
+$ nix-build -A hello '<botpkgs>' \
   --option require-sigs false \
   --option trusted-substituters file:///tmp/hello-cache \
   --option substituters file:///tmp/hello-cache

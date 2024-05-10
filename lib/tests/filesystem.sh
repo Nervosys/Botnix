@@ -2,9 +2,9 @@
 
 # Tests lib/filesystem.nix
 # Run:
-# [nixpkgs]$ lib/tests/filesystem.sh
+# [botpkgs]$ lib/tests/filesystem.sh
 # or:
-# [nixpkgs]$ nix-build lib/tests/release.nix
+# [botpkgs]$ nix-build lib/tests/release.nix
 
 set -euo pipefail
 shopt -s inherit_errexit
@@ -17,9 +17,9 @@ die() {
 }
 
 if test -n "${TEST_LIB:-}"; then
-  NIX_PATH=nixpkgs="$(dirname "$TEST_LIB")"
+  NIX_PATH=botpkgs="$(dirname "$TEST_LIB")"
 else
-  NIX_PATH=nixpkgs="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.."; pwd)"
+  NIX_PATH=botpkgs="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.."; pwd)"
 fi
 export NIX_PATH
 
@@ -39,7 +39,7 @@ expectSuccess() {
     local expr=$1
     local expectedResultRegex=$2
     if ! result=$(nix-instantiate --eval --strict --json \
-        --expr "with (import <nixpkgs/lib>).filesystem; $expr"); then
+        --expr "with (import <botpkgs/lib>).filesystem; $expr"); then
         die "$expr failed to evaluate, but it was expected to succeed"
     fi
     if [[ ! "$result" =~ $expectedResultRegex ]]; then
@@ -51,7 +51,7 @@ expectFailure() {
     local expr=$1
     local expectedErrorRegex=$2
     if result=$(nix-instantiate --eval --strict --json 2>"$work/stderr" \
-        --expr "with (import <nixpkgs/lib>).filesystem; $expr"); then
+        --expr "with (import <botpkgs/lib>).filesystem; $expr"); then
         die "$expr evaluated successfully to $result, but it was expected to fail"
     fi
     if [[ ! "$(<"$work/stderr")" =~ $expectedErrorRegex ]]; then

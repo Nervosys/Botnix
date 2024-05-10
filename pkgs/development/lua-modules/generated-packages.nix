@@ -1,5 +1,5 @@
 /* pkgs/development/lua-modules/generated-packages.nix is an auto-generated file -- DO NOT EDIT!
-Regenerate it with: nix run nixpkgs#update-luarocks-packages
+Regenerate it with: nix run botpkgs#update-luarocks-packages
 You can customize the generated packages in pkgs/development/lua-modules/overrides.nix
 */
 

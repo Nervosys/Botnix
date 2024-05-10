@@ -263,7 +263,7 @@ impl NixFile {
 
         // Check that <arg2> is a path expression
         let path = if let Expr::Path(actual_path) = arg2 {
-            // Try to statically resolve the path and turn it into a nixpkgs-relative path
+            // Try to statically resolve the path and turn it into a botpkgs-relative path
             if let ResolvedPath::Within(p) = self.static_resolve_path(actual_path, relative_to) {
                 Some(p)
             } else {
@@ -330,7 +330,7 @@ impl NixFile {
 pub enum ResolvedPath {
     /// Something like `./foo/${bar}/baz`, can't be known statically
     Interpolated,
-    /// Something like `<nixpkgs>`, can't be known statically
+    /// Something like `<botpkgs>`, can't be known statically
     SearchPath,
     /// Path couldn't be resolved due to an IO error,
     /// e.g. if the path doesn't exist or you don't have the right permissions
@@ -356,7 +356,7 @@ impl NixFile {
         let text = node.to_string();
 
         if text.starts_with('<') {
-            // A search path like `<nixpkgs>`. There doesn't appear to be better way to detect
+            // A search path like `<botpkgs>`. There doesn't appear to be better way to detect
             // these in rnix
             return ResolvedPath::SearchPath;
         }

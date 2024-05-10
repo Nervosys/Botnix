@@ -197,7 +197,7 @@ stdenv.mkDerivation (rec {
     # from source distributions, the auto-generated configure script needs to be
     # patched as well, therefore we use an in-tree patch instead of pulling the
     # upstream patch. Don't forget to check backport status of the upstream patch
-    # when adding new GHC releases in nixpkgs.
+    # when adding new GHC releases in botpkgs.
     ./respect-ar-path.patch
 
     # fix hyperlinked haddock sources: https://github.com/haskell/haddock/pull/1482
@@ -358,7 +358,7 @@ stdenv.mkDerivation (rec {
 
   hardeningDisable =
     [ "format" ]
-    # In nixpkgs, musl based builds currently enable `pie` hardening by default
+    # In botpkgs, musl based builds currently enable `pie` hardening by default
     # (see `defaultHardeningFlags` in `make-derivation.nix`).
     # But GHC cannot currently produce outputs that are ready for `-pie` linking.
     # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.

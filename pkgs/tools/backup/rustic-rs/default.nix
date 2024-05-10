@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage rec {
   cargoHash = "sha256-iZuWlYDGGziwb49BfKdt9Ahs6oQ0Ij2iiT0tvL7ZIVk=";
 
   # At the time of writing, upstream defaults to "self-update" and "webdav".
-  # "self-update" is a self-updater, which we don't want in nixpkgs.
+  # "self-update" is a self-updater, which we don't want in botpkgs.
   buildNoDefaultFeatures = true;
   buildFeatures = [
     "webdav"

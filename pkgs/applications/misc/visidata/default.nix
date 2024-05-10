@@ -56,7 +56,7 @@ buildPythonApplication rec {
 
   propagatedBuildInputs = [
     # from visidata/requirements.txt
-    # packages not (yet) present in nixpkgs are commented
+    # packages not (yet) present in botpkgs are commented
     python-dateutil
     pandas
     requests

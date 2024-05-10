@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  # https://discourse.botnix.org/t/unrelatable-error-when-working-with-patchelf/12043
+  # https://discourse.nixos.org/t/unrelatable-error-when-working-with-patchelf/12043
   # https://github.com/nervosys/Botnix/blob/db0d8e10fc1dec84f1ccb111851a82645aa6a7d3/pkgs/development/web/now-cli/default.nix
   preFixup = let
     binaryLocation = "$out/bin/copilot-agent";

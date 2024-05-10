@@ -6,7 +6,7 @@
 
 # As of 2.1, puddletag has started pinning versions of all dependencies that it
 # was built against which is an issue as the chances of us having the exact same
-# versions in nixpkgs are slim to none.
+# versions in botpkgs are slim to none.
 #
 # There is a difference between explicit and implicit version requirements and
 # we should be able to safely ignore the latter. Therefore use requirements.in

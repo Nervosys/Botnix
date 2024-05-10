@@ -28,7 +28,7 @@ buildGoModule rec {
     setVars = {
       "github.com/pomerium/cli/version" = {
         Version = "v${version}";
-        BuildMeta = "nixpkgs";
+        BuildMeta = "botpkgs";
         ProjectName = "pomerium-cli";
         ProjectURL = "github.com/pomerium/cli";
       };

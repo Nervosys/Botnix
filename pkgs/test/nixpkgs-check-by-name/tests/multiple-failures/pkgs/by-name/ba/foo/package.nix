@@ -1,6 +1,6 @@
 { someDrv }: someDrv // {
   escapeAbsolute = /bar;
   escapeRelative = ../.;
-  nixPath = <nixpkgs>;
+  nixPath = <botpkgs>;
   pathWithSubexpr = ./${"test"};
 }

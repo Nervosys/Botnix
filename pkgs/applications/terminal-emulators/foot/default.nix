@@ -213,7 +213,7 @@ stdenv.mkDerivation {
     # capabilities foot's bundled terminfo file contains. Unless we
     # want to have some features in e. g. vim or tmux stop working,
     # we need to make sure that the foot terminfo overwrites ncurses'
-    # one. Due to <nixpkgs/botnix/modules/config/system-path.nix>
+    # one. Due to <botpkgs/botnix/modules/config/system-path.nix>
     # ncurses is always added to environment.systemPackages on
     # Botnix with its priority increased by 3, so we need to go
     # one bigger.

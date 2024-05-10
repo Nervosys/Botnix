@@ -9,7 +9,7 @@ of library dependencies blowing up the closure.
 
 Since this is not strictly needed and the inputs are comprehensible via
 `nix derivation show`, this doesn't bring a real benefit in the case of
-nixpkgs anyways.
+botpkgs anyways.
 ---
  desktop/source/lib/init.cxx | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

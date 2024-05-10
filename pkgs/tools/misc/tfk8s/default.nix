@@ -18,7 +18,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-X main.toolVersion=${tag}"
-    "-X main.builtBy=nixpkgs"
+    "-X main.builtBy=botpkgs"
   ];
 
   doCheck = true;

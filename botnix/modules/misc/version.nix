@@ -223,6 +223,6 @@ in
 
   };
 
-  # uses version info nixpkgs, which requires a full nixpkgs path
+  # uses version info botpkgs, which requires a full botpkgs path
   meta.buildDocsInSandbox = false;
 }

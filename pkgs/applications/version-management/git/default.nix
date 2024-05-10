@@ -117,7 +117,7 @@ stdenv.mkDerivation (finalAttrs: {
   # git-gui refuses to start with the version of tk distributed with
   # macOS Catalina. We can prevent git from building the .app bundle
   # by specifying an invalid tk framework. The postInstall step will
-  # then ensure that git-gui uses tcl/tk from nixpkgs, which is an
+  # then ensure that git-gui uses tcl/tk from botpkgs, which is an
   # acceptable version.
   #
   # See https://github.com/Homebrew/homebrew-core/commit/dfa3ccf1e7d3901e371b5140b935839ba9d8b706

@@ -38,7 +38,7 @@ buildGoModule rec {
   vendorHash = "sha256-QS0TwXI2Md+PXmT2UrzCMQoHRj+wjTSjWPv9CeVzyFU=";
 
   # disable flaky Test_extractZones
-  # https://hydra.botnix.org/build/212378003/log
+  # https://hydra.nixos.org/build/212378003/log
   excludedPackages = "gvproxy";
 
   CGO_ENABLED = 1;

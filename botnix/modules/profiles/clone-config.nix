@@ -30,7 +30,7 @@ let
   relocatedModuleFiles =
     let
       relocateNixOS = path:
-        "<nixpkgs/botnix" + removePrefix nixosPath (toString path) + ">";
+        "<botpkgs/botnix" + removePrefix nixosPath (toString path) + ">";
     in
       { botnix = map relocateNixOS partitionedModuleFiles.botnix;
         others = []; # TODO: copy the modules to the install-device repository.

@@ -147,8 +147,8 @@ stdenv.mkDerivation rec {
 
   cmakeFlags = [
     "-DAUDACITY_BUILD_LEVEL=2"
-    "-DAUDACITY_REV_LONG=nixpkgs"
-    "-DAUDACITY_REV_TIME=nixpkgs"
+    "-DAUDACITY_REV_LONG=botpkgs"
+    "-DAUDACITY_REV_TIME=botpkgs"
     "-DDISABLE_DYNAMIC_LOADING_FFMPEG=ON"
     "-Daudacity_conan_enabled=Off"
     "-Daudacity_use_ffmpeg=loaded"

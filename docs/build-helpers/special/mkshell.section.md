@@ -8,7 +8,7 @@ repetition when using it with `nix-shell` (or `nix develop`).
 Here is a common usage example:
 
 ```nix
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 pkgs.mkShell {
   packages = [ pkgs.gnumake ];
 

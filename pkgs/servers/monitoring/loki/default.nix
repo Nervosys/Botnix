@@ -44,7 +44,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-X ${t}.Version=${version}"
-    "-X ${t}.BuildUser=nix@nixpkgs"
+    "-X ${t}.BuildUser=nix@botpkgs"
     "-X ${t}.BuildDate=unknown"
     "-X ${t}.Branch=unknown"
     "-X ${t}.Revision=unknown"

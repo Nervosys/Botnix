@@ -16,7 +16,7 @@ let
     };
 
     nodes.server = {
-      nixpkgs.config = config;
+      botpkgs.config = config;
 
       services.unifi = {
         enable = true;

@@ -45,7 +45,7 @@ in
   # everything else. Tools and `build.rs` and procedural macro dependencies
   # would be taken from `buildRustPackages` (and `bootstrapRustPackages` for
   # anything provided prebuilt or their build-time dependencies to break
-  # cycles / purify builds). In this way, nixpkgs would be in control of all
+  # cycles / purify builds). In this way, botpkgs would be in control of all
   # bootstrapping.
   packages = {
     prebuilt = callPackage ./bootstrap.nix {
@@ -54,7 +54,7 @@ in
     };
     stable = lib.makeScope newScope (self: let
       # Like `buildRustPackages`, but may also contain prebuilt binaries to
-      # break cycle. Just like `bootstrapTools` for nixpkgs as a whole,
+      # break cycle. Just like `bootstrapTools` for botpkgs as a whole,
       # nothing in the final package set should refer to this.
       bootstrapRustPackages = if fastCross
       then pkgsBuildBuild.rustPackages

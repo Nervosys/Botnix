@@ -5,7 +5,7 @@ buildGoModule rec {
   version = "3.88.0";
   rev = "v${version}-gitlab";
 
-  # nixpkgs-update: no auto update
+  # botpkgs-update: no auto update
   src = fetchFromGitLab {
     owner = "gitlab-org";
     repo = "container-registry";

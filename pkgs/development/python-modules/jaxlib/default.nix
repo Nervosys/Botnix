@@ -95,7 +95,7 @@ let
     "absl_py"
     "astor_archive"
     "astunparse_archive"
-    # Not packaged in nixpkgs
+    # Not packaged in botpkgs
     # "com_github_googleapis_googleapis"
     # "com_github_googlecloudplatform_google_cloud_cpp"
     # Issue with transitive dependencies after https://github.com/grpc/grpc/commit/f1d14f7f0b661bd200b7f269ef55dec870e7c108
@@ -278,7 +278,7 @@ let
       ]);
 
       # Note: we cannot do most of this patching at `patch` phase as the deps are not available yet.
-      # 1) Link protobuf from nixpkgs (through TF_SYSTEM_LIBS when using gcc) to prevent crashes on
+      # 1) Link protobuf from botpkgs (through TF_SYSTEM_LIBS when using gcc) to prevent crashes on
       #    loading multiple extensions in the same python program due to duplicate protobuf DBs.
       # 2) Patch python path in the compiler driver.
       preBuild = lib.optionalString cudaSupport ''

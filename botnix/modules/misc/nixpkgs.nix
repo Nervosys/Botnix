@@ -3,8 +3,8 @@
 with lib;
 
 let
-  cfg = config.nixpkgs;
-  opt = options.nixpkgs;
+  cfg = config.botpkgs;
+  opt = options.botpkgs;
 
   isConfig = x:
     builtins.isAttrs x || lib.isFunction x;
@@ -32,8 +32,8 @@ let
     };
 
   configType = mkOptionType {
-    name = "nixpkgs-config";
-    description = "nixpkgs config";
+    name = "botpkgs-config";
+    description = "botpkgs config";
     check = x:
       let traceXIfNot = c:
             if c x then true
@@ -43,8 +43,8 @@ let
   };
 
   overlayType = mkOptionType {
-    name = "nixpkgs-overlay";
-    description = "nixpkgs overlay";
+    name = "botpkgs-overlay";
+    description = "botpkgs overlay";
     check = lib.isFunction;
     merge = lib.mergeOneOption;
   };
@@ -99,10 +99,10 @@ in
   imports = [
     ./assertions.nix
     ./meta.nix
-    (mkRemovedOptionModule [ "nixpkgs" "initialSystem" ] "The Botnix options `nesting.clone` and `nesting.children` have been deleted, and replaced with named specialisation. Therefore `nixpgks.initialSystem` has no effect anymore.")
+    (mkRemovedOptionModule [ "botpkgs" "initialSystem" ] "The Botnix options `nesting.clone` and `nesting.children` have been deleted, and replaced with named specialisation. Therefore `nixpgks.initialSystem` has no effect anymore.")
   ];
 
-  options.nixpkgs = {
+  options.botpkgs = {
 
     pkgs = mkOption {
       defaultText = literalExpression ''
@@ -111,14 +111,14 @@ in
         }
       '';
       type = pkgsType;
-      example = literalExpression "import <nixpkgs> {}";
+      example = literalExpression "import <botpkgs> {}";
       description = lib.mdDoc ''
         If set, the pkgs argument to all Botnix modules is the value of
-        this option, extended with `nixpkgs.overlays`, if
-        that is also set. Either `nixpkgs.crossSystem` or
-        `nixpkgs.localSystem` will be used in an assertion
+        this option, extended with `botpkgs.overlays`, if
+        that is also set. Either `botpkgs.crossSystem` or
+        `botpkgs.localSystem` will be used in an assertion
         to check that the Botnix and Botpkgs architectures match. Any
-        other options in `nixpkgs.*`, notably `config`,
+        other options in `botpkgs.*`, notably `config`,
         will be ignored.
 
         If unset, the pkgs argument to all Botnix modules is determined
@@ -157,7 +157,7 @@ in
         details, see the Botpkgs documentation.)  It allows you to set
         package configuration options.
 
-        Ignored when `nixpkgs.pkgs` is set.
+        Ignored when `botpkgs.pkgs` is set.
       '';
     };
 
@@ -179,9 +179,9 @@ in
         List of overlays to apply to Botpkgs.
         This option allows modifying the Botpkgs package set accessed through the `pkgs` module argument.
 
-        For details, see the [Overlays chapter in the Botpkgs manual](https://nixos.org/manual/nixpkgs/stable/#chap-overlays).
+        For details, see the [Overlays chapter in the Botpkgs manual](https://nixos.org/manual/botpkgs/stable/#chap-overlays).
 
-        If the {option}`nixpkgs.pkgs` option is set, overlays specified using `nixpkgs.overlays` will be applied after the overlays that were already included in `nixpkgs.pkgs`.
+        If the {option}`botpkgs.pkgs` option is set, overlays specified using `botpkgs.overlays` will be applied after the overlays that were already included in `botpkgs.pkgs`.
       '';
     };
 
@@ -196,9 +196,9 @@ in
       description = lib.mdDoc ''
         Specifies the platform where the Botnix configuration will run.
 
-        To cross-compile, set also `nixpkgs.buildPlatform`.
+        To cross-compile, set also `botpkgs.buildPlatform`.
 
-        Ignored when `nixpkgs.pkgs` is set.
+        Ignored when `botpkgs.pkgs` is set.
       '';
     };
 
@@ -210,7 +210,7 @@ in
       # referring to this.
       apply = lib.systems.elaborate;
       defaultText = literalExpression
-        ''config.nixpkgs.hostPlatform'';
+        ''config.botpkgs.hostPlatform'';
       description = lib.mdDoc ''
         Specifies the platform on which Botnix should be built.
         By default, Botnix is built on the system where it runs, but you can
@@ -221,7 +221,7 @@ in
         or if you're building machines, you can set this to match your
         development system and/or build farm.
 
-        Ignored when `nixpkgs.pkgs` is set.
+        Ignored when `botpkgs.pkgs` is set.
       '';
     };
 
@@ -237,14 +237,14 @@ in
       description = lib.mdDoc ''
         Systems with a recently generated `hardware-configuration.nix`
         do not need to specify this option, unless cross-compiling, in which case
-        you should set *only* {option}`nixpkgs.buildPlatform`.
+        you should set *only* {option}`botpkgs.buildPlatform`.
 
         If this is somehow not feasible, you may fall back to removing the
-        {option}`nixpkgs.hostPlatform` line from the generated config and
+        {option}`botpkgs.hostPlatform` line from the generated config and
         use the old options.
 
         Specifies the platform on which Botnix should be built. When
-        `nixpkgs.crossSystem` is unset, it also specifies
+        `botpkgs.crossSystem` is unset, it also specifies
         the platform *for* which Botnix should be
         built.  If this option is unset, it defaults to the platform
         type of the machine where evaluation happens. Specifying this
@@ -252,7 +252,7 @@ in
         deployment, or when building virtual machines. See its
         description in the Botpkgs manual for more details.
 
-        Ignored when `nixpkgs.pkgs` or `hostPlatform` is set.
+        Ignored when `botpkgs.pkgs` or `hostPlatform` is set.
       '';
     };
 
@@ -265,18 +265,18 @@ in
       example = { system = "aarch64-linux"; };
       description = lib.mdDoc ''
         Systems with a recently generated `hardware-configuration.nix`
-        may instead specify *only* {option}`nixpkgs.buildPlatform`,
-        or fall back to removing the {option}`nixpkgs.hostPlatform` line from the generated config.
+        may instead specify *only* {option}`botpkgs.buildPlatform`,
+        or fall back to removing the {option}`botpkgs.hostPlatform` line from the generated config.
 
         Specifies the platform for which Botnix should be
         built. Specify this only if it is different from
-        `nixpkgs.localSystem`, the platform
+        `botpkgs.localSystem`, the platform
         *on* which Botnix should be built. In other
         words, specify this to cross-compile Botnix. Otherwise it
         should be set as null, the default. See its description in the
         Botpkgs manual for more details.
 
-        Ignored when `nixpkgs.pkgs` or `hostPlatform` is set.
+        Ignored when `botpkgs.pkgs` or `hostPlatform` is set.
       '';
     };
 
@@ -287,7 +287,7 @@ in
         if opt.hostPlatform.isDefined
         then
           throw ''
-            Neither ${opt.system} nor any other option in nixpkgs.* is meant
+            Neither ${opt.system} nor any other option in botpkgs.* is meant
             to be read by modules and configurations.
             Use pkgs.stdenv.hostPlatform instead.
           ''
@@ -307,21 +307,21 @@ in
         with a recently generated `hardware-configuration.nix`.
 
         Specifies the Nix platform type on which Botnix should be built.
-        It is better to specify `nixpkgs.localSystem` instead.
+        It is better to specify `botpkgs.localSystem` instead.
         ```
         {
-          nixpkgs.system = ..;
+          botpkgs.system = ..;
         }
         ```
         is the same as
         ```
         {
-          nixpkgs.localSystem.system = ..;
+          botpkgs.localSystem.system = ..;
         }
         ```
-        See `nixpkgs.localSystem` for more information.
+        See `botpkgs.localSystem` for more information.
 
-        Ignored when `nixpkgs.pkgs`, `nixpkgs.localSystem` or `nixpkgs.hostPlatform` is set.
+        Ignored when `botpkgs.pkgs`, `botpkgs.localSystem` or `botpkgs.hostPlatform` is set.
       '';
     };
   };
@@ -341,35 +341,35 @@ in
 
     assertions = let
       # Whether `pkgs` was constructed by this module. This is false when any of
-      # nixpkgs.pkgs or _module.args.pkgs is set.
+      # botpkgs.pkgs or _module.args.pkgs is set.
       constructedByMe =
         # We set it with default priority and it can not be merged, so if the
         # pkgs module argument has that priority, it's from us.
         (lib.modules.mergeAttrDefinitionsWithPrio options._module.args).pkgs.highestPrio
           == lib.modules.defaultOverridePriority
-        # Although, if nixpkgs.pkgs is set, we did forward it, but we did not construct it.
+        # Although, if botpkgs.pkgs is set, we did forward it, but we did not construct it.
           && !opt.pkgs.isDefined;
     in [
       (
         let
           nixosExpectedSystem =
-            if config.nixpkgs.crossSystem != null
-            then config.nixpkgs.crossSystem.system or (lib.systems.parse.doubleFromSystem (lib.systems.parse.mkSystemFromString config.nixpkgs.crossSystem.config))
-            else config.nixpkgs.localSystem.system or (lib.systems.parse.doubleFromSystem (lib.systems.parse.mkSystemFromString config.nixpkgs.localSystem.config));
+            if config.botpkgs.crossSystem != null
+            then config.botpkgs.crossSystem.system or (lib.systems.parse.doubleFromSystem (lib.systems.parse.mkSystemFromString config.botpkgs.crossSystem.config))
+            else config.botpkgs.localSystem.system or (lib.systems.parse.doubleFromSystem (lib.systems.parse.mkSystemFromString config.botpkgs.localSystem.config));
           nixosOption =
-            if config.nixpkgs.crossSystem != null
-            then "nixpkgs.crossSystem"
-            else "nixpkgs.localSystem";
+            if config.botpkgs.crossSystem != null
+            then "botpkgs.crossSystem"
+            else "botpkgs.localSystem";
           pkgsSystem = finalPkgs.stdenv.targetPlatform.system;
         in {
           assertion = constructedByMe -> !hasPlatform -> nixosExpectedSystem == pkgsSystem;
-          message = "The Botnix nixpkgs.pkgs option was set to a Botpkgs invocation that compiles to target system ${pkgsSystem} but Botnix was configured for system ${nixosExpectedSystem} via Botnix option ${nixosOption}. The Botnix system settings must match the Botpkgs target system.";
+          message = "The Botnix botpkgs.pkgs option was set to a Botpkgs invocation that compiles to target system ${pkgsSystem} but Botnix was configured for system ${nixosExpectedSystem} via Botnix option ${nixosOption}. The Botnix system settings must match the Botpkgs target system.";
         }
       )
       {
         assertion = constructedByMe -> hasPlatform -> legacyOptionsDefined == [];
         message = ''
-          Your system configures nixpkgs with the platform parameter${optionalString hasBuildPlatform "s"}:
+          Your system configures botpkgs with the platform parameter${optionalString hasBuildPlatform "s"}:
           ${hostPlatformLine
           }${buildPlatformLine
           }
@@ -382,8 +382,8 @@ in
       {
         assertion = opt.pkgs.isDefined -> cfg.config == {};
         message = ''
-          Your system configures nixpkgs with an externally created instance.
-          `nixpkgs.config` options should be passed when creating the instance instead.
+          Your system configures botpkgs with an externally created instance.
+          `botpkgs.config` options should be passed when creating the instance instead.
 
           Current value:
           ${lib.generators.toPretty { multiline = true; } opt.config}
@@ -392,6 +392,6 @@ in
     ];
   };
 
-  # needs a full nixpkgs path to import nixpkgs
+  # needs a full botpkgs path to import botpkgs
   meta.buildDocsInSandbox = false;
 }

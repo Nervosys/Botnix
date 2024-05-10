@@ -6,14 +6,14 @@
 #
 #   nix-build botnix/release-small.nix -A <jobname>
 #
-{ nixpkgs ? { outPath = (import ../lib).cleanSource ./..; revCount = 56789; shortRev = "gfedcba"; }
+{ botpkgs ? { outPath = (import ../lib).cleanSource ./..; revCount = 56789; shortRev = "gfedcba"; }
 , stableBranch ? false
 , supportedSystems ? [ "aarch64-linux" "x86_64-linux" ] # no i686-linux
 }:
 
 let
 
-  nixpkgsSrc = nixpkgs; # urgh
+  nixpkgsSrc = botpkgs; # urgh
 
   pkgs = import ./.. { system = "x86_64-linux"; };
 
@@ -21,12 +21,12 @@ let
 
   botnix' = import ./release.nix {
     inherit stableBranch supportedSystems;
-    nixpkgs = nixpkgsSrc;
+    botpkgs = nixpkgsSrc;
   };
 
-  nixpkgs' = builtins.removeAttrs (import ../pkgs/top-level/release.nix {
+  botpkgs' = builtins.removeAttrs (import ../pkgs/top-level/release.nix {
     inherit supportedSystems;
-    nixpkgs = nixpkgsSrc;
+    botpkgs = nixpkgsSrc;
   }) [ "unstable" ];
 
 in rec {
@@ -63,8 +63,8 @@ in rec {
     };
   };
 
-  nixpkgs = {
-    inherit (nixpkgs')
+  botpkgs = {
+    inherit (botpkgs')
       apacheHttpd
       cmake
       cryptsetup
@@ -102,7 +102,7 @@ in rec {
     constituents = lib.flatten [
       [
         "botnix.channel"
-        "nixpkgs.tarball"
+        "botpkgs.tarball"
       ]
       (map (onSystems [ "x86_64-linux" ]) [
         "botnix.tests.boot.biosCdrom"
@@ -135,8 +135,8 @@ in rec {
         "botnix.tests.predictable-interface-names.unpredictableNetworkd"
         "botnix.tests.proxy"
         "botnix.tests.simple"
-        "nixpkgs.jdk"
-        "nixpkgs.tests-stdenv-gcc-stageCompare"
+        "botpkgs.jdk"
+        "botpkgs.tests-stdenv-gcc-stageCompare"
       ])
     ];
   };

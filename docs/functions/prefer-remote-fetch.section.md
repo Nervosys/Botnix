@@ -10,8 +10,8 @@ self: super:
 A full configuration example for that sets the overlay up for your own account, could look like this
 
 ```ShellSession
-$ mkdir ~/.config/nixpkgs/overlays/
-$ cat > ~/.config/nixpkgs/overlays/prefer-remote-fetch.nix <<EOF
+$ mkdir ~/.config/botpkgs/overlays/
+$ cat > ~/.config/botpkgs/overlays/prefer-remote-fetch.nix <<EOF
   self: super: super.prefer-remote-fetch self super
 EOF
 ```

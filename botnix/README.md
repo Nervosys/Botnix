@@ -6,7 +6,7 @@ https://nixos.org/nixos and in the manual in doc/manual.
 
 ## Testing changes
 
-You can add new module to your Botnix configuration file (usually it’s `/etc/nixos/configuration.nix`). And do `sudo nixos-rebuild test -I nixpkgs=<path to your local nixpkgs folder> --fast`.
+You can add new module to your Botnix configuration file (usually it’s `/etc/botnix/configuration.nix`). And do `sudo botnix-rebuild test -I botpkgs=<path to your local botpkgs folder> --fast`.
 
 ## Commit conventions
 
@@ -15,17 +15,17 @@ You can add new module to your Botnix configuration file (usually it’s `/etc/n
 - Format the commit messages in the following way:
 
   ```
-  nixos/(module): (init module | add setting | refactor | etc)
+  botnix/(module): (init module | add setting | refactor | etc)
 
   (Motivation for change. Link to release notes. Additional information.)
   ```
 
   Examples:
 
-  * nixos/hydra: add bazBaz option
+  * botnix/hydra: add bazBaz option
 
     Dual baz behavior is needed to do foo.
-  * nixos/nginx: refactor config generation
+  * botnix/nginx: refactor config generation
 
     The old config generation system used impure shell scripts and could break in specific circumstances (see #1234).
 

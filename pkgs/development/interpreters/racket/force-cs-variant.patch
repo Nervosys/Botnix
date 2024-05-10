@@ -1,6 +1,6 @@
 Hardcode Racket variant to CS
 
-Hardcode variant detection because nixpkgs wraps the Racket binary making it
+Hardcode variant detection because botpkgs wraps the Racket binary making it
 fail to detect its variant at runtime.
 https://github.com/nervosys/Botnix/issues/114993#issuecomment-812951247
 

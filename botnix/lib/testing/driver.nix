@@ -113,7 +113,7 @@ in
       description = mdDoc "Botpkgs attrset used outside the nodes.";
       type = types.raw;
       example = lib.literalExpression ''
-        import nixpkgs { inherit system config overlays; }
+        import botpkgs { inherit system config overlays; }
       '';
     };
 
@@ -190,7 +190,7 @@ in
   config = {
     _module.args = {
       hostPkgs =
-        # Comment is in botnix/modules/misc/nixpkgs.nix
+        # Comment is in botnix/modules/misc/botpkgs.nix
         lib.mkOverride lib.modules.defaultOverridePriority
           config.hostPkgs.__splicedPackages;
     };

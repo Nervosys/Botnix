@@ -31,7 +31,7 @@ import ./make-test-python.nix ({ pkgs, ... }: {
         { lib, pkgs, ... }: {
           imports = [
             ./hardware-configuration.nix
-            <nixpkgs/botnix/modules/testing/test-instrumentation.nix>
+            <botpkgs/botnix/modules/testing/test-instrumentation.nix>
           ];
 
           boot.loader.grub = {

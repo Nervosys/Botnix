@@ -1,6 +1,6 @@
 let
   fetch = { file, sha256, executable ? true }: import <nix/fetchurl.nix> {
-    url = "http://tarballs.botnix.org/stdenv-darwin/x86_64/c253216595572930316f2be737dc288a1da22558/${file}";
+    url = "http://tarballs.nixos.org/stdenv-darwin/x86_64/c253216595572930316f2be737dc288a1da22558/${file}";
     inherit sha256 executable;
   }; in
 {

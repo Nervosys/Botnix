@@ -290,7 +290,7 @@ if ($action eq "create") {
     } else {
         mkpath("$root/etc/botnix", 0, 0755);
 
-        my $nixenvF = $nixosPath // "<nixpkgs/botnix>";
+        my $nixenvF = $nixosPath // "<botpkgs/botnix>";
         my $nixosConfigFile = "$root/etc/botnix/configuration.nix";
         writeNixOSConfig $nixosConfigFile;
 
@@ -442,7 +442,7 @@ elsif ($action eq "update") {
             writeNixOSConfig $nixosConfigFile;
         }
 
-        my $nixenvF = $nixosPath // "<nixpkgs/botnix>";
+        my $nixenvF = $nixosPath // "<botpkgs/botnix>";
         system("nix-env", "-p", "$profileDir/system",
                "-I", "botnix-config=$nixosConfigFile", "-f", $nixenvF,
                "--set", "-A", "system", @nixFlags) == 0

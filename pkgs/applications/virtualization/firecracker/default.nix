@@ -2,7 +2,7 @@
 
 let
   version = "1.5.0";
-  # nixpkgs-update: no auto update
+  # botpkgs-update: no auto update
 
   suffix = {
     x86_64-linux = "x86_64";

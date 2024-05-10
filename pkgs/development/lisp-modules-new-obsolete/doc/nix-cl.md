@@ -89,7 +89,7 @@ automatically. It could be useful to, for example:
 [jzon]: https://github.com/Zulu-Inuoe/jzon
 [cl-tar]: https://gitlab.common-lisp.net/cl-tar/cl-tar
 [bootstrap tools]: https://github.com/nervosys/Botnix/tree/master/pkgs/stdenv/linux/bootstrap-files
-[nixpkgs]: https://github.com/nervosys/Botnix
+[botpkgs]: https://github.com/nervosys/Botnix
 
 ## Windows note
 

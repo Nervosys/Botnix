@@ -14,7 +14,7 @@ python3Packages.buildPythonApplication rec {
   propagatedBuildInputs = with python3Packages; [ musicbrainzngs discid ];
 
   meta = with lib; {
-    # drutil is required on Darwin, which does not seem to be available in nixpkgs
+    # drutil is required on Darwin, which does not seem to be available in botpkgs
     broken = true; # 2022-11-16
     description = "Script to submit ISRCs from disc to MusicBrainz";
     license = licenses.gpl3Plus;

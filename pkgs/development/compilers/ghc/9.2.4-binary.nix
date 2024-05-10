@@ -40,7 +40,7 @@ let
   #   set `fileToCheckFor = null`.
   ghcBinDists = {
     # Binary distributions for the default libc (e.g. glibc, or libSystem on Darwin)
-    # nixpkgs uses for the respective system.
+    # botpkgs uses for the respective system.
     defaultLibc = {
       i686-linux = {
         variantSuffix = "";
@@ -376,7 +376,7 @@ stdenv.mkDerivation rec {
     "$out/bin/ghc-pkg" --package-db="$package_db" recache
   '';
 
-  # In nixpkgs, musl based builds currently enable `pie` hardening by default
+  # In botpkgs, musl based builds currently enable `pie` hardening by default
   # (see `defaultHardeningFlags` in `make-derivation.nix`).
   # But GHC cannot currently produce outputs that are ready for `-pie` linking.
   # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.

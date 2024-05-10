@@ -12,7 +12,7 @@ environment.systemPackages = [
 into your `configuration.nix` or bring them into scope with `nix-shell -p rustc cargo`.
 
 For other versions such as daily builds (beta and nightly),
-use either `rustup` from nixpkgs (which will manage the rust installation in your home directory),
+use either `rustup` from botpkgs (which will manage the rust installation in your home directory),
 or use [community maintained Rust toolchains](#using-community-maintained-rust-toolchains).
 
 ## `buildRustPackage`: Compiling Rust applications with Cargo {#compiling-rust-applications-with-cargo}
@@ -56,11 +56,11 @@ preferred. For example:
 
 Exception: If the application has cargo `git` dependencies, the `cargoHash`/`cargoSha256`
 approach will not work, and you will need to copy the `Cargo.lock` file of the application
-to nixpkgs and continue with the next section for specifying the options of the `cargoLock`
+to botpkgs and continue with the next section for specifying the options of the `cargoLock`
 section.
 
 
-Both types of hashes are permitted when contributing to nixpkgs. The
+Both types of hashes are permitted when contributing to botpkgs. The
 Cargo hash is obtained by inserting a fake checksum into the
 expression and building the package once. The correct checksum can
 then be taken from the failed build. A fake hash can be used for
@@ -192,7 +192,7 @@ added. To find the correct hash, you can first use `lib.fakeSha256` or
 `lib.fakeHash` as a stub hash. Building the package (and thus the
 vendored dependencies) will then inform you of the correct hash.
 
-For usage outside nixpkgs, `allowBuiltinFetchGit` could be used to
+For usage outside botpkgs, `allowBuiltinFetchGit` could be used to
 avoid having to specify `outputHashes`. For example:
 
 ```nix
@@ -250,8 +250,8 @@ where they are known to differ. But there are ways to customize the argument:
    For example:
 
    ```nix
-   import <nixpkgs> {
-     crossSystem = (import <nixpkgs/lib>).systems.examples.armhf-embedded // {
+   import <botpkgs> {
+     crossSystem = (import <botpkgs/lib>).systems.examples.armhf-embedded // {
        rustc.config = "thumbv7em-none-eabi";
      };
    }
@@ -273,8 +273,8 @@ where they are known to differ. But there are ways to customize the argument:
    For example:
 
    ```nix
-   import <nixpkgs> {
-     crossSystem = (import <nixpkgs/lib>).systems.examples.armhf-embedded // {
+   import <botpkgs> {
+     crossSystem = (import <botpkgs/lib>).systems.examples.armhf-embedded // {
        rustc.config = "thumb-crazy";
        rustc.platform = { foo = ""; bar = ""; };
      };
@@ -669,13 +669,13 @@ for instructions on how to use it.
 
 Some crates require external libraries. For crates from
 [crates.io](https://crates.io), such libraries can be specified in
-`defaultCrateOverrides` package in nixpkgs itself.
+`defaultCrateOverrides` package in botpkgs itself.
 
 Starting from that file, one can add more overrides, to add features
 or build inputs by overriding the hello crate in a separate file.
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 ((import ./hello.nix).hello {}).override {
   crateOverrides = defaultCrateOverrides // {
     hello = attrs: { buildInputs = [ openssl ]; };
@@ -695,7 +695,7 @@ the override above can be read, as in the following example, which
 patches the derivation:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 ((import ./hello.nix).hello {}).override {
   crateOverrides = defaultCrateOverrides // {
     hello = attrs: lib.optionalAttrs (lib.versionAtLeast attrs.version "1.0")  {
@@ -716,7 +716,7 @@ dependencies. For instance, to override the build inputs for crate
 crate, we could do:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 ((import hello.nix).hello {}).override {
   crateOverrides = defaultCrateOverrides // {
     libc = attrs: { buildInputs = []; };
@@ -787,7 +787,7 @@ Using the example `hello` project above, we want to do the following:
 A typical `shell.nix` might look like:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 stdenv.mkDerivation {
   name = "rust-env";
@@ -835,7 +835,7 @@ Fenix also provides rust-analyzer nightly in addition to the Rust toolchains.
 
 Both oxalica's overlay and fenix better integrate with nix and cache optimizations.
 Because of this and ergonomics, either of those community projects
-should be preferred to the Mozilla's Rust overlay ([nixpkgs-mozilla](https://github.com/mozilla/nixpkgs-mozilla)).
+should be preferred to the Mozilla's Rust overlay ([botpkgs-mozilla](https://github.com/mozilla/botpkgs-mozilla)).
 
 The following documentation demonstrates examples using fenix and oxalica's Rust overlay
 with `nix-shell` and building derivations. More advanced usages like flake usage
@@ -846,7 +846,7 @@ are documented in their own repositories.
 Here is a simple `shell.nix` that provides Rust nightly (default profile) using fenix:
 
 ```nix
-with import <nixpkgs> { };
+with import <botpkgs> { };
 let
   fenix = callPackage
     (fetchFromGitHub {
@@ -895,7 +895,7 @@ You can also use Rust nightly to build rust packages using `makeRustPlatform`.
 The below snippet demonstrates invoking `buildRustPackage` with a Rust toolchain from oxalica's overlay:
 
 ```nix
-with import <nixpkgs>
+with import <botpkgs>
 {
   overlays = [
     (import (fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz"))
@@ -948,13 +948,13 @@ downstream package.  In these situations, being able to `git bisect`
 the `rustc` version history to find the offending commit is quite
 useful.  Botpkgs makes it easy to do this.
 
-First, roll back your nixpkgs to a commit in which its `rustc` used
+First, roll back your botpkgs to a commit in which its `rustc` used
 *the most recent one which doesn't have the problem.*  You'll need
 to do this because of `rustc`'s extremely aggressive
 version-pinning.
 
 Next, add the following overlay, updating the Rust version to the
-one in your rolled-back nixpkgs, and replacing `/git/scratch/rust`
+one in your rolled-back botpkgs, and replacing `/git/scratch/rust`
 with the path into which you have `git clone`d the `rustc` git
 repository:
 

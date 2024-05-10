@@ -137,9 +137,9 @@ let
             echo "The following paths are not up to date:"
             grep -v 'nix-${pkg.version}$' <<< "$paths"
             echo
-            echo "Fix it by running in nixpkgs:"
+            echo "Fix it by running in botpkgs:"
             echo
-            echo "curl https://releases.botnix.org/nix/nix-${pkg.version}/fallback-paths.nix >botnix/modules/installer/tools/nix-fallback-paths.nix"
+            echo "curl https://releases.nixos.org/nix/nix-${pkg.version}/fallback-paths.nix >botnix/modules/installer/tools/nix-fallback-paths.nix"
             echo
             exit 1
           else

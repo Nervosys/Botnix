@@ -69,7 +69,7 @@ let
 
       cmakeFlags = [
         "-DBUILD_CONFIG=mysql_release"
-        "-DMANUFACTURER=botnix.org"
+        "-DMANUFACTURER=nixos.org"
         "-DDEFAULT_CHARSET=utf8mb4"
         "-DDEFAULT_COLLATION=utf8mb4_unicode_ci"
         "-DSECURITY_HARDENED=ON"
@@ -107,7 +107,7 @@ let
         # workaround for https://jira.mariadb.org/browse/MDEV-29925
         "-Dhave_C__Wl___as_needed="
       ] ++ lib.optionals isCross [
-        # revisit this if nixpkgs supports any architecture whose stack grows upwards
+        # revisit this if botpkgs supports any architecture whose stack grows upwards
         "-DSTACK_DIRECTION=-1"
         "-DCMAKE_CROSSCOMPILING_EMULATOR=${stdenv.hostPlatform.emulator buildPackages}"
       ];

@@ -12,7 +12,7 @@
 # Known issues:
 # - The daemon can't be started from the GUI, because pkexec requires a shell
 #   registered in /etc/shells. The nix's bash is not in there when running
-#   cpu-x from nixpkgs.
+#   cpu-x from botpkgs.
 
 stdenv.mkDerivation rec {
   pname = "cpu-x";

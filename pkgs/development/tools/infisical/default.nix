@@ -4,7 +4,7 @@
 # RECOMMENDED to use to nix-update for updating this expression when new
 # releases come out, which runs the sibling `update.sh` script.
 #
-# from the root of the nixpkgs git repository, run:
+# from the root of the botpkgs git repository, run:
 #
 #    nix-shell maintainers/scripts/update.nix \
 #      --argstr commit true \

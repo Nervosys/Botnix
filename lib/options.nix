@@ -108,9 +108,9 @@ rec {
      package a module should use for some purpose.
 
      The package is specified in the third argument under `default` as a list of strings
-     representing its attribute path in nixpkgs (or another package set).
-     Because of this, you need to pass nixpkgs itself (usually `pkgs` in a module;
-     alternatively to nixpkgs itself, another package set) as the first argument.
+     representing its attribute path in botpkgs (or another package set).
+     Because of this, you need to pass botpkgs itself (usually `pkgs` in a module;
+     alternatively to botpkgs itself, another package set) as the first argument.
 
      If you pass another package set you should set the `pkgsText` option.
      This option is used to display the expression for the package set. It is `"pkgs"` by default.
@@ -183,7 +183,7 @@ rec {
        => { ...; default = pkgs.javaPackages.openjfx20; defaultText = literalExpression "pkgs.javaPackages.openjfx20"; description = "The OpenJFX package to use."; type = package; }
   */
   mkPackageOption =
-    # Package set (an instantiation of nixpkgs such as pkgs in modules or another package set)
+    # Package set (an instantiation of botpkgs such as pkgs in modules or another package set)
     pkgs:
       # Name for the package, shown in option description
       name:

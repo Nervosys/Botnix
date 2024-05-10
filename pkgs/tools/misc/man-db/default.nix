@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
     echo "MANPATH_MAP	/nix/var/nix/profiles/default/bin	/nix/var/nix/profiles/default/share/man" >> src/man_db.conf.in
 
     # Add mandb locations for the above
-    echo "MANDB_MAP	/nix/var/nix/profiles/default/share/man	/var/cache/man/nixpkgs" >> src/man_db.conf.in
+    echo "MANDB_MAP	/nix/var/nix/profiles/default/share/man	/var/cache/man/botpkgs" >> src/man_db.conf.in
   '';
 
   configureFlags = [

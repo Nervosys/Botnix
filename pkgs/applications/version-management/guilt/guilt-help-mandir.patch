@@ -1,4 +1,4 @@
-nixpkgs' post-installation fixup moves the pages to share/man.  Tell guilt-help so that it can find them.
+botpkgs' post-installation fixup moves the pages to share/man.  Tell guilt-help so that it can find them.
 
 diff --git a/guilt-help b/guilt-help
 index 93442a3..b29e059 100755

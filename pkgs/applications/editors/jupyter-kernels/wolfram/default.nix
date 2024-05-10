@@ -3,10 +3,10 @@
 }:
 
 # Jupyter console:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter-console.withSingleKernel wolfram-for-jupyter-kernel.definition'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter-console.withSingleKernel wolfram-for-jupyter-kernel.definition'
 
 # Jupyter notebook:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter.override { definitions.wolfram = wolfram-for-jupyter-kernel.definition; }'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter.override { definitions.wolfram = wolfram-for-jupyter-kernel.definition; }'
 
 let kernel = callPackage ./kernel.nix {};
 in {

@@ -12,7 +12,7 @@ To open a shell able to build a typical OCaml project, put the dependencies in `
 For example:
 ```nix
 let
- pkgs = import <nixpkgs> {};
+ pkgs = import <botpkgs> {};
  # choose the ocaml version you want to use
  ocamlPackages = pkgs.ocaml-ng.ocamlPackages_4_12;
 in
@@ -28,7 +28,7 @@ pkgs.mkShell {
 
 OCaml libraries should be installed in `$(out)/lib/ocaml/${ocaml.version}/site-lib/`. Such directories are automatically added to the `$OCAMLPATH` environment variable when building another package that depends on them or when opening a `nix-shell`.
 
-Given that most of the OCaml ecosystem is now built with dune, nixpkgs includes a convenience build support function called `buildDunePackage` that will build an OCaml package using dune, OCaml and findlib and any additional dependencies provided as `buildInputs` or `propagatedBuildInputs`.
+Given that most of the OCaml ecosystem is now built with dune, botpkgs includes a convenience build support function called `buildDunePackage` that will build an OCaml package using dune, OCaml and findlib and any additional dependencies provided as `buildInputs` or `propagatedBuildInputs`.
 
 Here is a simple package example.
 

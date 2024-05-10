@@ -1,4 +1,4 @@
-{ config, pkgs ? import <nixpkgs> {}
+{ config, pkgs ? import <botpkgs> {}
 , licenseAccepted ? config.android_sdk.accept_license or (builtins.getEnv "NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE" == "1")
 }:
 

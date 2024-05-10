@@ -47,7 +47,7 @@ buildPythonPackage rec {
 
   disabledTests = [
     # ImportError: To use NTLM authentication you need to install ntlm-auth module
-    # ntlm-auth has been removed from nixpkgs
+    # ntlm-auth has been removed from botpkgs
     "test_ntlm"
 
     # TypeError: CertificateBuilder.add_extension() got an unexpected keyword argument 'extension'

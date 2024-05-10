@@ -128,27 +128,27 @@ buildPythonPackage rec {
     "tensorflow_datasets/proto/build_tf_proto_test.py"
     "tensorflow_datasets/scripts/cli/build_test.py"
 
-    # Requires `pretty_midi` which is not packaged in `nixpkgs`.
+    # Requires `pretty_midi` which is not packaged in `botpkgs`.
     "tensorflow_datasets/audio/groove.py"
     "tensorflow_datasets/datasets/groove/groove_dataset_builder_test.py"
 
-    # Requires `crepe` which is not packaged in `nixpkgs`.
+    # Requires `crepe` which is not packaged in `botpkgs`.
     "tensorflow_datasets/audio/nsynth.py"
     "tensorflow_datasets/datasets/nsynth/nsynth_dataset_builder_test.py"
 
-    # Requires `conllu` which is not packaged in `nixpkgs`.
+    # Requires `conllu` which is not packaged in `botpkgs`.
     "tensorflow_datasets/core/dataset_builders/conll/conllu_dataset_builder_test.py"
     "tensorflow_datasets/datasets/universal_dependencies/universal_dependencies_dataset_builder_test.py"
     "tensorflow_datasets/datasets/xtreme_pos/xtreme_pos_dataset_builder_test.py"
 
-    # Requires `gcld3` and `pretty_midi` which are not packaged in `nixpkgs`.
+    # Requires `gcld3` and `pretty_midi` which are not packaged in `botpkgs`.
     "tensorflow_datasets/core/lazy_imports_lib_test.py"
 
-    # Requires `tensorflow_io` which is not packaged in `nixpkgs`.
+    # Requires `tensorflow_io` which is not packaged in `botpkgs`.
     "tensorflow_datasets/core/features/audio_feature_test.py"
     "tensorflow_datasets/image/lsun_test.py"
 
-    # Requires `envlogger` which is not packaged in `nixpkgs`.
+    # Requires `envlogger` which is not packaged in `botpkgs`.
     "tensorflow_datasets/rlds/locomotion/locomotion_test.py"
     "tensorflow_datasets/rlds/robosuite_panda_pick_place_can/robosuite_panda_pick_place_can_test.py"
 
@@ -161,13 +161,13 @@ buildPythonPackage rec {
     "tensorflow_datasets/core/dataset_utils_test.py"
     "tensorflow_datasets/core/features/sequence_feature_test.py"
 
-    # Requires `tensorflow_docs` which is not packaged in `nixpkgs` and the test is for documentation anyway.
+    # Requires `tensorflow_docs` which is not packaged in `botpkgs` and the test is for documentation anyway.
     "tensorflow_datasets/scripts/documentation/build_api_docs_test.py"
 
     # Not a test, should not be executed.
     "tensorflow_datasets/testing/test_utils.py"
 
-    # Require `gcld3` and `nltk.punkt` which are not packaged in `nixpkgs`.
+    # Require `gcld3` and `nltk.punkt` which are not packaged in `botpkgs`.
     "tensorflow_datasets/text/c4_test.py"
     "tensorflow_datasets/text/c4_utils_test.py"
   ];

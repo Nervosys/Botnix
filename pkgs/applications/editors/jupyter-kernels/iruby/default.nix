@@ -3,10 +3,10 @@
 }:
 
 # Jupyter console:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter-console.withSingleKernel iruby.definition'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter-console.withSingleKernel iruby.definition'
 
 # Jupyter notebook:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter.override { definitions.iruby = iruby.definition; }'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter.override { definitions.iruby = iruby.definition; }'
 
 let
   self = bundlerApp {

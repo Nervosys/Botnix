@@ -23,7 +23,7 @@ index 9e165af..86d8f89 100644
        ret.append('-');
        }
 -      ret.append(resVersion.getString("versionDate"));
-+      ret.append("nixpkgs");
++      ret.append("botpkgs");
        version = ret.toString();
    }
    return version;

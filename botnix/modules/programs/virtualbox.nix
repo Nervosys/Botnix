@@ -1,5 +1,5 @@
 let
-  msg = "Importing <nixpkgs/botnix/modules/programs/virtualbox.nix> is "
+  msg = "Importing <botpkgs/botnix/modules/programs/virtualbox.nix> is "
       + "deprecated, please use `virtualisation.virtualbox.host.enable = true' "
       + "instead.";
 in {

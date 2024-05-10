@@ -56,8 +56,8 @@ in {
           {
             "max-concurrent-indexers" : 2,
             "repos" : {
-                "nixpkgs": {
-                  "url" : "https://www.github.com/Botnix/nixpkgs.git"
+                "botpkgs": {
+                  "url" : "https://www.github.com/Botnix/botpkgs.git"
                 }
             }
           }

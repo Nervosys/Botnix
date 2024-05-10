@@ -70,7 +70,7 @@ stdenv.mkDerivation (finalAttrs: {
   mesonFlags = let
     # The "sd-bus-provider" meson option does not include a "none" option,
     # but it is silently ignored iff "-Dtray=disabled".  We use "basu"
-    # (which is not in nixpkgs) instead of "none" to alert us if this
+    # (which is not in botpkgs) instead of "none" to alert us if this
     # changes: https://github.com/swaywm/sway/issues/6843#issuecomment-1047288761
     # assert trayEnabled -> systemdSupport && dbusSupport;
 

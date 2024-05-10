@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
 
   patches = [
     # Headers depend on glib but it is only listed in Requires.private,
-    # which does not influence Cflags on non-static builds in nixpkgs’s
+    # which does not influence Cflags on non-static builds in botpkgs’s
     # pkg-config. Let’s add it to Requires to ensure Cflags are set correctly.
     ./fix-pkgconfig.patch
   ];

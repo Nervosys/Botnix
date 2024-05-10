@@ -208,7 +208,7 @@ stdenv.mkDerivation rec {
   ] ++ lib.optionals microdnsSupport [
     libmicrodns
   ] ++ lib.optionals stdenv.isLinux [
-    libva # vaapi requires libva -> libdrm -> libpciaccess, which is Linux-only in nixpkgs
+    libva # vaapi requires libva -> libdrm -> libpciaccess, which is Linux-only in botpkgs
     wayland
     wayland-protocols
   ] ++ lib.optionals (!stdenv.isDarwin) [
@@ -260,15 +260,15 @@ stdenv.mkDerivation rec {
     "-Damfcodec=disabled" # Windows-only
     "-Davtp=disabled"
     "-Ddirectshow=disabled" # Windows-only
-    "-Ddts=disabled" # required `libdca` library not packaged in nixpkgs as of writing, and marked as "BIG FAT WARNING: libdca is still in early development"
+    "-Ddts=disabled" # required `libdca` library not packaged in botpkgs as of writing, and marked as "BIG FAT WARNING: libdca is still in early development"
     "-Dzbar=${if enableZbar then "enabled" else "disabled"}"
     "-Dfaac=${if faacSupport then "enabled" else "disabled"}"
-    "-Diqa=disabled" # required `dssim` library not packaging in nixpkgs as of writing, also this is AGPL so update license when adding support
-    "-Dmagicleap=disabled" # required `ml_audio` library not packaged in nixpkgs as of writing
-    "-Dmsdk=disabled" # not packaged in nixpkgs as of writing / no Windows support
+    "-Diqa=disabled" # required `dssim` library not packaging in botpkgs as of writing, also this is AGPL so update license when adding support
+    "-Dmagicleap=disabled" # required `ml_audio` library not packaged in botpkgs as of writing
+    "-Dmsdk=disabled" # not packaged in botpkgs as of writing / no Windows support
     # As of writing, with `libmpcdec` in `buildInputs` we get
     #   "Could not find libmpcdec header files, but Musepack was enabled via options"
-    # This is likely because nixpkgs has the header in libmpc/mpcdec.h
+    # This is likely because botpkgs has the header in libmpc/mpcdec.h
     # instead of mpc/mpcdec.h, like Arch does. The situation is not trivial.
     # There are apparently 2 things called `libmpcdec` from the same author:
     #   * http://svn.musepack.net/libmpcdec/trunk/src/
@@ -277,19 +277,19 @@ stdenv.mkDerivation rec {
     # is needed, and then patching upstream to find it (though it probably
     # already works on Arch?).
     "-Dmusepack=disabled"
-    "-Dopenni2=disabled" # not packaged in nixpkgs as of writing
-    "-Dopensles=disabled" # not packaged in nixpkgs as of writing
-    "-Dsvthevcenc=disabled" # required `SvtHevcEnc` library not packaged in nixpkgs as of writing
-    "-Dteletext=disabled" # required `zvbi` library not packaged in nixpkgs as of writing
-    "-Dtinyalsa=disabled" # not packaged in nixpkgs as of writing
-    "-Dvoamrwbenc=disabled" # required `vo-amrwbenc` library not packaged in nixpkgs as of writing
-    "-Dvulkan=disabled" # Linux-only, and we haven't figured out yet which of the vulkan nixpkgs it needs
-    "-Dwasapi=disabled" # not packaged in nixpkgs as of writing / no Windows support
-    "-Dwasapi2=disabled" # not packaged in nixpkgs as of writing / no Windows support
-    "-Dwpe=disabled" # required `wpe-webkit` library not packaged in nixpkgs as of writing
+    "-Dopenni2=disabled" # not packaged in botpkgs as of writing
+    "-Dopensles=disabled" # not packaged in botpkgs as of writing
+    "-Dsvthevcenc=disabled" # required `SvtHevcEnc` library not packaged in botpkgs as of writing
+    "-Dteletext=disabled" # required `zvbi` library not packaged in botpkgs as of writing
+    "-Dtinyalsa=disabled" # not packaged in botpkgs as of writing
+    "-Dvoamrwbenc=disabled" # required `vo-amrwbenc` library not packaged in botpkgs as of writing
+    "-Dvulkan=disabled" # Linux-only, and we haven't figured out yet which of the vulkan botpkgs it needs
+    "-Dwasapi=disabled" # not packaged in botpkgs as of writing / no Windows support
+    "-Dwasapi2=disabled" # not packaged in botpkgs as of writing / no Windows support
+    "-Dwpe=disabled" # required `wpe-webkit` library not packaged in botpkgs as of writing
     "-Disac=disabled" # depends on `webrtc-audio-coding-1` not compatible with 0.3
     "-Dgs=disabled" # depends on `google-cloud-cpp`
-    "-Donnx=disabled" # depends on `libonnxruntime` not packaged in nixpkgs as of writing
+    "-Donnx=disabled" # depends on `libonnxruntime` not packaged in botpkgs as of writing
     "-Dopenaptx=enabled" # since gstreamer-1.20.1 `libfreeaptx` is supported for circumventing the dubious license conflict with `libopenaptx`
     "-Dopencv=${if opencvSupport then "enabled" else "disabled"}" # Reduces rebuild size when `config.cudaSupport = true`
     "-Dmicrodns=${if microdnsSupport then "enabled" else "disabled"}"

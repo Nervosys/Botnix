@@ -198,7 +198,7 @@ let
     Preferences = {
       # These values are exposed through telemetry
       "app.distributor" = "botnix";
-      "app.distributor.channel" = "nixpkgs";
+      "app.distributor.channel" = "botpkgs";
     };
   });
 
@@ -358,7 +358,7 @@ buildStdenv.mkDerivation {
     fi
   '' + lib.optionalString googleAPISupport ''
     # Google API key used by Chromium and Firefox.
-    # Note: These are for Botnix/nixpkgs use ONLY. For your own distribution,
+    # Note: These are for Botnix/botpkgs use ONLY. For your own distribution,
     # please get your own set of keys at https://www.chromium.org/developers/how-tos/api-keys/.
     echo "AIzaSyDGi15Zwl11UNe6Y-5XW_upsfyw31qwZPI" > $TMPDIR/google-api-key
     # 60.5+ & 66+ did split the google API key arguments: https://bugzilla.mozilla.org/show_bug.cgi?id=1531176
@@ -366,7 +366,7 @@ buildStdenv.mkDerivation {
     configureFlagsArray+=("--with-google-safebrowsing-api-keyfile=$TMPDIR/google-api-key")
   '' + lib.optionalString mlsAPISupport ''
     # Mozilla Location services API key
-    # Note: These are for Botnix/nixpkgs use ONLY. For your own distribution,
+    # Note: These are for Botnix/botpkgs use ONLY. For your own distribution,
     # please get your own set of keys at https://location.services.mozilla.com/api.
     echo "dfd7836c-d458-4917-98bb-421c82d3c8a0" > $TMPDIR/mls-api-key
     configureFlagsArray+=("--with-mozilla-api-keyfile=$TMPDIR/mls-api-key")
@@ -380,7 +380,7 @@ buildStdenv.mkDerivation {
     export LD_PRELOAD=${mimalloc}/lib/libmimalloc.so
   '';
 
-  # firefox has a different definition of configurePlatforms from nixpkgs, see configureFlags
+  # firefox has a different definition of configurePlatforms from botpkgs, see configureFlags
   configurePlatforms = [ ];
 
   configureFlags = [

@@ -26,7 +26,7 @@ buildGoModule rec {
   buildPhase = ''
     runHook preBuild
 
-    make RELEASE=nixpkgs
+    make RELEASE=botpkgs
 
     runHook postBuild
   '';

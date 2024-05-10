@@ -83,7 +83,7 @@ buildPythonPackage rec {
     "test_old_api_url"
     "test_non_auth_url"
     "test_non_auth_url_with_hub"
-    "test_coder_optimizers" # TODO: reenable when package scikit-quant is packaged, either in NUR or nixpkgs
+    "test_coder_optimizers" # TODO: reenable when package scikit-quant is packaged, either in NUR or botpkgs
 
     # slow tests
     "test_websocket_retry_failure"

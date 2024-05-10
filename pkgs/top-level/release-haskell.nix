@@ -1,7 +1,7 @@
 /*
   This is the Hydra jobset for the `haskell-updates` branch in Botpkgs.
   You can see the status of this jobset at
-  https://hydra.botnix.org/jobset/nixpkgs/haskell-updates.
+  https://hydra.nixos.org/jobset/botpkgs/haskell-updates.
 
   To debug this expression you can use `hydra-eval-jobs` from
   `pkgs.hydra_unstable` which prints the jobset description
@@ -613,7 +613,7 @@ let
               jobs.stylish-haskell
               # important haskell (library) packages
               jobs.haskellPackages.cabal-plan
-              jobs.haskellPackages.distribution-nixpkgs
+              jobs.haskellPackages.distribution-botpkgs
               jobs.haskellPackages.hackage-db
               jobs.haskellPackages.xmonad
               jobs.haskellPackages.xmonad-contrib

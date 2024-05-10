@@ -27,9 +27,9 @@ buildPythonPackage {
   sourceRoot = "${protobuf.src.name}/python";
 
   patches = lib.optionals (lib.versionAtLeast protobuf.version "22") [
-    # Replace the vendored abseil-cpp with nixpkgs'
+    # Replace the vendored abseil-cpp with botpkgs'
     (substituteAll {
-      src = ./use-nixpkgs-abseil-cpp.patch;
+      src = ./use-botpkgs-abseil-cpp.patch;
       abseil_cpp_include_path = "${lib.getDev protobuf.abseil-cpp}/include";
     })
   ]

@@ -30,12 +30,12 @@ with lib;
       IMPORTANT: If your token is org-wide (not per repository), you need to
       provide a github org link, not a single repository, so do it like this
       `https://github.com/botnix`, not like this
-      `https://github.com/nervosys/nixpkgs`.
+      `https://github.com/nervosys/botpkgs`.
       Otherwise, you are going to get a `404 NotFound`
       from `POST https://api.github.com/actions/runner-registration`
       in the configure script.
     '';
-    example = "https://github.com/nervosys/nixpkgs";
+    example = "https://github.com/nervosys/botpkgs";
   };
 
   tokenFile = mkOption {

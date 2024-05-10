@@ -6,12 +6,12 @@ If you need to test error messages or more complex evaluations, see ./modules.sh
 
 To run these tests:
 
-  [nixpkgs]$ nix-instantiate --eval --strict lib/tests/misc.nix
+  [botpkgs]$ nix-instantiate --eval --strict lib/tests/misc.nix
 
 If the resulting list is empty, all tests passed.
 Alternatively, to run all `lib` tests:
 
-  [nixpkgs]$ nix-build lib/tests/release.nix
+  [botpkgs]$ nix-build lib/tests/release.nix
 */
 with import ../default.nix;
 

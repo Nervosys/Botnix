@@ -6,7 +6,7 @@ let
   xserverVListFunc = builtins.elemAt (lib.splitVersion xorg.xorgserver.version);
 
   # Forced to 1.18; vboxvideo doesn't seem to provide any newer ABI,
-  # and nixpkgs doesn't support older ABIs anymore.
+  # and botpkgs doesn't support older ABIs anymore.
   xserverABI = "118";
 
   # Specifies how to patch binaries to make sure that libraries loaded using

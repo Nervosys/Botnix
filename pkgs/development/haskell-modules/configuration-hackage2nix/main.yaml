@@ -224,7 +224,7 @@ package-maintainers:
     - dhall-json
     - dhall-lsp-server
     - dhall-nix
-    - dhall-nixpkgs
+    - dhall-botpkgs
     - dhall-openapi
     - dhall-text
     - dhall-yaml
@@ -415,7 +415,7 @@ package-maintainers:
   sternenseemann:
     # also maintain upstream package
     - cabal2nix
-    - distribution-nixpkgs
+    - distribution-botpkgs
     - hackage-db
     - language-nix
     - jailbreak-cabal
@@ -862,7 +862,7 @@ dont-distribute-packages:
   - webkitgtk3-javascriptcore
   - websnap
 
-  # mesos was removed from nixpkgs
+  # mesos was removed from botpkgs
   - hs-mesos
 
   # Output exceeds Hydra's maximum allowable size

@@ -1,14 +1,14 @@
 # This expression takes a file like `hackage-packages.nix` and constructs
 # a full package set out of that.
 
-{ # package-set used for build tools (all of nixpkgs)
+{ # package-set used for build tools (all of botpkgs)
   buildPackages
 
 , # A haskell package set for Setup.hs, compiler plugins, and similar
   # build-time uses.
   buildHaskellPackages
 
-, # package-set used for non-haskell dependencies (all of nixpkgs)
+, # package-set used for non-haskell dependencies (all of botpkgs)
   pkgs
 
 , # stdenv provides our build and host platforms
@@ -33,7 +33,7 @@
   # `self` as second, and returns a set of haskell packages
   package-set
 
-, # The final, fully overridden package set usable with the nixpkgs fixpoint
+, # The final, fully overridden package set usable with the botpkgs fixpoint
   # overriding functionality
   extensible-self
 }:
@@ -330,7 +330,7 @@ in package-set { inherit pkgs lib callPackage; } self // {
     # can be passed into stdenv.mkDerivation can be included in the input attrset
     #
     #     # default.nix
-    #     with import <nixpkgs> {};
+    #     with import <botpkgs> {};
     #     haskellPackages.extend (haskell.lib.compose.packageSourceOverrides {
     #       frontend = ./frontend;
     #       backend = ./backend;
@@ -338,7 +338,7 @@ in package-set { inherit pkgs lib callPackage; } self // {
     #     })
     #
     #     # shell.nix
-    #     let pkgs = import <nixpkgs> {} in
+    #     let pkgs = import <botpkgs> {} in
     #     (import ./.).shellFor {
     #       packages = p: [p.frontend p.backend p.common];
     #       withHoogle = true;

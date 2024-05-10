@@ -1,4 +1,4 @@
 {
-  outputPath = "share/doc/nixpkgs";
+  outputPath = "share/doc/botpkgs";
   indexPath = "manual.html";
 }

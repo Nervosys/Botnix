@@ -147,7 +147,7 @@ in
           To upload the confidential file with NixOps, use for example:
 
           ```
-          # https://releases.botnix.org/nixops/latest/manual/manual.html#opt-deployment.keys
+          # https://releases.nixos.org/nixops/latest/manual/manual.html#opt-deployment.keys
           deployment.keys."vault.hcl" = let db = import ./db-credentials.nix; in {
             text = ${"''"}
               storage "postgresql" {

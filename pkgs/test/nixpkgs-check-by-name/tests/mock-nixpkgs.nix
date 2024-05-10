@@ -25,7 +25,7 @@ It returns a Botpkgs-like function that can be auto-called and evaluates to an a
 let
 
   # Simplified versions of lib functions
-  lib = import <test-nixpkgs/lib>;
+  lib = import <test-botpkgs/lib>;
 
   # The base fixed-point function to populate the resulting attribute set
   pkgsFun = self: {

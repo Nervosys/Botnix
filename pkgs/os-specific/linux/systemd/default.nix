@@ -1,4 +1,4 @@
-# NOTE: Make sure to (re-)format this file on changes with `nixpkgs-fmt`!
+# NOTE: Make sure to (re-)format this file on changes with `botpkgs-fmt`!
 
 { stdenv
 , lib
@@ -180,7 +180,7 @@ in
 stdenv.mkDerivation (finalAttrs: {
   inherit pname version;
 
-  # We use systemd/systemd-stable for src, and ship Botnix-specific patches inside nixpkgs directly
+  # We use systemd/systemd-stable for src, and ship Botnix-specific patches inside botpkgs directly
   # This has proven to be less error-prone than the previous systemd fork.
   src = fetchFromGitHub {
     owner = "systemd";

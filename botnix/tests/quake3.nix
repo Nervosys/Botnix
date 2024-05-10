@@ -23,8 +23,8 @@ let
     { imports = [ ./common/x11.nix ];
       hardware.opengl.driSupport = true;
       environment.systemPackages = [ pkgs.quake3demo ];
-      nixpkgs.config.packageOverrides = overrides;
-      nixpkgs.config.allowUnfreePredicate = unfreePredicate;
+      botpkgs.config.packageOverrides = overrides;
+      botpkgs.config.allowUnfreePredicate = unfreePredicate;
     };
 
 in
@@ -48,8 +48,8 @@ rec {
                 "${pkgs.quake3demo}/bin/quake3-server +set g_gametype 0 " +
                 "+map q3dm7 +addbot grunt +addbot daemia 2> /tmp/log";
             };
-          nixpkgs.config.packageOverrides = overrides;
-          nixpkgs.config.allowUnfreePredicate = unfreePredicate;
+          botpkgs.config.packageOverrides = overrides;
+          botpkgs.config.allowUnfreePredicate = unfreePredicate;
           networking.firewall.allowedUDPPorts = [ 27960 ];
         };
 

@@ -68,7 +68,7 @@ stdenv.mkDerivation rec {
   # might patch often (e.g. test/gmock, see
   # https://github.com/nervosys/Botnix/pull/103160#discussion_r519487734).
   # When it has stabilised in the future, we may want to tell the build
-  # to use use nixpkgs system libraries.
+  # to use use botpkgs system libraries.
 
   # As of writing, libjxl does not point out all its dependencies
   # conclusively in its README or otherwise; they can best be determined

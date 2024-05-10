@@ -8,7 +8,7 @@
 
 /*
   Notes on specific dependencies:
-  - if/when python2.7 is removed from nixpkgs, this may need to figure
+  - if/when python2.7 is removed from botpkgs, this may need to figure
   out how to build oil's vendored python2
 */
 

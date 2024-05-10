@@ -1,10 +1,10 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p sta jq bc nix -I nixpkgs=../..
+#!nix-shell -i bash -p sta jq bc nix -I botpkgs=../..
 # shellcheck disable=SC2016
 
 # Benchmarks lib.fileset
 # Run:
-# [nixpkgs]$ lib/fileset/benchmark.sh HEAD
+# [botpkgs]$ lib/fileset/benchmark.sh HEAD
 
 set -euo pipefail
 shopt -s inherit_errexit dotglob
@@ -19,7 +19,7 @@ compareTo=$1
 SCRIPT_FILE=$(readlink -f "${BASH_SOURCE[0]}")
 SCRIPT_DIR=$(dirname "$SCRIPT_FILE")
 
-nixpkgs=$(cd "$SCRIPT_DIR/../.."; pwd)
+botpkgs=$(cd "$SCRIPT_DIR/../.."; pwd)
 
 tmp="$(mktemp -d)"
 clean_up() {
@@ -54,9 +54,9 @@ run() {
     : > cpuTimes
 
     for i in $(seq 0 "$runs"); do
-        NIX_PATH=nixpkgs=$1 NIX_SHOW_STATS=1 NIX_SHOW_STATS_PATH=$tmp/stats.json \
+        NIX_PATH=botpkgs=$1 NIX_SHOW_STATS=1 NIX_SHOW_STATS_PATH=$tmp/stats.json \
             nix-instantiate --eval --strict --show-trace >/dev/null \
-            --expr 'with import <nixpkgs/lib>; with fileset; '"$2"
+            --expr 'with import <botpkgs/lib>; with fileset; '"$2"
 
         # Only measure the time after the first run, one is warmup
         if (( i > 0 )); then
@@ -75,11 +75,11 @@ run() {
 bench() {
     echo "Benchmarking expression $1" >&2
     #echo "Running benchmark on index" >&2
-    run "$nixpkgs" "$1" > "$tmp/new.json"
+    run "$botpkgs" "$1" > "$tmp/new.json"
     (
         #echo "Checking out $compareTo" >&2
-        git -C "$nixpkgs" worktree add --quiet "$tmp/worktree" "$compareTo"
-        trap 'git -C "$nixpkgs" worktree remove "$tmp/worktree"' EXIT
+        git -C "$botpkgs" worktree add --quiet "$tmp/worktree" "$compareTo"
+        trap 'git -C "$botpkgs" worktree remove "$tmp/worktree"' EXIT
         #echo "Running benchmark on $compareTo" >&2
         run "$tmp/worktree" "$1" > "$tmp/old.json"
     )

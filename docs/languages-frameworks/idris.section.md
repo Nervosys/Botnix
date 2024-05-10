@@ -5,10 +5,10 @@
 The easiest way to get a working idris version is to install the `idris` attribute:
 
 ```ShellSession
-$ nix-env -f "<nixpkgs>" -iA idris
+$ nix-env -f "<botpkgs>" -iA idris
 ```
 
-This however only provides the `prelude` and `base` libraries. To install idris with additional libraries, you can use the `idrisPackages.with-packages` function, e.g. in an overlay in `~/.config/nixpkgs/overlays/my-idris.nix`:
+This however only provides the `prelude` and `base` libraries. To install idris with additional libraries, you can use the `idrisPackages.with-packages` function, e.g. in an overlay in `~/.config/botpkgs/overlays/my-idris.nix`:
 
 ```nix
 self: super: {
@@ -22,7 +22,7 @@ And then:
 $ # On Botnix
 $ nix-env -iA botnix.myIdris
 $ # On non-Botnix
-$ nix-env -iA nixpkgs.myIdris
+$ nix-env -iA botpkgs.myIdris
 ```
 
 To see all available Idris packages:
@@ -31,7 +31,7 @@ To see all available Idris packages:
 $ # On Botnix
 $ nix-env -qaPA botnix.idrisPackages
 $ # On non-Botnix
-$ nix-env -qaPA nixpkgs.idrisPackages
+$ nix-env -qaPA botpkgs.idrisPackages
 ```
 
 Similarly, entering a `nix-shell`:
@@ -105,13 +105,13 @@ build-idris-package  {
 Assuming this file is saved as `yaml.nix`, it's buildable using
 
 ```ShellSession
-$ nix-build -E '(import <nixpkgs> {}).idrisPackages.callPackage ./yaml.nix {}'
+$ nix-build -E '(import <botpkgs> {}).idrisPackages.callPackage ./yaml.nix {}'
 ```
 
 Or it's possible to use
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 {
   yaml = idrisPackages.callPackage ./yaml.nix {};

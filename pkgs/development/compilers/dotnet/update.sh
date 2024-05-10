@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -I nixpkgs=../../../../. -i bash -p curl jq nix gnused
+#!nix-shell -I botpkgs=../../../../. -i bash -p curl jq nix gnused
 # shellcheck shell=bash
 
 set -Eeuo pipefail
@@ -77,7 +77,7 @@ version_older () {
     cur_version=$1
     max_version=$2
     result=$(nix-instantiate -I ../../../../. \
-        --eval -E "(import <nixpkgs> {}).lib.versionOlder \"$cur_version\" \"$max_version\"")
+        --eval -E "(import <botpkgs> {}).lib.versionOlder \"$cur_version\" \"$max_version\"")
     if [[ "$result" == "true" ]]; then
         return 0
     else

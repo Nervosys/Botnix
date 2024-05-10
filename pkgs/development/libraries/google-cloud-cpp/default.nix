@@ -79,7 +79,7 @@ stdenv.mkDerivation rec {
     protobuf
   ];
 
-  # https://hydra.botnix.org/build/222679737/nixlog/3/tail
+  # https://hydra.nixos.org/build/222679737/nixlog/3/tail
   env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.isAarch64 "-Wno-error=maybe-uninitialized";
 
   doInstallCheck = true;

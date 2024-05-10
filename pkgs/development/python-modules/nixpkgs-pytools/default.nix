@@ -8,7 +8,7 @@
 }:
 
 buildPythonPackage rec {
-  pname = "nixpkgs-pytools";
+  pname = "botpkgs-pytools";
   version = "1.3.0";
   format = "setuptools";
   disabled = isPy27;
@@ -28,8 +28,8 @@ buildPythonPackage rec {
   doCheck = false;
 
   meta = with lib; {
-    description = "Tools for removing the tedious nature of creating nixpkgs derivations";
-    homepage = "https://github.com/nix-community/nixpkgs-pytools";
+    description = "Tools for removing the tedious nature of creating botpkgs derivations";
+    homepage = "https://github.com/nix-community/botpkgs-pytools";
     license = licenses.mit;
     maintainers = [ ];
   };

@@ -16,7 +16,7 @@ you upgrade you may have to do some work here.
 The CTAN mirrors are not version-controlled and continuously moving,
 with more than 100 updates per month.
 
-To create a consistent and reproducible package set in nixpkgs, we generate nix
+To create a consistent and reproducible package set in botpkgs, we generate nix
 expressions for all packages in TeX Live at a certain day.
 
 To upgrade the package snapshot, follow this process.

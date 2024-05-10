@@ -39,7 +39,7 @@ runCommand name {
 
   # url will be written to the derivation, meaning it can be parsed and utilized
   # by external tools, such as tools that may want to seed fetchtorrent calls
-  # in nixpkgs
+  # in botpkgs
   inherit url;
 }
 (if (backend == "transmission") then ''

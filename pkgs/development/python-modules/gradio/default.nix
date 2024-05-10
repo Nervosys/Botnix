@@ -162,7 +162,7 @@ buildPythonPackage rec {
     # Flaky, unknown reason
     "test_in_interface"
 
-    # shap is too often broken in nixpkgs
+    # shap is too often broken in botpkgs
     "test_shapley_text"
   ];
   disabledTestPaths = [

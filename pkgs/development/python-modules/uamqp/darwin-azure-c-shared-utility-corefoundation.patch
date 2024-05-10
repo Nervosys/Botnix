@@ -9,7 +9,7 @@ Subject: [PATCH] Fix finding apple libraries
  
 
 (rejected by upstream in https://github.com/Azure/azure-c-shared-utility/pull/499,
-seems problem it's solving is nixpkgs-specific)
+seems problem it's solving is botpkgs-specific)
 
 diff --git a/src/vendor/azure-uamqp-c/deps/azure-c-shared-utility/CMakeLists.txt b/src/vendor/azure-uamqp-c/deps/azure-c-shared-utility/CMakeLists.txt
 index 7bbfa6f3f..3567b18bc 100644

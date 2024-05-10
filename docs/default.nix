@@ -1,4 +1,4 @@
-{ pkgs ? (import ./.. { }), nixpkgs ? { }}:
+{ pkgs ? (import ./.. { }), botpkgs ? { }}:
 let
   inherit (pkgs) lib;
   inherit (lib) hasPrefix removePrefix;
@@ -6,7 +6,7 @@ let
   common = import ./common.nix;
 
   lib-docs = import ./doc-support/lib-function-docs.nix {
-    inherit pkgs nixpkgs;
+    inherit pkgs botpkgs;
     libsets = [
       { name = "asserts"; description = "assertion functions"; }
       { name = "attrsets"; description = "attribute set functions"; }
@@ -16,7 +16,7 @@ let
       { name = "fixedPoints"; baseName = "fixed-points"; description = "explicit recursion functions"; }
       { name = "lists"; description = "list manipulation functions"; }
       { name = "debug"; description = "debugging functions"; }
-      { name = "options"; description = "Botnix / nixpkgs option handling"; }
+      { name = "options"; description = "Botnix / botpkgs option handling"; }
       { name = "path"; description = "path functions"; }
       { name = "filesystem"; description = "filesystem functions"; }
       { name = "fileset"; description = "file set functions"; }
@@ -36,7 +36,7 @@ let
       <book xmlns="http://docbook.org/ns/docbook"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             version="5.0"
-            xml:id="nixpkgs-manual">
+            xml:id="botpkgs-manual">
         <info>
           <title>Botpkgs Manual</title>
           <subtitle>Version ${pkgs.lib.version}</subtitle>
@@ -45,7 +45,7 @@ let
           <title>Temporarily unavailable</title>
           <para>
             The Botpkgs manual is currently not available in EPUB format,
-            please use the <link xlink:href="https://nixos.org/nixpkgs/manual">HTML manual</link>
+            please use the <link xlink:href="https://nixos.org/botpkgs/manual">HTML manual</link>
             instead.
           </para>
           <para>
@@ -93,7 +93,7 @@ let
         };
   };
 in pkgs.stdenv.mkDerivation {
-  name = "nixpkgs-manual";
+  name = "botpkgs-manual";
 
   nativeBuildInputs = with pkgs; [
     botnix-render-docs
@@ -144,11 +144,11 @@ in pkgs.stdenv.mkDerivation {
     mv out "$dest"
     mv "$dest/index.html" "$dest/${common.indexPath}"
 
-    cp ${epub} "$dest/nixpkgs-manual.epub"
+    cp ${epub} "$dest/botpkgs-manual.epub"
 
     mkdir -p $out/nix-support/
     echo "doc manual $dest ${common.indexPath}" >> $out/nix-support/hydra-build-products
-    echo "doc manual $dest nixpkgs-manual.epub" >> $out/nix-support/hydra-build-products
+    echo "doc manual $dest botpkgs-manual.epub" >> $out/nix-support/hydra-build-products
   '';
 
   passthru.tests.manpage-urls = with pkgs; testers.invalidateFetcherByDrvHash

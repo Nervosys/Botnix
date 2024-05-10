@@ -34,7 +34,7 @@ in
         Whether to install the Oracle Extension Pack for VirtualBox.
 
         ::: {.important}
-        You must set `nixpkgs.config.allowUnfree = true` in
+        You must set `botpkgs.config.allowUnfree = true` in
         order to use this.  This requires you accept the VirtualBox PUEL.
         :::
       '';
@@ -85,7 +85,7 @@ in
 
   config = mkIf cfg.enable (mkMerge [{
     warnings = mkIf (pkgs.config.virtualbox.enableExtensionPack or false)
-      ["'nixpkgs.virtualbox.enableExtensionPack' has no effect, please use 'virtualisation.virtualbox.host.enableExtensionPack'"];
+      ["'botpkgs.virtualbox.enableExtensionPack' has no effect, please use 'virtualisation.virtualbox.host.enableExtensionPack'"];
     boot.kernelModules = [ "vboxdrv" "vboxnetadp" "vboxnetflt" ];
     boot.extraModulePackages = [ kernelModules ];
     environment.systemPackages = [ virtualbox ];

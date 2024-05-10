@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
     homepage = "https://gitlab.com/sherpa-team/sherpa";
     platforms = platforms.unix;
     maintainers = with maintainers; [ veprbl ];
-    # never built on aarch64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin && stdenv.isAarch64;
   };
 }

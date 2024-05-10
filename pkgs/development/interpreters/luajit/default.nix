@@ -72,7 +72,7 @@ stdenv.mkDerivation rec {
     substituteInPlace Makefile --replace ldconfig :
     if test -n "''${dontStrip-}"; then
       # CCDEBUG must be non-empty or everything will be stripped, -g being
-      # passed by nixpkgs CC wrapper is insufficient on its own
+      # passed by botpkgs CC wrapper is insufficient on its own
       substituteInPlace src/Makefile --replace "#CCDEBUG= -g" "CCDEBUG= -g"
     fi
 

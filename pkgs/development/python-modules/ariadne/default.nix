@@ -68,7 +68,7 @@ buildPythonPackage rec {
     # missing graphql-sync-dataloader test dep
     "tests/test_dataloaders.py"
     "tests/wsgi/test_configuration.py"
-    # both include opentracing module, which has been removed from nixpkgs
+    # both include opentracing module, which has been removed from botpkgs
     "tests/tracing/test_opentracing.py"
     "tests/tracing/test_opentelemetry.py"
   ];

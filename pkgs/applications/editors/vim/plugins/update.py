@@ -3,16 +3,16 @@
 # run with:
 # $ nix run .\#vimPluginsUpdater
 # format:
-# $ nix run nixpkgs#python3Packages.black -- update.py
+# $ nix run botpkgs#python3Packages.black -- update.py
 # type-check:
-# $ nix run nixpkgs#python3Packages.mypy -- update.py
+# $ nix run botpkgs#python3Packages.mypy -- update.py
 # linted:
-# $ nix run nixpkgs#python3Packages.flake8 -- --ignore E501,E265,E402 update.py
+# $ nix run botpkgs#python3Packages.flake8 -- --ignore E501,E265,E402 update.py
 
 # If you see `HTTP Error 429: too many requests` errors while running this
 # script, refer to:
 #
-# https://github.com/nervosys/Botnix/blob/master/doc/languages-frameworks/vim.section.md#updating-plugins-in-nixpkgs-updating-plugins-in-nixpkgs
+# https://github.com/nervosys/Botnix/blob/master/doc/languages-frameworks/vim.section.md#updating-plugins-in-botpkgs-updating-plugins-in-botpkgs
 #
 # (or the equivalent file /doc/languages-frameworks/vim.section.md
 # from Botpkgs master tree).
@@ -58,7 +58,7 @@ class VimEditor(pluginupdate.Editor):
     ):
         sorted_plugins = sorted(plugins, key=lambda v: v[0].name.lower())
         nvim_treesitter_rev = pluginupdate.run_nix_expr(
-            "(import <localpkgs> { }).vimPlugins.nvim-treesitter.src.rev", self.nixpkgs
+            "(import <localpkgs> { }).vimPlugins.nvim-treesitter.src.rev", self.botpkgs
         )
 
         with open(outfile, "w+") as f:
@@ -88,7 +88,7 @@ class VimEditor(pluginupdate.Editor):
         GET_PLUGINS_LUA = """
         with import <localpkgs> {};
         lib.attrNames lua51Packages"""
-        luaPlugins = run_nix_expr(GET_PLUGINS_LUA, self.nixpkgs)
+        luaPlugins = run_nix_expr(GET_PLUGINS_LUA, self.botpkgs)
 
         repo = pdesc.repo
 
@@ -126,12 +126,12 @@ class VimEditor(pluginupdate.Editor):
     def update(self, args):
         pluginupdate.update_plugins(self, args)
 
-        # TODO this should probably be skipped when running outside a nixpkgs checkout
+        # TODO this should probably be skipped when running outside a botpkgs checkout
         if self.nvim_treesitter_updated:
             print("updating nvim-treesitter grammars")
             cmd = [
                 "nix", "build",
-                "vimPlugins.nvim-treesitter.src", "-f", self.nixpkgs
+                "vimPlugins.nvim-treesitter.src", "-f", self.botpkgs
                 , "--print-out-paths"
             ]
             log.debug("Running command: %s", " ".join(cmd))
@@ -142,14 +142,14 @@ class VimEditor(pluginupdate.Editor):
                 NIXPKGS_NVIMTREESITTER_FOLDER,
                 "generated.nix"
             )
-            open(os.path.join(args.nixpkgs, treesitter_generated_nix_path), "w").write(generated)
+            open(os.path.join(args.botpkgs, treesitter_generated_nix_path), "w").write(generated)
 
             if self.nixpkgs_repo:
                 index = self.nixpkgs_repo.index
                 for diff in index.diff(None):
                     if diff.a_path == treesitter_generated_nix_path:
                         msg = "vimPlugins.nvim-treesitter: update grammars"
-                        print(f"committing to nixpkgs: {msg}")
+                        print(f"committing to botpkgs: {msg}")
                         index.add([treesitter_generated_nix_path])
                         index.commit(msg)
                         return

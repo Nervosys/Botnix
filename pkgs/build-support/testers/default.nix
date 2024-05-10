@@ -1,7 +1,7 @@
 { pkgs, buildPackages, lib, callPackage, runCommand, stdenv, substituteAll, testers }:
 # Documentation is in doc/builders/testers.chapter.md
 {
-  # See https://nixos.org/manual/nixpkgs/unstable/#tester-testBuildFailure
+  # See https://nixos.org/manual/botpkgs/unstable/#tester-testBuildFailure
   # or doc/builders/testers.chapter.md
   testBuildFailure = drv: drv.overrideAttrs (orig: {
     builder = buildPackages.bash;
@@ -11,11 +11,11 @@
     ] ++ orig.args or ["-e" (orig.builder or ../../stdenv/generic/default-builder.sh)];
   });
 
-  # See https://nixos.org/manual/nixpkgs/unstable/#tester-testEqualDerivation
+  # See https://nixos.org/manual/botpkgs/unstable/#tester-testEqualDerivation
   # or doc/builders/testers.chapter.md
   testEqualDerivation = callPackage ./test-equal-derivation.nix { };
 
-  # See https://nixos.org/manual/nixpkgs/unstable/#tester-testEqualContents
+  # See https://nixos.org/manual/botpkgs/unstable/#tester-testEqualContents
   # or doc/builders/testers.chapter.md
   testEqualContents = {
     assertion,
@@ -53,7 +53,7 @@
     fi
   '';
 
-  # See https://nixos.org/manual/nixpkgs/unstable/#tester-testVersion
+  # See https://nixos.org/manual/botpkgs/unstable/#tester-testVersion
   # or doc/builders/testers.chapter.md
   testVersion =
     { package,
@@ -78,7 +78,7 @@
     '';
 
   # See doc/builders/testers.chapter.md or
-  # https://nixos.org/manual/nixpkgs/unstable/#tester-invalidateFetcherByDrvHash
+  # https://nixos.org/manual/botpkgs/unstable/#tester-invalidateFetcherByDrvHash
   invalidateFetcherByDrvHash = f: args:
     let
       drvPath = (f args).drvPath;
@@ -95,7 +95,7 @@
     in checked;
 
   # See doc/builders/testers.chapter.md or
-  # https://nixos.org/manual/nixpkgs/unstable/#tester-runNixOSTest
+  # https://nixos.org/manual/botpkgs/unstable/#tester-runNixOSTest
   runNixOSTest =
     let botnix = import ../../../botnix/lib {
       inherit lib;
@@ -111,7 +111,7 @@
         };
 
   # See doc/builders/testers.chapter.md or
-  # https://nixos.org/manual/nixpkgs/unstable/#tester-invalidateFetcherByDrvHash
+  # https://nixos.org/manual/botpkgs/unstable/#tester-invalidateFetcherByDrvHash
   nixosTest =
     let
       /* The botnix/lib/testing-python.nix module, preapplied with arguments that
@@ -123,7 +123,7 @@
           inherit pkgs;
           extraConfigurations = [(
             { lib, ... }: {
-              config.nixpkgs.pkgs = lib.mkDefault pkgs;
+              config.botpkgs.pkgs = lib.mkDefault pkgs;
             }
           )];
         });

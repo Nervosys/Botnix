@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optional stdenv.isDarwin Security;
 
-  # 10 passed; 47 failed https://hydra.botnix.org/build/148943783/nixlog/1
+  # 10 passed; 47 failed https://hydra.nixos.org/build/148943783/nixlog/1
   doCheck = !stdenv.isDarwin;
 
   meta = with lib; {

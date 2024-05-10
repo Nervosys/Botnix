@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i bash -p nix curl jq git gnused gnugrep -I nixpkgs=.
+#! nix-shell -i bash -p nix curl jq git gnused gnugrep -I botpkgs=.
 # shellcheck shell=bash
 
 set -eu -o pipefail
@@ -58,7 +58,7 @@ EOF
 # Drop restrictions on some tools where we always want the latest version.
 sed -r \
     -e '/ cabal2nix /d' \
-    -e '/ distribution-nixpkgs /d' \
+    -e '/ distribution-botpkgs /d' \
     -e '/ jailbreak-cabal /d' \
     -e '/ language-nix /d' \
     -e '/ hackage-db /d' \
@@ -72,10 +72,10 @@ sed -r \
     -e '/ stack /d' \
     < "${tmpfile_new}" >> $stackage_config
 # Explanations:
-# cabal2nix, distribution-nixpkgs, jailbreak-cabal, language-nix: These are our packages and we know what we are doing.
+# cabal2nix, distribution-botpkgs, jailbreak-cabal, language-nix: These are our packages and we know what we are doing.
 # lsp, lsp-types, lsp-test, hie-bios: These are tightly coupled to hls which is not in stackage. They have no rdeps in stackage.
 # ShellCheck: latest version of command-line dev tool.
-# Agda: The Agda community is fast-moving; we strive to always include the newest versions of Agda and the Agda packages in nixpkgs.
+# Agda: The Agda community is fast-moving; we strive to always include the newest versions of Agda and the Agda packages in botpkgs.
 
 if [[ "${1:-}" == "--do-commit" ]]; then
 git add $stackage_config

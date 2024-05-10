@@ -65,11 +65,11 @@ rebar3Relx {
     set -ox errexit
     latest=$(list-git-tags | sed -n '/[\d\.]\+/p' | sort -V | tail -1)
     if [[ "$latest" != "${version}" ]]; then
-      nixpkgs="$(git rev-parse --show-toplevel)"
-      nix_path="$nixpkgs/pkgs/development/beam-modules/erlang-ls"
+      botpkgs="$(git rev-parse --show-toplevel)"
+      nix_path="$botpkgs/pkgs/development/beam-modules/erlang-ls"
       update-source-version erlang-ls "$latest" --version-key=version --print-changes --file="$nix_path/default.nix"
       tmpdir=$(mktemp -d)
-      cp -R $(nix-build $nixpkgs --no-out-link -A erlang-ls.src)/* "$tmpdir"
+      cp -R $(nix-build $botpkgs --no-out-link -A erlang-ls.src)/* "$tmpdir"
       DEBUG=1
       (cd "$tmpdir" && HOME=. rebar3 as test nix lock -o "$nix_path/rebar-deps.nix")
     else

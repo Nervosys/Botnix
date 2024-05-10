@@ -8,13 +8,13 @@
 # Generating a list of failing attrs: (this should be improved at a later date)
 #   - Go to the most recent hydra evaluation with all builds completed
 #   - Select the "builds still failing" tab
-#   - Highlight and select all packages, should be prefixed with `nixpkgs.`
+#   - Highlight and select all packages, should be prefixed with `botpkgs.`
 #   - Use regex and editor foo to leave only the attr names
 #   - Use the above example command to then execute the script
 #
 # OTHER NOTES:
 #   - The `denyFileList` and `denyAttrList` will likely need to be updated slightly
-#     to align with the conventions used in nixpkgs at execution time
+#     to align with the conventions used in botpkgs at execution time
 #   - Any attrs which failed for any reason will be written to `failed-marks.txt`.
 #     Those attrs will likely need manual attention as disablement will likely be conditional.
 

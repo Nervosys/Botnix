@@ -62,13 +62,13 @@ buildBazelPackage {
 
   patches = [
     # use system Python, not bazel-fetched binary Python
-    ./0001-nixpkgs-use-system-Python.patch
+    ./0001-botpkgs-use-system-Python.patch
 
     # use system Go, not bazel-fetched binary Go
-    ./0002-nixpkgs-use-system-Go.patch
+    ./0002-botpkgs-use-system-Go.patch
 
     # use system C/C++ tools
-    ./0003-nixpkgs-use-system-C-C-toolchains.patch
+    ./0003-botpkgs-use-system-C-C-toolchains.patch
 
     # bump proxy-wasm-cpp-host until > 1.27.2/1.28.0
     (fetchpatch {

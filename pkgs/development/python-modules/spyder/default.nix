@@ -102,7 +102,7 @@ buildPythonPackage rec {
 
   postPatch = ''
     # Remove dependency on pyqtwebengine
-    # This is still part of the pyqt 5.11 version we have in nixpkgs
+    # This is still part of the pyqt 5.11 version we have in botpkgs
     sed -i /pyqtwebengine/d setup.py
     substituteInPlace setup.py \
       --replace "qdarkstyle>=3.0.2,<3.1.0" "qdarkstyle" \

@@ -60,8 +60,8 @@ in stdenv.mkDerivation rec {
 
       if [ ! "$oldVersion" = "$latestTag" ]; then
         update-source-version ${pname} "$latestTag" --version-key=version --print-changes
-        nixpkgs="$(git rev-parse --show-toplevel)"
-        default_nix="$nixpkgs/pkgs/applications/editors/nano/default.nix"
+        botpkgs="$(git rev-parse --show-toplevel)"
+        default_nix="$botpkgs/pkgs/applications/editors/nano/default.nix"
         nixfmt "$default_nix"
       else
         echo "${pname} is already up-to-date"

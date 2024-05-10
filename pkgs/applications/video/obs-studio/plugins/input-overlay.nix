@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
     maintainers = with maintainers; [ glittershark ];
     license = licenses.gpl2;
     platforms = platforms.linux;
-    # never built on aarch64-linux since first introduction in nixpkgs
+    # never built on aarch64-linux since first introduction in botpkgs
     broken = stdenv.isLinux && stdenv.isAarch64;
   };
 }

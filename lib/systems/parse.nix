@@ -10,7 +10,7 @@
 # closed ones are sub-types representing the whitelist of systems we support in
 # practice.
 #
-# Code in the remainder of nixpkgs shouldn't rely on the closed ones in
+# Code in the remainder of botpkgs shouldn't rely on the closed ones in
 # e.g. exhaustive cases. Its more a sanity check to make sure nobody defines
 # systems that overlap with existing ones and won't notice something amiss.
 #

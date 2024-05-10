@@ -11,7 +11,7 @@ import ./make-test-python.nix ({ pkgs, ... } : {
       imports = [ ../modules/profiles/hardened.nix ];
       environment.memoryAllocator.provider = "graphene-hardened";
       nix.settings.sandbox = false;
-      nixpkgs.overlays = [
+      botpkgs.overlays = [
         (final: super: {
           dhcpcd = super.dhcpcd.override { enablePrivSep = false; };
         })

@@ -6,7 +6,7 @@ set -eu -o pipefail
 TMPDIR=/tmp/pgadmin-update-script
 
 ################################################################
-#         This script will update pgadmin4 in nixpkgs          #
+#         This script will update pgadmin4 in botpkgs          #
 # Due to recent changes upstream, we will need to convert the  #
 #             `yarn.lock` file back to version 1.              #
 #   This isn't trivially done and relies on 3rd party tools    #
@@ -33,10 +33,10 @@ cleanup() {
 trap cleanup EXIT
 
 scriptDir=$(cd "${BASH_SOURCE[0]%/*}" && pwd)
-nixpkgs=$(realpath "$scriptDir"/../../../..)
+botpkgs=$(realpath "$scriptDir"/../../../..)
 
 newest_version="$(curl -s https://www.pgadmin.org/versions.json | jq -r .pgadmin4.version)"
-old_version=$(nix-instantiate --eval -E "(import \"$nixpkgs\" { config = {}; overlays = []; }).pgadmin4.version" | tr -d '"')
+old_version=$(nix-instantiate --eval -E "(import \"$botpkgs\" { config = {}; overlays = []; }).pgadmin4.version" | tr -d '"')
 url="https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${newest_version}/source/pgadmin4-${newest_version}.tar.gz"
 
 if [[ $newest_version == $old_version ]]; then
@@ -99,8 +99,8 @@ YARN_HASH=$(prefetch-yarn-deps yarn.lock)
 YARN_HASH=$(nix hash to-sri --type sha256 "$YARN_HASH")
 printf "Done\n"
 
-printf "Copy files to nixpkgs\n"
-cp yarn.lock "$nixpkgs/pkgs/tools/admin/pgadmin/"
+printf "Copy files to botpkgs\n"
+cp yarn.lock "$botpkgs/pkgs/tools/admin/pgadmin/"
 printf "Done\n"
 popd
 

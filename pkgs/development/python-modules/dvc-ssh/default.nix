@@ -34,7 +34,7 @@ buildPythonPackage rec {
     sshfs
   ];
 
-  # bcrypt is enabled for sshfs in nixpkgs
+  # bcrypt is enabled for sshfs in botpkgs
   postPatch = ''
     substituteInPlace setup.cfg --replace "sshfs[bcrypt]" "sshfs"
   '';

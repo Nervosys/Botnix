@@ -77,7 +77,7 @@ python3Packages.buildPythonApplication rec {
         };
   };
 
-  # See https://nixos.org/nixpkgs/manual/#ssec-gnome-common-issues-double-wrapped
+  # See https://nixos.org/botpkgs/manual/#ssec-gnome-common-issues-double-wrapped
   dontWrapGApps = true;
 
   preFixup = ''

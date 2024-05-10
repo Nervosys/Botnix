@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
   patches = [
     # Ignore the freetype sources bundled as a submodule:
     # /nix/store/…-harfbuzz-7.0.0/lib/libharfbuzz.so.0: undefined reference to `FT_Get_Transform'
-    ./0001-Avoid-using-vendored-dependencies-we-have-in-nixpkgs.patch
+    ./0001-Avoid-using-vendored-dependencies-we-have-in-botpkgs.patch
   ];
 
   nativeBuildInputs = [ cmake pkg-config wrapQtAppsHook autoPatchelfHook ];
@@ -64,7 +64,7 @@ stdenv.mkDerivation rec {
     description = "A real-time pitch and formant tracking software";
     homepage = "https://github.com/in-formant/in-formant";
     license = licenses.asl20;
-    # currently broken on i686-linux and aarch64-linux due to other nixpkgs dependencies
+    # currently broken on i686-linux and aarch64-linux due to other botpkgs dependencies
     platforms = [ "x86_64-linux" ];
     maintainers = with maintainers; [ ckie ];
   };

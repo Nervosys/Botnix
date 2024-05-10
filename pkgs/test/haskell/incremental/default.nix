@@ -1,6 +1,6 @@
 # Demonstration of incremental builds for Haskell. Useful for speeding up CI.
 #
-# See: https://www.haskellforall.com/2022/12/nixpkgs-support-for-incremental-haskell.html
+# See: https://www.haskellforall.com/2022/12/botpkgs-support-for-incremental-haskell.html
 # See: https://felixspringer.xyz/homepage/blog/incrementalHaskellBuildsWithNix
 
 { haskell, haskellPackages, lib }:

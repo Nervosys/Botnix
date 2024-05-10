@@ -82,7 +82,7 @@ buildPythonPackage rec {
   ];
 
   disabledTestPaths = [
-    # avoid attempting to use 3 packages not available on nixpkgs
+    # avoid attempting to use 3 packages not available on botpkgs
     # (jaraco.apt, jaraco.context, yg.lockfile)
     "cheroot/test/test_wsgi.py"
     # requires pyopenssl

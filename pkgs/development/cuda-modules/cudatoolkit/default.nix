@@ -163,7 +163,7 @@ backendStdenv.mkDerivation rec {
     (placeholder "lib")
     (placeholder "out")
     "${placeholder "out"}/nvvm"
-    # NOTE: use the same libstdc++ as the rest of nixpkgs, not from backendStdenv
+    # NOTE: use the same libstdc++ as the rest of botpkgs, not from backendStdenv
     "${lib.getLib stdenv.cc.cc}/lib64"
     "${placeholder "out"}/jre/lib/amd64/jli"
     "${placeholder "out"}/lib64"
@@ -184,7 +184,7 @@ backendStdenv.mkDerivation rec {
     "libcom_err.so.2"
   ] ++ lib.optionals (lib.versionOlder version "10.1") [
     # For Cuda 10.0, nVidia also shipped a jre implementation which needed
-    # two old versions of ffmpeg which are not available in nixpkgs
+    # two old versions of ffmpeg which are not available in botpkgs
     "libavcodec.so.54"
     "libavcodec.so.53"
     "libavformat.so.54"

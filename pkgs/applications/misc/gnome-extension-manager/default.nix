@@ -56,7 +56,7 @@ stdenv.mkDerivation rec {
 
   mesonFlags = [
     (lib.mesonOption "package" "Nix")
-    (lib.mesonOption "distributor" "nixpkgs")
+    (lib.mesonOption "distributor" "botpkgs")
   ];
 
   meta = with lib; {

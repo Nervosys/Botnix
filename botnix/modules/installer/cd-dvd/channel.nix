@@ -7,10 +7,10 @@ let
   # This is copied into the installer image, so it's important that it is filtered
   # to avoid including a large .git directory.
   # We also want the source name to be normalised to "source" to avoid depending on the
-  # location of nixpkgs.
+  # location of botpkgs.
   # In the future we might want to expose the ISO image from the flake and use
   # `self.outPath` directly instead.
-  nixpkgs = lib.cleanSource pkgs.path;
+  botpkgs = lib.cleanSource pkgs.path;
 
   # We need a copy of the Nix expressions for Botpkgs and Botnix on the
   # CD.  These are installed into the "botnix" channel of the root
@@ -20,10 +20,10 @@ let
     { preferLocalBuild = true; }
     ''
       mkdir -p $out
-      cp -prd ${nixpkgs.outPath} $out/botnix
+      cp -prd ${botpkgs.outPath} $out/botnix
       chmod -R u+w $out/botnix
-      if [ ! -e $out/botnix/nixpkgs ]; then
-        ln -s . $out/botnix/nixpkgs
+      if [ ! -e $out/botnix/botpkgs ]; then
+        ln -s . $out/botnix/botpkgs
       fi
       ${lib.optionalString (config.system.botnix.revision != null) ''
         echo -n ${config.system.botnix.revision} > $out/botnix/.git-revision
@@ -36,10 +36,10 @@ in
 {
   options.system.installer.channel.enable = (lib.mkEnableOption "bundling Botnix/Botpkgs channel in the installer") // { default = true; };
   config = lib.mkIf config.system.installer.channel.enable {
-    # Pin the nixpkgs flake in the installer to our cleaned up nixpkgs source.
+    # Pin the botpkgs flake in the installer to our cleaned up botpkgs source.
     # FIXME: this might be surprising and is really only needed for offline installations,
     # see discussion in https://github.com/nervosys/Botnix/pull/204178#issuecomment-1336289021
-    nix.registry.nixpkgs.to = {
+    nix.registry.botpkgs.to = {
       type = "path";
       path = "${channelSources}/botnix";
     };

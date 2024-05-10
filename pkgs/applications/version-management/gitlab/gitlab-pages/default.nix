@@ -4,7 +4,7 @@ buildGoModule rec {
   pname = "gitlab-pages";
   version = "16.8.1";
 
-  # nixpkgs-update: no auto update
+  # botpkgs-update: no auto update
   src = fetchFromGitLab {
     owner = "gitlab-org";
     repo = "gitlab-pages";

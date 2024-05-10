@@ -114,7 +114,7 @@ cat >versions.nix <<EOF
 EOF
 
 set +e
-K3S_VENDOR_HASH=$(nix-prefetch -I nixpkgs=${NIXPKGS_ROOT} "{ sha256 }: (import ${NIXPKGS_ROOT}. {}).k3s_1_${MINOR_VERSION}.goModules.overrideAttrs (_: { vendorHash = sha256; })")
+K3S_VENDOR_HASH=$(nix-prefetch -I botpkgs=${NIXPKGS_ROOT} "{ sha256 }: (import ${NIXPKGS_ROOT}. {}).k3s_1_${MINOR_VERSION}.goModules.overrideAttrs (_: { vendorHash = sha256; })")
 set -e
 
 if [ -n "${K3S_VENDOR_HASH:-}" ]; then
@@ -125,7 +125,7 @@ else
 fi
 
 # Implement commit
-# See https://nixos.org/manual/nixpkgs/stable/#var-passthru-updateScript-commit
+# See https://nixos.org/manual/botpkgs/stable/#var-passthru-updateScript-commit
 OLD_VERSION="$(nix-instantiate --eval -E "with import $NIXPKGS_ROOT. {}; k3s.version or (builtins.parseDrvName k3s.name).version" | tr -d '"')"
 cat <<EOF
 [{

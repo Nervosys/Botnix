@@ -9,10 +9,10 @@
 }:
 
 # Jupyter console:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter-console.withSingleKernel clojupyter.definition'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter-console.withSingleKernel clojupyter.definition'
 
 # Jupyter notebook:
-# nix run --impure --expr 'with import <nixpkgs> {}; jupyter.override { definitions.clojure = clojupyter.definition; }'
+# nix run --impure --expr 'with import <botpkgs> {}; jupyter.override { definitions.clojure = clojupyter.definition; }'
 
 let
   cljdeps = import ./deps.nix { inherit pkgs; };

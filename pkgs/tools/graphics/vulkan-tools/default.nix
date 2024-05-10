@@ -77,7 +77,7 @@ stdenv.mkDerivation rec {
     "-Wno-dev"
   ] ++ lib.optionals stdenv.isDarwin [
     "-DMOLTENVK_REPO_ROOT=${moltenvk}/share/vulkan/icd.d"
-    # Don’t build the cube demo because it requires `ibtool`, which is not available in nixpkgs.
+    # Don’t build the cube demo because it requires `ibtool`, which is not available in botpkgs.
     "-DBUILD_CUBE=OFF"
   ];
 

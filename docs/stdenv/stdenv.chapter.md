@@ -107,7 +107,7 @@ Go to an empty directory, invoke `nix-shell` with the desired package, and from 
 
 ```bash
 cd "$(mktemp -d)"
-nix-shell '<nixpkgs>' -A some_package
+nix-shell '<botpkgs>' -A some_package
 export out=$(pwd)/out
 ```
 
@@ -280,7 +280,7 @@ This can lead to conflicting dependencies that cannot easily be resolved.
 # A propagated dependency
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 let
   bar = stdenv.mkDerivation {
     name = "bar";
@@ -510,7 +510,7 @@ A common pattern is to use the [`nix-update-script`](https://github.com/nervosys
 passthru.updateScript = nix-update-script { };
 ```
 
-For simple packages, this is often enough, and will ensure that the package is updated automatically by [`nixpkgs-update`](https://ryantm.github.io/nixpkgs-update) when a new version is released. The [update bot](https://nix-community.org/update-bot) runs periodically to attempt to automatically update packages, and will run `passthru.updateScript` if set. While not strictly necessary if the project is listed on [Repology](https://repology.org), using `nix-update-script` allows the package to update via many more sources (e.g. GitHub releases).
+For simple packages, this is often enough, and will ensure that the package is updated automatically by [`botpkgs-update`](https://ryantm.github.io/botpkgs-update) when a new version is released. The [update bot](https://nix-community.org/update-bot) runs periodically to attempt to automatically update packages, and will run `passthru.updateScript` if set. While not strictly necessary if the project is listed on [Repology](https://repology.org), using `nix-update-script` allows the package to update via many more sources (e.g. GitHub releases).
 :::
 
 ##### How update scripts are executed? {#var-passthru-updateScript-execution}
@@ -562,7 +562,7 @@ If the returned array contains exactly one object (e.g. `[{}]`), all values are 
     "oldVersion": "0.3.11",
     "newVersion": "0.3.12",
     "files": [
-      "/path/to/nixpkgs/pkgs/development/libraries/volume-key/default.nix"
+      "/path/to/botpkgs/pkgs/development/libraries/volume-key/default.nix"
     ]
   }
 ]
@@ -1230,7 +1230,7 @@ They cannot be overridden without rebuilding the package.
 
 If dependencies should be resolved at runtime, use `--suffix` to append fallback values to `PATH`.
 
-There’s many more kinds of arguments, they are documented in `nixpkgs/pkgs/build-support/setup-hooks/make-wrapper.sh` for the `makeWrapper` implementation and in `nixpkgs/pkgs/build-support/setup-hooks/make-binary-wrapper/make-binary-wrapper.sh` for the `makeBinaryWrapper` implementation.
+There’s many more kinds of arguments, they are documented in `botpkgs/pkgs/build-support/setup-hooks/make-wrapper.sh` for the `makeWrapper` implementation and in `botpkgs/pkgs/build-support/setup-hooks/make-binary-wrapper/make-binary-wrapper.sh` for the `makeBinaryWrapper` implementation.
 
 `wrapProgram` is a convenience function you probably want to use most of the time, implemented by both `makeWrapper` and `makeBinaryWrapper`.
 
@@ -1520,13 +1520,13 @@ If the file `${binutils}/nix-support/post-link-hook` exists, it will be run at t
 These hooks allow a user to inject code into the wrappers.
 As an example, these hooks can be used to extract `extraBefore`, `params` and `extraAfter` which store all the command line arguments passed to the compiler and linker respectively.
 
-## Purity in Botpkgs {#sec-purity-in-nixpkgs}
+## Purity in Botpkgs {#sec-purity-in-botpkgs}
 
 *Measures taken to prevent dependencies on packages outside the store, and what you can do to prevent them.*
 
 GCC doesn’t search in locations such as `/usr/include`. In fact, attempts to add such directories through the `-I` flag are filtered out. Likewise, the linker (from GNU binutils) doesn’t search in standard locations such as `/usr/lib`. Programs built on Linux are linked against a GNU C Library that likewise doesn’t search in the default system locations.
 
-## Hardening in Botpkgs {#sec-hardening-in-nixpkgs}
+## Hardening in Botpkgs {#sec-hardening-in-botpkgs}
 
 There are flags available to harden packages at compile or link-time. These can be toggled using the `stdenv.mkDerivation` parameters `hardeningDisable` and `hardeningEnable`.
 
@@ -1633,7 +1633,7 @@ If the libraries lack `-fPIE`, you will get the error `recompile with -fPIE`.
 
 [^footnote-stdenv-ignored-build-platform]: The build platform is ignored because it is a mere implementation detail of the package satisfying the dependency: As a general programming principle, dependencies are always *specified* as interfaces, not concrete implementation.
 [^footnote-stdenv-native-dependencies-in-path]: Currently, this means for native builds all dependencies are put on the `PATH`. But in the future that may not be the case for sake of matching cross: the platforms would be assumed to be unique for native and cross builds alike, so only the `depsBuild*` and `nativeBuildInputs` would be added to the `PATH`.
-[^footnote-stdenv-propagated-dependencies]: Nix itself already takes a package’s transitive dependencies into account, but this propagation ensures nixpkgs-specific infrastructure like [setup hooks](#ssec-setup-hooks) also are run as if it were a propagated dependency.
+[^footnote-stdenv-propagated-dependencies]: Nix itself already takes a package’s transitive dependencies into account, but this propagation ensures botpkgs-specific infrastructure like [setup hooks](#ssec-setup-hooks) also are run as if it were a propagated dependency.
 [^footnote-stdenv-find-inputs-location]: The `findInputs` function, currently residing in `pkgs/stdenv/generic/setup.sh`, implements the propagation logic.
 [^footnote-stdenv-sys-lib-search-path]: It clears the `sys_lib_*search_path` variables in the Libtool script to prevent Libtool from using libraries in `/usr/lib` and such.
 [^footnote-stdenv-build-time-guessing-impurity]: Eventually these will be passed building natively as well, to improve determinism: build-time guessing, as is done today, is a risk of impurity.

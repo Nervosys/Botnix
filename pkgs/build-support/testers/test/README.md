@@ -1,6 +1,6 @@
 # Tests _for the testers_
 
-    cd nixpkgs
+    cd botpkgs
     nix-build -A tests.testers
 
 Tests generally derive their own correctness from simplicity, which in the

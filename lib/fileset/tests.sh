@@ -5,9 +5,9 @@
 
 # Tests lib.fileset
 # Run:
-# [nixpkgs]$ lib/fileset/tests.sh
+# [botpkgs]$ lib/fileset/tests.sh
 # or:
-# [nixpkgs]$ nix-build lib/tests/release.nix
+# [botpkgs]$ nix-build lib/tests/release.nix
 
 set -euo pipefail
 shopt -s inherit_errexit dotglob
@@ -20,9 +20,9 @@ die() {
 }
 
 if test -n "${TEST_LIB:-}"; then
-  NIX_PATH=nixpkgs="$(dirname "$TEST_LIB")"
+  NIX_PATH=botpkgs="$(dirname "$TEST_LIB")"
 else
-  NIX_PATH=nixpkgs="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.."; pwd)"
+  NIX_PATH=botpkgs="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.."; pwd)"
 fi
 export NIX_PATH
 
@@ -45,8 +45,8 @@ crudeUnquoteJSON() {
 
 prefixExpression='
   let
-    lib = import <nixpkgs/lib>;
-    internal = import <nixpkgs/lib/fileset/internal.nix> {
+    lib = import <botpkgs/lib>;
+    internal = import <botpkgs/lib/fileset/internal.nix> {
       inherit lib;
     };
   in
@@ -351,7 +351,7 @@ expectFailure 'toSource { root = 10; fileset = ./.; }' 'lib.fileset.toSource: `r
 
 # Different filesystem roots in root and fileset are not supported
 mkdir -p {foo,bar}/mock-root
-expectFailure 'with ((import <nixpkgs/lib>).extend (import <nixpkgs/lib/fileset/mock-splitRoot.nix>)).fileset;
+expectFailure 'with ((import <botpkgs/lib>).extend (import <botpkgs/lib/fileset/mock-splitRoot.nix>)).fileset;
   toSource { root = ./foo/mock-root; fileset = ./bar/mock-root; }
 ' 'lib.fileset.toSource: Filesystem roots are not the same for `fileset` and `root` \('"$work"'/foo/mock-root\):
 \s*`root`: Filesystem root is "'"$work"'/foo/mock-root"
@@ -516,14 +516,14 @@ expectEqual '_toSourceFilter (_create /. { foo = null; }) "/foo" ""' 'false'
 
 # Different filesystem roots in root and fileset are not supported
 mkdir -p {foo,bar}/mock-root
-expectFailure 'with ((import <nixpkgs/lib>).extend (import <nixpkgs/lib/fileset/mock-splitRoot.nix>)).fileset;
+expectFailure 'with ((import <botpkgs/lib>).extend (import <botpkgs/lib/fileset/mock-splitRoot.nix>)).fileset;
   toSource { root = ./.; fileset = union ./foo/mock-root ./bar/mock-root; }
 ' 'lib.fileset.union: Filesystem roots are not the same:
 \s*First argument: Filesystem root is "'"$work"'/foo/mock-root"
 \s*Second argument: Filesystem root is "'"$work"'/bar/mock-root"
 \s*Different filesystem roots are not supported.'
 
-expectFailure 'with ((import <nixpkgs/lib>).extend (import <nixpkgs/lib/fileset/mock-splitRoot.nix>)).fileset;
+expectFailure 'with ((import <botpkgs/lib>).extend (import <botpkgs/lib/fileset/mock-splitRoot.nix>)).fileset;
   toSource { root = ./.; fileset = unions [ ./foo/mock-root ./bar/mock-root ]; }
 ' 'lib.fileset.unions: Filesystem roots are not the same:
 \s*Element 0: Filesystem root is "'"$work"'/foo/mock-root"
@@ -629,7 +629,7 @@ checkFileset 'unions (mapAttrsToList (name: _: ./. + "/${name}/a") (builtins.rea
 
 # Different filesystem roots in root and fileset are not supported
 mkdir -p {foo,bar}/mock-root
-expectFailure 'with ((import <nixpkgs/lib>).extend (import <nixpkgs/lib/fileset/mock-splitRoot.nix>)).fileset;
+expectFailure 'with ((import <botpkgs/lib>).extend (import <botpkgs/lib/fileset/mock-splitRoot.nix>)).fileset;
   toSource { root = ./.; fileset = intersection ./foo/mock-root ./bar/mock-root; }
 ' 'lib.fileset.intersection: Filesystem roots are not the same:
 \s*First argument: Filesystem root is "'"$work"'/foo/mock-root"
@@ -1378,7 +1378,7 @@ createGitRepo() {
     git init -q "$1"
     # Only repo-local config
     git -C "$1" config user.name "Botpkgs"
-    git -C "$1" config user.email "nixpkgs@botnix.org"
+    git -C "$1" config user.email "botpkgs@nixos.org"
     # Get at least a HEAD commit, needed for older Nix versions
     git -C "$1" commit -q --allow-empty -m "Empty commit"
 }

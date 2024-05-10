@@ -25,7 +25,7 @@ buildPythonPackage rec {
     versioneer
   ];
 
-  # needs packages which are not available in nixpkgs
+  # needs packages which are not available in botpkgs
   doCheck = false;
 
   pythonImportsCheck = [

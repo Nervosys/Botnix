@@ -2,14 +2,14 @@
 
 {
   # To keep things simple, we'll use an absolute path dependency here.
-  inputs.nixpkgs.url = "@nixpkgs@";
+  inputs.botpkgs.url = "@botpkgs@";
 
-  outputs = { nixpkgs, ... }: {
+  outputs = { botpkgs, ... }: {
 
-    nixosConfigurations.xyz = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.xyz = botpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
-        ( nixpkgs + "/botnix/modules/testing/test-instrumentation.nix" )
+        ( botpkgs + "/botnix/modules/testing/test-instrumentation.nix" )
         {
           # We don't need nix-channel anymore
           nix.channel.enable = false;

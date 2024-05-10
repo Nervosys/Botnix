@@ -11,7 +11,7 @@ import ./make-test-python.nix ({ pkgs, lib, ... }: {
       # XXX: Sandbox setup fails while trying to hardlink files from the host's
       #      store file system into the prepared chroot directory.
       nix.settings.sandbox = false;
-      nix.settings.substituters = []; # don't try to access cache.botnix.org
+      nix.settings.substituters = []; # don't try to access cache.nixos.org
 
       virtualisation.memorySize = 2048;
       virtualisation.writableStore = true;
@@ -20,7 +20,7 @@ import ./make-test-python.nix ({ pkgs, lib, ... }: {
       virtualisation.additionalPaths = let
         emptyContainer = import ../lib/eval-config.nix {
           modules = lib.singleton {
-            nixpkgs = { inherit (config.nixpkgs) localSystem; };
+            botpkgs = { inherit (config.botpkgs) localSystem; };
 
             containers.foo.config = {};
           };

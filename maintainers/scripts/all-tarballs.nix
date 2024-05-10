@@ -3,7 +3,7 @@
 
    Typical usage:
 
-   $ copy-tarballs.pl --expr 'import <nixpkgs/maintainers/scripts/all-tarballs.nix>'
+   $ copy-tarballs.pl --expr 'import <botpkgs/maintainers/scripts/all-tarballs.nix>'
 */
 
 import ../../pkgs/top-level/release.nix

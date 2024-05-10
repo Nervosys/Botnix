@@ -11,7 +11,7 @@ Botpkgs fetchers differ from built-in fetchers such as [`builtins.fetchTarball`]
 - Built-in fetchers do not use [substituters](https://nixos.org/manual/nix/stable/command-ref/conf-file#conf-substituters).
   Derivations produced by Botpkgs fetchers will use any configured binary cache transparently.
 
-This significantly reduces the time needed to evaluate the entirety of Botpkgs, and allows [Hydra](https://nixos.org/hydra) to retain and re-distribute sources used by Botpkgs in the [public binary cache](https://cache.botnix.org).
+This significantly reduces the time needed to evaluate the entirety of Botpkgs, and allows [Hydra](https://nixos.org/hydra) to retain and re-distribute sources used by Botpkgs in the [public binary cache](https://cache.nixos.org).
 For these reasons, built-in fetchers are not allowed in Botpkgs source code.
 
 The following table shows an overview of the differences:

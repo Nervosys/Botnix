@@ -91,7 +91,7 @@ stdenv.mkDerivation rec {
   configureFlags = with lib; [
     # Set the program prefix to the current targetPrefix.
     # This ensures that the prefix always conforms to
-    # nixpkgs' expectations instead of relying on the build
+    # botpkgs' expectations instead of relying on the build
     # system which only receives `config` which is merely a
     # subset of the platform description.
     "--program-prefix=${targetPrefix}"

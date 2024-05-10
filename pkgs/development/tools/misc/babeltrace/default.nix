@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
 
   # The pre-generated ./configure script uses an old autoconf version which
   # breaks cross-compilation (replaces references to malloc with rpl_malloc).
-  # Re-generate with nixpkgs's autoconf. This requires glib to be present in
+  # Re-generate with botpkgs's autoconf. This requires glib to be present in
   # nativeBuildInputs for its m4 macros to be present.
   nativeBuildInputs = [ autoreconfHook glib pkg-config ];
   buildInputs = [ glib libuuid popt elfutils ];

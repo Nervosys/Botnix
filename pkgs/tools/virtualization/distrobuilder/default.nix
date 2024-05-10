@@ -38,7 +38,7 @@ buildGoModule rec {
   buildInputs = bins;
 
 
-  # tests require a local keyserver (mkg20001/nixpkgs branch distrobuilder-with-tests) but gpg is currently broken in tests
+  # tests require a local keyserver (mkg20001/botpkgs branch distrobuilder-with-tests) but gpg is currently broken in tests
   doCheck = false;
 
   nativeBuildInputs = [

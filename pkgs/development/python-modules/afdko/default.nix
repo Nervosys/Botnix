@@ -60,7 +60,7 @@ buildPythonPackage rec {
     # Don't try to install cmake and ninja using pip
     ./no-pypi-build-tools.patch
 
-    # Use antlr4 runtime from nixpkgs and link it dynamically
+    # Use antlr4 runtime from botpkgs and link it dynamically
     ./use-dynamic-system-antlr4-runtime.patch
   ];
 

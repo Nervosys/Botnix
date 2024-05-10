@@ -1,6 +1,6 @@
 let
-  nixpkgs = import ../../..;
-  inherit (nixpkgs {}) pkgs lib;
+  botpkgs = import ../../..;
+  inherit (botpkgs {}) pkgs lib;
   getEvaluating = x:
     builtins.attrNames (
       lib.filterAttrs (
@@ -9,7 +9,7 @@ let
     );
   brokenDeps = lib.subtractLists
     (getEvaluating pkgs.haskellPackages)
-    (getEvaluating (nixpkgs { config.allowBroken = true; }).haskellPackages);
+    (getEvaluating (botpkgs { config.allowBroken = true; }).haskellPackages);
 in
 ''
   ${lib.concatMapStringsSep "\n" (x: " - ${x}") brokenDeps}

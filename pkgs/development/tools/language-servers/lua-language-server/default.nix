@@ -32,7 +32,7 @@ stdenv.mkDerivation (finalAttrs: {
   '' + lib.optionalString stdenv.isDarwin ''
     # This package uses the program clang for C and C++ files. The language
     # is selected via the command line argument -std, but this do not work
-    # in combination with the nixpkgs clang wrapper. Therefor we have to
+    # in combination with the botpkgs clang wrapper. Therefor we have to
     # find all c++ compiler statements and replace $cc (which expands to
     # clang) with clang++.
     sed -i compile/ninja/macos.ninja \

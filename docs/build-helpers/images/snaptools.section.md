@@ -16,7 +16,7 @@ The following expression packages GNU Hello as a Snapcraft snap.
 
 ``` {#ex-snapTools-buildSnap-hello .nix}
 let
-  inherit (import <nixpkgs> { }) snapTools hello;
+  inherit (import <botpkgs> { }) snapTools hello;
 in snapTools.makeSnap {
   meta = {
     name = "hello";
@@ -37,7 +37,7 @@ Graphical programs require many more integrations with the host. This example us
 
 ``` {#ex-snapTools-buildSnap-firefox .nix}
 let
-  inherit (import <nixpkgs> { }) snapTools firefox;
+  inherit (import <botpkgs> { }) snapTools firefox;
 in snapTools.makeSnap {
   meta = {
     name = "nix-example-firefox";

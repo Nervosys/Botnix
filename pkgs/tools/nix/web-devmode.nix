@@ -71,7 +71,7 @@
       ${lib.getBin build_and_copy}/bin/build_and_copy
   '';
 
-  # A Rust alternative to live-server exists, but it was not in nixpkgs.
+  # A Rust alternative to live-server exists, but it was not in botpkgs.
   # `--no-css-inject`: without this it seems that only CSS is auto-reloaded.
   # https://www.npmjs.com/package/live-server
   server = pkgs.writeShellScriptBin "server" ''

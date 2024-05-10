@@ -4,7 +4,7 @@
   # This is a bit unusual, but makes version and hash easily
   # overridable. This is useful when people have an older version of
   # Softmaker Office or when the upstream archive was replaced and
-  # nixpkgs is not in sync yet.
+  # botpkgs is not in sync yet.
 , officeVersion ? {
   version = "1032";
   edition = "2021";

@@ -305,7 +305,7 @@ rec {
      -funroll-loops and -O3 passed to each gcc invocation.
 
      Example:
-       nixpkgs.overlays = [
+       botpkgs.overlays = [
          (self: super: {
            stdenv = super.withCFlags [ "-funroll-loops" "-O3" ] super.stdenv;
          })

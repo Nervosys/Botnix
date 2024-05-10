@@ -1,7 +1,7 @@
 { supportedSystems
 , packageSet ? (import ../..)
 , scrubJobs ? true
-, # Attributes passed to nixpkgs. Don't build packages marked as unfree.
+, # Attributes passed to botpkgs. Don't build packages marked as unfree.
   nixpkgsArgs ? { config = { allowUnfree = false; inHydra = true; }; }
 }:
 

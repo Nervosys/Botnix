@@ -2,7 +2,7 @@
 #!nix-shell -i bash -p git nix jq coreutils gnugrep gnused curl common-updater-scripts
 set -euo pipefail
 
-nixpkgs="$(git rev-parse --show-toplevel || (printf 'Could not find root of nixpkgs repo\nAre we running from within the nixpkgs git repo?\n' >&2; exit 1))"
+botpkgs="$(git rev-parse --show-toplevel || (printf 'Could not find root of botpkgs repo\nAre we running from within the botpkgs git repo?\n' >&2; exit 1))"
 
 stripwhitespace() {
     sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
@@ -13,19 +13,19 @@ narhash() {
 }
 
 nixeval() {
-    nix --extra-experimental-features nix-command eval --json --impure -f "$nixpkgs" "$1" | jq -r .
+    nix --extra-experimental-features nix-command eval --json --impure -f "$botpkgs" "$1" | jq -r .
 }
 
 vendorhash() {
-    (nix --extra-experimental-features nix-command build --no-link -f "$nixpkgs" --no-link "$1" 2>&1 >/dev/null | tail -n3 | grep -F got: | cut -d: -f2- | stripwhitespace) 2>/dev/null || true
+    (nix --extra-experimental-features nix-command build --no-link -f "$botpkgs" --no-link "$1" 2>&1 >/dev/null | tail -n3 | grep -F got: | cut -d: -f2- | stripwhitespace) 2>/dev/null || true
 }
 
 findpath() {
-    path="$(nix --extra-experimental-features nix-command eval --json --impure -f "$nixpkgs" "$1.meta.position" | jq -r . | cut -d: -f1)"
-    outpath="$(nix --extra-experimental-features nix-command eval --json --impure --expr "builtins.fetchGit \"$nixpkgs\"")"
+    path="$(nix --extra-experimental-features nix-command eval --json --impure -f "$botpkgs" "$1.meta.position" | jq -r . | cut -d: -f1)"
+    outpath="$(nix --extra-experimental-features nix-command eval --json --impure --expr "builtins.fetchGit \"$botpkgs\"")"
 
     if [ -n "$outpath" ]; then
-        path="${path/$(echo "$outpath" | jq -r .)/$nixpkgs}"
+        path="${path/$(echo "$outpath" | jq -r .)/$botpkgs}"
     fi
 
     echo "$path"
@@ -40,7 +40,7 @@ version="$(curl -sSL "https://api.github.com/repos/lwthiker/curl-impersonate/rel
 
 pkgpath="$(findpath "$attr")"
 
-updated="$(cd "$nixpkgs" && update-source-version "$attr" "$version" --file="$pkgpath" --print-changes | jq -r length)"
+updated="$(cd "$botpkgs" && update-source-version "$attr" "$version" --file="$pkgpath" --print-changes | jq -r length)"
 
 if [ "$updated" -eq 0 ]; then
     echo 'update.sh: Package version not updated, nothing to do.'

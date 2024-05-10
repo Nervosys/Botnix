@@ -51,7 +51,7 @@
     done
 
     NODE_ENV=production \
-      SOURCE=nixpkgs \
+      SOURCE=botpkgs \
       FFMPEG_PATH=${ffmpeg-full}/bin/ffmpeg \
       FFPROBE_PATH=${ffmpeg-full}/bin/ffprobe \
       TONE_PATH=${tone}/bin/tone \

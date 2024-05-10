@@ -766,8 +766,8 @@ rec {
      `{ type = "derivation"; }` counts as a derivation.
 
      Example:
-       nixpkgs = import <nixpkgs> {}
-       isDerivation nixpkgs.ruby
+       botpkgs = import <botpkgs> {}
+       isDerivation botpkgs.ruby
        => true
        isDerivation "foobar"
        => false
@@ -1153,7 +1153,7 @@ rec {
      apply itself recursively for nested attribute sets.
 
      Example:
-       { pkgs ? import <nixpkgs> {} }:
+       { pkgs ? import <botpkgs> {} }:
        {
          myTools = pkgs.lib.recurseIntoAttrs {
            inherit (pkgs) hello figlet;

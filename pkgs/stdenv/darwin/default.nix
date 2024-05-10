@@ -696,7 +696,7 @@ in
   })
 
   # This stage rebuilds Libsystem. It also rebuilds bash, which will be needed in later stages
-  # to use in patched shebangs (e.g., to make sure `icu-config` uses bash from nixpkgs).
+  # to use in patched shebangs (e.g., to make sure `icu-config` uses bash from botpkgs).
   (prevStage:
     # previous stage-xclang stdenv:
     assert lib.all isBuiltByBootstrapFilesCompiler (with prevStage; [

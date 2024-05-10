@@ -51,9 +51,9 @@ mkDerivation rec {
       $out/share/teamviewer/tv_bin/script/{teamviewer_setup,teamviewerd.sysv,teamviewerd.service,teamviewerd.*.conf,tv-delayed-start.sh}
 
     # Teamviewer packages its own qt library files.
-    # Most of them can be replaced by nixpkgs libraries, but the following need to be used beginning at version 15.35.7
+    # Most of them can be replaced by botpkgs libraries, but the following need to be used beginning at version 15.35.7
     # because teamviewer will not start without them, either stalling at startup or even segfaulting. In the logfiles, some missing qt libraries
-    # can be observed, although they are present from nixpkgs. AutoPatchelfHook will automatically choose the included libraries, if present.
+    # can be observed, although they are present from botpkgs. AutoPatchelfHook will automatically choose the included libraries, if present.
     # See https://github.com/nervosys/Botnix/pull/202024
 
     # delete all library files except "qt" folder
@@ -66,7 +66,7 @@ mkDerivation rec {
     find $out/share/teamviewer/tv_bin/RTlib/qt/qml -depth -maxdepth 1 -mindepth 1 -type d ! \( -name "QtQuick" -o -name "QtQuick.2" \) -execdir rm -rf {} +
 
     # delete all folders except "platforms" from the plugins directory
-    # it contains libqxcb.so from qtbase which seems to be incompatible with our nixpkgs version
+    # it contains libqxcb.so from qtbase which seems to be incompatible with our botpkgs version
     find $out/share/teamviewer/tv_bin/RTlib/qt/plugins -depth -maxdepth 1 -mindepth 1 -type d ! -name "platforms" -execdir rm -rf {} +
 
     ln -s $out/share/teamviewer/tv_bin/script/teamviewer $out/bin

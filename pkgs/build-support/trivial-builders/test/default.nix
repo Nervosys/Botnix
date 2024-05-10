@@ -1,12 +1,12 @@
 /*
   Run all tests with:
 
-      cd nixpkgs
+      cd botpkgs
       nix-build -A tests.trivial-builders
 
   or run a specific test with:
 
-      cd nixpkgs
+      cd botpkgs
       nix-build -A tests.trivial-builders.foo
 
 */

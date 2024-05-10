@@ -58,7 +58,7 @@ runCommand "configured-ghcjs-src" {
   mv Version.hs utils/pkg-cache/ghc/libraries/ghc-boot/dist-install/build/GHC/Version.hs
 
   # The ghcjs has the following hardcoded paths of lib dir in its code. Patching
-  # these to match the path expected by the nixpkgs's generic-builder, etc.
+  # these to match the path expected by the botpkgs's generic-builder, etc.
   sed -i 's/libSubDir = "lib"/libSubDir = "lib\/ghcjs-${version}"/' src-bin/Boot.hs
   sed -i 's@let libDir = takeDirectory haddockPath </> ".." </> "lib"@let libDir = takeDirectory haddockPath </> ".." </> "lib/ghcjs-${version}"@' src-bin/HaddockDriver.hs
 

@@ -154,7 +154,7 @@ if [[ "$isCxx" = 1 ]]; then
         # >    in left-to-right order.
         #
         # NIX_CXX_STDLIB_COMPILE acts as the "standard system directories" that
-        # are otherwise missing from CC in nixpkgs, so should be added last.
+        # are otherwise missing from CC in botpkgs, so should be added last.
         #
         # This means that the C standard library should never be present inside
         # NIX_CFLAGS_COMPILE, because it MUST come after the C++ stdlib. It is

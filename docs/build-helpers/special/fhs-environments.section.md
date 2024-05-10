@@ -30,7 +30,7 @@ Accepted arguments are:
 You can create a simple environment using a `shell.nix` like this:
 
 ```nix
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 
 (pkgs.buildFHSEnv {
   name = "simple-x11-env";

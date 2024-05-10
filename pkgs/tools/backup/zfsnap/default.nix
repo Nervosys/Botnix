@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ installShellFiles ];
 
   postPatch = ''
-    # Use zfs binaries from PATH, because often the zfs package from nixpkgs is
+    # Use zfs binaries from PATH, because often the zfs package from botpkgs is
     # not the one that should be used
     substituteInPlace share/zfsnap/core.sh \
       --replace "ZFS_CMD='/sbin/zfs'" "ZFS_CMD='zfs'" \

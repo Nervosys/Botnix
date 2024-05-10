@@ -92,7 +92,7 @@ in
   packagesWith = erlang:
     callPackage ../development/beam-modules { inherit erlang; };
 
-  # Each field in this tuple represents all Beam packages in nixpkgs built with
+  # Each field in this tuple represents all Beam packages in botpkgs built with
   # appropriate Erlang/OTP version.
   packages = {
     erlang = self.packages.${self.latestVersion};

@@ -5,7 +5,7 @@ buildDunePackage {
   inherit (trace) src version;
 
   # This removes the dependency on the “atomic” package
-  # (not available in nixpkgs)
+  # (not available in botpkgs)
   # Said package for OCaml ≥ 4.12 is empty
   postPatch = ''
     substituteInPlace src/tef/dune --replace 'atomic ' ""

@@ -19,7 +19,7 @@ buildGoModule rec {
     "-X github.com/prometheus/common/version.Version=${version}"
     "-X github.com/prometheus/common/version.Revision=${version}"
     "-X github.com/prometheus/common/version.Branch=${version}"
-    "-X github.com/prometheus/common/version.BuildUser=nix@nixpkgs"
+    "-X github.com/prometheus/common/version.BuildUser=nix@botpkgs"
     "-X github.com/prometheus/common/version.BuildDate=19700101-00:00:00"
   ];
 

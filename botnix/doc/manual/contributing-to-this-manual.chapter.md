@@ -1,19 +1,19 @@
 # Contributing to this manual {#chap-contributing}
 
 The sources of the Botnix manual are in the [nixos/doc/manual](https://github.com/nervosys/Botnix/tree/master/nixos/doc/manual) subdirectory of the [Botpkgs](https://github.com/nervosys/Botnix) repository.
-This manual uses the [Botpkgs manual syntax](https://nixos.org/manual/nixpkgs/unstable/#sec-contributing-markup).
+This manual uses the [Botpkgs manual syntax](https://nixos.org/manual/botpkgs/unstable/#sec-contributing-markup).
 
 You can quickly check your edits with the following:
 
 ```ShellSession
-$ cd /path/to/nixpkgs
+$ cd /path/to/botpkgs
 $ $EDITOR doc/nixos/manual/... # edit the manual
 $ nix-build nixos/release.nix -A manual.x86_64-linux
 ```
 
 If the build succeeds, the manual will be in `./result/share/doc/nixos/index.html`.
 
-There's also [a convenient development daemon](https://nixos.org/manual/nixpkgs/unstable/#sec-contributing-devmode).
+There's also [a convenient development daemon](https://nixos.org/manual/botpkgs/unstable/#sec-contributing-devmode).
 
 The above instructions don't deal with the appendix of available `configuration.nix` options, and the manual pages related to Botnix. These are built, and written in a different location and in a different format, as explained in the next sections.
 
@@ -32,7 +32,7 @@ And you'll see the changes to the appendix in the path `result/share/doc/nixos/o
 You can also build only the `configuration.nix(5)` manual page, via:
 
 ```ShellSession
-$ cd /path/to/nixpkgs
+$ cd /path/to/botpkgs
 $ nix-build nixos/release.nix -A nixos-configuration-reference-manpage.x86_64-linux
 ```
 

@@ -70,7 +70,7 @@ async def main(urls_path: Path) -> Mapping[HTTPStatus, int]:
 def parse_args(args: Optional[Sequence[str]] = None) -> Namespace:
     parser = ArgumentParser(
         prog = 'check-manpage-urls',
-        description = 'Check the validity of the manpage URLs linked in the nixpkgs manual',
+        description = 'Check the validity of the manpage URLs linked in the botpkgs manual',
     )
     parser.add_argument(
         '-l', '--log-level',
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     urls_path = args.file
     if urls_path is None:
         REPO_ROOT = Path(__file__).parent.parent.parent.parent
-        logger.info(f"Assuming we are in a nixpkgs repo rooted at {REPO_ROOT}")
+        logger.info(f"Assuming we are in a botpkgs repo rooted at {REPO_ROOT}")
 
         urls_path = REPO_ROOT / 'doc' / 'manpage-urls.json'
 

@@ -66,7 +66,7 @@ mkDerivation rec {
     "-DALLOW_BUNDLED_LIB3DS=OFF"
     "-DALLOW_BUNDLED_MUPARSER=OFF"
     "-DALLOW_BUNDLED_QHULL=OFF"
-    # disable when available in nixpkgs
+    # disable when available in botpkgs
     "-DALLOW_BUNDLED_OPENCTM=ON"
     "-DALLOW_BUNDLED_SSYNTH=ON"
     "-DALLOW_BUNDLED_BOOST=OFF"

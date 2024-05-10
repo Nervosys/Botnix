@@ -2,7 +2,7 @@
 
 ## Running Perl programs on the shell {#ssec-perl-running}
 
-When executing a Perl script, it is possible you get an error such as `./myscript.pl: bad interpreter: /usr/bin/perl: no such file or directory`. This happens when the script expects Perl to be installed at `/usr/bin/perl`, which is not the case when using Perl from nixpkgs. You can fix the script by changing the first line to:
+When executing a Perl script, it is possible you get an error such as `./myscript.pl: bad interpreter: /usr/bin/perl: no such file or directory`. This happens when the script expects Perl to be installed at `/usr/bin/perl`, which is not the case when using Perl from botpkgs. You can fix the script by changing the first line to:
 
 ```perl
 #!/usr/bin/env perl
@@ -132,10 +132,10 @@ This will remove the `-I` flags from the shebang line, rewrite them in the `use 
 Nix expressions for Perl packages can be generated (almost) automatically from CPAN. This is done by the program `nix-generate-from-cpan`, which can be installed as follows:
 
 ```ShellSession
-$ nix-env -f "<nixpkgs>" -iA nix-generate-from-cpan
+$ nix-env -f "<botpkgs>" -iA nix-generate-from-cpan
 ```
 
-Substitute `<nixpkgs>` by the path of a nixpkgs clone to use the latest version.
+Substitute `<botpkgs>` by the path of a botpkgs clone to use the latest version.
 
 This program takes a Perl module name, looks it up on CPAN, fetches and unpacks the corresponding package, and prints a Nix expression on standard output. For example:
 

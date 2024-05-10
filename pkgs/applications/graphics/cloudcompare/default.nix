@@ -69,10 +69,10 @@ mkDerivation rec {
     "-DPLUGIN_IO_QCORE=ON"
     "-DPLUGIN_IO_QCSV_MATRIX=ON"
     "-DPLUGIN_IO_QE57=ON"
-    "-DPLUGIN_IO_QFBX=OFF" # Autodesk FBX SDK is gratis+proprietary; not packaged in nixpkgs
+    "-DPLUGIN_IO_QFBX=OFF" # Autodesk FBX SDK is gratis+proprietary; not packaged in botpkgs
     "-DPLUGIN_IO_QPDAL=ON" # required for .las/.laz support
     "-DPLUGIN_IO_QPHOTOSCAN=ON"
-    "-DPLUGIN_IO_QRDB=OFF" # Riegl rdblib is proprietary; not packaged in nixpkgs
+    "-DPLUGIN_IO_QRDB=OFF" # Riegl rdblib is proprietary; not packaged in botpkgs
 
     "-DCCCORELIB_USE_CGAL=ON" # enables Delauney triangulation support
     "-DPLUGIN_STANDARD_QPCL=ON" # Adds PCD import and export support

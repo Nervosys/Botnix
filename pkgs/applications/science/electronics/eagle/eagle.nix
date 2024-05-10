@@ -53,7 +53,7 @@ let
       mkdir -p "$out"/bin
       ln -s "$out"/eagle-${version}/eagle "$out"/bin/eagle
 
-      # Remove bundled libraries that are available in nixpkgs
+      # Remove bundled libraries that are available in botpkgs
       # TODO: There still may be unused bundled libraries
       rm "$out"/eagle-${version}/lib/libQt5*.so.5
       rm "$out"/eagle-${version}/lib/{libxcb-*.so.*,libX*.so.*,libxshmfence.so.1}

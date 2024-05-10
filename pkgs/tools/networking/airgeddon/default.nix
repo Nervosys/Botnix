@@ -24,7 +24,7 @@
 , util-linux
 , ccze
   # Optionals
-  # Missing in nixpkgs: beef, hostapd-wpe
+  # Missing in botpkgs: beef, hostapd-wpe
 , asleap
 , bettercap
 , bully

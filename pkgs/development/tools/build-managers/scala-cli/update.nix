@@ -11,8 +11,8 @@ writeShellScript "${pname}-update-script" ''
       exit 0
   fi
 
-  nixpkgs=$(git rev-parse --show-toplevel)
-  sources_json="$nixpkgs/pkgs/development/tools/build-managers/scala-cli/sources.json"
+  botpkgs=$(git rev-parse --show-toplevel)
+  sources_json="$botpkgs/pkgs/development/tools/build-managers/scala-cli/sources.json"
 
   platform_assets=()
 

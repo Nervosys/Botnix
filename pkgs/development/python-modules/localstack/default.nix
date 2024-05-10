@@ -62,7 +62,7 @@ buildPythonPackage rec {
 
   pythonImportsCheck = [ "localstack" ];
 
-  # Test suite requires boto, which has been removed from nixpkgs
+  # Test suite requires boto, which has been removed from botpkgs
   # Just do minimal test, buildPythonPackage maps checkPhase
   # to installCheckPhase, so we can test that entrypoint point works.
   checkPhase = ''

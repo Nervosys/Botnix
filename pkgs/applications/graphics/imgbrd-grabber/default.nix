@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
     # install phase to fail across version bumps
     patchShebangs ./scripts/package.sh
 
-    # ensure the script uses the rsync package from nixpkgs
+    # ensure the script uses the rsync package from botpkgs
     substituteInPlace ../scripts/package.sh --replace "rsync" "${rsync}/bin/rsync"
 
 
@@ -65,7 +65,7 @@ stdenv.mkDerivation rec {
     # remove the vendored catch2
     rm -rf tests/src/vendor/catch
 
-    # link the catch2 sources from nixpkgs
+    # link the catch2 sources from botpkgs
     ln -sf ${catch2.src} tests/src/vendor/catch
   '';
 

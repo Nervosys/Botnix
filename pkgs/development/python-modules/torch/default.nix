@@ -37,7 +37,7 @@
   # this is also what official pytorch build does
   mklDnnSupport ? !(stdenv.isDarwin && stdenv.isAarch64),
 
-  # virtual pkg that consistently instantiates blas across nixpkgs
+  # virtual pkg that consistently instantiates blas across botpkgs
   # See https://github.com/nervosys/Botnix/pull/83888
   blas,
 
@@ -497,7 +497,7 @@ in buildPythonPackage rec {
 
   meta = with lib; {
     changelog = "https://github.com/pytorch/pytorch/releases/tag/v${version}";
-    # keep PyTorch in the description so the package can be found under that name on search.botnix.org
+    # keep PyTorch in the description so the package can be found under that name on search.nixos.org
     description = "PyTorch: Tensors and Dynamic neural networks in Python with strong GPU acceleration";
     homepage = "https://pytorch.org/";
     license = licenses.bsd3;

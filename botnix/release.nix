@@ -1,6 +1,6 @@
 with import ../lib;
 
-{ nixpkgs ? { outPath = cleanSource ./..; revCount = 130979; shortRev = "gfedcba"; }
+{ botpkgs ? { outPath = cleanSource ./..; revCount = 130979; shortRev = "gfedcba"; }
 , stableBranch ? false
 , supportedSystems ? [ "x86_64-linux" "aarch64-linux" ]
 , configuration ? {}
@@ -12,7 +12,7 @@ let
 
   version = fileContents ../.version;
   versionSuffix =
-    (if stableBranch then "." else "pre") + "${toString nixpkgs.revCount}.${nixpkgs.shortRev}";
+    (if stableBranch then "." else "pre") + "${toString botpkgs.revCount}.${botpkgs.shortRev}";
 
   # Run the tests for each platform.  You can run a test by doing
   # e.g. ‘nix-build release.nix -A tests.login.x86_64-linux’,
@@ -46,7 +46,7 @@ let
 
   versionModule = { config, ... }: {
     system.botnix.versionSuffix = versionSuffix;
-    system.botnix.revision = nixpkgs.rev or nixpkgs.shortRev;
+    system.botnix.revision = botpkgs.rev or botpkgs.shortRev;
 
     # At creation time we do not have state yet, so just default to latest.
     system.stateVersion = config.system.botnix.version;
@@ -141,7 +141,7 @@ let
 
 in rec {
 
-  channel = import lib/make-channel.nix { inherit pkgs nixpkgs version versionSuffix; };
+  channel = import lib/make-channel.nix { inherit pkgs botpkgs version versionSuffix; };
 
   manualHTML = buildFromConfig ({ ... }: { }) (config: config.system.build.manual.manualHTML);
   manual = manualHTML; # TODO(@oxij): remove eventually

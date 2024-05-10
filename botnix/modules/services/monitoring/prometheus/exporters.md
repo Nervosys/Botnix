@@ -55,12 +55,12 @@ Prometheus can now be configured to consume the metrics produced by the exporter
 ## Adding a new exporter {#module-services-prometheus-exporters-new-exporter}
 
 To add a new exporter, it has to be packaged first (see
-`nixpkgs/pkgs/servers/monitoring/prometheus/` for
+`botpkgs/pkgs/servers/monitoring/prometheus/` for
 examples), then a module can be added. The postfix exporter is used in this
 example:
 
   - Some default options for all exporters are provided by
-    `nixpkgs/botnix/modules/services/monitoring/prometheus/exporters.nix`:
+    `botpkgs/botnix/modules/services/monitoring/prometheus/exporters.nix`:
 
       - `enable`
       - `port`
@@ -76,7 +76,7 @@ example:
     directory, which will be called postfix.nix and contains all exporter
     specific options and configuration:
     ```
-    # nixpkgs/botnix/modules/services/prometheus/exporters/postfix.nix
+    # botpkgs/botnix/modules/services/prometheus/exporters/postfix.nix
     { config, lib, pkgs, options }:
 
     with lib;
@@ -141,13 +141,13 @@ example:
     could now add assertions and conditional default values. This can be done
     in the 'meta-module' that combines all exporter definitions and generates
     the submodules:
-    `nixpkgs/botnix/modules/services/prometheus/exporters.nix`
+    `botpkgs/botnix/modules/services/prometheus/exporters.nix`
 
 ## Updating an exporter module {#module-services-prometheus-exporters-update-exporter-module}
 
 Should an exporter option change at some point, it is possible to add
 information about the change to the exporter definition similar to
-`nixpkgs/botnix/modules/rename.nix`:
+`botpkgs/botnix/modules/rename.nix`:
 ```
 { config, lib, pkgs, options }:
 

@@ -48,7 +48,7 @@ stdenv.mkDerivation rec {
     license = with licenses; [ mit ];
     maintainers = with maintainers; [ shamilton ];
     platforms = platforms.unix;
-    # never built on aarch64-darwin, x86_64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin, x86_64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin;
     mainProgram = "xedit";
   };

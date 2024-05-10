@@ -71,7 +71,7 @@ let
     );
 
   # Some of these contain explicit references to platform(s) we want to avoid;
-  # some even (transitively) depend on ~/.nixpkgs/config.nix (!)
+  # some even (transitively) depend on ~/.botpkgs/config.nix (!)
   blacklist = [
     "tarball"
     "metrics"

@@ -10,7 +10,7 @@
 , stdenv
 }:
 
-# TODO: bzr support is missing because nixpkgs switched to `breezy`
+# TODO: bzr support is missing because botpkgs switched to `breezy`
 
 buildPythonPackage rec {
   version  = "2.8.3";

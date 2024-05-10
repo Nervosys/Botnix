@@ -99,7 +99,7 @@ stdenv.mkDerivation rec {
     substituteInPlace src/common/cockpitconf.c \
       --replace 'const char *cockpit_config_dirs[] = { PACKAGE_SYSCONF_DIR' 'const char *cockpit_config_dirs[] = { "/etc"'
 
-    # instruct users with problems to create a nixpkgs issue instead of nagging upstream directly
+    # instruct users with problems to create a botpkgs issue instead of nagging upstream directly
     substituteInPlace configure.ac \
       --replace 'devel@lists.cockpit-project.org' 'https://github.com/nervosys/Botnix/issues/new?assignees=&labels=0.kind%3A+bug&template=bug_report.md&title=cockpit%25'
 

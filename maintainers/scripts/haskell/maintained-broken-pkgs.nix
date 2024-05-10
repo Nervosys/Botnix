@@ -1,6 +1,6 @@
 let
-  nixpkgs = import ../../..;
-  inherit (nixpkgs {}) haskellPackages lib;
+  botpkgs = import ../../..;
+  inherit (botpkgs {}) haskellPackages lib;
   maintainedPkgs = lib.filterAttrs (
     _: v: builtins.length (v.meta.maintainers or []) > 0
   ) haskellPackages;

@@ -110,8 +110,8 @@ in {
     # Move the mouse out of the way
     client.succeed("${pkgs.xdotool}/bin/xdotool mousemove 0 0")
 
-    with subtest("fails to connect when nixpkgs isn't available"):
-      server.fail("nix-build '<nixpkgs>' -A hello")
+    with subtest("fails to connect when botpkgs isn't available"):
+      server.fail("nix-build '<botpkgs>' -A hello")
       connect_with_remote_ssh(screenshot="no_node_installed", should_succeed=False)
       server.succeed("test -e ~/.vscode-server/bin/${rev}/node")
       server.fail("~/.vscode-server/bin/${rev}/node -v")

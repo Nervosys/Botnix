@@ -86,7 +86,7 @@ Additional attributes can be used with `linuxManualConfig` for further customisa
 To edit the `.config` file for Linux X.Y from within Nix, proceed as follows:
 
 ```ShellSession
-$ nix-shell '<nixpkgs>' -A linuxKernel.kernels.linux_X_Y.configEnv
+$ nix-shell '<botpkgs>' -A linuxKernel.kernels.linux_X_Y.configEnv
 $ unpackPhase
 $ cd linux-*
 $ make nconfig
@@ -102,8 +102,8 @@ See the snippet below as an example.
 # Edit-compile-run loop when developing `mellanox` drivers
 
 ```ShellSession
-$ nix-build '<nixpkgs>' -A linuxPackages.kernel.dev
-$ nix-shell '<nixpkgs>' -A linuxPackages.kernel
+$ nix-build '<botpkgs>' -A linuxPackages.kernel.dev
+$ nix-shell '<botpkgs>' -A linuxPackages.kernel
 $ unpackPhase
 $ cd linux-*
 $ make -C $dev/lib/modules/*/build M=$(pwd)/drivers/net/ethernet/mellanox modules

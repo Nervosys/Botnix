@@ -94,7 +94,7 @@ stdenv.mkDerivation rec {
   #
   # See also 'methods.py' in the Godot repo and 'build' in
   # https://docs.godotengine.org/en/stable/classes/class_engine.html#class-engine-method-get-version-info
-  BUILD_NAME = "nixpkgs";
+  BUILD_NAME = "botpkgs";
 
   # Required for the commit hash to be included in the version number.
   #

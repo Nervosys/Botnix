@@ -50,7 +50,7 @@ let
     });
   };
 
-  # replaces esbuild's download script with a binary from nixpkgs
+  # replaces esbuild's download script with a binary from botpkgs
   patchEsbuild = path: version: ''
     mkdir -p ${path}/node_modules/esbuild/bin
     jq "del(.scripts.postinstall)" ${path}/node_modules/esbuild/package.json | sponge ${path}/node_modules/esbuild/package.json
@@ -143,7 +143,7 @@ stdenv.mkDerivation (finalAttrs: {
     yarn --offline config set yarn-offline-mirror "${finalAttrs.yarnCache}"
 
     # set nodedir to prevent node-gyp from downloading headers
-    # taken from https://nixos.org/manual/nixpkgs/stable/#javascript-tool-specific
+    # taken from https://nixos.org/manual/botpkgs/stable/#javascript-tool-specific
     mkdir -p $HOME/.node-gyp/${nodejs.version}
     echo 9 > $HOME/.node-gyp/${nodejs.version}/installVersion
     ln -sfv ${nodejs}/include $HOME/.node-gyp/${nodejs.version}

@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "Uses nixpkgs fetchers to figure out hashes";
+    description = "Uses botpkgs fetchers to figure out hashes";
     homepage = "https://github.com/samueldr/nix-universal-prefetch";
     license = licenses.mit;
     maintainers = with maintainers; [ samueldr ];

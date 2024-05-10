@@ -21,7 +21,7 @@ buildPythonPackage rec {
   patches = [
     # Invoke ots-sanitize from the opentype-sanitizer package instead of
     # downloading precompiled binaries from the internet.
-    # (nixpkgs-specific, not upstreamable)
+    # (botpkgs-specific, not upstreamable)
     (substituteAll {
       src = ./0001-use-packaged-ots.patch;
       ots_sanitize = "${opentype-sanitizer}/bin/ots-sanitize";

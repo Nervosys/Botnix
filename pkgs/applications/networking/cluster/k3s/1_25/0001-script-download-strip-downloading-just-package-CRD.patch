@@ -31,7 +31,7 @@ index 5effc0562a..82361803ee 100755
    echo "Downloading Traefik Helm chart from ${TRAEFIK_URL}"
 -  curl -sfL ${TRAEFIK_URL} -o ${TMP_DIR}/${TRAEFIK_FILE}
 -  code=$?
-+  # nixpkgs: copy in our known traefik chart instead
++  # botpkgs: copy in our known traefik chart instead
 +  cp $TRAEFIK_CHART_FILE ${TMP_DIR}/${TRAEFIK_FILE}
  
    if [ $code -ne 0 ]; then

@@ -482,15 +482,15 @@ in
               '';
               type = lib.mkOptionType {
                 name = "Toplevel Botnix config";
-                merge = loc: defs: (import "${toString config.nixpkgs}/botnix/lib/eval-config.nix" {
+                merge = loc: defs: (import "${toString config.botpkgs}/botnix/lib/eval-config.nix" {
                   modules =
                     let
                       extraConfig = { options, ... }: {
                         _file = "module at ${__curPos.file}:${toString __curPos.line}";
                         config = {
-                          nixpkgs = if options.nixpkgs?hostPlatform && host.options.nixpkgs.hostPlatform.isDefined
-                                    then { inherit (host.config.nixpkgs) hostPlatform; }
-                                    else { inherit (host.config.nixpkgs) localSystem; }
+                          botpkgs = if options.botpkgs?hostPlatform && host.options.botpkgs.hostPlatform.isDefined
+                                    then { inherit (host.config.botpkgs) hostPlatform; }
+                                    else { inherit (host.config.botpkgs) localSystem; }
                           ;
                           boot.isContainer = true;
                           networking.hostName = mkDefault name;
@@ -545,17 +545,17 @@ in
               '';
             };
 
-            nixpkgs = mkOption {
+            botpkgs = mkOption {
               type = types.path;
               default = pkgs.path;
               defaultText = literalExpression "pkgs.path";
               description = lib.mdDoc ''
-                A path to the nixpkgs that provide the modules, pkgs and lib for evaluating the container.
+                A path to the botpkgs that provide the modules, pkgs and lib for evaluating the container.
 
                 To only change the `pkgs` argument used inside the container modules,
-                set the `nixpkgs.*` options in the container {option}`config`.
-                Setting `config.nixpkgs.pkgs = pkgs` speeds up the container evaluation
-                by reusing the system pkgs, but the `nixpkgs.config` option in the
+                set the `botpkgs.*` options in the container {option}`config`.
+                Setting `config.botpkgs.pkgs = pkgs` speeds up the container evaluation
+                by reusing the system pkgs, but the `botpkgs.config` option in the
                 container config is ignored in this case.
               '';
             };
@@ -728,11 +728,11 @@ in
               The option definition `${optionPath}' in ${files} no longer has any effect; please remove it.
 
               Alternatively, you can use the following options:
-              - containers.${name}.nixpkgs
-                This sets the nixpkgs (and thereby the modules, pkgs and lib) that
+              - containers.${name}.botpkgs
+                This sets the botpkgs (and thereby the modules, pkgs and lib) that
                 are used for evaluating the container.
 
-              - containers.${name}.config.nixpkgs.pkgs
+              - containers.${name}.config.botpkgs.pkgs
                 This only sets the `pkgs` argument used inside the container modules.
             ''
             else null;

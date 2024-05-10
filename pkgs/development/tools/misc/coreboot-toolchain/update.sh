@@ -4,7 +4,7 @@
 # shellcheck shell=bash
 
 if [ ! -d .git ]; then
-    echo "This script needs to be run from the root directory of nixpkgs. Exiting."
+    echo "This script needs to be run from the root directory of botpkgs. Exiting."
     exit 1
 fi
 

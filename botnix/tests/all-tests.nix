@@ -65,11 +65,11 @@ let
     runTestOn
     ;
 
-  # Using a single instance of nixpkgs makes test evaluation faster.
+  # Using a single instance of botpkgs makes test evaluation faster.
   # To make sure we don't accidentally depend on a modified pkgs, we make the
   # related options read-only. We need to test the right configuration.
   #
-  # If your service depends on a nixpkgs setting, first try to avoid that, but
+  # If your service depends on a botpkgs setting, first try to avoid that, but
   # otherwise, you can remove the readOnlyPkgs import and test your service as
   # usual.
   readOnlyPkgs =
@@ -614,7 +614,7 @@ in {
   botnix-rebuild-install-bootloader = handleTestOn ["x86_64-linux"] ./botnix-rebuild-install-bootloader.nix {};
   botnix-rebuild-specialisations = handleTestOn ["x86_64-linux"] ./botnix-rebuild-specialisations.nix {};
   botnix-rebuild-target-host = handleTest ./botnix-rebuild-target-host.nix {};
-  nixpkgs = pkgs.callPackage ../modules/misc/nixpkgs/test.nix { inherit evalMinimalConfig; };
+  botpkgs = pkgs.callPackage ../modules/misc/botpkgs/test.nix { inherit evalMinimalConfig; };
   nixseparatedebuginfod = handleTest ./nixseparatedebuginfod.nix {};
   node-red = handleTest ./node-red.nix {};
   nomad = handleTest ./nomad.nix {};

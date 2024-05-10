@@ -80,7 +80,7 @@ python3.pkgs.buildPythonApplication rec {
     # Requires Apple Clang
     "test_detect_default_compilers"
     "test_detect_default_in_mac_os_using_gcc_as_default"
-    # Incompatible with darwin.xattr and xcbuild from nixpkgs
+    # Incompatible with darwin.xattr and xcbuild from botpkgs
     "test_dot_files"
     "test_xcrun"
     "test_xcrun_in_required_by_tool_requires"

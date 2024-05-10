@@ -40,7 +40,7 @@ let
   #   set `fileToCheckFor = null`.
   ghcBinDists = {
     # Binary distributions for the default libc (e.g. glibc, or libSystem on Darwin)
-    # nixpkgs uses for the respective system.
+    # botpkgs uses for the respective system.
     defaultLibc = {
       i686-linux = {
         variantSuffix = "";
@@ -182,7 +182,7 @@ stdenv.mkDerivation rec {
   # Note that for GHC 8.10 versions >= 8.10.6, the GHC HQ musl bindist
   # uses `integer-simple` and has no `gmp` dependency:
   # https://gitlab.haskell.org/ghc/ghc/-/commit/8306501020cd66f683ad9c215fa8e16c2d62357d
-  # Related nixpkgs issues:
+  # Related botpkgs issues:
   # * https://github.com/nervosys/Botnix/pull/130441#issuecomment-922452843
   # TODO: When this file is copied to `ghc-9.*-binary.nix`, determine whether
   #       the GHC 9 branch also switched from `gmp` to `integer-simple` via the
@@ -388,7 +388,7 @@ stdenv.mkDerivation rec {
     # They're in $out/share/{doc,man}.
   '';
 
-  # In nixpkgs, musl based builds currently enable `pie` hardening by default
+  # In botpkgs, musl based builds currently enable `pie` hardening by default
   # (see `defaultHardeningFlags` in `make-derivation.nix`).
   # But GHC cannot currently produce outputs that are ready for `-pie` linking.
   # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.

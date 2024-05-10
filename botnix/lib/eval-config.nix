@@ -48,16 +48,16 @@ let
     key = _file;
     config = lib.mkMerge (
       (optional (system != null) {
-        # Explicit `nixpkgs.system` or `nixpkgs.localSystem` should override
+        # Explicit `botpkgs.system` or `botpkgs.localSystem` should override
         # this.  Since the latter defaults to the former, the former should
         # default to the argument. That way this new default could propagate all
         # they way through, but has the last priority behind everything else.
-        nixpkgs.system = lib.mkDefault system;
+        botpkgs.system = lib.mkDefault system;
       })
       ++
       (optional (pkgs != null) {
         # This should be default priority, so it conflicts with any user-defined pkgs.
-        nixpkgs.pkgs = pkgs;
+        botpkgs.pkgs = pkgs;
       })
     );
   };

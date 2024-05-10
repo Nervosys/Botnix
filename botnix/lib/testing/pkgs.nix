@@ -5,7 +5,7 @@
     _module.args.pkgs = hostPkgs;
 
     defaults = {
-      # TODO: a module to set a shared pkgs, if options.nixpkgs.* is untouched by user (highestPrio) */
+      # TODO: a module to set a shared pkgs, if options.botpkgs.* is untouched by user (highestPrio) */
     };
   };
 }

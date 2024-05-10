@@ -3,7 +3,7 @@
 
   # This is a bit unusual, but makes version and hash easily
   # overridable. This is useful when the upstream archive was replaced
-  # and nixpkgs is not in sync yet.
+  # and botpkgs is not in sync yet.
 , officeVersion ? {
   version = "1054";
   edition = "2021";

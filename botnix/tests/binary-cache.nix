@@ -16,7 +16,7 @@ import ./make-test-python.nix ({ lib, pkgs, ... }:
 
   testScript = ''
     # Build the cache, then remove it from the store
-    cachePath = machine.succeed("nix-build --no-out-link -E 'with import <nixpkgs> {}; mkBinaryCache { rootPaths = [hello]; }'").strip()
+    cachePath = machine.succeed("nix-build --no-out-link -E 'with import <botpkgs> {}; mkBinaryCache { rootPaths = [hello]; }'").strip()
     machine.succeed("cp -r %s/. /tmp/cache" % cachePath)
     machine.succeed("nix-store --delete " + cachePath)
 
@@ -45,7 +45,7 @@ import ./make-test-python.nix ({ lib, pkgs, ... }:
     machine.succeed("[ ! -d %s ] || exit 1" % storePath)
 
     # Should be able to build hello using the cache
-    logs = machine.succeed("nix-build -A hello '<nixpkgs>' --option require-sigs false --option trusted-substituters file:///tmp/cache --option substituters file:///tmp/cache 2>&1")
+    logs = machine.succeed("nix-build -A hello '<botpkgs>' --option require-sigs false --option trusted-substituters file:///tmp/cache --option substituters file:///tmp/cache 2>&1")
     logLines = logs.split("\n")
     if not "this path will be fetched" in logLines[0]: raise Exception("Unexpected first log line")
     def shouldBe(got, desired):

@@ -4,9 +4,9 @@
 # It generates random path-like strings and runs the functions on
 # them, checking that the expected laws of the functions hold
 # Run:
-# [nixpkgs]$ lib/path/tests/prop.sh
+# [botpkgs]$ lib/path/tests/prop.sh
 # or:
-# [nixpkgs]$ nix-build lib/tests/release.nix
+# [botpkgs]$ nix-build lib/tests/release.nix
 
 set -euo pipefail
 shopt -s inherit_errexit

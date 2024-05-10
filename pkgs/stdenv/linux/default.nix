@@ -5,7 +5,7 @@
 # ensuring purity of components produced by it.
 #
 # It starts from prebuilt seed bootstrapFiles and creates a series of
-# nixpkgs instances (stages) to gradually rebuild stdenv, which
+# botpkgs instances (stages) to gradually rebuild stdenv, which
 # is used to build all other packages (including the bootstrapFiles).
 #
 # Goals of the bootstrap process:
@@ -16,7 +16,7 @@
 #    compiler).
 #
 # These goals ensure that final packages and final stdenv are built
-# exclusively using nixpkgs package definitions and don't depend
+# exclusively using botpkgs package definitions and don't depend
 # on bootstrapTools (via direct references, inclusion
 # of copied code, or code compiled directly by bootstrapTools).
 #
@@ -343,7 +343,7 @@ in
             #
             name = "xgcc";
 
-            # xgcc uses ld linked against nixpkgs' glibc and gcc built
+            # xgcc uses ld linked against botpkgs' glibc and gcc built
             # against bootstrapTools glibc. We can't allow loading
             #   $out/libexec/gcc/x86_64-unknown-linux-gnu/13.0.1/liblto_plugin.so
             # to mix libc.so:

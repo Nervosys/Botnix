@@ -93,7 +93,7 @@ stdenv.mkDerivation rec {
   in ''
     cp ${jamTop} Jamtop
     substituteInPlace Makefile --replace "-j 3" "-j $NIX_BUILD_CORES"
-    # Remove tiff, jpg and png to be sure the nixpkgs-provided ones are used
+    # Remove tiff, jpg and png to be sure the botpkgs-provided ones are used
     rm -rf tiff jpg png
 
     export AR="$AR rusc"

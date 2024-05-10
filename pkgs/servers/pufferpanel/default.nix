@@ -39,7 +39,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-X=github.com/pufferpanel/pufferpanel/v2.Hash=none"
-    "-X=github.com/pufferpanel/pufferpanel/v2.Version=${version}-nixpkgs"
+    "-X=github.com/pufferpanel/pufferpanel/v2.Version=${version}-botpkgs"
   ];
 
   frontend = buildNpmPackage {

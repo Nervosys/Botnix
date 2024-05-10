@@ -1,6 +1,6 @@
 # Maintainer scripts
 
-This folder contains various executable scripts for nixpkgs maintainers,
+This folder contains various executable scripts for botpkgs maintainers,
 and supporting data or nixlang files as needed.
 These scripts generally aren't a stable interface and may changed or be removed.
 
@@ -11,12 +11,12 @@ What follows is a (very incomplete) overview of available scripts.
 
 ### `check-by-name.sh`
 
-An alias for `pkgs/test/nixpkgs-check-by-name/scripts/run-local.sh`, see [documentation](../../pkgs/test/nixpkgs-check-by-name/scripts/README.md).
+An alias for `pkgs/test/botpkgs-check-by-name/scripts/run-local.sh`, see [documentation](../../pkgs/test/botpkgs-check-by-name/scripts/README.md).
 
 ### `get-maintainer.sh`
 
 `get-maintainer.sh [selector] value` returns a JSON object describing
-a given nixpkgs maintainer, equivalent to `lib.maintainers.${x} // { handle = x; }`.
+a given botpkgs maintainer, equivalent to `lib.maintainers.${x} // { handle = x; }`.
 
 This allows looking up a maintainer's attrset (including GitHub and Matrix
 handles, email address etc.) based on any of their handles, more correctly and

@@ -70,7 +70,7 @@ stdenv.mkDerivation rec {
       http://shotcut.org.
 
       If you encounter problems with this version, please contact the
-      nixpkgs maintainer(s). If you wish to report any bugs upstream,
+      botpkgs maintainer(s). If you wish to report any bugs upstream,
       please use the official build from shotcut.org instead.
     '';
     homepage = "https://shotcut.org";

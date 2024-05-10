@@ -54,7 +54,7 @@ let
   # Vscode and variants allow for users to download and use extensions
   # which often include the usage of pre-built binaries.
   # This has been an on-going painpoint for many users, as
-  # a full extension update cycle has to be done through nixpkgs
+  # a full extension update cycle has to be done through botpkgs
   # in order to create or update extensions.
   # See: #83288 #91179 #73810 #41189
   #

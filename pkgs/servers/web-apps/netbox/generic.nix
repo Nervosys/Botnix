@@ -105,7 +105,7 @@
         knownVulnerabilities = (lib.optional eol "Netbox version ${version} is EOL; please upgrade by following the current release notes instructions.");
         # Warning:
         # Notice the missing `lib` in the inherit: it is using this function argument rather than a `with lib;` argument.
-        # If you replace this by `with lib;`, pay attention it does not inherit all maintainers in nixpkgs.
+        # If you replace this by `with lib;`, pay attention it does not inherit all maintainers in botpkgs.
         inherit maintainers;
       };
     }

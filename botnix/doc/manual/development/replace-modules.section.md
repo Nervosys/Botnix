@@ -10,7 +10,7 @@ the system on a stable release.
 `config`. It contains a list of modules that will be disabled. This can
 either be:
  - the full path to the module,
- - or a string with the filename relative to the modules path (eg. \<nixpkgs/nixos/modules> for nixos),
+ - or a string with the filename relative to the modules path (eg. \<botpkgs/nixos/modules> for nixos),
  - or an attribute set containing a specific `key` attribute.
 
 The latter allows some modules to be disabled, despite them being distributed

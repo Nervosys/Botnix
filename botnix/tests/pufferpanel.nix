@@ -21,7 +21,7 @@ import ./make-test-python.nix ({ lib, ... }: {
     curl = "curl --fail-with-body --silent"
     baseURL = "http://localhost:8080"
     adminName = "admin"
-    adminEmail = "admin@botnix.org"
+    adminEmail = "admin@nixos.org"
     adminPass = "admin"
     adminCreds = json.dumps({
       "email": adminEmail,

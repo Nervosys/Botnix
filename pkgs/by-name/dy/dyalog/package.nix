@@ -85,7 +85,7 @@ let
     If you agree to these terms, you can either override this package:
     `dyalog.override { acceptLicense = true; }`
 
-    or you can set the following nixpkgs config option:
+    or you can set the following botpkgs config option:
     `config.dyalog.acceptLicense = true;`
   '';
 in

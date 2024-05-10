@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   makeFlags = [
               # author do not use configure and prefix directly using $prefix
               "prefix=$(out)"
-              # graphical version of dozdc requires xforms, which is not i nixpkgs so I turned it down
+              # graphical version of dozdc requires xforms, which is not i botpkgs so I turned it down
               "XFORMS_FLAGS=-UXFORMS"
               "LUALIB=-llua"
               "bindir=$(prefix)/bin/"

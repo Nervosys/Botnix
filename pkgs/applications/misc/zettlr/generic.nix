@@ -8,7 +8,7 @@
 , pandoc
 }:
 
-# Based on https://gist.github.com/msteen/96cb7df66a359b827497c5269ccbbf94 and joplin-desktop nixpkgs.
+# Based on https://gist.github.com/msteen/96cb7df66a359b827497c5269ccbbf94 and joplin-desktop botpkgs.
 let
   name = "${pname}-${version}";
   src = fetchurl {

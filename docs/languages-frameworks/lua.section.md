@@ -24,7 +24,7 @@ The main package set contains aliases to these package sets, e.g.
 Create a file, e.g. `build.nix`, with the following expression
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 lua5_2.withPackages (ps: with ps; [ busted luafilesystem ])
 ```
@@ -37,7 +37,7 @@ nix-env -if build.nix
 Now you can use the Lua interpreter, as well as the extra packages (`busted`,
 `luafilesystem`) that you added to the environment.
 
-#### Lua environment defined in `~/.config/nixpkgs/config.nix` {#lua-environment-defined-in-.confignixpkgsconfig.nix}
+#### Lua environment defined in `~/.config/botpkgs/config.nix` {#lua-environment-defined-in-.confignixpkgsconfig.nix}
 
 If you prefer to, you could also add the environment as a package override to the Botpkgs set, e.g.
 using `config.nix`,
@@ -54,10 +54,10 @@ using `config.nix`,
 and install it in your profile with
 
 ```shell
-nix-env -iA nixpkgs.myLuaEnv
+nix-env -iA botpkgs.myLuaEnv
 ```
 The environment is installed by referring to the attribute, and considering
-the `nixpkgs` channel was used.
+the `botpkgs` channel was used.
 
 #### Lua environment defined in `/etc/botnix/configuration.nix` {#lua-environment-defined-in-etcnixosconfiguration.nix}
 
@@ -229,7 +229,7 @@ The `lua.withPackages` takes a function as an argument that is passed the set of
 Using the `withPackages` function, the previous example for the luafilesystem environment can be written like this:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 lua.withPackages (ps: [ps.luafilesystem])
 ```
@@ -238,7 +238,7 @@ lua.withPackages (ps: [ps.luafilesystem])
 But you can also easily switch to using `lua5_2`:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 lua5_2.withPackages (ps: [ps.lua])
 ```

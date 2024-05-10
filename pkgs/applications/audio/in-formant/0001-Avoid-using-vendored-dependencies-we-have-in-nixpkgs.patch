@@ -1,7 +1,7 @@
 From 42eda1afc1cfb0506b02baae894fb32f7e21755d Mon Sep 17 00:00:00 2001
 From: ckie <git-525ff67@ckie.dev>
 Date: Fri, 10 Mar 2023 04:39:38 +0200
-Subject: [PATCH] Avoid using vendored dependencies we have in nixpkgs
+Subject: [PATCH] Avoid using vendored dependencies we have in botpkgs
 
 ---
  CMakeLists.txt | 12 ++++--------

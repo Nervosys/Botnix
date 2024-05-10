@@ -4,9 +4,9 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-nixpkgs="$(git rev-parse --show-toplevel)"
+botpkgs="$(git rev-parse --show-toplevel)"
 
-oldVersion=$(nix-instantiate --eval -E "(import \"$nixpkgs\" { config = {}; overlays = []; }).cudatext.version" | tr -d '"')
+oldVersion=$(nix-instantiate --eval -E "(import \"$botpkgs\" { config = {}; overlays = []; }).cudatext.version" | tr -d '"')
 version=$(curl -s https://api.github.com/repos/Alexey-T/CudaText/releases/latest | jq -r '.tag_name')
 
 if [[ $version == $oldVersion ]]; then

@@ -33,7 +33,7 @@ in
           yet.
           Also consider updating this package yourself (you probably just need to
           change the `version` variable and update the sha256 to the one of the
-          new file) or opening an issue at the nixpkgs repo.
+          new file) or opening an issue at the botpkgs repo.
       - accept the license agreement
       - download the file listed under "Other Platforms"
       - sign in or create an oracle account if neccessary

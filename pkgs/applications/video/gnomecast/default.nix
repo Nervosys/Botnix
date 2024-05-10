@@ -26,7 +26,7 @@ buildPythonApplication rec {
   ];
 
   # NOTE: gdk-pixbuf setup hook does not run with strictDeps
-  # https://nixos.org/manual/nixpkgs/stable/#ssec-gnome-hooks-gobject-introspection
+  # https://nixos.org/manual/botpkgs/stable/#ssec-gnome-hooks-gobject-introspection
   strictDeps = false;
 
   preFixup = ''

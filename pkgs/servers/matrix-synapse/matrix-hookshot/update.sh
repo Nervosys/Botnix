@@ -1,4 +1,4 @@
-#!/usr/bin/env -S nix shell nixpkgs#nix nixpkgs#curl nixpkgs#jq nixpkgs#prefetch-yarn-deps nixpkgs#nix-prefetch-github nixpkgs#nix-prefetch-git --command bash
+#!/usr/bin/env -S nix shell botpkgs#nix botpkgs#curl botpkgs#jq botpkgs#prefetch-yarn-deps botpkgs#nix-prefetch-github botpkgs#nix-prefetch-git --command bash
 
 if [ "$#" -gt 1 ] || [[ "$1" == -* ]]; then
   echo "Regenerates packaging data for matrix-hookshot."

@@ -82,7 +82,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   # FIXME: investigate.  24.x and 23.x have different errors.
   # At least some of it is not reproduced on some other machine; example:
-  # https://hydra.botnix.org/build/235677717/nixlog/4/tail
+  # https://hydra.nixos.org/build/235677717/nixlog/4/tail
   # Also AnyTest.TestPackFromSerializationExceedsSizeLimit fails on 32-bit platforms
   # https://github.com/protocolbuffers/protobuf/issues/8460
   doCheck = !(stdenv.isDarwin && lib.versionAtLeast version "23") && !stdenv.hostPlatform.is32bit;

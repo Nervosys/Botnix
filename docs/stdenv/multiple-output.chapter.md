@@ -27,7 +27,7 @@ In some cases it may be desirable to combine different outputs under a single st
 
 Here you find how to write a derivation that produces multiple outputs.
 
-In nixpkgs there is a framework supporting multiple-output derivations. It tries to cover most cases by default behavior. You can find the source separated in `<nixpkgs/pkgs/build-support/setup-hooks/multiple-outputs.sh>`; it’s relatively well-readable. The whole machinery is triggered by defining the `outputs` attribute to contain the list of desired output names (strings).
+In botpkgs there is a framework supporting multiple-output derivations. It tries to cover most cases by default behavior. You can find the source separated in `<botpkgs/pkgs/build-support/setup-hooks/multiple-outputs.sh>`; it’s relatively well-readable. The whole machinery is triggered by defining the `outputs` attribute to contain the list of desired output names (strings).
 
 ```nix
 outputs = [ "bin" "dev" "out" "doc" ];
@@ -41,7 +41,7 @@ There is a special handling of the `debug` output, described at [](#stdenv-separ
 
 ### “Binaries first” {#multiple-output-file-binaries-first-convention}
 
-A commonly adopted convention in `nixpkgs` is that executables provided by the package are contained within its first output. This convention allows the dependent packages to reference the executables provided by packages in a uniform manner. For instance, provided with the knowledge that the `perl` package contains a `perl` executable it can be referenced as `${pkgs.perl}/bin/perl` within a Nix derivation that needs to execute a Perl script.
+A commonly adopted convention in `botpkgs` is that executables provided by the package are contained within its first output. This convention allows the dependent packages to reference the executables provided by packages in a uniform manner. For instance, provided with the knowledge that the `perl` package contains a `perl` executable it can be referenced as `${pkgs.perl}/bin/perl` within a Nix derivation that needs to execute a Perl script.
 
 The `glibc` package is a deliberate single exception to the “binaries first” convention. The `glibc` has `libs` as its first output allowing the libraries provided by `glibc` to be referenced directly (e.g. `${glibc}/lib/ld-linux-x86-64.so.2`). The executables provided by `glibc` can be accessed via its `bin` attribute (e.g. `${lib.getBin stdenv.cc.libc}/bin/ldd`).
 
@@ -69,7 +69,7 @@ is for user documentation, typically residing in `share/doc/`. It goes to `doc` 
 
 #### `$outputDevdoc` {#outputdevdoc}
 
-is for _developer_ documentation. Currently we count gtk-doc and devhelp books, typically residing in `share/gtk-doc/` and `share/devhelp/`, in there. It goes to `devdoc` or is removed (!) by default. This is because e.g. gtk-doc tends to be rather large and completely unused by nixpkgs users.
+is for _developer_ documentation. Currently we count gtk-doc and devhelp books, typically residing in `share/gtk-doc/` and `share/devhelp/`, in there. It goes to `devdoc` or is removed (!) by default. This is because e.g. gtk-doc tends to be rather large and completely unused by botpkgs users.
 
 #### `$outputMan` {#outputman}
 

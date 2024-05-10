@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
   };
 
   # PIE is incompatible with the "persistent malloc" ("pma") feature.
-  # While build system attempts to pass -no-pie to gcc. nixpkgs' `ld`
+  # While build system attempts to pass -no-pie to gcc. botpkgs' `ld`
   # wrapped still passes `-pie` flag to linker and breaks linkage.
   # Let's disable "pie" until `ld` is fixed to do the right thing.
   hardeningDisable = [ "pie" ];

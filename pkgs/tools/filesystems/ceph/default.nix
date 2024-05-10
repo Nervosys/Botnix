@@ -410,7 +410,7 @@ in rec {
 
       # TODO breaks with sandbox, tries to download stuff with npm
       "-DWITH_MGR_DASHBOARD_FRONTEND:BOOL=OFF"
-      # WITH_XFS has been set default ON from Ceph 16, keeping it optional in nixpkgs for now
+      # WITH_XFS has been set default ON from Ceph 16, keeping it optional in botpkgs for now
       ''-DWITH_XFS=${if optLibxfs != null then "ON" else "OFF"}''
     ] ++ lib.optional stdenv.isLinux "-DWITH_SYSTEM_LIBURING=ON";
 

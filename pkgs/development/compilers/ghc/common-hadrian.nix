@@ -85,7 +85,7 @@
       # TODO(@sternenseemann): does using the static flavour make sense?
       baseFlavour = "release";
       # Note: in case hadrian's flavour transformers cease being expressive
-      # enough for us, we'll need to resort to defining a "nixpkgs" flavour
+      # enough for us, we'll need to resort to defining a "botpkgs" flavour
       # in hadrianUserSettings and using that instead.
       transformers =
         lib.optionals useLLVM [ "llvm" ]
@@ -462,7 +462,7 @@ stdenv.mkDerivation ({
 
   hardeningDisable =
     [ "format" ]
-    # In nixpkgs, musl based builds currently enable `pie` hardening by default
+    # In botpkgs, musl based builds currently enable `pie` hardening by default
     # (see `defaultHardeningFlags` in `make-derivation.nix`).
     # But GHC cannot currently produce outputs that are ready for `-pie` linking.
     # Thus, disable `pie` hardening, otherwise `recompile with -fPIE` errors appear.

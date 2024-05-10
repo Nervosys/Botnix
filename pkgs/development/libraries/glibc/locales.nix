@@ -59,7 +59,7 @@
       echo SUPPORTED-LOCALES='${toString locales}' > ../glibc-2*/localedata/SUPPORTED
     '';
 
-  # Current `nixpkgs` way of building locales is not compatible with
+  # Current `botpkgs` way of building locales is not compatible with
   # parallel install. `locale-archive` is updated in parallel with
   # multiple `localedef` processes and causes non-deterministic result:
   #   https://github.com/nervosys/Botnix/issues/245360

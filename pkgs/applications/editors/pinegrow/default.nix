@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
   pname = "pinegrow";
   # deactivate auto update, because an old 6.21 version is getting mixed up
   # see e.g. https://github.com/nervosys/Botnix/pull/184460
-  version = versions.${pinegrowVersion}.version; # nixpkgs-update: no auto update
+  version = versions.${pinegrowVersion}.version; # botpkgs-update: no auto update
 
   src = versions.${pinegrowVersion}.src;
 

@@ -20,7 +20,7 @@ let
     ''--new-window''
     ''--incognito''
     ''-no-default-browser-check''
-    ''http://cache.botnix.org/''
+    ''http://cache.nixos.org/''
   ];
 
   desktopItem = pkgs.makeDesktopItem {

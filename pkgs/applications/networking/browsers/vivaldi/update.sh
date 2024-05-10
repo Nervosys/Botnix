@@ -27,9 +27,9 @@ url="https://downloads.vivaldi.com/stable/vivaldi-stable_${vivaldi_version}-1_am
 mapfile -t prefetch < <(nix-prefetch-url --print-path "$url")
 path=${prefetch[1]}
 
-nixpkgs="$(git rev-parse --show-toplevel)"
-default_nix="$nixpkgs/pkgs/applications/networking/browsers/vivaldi/default.nix"
-ffmpeg_nix="$nixpkgs/pkgs/applications/networking/browsers/vivaldi/ffmpeg-codecs.nix"
+botpkgs="$(git rev-parse --show-toplevel)"
+default_nix="$botpkgs/pkgs/applications/networking/browsers/vivaldi/default.nix"
+ffmpeg_nix="$botpkgs/pkgs/applications/networking/browsers/vivaldi/ffmpeg-codecs.nix"
 
 # Check vivaldi-ffmpeg-codecs version.
 chromium_version_old=$(version vivaldi-ffmpeg-codecs)

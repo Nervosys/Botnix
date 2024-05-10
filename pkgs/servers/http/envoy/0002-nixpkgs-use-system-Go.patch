@@ -1,7 +1,7 @@
 From 10e577a3c300f76ead5a5512f2fe970f12e46592 Mon Sep 17 00:00:00 2001
 From: Luke Granger-Brown <git@lukegb.com>
 Date: Fri, 12 May 2023 08:13:21 +0100
-Subject: [PATCH 2/3] nixpkgs: use system Go
+Subject: [PATCH 2/3] botpkgs: use system Go
 
 ---
  bazel/dependency_imports.bzl | 29 +----------------------------

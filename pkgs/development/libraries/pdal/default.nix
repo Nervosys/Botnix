@@ -81,7 +81,7 @@ stdenv.mkDerivation (finalAttrs: {
 
     # Plugins can probably not be made work easily:
     "-DBUILD_PLUGIN_CPD=OFF"
-    "-DBUILD_PLUGIN_FBX=OFF" # Autodesk FBX SDK is gratis+proprietary; not packaged in nixpkgs
+    "-DBUILD_PLUGIN_FBX=OFF" # Autodesk FBX SDK is gratis+proprietary; not packaged in botpkgs
     "-DBUILD_PLUGIN_GEOWAVE=OFF"
     "-DBUILD_PLUGIN_I3S=OFF"
     "-DBUILD_PLUGIN_ICEBRIDGE=OFF"
@@ -90,7 +90,7 @@ stdenv.mkDerivation (finalAttrs: {
     "-DBUILD_PLUGIN_MRSID=OFF"
     "-DBUILD_PLUGIN_NITF=OFF"
     "-DBUILD_PLUGIN_OCI=OFF"
-    "-DBUILD_PLUGIN_RDBLIB=OFF" # Riegl rdblib is proprietary; not packaged in nixpkgs
+    "-DBUILD_PLUGIN_RDBLIB=OFF" # Riegl rdblib is proprietary; not packaged in botpkgs
     "-DBUILD_PLUGIN_RIVLIB=OFF"
   ];
 

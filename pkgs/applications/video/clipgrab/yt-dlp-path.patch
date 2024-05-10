@@ -48,7 +48,7 @@
 -    }
 -
 -    return "";
-+    // We supply yt-dlp from nixpkgs, so the downloading
++    // We supply yt-dlp from botpkgs, so the downloading
 +    // machinery is not needed anymore.
 +    (void)force;
 +    return path;

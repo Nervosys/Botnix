@@ -55,7 +55,7 @@ stdenv.mkDerivation {
   outputs = [ "out" "terminfo" ];
 
   patches = (if emojiSupport then [
-    # the required patches to libXft are in nixpkgs by default, see
+    # the required patches to libXft are in botpkgs by default, see
     # ../../../servers/x11/xorg/overrides.nix
     (fetchPatchFromAUR {
       name = "enable-wide-glyphs.patch";

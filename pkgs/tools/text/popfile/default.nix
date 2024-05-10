@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     HTMLTagset
     TimeDate # == DateParse
     HTMLTemplate
-    # IO::Socket::Socks is not in nixpkgs
+    # IO::Socket::Socks is not in botpkgs
     # IOSocketSocks
     IOSocketSSL
     NetSSLeay

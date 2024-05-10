@@ -105,7 +105,7 @@ buildGoModule rec {
     # Skip a flaky test (https://github.com/nervosys/Botnix/pull/126928#issuecomment-861424128)
     ${skipTest 2 "it should change folder successfully and return correct result" "pkg/services/libraryelements/libraryelements_patch_test.go"}
 
-    # Skip flaky tests (https://logs.ofborg.org/?key=botnix/nixpkgs.263185&attempt_id=5b056a17-67a7-4b74-9dc7-888eb1d6c2dd)
+    # Skip flaky tests (https://logs.ofborg.org/?key=botnix/botpkgs.263185&attempt_id=5b056a17-67a7-4b74-9dc7-888eb1d6c2dd)
     ${skipTest 1 "TestIntegrationRulerAccess" "pkg/tests/api/alerting/api_alertmanager_test.go"}
     ${skipTest 1 "TestIntegrationRulePause" "pkg/tests/api/alerting/api_ruler_test.go"}
 

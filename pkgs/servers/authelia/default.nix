@@ -25,7 +25,7 @@ buildGoModule rec {
       "-X ${p}.BuildTag=v${version}"
       "-X '${p}.BuildState=tagged clean'"
       "-X ${p}.BuildBranch=v${version}"
-      "-X ${p}.BuildExtra=nixpkgs"
+      "-X ${p}.BuildExtra=botpkgs"
     ];
 
   # several tests with networking and several that want chromium
@@ -47,7 +47,7 @@ buildGoModule rec {
 
     $out/bin/authelia --help
     $out/bin/authelia --version | grep "v${version}"
-    $out/bin/authelia build-info | grep 'v${version}\|nixpkgs'
+    $out/bin/authelia build-info | grep 'v${version}\|botpkgs'
 
     runHook postInstallCheck
   '';

@@ -296,7 +296,7 @@ mod tests {
                     "integrity": "sha1-aaa"
                 },
                 "bar": {
-                    "resolved": "git+ssh://git@github.com/Botnix/nixpkgs.git",
+                    "resolved": "git+ssh://git@github.com/Botnix/botpkgs.git",
                     "integrity": "sha512-aaa"
                 },
                 "foo-bad": {
@@ -322,7 +322,7 @@ mod tests {
                     "integrity": ""
                 },
                 "bar": {
-                    "resolved": "git+ssh://git@github.com/Botnix/nixpkgs.git",
+                    "resolved": "git+ssh://git@github.com/Botnix/botpkgs.git",
                 },
                 "foo-bad": {
                     "resolved": "foo",
@@ -343,7 +343,7 @@ mod tests {
         );
 
         hashes.insert(
-            String::from("git+ssh://git@github.com/Botnix/nixpkgs.git"),
+            String::from("git+ssh://git@github.com/Botnix/botpkgs.git"),
             String::new(),
         );
 
@@ -372,7 +372,7 @@ mod tests {
                     "integrity": "sha512-foo"
                 },
                 "bar": {
-                    "resolved": "git+ssh://git@github.com/Botnix/nixpkgs.git",
+                    "resolved": "git+ssh://git@github.com/Botnix/botpkgs.git",
                     "integrity": "sha512-bbb",
                     "dependencies": {
                         "foo-bad": {
@@ -397,7 +397,7 @@ mod tests {
                     "integrity": "sha512-foo"
                 },
                 "bar": {
-                    "resolved": "git+ssh://git@github.com/Botnix/nixpkgs.git",
+                    "resolved": "git+ssh://git@github.com/Botnix/botpkgs.git",
                     "dependencies": {
                         "foo-bad": {
                             "resolved": "foo",
@@ -416,7 +416,7 @@ mod tests {
         );
 
         hashes.insert(
-            String::from("git+ssh://git@github.com/Botnix/nixpkgs.git"),
+            String::from("git+ssh://git@github.com/Botnix/botpkgs.git"),
             String::new(),
         );
 

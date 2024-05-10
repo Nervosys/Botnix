@@ -162,7 +162,7 @@ with other kernel modules.
 
 AMD provides a proprietary driver for its graphics cards that is not
 enabled by default because it's not Free Software, is often broken in
-nixpkgs and as of this writing doesn't offer more features or
+botpkgs and as of this writing doesn't offer more features or
 performance. If you still want to use it anyway, you need to explicitly
 set:
 
@@ -259,7 +259,7 @@ $ setxkbmap -I/yourpath us-greek -print | xkbcomp -I/yourpath - $DISPLAY
 You can inspect the predefined XKB files for examples:
 
 ```ShellSession
-$ echo "$(nix-build --no-out-link '<nixpkgs>' -A xorg.xkeyboardconfig)/etc/X11/xkb/"
+$ echo "$(nix-build --no-out-link '<botpkgs>' -A xorg.xkeyboardconfig)/etc/X11/xkb/"
 ```
 
 Once the configuration is applied, and you did a logout/login cycle, the

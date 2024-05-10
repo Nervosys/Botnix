@@ -31,7 +31,7 @@ packages, so it is hidden from `nix-env -qa` by default for performance reasons.
 You can still list all packages in the set like this:
 
 ```console
-$ nix-env -f '<nixpkgs>' -qaP -A haskellPackages
+$ nix-env -f '<botpkgs>' -qaP -A haskellPackages
 haskellPackages.a50                                                         a50-0.5
 haskellPackages.AAI                                                         AAI-0.2.0.1
 haskellPackages.aasam                                                       aasam-0.2.0.0
@@ -39,7 +39,7 @@ haskellPackages.abacate                                                     abac
 haskellPackages.abc-puzzle                                                  abc-puzzle-0.2.1
 …
 ```
-Also, the `haskellPackages` set is included on [search.botnix.org].
+Also, the `haskellPackages` set is included on [search.nixos.org].
 
 The attribute names in `haskellPackages` always correspond with their name on
 Hackage. Since Hackage allows names that are not valid Nix without escaping,
@@ -68,7 +68,7 @@ releases of GHC and package sets built with them. You can list all available
 compilers like this:
 
 ```console
-$ nix-env -f '<nixpkgs>' -qaP -A haskell.compiler
+$ nix-env -f '<botpkgs>' -qaP -A haskell.compiler
 haskell.compiler.ghc810                  ghc-8.10.7
 haskell.compiler.ghc90                   ghc-9.0.2
 haskell.compiler.ghc925                  ghc-9.2.5
@@ -116,7 +116,7 @@ result, contain fewer working packages. The corresponding package set for GHC
 for `haskell.packages.ghc927`:
 
 ```console
-$ nix-env -f '<nixpkgs>' -qaP -A haskell.packages.ghc927
+$ nix-env -f '<botpkgs>' -qaP -A haskell.packages.ghc927
 haskell.packages.ghc927.a50                                                         a50-0.5
 haskell.packages.ghc927.AAI                                                         AAI-0.2.0.1
 haskell.packages.ghc927.aasam                                                       aasam-0.2.0.0
@@ -162,7 +162,7 @@ versions](https://github.com/nervosys/Botnix/blob/haskell-updates/pkgs/developme
 if they are required for a certain build.
 
 Relying on `haskellPackages.foo_x_y_z` attributes in derivations outside
-nixpkgs is discouraged because they may change or disappear with every package
+botpkgs is discouraged because they may change or disappear with every package
 set update.
 <!-- TODO(@maralorn) We should add a link to callHackage, etc. once we added
 them to the docs. -->
@@ -179,7 +179,7 @@ on Hackage and tries to pick for every (transitive) dependency of your build
 exactly one version. Those versions need to satisfy all the version constraints
 given in the `.cabal` file of your package and all its dependencies.
 
-The [Haskell builder in nixpkgs](#haskell-mkderivation) does no such thing.
+The [Haskell builder in botpkgs](#haskell-mkderivation) does no such thing.
 It will take as input packages with names off the desired dependencies
 and just check whether they fulfill the version bounds and fail if they don’t
 (by default, see `jailbreak` to circumvent this).
@@ -196,8 +196,8 @@ for a specific package, see
 ### Limitations {#haskell-limitations}
 
 Our main objective with `haskellPackages` is to package Haskell software in
-nixpkgs. This entails some limitations, partially due to self-imposed
-restrictions of nixpkgs, partially in the name of maintainability:
+botpkgs. This entails some limitations, partially due to self-imposed
+restrictions of botpkgs, partially in the name of maintainability:
 
 * Only the packages built with the default compiler see extensive testing of the
   whole package set. For other GHC versions only a few essential packages are
@@ -205,19 +205,19 @@ restrictions of nixpkgs, partially in the name of maintainability:
 * As described above we only build one version of most packages.
 
 The experience using an older or newer packaged compiler or using different
-versions may be worse, because builds will not be cached on `cache.botnix.org`
+versions may be worse, because builds will not be cached on `cache.nixos.org`
 or may fail.
 
 Thus, to get the best experience, make sure that your project can be compiled
-using the default compiler of nixpkgs and recent versions of its dependencies.
+using the default compiler of botpkgs and recent versions of its dependencies.
 
 A result of this setup is, that getting a valid build plan for a given
 package can sometimes be quite painful, and in fact this is where most of the
 maintenance work for `haskellPackages` is required. Besides that, it is not
-possible to get the dependencies of a legacy project from nixpkgs or to use a
+possible to get the dependencies of a legacy project from botpkgs or to use a
 specific stack solver for compiling a project.
 
-Even though we couldn’t use them directly in nixpkgs, it would be desirable
+Even though we couldn’t use them directly in botpkgs, it would be desirable
 to have tooling to generate working Nix package sets from build plans generated
 by `cabal-install` or a specific Stackage snapshot via import-from-derivation.
 Sadly we currently don’t have tooling for this. For this you might be
@@ -548,7 +548,7 @@ so:
 
 ```nix
 let
-  pkgs = import <nixpkgs> {};
+  pkgs = import <botpkgs> {};
   inherit (pkgs) haskell;
   inherit (haskell.lib.compose) overrideCabal;
 
@@ -577,9 +577,9 @@ in
 
 ## Development environments {#haskell-development-environments}
 
-In addition to building and installing Haskell software, nixpkgs can also
+In addition to building and installing Haskell software, botpkgs can also
 provide development environments for Haskell projects. This has the obvious
-advantage that you benefit from `cache.botnix.org` and no longer need to compile
+advantage that you benefit from `cache.nixos.org` and no longer need to compile
 all project dependencies yourself. While it is often very useful, this is not
 the primary use case of our package set. Have a look at the section
 [available package versions](#haskell-available-versions) to learn which
@@ -596,7 +596,7 @@ match):
 
 ```console
 $ cd ~/src/random
-$ nix-shell -A haskellPackages.random.env '<nixpkgs>'
+$ nix-shell -A haskellPackages.random.env '<botpkgs>'
 [nix-shell:~/src/random]$ ghc-pkg list
 /nix/store/a8hhl54xlzfizrhcf03c1l3f6l9l8qwv-ghc-9.2.4-with-packages/lib/ghc-9.2.4/package.conf.d
     Cabal-3.6.3.0
@@ -650,10 +650,10 @@ The generated Nix expression evaluates to a function ready to be
 that:
 
 ```nix
-# Retrieve nixpkgs impurely from NIX_PATH for now, you can pin it instead, of course.
-{ pkgs ? import <nixpkgs> {} }:
+# Retrieve botpkgs impurely from NIX_PATH for now, you can pin it instead, of course.
+{ pkgs ? import <botpkgs> {} }:
 
-# use the nixpkgs default haskell package set
+# use the botpkgs default haskell package set
 pkgs.haskellPackages.callPackage ./my-project.nix { }
 ```
 
@@ -677,7 +677,7 @@ development environment. This should be a function which takes a haskell package
 set and returns a list of packages. `shellFor` will pass the used package set to
 this function and include all dependencies of the returned package in the build
 environment. This means you can reuse Nix expressions of packages included in
-nixpkgs, but also use local Nix expressions like this: `hpkgs: [
+botpkgs, but also use local Nix expressions like this: `hpkgs: [
 (hpkgs.callPackage ./my-project.nix { }) ]`.
 
 `nativeBuildInputs`
@@ -711,16 +711,16 @@ benchmark dependencies which would be excluded by default. Defaults to `false`.
 One neat property of `shellFor` is that it allows you to work on multiple
 packages using the same environment in conjunction with
 [cabal.project files][cabal-project-files].
-Say our example above depends on `distribution-nixpkgs` and we have a project
+Say our example above depends on `distribution-botpkgs` and we have a project
 file set up for both, we can add the following `shell.nix` expression:
 
 ```nix
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 
 pkgs.haskellPackages.shellFor {
   packages = hpkgs: [
-    # reuse the nixpkgs for this package
-    hpkgs.distribution-nixpkgs
+    # reuse the botpkgs for this package
+    hpkgs.distribution-botpkgs
     # call our generated Nix expression manually
     (hpkgs.callPackage ./my-project/my-project.nix { })
   ];
@@ -735,10 +735,10 @@ pkgs.haskellPackages.shellFor {
   # Extra arguments are added to mkDerivation's arguments as-is.
   # Since it adds all passed arguments to the shell environment,
   # we can use this to set the environment variable the `Paths_`
-  # module of distribution-nixpkgs uses to search for bundled
+  # module of distribution-botpkgs uses to search for bundled
   # files.
   # See also: https://cabal.readthedocs.io/en/latest/cabal-package.html#accessing-data-files-from-package-code
-  distribution_nixpkgs_datadir = toString ./distribution-nixpkgs;
+  distribution_nixpkgs_datadir = toString ./distribution-botpkgs;
 }
 ```
 
@@ -773,11 +773,11 @@ When you run `haskell-language-server-wrapper` it will detect the GHC
 version used by the project you are working on (by asking e.g. cabal or
 stack) and pick the appropriate versioned binary from your path.
 
-Be careful when installing HLS globally and using a pinned nixpkgs for a
-Haskell project in a `nix-shell`. If the nixpkgs versions deviate to much
+Be careful when installing HLS globally and using a pinned botpkgs for a
+Haskell project in a `nix-shell`. If the botpkgs versions deviate to much
 (e.g., use different `glibc` versions) the `haskell-language-server-?.?.?`
 executable will try to detect these situations and refuse to start. It is
-recommended to obtain HLS via `nix-shell` from the nixpkgs version pinned in
+recommended to obtain HLS via `nix-shell` from the botpkgs version pinned in
 there instead.
 
 The top level `pkgs.haskell-language-server` attribute is just a convenience
@@ -797,7 +797,7 @@ editor plugin to achieve this.
 
 <!-- TODO(@sternenseemann): we should document /somewhere/ that base == null etc. -->
 
-Like many language specific subsystems in nixpkgs, the Haskell infrastructure
+Like many language specific subsystems in botpkgs, the Haskell infrastructure
 also has its own quirks when it comes to overriding. Overriding of the *inputs*
 to a package at least follows the standard procedure. For example, imagine you
 need to build `nix-tree` with a more recent version of `brick` than the default
@@ -1141,7 +1141,7 @@ TODO(@Botnix/haskell): finish these planned sections
 ### Backporting {#haskell-backporting}
 
 Backporting changes to a stable Botnix version in general is covered
-in nixpkgs' `CONTRIBUTING.md` in general. In particular refer to the
+in botpkgs' `CONTRIBUTING.md` in general. In particular refer to the
 [backporting policy](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md#criteria-for-backporting-changes)
 to check if the change you have in mind may be backported.
 
@@ -1155,8 +1155,8 @@ it does for the unstable branches.
 
 ### Why is topic X not covered in this section? Why is section Y missing? {#haskell-why-not-covered}
 
-We have been working on [moving the nixpkgs Haskell documentation back into the
-nixpkgs manual](https://github.com/nervosys/Botnix/issues/121403). Since this
+We have been working on [moving the botpkgs Haskell documentation back into the
+botpkgs manual](https://github.com/nervosys/Botnix/issues/121403). Since this
 process has not been completed yet, you may find some topics missing here
 covered in the old [haskell4nix docs](https://haskell4nix.readthedocs.io/).
 
@@ -1296,11 +1296,11 @@ relevant.
 [haskell.nix]: https://input-output-hk.github.io/haskell.nix/index.html
 [HLS user guide]: https://haskell-language-server.readthedocs.io/en/latest/configuration.html#configuring-your-editor
 [hoogle]: https://wiki.haskell.org/Hoogle
-[incremental-builds]: https://www.haskellforall.com/2022/12/nixpkgs-support-for-incremental-haskell.html
+[incremental-builds]: https://www.haskellforall.com/2022/12/botpkgs-support-for-incremental-haskell.html
 [jailbreak-cabal]: https://github.com/Botnix/jailbreak-cabal/
-[multiple-outputs]: https://nixos.org/manual/nixpkgs/stable/#chap-multiple-output
+[multiple-outputs]: https://nixos.org/manual/botpkgs/stable/#chap-multiple-output
 [optparse-applicative-completions]: https://github.com/pcapriotti/optparse-applicative/blob/7726b63796aa5d0df82e926d467f039b78ca09e2/README.md#bash-zsh-and-fish-completions
 [profiling-detail]: https://cabal.readthedocs.io/en/latest/cabal-project.html#cfg-field-profiling-detail
 [profiling]: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/profiling.html
-[search.botnix.org]: https://search.botnix.org
+[search.nixos.org]: https://search.nixos.org
 [turtle]: https://hackage.haskell.org/package/turtle

@@ -22,7 +22,7 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-X github.com/darkhz/bluetuith/cmd.Version=${version}@nixpkgs"
+    "-X github.com/darkhz/bluetuith/cmd.Version=${version}@botpkgs"
   ];
 
   passthru.updateScript = nix-update-script { };

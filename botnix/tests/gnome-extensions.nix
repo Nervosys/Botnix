@@ -13,10 +13,10 @@ import ./make-test-python.nix (
       environment.systemPackages = lib.filter (e: e ? extensionUuid) (lib.attrValues pkgs.gnomeExtensions);
 
       # Some extensions are broken, but that's kind of the point of a testing VM
-      nixpkgs.config.allowBroken = true;
+      botpkgs.config.allowBroken = true;
       # There are some aliases which throw exceptions; ignore them.
       # Also prevent duplicate extensions under different names.
-      nixpkgs.config.allowAliases = false;
+      botpkgs.config.allowAliases = false;
 
       # Configure GDM
       services.xserver.enable = true;

@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "0ng0ihfagh9g8hral0bq5nhjlp3csqghyv3z8b7ylkdkqc1cgiv8";
   };
 
-  # disable coverage, because we don't care and python-coveralls is not in nixpkgs
+  # disable coverage, because we don't care and python-coveralls is not in botpkgs
   postPatch = ''
     sed -e '/python-coveralls/d' -e '/pytest-cov/d' -i setup.py
     rm setup.cfg

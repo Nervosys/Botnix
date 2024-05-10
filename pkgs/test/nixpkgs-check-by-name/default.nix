@@ -11,7 +11,7 @@
 let
   runtimeExprPath = ./src/eval.nix;
   nixpkgsLibPath = ../../../lib;
-  testNixpkgsPath = ./tests/mock-nixpkgs.nix;
+  testNixpkgsPath = ./tests/mock-botpkgs.nix;
 
   # Needed to make Nix evaluation work inside nix builds
   initNix = ''
@@ -31,7 +31,7 @@ let
 
   package =
     rustPlatform.buildRustPackage {
-      name = "nixpkgs-check-by-name";
+      name = "botpkgs-check-by-name";
       src = fs.toSource {
         root = ./.;
         fileset = fs.unions [
@@ -49,24 +49,24 @@ let
         makeWrapper
       ];
       env.NIX_CHECK_BY_NAME_EXPR_PATH = "${runtimeExprPath}";
-      env.NIX_PATH = "test-nixpkgs=${testNixpkgsPath}:test-nixpkgs/lib=${nixpkgsLibPath}";
+      env.NIX_PATH = "test-botpkgs=${testNixpkgsPath}:test-botpkgs/lib=${nixpkgsLibPath}";
       preCheck = initNix;
       postCheck = ''
         cargo fmt --check
         cargo clippy -- -D warnings
       '';
       postInstall = ''
-        wrapProgram $out/bin/nixpkgs-check-by-name \
+        wrapProgram $out/bin/botpkgs-check-by-name \
           --set NIX_CHECK_BY_NAME_EXPR_PATH "$NIX_CHECK_BY_NAME_EXPR_PATH"
       '';
       passthru.shell = mkShell {
         env.NIX_CHECK_BY_NAME_EXPR_PATH = toString runtimeExprPath;
-        env.NIX_PATH = "test-nixpkgs=${toString testNixpkgsPath}:test-nixpkgs/lib=${toString nixpkgsLibPath}";
+        env.NIX_PATH = "test-botpkgs=${toString testNixpkgsPath}:test-botpkgs/lib=${toString nixpkgsLibPath}";
         inputsFrom = [ package ];
       };
 
       # Tests the tool on the current Botpkgs tree, this is a good sanity check
-      passthru.tests.nixpkgs = runCommand "test-nixpkgs-check-by-name" {
+      passthru.tests.botpkgs = runCommand "test-botpkgs-check-by-name" {
         nativeBuildInputs = [
           package
           nix
@@ -74,7 +74,7 @@ let
         nixpkgsPath = lib.cleanSource ../../..;
       } ''
         ${initNix}
-        nixpkgs-check-by-name --base "$nixpkgsPath" "$nixpkgsPath"
+        botpkgs-check-by-name --base "$nixpkgsPath" "$nixpkgsPath"
         touch $out
       '';
     };

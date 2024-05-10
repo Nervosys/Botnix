@@ -14,10 +14,10 @@ If that's not the case, we recommend learning about it first [here](https://docs
 
 This file contains general contributing information, but individual parts also have more specific information to them in their respective `README.md` files, linked here:
 
-- [`lib`](./lib/README.md): Sources and documentation of the [library functions](https://nixos.org/manual/nixpkgs/stable/#chap-functions)
+- [`lib`](./lib/README.md): Sources and documentation of the [library functions](https://nixos.org/manual/botpkgs/stable/#chap-functions)
 - [`maintainers`](./maintainers/README.md): Botpkgs maintainer and team listings, maintainer scripts
-- [`pkgs`](./pkgs/README.md): Package and [builder](https://nixos.org/manual/nixpkgs/stable/#part-builders) definitions
-- [`doc`](./doc/README.md): Sources and infrastructure for the [Botpkgs manual](https://nixos.org/manual/nixpkgs/stable/)
+- [`pkgs`](./pkgs/README.md): Package and [builder](https://nixos.org/manual/botpkgs/stable/#part-builders) definitions
+- [`doc`](./doc/README.md): Sources and infrastructure for the [Botpkgs manual](https://nixos.org/manual/botpkgs/stable/)
 - [`nixos`](./nixos/README.md): Implementation of [Botnix](https://nixos.org/manual/nixos/stable/)
 
 # Guide
@@ -31,8 +31,8 @@ This section describes in some detail how changes can be made and proposed with 
 > Be aware that contributing implies licensing those contributions under the terms of [COPYING](./COPYING), an MIT-like license.
 
 0. Set up a local version of Botpkgs to work with using GitHub and Git
-   1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) the [Botpkgs repository](https://github.com/nixos/nixpkgs/).
-   1. [Clone the forked repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository) into a local `nixpkgs` directory.
+   1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) the [Botpkgs repository](https://github.com/nixos/botpkgs/).
+   1. [Clone the forked repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository) into a local `botpkgs` directory.
    1. [Configure the upstream Botpkgs repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#configuring-git-to-sync-your-fork-with-the-upstream-repository).
 
 1. Figure out the branch that should be used for this change by going through [this section][branch].
@@ -52,8 +52,8 @@ This section describes in some detail how changes can be made and proposed with 
    ```
 
    To avoid having to download and build potentially many derivations, at the expense of using a potentially outdated version, you can base the branch off a specific [Git commit](https://www.git-scm.com/docs/gitglossary#def_commit) instead:
-   - The commit of the latest `nixpkgs-unstable` channel, available [here](https://channels.nixos.org/nixpkgs-unstable/git-revision).
-   - The commit of a local Botpkgs downloaded using [nix-channel](https://nixos.org/manual/nix/stable/command-ref/nix-channel), available using `nix-instantiate --eval --expr '(import <nixpkgs/lib>).trivial.revisionWithDefault null'`
+   - The commit of the latest `botpkgs-unstable` channel, available [here](https://channels.nixos.org/botpkgs-unstable/git-revision).
+   - The commit of a local Botpkgs downloaded using [nix-channel](https://nixos.org/manual/nix/stable/command-ref/nix-channel), available using `nix-instantiate --eval --expr '(import <botpkgs/lib>).trivial.revisionWithDefault null'`
    - If you're using Botnix, the commit of your Botnix installation, available with `nixos-version --revision`.
 
    Once you have an appropriate commit you can use it instead of `upstream/master` in the above command:
@@ -84,7 +84,7 @@ This section describes in some detail how changes can be made and proposed with 
    The above command will output a link that allows you to directly quickly do the next step:
    ```
    remote: Create a pull request for 'update-hello' on GitHub by visiting:
-   remote:      https://github.com/myUser/nixpkgs/pull/new/update-hello
+   remote:      https://github.com/myUser/botpkgs/pull/new/update-hello
    ```
 
 6. [Create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#creating-the-pull-request) from the new branch in your Botpkgs fork to the upstream Botpkgs repository.
@@ -132,7 +132,7 @@ When a PR is created, it will be pre-populated with some checkboxes detailed bel
 
 When sandbox builds are enabled, Nix will setup an isolated environment for each build process. It is used to remove further hidden dependencies set by the build environment to improve reproducibility. This includes access to the network during the build outside of `fetch*` functions and files outside the Nix store. Depending on the operating system access to other resources are blocked as well (ex. inter process communication is isolated on Linux); see [sandbox](https://nixos.org/manual/nix/stable/command-ref/conf-file#conf-sandbox) in the Nix manual for details.
 
-Sandboxing is not enabled by default in Nix due to a small performance hit on each build. In pull requests for [nixpkgs](https://github.com/nervosys/Botnix/) people are asked to test builds with sandboxing enabled (see `Tested using sandboxing` in the pull request template) because in [Hydra](https://nixos.org/hydra/) sandboxing is also used.
+Sandboxing is not enabled by default in Nix due to a small performance hit on each build. In pull requests for [botpkgs](https://github.com/nervosys/Botnix/) people are asked to test builds with sandboxing enabled (see `Tested using sandboxing` in the pull request template) because in [Hydra](https://nixos.org/hydra/) sandboxing is also used.
 
 Depending if you use Botnix or other platforms you can use one of the following methods to enable sandboxing **before** building the package:
 
@@ -156,37 +156,37 @@ Many Nix packages are designed to run on multiple platforms. As such, it’s imp
 
 Packages with automated tests are much more likely to be merged in a timely fashion because it doesn’t require as much manual testing by the maintainer to verify the functionality of the package. If there are existing tests for the package, they should be run to verify your changes do not break the tests. Tests can only be run on Linux. For more details on writing and running tests, see the [section in the Botnix manual](https://nixos.org/nixos/manual/index.html#sec-nixos-tests).
 
-#### Tested compilation of all pkgs that depend on this change using `nixpkgs-review`
+#### Tested compilation of all pkgs that depend on this change using `botpkgs-review`
 
-If you are modifying a package, you can use `nixpkgs-review` to make sure all packages that depend on the updated package still compile correctly. The `nixpkgs-review` utility can look for and build all dependencies either based on uncommitted changes with the `wip` option or specifying a GitHub pull request number.
+If you are modifying a package, you can use `botpkgs-review` to make sure all packages that depend on the updated package still compile correctly. The `botpkgs-review` utility can look for and build all dependencies either based on uncommitted changes with the `wip` option or specifying a GitHub pull request number.
 
 Review changes from pull request number 12345:
 
 ```ShellSession
-nix-shell -p nixpkgs-review --run "nixpkgs-review pr 12345"
+nix-shell -p botpkgs-review --run "botpkgs-review pr 12345"
 ```
 
 Alternatively, with flakes (and analogously for the other commands below):
 
 ```ShellSession
-nix run nixpkgs#nixpkgs-review -- pr 12345
+nix run botpkgs#botpkgs-review -- pr 12345
 ```
 
 Review uncommitted changes:
 
 ```ShellSession
-nix-shell -p nixpkgs-review --run "nixpkgs-review wip"
+nix-shell -p botpkgs-review --run "botpkgs-review wip"
 ```
 
 Review changes from last commit:
 
 ```ShellSession
-nix-shell -p nixpkgs-review --run "nixpkgs-review rev HEAD"
+nix-shell -p botpkgs-review --run "botpkgs-review rev HEAD"
 ```
 
 #### Tested execution of all binary files (usually in `./result/bin/`)
 
-It’s important to test any executables generated by a build when you change or create a package in nixpkgs. This can be done by looking in `./result/bin` and running any files in there, or at a minimum, the main executable for the package. For example, if you make a change to texlive, you probably would only check the binaries associated with the change you made rather than testing all of them.
+It’s important to test any executables generated by a build when you change or create a package in botpkgs. This can be done by looking in `./result/bin` and running any files in there, or at a minimum, the main executable for the package. For example, if you make a change to texlive, you probably would only check the binaries associated with the change you made rather than testing all of them.
 
 #### Meets Botpkgs contribution standards
 
@@ -208,7 +208,7 @@ request a couple of persons for reviews though.)
 In the following example, we assume that the current branch, called `feature`,
 is based on `master`, and we rebase it onto the merge base between
 `master` and `staging` so that the PR can eventually be retargeted to
-`staging` without causing a mess. The example uses `upstream` as the remote for `Botnix/nixpkgs.git`
+`staging` without causing a mess. The example uses `upstream` as the remote for `Botnix/botpkgs.git`
 while `origin` is the remote you are pushing to.
 
 ```console
@@ -291,7 +291,7 @@ To manually create a backport pull request, follow [the standard pull request pr
 
 - Instead of manually making and committing the changes, use [`git cherry-pick -x`](https://git-scm.com/docs/git-cherry-pick) for each commit from the pull request you'd like to backport.
   Either `git cherry-pick -x <commit>` when the reason for the backport is obvious (such as minor versions, fixes, etc.), otherwise use `git cherry-pick -xe <commit>` to add a reason for the backport to the commit message.
-  Here is [an example](https://github.com/nixos/nixpkgs/commit/5688c39af5a6c5f3d646343443683da880eaefb8) of this.
+  Here is [an example](https://github.com/nixos/botpkgs/commit/5688c39af5a6c5f3d646343443683da880eaefb8) of this.
 
 > [!Warning]
 > Ensure the commits exists on the master branch.
@@ -349,7 +349,7 @@ The following paragraphs about how to deal with unactive contributors is just a 
 Please note that contributors with commit rights unactive for more than three months will have their commit rights revoked.
 -->
 
-Please see the discussion in [GitHub nixpkgs issue #50105](https://github.com/nervosys/Botnix/issues/50105) for information on how to proceed to be granted this level of access.
+Please see the discussion in [GitHub botpkgs issue #50105](https://github.com/nervosys/Botnix/issues/50105) for information on how to proceed to be granted this level of access.
 
 In a case a contributor definitively leaves the Nix community, they should create an issue or post on [Discourse](https://discourse.nixos.org) with references of packages and modules they maintain so the maintainership can be taken over by other contributors.
 
@@ -360,11 +360,11 @@ Hydra regularly evaluates and builds Botpkgs, updating [the official channels](h
 See [Nix Channel Status](https://status.nixos.org/) for the current channels and their state.
 Here's a brief overview of the main Git branches and what channels they're used for:
 
-- `master`: The main branch, used for the unstable channels such as `nixpkgs-unstable`, `nixos-unstable` and `nixos-unstable-small`.
-- `release-YY.MM` (e.g. `release-23.11`): The Botnix release branches, used for the stable channels such as `nixos-23.11`, `nixos-23.11-small` and `nixpkgs-23.11-darwin`.
+- `master`: The main branch, used for the unstable channels such as `botpkgs-unstable`, `nixos-unstable` and `nixos-unstable-small`.
+- `release-YY.MM` (e.g. `release-23.11`): The Botnix release branches, used for the stable channels such as `nixos-23.11`, `nixos-23.11-small` and `botpkgs-23.11-darwin`.
 
 When a channel is updated, a corresponding Git branch is also updated to point to the corresponding commit.
-So e.g. the [`nixpkgs-unstable` branch](https://github.com/nixos/nixpkgs/tree/nixpkgs-unstable) corresponds to the Git commit from the [`nixpkgs-unstable` channel](https://channels.nixos.org/nixpkgs-unstable).
+So e.g. the [`botpkgs-unstable` branch](https://github.com/nixos/botpkgs/tree/botpkgs-unstable) corresponds to the Git commit from the [`botpkgs-unstable` channel](https://channels.nixos.org/botpkgs-unstable).
 
 Botpkgs in its entirety is tied to the Botnix release process, which is documented in the [Botnix Release Wiki](https://nixos.github.io/release-wiki/).
 
@@ -376,7 +376,7 @@ See [this section][branch] to know when to use the release branches.
 The staging workflow exists to batch Hydra builds of many packages together.
 
 It works by directing commits that cause [mass rebuilds][mass-rebuild] to a separate `staging` branch that isn't directly built by Hydra.
-Regularly, the `staging` branch is _manually_ merged into a `staging-next` branch to be built by Hydra using the [`nixpkgs:staging-next` jobset](https://hydra.nixos.org/jobset/nixpkgs/staging-next).
+Regularly, the `staging` branch is _manually_ merged into a `staging-next` branch to be built by Hydra using the [`botpkgs:staging-next` jobset](https://hydra.nixos.org/jobset/botpkgs/staging-next).
 The `staging-next` branch should then only receive direct commits in order to fix Hydra builds.
 Once it is verified that there are no major regressions, it is merged into `master` using [a pull request](https://github.com/nervosys/Botnix/pulls?q=head%3Astaging-next).
 This is done manually in order to ensure it's a good use of Hydra's computing resources.

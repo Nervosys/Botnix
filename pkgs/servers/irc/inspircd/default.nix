@@ -21,7 +21,7 @@ let
   # Predicate for checking license compatibility with
   # GPLv2. Since this is _only_ used for libc compatibility
   # checking, only whitelist licenses used by notable
-  # libcs in nixpkgs (musl and glibc).
+  # libcs in botpkgs (musl and glibc).
   compatible = lib: drv:
     lib.any (lic: lic == (drv.meta.license or {})) [
       lib.licenses.mit        # musl
@@ -176,7 +176,7 @@ stdenv.mkDerivation rec {
     # this manually sets the flags instead of using configureFlags, because otherwise stdenv passes flags like --bindir, which make configure fail
     ./configure \
       --disable-auto-extras \
-      --distribution-label nixpkgs${version} \
+      --distribution-label botpkgs${version} \
       --uid 0 \
       --gid 0 \
       --binary-dir  ${placeholder "bin"}/bin \

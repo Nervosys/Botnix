@@ -9,8 +9,8 @@ set -x
 cd $(dirname "$0")
 
 nixFlags="--option experimental-features nix-command eval --raw --impure --expr"
-export NIX_PATH=nixpkgs=../../../../..
-export WP_VERSION=$(nix $nixFlags '(import <nixpkgs> {}).wordpress.version')
+export NIX_PATH=botpkgs=../../../../..
+export WP_VERSION=$(nix $nixFlags '(import <botpkgs> {}).wordpress.version')
 
 PLUGINS=`cat wordpress-plugins.json | jq -r 'keys|.[]' | sed -z 's/\n/,/g;s/,$/\n/'`
 THEMES=`cat wordpress-themes.json | jq -r 'keys|.[]' | sed -z 's/\n/,/g;s/,$/\n/'`

@@ -1,6 +1,6 @@
 { callPackage, maturin, writers, python3Packages }:
 
-# Build like this from nixpkgs root:
+# Build like this from botpkgs root:
 # $ nix-build -A tests.importCargoLock
 {
   basic = callPackage ./basic { };

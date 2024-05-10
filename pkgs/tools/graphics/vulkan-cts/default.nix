@@ -32,7 +32,7 @@ let
   # The build system expects all these dependencies inside the external folder and
   # does not search for system-wide installations.
   # It also expects the version specified in the repository, which can be incompatible
-  # with the version in nixpkgs (e.g. for SPIRV-Headers), so we don't want to patch in our packages.
+  # with the version in botpkgs (e.g. for SPIRV-Headers), so we don't want to patch in our packages.
   # The revisions are extracted from https://github.com/KhronosGroup/VK-GL-CTS/blob/main/external/fetch_sources.py#L290
   # with the vk-cts-sources.py script.
   sources = import ./sources.nix { inherit fetchurl fetchFromGitHub; };

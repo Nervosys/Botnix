@@ -44,13 +44,13 @@ to keep the build artifacts so we can compare them in case of differences.
 Execute the following command:
 
 ```
-nix-build '<nixpkgs>' -A <package> && nix-build '<nixpkgs>' -A <package> --check --keep-failed
+nix-build '<botpkgs>' -A <package> && nix-build '<botpkgs>' -A <package> --check --keep-failed
 ```
 
 Or using the new command line style:
 
 ```
-nix build nixpkgs#<package> && nix build nixpkgs#<package> --rebuild --keep-failed
+nix build botpkgs#<package> && nix build botpkgs#<package> --rebuild --keep-failed
 ```
 
 #### 2. Compare the build artifacts
@@ -64,7 +64,7 @@ the discrepancies between the two build outputs. You may need to add the
 metadata (*e.g. timestamp*) differences.
 
 ```
-nix run nixpkgs#diffoscopeMinimal -- --exclude-directory-metadata recursive <Y> <Z>
+nix run botpkgs#diffoscopeMinimal -- --exclude-directory-metadata recursive <Y> <Z>
 ```
 
 #### 3. Examine the build log
@@ -72,13 +72,13 @@ nix run nixpkgs#diffoscopeMinimal -- --exclude-directory-metadata recursive <Y> 
 To examine the build log, use:
 
 ```
-nix-store --read-log $(nix-instantiate '<nixpkgs>' -A <package>)
+nix-store --read-log $(nix-instantiate '<botpkgs>' -A <package>)
 ```
 
 Or with the new command line style:
 
 ```
-nix log $(nix path-info --derivation nixpkgs#<package>)
+nix log $(nix path-info --derivation botpkgs#<package>)
 ```
 
 ### Additional context

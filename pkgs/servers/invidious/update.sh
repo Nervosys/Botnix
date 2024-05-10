@@ -51,7 +51,7 @@ fi
 
 json_set '.invidious.version' "$new_version"
 json_set '.invidious.rev' "$new_rev"
-new_sha256=$(nix-prefetch -I 'nixpkgs=../../..' "$pkg")
+new_sha256=$(nix-prefetch -I 'botpkgs=../../..' "$pkg")
 json_set '.invidious.sha256' "$new_sha256"
 commit_msg="$pkg: $old_version -> $new_version"
 
@@ -77,7 +77,7 @@ else
     if [ "$lsquic_old_version" != "$lsquic_new_version" ]; then
         info "Updating lsquic to $lsquic_new_version..."
         json_set '.lsquic.version' "$lsquic_new_version"
-        lsquic_new_sha256=$(nix-prefetch -I 'nixpkgs=../../..' "${pkg}.lsquic")
+        lsquic_new_sha256=$(nix-prefetch -I 'botpkgs=../../..' "${pkg}.lsquic")
         json_set '.lsquic.sha256' "$lsquic_new_sha256"
 
         info "Updating boringssl..."
@@ -85,7 +85,7 @@ else
         boringssl_new_rev=$(curl -LSsf "https://github.com/litespeedtech/lsquic/raw/v${lsquic_new_version}/README.md" \
             | grep -Pom1 '(?<=^git checkout ).*')
         json_set '.boringssl.rev' "$boringssl_new_rev"
-        boringssl_new_sha256=$(nix-prefetch -I 'nixpkgs=../../..' "${pkg}.lsquic.boringssl")
+        boringssl_new_sha256=$(nix-prefetch -I 'botpkgs=../../..' "${pkg}.lsquic.boringssl")
         json_set '.boringssl.sha256' "$boringssl_new_sha256"
         commit_msg="$commit_msg
 

@@ -4,7 +4,7 @@
 
 Testing
 -------
-From nixpkgs repo
+From botpkgs repo
 
 No net devices:
 

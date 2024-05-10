@@ -5,7 +5,7 @@ Date:   Fri Jan 5 23:57:09 2018 +0100
     Add -Wno-narrowing to GWEN's CMakeLists
     
     This avoids the compilation issue that occurs on aarch64 with gcc6.
-    (nixpkgs-specific patch)
+    (botpkgs-specific patch)
 
 diff --git a/examples/ThirdPartyLibs/Gwen/CMakeLists.txt b/examples/ThirdPartyLibs/Gwen/CMakeLists.txt
 index 82fa0ffba..26c4bbd37 100644

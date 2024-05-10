@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -I nixpkgs=../../../.. -i bash -p nc4nix jq
+#! nix-shell -I botpkgs=../../../.. -i bash -p nc4nix jq
 
 set -e
 set -u

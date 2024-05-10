@@ -1,4 +1,4 @@
-# Takes a path to nixpkgs and a path to the json-encoded list of `pkgs/by-name` attributes.
+# Takes a path to botpkgs and a path to the json-encoded list of `pkgs/by-name` attributes.
 # Returns a value containing information on all Botpkgs attributes
 # which is decoded on the Rust side.
 # See ./eval.rs for the meaning of the returned values

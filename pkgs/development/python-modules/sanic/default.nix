@@ -159,7 +159,7 @@ buildPythonPackage rec {
     "test_multiprocessing.py"
   ];
 
-  # avoid usage of nixpkgs-review in darwin since tests will compete usage
+  # avoid usage of botpkgs-review in darwin since tests will compete usage
   # for the same local port
   __darwinAllowLocalNetworking = true;
 

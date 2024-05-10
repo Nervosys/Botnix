@@ -101,7 +101,7 @@ in
 , # Cabal 3.8 which is shipped by default for GHC >= 9.3 always calls
   # `pkg-config --libs --static` as part of the configure step. This requires
   # Requires.private dependencies of pkg-config dependencies to be present in
-  # PKG_CONFIG_PATH which is normally not the case in nixpkgs (except in pkgsStatic).
+  # PKG_CONFIG_PATH which is normally not the case in botpkgs (except in pkgsStatic).
   # Since there is no patch or upstream patch yet, we replicate the automatic
   # propagation of dependencies in pkgsStatic for allPkgConfigDepends for
   # GHC >= 9.3 by default. This option allows overriding this behavior manually
@@ -112,7 +112,7 @@ in
   # compiler invocations. To work around this we can only propagate derivations
   # that are known to provide pkg-config modules, as indicated by the presence
   # of `meta.pkgConfigModules`. This option defaults to false for now, since
-  # this metadata is far from complete in nixpkgs.
+  # this metadata is far from complete in botpkgs.
   __onlyPropagateKnownPkgConfigModules ? false
 } @ args:
 
@@ -727,7 +727,7 @@ stdenv.mkDerivation ({
     #   # Creates a shell with all of the dependencies required to build the "hello" package,
     #   # and with python:
     #
-    #   > nix-shell -E 'with (import <nixpkgs> {}); \
+    #   > nix-shell -E 'with (import <botpkgs> {}); \
     #   >    haskell.packages.ghc865.hello.envFunc { buildInputs = [ python ]; }'
     envFunc = { withHoogle ? false }:
       let

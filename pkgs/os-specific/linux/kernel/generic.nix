@@ -79,7 +79,7 @@ assert stdenv.isLinux;
 
 let
   # Dirty hack to make sure that `version` & `src` have
-  # `<nixpkgs/pkgs/os-specific/linux/kernel/linux-x.y.nix>` as position
+  # `<botpkgs/pkgs/os-specific/linux/kernel/linux-x.y.nix>` as position
   # when using `builtins.unsafeGetAttrPos`.
   #
   # This is to make sure that ofborg actually detects changes in the kernel derivation
@@ -218,7 +218,7 @@ let
     isXen = lib.warn "The isXen attribute is deprecated. All Botpkgs kernels that support it now have Xen enabled." true;
 
     # Adds dependencies needed to edit the config:
-    # nix-shell '<nixpkgs>' -A linux.configEnv --command 'make nconfig'
+    # nix-shell '<botpkgs>' -A linux.configEnv --command 'make nconfig'
     configEnv = kernel.overrideAttrs (old: {
       nativeBuildInputs = old.nativeBuildInputs or [] ++ (with buildPackages; [
         pkg-config ncurses

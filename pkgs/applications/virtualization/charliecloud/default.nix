@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
   ];
 
   # Charliecloud calls some external system tools.
-  # Here we wrap those deps so they are resolved inside nixpkgs.
+  # Here we wrap those deps so they are resolved inside botpkgs.
   postInstall = ''
     for file in $out/bin/* ; do \
       wrapProgram $file --prefix PATH : ${lib.makeBinPath [ coreutils docker gnused gnutar gzip findutils sudo ]}

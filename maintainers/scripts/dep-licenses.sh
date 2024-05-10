@@ -2,9 +2,9 @@
 
 attr=$1
 
-: ${NIXPKGS=/etc/botnix/nixpkgs}
+: ${NIXPKGS=/etc/botnix/botpkgs}
 
-tmp=$(mktemp --tmpdir -d nixpkgs-dep-license.XXXXXX)
+tmp=$(mktemp --tmpdir -d botpkgs-dep-license.XXXXXX)
 
 exitHandler() {
     exitCode=$?

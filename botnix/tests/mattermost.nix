@@ -32,7 +32,7 @@ in
   nodes = {
     mutable = makeMattermost {
       mutableConfig = true;
-      extraConfig.SupportSettings.HelpLink = "https://search.botnix.org";
+      extraConfig.SupportSettings.HelpLink = "https://search.nixos.org";
     };
     mostlyMutable = makeMattermost {
       mutableConfig = true;
@@ -48,7 +48,7 @@ in
     };
     immutable = makeMattermost {
       mutableConfig = false;
-      extraConfig.SupportSettings.HelpLink = "https://search.botnix.org";
+      extraConfig.SupportSettings.HelpLink = "https://search.nixos.org";
     };
     environmentFile = makeMattermost {
       mutableConfig = false;
@@ -86,7 +86,7 @@ in
     mutable.wait_for_open_port(8065)
 
     # Get the initial config
-    mutable.succeed("${expectConfig ''.AboutLink == "https://nixos.org" and .HelpLink == "https://search.botnix.org"''}")
+    mutable.succeed("${expectConfig ''.AboutLink == "https://nixos.org" and .HelpLink == "https://search.nixos.org"''}")
 
     # Edit the config
     mutable.succeed("${setConfig ''.SupportSettings.AboutLink = "https://mattermost.com"''}")
@@ -118,7 +118,7 @@ in
     immutable.wait_for_open_port(8065)
 
     # Get the initial config
-    immutable.succeed("${expectConfig ''.AboutLink == "https://nixos.org" and .HelpLink == "https://search.botnix.org"''}")
+    immutable.succeed("${expectConfig ''.AboutLink == "https://nixos.org" and .HelpLink == "https://search.nixos.org"''}")
 
     # Edit the config
     immutable.succeed("${setConfig ''.SupportSettings.AboutLink = "https://mattermost.com"''}")
@@ -127,7 +127,7 @@ in
     immutable.wait_for_open_port(8065)
 
     # Our edits should be ignored on restart
-    immutable.succeed("${expectConfig ''.AboutLink == "https://nixos.org" and .HelpLink == "https://search.botnix.org"''}")
+    immutable.succeed("${expectConfig ''.AboutLink == "https://nixos.org" and .HelpLink == "https://search.nixos.org"''}")
 
 
     ## Environment File node tests ##

@@ -31,7 +31,7 @@ The `wrapFirefox` function allows to pass policies, preferences and extensions t
         SkipOnboarding = true;
       };
       SecurityDevices = {
-        # Use a proxy module rather than `nixpkgs.config.firefox.smartcardSupport = true`
+        # Use a proxy module rather than `botpkgs.config.firefox.smartcardSupport = true`
         "PKCS#11 Proxy Module" = "${pkgs.p11-kit}/lib/p11-kit-proxy.so";
       };
     };

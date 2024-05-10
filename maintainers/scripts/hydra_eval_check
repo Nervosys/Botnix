@@ -9,5 +9,5 @@ hydra_eval_jobs \
   --argstr system x86_64-cygwin \
   --argstr system i686-freebsd \
   --arg officialRelease false \
-  --arg nixpkgs "{ outPath = builtins.storePath ./. ; rev = 1234; }" \
+  --arg botpkgs "{ outPath = builtins.storePath ./. ; rev = 1234; }" \
   $@

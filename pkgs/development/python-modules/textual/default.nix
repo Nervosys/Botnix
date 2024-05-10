@@ -66,7 +66,7 @@ buildPythonPackage rec {
     "test_textual_env_var"
     "test_softbreak_split_links_rendered_correctly"
 
-    # requires tree-sitter-languages which is not packaged in nixpkgs
+    # requires tree-sitter-languages which is not packaged in botpkgs
     "test_register_language"
   ];
 

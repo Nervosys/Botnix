@@ -37,7 +37,7 @@ rustPlatform.buildRustPackage rec {
     license = licenses.mpl20;
     maintainers = with maintainers; [ toastal ];
     mainProgram = "lightningcss";
-    # never built on aarch64-linux since first introduction in nixpkgs
+    # never built on aarch64-linux since first introduction in botpkgs
     broken = stdenv.isLinux && stdenv.isAarch64;
   };
 }

@@ -98,7 +98,7 @@ let
       for i in ./scripts/*.sh ./scripts/*.py ./test/*.sh ./test/*.py; do
         patchShebangs "$i"
       done
-      ## TODO: reenable tests below after adding evmone and hera and their dependencies to nixpkgs
+      ## TODO: reenable tests below after adding evmone and hera and their dependencies to botpkgs
       #TERM=xterm ./scripts/tests.sh ${lib.optionalString z3Support "--no-smt"}
       popd
     '';

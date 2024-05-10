@@ -1,5 +1,5 @@
 ## Configuration:
-# Control you default wine config in nixpkgs-config:
+# Control you default wine config in botpkgs-config:
 # wine = {
 #   release = "stable"; # "stable", "unstable", "staging", "wayland"
 #   build = "wineWow"; # "wine32", "wine64", "wineWow"

@@ -7,7 +7,7 @@
 # The `update.py` is a web scraper script that writes the latest versions into `version.json`.
 
 # The `versions.json` can be automatically updated and committed with a commit summary.
-# To do so, change directory to nixpkgs root, and do:
+# To do so, change directory to botpkgs root, and do:
 # $ nix-shell ./maintainers/scripts/update.nix --argstr package optifinePackages.optifine-latest --argstr commit true
 
 recurseIntoAttrs (

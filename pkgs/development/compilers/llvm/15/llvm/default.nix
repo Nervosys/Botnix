@@ -189,18 +189,18 @@ in stdenv.mkDerivation (rec {
     # `/System/Library/CoreServices/SystemVersion.plist` (which is passed into
     # the sandbox on macOS).
     #
-    # The `sw_vers` provided by nixpkgs reports the macOS version associated
+    # The `sw_vers` provided by botpkgs reports the macOS version associated
     # with the `CoreFoundation` framework with which it was built. Because
-    # nixpkgs pins the SDK for `aarch64-darwin` and `x86_64-darwin` what
+    # botpkgs pins the SDK for `aarch64-darwin` and `x86_64-darwin` what
     # `sw_vers` reports is not guaranteed to match the macOS version of the host
     # that's building this derivation.
     #
     # Astute readers will note that we only _patch_ this test on aarch64-darwin
-    # (to use the nixpkgs provided `sw_vers`) instead of disabling it outright.
+    # (to use the botpkgs provided `sw_vers`) instead of disabling it outright.
     # So why does this test pass on aarch64?
     #
     # Well, it seems that `sw_vers` on aarch64 actually links against the _host_
-    # CoreFoundation framework instead of the nixpkgs provided one.
+    # CoreFoundation framework instead of the botpkgs provided one.
     #
     # Not entirely sure what the right fix is here. I'm assuming aarch64
     # `sw_vers` doesn't intentionally link against the host `CoreFoundation`

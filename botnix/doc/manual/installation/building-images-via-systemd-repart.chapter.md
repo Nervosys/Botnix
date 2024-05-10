@@ -82,7 +82,7 @@ this system. Furthermore, it uses a [Unified Kernel Image][unified-kernel-image]
 
 ```nix
 let
-  pkgs = import <nixpkgs> { };
+  pkgs = import <botpkgs> { };
   efiArch = pkgs.stdenv.hostPlatform.efiArch;
 in
 (pkgs.nixos [

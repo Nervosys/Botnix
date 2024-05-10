@@ -7,8 +7,8 @@
 #     (super.prefer-remote-fetch self super)
 # Full configuration example for your own account:
 #
-# $ mkdir ~/.config/nixpkgs/overlays/
-# $ echo 'self: super: super.prefer-remote-fetch self super' > ~/.config/nixpkgs/overlays/prefer-remote-fetch.nix
+# $ mkdir ~/.config/botpkgs/overlays/
+# $ echo 'self: super: super.prefer-remote-fetch self super' > ~/.config/botpkgs/overlays/prefer-remote-fetch.nix
 #
 self: super: {
   binary-cache = args: super.binary-cache ({ preferLocalBuild = false; } // args);

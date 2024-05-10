@@ -241,7 +241,7 @@ self: super: ({
 
   SDL-image = overrideCabal (drv: {
     # Prevent darwin-specific configuration code path being taken
-    # which doesn't work with nixpkgs' SDL libraries
+    # which doesn't work with botpkgs' SDL libraries
     postPatch = ''
       substituteInPlace configure --replace xDarwin noDarwinSpecialCasing
     '' + (drv.postPatch or "");
@@ -252,7 +252,7 @@ self: super: ({
   }) super.SDL-image;
 
   # Prevent darwin-specific configuration code path being taken which
-  # doesn't work with nixpkgs' SDL libraries
+  # doesn't work with botpkgs' SDL libraries
   SDL-mixer = overrideCabal (drv: {
     postPatch = ''
       substituteInPlace configure --replace xDarwin noDarwinSpecialCasing
@@ -308,7 +308,7 @@ self: super: ({
     '' + drv.postPatch or "";
   }) super.foldl;
 
-  # https://hydra.botnix.org/build/230964714/nixlog/1
+  # https://hydra.nixos.org/build/230964714/nixlog/1
   inline-c-cpp = appendPatch (pkgs.fetchpatch {
     url = "https://github.com/fpco/inline-c/commit/e8dc553b13bb847409fdced649a6a863323cff8a.patch";
     name = "revert-use-system-cxx-std-lib.patch";
@@ -350,9 +350,9 @@ self: super: ({
 } // lib.optionalAttrs pkgs.stdenv.isx86_64 {  # x86_64-darwin
 
   # tests appear to be failing to link or something:
-  # https://hydra.botnix.org/build/174540882/nixlog/9
+  # https://hydra.nixos.org/build/174540882/nixlog/9
   regex-rure = dontCheck super.regex-rure;
   # same
-  # https://hydra.botnix.org/build/174540882/nixlog/9
+  # https://hydra.nixos.org/build/174540882/nixlog/9
   jacinda = dontCheck super.jacinda;
 })

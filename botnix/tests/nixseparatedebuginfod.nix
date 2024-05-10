@@ -54,7 +54,7 @@ in
 
     # nixseparatedebuginfod needs .drv to associate executable -> source
     # on regular systems this would be provided by botnix-rebuild
-    machine.succeed("nix-instantiate '<nixpkgs>' -A nix")
+    machine.succeed("nix-instantiate '<botpkgs>' -A nix")
 
     machine.succeed("timeout 600 wait_for_indexation")
 

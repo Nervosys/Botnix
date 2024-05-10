@@ -94,12 +94,12 @@ let
 
       - License For Customer Use of NVIDIA Software [1]
 
-    You can express acceptance by setting acceptLicense to true your nixpkgs.config.
+    You can express acceptance by setting acceptLicense to true your botpkgs.config.
     Example:
 
       configuration.nix:
-        nixpkgs.config.allowUnfree = true;
-        nixpkgs.config.nvidia.acceptLicense = true;
+        botpkgs.config.allowUnfree = true;
+        botpkgs.config.nvidia.acceptLicense = true;
 
       config.nix:
         allowUnfree = true;

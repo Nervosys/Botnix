@@ -122,7 +122,7 @@ stdenv.mkDerivation rec {
   ++ lib.optional withFFI "--with-ffi"
   ++ lib.optional withMisc "--with-eb";
 
-  # TODO: things in `./configure --help`, but not in nixpkgs
+  # TODO: things in `./configure --help`, but not in botpkgs
   #--with-canna            Use Canna [default=no]
   #--with-wnn              Build with libwnn [default=no]
   #--with-mana             Build a plugin for Mana [default=yes]

@@ -10,7 +10,7 @@
 
 buildDotnetModule rec {
   pname = "ArchiSteamFarm";
-  # nixpkgs-update: no auto update
+  # botpkgs-update: no auto update
   version = "5.5.0.11";
 
   src = fetchFromGitHub {

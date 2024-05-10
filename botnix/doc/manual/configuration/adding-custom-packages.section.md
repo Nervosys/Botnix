@@ -12,11 +12,11 @@ This can be done either in-tree or out-of-tree. For an in-tree build, you can
 clone the Botpkgs repository, add the package to your clone, and (optionally)
 submit a patch or pull request to have it accepted into the main Botpkgs
 repository. This is described in detail in the [Botpkgs
-manual](https://nixos.org/nixpkgs/manual). In short, you clone Botpkgs:
+manual](https://nixos.org/botpkgs/manual). In short, you clone Botpkgs:
 
 ```ShellSession
 $ git clone https://github.com/nervosys/Botnix
-$ cd nixpkgs
+$ cd botpkgs
 ```
 
 Then you write and test the package as described in the Botpkgs manual.
@@ -29,7 +29,7 @@ environment.systemPackages = [ pkgs.my-package ];
 and you run `nixos-rebuild`, specifying your own Botpkgs tree:
 
 ```ShellSession
-# nixos-rebuild switch -I nixpkgs=/path/to/my/nixpkgs
+# nixos-rebuild switch -I botpkgs=/path/to/my/botpkgs
 ```
 
 The second possibility is to add the package outside of the Botpkgs
@@ -61,7 +61,7 @@ environment.systemPackages = [ (import ./my-hello.nix) ];
 where `my-hello.nix` contains:
 
 ```nix
-with import <nixpkgs> {}; # bring all of Botpkgs into scope
+with import <botpkgs> {}; # bring all of Botpkgs into scope
 
 stdenv.mkDerivation rec {
   name = "hello-2.8";
@@ -95,5 +95,5 @@ Then instead of running the AppImage "as-is", run `appimage-run foo.appimage`.
 
 To make other pre-built executables work on Botnix, you need to package them
 with Nix and special helpers like `autoPatchelfHook` or `buildFHSEnv`. See
-the [Botpkgs manual](https://nixos.org/nixpkgs/manual) for details. This
+the [Botpkgs manual](https://nixos.org/botpkgs/manual) for details. This
 is complex and often doing a source build is easier.

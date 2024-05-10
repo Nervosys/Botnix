@@ -15,17 +15,17 @@ pin_file=$SCRIPT_DIR/pinned-tool.json
 
 trace -n "Fetching latest version of channel $channel.. "
 # This is probably the easiest way to get Nix to output the path to a downloaded channel!
-nixpkgs=$(nix-instantiate --find-file nixpkgs -I nixpkgs=channel:"$channel")
-trace "$nixpkgs"
+botpkgs=$(nix-instantiate --find-file botpkgs -I botpkgs=channel:"$channel")
+trace "$botpkgs"
 
 # This file only exists in channels
-rev=$(<"$nixpkgs/.git-revision")
+rev=$(<"$botpkgs/.git-revision")
 trace -e "Git revision of channel $channel is \e[34m$rev\e[0m"
 
-trace -n "Fetching the prebuilt version of nixpkgs-check-by-name for $CI_SYSTEM.. "
+trace -n "Fetching the prebuilt version of botpkgs-check-by-name for $CI_SYSTEM.. "
 # This is the architecture used by CI, we want to prefetch the exact path to avoid having to evaluate Botpkgs
-ci_path=$(nix-build --no-out-link "$nixpkgs" \
-    -A tests.nixpkgs-check-by-name \
+ci_path=$(nix-build --no-out-link "$botpkgs" \
+    -A tests.botpkgs-check-by-name \
     --arg config '{}' \
     --argstr system "$CI_SYSTEM" \
     --arg overlays '[]' \

@@ -19,7 +19,7 @@ Arguments:
 ## `./update-pinned-tool.sh`
 
 Updates the pinned CI tool in [`./pinned-tool.json`](./pinned-tool.json) to the
-[latest version from the `botnix-unstable` channel](https://hydra.botnix.org/job/botnix/trunk-combined/nixpkgs.tests.nixpkgs-check-by-name.x86_64-linux).
+[latest version from the `botnix-unstable` channel](https://hydra.nixos.org/job/botnix/trunk-combined/botpkgs.tests.botpkgs-check-by-name.x86_64-linux).
 
 This script needs to be called manually when the CI tooling needs to be updated.
 

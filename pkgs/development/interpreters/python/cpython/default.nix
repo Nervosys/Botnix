@@ -198,7 +198,7 @@ let
       else parsed.cpu.name;
 
     pythonAbiName = let
-      # python's build doesn't match the nixpkgs abi in some cases.
+      # python's build doesn't match the botpkgs abi in some cases.
       # https://github.com/python/cpython/blob/e488e300f5c01289c10906c2e53a8e43d6de32d8/configure.ac#L724
       nixpkgsPythonAbiMappings = {
         "gnuabielfv2" = "gnu";
@@ -528,8 +528,8 @@ in with passthru; stdenv.mkDerivation (finalAttrs: {
     Error=This command has been disabled as it tries to modify the immutable
      `/nix/store` filesystem.
 
-     To use Python with Nix and nixpkgs, have a look at the online documentation:
-     <https://nixos.org/manual/nixpkgs/stable/#python>.
+     To use Python with Nix and botpkgs, have a look at the online documentation:
+     <https://nixos.org/manual/botpkgs/stable/#python>.
     EXTERNALLY_MANAGED
   '' + optionalString stdenv.hostPlatform.isWindows ''
     # Shebang files that link against the build python. Shebang don’t work on windows

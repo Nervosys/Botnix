@@ -34,7 +34,7 @@ vscode-utils.buildVscodeMarketplaceExtension rec {
   ];
 
   postPatch = ''
-    # remove bundled python deps and use libs from nixpkgs
+    # remove bundled python deps and use libs from botpkgs
     rm -r pythonFiles/lib
     mkdir -p pythonFiles/lib/python/
     ln -s ${python3.pkgs.debugpy}/lib/*/site-packages/debugpy pythonFiles/lib/python/

@@ -22,7 +22,7 @@ buildGoModule rec {
     "-X github.com/prometheus/common/version.Version=${version}"
     "-X github.com/prometheus/common/version.Revision=unknown"
     "-X github.com/prometheus/common/version.Branch=unknown"
-    "-X github.com/prometheus/common/version.BuildUser=nix@nixpkgs"
+    "-X github.com/prometheus/common/version.BuildUser=nix@botpkgs"
     "-X github.com/prometheus/common/version.BuildDate=unknown"
   ];
 

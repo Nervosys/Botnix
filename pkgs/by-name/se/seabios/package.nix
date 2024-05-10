@@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   makeFlags = [
     # https://www.seabios.org/Build_overview#Distribution_builds
-    "EXTRAVERSION=\"-nixpkgs\""
+    "EXTRAVERSION=\"-botpkgs\""
   ];
 
   hardeningDisable = [ "pic" "stackprotector" "fortify" ];

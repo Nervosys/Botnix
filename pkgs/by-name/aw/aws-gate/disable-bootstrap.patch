@@ -33,7 +33,7 @@ index ac37c2f..9743415 100644
      if args.subcommand == "bootstrap":
 -        bootstrap(force=args.force)
 +        print(
-+            f"The SSM Plugin will not be downloaded as aws-gate was installed from nixpkgs and the plugin comes pre-bundled. The '--force' flag will not override this behavior."
++            f"The SSM Plugin will not be downloaded as aws-gate was installed from botpkgs and the plugin comes pre-bundled. The '--force' flag will not override this behavior."
 +        )
      elif args.subcommand == "exec":
          exec(

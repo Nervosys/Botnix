@@ -20,7 +20,7 @@ index d9e1fdc6..6e08c439 100644
  // GetGoogleapisDirPath gets the path to a clone of googleapis.
  func GetGoogleapisDirPath(t *testing.T, buftestingDirPath string) string {
 +	// Requires network access, which is not available during
-+	// the nixpkgs sandboxed build
++	// the botpkgs sandboxed build
 +	t.Skip()
 +
  	googleapisDirPath := filepath.Join(buftestingDirPath, testGoogleapisDirPath)

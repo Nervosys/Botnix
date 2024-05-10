@@ -112,7 +112,7 @@ wrapped-full = runCommand unwrapped.name
       # For http module, prefill module, trust anchor bootstrap.
       # It brings lots of deps; some are useful elsewhere (e.g. cqueues).
       http
-      # psl isn't in nixpkgs yet, but policy.slice_randomize_psl() seems not important.
+      # psl isn't in botpkgs yet, but policy.slice_randomize_psl() seems not important.
     ];
     preferLocalBuild = true;
     allowSubstitutes = false;

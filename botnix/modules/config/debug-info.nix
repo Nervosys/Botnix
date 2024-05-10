@@ -18,7 +18,7 @@ with lib;
         If you need debug symbols for a package that doesn't
         provide them by default, you can enable them as follows:
 
-            nixpkgs.config.packageOverrides = pkgs: {
+            botpkgs.config.packageOverrides = pkgs: {
               hello = pkgs.hello.overrideAttrs (oldAttrs: {
                 separateDebugInfo = true;
               });

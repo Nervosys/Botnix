@@ -10,7 +10,7 @@
       settings = {
         defaultQuotingType = "ecdsa_256";
         proxyType = "direct";
-        whitelistUrl = "http://botnix.org";
+        whitelistUrl = "http://nixos.org";
       };
     };
 
@@ -76,7 +76,7 @@
       with subtest("Writes and binds aesm.conf in service namespace"):
         aesmd_config = machine.succeed(f"nsenter -m -t {main_pid} ${pkgs.coreutils}/bin/cat /etc/aesmd.conf")
 
-        assert aesmd_config == "whitelist url = http://botnix.org\nproxy type = direct\ndefault quoting type = ecdsa_256\n", "aesmd.conf differs"
+        assert aesmd_config == "whitelist url = http://nixos.org\nproxy type = direct\ndefault quoting type = ecdsa_256\n", "aesmd.conf differs"
 
       with subtest("aesmd.service without quote provider library has correct LD_LIBRARY_PATH"):
         status, environment = machine.systemctl("show --property Environment --value aesmd.service")

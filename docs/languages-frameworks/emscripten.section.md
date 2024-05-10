@@ -156,9 +156,9 @@ pkgs.buildEmscriptenPackage rec {
 
 ## Debugging {#declarative-debugging}
 
-Use `nix-shell -I nixpkgs=/some/dir/nixpkgs -A emscriptenPackages.libz` and from there you can go trough the individual steps. This makes it easy to build a good `unit test` or list the files of the project.
+Use `nix-shell -I botpkgs=/some/dir/botpkgs -A emscriptenPackages.libz` and from there you can go trough the individual steps. This makes it easy to build a good `unit test` or list the files of the project.
 
-1. `nix-shell -I nixpkgs=/some/dir/nixpkgs -A emscriptenPackages.libz`
+1. `nix-shell -I botpkgs=/some/dir/botpkgs -A emscriptenPackages.libz`
 2. `cd /tmp/`
 3. `unpackPhase`
 4. cd libz-1.2.3

@@ -110,7 +110,7 @@ let
 #
 # See also:
 #
-# * https://nixos.org/nixpkgs/manual/#sec-using-stdenv
+# * https://nixos.org/botpkgs/manual/#sec-using-stdenv
 #   Details on how to use this mkDerivation function
 #
 # * https://nixos.org/manual/nix/stable/expressions/derivations.html#derivations
@@ -202,7 +202,7 @@ let
 
 , ... } @ attrs:
 
-# Policy on acceptable hash types in nixpkgs
+# Policy on acceptable hash types in botpkgs
 assert attrs ? outputHash -> (
   let algo =
     attrs.outputHashAlgo or (head (splitString "-" attrs.outputHash));

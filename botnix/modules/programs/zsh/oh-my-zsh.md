@@ -42,7 +42,7 @@ The module can do this as well:
 ## Custom environments {#module-programs-oh-my-zsh-environments}
 
 There are several extensions for `oh-my-zsh` packaged in
-`nixpkgs`. One of them is
+`botpkgs`. One of them is
 [nix-zsh-completions](https://github.com/spwhitt/nix-zsh-completions)
 which bundles completion scripts and a plugin for `oh-my-zsh`.
 
@@ -59,7 +59,7 @@ it's also possible to generate this path from a list of Nix packages:
 ```
 Internally a single store path will be created using
 `buildEnv`. Please refer to the docs of
-[`buildEnv`](https://nixos.org/nixpkgs/manual/#sec-building-environment)
+[`buildEnv`](https://nixos.org/botpkgs/manual/#sec-building-environment)
 for further reference.
 
 *Please keep in mind that this is not compatible with

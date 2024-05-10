@@ -252,14 +252,14 @@ in
                 List of binary cache URLs used to obtain pre-built binaries
                 of Nix packages.
 
-                By default https://cache.botnix.org/ is added.
+                By default https://cache.nixos.org/ is added.
               '';
             };
 
             trusted-substituters = mkOption {
               type = types.listOf types.str;
               default = [ ];
-              example = [ "https://hydra.botnix.org/" ];
+              example = [ "https://hydra.nixos.org/" ];
               description = lib.mdDoc ''
                 List of binary cache URLs that non-root users can use (in
                 addition to those specified using
@@ -282,14 +282,14 @@ in
 
             trusted-public-keys = mkOption {
               type = types.listOf types.str;
-              example = [ "hydra.botnix.org-1:CNHJZBh9K4tP3EKF6FkkgeVYsS3ohTl+oS0Qa8bezVs=" ];
+              example = [ "hydra.nixos.org-1:CNHJZBh9K4tP3EKF6FkkgeVYsS3ohTl+oS0Qa8bezVs=" ];
               description = lib.mdDoc ''
                 List of public keys used to sign binary caches. If
                 {option}`nix.settings.trusted-public-keys` is enabled,
                 then Nix will use a binary from a binary cache if and only
                 if it is signed by *any* of the keys
                 listed here. By default, only the key for
-                `cache.botnix.org` is included.
+                `cache.nixos.org` is included.
               '';
             };
 
@@ -354,7 +354,7 @@ in
           {manpage}`nix.conf(5)` for available options.
           The value declared here will be translated directly to the key-value pairs Nix expects.
 
-          You can use {command}`nix-instantiate --eval --strict '<nixpkgs/botnix>' -A config.nix.settings`
+          You can use {command}`nix-instantiate --eval --strict '<botpkgs/botnix>' -A config.nix.settings`
           to view the current value. By default it is empty.
 
           Nix configurations defined under {option}`nix.*` will be translated and applied to this
@@ -368,8 +368,8 @@ in
   config = mkIf cfg.enable {
     environment.etc."nix/nix.conf".source = nixConf;
     nix.settings = {
-      trusted-public-keys = [ "cache.botnix.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
-      substituters = mkAfter [ "https://cache.botnix.org/" ];
+      trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+      substituters = mkAfter [ "https://cache.nixos.org/" ];
       system-features = mkDefault (
         [ "botnix-test" "benchmark" "big-parallel" "kvm" ] ++
         optionals (pkgs.stdenv.hostPlatform ? gcc.arch) (

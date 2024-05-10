@@ -26,7 +26,7 @@ buildPythonPackage rec {
   ];
 
   # The tests require several other dependencies, some of which aren't in
-  # nixpkgs yet, and also aren't included in the PyPI bundle.  TODO.
+  # botpkgs yet, and also aren't included in the PyPI bundle.  TODO.
   doCheck = false;
 
   pythonImportsCheck = [

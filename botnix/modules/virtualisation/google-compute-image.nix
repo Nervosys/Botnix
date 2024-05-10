@@ -7,7 +7,7 @@ let
     { ... }:
     {
       imports = [
-        <nixpkgs/botnix/modules/virtualisation/google-compute-image.nix>
+        <botpkgs/botnix/modules/virtualisation/google-compute-image.nix>
       ];
     }
   '';
@@ -33,7 +33,7 @@ in
         A path to a configuration file which will be placed at `/etc/botnix/configuration.nix`
         and be used when switching to a new configuration.
         If set to `null`, a default configuration is used, where the only import is
-        `<nixpkgs/botnix/modules/virtualisation/google-compute-image.nix>`.
+        `<botpkgs/botnix/modules/virtualisation/google-compute-image.nix>`.
       '';
     };
 

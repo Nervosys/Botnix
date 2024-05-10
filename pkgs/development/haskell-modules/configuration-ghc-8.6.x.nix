@@ -8,7 +8,7 @@ in
 
 self: super: {
 
-  # Should be llvmPackages_6 which has been removed from nixpkgs
+  # Should be llvmPackages_6 which has been removed from botpkgs
   llvmPackages = null;
 
   # Disable GHC 8.6.x core libraries.

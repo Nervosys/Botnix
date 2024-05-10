@@ -20,7 +20,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-X main.version=v${version}"
-    "-X main.builtBy=nixpkgs"
+    "-X main.builtBy=botpkgs"
   ];
 
   vendorHash = "sha256-B3uIFJaEsj9tpjPBiU+rXVlfcgVwZUQe3VSSoZQqBG8=";

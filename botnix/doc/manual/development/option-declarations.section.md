@@ -18,7 +18,7 @@ options = {
 
 The attribute names within the `name` attribute path must be camel
 cased in general but should, as an exception, match the [ package
-attribute name](https://nixos.org/nixpkgs/manual/#sec-package-naming)
+attribute name](https://nixos.org/botpkgs/manual/#sec-package-naming)
 when referencing a Botpkgs package. For example, the option
 `services.nix-serve.bindAddress` references the `nix-serve` Botpkgs
 package.
@@ -28,7 +28,7 @@ The function `mkOption` accepts the following arguments.
 `type`
 
 :   The type of the option (see [](#sec-option-types)). This
-    argument is mandatory for nixpkgs modules. Setting this is highly
+    argument is mandatory for botpkgs modules. Setting this is highly
     recommended for the sake of documentation and type checking. In case it is
     not set, a fallback type with unspecified behavior is used.
 
@@ -46,7 +46,7 @@ The function `mkOption` accepts the following arguments.
     on other values or packages.
     Use `lib.literalExpression` for a Nix expression, `lib.literalMD` for
     a plain English description in [Botpkgs-flavored Markdown](
-    https://nixos.org/nixpkgs/manual/#sec-contributing-markup) format.
+    https://nixos.org/botpkgs/manual/#sec-contributing-markup) format.
 
 `example`
 
@@ -57,7 +57,7 @@ The function `mkOption` accepts the following arguments.
 `description`
 
 :   A textual description of the option, in [Botpkgs-flavored Markdown](
-    https://nixos.org/nixpkgs/manual/#sec-contributing-markup) format, that will be
+    https://nixos.org/botpkgs/manual/#sec-contributing-markup) format, that will be
     included in the Botnix manual. During the migration process from DocBook
     it is necessary to mark descriptions written in CommonMark with `lib.mdDoc`.
     The description may still be written in DocBook (without any marker), but this
@@ -100,11 +100,11 @@ mkPackageOption pkgs "name" { default = [ "path" "in" "pkgs" ]; example = "liter
 
 Creates an Option attribute set for an option that specifies the package a module should use for some purpose.
 
-**Note**: You shouldn’t necessarily make package options for all of your modules. You can always overwrite a specific package throughout nixpkgs by using [nixpkgs overlays](https://nixos.org/manual/nixpkgs/stable/#chap-overlays).
+**Note**: You shouldn’t necessarily make package options for all of your modules. You can always overwrite a specific package throughout botpkgs by using [botpkgs overlays](https://nixos.org/manual/botpkgs/stable/#chap-overlays).
 
 The package is specified in the third argument under `default` as a list of strings
-representing its attribute path in nixpkgs (or another package set).
-Because of this, you need to pass nixpkgs itself (or a subset) as the first argument.
+representing its attribute path in botpkgs (or another package set).
+Because of this, you need to pass botpkgs itself (or a subset) as the first argument.
 
 The second argument may be either a string or a list of strings.
 It provides the display name of the package in the description of the generated option

@@ -2,7 +2,7 @@
 
   # Content-addressable Nix mirrors
   hashedMirrors = [
-    "https://tarballs.botnix.org"
+    "https://tarballs.nixos.org"
   ];
 
   # Mirrors for mirror://site/filename URIs, where "site" is

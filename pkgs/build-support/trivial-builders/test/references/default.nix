@@ -24,7 +24,7 @@
 # Execute this build script directly (quick):
 #
 # * Classic
-#   $ NIX_PATH="nixpkgs=$PWD" nix-shell -p tests.trivial-builders.references.testScriptBin --run references-test
+#   $ NIX_PATH="botpkgs=$PWD" nix-shell -p tests.trivial-builders.references.testScriptBin --run references-test
 #
 # * Flake-based
 #   $ nix run .#tests.trivial-builders.references.testScriptBin
@@ -91,7 +91,7 @@ let
   });
 in
 testers.nixosTest {
-  name = "nixpkgs-trivial-builders";
+  name = "botpkgs-trivial-builders";
   nodes.machine = { ... }: {
     virtualisation.writableStore = true;
 

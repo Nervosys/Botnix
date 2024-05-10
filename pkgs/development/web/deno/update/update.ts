@@ -7,12 +7,12 @@ import { Architecture, updateLibrustyV8 } from "./librusty_v8.ts";
 import { updateSrc } from "./src.ts";
 
 const log = logger("update");
-// TODO: Getting current file position to more-safely point to nixpkgs root
-const nixpkgs = Deno.cwd();
+// TODO: Getting current file position to more-safely point to botpkgs root
+const botpkgs = Deno.cwd();
 // TODO: Read values from default.nix
 const owner = "denoland";
 const repo = "deno";
-const denoDir = `${nixpkgs}/pkgs/development/web/${repo}`;
+const denoDir = `${botpkgs}/pkgs/development/web/${repo}`;
 const src = `${denoDir}/default.nix`;
 const librusty_v8 = `${denoDir}/librusty_v8.nix`;
 const architectures: Architecture[] = [
@@ -36,7 +36,7 @@ if (trimVersion === existingVersion) {
 }
 
 const tasks = [
-  updateSrc(src, nixpkgs, version),
+  updateSrc(src, botpkgs, version),
   updateLibrustyV8(librusty_v8, owner, repo, version, architectures),
 ];
 await Promise.all(tasks);

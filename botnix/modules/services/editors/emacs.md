@@ -74,7 +74,7 @@ Under Botnix, you can continue to use
 `package-install` to install packages. You can also
 declare the set of Emacs packages you need using the derivations from
 Botpkgs. The rest of this section discusses declarative installation of
-Emacs packages through nixpkgs.
+Emacs packages through botpkgs.
 
 The first step to declare the list of packages you want in your Emacs
 installation is to create a dedicated derivation. This can be done in a
@@ -87,7 +87,7 @@ dedicated {file}`emacs.nix` file such as:
 /*
 This is a nix expression to build Emacs and some Emacs packages I like
 from source on any distribution where Nix is installed. This will install
-all the dependencies from the nixpkgs repository and build the binary files
+all the dependencies from the botpkgs repository and build the binary files
 without interfering with the host distribution.
 
 To build the project, type the following from the current directory:
@@ -101,7 +101,7 @@ $ ./result/bin/emacs
 
 # The first non-comment line in this file indicates that
 # the whole file represents a function.
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 
 let
   # The let expression below defines a myEmacs binding pointing to the
@@ -132,7 +132,7 @@ in
     beacon         # ; highlight my cursor when scrolling
     nameless       # ; hide current package name everywhere in elisp code
   ])
-  # notmuch is taken from a nixpkgs derivation which contains an Emacs mode.
+  # notmuch is taken from a botpkgs derivation which contains an Emacs mode.
   ++ [
     pkgs.notmuch   # From main packages set
   ])
@@ -164,10 +164,10 @@ with the following commands:
 ### Querying Emacs packages
 
 ```
-nix-env -f "<nixpkgs>" -qaP -A emacs.pkgs.elpaPackages
-nix-env -f "<nixpkgs>" -qaP -A emacs.pkgs.melpaPackages
-nix-env -f "<nixpkgs>" -qaP -A emacs.pkgs.melpaStablePackages
-nix-env -f "<nixpkgs>" -qaP -A emacs.pkgs.orgPackages
+nix-env -f "<botpkgs>" -qaP -A emacs.pkgs.elpaPackages
+nix-env -f "<botpkgs>" -qaP -A emacs.pkgs.melpaPackages
+nix-env -f "<botpkgs>" -qaP -A emacs.pkgs.melpaStablePackages
+nix-env -f "<botpkgs>" -qaP -A emacs.pkgs.orgPackages
 ```
 :::
 
@@ -193,15 +193,15 @@ care of adding your {command}`emacs` to the {var}`PATH`
 environment variable (see [](#sec-changing-config)).
 
 <!-- fixme: i think the following is better done with config.nix
-https://nixos.org/nixpkgs/manual/#sec-modify-via-packageOverrides
+https://nixos.org/botpkgs/manual/#sec-modify-via-packageOverrides
 -->
 
 If you are not on Botnix or want to install this particular Emacs only for
-yourself, you can do so by putting `emacs.nix` in `~/.config/nixpkgs` and
-adding it to your {file}`~/.config/nixpkgs/config.nix` (see
-[Botpkgs manual](https://nixos.org/nixpkgs/manual/#sec-modify-via-packageOverrides)):
+yourself, you can do so by putting `emacs.nix` in `~/.config/botpkgs` and
+adding it to your {file}`~/.config/botpkgs/config.nix` (see
+[Botpkgs manual](https://nixos.org/botpkgs/manual/#sec-modify-via-packageOverrides)):
 ::: {.example #module-services-emacs-config-nix}
-### Custom Emacs in `~/.config/nixpkgs/config.nix`
+### Custom Emacs in `~/.config/botpkgs/config.nix`
 
 ```
 {
@@ -212,7 +212,7 @@ adding it to your {file}`~/.config/nixpkgs/config.nix` (see
 ```
 :::
 
-In this case, the next `nix-env -f '<nixpkgs>' -iA
+In this case, the next `nix-env -f '<botpkgs>' -iA
 myemacs` will take care of adding your emacs to the
 {var}`PATH` environment variable.
 
@@ -229,7 +229,7 @@ only use {command}`emacsclient`), you can change your file
 ### Custom Emacs build
 
 ```
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <botpkgs> {} }:
 let
   myEmacs = (pkgs.emacs.override {
     # Use gtk3 instead of the default gtk2
@@ -374,7 +374,7 @@ included.
 To install the DocBook 5.0 schemas, either add
 {var}`pkgs.docbook5` to [](#opt-environment.systemPackages)
 ([Botnix](#sec-declarative-package-mgmt)), or run
-`nix-env -f '<nixpkgs>' -iA docbook5`
+`nix-env -f '<botpkgs>' -iA docbook5`
 ([Nix](#sec-ad-hoc-packages)).
 
 Then customize the variable {var}`rng-schema-locating-files` to

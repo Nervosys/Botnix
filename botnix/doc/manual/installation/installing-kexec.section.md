@@ -15,11 +15,11 @@ Note that kexec may not work correctly on some hardware, as devices are not
 fully re-initialized in the process. In practice, this however is rarely the
 case.
 
-To build the necessary files from your current version of nixpkgs,
+To build the necessary files from your current version of botpkgs,
 you can run:
 
 ```ShellSession
-nix-build -A kexec.x86_64-linux '<nixpkgs/nixos/release.nix>'
+nix-build -A kexec.x86_64-linux '<botpkgs/nixos/release.nix>'
 ```
 
 This will create a `result` directory containing the following:
@@ -55,7 +55,7 @@ the default installer image, you can build your own `configuration.nix`:
 
 
 ```ShellSession
-nix-build '<nixpkgs/nixos>' \
+nix-build '<botpkgs/nixos>' \
   --arg configuration ./configuration.nix
   --attr config.system.build.kexecTree
 ```

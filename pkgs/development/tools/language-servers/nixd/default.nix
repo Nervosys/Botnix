@@ -13,7 +13,7 @@
 , meson
 , ninja
 , nix
-, nixpkgs-fmt
+, botpkgs-fmt
 , pkg-config
 }:
 
@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
 
   nativeCheckInputs = [
     lit
-    nixpkgs-fmt
+    botpkgs-fmt
   ];
 
   buildInputs = [

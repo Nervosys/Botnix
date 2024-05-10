@@ -107,8 +107,8 @@ in
           [Healthchecks configuration](https://healthchecks.io/docs/self_hosted_configuration/) so
           that they also can be read from a file and kept out of /nix/store. To see which values
           have support for a `_FILE` variant, run:
-          - `nix-instantiate --eval --expr '(import <nixpkgs> {}).healthchecks.secrets'`
-          - or `nix eval 'nixpkgs#healthchecks.secrets'` if the flake support has been enabled.
+          - `nix-instantiate --eval --expr '(import <botpkgs> {}).healthchecks.secrets'`
+          - or `nix eval 'botpkgs#healthchecks.secrets'` if the flake support has been enabled.
       '';
       type = types.submodule (settings: {
         freeformType = types.attrsOf types.str;

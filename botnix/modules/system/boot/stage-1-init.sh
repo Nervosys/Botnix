@@ -411,7 +411,7 @@ mountFS() {
     makeMountPoint "$device" "$mountPoint" "$optionsPrefixed"
 
     # For ZFS and CIFS mounts, retry a few times before giving up.
-    # We do this for ZFS as a workaround for issue Botnix/nixpkgs#25383.
+    # We do this for ZFS as a workaround for issue Botnix/botpkgs#25383.
     local n=0
     while true; do
         mount "/mnt-root$mountPoint" && break

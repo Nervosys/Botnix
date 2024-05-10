@@ -34,7 +34,7 @@ stdenv.mkDerivation {
     license = licenses.mit;
     maintainers = with maintainers; [ astro ];
     platforms = lib.platforms.unix;
-    # never built on aarch64-darwin, x86_64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin, x86_64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin;
     mainProgram = "esshader";
   };

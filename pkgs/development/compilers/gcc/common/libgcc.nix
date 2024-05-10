@@ -29,7 +29,7 @@ drv: lib.pipe drv
 
 ] ++
 
-# nixpkgs did not add the "libgcc" output until gcc11.  In theory
+# botpkgs did not add the "libgcc" output until gcc11.  In theory
 # the following condition can be changed to `true`, but that has not
 # been tested.
 lib.optionals (lib.versionAtLeast version "11.0")

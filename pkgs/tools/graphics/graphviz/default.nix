@@ -69,7 +69,7 @@ stdenv.mkDerivation rec {
   CPPFLAGS = optionalString (withXorg && stdenv.isDarwin)
     "-I${cairo.dev}/include/cairo";
 
-  doCheck = false; # fails with "Graphviz test suite requires ksh93" which is not in nixpkgs
+  doCheck = false; # fails with "Graphviz test suite requires ksh93" which is not in botpkgs
 
   preAutoreconf = "./autogen.sh";
 

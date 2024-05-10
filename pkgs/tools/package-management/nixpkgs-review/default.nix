@@ -15,13 +15,13 @@
 }:
 
 python3.pkgs.buildPythonApplication rec {
-  pname = "nixpkgs-review";
+  pname = "botpkgs-review";
   version = "2.10.3";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "Mic92";
-    repo = "nixpkgs-review";
+    repo = "botpkgs-review";
     rev = version;
     hash = "sha256-iO+B/4UsMi+vf85oyLwZTigZ+mmt7Sk3qGba20/0XBs=";
   };
@@ -51,7 +51,7 @@ python3.pkgs.buildPythonApplication rec {
   doCheck = false;
 
   postInstall = lib.optionalString withAutocomplete ''
-    for cmd in nix-review nixpkgs-review; do
+    for cmd in nix-review botpkgs-review; do
       installShellCompletion --cmd $cmd \
         --bash <(register-python-argcomplete $out/bin/$cmd) \
         --fish <(register-python-argcomplete $out/bin/$cmd -s fish) \
@@ -60,11 +60,11 @@ python3.pkgs.buildPythonApplication rec {
   '';
 
   meta = with lib; {
-    changelog = "https://github.com/Mic92/nixpkgs-review/releases/tag/${version}";
+    changelog = "https://github.com/Mic92/botpkgs-review/releases/tag/${version}";
     description = "Review pull-requests on https://github.com/nervosys/Botnix";
-    homepage = "https://github.com/Mic92/nixpkgs-review";
+    homepage = "https://github.com/Mic92/botpkgs-review";
     license = licenses.mit;
-    mainProgram = "nixpkgs-review";
+    mainProgram = "botpkgs-review";
     maintainers = with maintainers; [ figsoda mic92 ];
   };
 }

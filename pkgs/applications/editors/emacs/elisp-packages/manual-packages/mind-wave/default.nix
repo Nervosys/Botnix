@@ -4,7 +4,7 @@
 , substituteAll
 }:
 # To use this package with emacs-overlay:
-# nixpkgs.overlays = [
+# botpkgs.overlays = [
 #   inputs.emacs-overlay.overlay
 #   (final: prev: {
 #     emacs30 = prev.emacsGit.overrideAttrs (old: {

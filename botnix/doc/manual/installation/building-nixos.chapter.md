@@ -22,7 +22,7 @@ To build an ISO image for the channel `nixos-unstable`:
 
 ```ShellSession
 $ git clone https://github.com/nervosys/Botnix.git
-$ cd nixpkgs/nixos
+$ cd botpkgs/nixos
 $ git switch nixos-unstable
 $ nix-build -A config.system.build.isoImage -I botnix-config=modules/installer/cd-dvd/installation-cd-minimal.nix default.nix
 ```
@@ -59,7 +59,7 @@ Then build it like in the example above:
 
 ```ShellSession
 $ git clone https://github.com/nervosys/Botnix.git
-$ cd nixpkgs/nixos
+$ cd botpkgs/nixos
 $ export NIXPKGS_ALLOW_UNFREE=1
 $ nix-build -A config.system.build.isoImage -I botnix-config=modules/installer/cd-dvd/installation-cd-graphical-gnome-macbook.nix default.nix
 ```

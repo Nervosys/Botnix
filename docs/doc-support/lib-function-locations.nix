@@ -1,6 +1,6 @@
-{ pkgs, nixpkgs ? { }, libsets }:
+{ pkgs, botpkgs ? { }, libsets }:
 let
-  revision = pkgs.lib.trivial.revisionWithDefault (nixpkgs.rev or "master");
+  revision = pkgs.lib.trivial.revisionWithDefault (botpkgs.rev or "master");
 
   libDefPos = prefix: set:
     builtins.concatMap
@@ -67,7 +67,7 @@ let
             text = "${value.file}:${builtins.toString value.line}";
             target = "${urlPrefix}/${value.file}#L${builtins.toString value.line}";
           in
-            "[${text}](${target}) in `<nixpkgs>`";
+            "[${text}](${target}) in `<botpkgs>`";
       })
     relativeLocs);
 

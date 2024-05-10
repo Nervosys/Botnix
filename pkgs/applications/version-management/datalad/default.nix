@@ -29,7 +29,7 @@ python3.pkgs.buildPythonApplication rec {
     git-annex
 
     # downloaders-extra
-    # requests-ftp # not in nixpkgs yet
+    # requests-ftp # not in botpkgs yet
 
     # downloaders
     boto

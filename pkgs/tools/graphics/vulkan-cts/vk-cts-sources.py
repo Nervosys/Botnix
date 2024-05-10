@@ -1,6 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i python3 -p nix-prefetch-github -p git
-#nix-shell -I nixpkgs=../../../../ -i python3 -p "python3.withPackages (ps: with ps; [ nix-prefetch-github ])" -p "git"
+#nix-shell -I botpkgs=../../../../ -i python3 -p "python3.withPackages (ps: with ps; [ nix-prefetch-github ])" -p "git"
 
 import json
 import re

@@ -26,7 +26,7 @@ with lib;
 
     fonts.fontconfig.enable = false;
 
-    nixpkgs.overlays = singleton (const (super: {
+    botpkgs.overlays = singleton (const (super: {
       beam = super.beam_nox;
       cairo = super.cairo.override { x11Support = false; };
       dbus = super.dbus.override { x11Support = false; };

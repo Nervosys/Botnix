@@ -56,7 +56,7 @@ stdenv.mkDerivation (finalAttrs: {
     # because of its history: newlib used to be distributed with and
     # built as part of gcc.
     #
-    # To prevent nixpkgs from going insane, this package presents the
+    # To prevent botpkgs from going insane, this package presents the
     # "normal" view to the outside world: the binaries in $out will
     # execute on `stdenv.hostPlatform`.  We then fool newlib's build
     # process into doing the right thing.

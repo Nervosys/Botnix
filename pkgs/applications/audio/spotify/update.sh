@@ -14,13 +14,13 @@
 # anything with spotify automatic testing is not possible.
 
 # As an optional argument you can specify the snapcraft channel to update to.
-# Default is `stable` and only stable updates should be pushed to nixpkgs. For
+# Default is `stable` and only stable updates should be pushed to botpkgs. For
 # testing you may specify `candidate` or `edge`.
 
 
 channel="${1:-stable}" # stable/candidate/edge
-nixpkgs="$(git rev-parse --show-toplevel)"
-spotify_nix="$nixpkgs/pkgs/applications/audio/spotify/linux.nix"
+botpkgs="$(git rev-parse --show-toplevel)"
+spotify_nix="$botpkgs/pkgs/applications/audio/spotify/linux.nix"
 
 
 #
@@ -78,7 +78,7 @@ sed --regexp-extended \
 #
 
 export NIXPKGS_ALLOW_UNFREE=1
-if ! nix-build -A spotify "$nixpkgs"; then
+if ! nix-build -A spotify "$botpkgs"; then
   echo "The updated spotify failed to build."
   exit 1
 fi

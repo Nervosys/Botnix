@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
   # warning: #warning _FORTIFY_SOURCE requires compiling with optimization (-O)
   env.NIX_CFLAGS_COMPILE = "-O3";
 
-  # Remove pre-built y.tab.c to generate with nixpkgs bison
+  # Remove pre-built y.tab.c to generate with botpkgs bison
   preBuild = ''
     rm mruby/mrbgems/mruby-compiler/core/y.tab.c
   '';

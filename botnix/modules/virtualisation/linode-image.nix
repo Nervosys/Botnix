@@ -6,7 +6,7 @@ let
   defaultConfigFile = pkgs.writeText "configuration.nix" ''
     _: {
       imports = [
-        <nixpkgs/botnix/modules/virtualisation/linode-image.nix>
+        <botpkgs/botnix/modules/virtualisation/linode-image.nix>
       ];
     }
   '';
@@ -31,7 +31,7 @@ in
         A path to a configuration file which will be placed at `/etc/botnix/configuration.nix`
         and be used when switching to a new configuration.
         If set to `null`, a default configuration is used, where the only import is
-        `<nixpkgs/botnix/modules/virtualisation/linode-image.nix>`
+        `<botpkgs/botnix/modules/virtualisation/linode-image.nix>`
       '';
     };
 

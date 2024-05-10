@@ -50,7 +50,7 @@ in {
         '';
       };
       hvm = lib.mkOption {
-        description = "Unused legacy option. While support for non-hvm has been dropped, we keep this option around so that NixOps remains compatible with a somewhat recent `nixpkgs` and machines with an old `stateVersion`.";
+        description = "Unused legacy option. While support for non-hvm has been dropped, we keep this option around so that NixOps remains compatible with a somewhat recent `botpkgs` and machines with an old `stateVersion`.";
         internal = true;
         default = true;
         readOnly = true;

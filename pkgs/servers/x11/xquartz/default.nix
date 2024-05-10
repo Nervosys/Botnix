@@ -20,7 +20,7 @@
 #
 # (You will need to log out for the above changes to take effect.)
 #
-# Then install xquartz from nixpkgs:
+# Then install xquartz from botpkgs:
 #
 #   $ nix-env -i xquartz
 #   $ xquartz-install

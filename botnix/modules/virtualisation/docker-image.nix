@@ -22,7 +22,7 @@
 #
 ## default.nix
 # let
-#   botnix = import <nixpkgs/botnix> {
+#   botnix = import <botpkgs/botnix> {
 #     configuration = ./configuration.nix;
 #     system = "x86_64-linux";
 #   };
@@ -33,8 +33,8 @@
 # { pkgs, config, lib, ... }:
 # {
 #   imports = [
-#     <nixpkgs/botnix/modules/virtualisation/docker-image.nix>
-#     <nixpkgs/botnix/modules/installer/cd-dvd/channel.nix>
+#     <botpkgs/botnix/modules/virtualisation/docker-image.nix>
+#     <botpkgs/botnix/modules/installer/cd-dvd/channel.nix>
 #   ];
 #
 #   documentation.doc.enable = false;

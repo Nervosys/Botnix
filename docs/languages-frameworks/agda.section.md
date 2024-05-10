@@ -2,7 +2,7 @@
 
 ## How to use Agda {#how-to-use-agda}
 
-Agda is available as the [agda](https://search.botnix.org/packages?channel=unstable&show=agda&from=0&size=30&sort=relevance&query=agda)
+Agda is available as the [agda](https://search.nixos.org/packages?channel=unstable&show=agda&from=0&size=30&sort=relevance&query=agda)
 package.
 
 The `agda` package installs an Agda-wrapper, which calls `agda` with `--library-file`
@@ -132,8 +132,8 @@ A derivation can then be written using `agdaPackages.mkDerivation`. This has sim
 Here is an example `default.nix`
 
 ```nix
-{ nixpkgs ?  <nixpkgs> }:
-with (import nixpkgs {});
+{ botpkgs ?  <botpkgs> }:
+with (import botpkgs {});
 agdaPackages.mkDerivation {
   version = "1.0";
   pname = "my-agda-lib";
@@ -158,14 +158,14 @@ This can be overridden.
 
 By default, Agda sources are files ending on `.agda`, or literate Agda files ending on `.lagda`, `.lagda.tex`, `.lagda.org`, `.lagda.md`, `.lagda.rst`. The list of recognised Agda source extensions can be extended by setting the `extraExtensions` config variable.
 
-## Maintaining the Agda package set on Botpkgs {#maintaining-the-agda-package-set-on-nixpkgs}
+## Maintaining the Agda package set on Botpkgs {#maintaining-the-agda-package-set-on-botpkgs}
 
-We are aiming at providing all common Agda libraries as packages on `nixpkgs`,
+We are aiming at providing all common Agda libraries as packages on `botpkgs`,
 and keeping them up to date.
 Contributions and maintenance help is always appreciated,
 but the maintenance effort is typically low since the Agda ecosystem is quite small.
 
-The `nixpkgs` Agda package set tries to take up a role similar to that of [Stackage](https://www.stackage.org/) in the Haskell world.
+The `botpkgs` Agda package set tries to take up a role similar to that of [Stackage](https://www.stackage.org/) in the Haskell world.
 It is a curated set of libraries that:
 
 1. Always work together.
@@ -174,9 +174,9 @@ It is a curated set of libraries that:
 While the Haskell ecosystem is huge, and Stackage is highly automatised,
 the Agda package set is small and can (still) be maintained by hand.
 
-### Adding Agda packages to Botpkgs {#adding-agda-packages-to-nixpkgs}
+### Adding Agda packages to Botpkgs {#adding-agda-packages-to-botpkgs}
 
-To add an Agda package to `nixpkgs`, the derivation should be written to `pkgs/development/libraries/agda/${library-name}/` and an entry should be added to `pkgs/top-level/agda-packages.nix`. Here it is called in a scope with access to all other Agda libraries, so the top line of the `default.nix` can look like:
+To add an Agda package to `botpkgs`, the derivation should be written to `pkgs/development/libraries/agda/${library-name}/` and an entry should be added to `pkgs/top-level/agda-packages.nix`. Here it is called in a scope with access to all other Agda libraries, so the top line of the `default.nix` can look like:
 
 ```nix
 { mkDerivation, standard-library, fetchFromGitHub }:
@@ -223,7 +223,7 @@ These two conditions sometimes exclude each other:
 For example, if we update `agdaPackages.standard-library` because there was an upstream release,
 this will typically break many reverse dependencies,
 i.e. downstream Agda libraries that depend on the standard library.
-In `nixpkgs` we are typically among the first to notice this,
+In `botpkgs` we are typically among the first to notice this,
 since we have build tests in place to check this.
 
 In a pull request updating e.g. the standard library, you should write the following comment:

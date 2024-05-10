@@ -1,7 +1,7 @@
 {
-  nixpkgs ? ../../..,
+  botpkgs ? ../../..,
   system ? builtins.currentSystem,
-  pkgs ? import nixpkgs {
+  pkgs ? import botpkgs {
     config = {};
     overlays = [];
     inherit system;

@@ -38,7 +38,7 @@ let
       pname = "opencl-clang-patches";
       inherit version src;
       # Clang patches assume the root is the llvm root dir
-      # but clang root in nixpkgs is the clang sub-directory
+      # but clang root in botpkgs is the clang sub-directory
       postPatch = ''
         for filename in patches/clang/*.patch; do
           substituteInPlace "$filename" \

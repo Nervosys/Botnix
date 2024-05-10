@@ -82,7 +82,7 @@ mapAliases ({
   carrot = throw "carrot has been removed, as its development was discontinued in 2012"; # added 2022-01-18
   cchardet = faust-cchardet; # added 2023-03-02
   class-registry = phx-class-registry; # added 2021-10-05
-  cntk = throw "cntk has been removed from nixpkgs, as it was broken and unmaintained"; # Added 2023-10-09
+  cntk = throw "cntk has been removed from botpkgs, as it was broken and unmaintained"; # Added 2023-10-09
   codespell = throw "codespell has been promoted to a top-level attribute"; # Added 2022-10-02
   ColanderAlchemy = colanderalchemy; # added 2023-02-19
   CommonMark = commonmark; # added 2023-02-1
@@ -171,7 +171,7 @@ mapAliases ({
   foundationdb60 = throw "foundationdb60 is no longer maintained, use foundationdb71 instead"; # added 2023-06-06
   foundationdb61 = throw "foundationdb61 is no longer maintained, use foundationdb71 instead"; # added 2023-06-06
   functorch = throw "functorch is now part of the torch package and has therefore been removed. See https://github.com/pytorch/functorch/releases/tag/v1.13.0 for more info."; # added 2022-12-01
-  fritzprofiles = throw "fritzprofiles was removed from nixpkgs, because it was removed as dependency of home-assistant for which it was pacakged."; # added 2024-01-05
+  fritzprofiles = throw "fritzprofiles was removed from botpkgs, because it was removed as dependency of home-assistant for which it was pacakged."; # added 2024-01-05
   garages-amsterdam = throw "garages-amsterdam has been renamed odp-amsterdam."; # added 2023-01-04
   garminconnect-ha = garminconnect; # added 2022-02-05
   gdtoolkit = throw "gdtoolkit has been promoted to a top-level attribute"; # added 2023-02-15
@@ -226,7 +226,7 @@ mapAliases ({
   jinja2_time = jinja2-time; # added 2022-11-07
   JPype1 = jpype1; # added 2023-02-19
   jsonpath_rw = jsonpath-rw; # added 2024-01-06
-  jsonschema_3 = throw "jsonschema 3 is neither the latest version nor needed inside nixpkgs anymore"; # added 2023-06-28
+  jsonschema_3 = throw "jsonschema 3 is neither the latest version nor needed inside botpkgs anymore"; # added 2023-06-28
   jupyter_client = jupyter-client; # added 2021-10-15
   jupyter_console = jupyter-console; # added  2023-07-31
   jupyter_core = jupyter-core; # added 2023-01-05
@@ -306,7 +306,7 @@ mapAliases ({
   poster3 = throw "poster3 is unmaintained and source is no longer available"; # added 2023-05-29
   postorius = throw "Please use pkgs.mailmanPackages.postorius"; # added 2022-04-29
   powerlineMemSegment = powerline-mem-segment; # added 2021-10-08
-  privacyidea-ldap-proxy = throw "privacyidea-ldap-proxy has been removed from nixpkgs"; # added 2023-10-31
+  privacyidea-ldap-proxy = throw "privacyidea-ldap-proxy has been removed from botpkgs"; # added 2023-10-31
   prometheus_client = prometheus-client; # added 2021-06-10
   prompt_toolkit = prompt-toolkit; # added 2021-07-22
   protonup = protonup-ng; # Added 2022-11-06
@@ -334,7 +334,7 @@ mapAliases ({
   PyICU = pyicu; # Added 2022-12-22
   pyjson5 = json5; # added 2022-08-28
   pyhs100 = throw "pyhs100 has been removed in favor of python-kasa."; # added 2024-01-05
-  pylibgen = throw "pylibgen is unmaintained upstreamed, and removed from nixpkgs"; # added 2020-06-20
+  pylibgen = throw "pylibgen is unmaintained upstreamed, and removed from botpkgs"; # added 2020-06-20
   PyLD = pyld; # added 2022-06-22
   pymaging = throw "pymaging has been removed because it has not been maintained for 10 years and has been archived."; # added 2023-11-04
   pymaging_png = throw "pymaging_png has been removed because it has not been maintained for 10 years and has been archived."; # added 2023-11-04

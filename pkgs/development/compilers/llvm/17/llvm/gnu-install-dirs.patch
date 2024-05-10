@@ -54,7 +54,7 @@ index 230620c37027..dd16cab1835e 100644
 +    # Note that we add `extra_libdir` (aka `LLVM_LIBRARY_DIR` in our case) back
 +    # to `_install_rpath` here.
 +    #
-+    # In nixpkgs we do not build and install LLVM alongside rdeps of LLVM (i.e.
++    # In botpkgs we do not build and install LLVM alongside rdeps of LLVM (i.e.
 +    # clang); instead LLVM is its own package and thus lands at its own nix
 +    # store path. This makes it so that the default relative rpath (`../lib/`)
 +    # does not point at the LLVM shared objects.
@@ -70,7 +70,7 @@ index 230620c37027..dd16cab1835e 100644
 +    # dir, pre-install, will have the right rpath for LLVM).
 +    #
 +    # As noted in the differential above, an alternative solution is to have
-+    # all rdeps of nixpkgs' LLVM (that use the AddLLVM.cmake machinery) set
++    # all rdeps of botpkgs' LLVM (that use the AddLLVM.cmake machinery) set
 +    # `CMAKE_INSTALL_RPATH`.
 +    set(_build_rpath "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}${LLVM_LIBDIR_SUFFIX}" ${extra_libdir})
 +    set(_install_rpath "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}${LLVM_LIBDIR_SUFFIX}" ${extra_libdir})

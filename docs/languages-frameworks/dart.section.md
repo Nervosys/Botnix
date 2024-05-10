@@ -133,4 +133,4 @@ development to take advantage of native features such as stateful hot reload.
 
 To enter a shell with all the usual target platforms available, use the `multiShell` attribute.
 
-e.g. `nix-shell '<nixpkgs>' -A fluffychat-web.multiShell`.
+e.g. `nix-shell '<botpkgs>' -A fluffychat-web.multiShell`.

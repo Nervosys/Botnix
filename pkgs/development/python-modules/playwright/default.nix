@@ -45,8 +45,8 @@ buildPythonPackage rec {
     export HOME=$(mktemp -d)
     git init .
     git add -A .
-    git config --global user.email "nixpkgs"
-    git config --global user.name "nixpkgs"
+    git config --global user.email "botpkgs"
+    git config --global user.name "botpkgs"
     git commit -m "workaround setuptools-scm"
 
     substituteInPlace setup.py \

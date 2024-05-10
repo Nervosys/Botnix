@@ -1,7 +1,7 @@
 /*
   This and the shell builder was originally written by
   https://github.com/tpoechtrager but I had to modify both so that
-  they played nicely and were reproducible with nixpkgs. Much thanks
+  they played nicely and were reproducible with botpkgs. Much thanks
   to MixRank for letting me work on this.
   Edgar Aroutiounian <edgar.factorial@gmail.com>
  */
@@ -28,12 +28,12 @@
 
 #define _GNU_SOURCE
 
+#include <limits.h>
+#include <stddef.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-#include <stddef.h>
 #include <unistd.h>
-#include <limits.h>
 
 #ifdef __APPLE__
 #include <mach-o/dyld.h>
@@ -44,19 +44,18 @@
 #endif
 
 #ifdef __OpenBSD__
+#include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/user.h>
-#include <sys/stat.h>
 #endif
 
-char *get_executable_path(char *epath, size_t buflen)
-{
+char *get_executable_path(char *epath, size_t buflen) {
   char *p;
 #ifdef __APPLE__
   unsigned int l = buflen;
   if (_NSGetExecutablePath(epath, &l) != 0) return NULL;
 #elif defined(__FreeBSD__) || defined(__DragonFly__)
-  int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_PATHNAME, -1 };
+  int mib[4] = {CTL_KERN, KERN_PROC, KERN_PROC_PATHNAME, -1};
   size_t l = buflen;
   if (sysctl(mib, 4, epath, &l, NULL, 0) != 0) return NULL;
 #elif defined(__OpenBSD__)
@@ -70,12 +69,9 @@ char *get_executable_path(char *epath, size_t buflen)
   mib[1] = KERN_PROC_ARGS;
   mib[2] = getpid();
   mib[3] = KERN_PROC_ARGV;
-  if (sysctl(mib, 4, NULL, &len, NULL, 0) < 0)
-    abort();
-  if (!(argv = malloc(len)))
-    abort();
-  if (sysctl(mib, 4, argv, &len, NULL, 0) < 0)
-    abort();
+  if (sysctl(mib, 4, NULL, &len, NULL, 0) < 0) abort();
+  if (!(argv = malloc(len))) abort();
+  if (sysctl(mib, 4, argv, &len, NULL, 0) < 0) abort();
   comm = argv[0];
   if (*comm == '/' || *comm == '.') {
     char *rpath;
@@ -89,13 +85,12 @@ char *get_executable_path(char *epath, size_t buflen)
     char *xpath = strdup(getenv("PATH"));
     char *path = strtok_r(xpath, ":", &sp);
     struct stat st;
-    if (!xpath)
-      abort();
+    if (!xpath) abort();
     while (path) {
       snprintf(epath, buflen, "%s/%s", path, comm);
       if (!stat(epath, &st) && (st.st_mode & S_IXUSR)) {
-	ok = 1;
-	break;
+        ok = 1;
+        break;
       }
       path = strtok_r(NULL, ":", &sp);
     }
@@ -114,14 +109,12 @@ char *get_executable_path(char *epath, size_t buflen)
   return epath;
 }
 
-char *get_filename(char *str)
-{
+char *get_filename(char *str) {
   char *p = strrchr(str, '/');
   return p ? &p[1] : str;
 }
 
-void target_info(char *argv[], char **triple, char **compiler)
-{
+void target_info(char *argv[], char **triple, char **compiler) {
   char *p = get_filename(argv[0]);
   char *x = strrchr(p, '-');
   if (!x) abort();
@@ -130,20 +123,21 @@ void target_info(char *argv[], char **triple, char **compiler)
   *triple = p;
 }
 
-void env(char **p, const char *name, char *fallback)
-{
+void env(char **p, const char *name, char *fallback) {
   char *ev = getenv(name);
-  if (ev) { *p = ev; return; }
+  if (ev) {
+    *p = ev;
+    return;
+  }
   *p = fallback;
 }
 
-int main(int argc, char *argv[])
-{
-  char **args = alloca(sizeof(char*) * (argc + 17));
+int main(int argc, char *argv[]) {
+  char **args = alloca(sizeof(char *) * (argc + 17));
   int i, j;
 
-  char execpath[PATH_MAX+1];
-  char sdkpath[PATH_MAX+1];
+  char execpath[PATH_MAX + 1];
+  char sdkpath[PATH_MAX + 1];
   char codesign_allocate[64];
   char osvermin[64];
 
@@ -154,8 +148,8 @@ int main(int argc, char *argv[])
   if (!get_executable_path(execpath, sizeof(execpath))) abort();
   snprintf(sdkpath, sizeof(sdkpath), "%s/../SDK", execpath);
 
-  snprintf(codesign_allocate, sizeof(codesign_allocate),
-	   "%s-codesign_allocate", target);
+  snprintf(codesign_allocate, sizeof(codesign_allocate), "%s-codesign_allocate",
+           target);
 
   setenv("CODESIGN_ALLOCATE", codesign_allocate, 1);
   setenv("IOS_FAKE_CODE_SIGN", "1", 1);

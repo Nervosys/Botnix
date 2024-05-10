@@ -29,7 +29,7 @@ Release 23.11 ships with a new interface that will eventually replace `texlive.c
 - All packages distributed by TeX Live, which contains most of CTAN, are available and can be found under `texlive.pkgs`:
   ```ShellSession
   $ nix repl
-  nix-repl> :l <nixpkgs>
+  nix-repl> :l <botpkgs>
   nix-repl> texlive.pkgs.[TAB]
   ```
   Note that the packages in `texlive.pkgs` are only provided for search purposes and must not be used directly.
@@ -72,7 +72,7 @@ Release 23.11 ships with a new interface that will eventually replace `texlive.c
 
   ```ShellSession
   $ nix repl
-  nix-repl> :l <nixpkgs>
+  nix-repl> :l <botpkgs>
   nix-repl> texlive.collection-[TAB]
   ```
 
@@ -113,7 +113,7 @@ When using `pkgFilter`, `texlive.combine` will assign `tlType` respectively `"bi
 Here is a (very verbose) example. See also the packages `auctex`, `eukleides`, `mftrace` for more examples.
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 let
   foiltex = stdenvNoCC.mkDerivation {

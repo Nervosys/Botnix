@@ -19,10 +19,10 @@ $ selfservice
 
 ## Custom certificates {#sec-citrix-custom-certs}
 
-The `Citrix Workspace App` in `nixpkgs` trusts several certificates [from the Mozilla database](https://curl.haxx.se/docs/caextract.html) by default. However, several companies using Citrix might require their own corporate certificate. On distros with imperative packaging, these certs can be stored easily in [`$ICAROOT`](https://citrix.github.io/receiver-for-linux-command-reference/), however this directory is a store path in `nixpkgs`. In order to work around this issue, the package provides a simple mechanism to add custom certificates without rebuilding the entire package using `symlinkJoin`:
+The `Citrix Workspace App` in `botpkgs` trusts several certificates [from the Mozilla database](https://curl.haxx.se/docs/caextract.html) by default. However, several companies using Citrix might require their own corporate certificate. On distros with imperative packaging, these certs can be stored easily in [`$ICAROOT`](https://citrix.github.io/receiver-for-linux-command-reference/), however this directory is a store path in `botpkgs`. In order to work around this issue, the package provides a simple mechanism to add custom certificates without rebuilding the entire package using `symlinkJoin`:
 
 ```nix
-with import <nixpkgs> { config.allowUnfree = true; };
+with import <botpkgs> { config.allowUnfree = true; };
 let
   extraCerts = [
     ./custom-cert-1.pem

@@ -39,7 +39,7 @@ $a}
   /^catalogue-license/{
     # wrap licenses in quotes
     s/ ([^ ]+)/ "\1"/g
-    # adjust naming as in nixpkgs, the full texts of the licenses are available at https://www.ctan.org/license/${licenseName}
+    # adjust naming as in botpkgs, the full texts of the licenses are available at https://www.ctan.org/license/${licenseName}
     s/"(cc-by(-sa)?-[1-4])"/"\10"/g
     s/"apache2"/"asl20"/g
     s/"artistic"/"artistic1-cl8"/g

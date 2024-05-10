@@ -2,7 +2,7 @@
 
 import ./make-test-python.nix ({ pkgs, ... }:
 let
-  # nixpkgs#214434: dockerTools.buildImage fails to unpack base images
+  # botpkgs#214434: dockerTools.buildImage fails to unpack base images
   # containing duplicate layers when those duplicate tarballs
   # appear under the manifest's 'Layers'. Docker can generate images
   # like this even though dockerTools does not.

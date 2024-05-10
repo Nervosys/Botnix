@@ -6,7 +6,7 @@ For local development, it's recommended to use nix-shell to create a dotnet envi
 
 ```nix
 # shell.nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 mkShell {
   name = "dotnet-env";
@@ -18,10 +18,10 @@ mkShell {
 
 ### Using many sdks in a workflow {#using-many-sdks-in-a-workflow}
 
-It's very likely that more than one sdk will be needed on a given project. Dotnet provides several different frameworks (E.g dotnetcore, aspnetcore, etc.) as well as many versions for a given framework. Normally, dotnet is able to fetch a framework and install it relative to the executable. However, this would mean writing to the nix store in nixpkgs, which is read-only. To support the many-sdk use case, one can compose an environment using `dotnetCorePackages.combinePackages`:
+It's very likely that more than one sdk will be needed on a given project. Dotnet provides several different frameworks (E.g dotnetcore, aspnetcore, etc.) as well as many versions for a given framework. Normally, dotnet is able to fetch a framework and install it relative to the executable. However, this would mean writing to the nix store in botpkgs, which is read-only. To support the many-sdk use case, one can compose an environment using `dotnetCorePackages.combinePackages`:
 
 ```nix
-with import <nixpkgs> {};
+with import <botpkgs> {};
 
 mkShell {
   name = "dotnet-env";
@@ -175,7 +175,7 @@ The local installation is the easiest and works on Botnix in the same way as on 
 should also work most of the time. You have to remember to update the `PATH`
 value to the location the tools are installed to (the CLI will inform you about it during installation) and also set
 the `DOTNET_ROOT` value, so that the tool can find the .NET SDK package.
-You can find the path to the SDK by running `nix eval --raw nixpkgs#dotnet-sdk` (substitute the `dotnet-sdk` package for
+You can find the path to the SDK by running `nix eval --raw botpkgs#dotnet-sdk` (substitute the `dotnet-sdk` package for
 another if a different SDK version is needed).
 
 This method is not recommended on Botnix, since it's not declarative and involves installing binaries not made for Botnix,
@@ -229,7 +229,7 @@ $ dotnet restore --packages out
   Restored /home/lychee/Celeste64/Celeste64.csproj (in 1.21 sec).
 ```
 
-Next, use `nuget-to-nix` tool provided in nixpkgs to generate a lockfile to `deps.nix` from
+Next, use `nuget-to-nix` tool provided in botpkgs to generate a lockfile to `deps.nix` from
 the packages inside the `out` directory.
 
 ```bash

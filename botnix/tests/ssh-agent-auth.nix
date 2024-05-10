@@ -16,7 +16,7 @@ import ./make-test-python.nix ({ lib, pkgs, ... }:
       };
 
       security.pam.sshAgentAuth = {
-        # Must be specified, as nixpkgs CI expects everything to eval without warning
+        # Must be specified, as botpkgs CI expects everything to eval without warning
         authorizedKeysFiles = [ "/etc/ssh/authorized_keys.d/%u" ];
         enable = true;
       };

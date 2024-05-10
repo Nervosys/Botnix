@@ -1,5 +1,5 @@
 # Botpkgs Library Functions {#sec-functions-library}
 
-Botpkgs provides a standard library at `pkgs.lib`, or through `import <nixpkgs/lib>`.
+Botpkgs provides a standard library at `pkgs.lib`, or through `import <botpkgs/lib>`.
 
 <!-- nixdoc-generated documentation must be appended here during build! -->

@@ -8,6 +8,6 @@ pkgs/by-name/ba/baz: "package.nix" must be a file.
 pkgs/by-name/ba/foo: Incorrect directory location, should be pkgs/by-name/fo/foo instead.
 pkgs/by-name/ba/foo: File package.nix at line 2 contains the path expression "/bar" which cannot be resolved: No such file or directory (os error 2).
 pkgs/by-name/ba/foo: File package.nix at line 3 contains the path expression "../." which may point outside the directory of that package.
-pkgs/by-name/ba/foo: File package.nix at line 4 contains the nix search path expression "<nixpkgs>" which may point outside the directory of that package.
+pkgs/by-name/ba/foo: File package.nix at line 4 contains the nix search path expression "<botpkgs>" which may point outside the directory of that package.
 pkgs/by-name/ba/foo: File package.nix at line 5 contains the path expression "./${"test"}", which is not yet supported and may point outside the directory of that package.
 pkgs/by-name/fo/foo: Missing required "package.nix" file.

@@ -28,7 +28,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-X main.version=${version}"
-    "-X main.builtBy=nixpkgs"
+    "-X main.builtBy=botpkgs"
   ];
 
   nativeBuildInputs = [ installShellFiles ];

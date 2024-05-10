@@ -1,6 +1,6 @@
 # Update instructions:
 #
-# To update `thunderbird-bin`'s `release_sources.nix`, run from the nixpkgs root:
+# To update `thunderbird-bin`'s `release_sources.nix`, run from the botpkgs root:
 #
 #     nix-shell maintainers/scripts/update.nix --argstr package pkgs.thunderbird-bin-unwrapped
 { lib, stdenv, fetchurl, config, wrapGAppsHook

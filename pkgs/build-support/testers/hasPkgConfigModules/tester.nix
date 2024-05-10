@@ -14,7 +14,7 @@ runCommand testName {
     meta = {
       description = "Test whether ${package.name} exposes pkg-config modules ${lib.concatStringsSep ", " moduleNames}.";
     }
-    # Make sure licensing info etc is preserved, as this is a concern for e.g. cache.botnix.org,
+    # Make sure licensing info etc is preserved, as this is a concern for e.g. cache.nixos.org,
     # as hydra can't check this meta info in dependencies.
     # The test itself is just Botpkgs, with MIT license.
     // builtins.intersectAttrs

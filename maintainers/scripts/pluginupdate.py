@@ -4,11 +4,11 @@
 # - maintainers/scripts/update-luarocks-packages
 
 # format:
-# $ nix run nixpkgs#black maintainers/scripts/pluginupdate.py
+# $ nix run botpkgs#black maintainers/scripts/pluginupdate.py
 # type-check:
-# $ nix run nixpkgs#python3.pkgs.mypy maintainers/scripts/pluginupdate.py
+# $ nix run botpkgs#python3.pkgs.mypy maintainers/scripts/pluginupdate.py
 # linted:
-# $ nix run nixpkgs#python3.pkgs.flake8 -- --ignore E501,E265 maintainers/scripts/pluginupdate.py
+# $ nix run botpkgs#python3.pkgs.flake8 -- --ignore E501,E265 maintainers/scripts/pluginupdate.py
 
 import argparse
 import csv
@@ -328,12 +328,12 @@ def load_plugins_from_csv(
 
 
 
-def run_nix_expr(expr, nixpkgs: str):
+def run_nix_expr(expr, botpkgs: str):
     '''
     :param expr nix expression to fetch current plugins
-    :param nixpkgs Path towards a nixpkgs checkout
+    :param botpkgs Path towards a botpkgs checkout
     '''
-    with CleanEnvironment(nixpkgs) as nix_path:
+    with CleanEnvironment(botpkgs) as nix_path:
         cmd = [
             "nix",
             "eval",
@@ -407,9 +407,9 @@ class Editor:
         """CSV spec"""
         print("the update member function should be overriden in subclasses")
 
-    def get_current_plugins(self, nixpkgs) -> List[Plugin]:
+    def get_current_plugins(self, botpkgs) -> List[Plugin]:
         """To fill the cache"""
-        data = run_nix_expr(self.get_plugins, nixpkgs)
+        data = run_nix_expr(self.get_plugins, botpkgs)
         plugins = []
         for name, attr in data.items():
             p = Plugin(name, attr["rev"], attr["submodules"], attr["sha256"])
@@ -425,7 +425,7 @@ class Editor:
         raise NotImplementedError()
 
     def get_update(self, input_file: str, outfile: str, config: FetchConfig):
-        cache: Cache = Cache(self.get_current_plugins(self.nixpkgs), self.cache_file)
+        cache: Cache = Cache(self.get_current_plugins(self.botpkgs), self.cache_file)
         _prefetch = functools.partial(prefetch, cache=cache)
 
         def update() -> dict:
@@ -465,7 +465,7 @@ class Editor:
             ),
         )
         common.add_argument(
-            "--nixpkgs",
+            "--botpkgs",
             type=str,
             default=os.getcwd(),
             help="Adjust log level",
@@ -560,16 +560,16 @@ class Editor:
         command = args.command or "update"
         log.setLevel(LOG_LEVELS[args.debug])
         log.info("Chose to run command: %s", command)
-        self.nixpkgs = args.nixpkgs
+        self.botpkgs = args.botpkgs
 
-        self.nixpkgs_repo = git.Repo(args.nixpkgs, search_parent_directories=True)
+        self.nixpkgs_repo = git.Repo(args.botpkgs, search_parent_directories=True)
 
         getattr(self, command)(args)
 
 
 class CleanEnvironment(object):
-    def __init__(self, nixpkgs):
-        self.local_pkgs = nixpkgs
+    def __init__(self, botpkgs):
+        self.local_pkgs = botpkgs
 
     def __enter__(self) -> str:
         """
@@ -774,7 +774,7 @@ def commit(repo: git.Repo, message: str, files: List[Path]) -> None:
     repo.index.add([str(f.resolve()) for f in files])
 
     if repo.index.diff("HEAD"):
-        print(f'committing to nixpkgs "{message}"')
+        print(f'committing to botpkgs "{message}"')
         repo.index.commit(message)
     else:
         print("no changes in working tree to commit")

@@ -19,10 +19,10 @@ For new packages please briefly describe the package or provide a link to its ho
   - [ ] `sandbox = true`
 - [ ] Tested, as applicable:
   - [Botnix test(s)](https://nixos.org/manual/nixos/unstable/index.html#sec-nixos-tests) (look inside [nixos/tests](https://github.com/nervosys/Botnix/blob/master/nixos/tests))
-  - and/or [package tests](https://nixos.org/manual/nixpkgs/unstable/#sec-package-tests)
+  - and/or [package tests](https://nixos.org/manual/botpkgs/unstable/#sec-package-tests)
   - or, for functions and "core" functionality, tests in [lib/tests](https://github.com/nervosys/Botnix/blob/master/lib/tests) or [pkgs/test](https://github.com/nervosys/Botnix/blob/master/pkgs/test)
-  - made sure Botnix tests are [linked](https://nixos.org/manual/nixpkgs/unstable/#ssec-nixos-tests-linking) to the relevant packages
-- [ ] Tested compilation of all packages that depend on this change using `nix-shell -p nixpkgs-review --run "nixpkgs-review rev HEAD"`. Note: all changes have to be committed, also see [nixpkgs-review usage](https://github.com/Mic92/nixpkgs-review#usage)
+  - made sure Botnix tests are [linked](https://nixos.org/manual/botpkgs/unstable/#ssec-nixos-tests-linking) to the relevant packages
+- [ ] Tested compilation of all packages that depend on this change using `nix-shell -p botpkgs-review --run "botpkgs-review rev HEAD"`. Note: all changes have to be committed, also see [botpkgs-review usage](https://github.com/Mic92/botpkgs-review#usage)
 - [ ] Tested basic functionality of all binary files (usually in `./result/bin/`)
 - [24.05 Release Notes](https://github.com/nervosys/Botnix/blob/master/nixos/doc/manual/release-notes/rl-2405.section.md) (or backporting [23.05](https://github.com/nervosys/Botnix/blob/master/nixos/doc/manual/release-notes/rl-2305.section.md) and [23.11](https://github.com/nervosys/Botnix/blob/master/nixos/doc/manual/release-notes/rl-2311.section.md) Release notes)
   - [ ] (Package updates) Added a release notes entry if the change is major or breaking
@@ -38,7 +38,7 @@ Reviewing helps to reduce the average time-to-merge for everyone.
 Thanks a lot if you do!
 
 List of open PRs: https://github.com/nervosys/Botnix/pulls
-Reviewing guidelines: https://nixos.org/manual/nixpkgs/unstable/#chap-reviewing-contributions
+Reviewing guidelines: https://nixos.org/manual/botpkgs/unstable/#chap-reviewing-contributions
 -->
 
 ---

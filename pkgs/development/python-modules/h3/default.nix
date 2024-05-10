@@ -43,7 +43,7 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [ numpy ];
 
-  # The following prePatch replaces the h3lib compilation with using the h3 packaged in nixpkgs.
+  # The following prePatch replaces the h3lib compilation with using the h3 packaged in botpkgs.
   #
   # - Remove the h3lib submodule.
   # - Patch CMakeLists to avoid building h3lib, and use h3 instead.

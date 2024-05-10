@@ -79,7 +79,7 @@ stdenv.mkDerivation rec {
   checkTarget = "regress";
 
   passthru.tests = {
-    # most important consumer in nixpkgs
+    # most important consumer in botpkgs
     inherit nix;
   };
 

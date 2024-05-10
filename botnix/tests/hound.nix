@@ -1,4 +1,4 @@
-# Test whether `houndd` indexes nixpkgs
+# Test whether `houndd` indexes botpkgs
 import ./make-test-python.nix ({ pkgs, ... } : {
   name = "hound";
   meta = with pkgs.lib.maintainers; {

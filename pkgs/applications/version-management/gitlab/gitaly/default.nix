@@ -13,7 +13,7 @@ let
   commonOpts = {
     inherit version;
 
-    # nixpkgs-update: no auto update
+    # botpkgs-update: no auto update
     src = fetchFromGitLab {
       owner = "gitlab-org";
       repo = "gitaly";

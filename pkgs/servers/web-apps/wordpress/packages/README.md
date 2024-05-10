@@ -16,7 +16,7 @@ In case of language packages, the name consists of country and language codes.
 For example `de_DE` for country code `de` (Germany) and language `DE` (German).
 For available translations and language codes see [upstream translation repository](https://translate.wordpress.org).
 
-To regenerate the nixpkgs wordpressPackages set, run:
+To regenerate the botpkgs wordpressPackages set, run:
 
 ```
 ./generate.sh

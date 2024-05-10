@@ -89,7 +89,7 @@ buildPythonPackage rec {
 
   disabledTests = [
     # Fails with `Could not find compiler for platform Host: NOT_FOUND: could not find registered compiler for platform Host -- check target linkage`.
-    # Runs fine in docker with Ubuntu 22.04. I suspect the issue is the sandboxing in `nixpkgs` but not sure.
+    # Runs fine in docker with Ubuntu 22.04. I suspect the issue is the sandboxing in `botpkgs` but not sure.
     "test_saved_model_poly"
     # AttributeError: module 'jax' has no attribute 'tree_multimap'
     "DataLoaderTestCase"

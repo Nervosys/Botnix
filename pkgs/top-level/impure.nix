@@ -22,11 +22,11 @@ in
 , crossSystem ? localSystem
 
 , # Fallback: The contents of the configuration file found at $NIXPKGS_CONFIG or
-  # $HOME/.config/nixpkgs/config.nix.
+  # $HOME/.config/botpkgs/config.nix.
   config ? let
       configFile = builtins.getEnv "NIXPKGS_CONFIG";
-      configFile2 = homeDir + "/.config/nixpkgs/config.nix";
-      configFile3 = homeDir + "/.nixpkgs/config.nix"; # obsolete
+      configFile2 = homeDir + "/.config/botpkgs/config.nix";
+      configFile3 = homeDir + "/.botpkgs/config.nix"; # obsolete
     in
       if configFile != "" && builtins.pathExists configFile then import configFile
       else if homeDir != "" && builtins.pathExists configFile2 then import configFile2
@@ -38,9 +38,9 @@ in
   # fix-point made by Botpkgs.
   overlays ? let
       isDir = path: builtins.pathExists (path + "/.");
-      pathOverlays = try (toString <nixpkgs-overlays>) "";
-      homeOverlaysFile = homeDir + "/.config/nixpkgs/overlays.nix";
-      homeOverlaysDir = homeDir + "/.config/nixpkgs/overlays";
+      pathOverlays = try (toString <botpkgs-overlays>) "";
+      homeOverlaysFile = homeDir + "/.config/botpkgs/overlays.nix";
+      homeOverlaysDir = homeDir + "/.config/botpkgs/overlays";
       overlays = path:
         # check if the path is a directory or a file
         if isDir path then

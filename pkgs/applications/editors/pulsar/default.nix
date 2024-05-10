@@ -140,7 +140,7 @@ stdenv.mkDerivation rec {
       $opt/resources/app.asar.unpacked/node_modules/symbols-view/vendor/ctags-linux
 
   '' + lib.optionalString (stdenv.hostPlatform.system == "x86_64-linux") ''
-    # Replace the bundled git with the one from nixpkgs
+    # Replace the bundled git with the one from botpkgs
     dugite=$opt/resources/app.asar.unpacked/node_modules/dugite
     rm -f $dugite/git/bin/git
     ln -s ${git}/bin/git $dugite/git/bin/git

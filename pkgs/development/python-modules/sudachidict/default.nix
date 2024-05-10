@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   sourceRoot = "source/python";
 
-  # setup script tries to get data from the network but we use the nixpkgs' one
+  # setup script tries to get data from the network but we use the botpkgs' one
   postPatch = ''
     substituteInPlace setup.py \
       --replace 'ZIP_NAME = urlparse(ZIP_URL).path.split("/")[-1]' "" \

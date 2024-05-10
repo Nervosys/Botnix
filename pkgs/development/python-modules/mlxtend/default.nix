@@ -58,7 +58,7 @@ buildPythonPackage rec {
     license= licenses.bsd3;
     maintainers = with maintainers; [ evax ];
     platforms = platforms.unix;
-    # incompatible with nixpkgs scikit-learn version
+    # incompatible with botpkgs scikit-learn version
     broken = true;
   };
 }

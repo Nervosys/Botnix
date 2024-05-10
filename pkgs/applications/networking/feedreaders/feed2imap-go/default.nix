@@ -14,7 +14,7 @@ buildGoModule rec {
   ldflags = [
     "-s" "-w"
     "-X github.com/Necoro/feed2imap-go/pkg/version.version=${version}"
-    "-X github.com/Necoro/feed2imap-go/pkg/version.commit=nixpkgs"
+    "-X github.com/Necoro/feed2imap-go/pkg/version.commit=botpkgs"
   ];
 
   vendorHash = "sha256-WFbfSzU1N2RAOMfCM7wqiAQ6R1HRaT0EfX4KYhstHJU=";

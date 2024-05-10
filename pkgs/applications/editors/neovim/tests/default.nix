@@ -188,7 +188,7 @@ rec {
     ${nvim_with_gitsigns_plugin}/bin/nvim -i NONE -c 'help gitsigns' +quitall! -e
   '';
 
-  # nixpkgs should detect that no wrapping is necessary
+  # botpkgs should detect that no wrapping is necessary
   nvimShouldntWrap = wrapNeovim2 "-should-not-wrap" nvimAutoDisableWrap;
 
   # this will generate a neovimRc content but we disable wrapping
@@ -243,7 +243,7 @@ rec {
     ${nvimWithLuaPackages}/bin/nvim -i NONE --noplugin -es
   '';
 
-  # nixpkgs should install optional packages in the opt folder
+  # botpkgs should install optional packages in the opt folder
   nvim_with_opt_plugin = neovim.override {
     extraName = "-with-opt-plugin";
     configure.packages.opt-plugins = with pkgs.vimPlugins; {

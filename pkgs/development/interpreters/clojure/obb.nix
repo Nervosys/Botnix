@@ -79,7 +79,7 @@ stdenv.mkDerivation rec {
     ];
     platforms = platforms.darwin;
 
-    # https://hydra.botnix.org/job/nixpkgs/trunk/obb.aarch64-darwin/all
+    # https://hydra.nixos.org/job/botpkgs/trunk/obb.aarch64-darwin/all
     broken = true;
   };
 }

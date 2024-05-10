@@ -1,4 +1,4 @@
-# Botpkgs Reference Manual {#nixpkgs-manual}
+# Botpkgs Reference Manual {#botpkgs-manual}
 ## Version @MANUAL_VERSION@
 
 ```{=include=} chapters
@@ -6,7 +6,7 @@ preface.chapter.md
 ```
 
 ```{=include=} parts
-using-nixpkgs.md
+using-botpkgs.md
 lib.md
 stdenv.md
 build-helpers.md

@@ -6,15 +6,15 @@ Botpkgs can be configured with a list of overlays, which are applied in order. T
 
 ## Installing overlays {#sec-overlays-install}
 
-The list of overlays can be set either explicitly in a Nix expression, or through `<nixpkgs-overlays>` or user configuration files.
+The list of overlays can be set either explicitly in a Nix expression, or through `<botpkgs-overlays>` or user configuration files.
 
 ### Set overlays in Botnix or Nix expressions {#sec-overlays-argument}
 
-On a Botnix system the value of the `nixpkgs.overlays` option, if present, is passed to the system Botpkgs directly as an argument. Note that this does not affect the overlays for non-Botnix operations (e.g.  `nix-env`), which are [looked up](#sec-overlays-lookup) independently.
+On a Botnix system the value of the `botpkgs.overlays` option, if present, is passed to the system Botpkgs directly as an argument. Note that this does not affect the overlays for non-Botnix operations (e.g.  `nix-env`), which are [looked up](#sec-overlays-lookup) independently.
 
-The list of overlays can be passed explicitly when importing nixpkgs, for example `import <nixpkgs> { overlays = [ overlay1 overlay2 ]; }`.
+The list of overlays can be passed explicitly when importing botpkgs, for example `import <botpkgs> { overlays = [ overlay1 overlay2 ]; }`.
 
-NOTE: DO NOT USE THIS in nixpkgs. Further overlays can be added by calling the `pkgs.extend` or `pkgs.appendOverlays`, although it is often preferable to avoid these functions, because they recompute the Botpkgs fixpoint, which is somewhat expensive to do.
+NOTE: DO NOT USE THIS in botpkgs. Further overlays can be added by calling the `pkgs.extend` or `pkgs.appendOverlays`, although it is often preferable to avoid these functions, because they recompute the Botpkgs fixpoint, which is somewhat expensive to do.
 
 ### Install overlays via configuration lookup {#sec-overlays-lookup}
 
@@ -22,11 +22,11 @@ The list of overlays is determined as follows.
 
 1.  First, if an [`overlays` argument](#sec-overlays-argument) to the Botpkgs function itself is given, then that is used and no path lookup will be performed.
 
-2.  Otherwise, if the Nix path entry `<nixpkgs-overlays>` exists, we look for overlays at that path, as described below.
+2.  Otherwise, if the Nix path entry `<botpkgs-overlays>` exists, we look for overlays at that path, as described below.
 
-    See the [section on `NIX_PATH`](https://nixos.org/manual/nix/stable/command-ref/env-common.html#env-NIX_PATH) in the Nix manual for more details on how to set a value for `<nixpkgs-overlays>.`
+    See the [section on `NIX_PATH`](https://nixos.org/manual/nix/stable/command-ref/env-common.html#env-NIX_PATH) in the Nix manual for more details on how to set a value for `<botpkgs-overlays>.`
 
-3.  If one of `~/.config/nixpkgs/overlays.nix` and `~/.config/nixpkgs/overlays/` exists, then we look for overlays at that path, as described below. It is an error if both exist.
+3.  If one of `~/.config/botpkgs/overlays.nix` and `~/.config/botpkgs/overlays/` exists, then we look for overlays at that path, as described below. It is an error if both exist.
 
 If we are looking for overlays at a path, then there are two cases:
 
@@ -38,7 +38,7 @@ If we are looking for overlays at a path, then there are two cases:
 
     -   Importing a top-level `default.nix` file, if it is a directory.
 
-Because overlays that are set in Botnix configuration do not affect non-Botnix operations such as `nix-env`, the `overlays.nix` option provides a convenient way to use the same overlays for a Botnix system configuration and user configuration: the same file can be used as `overlays.nix` and imported as the value of `nixpkgs.overlays`.
+Because overlays that are set in Botnix configuration do not affect non-Botnix operations such as `nix-env`, the `overlays.nix` option provides a convenient way to use the same overlays for a Botnix system configuration and user configuration: the same file can be used as `overlays.nix` and imported as the value of `botpkgs.overlays`.
 
 ## Defining overlays {#sec-overlays-definition}
 

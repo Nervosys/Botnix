@@ -16,7 +16,7 @@ buildGoModule rec {
 
   doCheck = false;
 
-  ldflags = [ "-s" "-w" "-X main.version=${version}" "-X main.distribution=nixpkgs" ];
+  ldflags = [ "-s" "-w" "-X main.version=${version}" "-X main.distribution=botpkgs" ];
 
   subPackages = [ "." ];
 

@@ -17,7 +17,7 @@ in
 
   nodes = {
     outline = { pkgs, config, ... }: {
-      nixpkgs.config.allowUnfree = true;
+      botpkgs.config.allowUnfree = true;
       environment.systemPackages = [ pkgs.minio-client ];
       services.outline = {
         enable = true;

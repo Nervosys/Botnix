@@ -64,7 +64,7 @@ stdenv.mkDerivation ({
           $ git show --minimal --reverse glibc-2.38.. | gzip -9n --rsyncable - > 2.38-master.patch.gz
 
          To compare the archive contents zdiff can be used.
-          $ zdiff -u 2.38-master.patch.gz ../nixpkgs/pkgs/development/libraries/glibc/2.38-master.patch.gz
+          $ zdiff -u 2.38-master.patch.gz ../botpkgs/pkgs/development/libraries/glibc/2.38-master.patch.gz
        */
       ./2.38-master.patch.gz
 
@@ -250,7 +250,7 @@ stdenv.mkDerivation ({
     #
     #     AR=`$CC -print-prog-name=ar`
     #
-    # This searches various directories in the gcc and its wrapper. In nixpkgs,
+    # This searches various directories in the gcc and its wrapper. In botpkgs,
     # this returns the bare string "ar", which is build ar. This can result as
     # a build failure with the following message:
     #

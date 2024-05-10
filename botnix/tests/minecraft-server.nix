@@ -9,7 +9,7 @@ in import ./make-test-python.nix ({ pkgs, ... }: {
   nodes.server = { ... }: {
     environment.systemPackages = [ pkgs.mcrcon ];
 
-    nixpkgs.config.allowUnfree = true;
+    botpkgs.config.allowUnfree = true;
 
     services.minecraft-server = {
       declarative = true;

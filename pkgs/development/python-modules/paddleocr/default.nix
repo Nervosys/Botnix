@@ -45,7 +45,7 @@ buildPythonPackage {
   patches = [
     # The `ppocr.data.imaug` re-exports the `IaaAugment` and `CopyPaste`
     # classes. These classes depend on the `imgaug` package which is
-    # unmaintained and has been removed from nixpkgs.
+    # unmaintained and has been removed from botpkgs.
     #
     # The image OCR feature of PaddleOCR doesn't use these classes though, so
     # they work even after stripping the the `IaaAugment` and `CopyPaste`

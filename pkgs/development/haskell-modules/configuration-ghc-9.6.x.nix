@@ -118,7 +118,7 @@ self: super: {
   newtype-generics = jailbreakForCurrentVersion super.newtype-generics "0.6.2";
 
   #
-  # Too strict bounds, waiting on Hackage release in nixpkgs
+  # Too strict bounds, waiting on Hackage release in botpkgs
   #
 
   #

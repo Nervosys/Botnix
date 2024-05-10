@@ -83,11 +83,11 @@ let
       }
       latest=$(list-git-tags | sed -n '/[\d\.]\+/p' | sort -V | tail -1)
       if [ "$latest" != "${version}" ]; then
-        nixpkgs="$(git rev-parse --show-toplevel)"
-        nix_path="$nixpkgs/pkgs/development/tools/build-managers/rebar3"
+        botpkgs="$(git rev-parse --show-toplevel)"
+        nix_path="$botpkgs/pkgs/development/tools/build-managers/rebar3"
         update-source-version rebar3 "$latest" --version-key=version --print-changes --file="$nix_path/default.nix"
         tmpdir=$(mktemp -d)
-        cp -R $(nix-build $nixpkgs --no-out-link -A rebar3.src)/* "$tmpdir"
+        cp -R $(nix-build $botpkgs --no-out-link -A rebar3.src)/* "$tmpdir"
         (cd "$tmpdir" && rebar3 as test nix lock -o "$nix_path/rebar-deps.nix")
       else
         echo "rebar3 is already up-to-date"

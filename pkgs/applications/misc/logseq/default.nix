@@ -39,7 +39,7 @@ in {
     cp -a ${appimageContents}/{locales,resources} $out/share/${pname}
     cp -a ${appimageContents}/Logseq.desktop $out/share/applications/${pname}.desktop
 
-    # remove the `git` in `dugite` because we want the `git` in `nixpkgs`
+    # remove the `git` in `dugite` because we want the `git` in `botpkgs`
     chmod +w -R $out/share/${pname}/resources/app/node_modules/dugite/git
     chmod +w $out/share/${pname}/resources/app/node_modules/dugite
     rm -rf $out/share/${pname}/resources/app/node_modules/dugite/git
@@ -56,7 +56,7 @@ in {
   '';
 
   postFixup = ''
-    # set the env "LOCAL_GIT_DIRECTORY" for dugite so that we can use the git in nixpkgs
+    # set the env "LOCAL_GIT_DIRECTORY" for dugite so that we can use the git in botpkgs
     makeWrapper ${electron_27}/bin/electron $out/bin/${pname} \
       --set "LOCAL_GIT_DIRECTORY" ${git} \
       --add-flags $out/share/${pname}/resources/app \

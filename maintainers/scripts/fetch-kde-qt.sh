@@ -12,7 +12,7 @@ function PARSE_INDEX() {
 
 if [ $# != 1 ]; then
     echo "example use:" >&2
-    echo "cd nixpkgs/" >&2
+    echo "cd botpkgs/" >&2
     echo "./maintainers/scripts/fetch-kde-qt.sh pkgs/development/libraries/qt-5/5.12" >&2
     exit 1
 fi

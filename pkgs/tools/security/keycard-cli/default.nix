@@ -23,6 +23,6 @@ buildGoModule rec {
     homepage = "https://keycard.status.im";
     license = licenses.mpl20;
     maintainers = [ maintainers.zimbatm ];
-    broken = stdenv.isDarwin; # never built on Hydra https://hydra.botnix.org/job/nixpkgs/trunk/keycard-cli.x86_64-darwin
+    broken = stdenv.isDarwin; # never built on Hydra https://hydra.nixos.org/job/botpkgs/trunk/keycard-cli.x86_64-darwin
   };
 }

@@ -10,21 +10,21 @@
 # patch it to work; just accept it for now. it is extremely unlikely buck2 will
 # build with a stable compiler anytime soon; see related upstream issues:
 #
-#   - Botnix/nixpkgs#226677
-#   - Botnix/nixpkgs#232471
+#   - Botnix/botpkgs#226677
+#   - Botnix/botpkgs#232471
 #   - facebook/buck2#265
 #   - facebook/buck2#322
 #
 # worth noting: it *is* possible to build buck2 from source using
 # buildRustPackage, and it works fine, but only if you are using flakes and can
 # import `rust-overlay` from somewhere else to vendor your compiler. See
-# botnix/nixpkgs#226677 for more information about that.
+# botnix/botpkgs#226677 for more information about that.
 
 # NOTE (aseipp): this expression is mostly automated, and you are STRONGLY
 # RECOMMENDED to use to nix-update for updating this expression when new
 # releases come out, which runs the sibling `update.sh` script.
 #
-# from the root of the nixpkgs git repository, run:
+# from the root of the botpkgs git repository, run:
 #
 #    nix-shell maintainers/scripts/update.nix \
 #      --argstr commit true \

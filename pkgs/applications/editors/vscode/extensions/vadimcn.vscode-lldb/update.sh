@@ -9,8 +9,8 @@ FIXME: This script doesn't update patched lldb. Please manually check branches
 of https://github.com/vadimcn/llvm-project and update lldb with correct version of LLVM.
 "
 
-# Ideally, nixpkgs points to default.nix file of Botpkgs official tree
-nixpkgs=../../../../../..
+# Ideally, botpkgs points to default.nix file of Botpkgs official tree
+botpkgs=../../../../../..
 nixFile=./default.nix
 owner=vadimcn
 repo=vscode-lldb
@@ -36,7 +36,7 @@ echo "$old_version -> $version"
 sed -E 's/\bversion = ".*?"/version = "'$version'"/' --in-place "$nixFile"
 srcHash=$(nix-prefetch-github vadimcn vscode-lldb --rev "v$version" | jq --raw-output .hash)
 sed -E 's#\bhash = ".*?"#hash = "'$srcHash'"#' --in-place "$nixFile"
-cargoHash=$(nix-prefetch "{ sha256 }: (import $nixpkgs {}).vscode-extensions.vadimcn.vscode-lldb.adapter.cargoDeps.overrideAttrs (_: { outputHash = sha256; })")
+cargoHash=$(nix-prefetch "{ sha256 }: (import $botpkgs {}).vscode-extensions.vadimcn.vscode-lldb.adapter.cargoDeps.overrideAttrs (_: { outputHash = sha256; })")
 sed -E 's#\bcargoHash = ".*?"#cargoHash = "'$cargoHash'"#' --in-place "$nixFile"
 
 pushd $TMPDIR

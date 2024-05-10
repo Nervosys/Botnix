@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {}
+{ pkgs ? import <botpkgs> {}
 , nodejs ? pkgs.nodejs
 , yarn ? pkgs.yarn
 , allowAliases ? pkgs.config.allowAliases

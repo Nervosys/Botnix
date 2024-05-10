@@ -22,7 +22,7 @@ rec {
      the original derivation attributes.
 
      `overrideDerivation` allows certain "ad-hoc" customisation
-     scenarios (e.g. in ~/.config/nixpkgs/config.nix).  For instance,
+     scenarios (e.g. in ~/.config/botpkgs/config.nix).  For instance,
      if you want to "patch" the derivation returned by a package
      function in Botpkgs to build another version than what the
      function itself provides.
@@ -37,7 +37,7 @@ rec {
      new one.
 
      You should in general prefer `drv.overrideAttrs` over this function;
-     see the nixpkgs manual for more information on overriding.
+     see the botpkgs manual for more information on overriding.
 
      Example:
        mySed = overrideDerivation pkgs.gnused (oldAttrs: {

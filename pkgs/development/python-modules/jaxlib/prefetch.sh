@@ -2,7 +2,7 @@
 #! nix-shell -i sh -p jq
 
 prefetch () {
-    expr="(import <nixpkgs> { system = \"$2\"; config.cudaSupport = $3; }).python$1.pkgs.jaxlib-bin.src.url"
+    expr="(import <botpkgs> { system = \"$2\"; config.cudaSupport = $3; }).python$1.pkgs.jaxlib-bin.src.url"
     url=$(NIX_PATH=.. nix-instantiate --eval -E "$expr" | jq -r)
     echo "$url"
     sha256=$(nix-prefetch-url "$url")

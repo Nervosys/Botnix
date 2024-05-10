@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ cmake nasm ];
 
-  patches = [ ./use-nixpkgs-libpng.patch ];
+  patches = [ ./use-botpkgs-libpng.patch ];
 
   buildInputs = [ boost libpng  ];
 

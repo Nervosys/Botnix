@@ -121,7 +121,7 @@ in the current directory, which points to the output of the top-level
 .Dq system
 derivation. This is essentially the same as doing
 .Bd -literal -offset indent
-$ nix-build /path/to/nixpkgs/botnix -A system
+$ nix-build /path/to/botpkgs/botnix -A system
 .Ed
 .Pp
 Note that you do not need to be root to run
@@ -345,10 +345,10 @@ environment variable.
 Note that
 .Nm
 honors the
-.Va nixpkgs.crossSystem
+.Va botpkgs.crossSystem
 setting of the given configuration but disregards the true architecture of the
 target host. Hence the
-.Va nixpkgs.crossSystem
+.Va botpkgs.crossSystem
 setting has to match the target platform or else activation will fail.
 .
 .It Fl -use-substitutes
@@ -359,7 +359,7 @@ botnix-rebuild if
 .Fl -target-host
 or
 .Fl -build-host
-is also set. This is useful when the target-host connection to cache.botnix.org
+is also set. This is useful when the target-host connection to cache.nixos.org
 is faster than the connection between hosts.
 .
 .It Fl -use-remote-sudo
@@ -414,9 +414,9 @@ Path to the main Botnix configuration module. Defaults to
 .
 .It Ev NIX_PATH
 A colon-separated list of directories used to look up Nix expressions enclosed
-in angle brackets (e.g. <nixpkgs>). Example:
+in angle brackets (e.g. <botpkgs>). Example:
 .Bd -literal -offset indent
-nixpkgs=./my-nixpkgs
+botpkgs=./my-botpkgs
 .Ed
 .
 .It Ev NIX_SSHOPTS

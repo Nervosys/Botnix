@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
     # dbench looks here for the file
     ln -s doc/dbench/loadfiles/client.txt $out/share/dbench/client.txt
 
-    # backwards compatible to older nixpkgs packaging introduced by
+    # backwards compatible to older botpkgs packaging introduced by
     # 3f27be8e5d5861cd4b9487d6c5212d88bf24316d
     ln -s dbench/doc/dbench/loadfiles $out/share/loadfiles
   '';

@@ -3,7 +3,7 @@
 
       nix-shell maintainers/scripts/update.nix
 
-  See https://nixos.org/manual/nixpkgs/unstable/#var-passthru-updateScript
+  See https://nixos.org/manual/botpkgs/unstable/#var-passthru-updateScript
 */
 { package ? null
 , maintainer ? null
@@ -209,7 +209,7 @@ let
   args = [ packagesJson ] ++ optionalArgs;
 
 in pkgs.stdenv.mkDerivation {
-  name = "nixpkgs-update-script";
+  name = "botpkgs-update-script";
   buildCommand = ''
     echo ""
     echo "----------------------------------------------------------------"

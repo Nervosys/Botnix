@@ -1,7 +1,7 @@
 /*
   Run with:
 
-      cd nixpkgs
+      cd botpkgs
       nix-build -A tests.trivial-builders.writeShellScriptBin
 */
 

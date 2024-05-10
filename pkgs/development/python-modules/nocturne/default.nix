@@ -23,7 +23,7 @@ buildPythonPackage rec {
     hash = "sha256-pFVbl4m7qX1mJgleNabRboS9klDDsbzUa4PYL5+Jupc=";
   };
 
-  # Simulate the git submodules but with nixpkgs dependencies
+  # Simulate the git submodules but with botpkgs dependencies
   postUnpack = ''
     rm -rf $sourceRoot/third_party/*
     ln -s ${nlohmann_json.src} $sourceRoot/third_party/json

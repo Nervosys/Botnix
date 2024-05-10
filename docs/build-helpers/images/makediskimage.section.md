@@ -1,6 +1,6 @@
-# `<nixpkgs/botnix/lib/make-disk-image.nix>` {#sec-make-disk-image}
+# `<botpkgs/botnix/lib/make-disk-image.nix>` {#sec-make-disk-image}
 
-`<nixpkgs/botnix/lib/make-disk-image.nix>` is a function to create _disk images_ in multiple formats: raw, QCOW2 (QEMU), QCOW2-Compressed (compressed version), VDI (VirtualBox), VPC (VirtualPC).
+`<botpkgs/botnix/lib/make-disk-image.nix>` is a function to create _disk images_ in multiple formats: raw, QCOW2 (QEMU), QCOW2-Compressed (compressed version), VDI (VirtualBox), VPC (VirtualPC).
 
 This function can create images in two ways:
 
@@ -24,15 +24,15 @@ Features are separated in various sections depending on if you opt for a Nix-sto
 - multiple partition table layouts: EFI, legacy, legacy + GPT, hybrid, none through `partitionTableType` parameter
 - OVMF or EFI firmwares and variables templates can be customized
 - root filesystem `fsType` can be customized to whatever `mkfs.${fsType}` exist during operations
-- root filesystem label can be customized, defaults to `nix-store` if it's a Nix store image, otherwise `nixpkgs/botnix`
+- root filesystem label can be customized, defaults to `nix-store` if it's a Nix store image, otherwise `botpkgs/botnix`
 - arbitrary code can be executed after disk image was produced with `postVM`
-- the current nixpkgs can be realized as a channel in the disk image, which will change the hash of the image when the sources are updated
+- the current botpkgs can be realized as a channel in the disk image, which will change the hash of the image when the sources are updated
 - additional store paths can be provided through `additionalPaths`
 
 ### Full Botnix image {#sec-make-disk-image-features-full-image}
 
 - arbitrary contents with permissions can be placed in the target filesystem using `contents`
-- a `/etc/nixpkgs/botnix/configuration.nix` can be provided through `configFile`
+- a `/etc/botpkgs/botnix/configuration.nix` can be provided through `configFile`
 - bootloaders are supported
 - EFI variables can be mutated during image production and the result is exposed in `$out`
 - boot partition size when partition table is `efi` or `hybrid`
@@ -52,9 +52,9 @@ A `deterministic` flag is available for best efforts determinism.
 To produce a Nix-store only image:
 ```nix
 let
-  pkgs = import <nixpkgs> {};
+  pkgs = import <botpkgs> {};
   lib = pkgs.lib;
-  make-disk-image = import <nixpkgs/botnix/lib/make-disk-image.nix>;
+  make-disk-image = import <botpkgs/botnix/lib/make-disk-image.nix>;
 in
   make-disk-image {
     inherit pkgs lib;
@@ -78,10 +78,10 @@ Building this derivation will provide a QCOW2 disk image containing only the Nix
 To produce a Botnix installation image disk with UEFI and bootloader installed:
 ```nix
 let
-  pkgs = import <nixpkgs> {};
+  pkgs = import <botpkgs> {};
   lib = pkgs.lib;
-  make-disk-image = import <nixpkgs/botnix/lib/make-disk-image.nix>;
-  evalConfig = import <nixpkgs/botnix/lib/eval-config.nix>;
+  make-disk-image = import <botpkgs/botnix/lib/make-disk-image.nix>;
+  evalConfig = import <botpkgs/botnix/lib/eval-config.nix>;
 in
   make-disk-image {
     inherit pkgs lib;

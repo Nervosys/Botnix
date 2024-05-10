@@ -4,7 +4,7 @@
 # build its derivation with `nix-build`, and then load the result with
 # `docker load`. For example:
 #
-#  $ nix-build '<nixpkgs>' -A dockerTools.examples.redis
+#  $ nix-build '<botpkgs>' -A dockerTools.examples.redis
 #  $ docker load < result
 
 { pkgs, buildImage, buildLayeredImage, fakeNss, pullImage, shadowSetup, buildImageWithNixDb, pkgsCross, streamNixShellImage }:
@@ -142,7 +142,7 @@ rec {
   };
 
   # 6. nix example to play with the container nix store
-  # docker run -it --rm nix nix-store -qR $(nix-build '<nixpkgs>' -A nix)
+  # docker run -it --rm nix nix-store -qR $(nix-build '<botpkgs>' -A nix)
   nix = buildImageWithNixDb {
     name = "nix";
     tag = "latest";

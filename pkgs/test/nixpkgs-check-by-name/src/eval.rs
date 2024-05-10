@@ -124,7 +124,7 @@ pub fn check_values(
         .arg(&attrs_file_path)
         .arg("-I")
         .arg(&attrs_file_path)
-        // Same for the nixpkgs to test
+        // Same for the botpkgs to test
         .args(["--arg", "nixpkgsPath"])
         .arg(nixpkgs_path)
         .arg("-I")

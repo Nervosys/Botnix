@@ -17,8 +17,8 @@ buildPythonPackage rec {
   nativeCheckInputs = [ nose ];
 
   # Some tests are nondeterministic. (`grep sleep -r tests`)
-  # test_timeout_schedule_action_cancel: https://hydra.botnix.org/build/74954646
-  # test_new_thread_scheduler_timeout: https://hydra.botnix.org/build/74949851
+  # test_timeout_schedule_action_cancel: https://hydra.nixos.org/build/74954646
+  # test_new_thread_scheduler_timeout: https://hydra.nixos.org/build/74949851
   doCheck = false;
 
   pythonImportsCheck = [ "rx" ];

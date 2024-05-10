@@ -51,7 +51,7 @@ buildPythonPackage rec {
 
   disabledTests = [
     # Many tests require network access and/or ovftool (https://code.vmware.com/web/tool/ovf)
-    # try enabling these tests with ovftool once/if it is added to nixpkgs
+    # try enabling these tests with ovftool once/if it is added to botpkgs
     "HelperGenericTest"
     "TestCOTAddDisk"
     "TestCOTAddFile"

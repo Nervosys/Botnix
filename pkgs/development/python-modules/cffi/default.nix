@@ -23,7 +23,7 @@ if isPyPy then null else buildPythonPackage rec {
 
   patches = [
     #
-    # Trusts the libffi library inside of nixpkgs on Apple devices.
+    # Trusts the libffi library inside of botpkgs on Apple devices.
     #
     # Based on some analysis I did:
     #

@@ -17,7 +17,7 @@ in
   config = {
 
     environment.variables =
-      { NIXPKGS_CONFIG = "/etc/nix/nixpkgs-config.nix";
+      { NIXPKGS_CONFIG = "/etc/nix/botpkgs-config.nix";
         # note: many programs exec() this directly, so default options for less must not
         # be specified here; do so in the default value of programs.less.envVariables instead
         PAGER = mkDefault "less";

@@ -2,7 +2,7 @@
 
 set -xe
 
-: ${SED:="$(nix-build '<nixpkgs>' -A gnused --no-out-link)/bin/sed"}
+: ${SED:="$(nix-build '<botpkgs>' -A gnused --no-out-link)/bin/sed"}
 
 BASE_URL="https://lhapdfsets.web.cern.ch/current/"
 

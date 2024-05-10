@@ -1,4 +1,4 @@
-# nix-build '<nixpkgs/botnix>' -A config.system.build.openstackImage --arg configuration "{ imports = [ ./botnix/maintainers/scripts/openstack/openstack-image.nix ]; }"
+# nix-build '<botpkgs/botnix>' -A config.system.build.openstackImage --arg configuration "{ imports = [ ./botnix/maintainers/scripts/openstack/openstack-image.nix ]; }"
 
 { config, lib, pkgs, ... }:
 let
@@ -19,7 +19,7 @@ in
     configFile = pkgs.writeText "configuration.nix"
       ''
         {
-          imports = [ <nixpkgs/botnix/modules/virtualisation/openstack-config.nix> ];
+          imports = [ <botpkgs/botnix/modules/virtualisation/openstack-config.nix> ];
         }
       '';
   };

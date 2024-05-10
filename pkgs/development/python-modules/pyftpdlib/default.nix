@@ -36,7 +36,7 @@ buildPythonPackage rec {
   ];
 
   # Impure filesystem-related tests cause timeouts
-  # on Hydra: https://hydra.botnix.org/build/84374861
+  # on Hydra: https://hydra.nixos.org/build/84374861
   doCheck = false;
 
   pythonImportsCheck = [

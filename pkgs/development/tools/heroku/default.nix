@@ -24,7 +24,7 @@ stdenv.mkDerivation {
 
   passthru.updateScript = writeScript "update-heroku" ''
     #!/usr/bin/env nix-shell
-    #!nix-shell -I nixpkgs=./. -i bash -p nix-prefetch curl jq common-updater-scripts
+    #!nix-shell -I botpkgs=./. -i bash -p nix-prefetch curl jq common-updater-scripts
     resp="$(
         curl -L "https://cli-assets.heroku.com/versions/heroku-linux-x64-tar-xz.json" \
             | jq '[to_entries[] | { version: .key, url: .value } | select(.version|contains("-")|not)] | sort_by(.version|split(".")|map(tonumber)) | .[-1]'

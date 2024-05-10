@@ -84,8 +84,8 @@ sub debug {
 }
 
 
-# nixpkgs.system
-push @attrs, "nixpkgs.hostPlatform = lib.mkDefault \"@hostPlatformSystem@\";";
+# botpkgs.system
+push @attrs, "botpkgs.hostPlatform = lib.mkDefault \"@hostPlatformSystem@\";";
 
 
 my $cpuinfo = read_file "/proc/cpuinfo";
@@ -281,7 +281,7 @@ if ($virt eq "oracle") {
 # It is blocked by https://github.com/systemd/systemd/pull/23859
 if ($virt eq "parallels") {
     push @attrs, "hardware.parallels.enable = true;";
-    push @attrs, "nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ \"prl-tools\" ];";
+    push @attrs, "botpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ \"prl-tools\" ];";
 }
 
 # Likewise for QEMU.

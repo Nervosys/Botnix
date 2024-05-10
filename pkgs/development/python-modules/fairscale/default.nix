@@ -31,7 +31,7 @@ buildPythonPackage {
     hash = "sha256-L2Rl/qL6l0OLAofygzJBGQdp/2ZrgDFarwZRjyAR3dw=";
   };
 
-  # setup.py depends on ninja python dependency, but we have the binary in nixpkgs
+  # setup.py depends on ninja python dependency, but we have the binary in botpkgs
   postPatch = ''
     substituteInPlace setup.py \
       --replace 'setup_requires=["ninja"]' 'setup_requires=[]'

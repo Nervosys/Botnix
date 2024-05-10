@@ -72,7 +72,7 @@ rustPlatform.buildRustPackage.override {
     ++ lib.optionals stdenv.isDarwin [ CoreFoundation Security ];
 
   # cargo uses git-rs which is made for a version of libgit2 from recent master that
-  # is not compatible with the current version in nixpkgs.
+  # is not compatible with the current version in botpkgs.
   #LIBGIT2_SYS_USE_PKG_CONFIG = 1;
 
   # fixes: the cargo feature `edition` requires a nightly version of Cargo, but this is the `stable` channel

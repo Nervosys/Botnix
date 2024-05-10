@@ -9,7 +9,7 @@ rec {
   outputHash = "sha256-epUaShjKiAd749ICvc6rS6WhUkS8R4heKuPdwUjEtsQ=";
 
   /*
-  Since `make-minimal-bootstrap-sources` requires nixpkgs and nix it
+  Since `make-minimal-bootstrap-sources` requires botpkgs and nix it
   will create a circular dependency if it is used in place of the
   binary bootstrap-files.  To break the circular dependency,
   `minimal-bootstrap-sources` extends `make-minimal-bootstrap-sources`
@@ -21,7 +21,7 @@ rec {
 
   Run the following command:
   ```
-  nix hash path $(nix build --print-out-paths -f '<nixpkgs>' make-minimal-bootstrap-sources)
+  nix hash path $(nix build --print-out-paths -f '<botpkgs>' make-minimal-bootstrap-sources)
   ```
 
   # Why do we need this `.nar` archive?
@@ -33,21 +33,21 @@ rec {
 
   https://github.com/nervosys/Botnix/pull/232576#issuecomment-1592415619
 
-  # Why don't we have to upload this to tarballs.botnix.org like the binary bootstrap-files did?
+  # Why don't we have to upload this to tarballs.nixos.org like the binary bootstrap-files did?
 
   Unlike this archive, the binary bootstrap-files contained binaries,
   which meant that we had to:
 
   1. Make sure they came from a trusted builder (Hydra)
-  2. Keep careful track of exactly what toolchain (i.e. nixpkgs
+  2. Keep careful track of exactly what toolchain (i.e. botpkgs
      commit) that builder used to create them.
   3. Keep copies of the built binaries, in case the toolchains that
      produced them failed to be perfectly deterministic.
 
-  The curated archives at tarballs.botnix.org exist in order to
+  The curated archives at tarballs.nixos.org exist in order to
   satisfy these requirements.
 
-  The second point created a significant burden: since the nixpkgs
+  The second point created a significant burden: since the botpkgs
   toolchain used to build a given copy of the binary bootstrap-files
   itself used a *previous* copy of the bootstrap-files, this meant
   we had to track the provenance of all bootstrap-files tarballs
@@ -78,10 +78,10 @@ rec {
       #
       #  ${builtins.placeholder "out"}
       #
-      # You can create this path from an already-bootstrapped nixpkgs
+      # You can create this path from an already-bootstrapped botpkgs
       # using the following command:
       #
-      #   nix-build '<nixpkgs>' -A make-minimal-bootstrap-sources
+      #   nix-build '<botpkgs>' -A make-minimal-bootstrap-sources
       #
       # Or, if you prefer, you can create this file using only `git`,
       # `nix`, and `xz`.  For the commands needed in order to do this,

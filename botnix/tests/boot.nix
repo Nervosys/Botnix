@@ -48,7 +48,7 @@ let
             machine.succeed("nix store verify --no-trust -r --option experimental-features nix-command /run/current-system")
 
             with subtest("Check whether the channel got installed correctly"):
-                machine.succeed("nix-instantiate --dry-run '<nixpkgs>' -A hello")
+                machine.succeed("nix-instantiate --dry-run '<botpkgs>' -A hello")
                 machine.succeed("nix-env --dry-run -iA botnix.procps")
 
             machine.shutdown()

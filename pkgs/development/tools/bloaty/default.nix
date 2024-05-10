@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-mIVlNMKtJMfH2QdYZ6+oV7619oYzvKkq3fHY6uofqlM=";
   };
 
-  # Old vendored package which has no other use than here, so not packaged in nixpkgs.
+  # Old vendored package which has no other use than here, so not packaged in botpkgs.
   demumble = fetchFromGitHub {
     owner = "nico";
     repo = "demumble";

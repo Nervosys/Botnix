@@ -119,7 +119,7 @@ url="${ql_src##* }"
   version="$(curl "$url/_darcs/hashed_inventory" | grep '\[TAG ' | tail -n 1 | sed -e 's/.* //')"
   rev="$version";
   hash=$(echo "
-  with (import <nixpkgs> {});
+  with (import <botpkgs> {});
       fetchdarcs {
         url=''$url'';
     rev=''$version'';

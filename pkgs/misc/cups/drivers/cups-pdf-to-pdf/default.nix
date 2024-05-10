@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
   # gcc command line is taken from original cups-pdf's README file
   # https://fossies.org/linux/cups-pdf/README
   # however, we replace gcc with $CC following
-  # https://nixos.org/manual/nixpkgs/stable/#sec-darwin
+  # https://nixos.org/manual/botpkgs/stable/#sec-darwin
   buildPhase = ''
     runHook preBuild
     $CC -O9 -s cups-pdf.c -o cups-pdf -lcups

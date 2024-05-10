@@ -52,7 +52,7 @@ in with pkgs; rec {
       name = "stdenv-bootstrap-tools";
 
       meta = {
-        # Increase priority to unblock nixpkgs-unstable
+        # Increase priority to unblock botpkgs-unstable
         # https://github.com/nervosys/Botnix/pull/104679#issuecomment-732267288
         schedulingPriority = 200;
       };
@@ -216,7 +216,7 @@ in with pkgs; rec {
     name = "stdenv-bootstrap-tools";
 
     meta = {
-      # Increase priority to unblock nixpkgs-unstable
+      # Increase priority to unblock botpkgs-unstable
       # https://github.com/nervosys/Botnix/pull/104679#issuecomment-732267288
       schedulingPriority = 200;
     };

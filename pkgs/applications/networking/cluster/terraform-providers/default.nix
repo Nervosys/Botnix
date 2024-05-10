@@ -45,7 +45,7 @@ let
           name = "source-${rev}";
           inherit owner repo rev hash;
         };
-        # nixpkgs-update: no auto update
+        # botpkgs-update: no auto update
         # easier to update all providers together
 
         meta = {
@@ -92,7 +92,7 @@ let
   removed-providers =
     let
       archived = name: date: throw "the ${name} terraform provider has been archived by upstream on ${date}";
-      removed = name: date: throw "the ${name} terraform provider removed from nixpkgs on ${date}";
+      removed = name: date: throw "the ${name} terraform provider removed from botpkgs on ${date}";
     in
     lib.optionalAttrs config.allowAliases {
       fly = archived "fly" "2023/10";

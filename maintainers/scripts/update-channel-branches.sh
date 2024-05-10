@@ -57,7 +57,7 @@ done
 
 echo "Fetching channels from botnix-version:"
 if currentSystem=$(botnix-version 2>/dev/null); then
-    # If the system is entirely build from a custom nixpkgs version,
+    # If the system is entirely build from a custom botpkgs version,
     # then the version is not annotated in git version. This sed
     # expression is basically matching that the expressions end with
     # ".<sha1> (Name)" to extract the sha1.
@@ -72,11 +72,11 @@ for revFile in : $(find -L "$HOME/.nix-defexpr/" -maxdepth 4 -name svn-revision)
 
     # Deconstruct a path such as, into:
     #
-    #   /home/luke/.nix-defexpr/channels_root/botnix/nixpkgs/svn-revision
+    #   /home/luke/.nix-defexpr/channels_root/botnix/botpkgs/svn-revision
     #     channelName = root/botnix
     #
-    #   /home/luke/.nix-defexpr/channels/nixpkgs/svn-revision
-    #     channelName = nixpkgs
+    #   /home/luke/.nix-defexpr/channels/botpkgs/svn-revision
+    #     channelName = botpkgs
     #
     user=${revFile#*.nix-defexpr/channels}
     repo=${user#*/}

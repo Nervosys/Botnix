@@ -43,7 +43,7 @@ buildPythonPackage rec {
     # Not used anywhere:
     "eliot-tree"
 
-    # Not yet packaged in nixpkgs:
+    # Not yet packaged in botpkgs:
     "gradio"
   ];
 

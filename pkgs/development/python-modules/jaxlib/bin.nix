@@ -166,7 +166,7 @@ buildPythonPackage {
 
   disabled = !(pythonVersion == "3.9" || pythonVersion == "3.10" || pythonVersion == "3.11" || pythonVersion == "3.12");
 
-  # See https://discourse.botnix.org/t/ofborg-does-not-respect-meta-platforms/27019/6.
+  # See https://discourse.nixos.org/t/ofborg-does-not-respect-meta-platforms/27019/6.
   src =
     if !cudaSupport then
       (

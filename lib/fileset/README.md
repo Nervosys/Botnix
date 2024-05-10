@@ -1,7 +1,7 @@
 # File set library
 
 This is the internal contributor documentation.
-The user documentation is [in the Botpkgs manual](https://nixos.org/manual/nixpkgs/unstable/#sec-fileset).
+The user documentation is [in the Botpkgs manual](https://nixos.org/manual/botpkgs/unstable/#sec-fileset).
 
 ## Goals
 

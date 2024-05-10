@@ -81,7 +81,7 @@ let
 
   # Render a single attribute pair to a Key=Value line.
   # FIXME: this isn't entirely correct for arbitrary strings, as some characters
-  # need to be escaped. There are currently none in nixpkgs though, so this is OK.
+  # need to be escaped. There are currently none in botpkgs though, so this is OK.
   renderLine = name: value: if value != null then "${name}=${value}" else null;
 
   # Render a full section of the file from an attrset.

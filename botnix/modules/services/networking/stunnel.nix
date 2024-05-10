@@ -123,7 +123,7 @@ in
         example = {
           foobar = {
             accept = "0.0.0.0:8080";
-            connect = "botnix.org:443";
+            connect = "nixos.org:443";
             verifyChain = false;
           };
         };

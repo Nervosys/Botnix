@@ -16,7 +16,7 @@
   - `shortName` short human-readable name
   - `enableFeatureFreezePing` will ping this team during the Feature Freeze announcements on releases
     - There is limited mention capacity in a single post, so this should be reserved for critical components
-      or larger ecosystems within nixpkgs.
+      or larger ecosystems within botpkgs.
   - `githubTeams` will ping specified GitHub teams as well
 
   More fields may be added in the future.
@@ -250,7 +250,7 @@ with lib.maintainers; {
       asymmetric
       ryantm
     ];
-    scope = "Maintain nixpkgs/Botnix documentation and tools for building it.";
+    scope = "Maintain botpkgs/Botnix documentation and tools for building it.";
     shortName = "Docs";
     enableFeatureFreezePing = true;
   };
@@ -279,7 +279,7 @@ with lib.maintainers; {
   feature-freeze-everyone-else = {
     members = [ ];
     githubTeams = [
-      "nixpkgs-committers"
+      "botpkgs-committers"
       "release-engineers"
     ];
     scope = "Dummy team for the #everyone else' section during feture freezes, not to be used as package maintainers!";
@@ -627,7 +627,7 @@ with lib.maintainers; {
       garbas
       tomberek
     ];
-    scope = "Marketing of Nix/Botnix/nixpkgs.";
+    scope = "Marketing of Nix/Botnix/botpkgs.";
     shortName = "Marketing";
     enableFeatureFreezePing = true;
   };
@@ -857,7 +857,7 @@ with lib.maintainers; {
     githubTeams = [
       "botnix-release-managers"
     ];
-    scope = "Manage the current nixpkgs/Botnix release.";
+    scope = "Manage the current botpkgs/Botnix release.";
     shortName = "Release";
   };
 
@@ -893,7 +893,7 @@ with lib.maintainers; {
     githubTeams = [
       "rust"
     ];
-    scope = "Maintain the Rust compiler toolchain and nixpkgs integration.";
+    scope = "Maintain the Rust compiler toolchain and botpkgs integration.";
     shortName = "Rust";
     enableFeatureFreezePing = true;
   };
@@ -989,7 +989,7 @@ with lib.maintainers; {
       AndersonTorres
       figsoda
     ];
-    scope = "Maintain the Zig compiler toolchain and nixpkgs integration.";
+    scope = "Maintain the Zig compiler toolchain and botpkgs integration.";
     shortName = "Zig";
     enableFeatureFreezePing = true;
   };

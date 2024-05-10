@@ -219,7 +219,7 @@ stdenv.mkDerivation rec {
     homepage = "https://kotatogram.github.io";
     changelog = "https://github.com/kotatogram/kotatogram-desktop/releases/tag/k{version}";
     maintainers = with maintainers; [ ilya-fedin ];
-    # never built on aarch64-darwin since first introduction in nixpkgs
+    # never built on aarch64-darwin since first introduction in botpkgs
     broken = stdenv.isDarwin && stdenv.isAarch64;
   };
 }

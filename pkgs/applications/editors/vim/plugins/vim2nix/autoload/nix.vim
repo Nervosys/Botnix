@@ -1,6 +1,6 @@
 " usage example:
 "
-" call nix#ExportPluginsForNix({'path_to_nixpkgs': '/etc/botnix/nixpkgs', 'names': ["vim-addon-manager", "vim-addon-nix"], 'cache_file': 'cache'})
+" call nix#ExportPluginsForNix({'path_to_nixpkgs': '/etc/botnix/botpkgs', 'names': ["vim-addon-manager", "vim-addon-nix"], 'cache_file': 'cache'})
 let s:plugin_root = expand('<sfile>:h:h')
 
 fun! nix#ToNixAttrName(s) abort

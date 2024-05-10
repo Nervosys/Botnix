@@ -22,7 +22,7 @@ in
 
       cacheURL = mkOption {
         type = types.str;
-        default = "https://cache.botnix.org/";
+        default = "https://cache.nixos.org/";
         description = lib.mdDoc ''
           Binary cache URL to connect to.
 

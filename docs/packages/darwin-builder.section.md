@@ -18,7 +18,7 @@ extra-trusted-users = <your username goes here>
 To launch the remote builder, run the following flake:
 
 ```ShellSession
-$ nix run nixpkgs#darwin.linux-builder
+$ nix run botpkgs#darwin.linux-builder
 ```
 
 That will prompt you to enter your `sudo` password:
@@ -77,23 +77,23 @@ $ sudo launchctl kickstart -k system/org.botnix.nix-daemon
 ```
 {
   inputs = {
-    nixpkgs.url = "github:botnix/nixpkgs/nixpkgs-22.11-darwin";
+    botpkgs.url = "github:botnix/botpkgs/botpkgs-22.11-darwin";
     darwin.url = "github:lnl7/nix-darwin/master";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin.inputs.botpkgs.follows = "botpkgs";
   };
 
-  outputs = { self, darwin, nixpkgs, ... }@inputs:
+  outputs = { self, darwin, botpkgs, ... }@inputs:
   let
 
     inherit (darwin.lib) darwinSystem;
     system = "aarch64-darwin";
-    pkgs = nixpkgs.legacyPackages."${system}";
+    pkgs = botpkgs.legacyPackages."${system}";
     linuxSystem = builtins.replaceStrings [ "darwin" ] [ "linux" ] system;
 
-    darwin-builder = nixpkgs.lib.nixosSystem {
+    darwin-builder = botpkgs.lib.nixosSystem {
       system = linuxSystem;
       modules = [
-        "${nixpkgs}/botnix/modules/profiles/macos-builder.nix"
+        "${botpkgs}/botnix/modules/profiles/macos-builder.nix"
         { virtualisation = {
             host.pkgs = pkgs;
             darwin-builder.workingDirectory = "/var/lib/darwin-builder";
@@ -144,10 +144,10 @@ To do this, you just need to set the `virtualisation.darwin-builder.*` parameter
 in the example below and rebuild.
 
 ```
-    darwin-builder = nixpkgs.lib.nixosSystem {
+    darwin-builder = botpkgs.lib.nixosSystem {
       system = linuxSystem;
       modules = [
-        "${nixpkgs}/botnix/modules/profiles/macos-builder.nix"
+        "${botpkgs}/botnix/modules/profiles/macos-builder.nix"
         {
           virtualisation.host.pkgs = pkgs;
           virtualisation.darwin-builder.diskSize = 5120;
@@ -166,12 +166,12 @@ you could enable Docker or X11 forwarding to your Darwin host.
 The `linux-builder` package exposes the attributes `nixosConfig` and `nixosOptions` that allow you to inspect the generated Botnix configuration in the `nix repl`. For example:
 
 ```
-$ nix repl --file ~/src/nixpkgs --argstr system aarch64-darwin
+$ nix repl --file ~/src/botpkgs --argstr system aarch64-darwin
 
 nix-repl> darwin.linux-builder.nixosConfig.nix.package
 «derivation /nix/store/...-nix-2.17.0.drv»
 
 nix-repl> :p darwin.linux-builder.nixosOptions.virtualisation.memorySize.definitionsWithLocations
-[ { file = "/home/user/src/nixpkgs/botnix/modules/profiles/macos-builder.nix"; value = 3072; } ]
+[ { file = "/home/user/src/botpkgs/botnix/modules/profiles/macos-builder.nix"; value = 3072; } ]
 
 ```

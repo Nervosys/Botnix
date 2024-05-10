@@ -9,7 +9,7 @@
 # Execute this build script directly (quick):
 #
 # * Classic
-#   $ NIX_PATH="nixpkgs=$PWD" nix-shell -p tests.trivial-builders.references.testScriptBin --run references-test
+#   $ NIX_PATH="botpkgs=$PWD" nix-shell -p tests.trivial-builders.references.testScriptBin --run references-test
 #
 # * Flake-based
 #   $ nix run .#tests.trivial-builders.references.testScriptBin
@@ -31,7 +31,7 @@ set -euo pipefail
 # set -x
 # PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
-cd "$(dirname "${BASH_SOURCE[0]}")"  # nixpkgs root
+cd "$(dirname "${BASH_SOURCE[0]}")"  # botpkgs root
 
   # Injected by Nix (to avoid evaluating in a derivation)
   # turn them into arrays

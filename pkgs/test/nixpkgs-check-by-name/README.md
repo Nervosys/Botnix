@@ -73,7 +73,7 @@ Tests are declared in [`./tests`](./tests) as subdirectories imitating Botpkgs w
 - `default.nix`:
   Always contains
   ```nix
-  import <test-nixpkgs> { root = ./.; }
+  import <test-botpkgs> { root = ./.; }
   ```
   which makes
   ```

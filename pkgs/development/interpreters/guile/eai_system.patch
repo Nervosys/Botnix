@@ -1,4 +1,4 @@
-Building nixpkgs in non-chroot, NSS modules may fail
+Building botpkgs in non-chroot, NSS modules may fail
 and that will report EAI_SYSTEM in getaddrinfo.
 https://bugzilla.novell.com/show_bug.cgi?id=794696
 

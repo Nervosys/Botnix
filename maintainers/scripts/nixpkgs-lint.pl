@@ -7,7 +7,7 @@ use XML::Simple qw(:strict);
 use Getopt::Long qw(:config gnu_getopt);
 
 # Parse the command line.
-my $path = "<nixpkgs>";
+my $path = "<botpkgs>";
 my $filter = "*";
 my $maintainer;
 
@@ -19,11 +19,11 @@ Check Botpkgs for common errors/problems.
 
   -p, --package        filter packages by name (default is ‘*’)
   -m, --maintainer     filter packages by maintainer (case-insensitive regexp)
-  -f, --file           path to Botpkgs (default is ‘<nixpkgs>’)
+  -f, --file           path to Botpkgs (default is ‘<botpkgs>’)
 
 Examples:
-  \$ nixpkgs-lint -f /my/nixpkgs -p firefox
-  \$ nixpkgs-lint -f /my/nixpkgs -m eelco
+  \$ botpkgs-lint -f /my/botpkgs -p firefox
+  \$ botpkgs-lint -f /my/botpkgs -m eelco
 EOF
     exit 0;
 }

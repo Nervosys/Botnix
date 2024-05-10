@@ -20,14 +20,14 @@ def fmt_grammar(grammar: str) -> str:
     return "tree-sitter-" + grammar
 
 
-def eval_expr(nixpkgs: str, expr: str) -> Any:
+def eval_expr(botpkgs: str, expr: str) -> Any:
     p = subprocess.run(
         [
             "nix-instantiate",
             "--json",
             "--eval",
             "--expr",
-            ("with import %s {}; %s" % (nixpkgs, expr)),
+            ("with import %s {}; %s" % (botpkgs, expr)),
         ],
         check=True,
         stdout=subprocess.PIPE,
@@ -35,16 +35,16 @@ def eval_expr(nixpkgs: str, expr: str) -> Any:
     return json.loads(p.stdout)
 
 
-def check_grammar_exists(nixpkgs: str, grammar: str) -> bool:
+def check_grammar_exists(botpkgs: str, grammar: str) -> bool:
     return eval_expr(
-        nixpkgs, f'lib.hasAttr "{fmt_grammar(grammar)}" tree-sitter-grammars'
+        botpkgs, f'lib.hasAttr "{fmt_grammar(grammar)}" tree-sitter-grammars'
     )
 
 
-def build_attr(nixpkgs, attr: str) -> str:
+def build_attr(botpkgs, attr: str) -> str:
     return (
         subprocess.run(
-            ["nix-build", "--no-out-link", nixpkgs, "-A", attr],
+            ["nix-build", "--no-out-link", botpkgs, "-A", attr],
             check=True,
             stdout=subprocess.PIPE,
         )
@@ -55,15 +55,15 @@ def build_attr(nixpkgs, attr: str) -> str:
 
 if __name__ == "__main__":
     cwd = dirname(abspath(__file__))
-    nixpkgs = abspath(join(cwd, "../../../../../.."))
+    botpkgs = abspath(join(cwd, "../../../../../.."))
 
-    src_dir = build_attr(nixpkgs, "emacs.pkgs.tree-sitter-langs.src")
+    src_dir = build_attr(botpkgs, "emacs.pkgs.tree-sitter-langs.src")
 
     existing: List[str] = []
 
     grammars = os.listdir(join(src_dir, "repos"))
     for g in grammars:
-        exists = check_grammar_exists(nixpkgs, g)
+        exists = check_grammar_exists(botpkgs, g)
         if exists:
             existing.append(fmt_grammar(g))
         else:

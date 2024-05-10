@@ -144,7 +144,7 @@ resholve.mkDerivation rec {
 
         bats_require_minimum_version 1.5.0
 
-        TEST_TEMP_DIR="$(temp_make --prefix 'nixpkgs-bats-test')"
+        TEST_TEMP_DIR="$(temp_make --prefix 'botpkgs-bats-test')"
       }
 
       teardown() {

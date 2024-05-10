@@ -46,7 +46,7 @@ in import ../make-test-python.nix {
       ];
     };
     server = { config, pkgs, ... }: {
-      nixpkgs.overlays = [
+      botpkgs.overlays = [
         (self: super: {
           prosody = super.prosody.override {
             withExtraLuaPackages = p: [ p.luadbi-mysql ];

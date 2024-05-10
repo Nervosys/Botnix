@@ -25,7 +25,7 @@ let
 
     src = fetchurl linuxSource;
 
-    # TODO: migrate off autoPatchelfHook and use nixpkgs' electron
+    # TODO: migrate off autoPatchelfHook and use botpkgs' electron
     nativeBuildInputs = [
       autoPatchelfHook
       makeWrapper

@@ -26,7 +26,7 @@ Like [`stdenv.mkDerivation`](#sec-using-stdenv), each of these build helpers cre
 # Invocation of `runCommand`
 
 ```nix
-(import <nixpkgs> {}).runCommand "my-example" {} ''
+(import <botpkgs> {}).runCommand "my-example" {} ''
   echo My example command is running
 
   mkdir $out

@@ -22,8 +22,8 @@ jobs:
     - uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28 # v25
     - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
       with:
-        # This cache is for the nixpkgs repo checks and should not be trusted or used elsewhere.
-        name: nixpkgs-ci
+        # This cache is for the botpkgs repo checks and should not be trusted or used elsewhere.
+        name: botpkgs-ci
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
     # explicit list of supportedSystems is needed until aarch64-darwin becomes part of the trunk jobset
-    - run: nix-build pkgs/top-level/release.nix -A tarball.nixpkgs-basic-release-checks --arg supportedSystems '[ "aarch64-darwin" "aarch64-linux" "x86_64-linux" "x86_64-darwin"  ]'
+    - run: nix-build pkgs/top-level/release.nix -A tarball.botpkgs-basic-release-checks --arg supportedSystems '[ "aarch64-darwin" "aarch64-linux" "x86_64-linux" "x86_64-darwin"  ]'

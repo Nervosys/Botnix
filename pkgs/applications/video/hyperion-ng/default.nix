@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-Y1PZ+YyPMZEX4fBpMG6IVT1gtXR9ZHlavJMCQ4KAenc=";
     # needed for `dependencies/external/`:
     # * rpi_ws281x` - not possible to use as a "system" lib
-    # * qmdnsengine - not in nixpkgs yet
+    # * qmdnsengine - not in botpkgs yet
     fetchSubmodules = true;
   };
 
@@ -53,7 +53,7 @@ stdenv.mkDerivation rec {
     "-DUSE_SYSTEM_FLATBUFFERS_LIBS=ON"
     "-DUSE_SYSTEM_PROTO_LIBS=ON"
     "-DUSE_SYSTEM_MBEDTLS_LIBS=ON"
-    # "-DUSE_SYSTEM_QMDNS_LIBS=ON"  # qmdnsengine not in nixpkgs yet
+    # "-DUSE_SYSTEM_QMDNS_LIBS=ON"  # qmdnsengine not in botpkgs yet
     "-DENABLE_TESTS=ON"
   ] ++ lib.optional (withRPiDispmanx == false) "-DENABLE_DISPMANX=OFF";
 

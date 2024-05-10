@@ -21,7 +21,7 @@ stdenv.mkDerivation {
 
   postPatch = ''
     substituteInPlace src/lang/dune \
-      --replace "(run git rev-parse --short HEAD)" "(run echo -n nixpkgs)"
+      --replace "(run git rev-parse --short HEAD)" "(run echo -n botpkgs)"
   '';
 
   dontConfigure = true;

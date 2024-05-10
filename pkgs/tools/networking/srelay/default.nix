@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     homepage = "http://socks-relay.sourceforge.net/";
     platforms = lib.platforms.unix;
     license = lib.licenses.bsd3;
-    # never built on aarch64-linux since first introduction in nixpkgs
+    # never built on aarch64-linux since first introduction in botpkgs
     broken = stdenv.isLinux && stdenv.isAarch64;
   };
 }

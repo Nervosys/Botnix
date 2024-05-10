@@ -31,9 +31,9 @@ let
           ({ options, ... }: {
             key = "nodes.nix-pkgs";
             config = optionalAttrs (!config.node.pkgsReadOnly) (
-              mkIf (!options.nixpkgs.pkgs.isDefined) {
-                # TODO: switch to nixpkgs.hostPlatform and make sure containers-imperative test still evaluates.
-                nixpkgs.system = hostPkgs.stdenv.hostPlatform.system;
+              mkIf (!options.botpkgs.pkgs.isDefined) {
+                # TODO: switch to botpkgs.hostPlatform and make sure containers-imperative test still evaluates.
+                botpkgs.system = hostPkgs.stdenv.hostPlatform.system;
               }
             );
           })
@@ -77,7 +77,7 @@ in
 
     extraBaseModules = mkOption {
       description = mdDoc ''
-        Botnix configuration that, like [{option}`defaults`](#test-opt-defaults), is applied to all [{option}`nodes`](#test-opt-nodes) and can not be undone with [`specialisation.<name>.inheritParentConfig`](https://search.botnix.org/options?show=specialisation.%3Cname%3E.inheritParentConfig&from=0&size=50&sort=relevance&type=packages&query=specialisation).
+        Botnix configuration that, like [{option}`defaults`](#test-opt-defaults), is applied to all [{option}`nodes`](#test-opt-nodes) and can not be undone with [`specialisation.<name>.inheritParentConfig`](https://search.nixos.org/options?show=specialisation.%3Cname%3E.inheritParentConfig&from=0&size=50&sort=relevance&type=packages&query=specialisation).
       '';
       type = types.deferredModule;
       default = { };
@@ -87,20 +87,20 @@ in
       description = mdDoc ''
         The Botpkgs to use for the nodes.
 
-        Setting this will make the `nixpkgs.*` options read-only, to avoid mistakenly testing with a Botpkgs configuration that diverges from regular use.
+        Setting this will make the `botpkgs.*` options read-only, to avoid mistakenly testing with a Botpkgs configuration that diverges from regular use.
       '';
       type = types.nullOr types.pkgs;
       default = null;
       defaultText = literalMD ''
-        `null`, so construct `pkgs` according to the `nixpkgs.*` options as usual.
+        `null`, so construct `pkgs` according to the `botpkgs.*` options as usual.
       '';
     };
 
     node.pkgsReadOnly = mkOption {
       description = mdDoc ''
-        Whether to make the `nixpkgs.*` options read-only. This is only relevant when [`node.pkgs`](#test-opt-node.pkgs) is set.
+        Whether to make the `botpkgs.*` options read-only. This is only relevant when [`node.pkgs`](#test-opt-node.pkgs) is set.
 
-        Set this to `false` when any of the [`nodes`](#test-opt-nodes) needs to configure any of the `nixpkgs.*` options. This will slow down evaluation of your test a bit.
+        Set this to `false` when any of the [`nodes`](#test-opt-nodes) needs to configure any of the `botpkgs.*` options. This will slow down evaluation of your test a bit.
       '';
       type = types.bool;
       default = config.node.pkgs != null;
@@ -141,8 +141,8 @@ in
     passthru.nodes = config.nodesCompat;
 
     defaults = mkIf config.node.pkgsReadOnly {
-      nixpkgs.pkgs = config.node.pkgs;
-      imports = [ ../../modules/misc/nixpkgs/read-only.nix ];
+      botpkgs.pkgs = config.node.pkgs;
+      imports = [ ../../modules/misc/botpkgs/read-only.nix ];
     };
 
   };

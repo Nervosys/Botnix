@@ -180,7 +180,7 @@ in
           Whether to install documentation of packages from
           {option}`environment.systemPackages` into the generated system path.
 
-          See "Multiple-output packages" chapter in the nixpkgs manual for more info.
+          See "Multiple-output packages" chapter in the botpkgs manual for more info.
         '';
         # which is at ../../../doc/multiple-output.chapter.md
       };

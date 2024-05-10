@@ -145,8 +145,8 @@ let
       # are specified is inconsistent: Sometimes specifying `--target`
       # always causes a prefix to be generated, sometimes it's only
       # added if the `--host` and `--target` differ. This means that
-      # sometimes there may be a prefix even though nixpkgs doesn't
-      # expect one and sometimes there may be none even though nixpkgs
+      # sometimes there may be a prefix even though botpkgs doesn't
+      # expect one and sometimes there may be none even though botpkgs
       # expects one (since not all information is serialized into the
       # config attribute). The easiest way out of these problems is to
       # always set the program prefix, so gcc will conform to our

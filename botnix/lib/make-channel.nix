@@ -1,13 +1,13 @@
-/* Build a channel tarball. These contain, in addition to the nixpkgs
- * expressions themselves, files that indicate the version of nixpkgs
+/* Build a channel tarball. These contain, in addition to the botpkgs
+ * expressions themselves, files that indicate the version of botpkgs
  * that they represent.
  */
-{ pkgs, nixpkgs, version, versionSuffix }:
+{ pkgs, botpkgs, version, versionSuffix }:
 
 pkgs.releaseTools.makeSourceTarball {
   name = "botnix-channel";
 
-  src = nixpkgs;
+  src = botpkgs;
 
   officialRelease = false; # FIXME: fix this in makeSourceTarball
   inherit version versionSuffix;
@@ -17,12 +17,12 @@ pkgs.releaseTools.makeSourceTarball {
   distPhase = ''
     rm -rf .git
     echo -n $VERSION_SUFFIX > .version-suffix
-    echo -n ${nixpkgs.rev or nixpkgs.shortRev} > .git-revision
+    echo -n ${botpkgs.rev or botpkgs.shortRev} > .git-revision
     releaseName=botnix-$VERSION$VERSION_SUFFIX
     mkdir -p $out/tarballs
     cp -prd . ../$releaseName
     chmod -R u+w ../$releaseName
-    ln -s . ../$releaseName/nixpkgs # hack to make ‘<nixpkgs>’ work
+    ln -s . ../$releaseName/botpkgs # hack to make ‘<botpkgs>’ work
     NIX_STATE_DIR=$TMPDIR nix-env -f ../$releaseName/default.nix -qaP --meta --show-trace --xml \* > /dev/null
     cd ..
     chmod -R u+w $releaseName

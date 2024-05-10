@@ -101,14 +101,14 @@ let
   # FIXME: merge with channel.nix / make-channel.nix.
   channelSources =
     let
-      nixpkgs = lib.cleanSource pkgs.path;
+      botpkgs = lib.cleanSource pkgs.path;
     in
       pkgs.runCommand "botnix-${config.system.botnix.version}" {} ''
         mkdir -p $out
-        cp -prd ${nixpkgs.outPath} $out/botnix
+        cp -prd ${botpkgs.outPath} $out/botnix
         chmod -R u+w $out/botnix
-        if [ ! -e $out/botnix/nixpkgs ]; then
-          ln -s . $out/botnix/nixpkgs
+        if [ ! -e $out/botnix/botpkgs ]; then
+          ln -s . $out/botnix/botpkgs
         fi
         rm -rf $out/botnix/.git
         echo -n ${config.system.botnix.versionSuffix} > $out/botnix/.version-suffix
@@ -189,7 +189,7 @@ let
       mountable = lib.filterAttrs (_: value: hasDefinedMount value) datasets;
     in
       pkgs.runCommand "filesystem-config.nix" {
-        buildInputs = with pkgs; [ jq nixpkgs-fmt ];
+        buildInputs = with pkgs; [ jq botpkgs-fmt ];
         filesystems = builtins.toJSON {
           fileSystems = lib.mapAttrs'
             (
@@ -212,7 +212,7 @@ let
         echo "'''"
       ) > $out
 
-      nixpkgs-fmt $out
+      botpkgs-fmt $out
     '';
 
   mergedConfig =
@@ -220,7 +220,7 @@ let
     then fileSystemsCfgFile
     else
       pkgs.runCommand "configuration.nix" {
-        buildInputs = with pkgs; [ nixpkgs-fmt ];
+        buildInputs = with pkgs; [ botpkgs-fmt ];
       }
         ''
           (
@@ -230,7 +230,7 @@ let
             echo ']; }'
           ) > $out
 
-          nixpkgs-fmt $out
+          botpkgs-fmt $out
         '';
 
   image = (

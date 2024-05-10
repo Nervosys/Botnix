@@ -157,7 +157,7 @@ in
           under {option}`services.znc.confOptions.*`, but also can't do
           any type checking.
 
-          You can use {command}`nix-instantiate --eval --strict '<nixpkgs/botnix>' -A config.services.znc.config`
+          You can use {command}`nix-instantiate --eval --strict '<botpkgs/botnix>' -A config.services.znc.config`
           to view the current value. By default it contains a listener for port
           5000 with SSL enabled.
 

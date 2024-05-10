@@ -15,7 +15,7 @@ import ./make-test-python.nix ({ pkgs, lib, ... }: {
         imports = [ ./common/x11.nix ./common/user-account.nix ];
         test-support.displayManager.auto.user = "alice";
         services.xscreensaver.enable = true;
-        nixpkgs.overlays = [
+        botpkgs.overlays = [
           (self: super: {
             xscreensaver = super.xscreensaver.override {
               wrapperPrefix = "";
@@ -29,7 +29,7 @@ import ./make-test-python.nix ({ pkgs, lib, ... }: {
         imports = [ ./common/x11.nix ./common/user-account.nix ];
         test-support.displayManager.auto.user = "alice";
         services.xscreensaver.enable = true;
-        nixpkgs.overlays = [
+        botpkgs.overlays = [
           (self: super: {
             xscreensaver = super.xscreensaver.override {
               wrapperPrefix = "/a/bad/path";

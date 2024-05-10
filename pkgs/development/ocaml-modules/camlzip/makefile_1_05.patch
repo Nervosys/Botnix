@@ -1,6 +1,6 @@
-diff -Nuar camlzip-1.04/Makefile camlzip-1.04.nixpkgs/Makefile
+diff -Nuar camlzip-1.04/Makefile camlzip-1.04.botpkgs/Makefile
 --- camlzip-1.04/Makefile	2002-04-22 17:28:57.000000000 +0200
-+++ camlzip-1.04.nixpkgs/Makefile	2010-12-12 18:30:49.000000000 +0100
++++ camlzip-1.04.botpkgs/Makefile	2010-12-12 18:30:49.000000000 +0100
 @@ -4,14 +4,10 @@
  ZLIB_LIB=-lz
  

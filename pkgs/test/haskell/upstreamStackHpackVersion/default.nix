@@ -57,7 +57,7 @@ let
     echo "upstream \`stack --version\` output: $upstream_stack_version_output"
 
     nixpkgs_stack_version_output="$(stack --version)"
-    echo "nixpkgs \`stack --version\` output: $nixpkgs_stack_version_output"
+    echo "botpkgs \`stack --version\` output: $nixpkgs_stack_version_output"
 
     # Confirm that the upstream stack version is the same as the stack version
     # in Botpkgs. This check isn't strictly necessary, but it is a good sanity
@@ -67,7 +67,7 @@ let
       upstream_stack_version="''${BASH_REMATCH[1]}"
 
       echo "parsed upstream stack version: $upstream_stack_version"
-      echo "stack version from nixpkgs: ${stack.version}"
+      echo "stack version from botpkgs: ${stack.version}"
 
       if [[ "${stack.version}" != "$upstream_stack_version" ]]; then
         echo "ERROR: stack version in Botpkgs (${stack.version}) does not match the upstream version for some reason: $upstream_stack_version"

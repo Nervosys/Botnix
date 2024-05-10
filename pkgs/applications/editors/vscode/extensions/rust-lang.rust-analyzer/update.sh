@@ -3,20 +3,20 @@
 #shellcheck shell=bash
 set -euo pipefail
 cd "$(dirname "$0")"
-nixpkgs=../../../../../../
-node_packages="$nixpkgs/pkgs/development/node-packages"
+botpkgs=../../../../../../
+node_packages="$botpkgs/pkgs/development/node-packages"
 owner=rust-lang
 repo=rust-analyzer
 ver=$(
     curl -s "https://api.github.com/repos/$owner/$repo/releases" |
     jq 'map(select(.prerelease | not)) | .[0].tag_name' --raw-output
 )
-node_src="$(nix-build "$nixpkgs" -A rust-analyzer.src --no-out-link)/editors/code"
+node_src="$(nix-build "$botpkgs" -A rust-analyzer.src --no-out-link)/editors/code"
 
 # Check vscode compatibility
 req_vscode_ver="$(jq '.engines.vscode' "$node_src/package.json" --raw-output)"
 req_vscode_ver="${req_vscode_ver#^}"
-cur_vscode_ver="$(nix-instantiate --eval --strict "$nixpkgs" -A vscode.version | tr -d '"')"
+cur_vscode_ver="$(nix-instantiate --eval --strict "$botpkgs" -A vscode.version | tr -d '"')"
 if [[ "$(nix-instantiate --eval --strict -E "(builtins.compareVersions \"$req_vscode_ver\" \"$cur_vscode_ver\")")" -gt 0 ]]; then
     echo "vscode $cur_vscode_ver is incompatible with the extension requiring ^$req_vscode_ver"
     exit 1
@@ -28,7 +28,7 @@ extension_ver=$(curl "https://github.com/$owner/$repo/releases/download/$ver/rus
 echo "Extension version: $extension_ver"
 
 # We need devDependencies to build vsix.
-# `esbuild` is a binary package an is already in nixpkgs so we omit it here.
+# `esbuild` is a binary package an is already in botpkgs so we omit it here.
 jq '{ name, version: $ver, dependencies: (.dependencies + .devDependencies | del(.esbuild)) }' "$node_src/package.json" \
     --arg ver "$extension_ver" \
     >"build-deps/package.json.new"

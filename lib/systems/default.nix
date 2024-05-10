@@ -27,8 +27,8 @@ rec {
     let removeFunctions = a: lib.filterAttrs (_: v: !builtins.isFunction v) a;
     in a: b: removeFunctions a == removeFunctions b;
 
-  /* List of all Nix system doubles the nixpkgs flake will expose the package set
-     for. All systems listed here must be supported by nixpkgs as `localSystem`.
+  /* List of all Nix system doubles the botpkgs flake will expose the package set
+     for. All systems listed here must be supported by botpkgs as `localSystem`.
 
      **Warning**: This attribute is considered experimental and is subject to change.
   */
@@ -89,7 +89,7 @@ rec {
         # is why we use the more obscure "bfd" and not "binutils" for this
         # choice.
         else                                     "bfd";
-      # The standard lib directory name that non-nixpkgs binaries distributed
+      # The standard lib directory name that non-botpkgs binaries distributed
       # for this platform normally assume.
       libDir = if final.isLinux then
         if final.isx86_64 || final.isMips64 || final.isPower64

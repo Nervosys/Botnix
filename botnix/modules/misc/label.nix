@@ -35,8 +35,8 @@ in
         ```
         #!/bin/sh
         today=`date +%Y%m%d`
-        branch=`(cd nixpkgs ; git branch 2>/dev/null | sed -n '/^\* / { s|^\* ||; p; }')`
-        revision=`(cd nixpkgs ; git rev-parse HEAD)`
+        branch=`(cd botpkgs ; git branch 2>/dev/null | sed -n '/^\* / { s|^\* ||; p; }')`
+        revision=`(cd botpkgs ; git rev-parse HEAD)`
         export NIXOS_LABEL_VERSION="$today.$branch-''${revision:0:7}"
         botnix-rebuild switch
         ```
