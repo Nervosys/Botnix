@@ -14,7 +14,7 @@ use Log::Log4perl qw(:easy);
 use Readonly();
 
 # Readonly hash that maps CPAN style license strings to information
-# necessary to generate a Nixpkgs style license attribute.
+# necessary to generate a Botpkgs style license attribute.
 Readonly::Hash my %LICENSE_MAP => (
 
     # The Perl 5 License (Artistic 1 & GPL 1 or later).

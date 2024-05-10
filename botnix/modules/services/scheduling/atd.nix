@@ -77,7 +77,7 @@ in
         # Snippets taken and adapted from the original `install' rule of
         # the makefile.
 
-        # We assume these values are those actually used in Nixpkgs for
+        # We assume these values are those actually used in Botpkgs for
         # `at'.
         spooldir=/var/spool/atspool
         jobdir=/var/spool/atjobs

@@ -200,7 +200,7 @@ stdenvNoCC.mkDerivation (args // {
           # Wire in the nugetDeps file such that running the script with no args
           # runs it agains the correct deps file by default.
           # Note that toString is necessary here as it results in the path at
-          # eval time (i.e. to the file in your local Nixpkgs checkout) rather
+          # eval time (i.e. to the file in your local Botpkgs checkout) rather
           # than the Nix store path of the path after it's been imported.
           if lib.isPath nugetDepsFile && !lib.hasPrefix "${builtins.storeDir}/" (toString nugetDepsFile)
           then toString nugetDepsFile

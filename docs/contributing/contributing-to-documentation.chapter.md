@@ -1,4 +1,4 @@
-# Contributing to Nixpkgs documentation {#chap-contributing}
+# Contributing to Botpkgs documentation {#chap-contributing}
 
 This section has been moved to [doc/README.md](https://github.com/nervosys/Botnix/blob/master/doc/README.md).
 

@@ -16,7 +16,7 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Spago derivation created with cabal2nix.
 spago_derivation_file="${script_dir}/spago.nix"
 
-# This is the current revision of spago in Nixpkgs.
+# This is the current revision of spago in Botpkgs.
 old_version="$(sed -En 's/.*\bversion = "(.*?)".*/\1/p' "$spago_derivation_file")"
 
 # This is the latest release version of spago on GitHub.

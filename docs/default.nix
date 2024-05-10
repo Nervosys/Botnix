@@ -38,13 +38,13 @@ let
             version="5.0"
             xml:id="nixpkgs-manual">
         <info>
-          <title>Nixpkgs Manual</title>
+          <title>Botpkgs Manual</title>
           <subtitle>Version ${pkgs.lib.version}</subtitle>
         </info>
         <chapter>
           <title>Temporarily unavailable</title>
           <para>
-            The Nixpkgs manual is currently not available in EPUB format,
+            The Botpkgs manual is currently not available in EPUB format,
             please use the <link xlink:href="https://nixos.org/nixpkgs/manual">HTML manual</link>
             instead.
           </para>
@@ -71,7 +71,7 @@ let
     cd scratch && zip -Xr9D "$out" *
   '';
 
-  # NB: This file describes the Nixpkgs manual, which happens to use module
+  # NB: This file describes the Botpkgs manual, which happens to use module
   #     docs infra originally developed for Botnix.
   optionsDoc = pkgs.nixosOptionsDoc {
     inherit (pkgs.lib.evalModules {

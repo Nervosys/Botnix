@@ -4,7 +4,7 @@
 #    cargo-llvm-cov. This is relatively unlikely because we pull llvm out of
 #    rustc's attrset, so it *should* be the right version as long as this is the
 #    case.
-# 2. Nixpkgs has changed its rust infrastructure in a way that causes
+# 2. Botpkgs has changed its rust infrastructure in a way that causes
 #    cargo-llvm-cov to misbehave under test. It's likely that even though the
 #    tests are failing, cargo-llvm-cov will still function properly in actual
 #    use. This has happened before, and is described [here][0] (along with a
@@ -33,7 +33,7 @@ let
 
   llvm = rustc.llvmPackages.llvm;
 
-  # Download `Cargo.lock` from crates.io so we don't clutter up Nixpkgs
+  # Download `Cargo.lock` from crates.io so we don't clutter up Botpkgs
   cargoLock = fetchurl {
     name = "Cargo.lock";
     url = "https://crates.io/api/v1/crates/${pname}/${version}/download";

@@ -10,6 +10,6 @@ The Botnix desktop or other non-headless configurations are the primary target f
 
 ## Nix on GNU/Linux {#nix-on-gnulinux}
 
-If you are using a non-Botnix GNU/Linux/X11 desktop with free software video drivers, consider launching OpenGL-dependent programs from Nixpkgs with Nixpkgs versions of `libglvnd` and `mesa.drivers` in `LD_LIBRARY_PATH`. For Mesa drivers, the Linux kernel version doesn't have to match nixpkgs.
+If you are using a non-Botnix GNU/Linux/X11 desktop with free software video drivers, consider launching OpenGL-dependent programs from Botpkgs with Botpkgs versions of `libglvnd` and `mesa.drivers` in `LD_LIBRARY_PATH`. For Mesa drivers, the Linux kernel version doesn't have to match nixpkgs.
 
 For proprietary video drivers, you might have luck with also adding the corresponding video driver package.

@@ -35,7 +35,7 @@ let
       ];
       # TODO
       # This works good enough as-is, but should really only be targetPlatform-specific
-      # but we don't support targeting DOS, OS/2, 16-bit Windows etc Nixpkgs-wide so this needs extra logic
+      # but we don't support targeting DOS, OS/2, 16-bit Windows etc Botpkgs-wide so this needs extra logic
       includeDirs = with stdenv.hostPlatform; [
         "h"
       ]

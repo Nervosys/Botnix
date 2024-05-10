@@ -13,7 +13,7 @@ These components are exposed publicly through:
  - `nixos/lib/default.nix`: The public interface that exposes the `nixos/lib/testing` entrypoint.
  - `flake.nix`: Exposes the `lib.nixos`, including the public test interface.
 
-Beyond the test driver itself, its integration into Botnix and Nixpkgs is important.
+Beyond the test driver itself, its integration into Botnix and Botpkgs is important.
 
  - `pkgs/top-level/all-packages.nix`: Defines the `nixosTests` attribute, used
    by the package `tests` attributes and OfBorg.

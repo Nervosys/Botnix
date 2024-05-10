@@ -379,7 +379,7 @@ let
         )
         machine.succeed("""
           # for some reason the image does not have `pkgs.path`, so
-          # we use readlink to find a Nixpkgs source.
+          # we use readlink to find a Botpkgs source.
           pkgs=$(readlink -f /nix/var/nix/profiles/per-user/root/channels)/botnix
           if ! [[ -e $pkgs/pkgs/top-level/default.nix ]]; then
             echo 1>&2 "$pkgs does not seem to be a nixpkgs source. Please fix the test so that pkgs points to a nixpkgs source.";

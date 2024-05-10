@@ -273,7 +273,7 @@ def find_versions(flutter_version=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Update Flutter in Nixpkgs')
+    parser = argparse.ArgumentParser(description='Update Flutter in Botpkgs')
     parser.add_argument('--version', type=str, help='Specify Flutter version')
     parser.add_argument('--artifact-hashes', action='store_true',
                         help='Whether to get artifact hashes')

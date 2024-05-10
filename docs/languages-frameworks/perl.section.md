@@ -29,7 +29,7 @@ If you are always using the script in places where `nix-shell` is available, you
 
 ## Packaging Perl programs {#ssec-perl-packaging}
 
-Nixpkgs provides a function `buildPerlPackage`, a generic package builder function for any Perl package that has a standard `Makefile.PL`. It’s implemented in [pkgs/development/perl-modules/generic](https://github.com/nervosys/Botnix/blob/master/pkgs/development/perl-modules/generic).
+Botpkgs provides a function `buildPerlPackage`, a generic package builder function for any Perl package that has a standard `Makefile.PL`. It’s implemented in [pkgs/development/perl-modules/generic](https://github.com/nervosys/Botnix/blob/master/pkgs/development/perl-modules/generic).
 
 Perl packages from CPAN are defined in [pkgs/top-level/perl-packages.nix](https://github.com/nervosys/Botnix/blob/master/pkgs/top-level/perl-packages.nix) rather than `pkgs/all-packages.nix`. Most Perl packages are so straight-forward to build that they are defined here directly, rather than having a separate function for each package called from `perl-packages.nix`. However, more complicated packages should be put in a separate file, typically in `pkgs/development/perl-modules`. Here is an example of the former:
 
@@ -160,4 +160,4 @@ The output can be pasted into `pkgs/top-level/perl-packages.nix` or wherever els
 
 ### Cross-compiling modules {#ssec-perl-cross-compilation}
 
-Nixpkgs has experimental support for cross-compiling Perl modules. In many cases, it will just work out of the box, even for modules with native extensions. Sometimes, however, the Makefile.PL for a module may (indirectly) import a native module. In that case, you will need to make a stub for that module that will satisfy the Makefile.PL and install it into `lib/perl5/site_perl/cross_perl/${perl.version}`. See the `postInstall` for `DBI` for an example.
+Botpkgs has experimental support for cross-compiling Perl modules. In many cases, it will just work out of the box, even for modules with native extensions. Sometimes, however, the Makefile.PL for a module may (indirectly) import a native module. In that case, you will need to make a stub for that module that will satisfy the Makefile.PL and install it into `lib/perl5/site_perl/cross_perl/${perl.version}`. See the `postInstall` for `DBI` for an example.

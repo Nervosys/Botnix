@@ -39,7 +39,7 @@ let
 in
 
 let
-  # Some Julia packages require access to Python. Provide a Nixpkgs version so it
+  # Some Julia packages require access to Python. Provide a Botpkgs version so it
   # doesn't try to install its own.
   pythonToUse = let
     extraPythonPackages = ((callPackage ./extra-python-packages.nix { inherit python3; }).getExtraPythonPackages packageNames);

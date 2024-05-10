@@ -134,7 +134,7 @@ let
     // {
 
       meta = {
-        description = "The default build environment for Unix packages in Nixpkgs";
+        description = "The default build environment for Unix packages in Botpkgs";
         platforms = lib.platforms.all;
       };
 

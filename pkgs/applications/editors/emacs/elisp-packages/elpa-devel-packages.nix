@@ -6,7 +6,7 @@ To update the list of packages from ELPA,
 
 1. Run `./update-elpa-devel`.
 2. Check for evaluation errors:
-     # "../../../../../" points to the default.nix from root of Nixpkgs tree
+     # "../../../../../" points to the default.nix from root of Botpkgs tree
      env NIXPKGS_ALLOW_BROKEN=1 nix-instantiate ../../../../../ -A emacs.pkgs.elpaDevelPackages
 3. Run `git commit -m "elpa-devel-packages $(date -Idate)" -- elpa-devel-generated.nix`
 

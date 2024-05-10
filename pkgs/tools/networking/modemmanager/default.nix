@@ -81,7 +81,7 @@ stdenv.mkDerivation rec {
       tools/test-modemmanager-service.py
   '';
 
-  # In Nixpkgs g-ir-scanner is patched to produce absolute paths, and
+  # In Botpkgs g-ir-scanner is patched to produce absolute paths, and
   # that interferes with ModemManager's tests, causing them to try to
   # load libraries from the install path, which doesn't usually exist
   # when `make check' is run.  So to work around that, we run it as an

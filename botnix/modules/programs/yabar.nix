@@ -65,7 +65,7 @@ in
         description = lib.mdDoc ''
           The package which contains the `yabar` binary.
 
-          Nixpkgs provides the `yabar` and `yabar-unstable`
+          Botpkgs provides the `yabar` and `yabar-unstable`
           derivations since 18.03, so it's possible to choose.
         '';
       };

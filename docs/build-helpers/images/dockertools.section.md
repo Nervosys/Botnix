@@ -1119,12 +1119,12 @@ The locations currently used are:
 []{#ssec-pkgs-dockerTools-fakeNss}
 ### fakeNss {#sssec-pkgs-dockerTools-helpers-fakeNss}
 
-This is a re-export of the `fakeNss` package from Nixpkgs.
+This is a re-export of the `fakeNss` package from Botpkgs.
 See [](#sec-fakeNss).
 
 ### shadowSetup {#ssec-pkgs-dockerTools-shadowSetup}
 
-This is a string containing a script that sets up files needed for [`shadow`](https://github.com/shadow-maint/shadow) to work (using the `shadow` package from Nixpkgs), and alters `PATH` to make all its utilities available in the same script.
+This is a string containing a script that sets up files needed for [`shadow`](https://github.com/shadow-maint/shadow) to work (using the `shadow` package from Botpkgs), and alters `PATH` to make all its utilities available in the same script.
 It is intended to be used with other dockerTools functions in attributes that expect scripts.
 After the script in `shadowSetup` runs, you'll then be able to add more commands that make use of the utilities in `shadow`, such as adding any extra users and/or groups.
 See [](#ex-dockerTools-shadowSetup-buildImage) and [](#ex-dockerTools-shadowSetup-buildLayeredImage) to better understand how to use it.

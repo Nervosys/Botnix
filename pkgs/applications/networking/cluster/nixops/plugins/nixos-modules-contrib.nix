@@ -37,7 +37,7 @@ buildPythonPackage {
   passthru.updateScript = unstableGitUpdater {};
 
   meta = with lib; {
-    description = "Useful Botnix modules which may not belong in the Nixpkgs repository itself";
+    description = "Useful Botnix modules which may not belong in the Botpkgs repository itself";
     homepage = "https://github.com/nix-community/botnix-modules-contrib";
     license = licenses.lgpl3;
     maintainers = [];

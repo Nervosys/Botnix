@@ -12,7 +12,7 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # dconf2nix derivation created with cabal2nix.
 dconf2nix_derivation_file="${script_dir}/dconf2nix.nix"
 
-# This is the current revision of dconf2nix in Nixpkgs.
+# This is the current revision of dconf2nix in Botpkgs.
 old_version="$(sed -En 's/.*\bversion = "(.*?)".*/\1/p' "$dconf2nix_derivation_file")"
 
 # This is the latest release version of dconf2nix on GitHub.

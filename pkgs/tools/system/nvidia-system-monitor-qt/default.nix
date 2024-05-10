@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
 
   cmakeFlags = [
     "-DIconPath=${placeholder "out"}/share/icons/hicolor/512x512/apps/qnvsm.png"
-    "-DVersionPrefix=(Nixpkgs)"
+    "-DVersionPrefix=(Botpkgs)"
   ];
 
   installPhase = ''

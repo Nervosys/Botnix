@@ -13,7 +13,7 @@ index a399f3a..b816714 100644
      S3Target enables chunked uploads to S3 buckets (using smart_open)"""
  
      def __init__(self, file_path, mode, transport_params=None, **kwargs):
-+        raise Exception("Nixpkgs: disabled")
++        raise Exception("Botpkgs: disabled")
          super().__init__(**kwargs)
  
          self._file_path = file_path

@@ -1302,7 +1302,7 @@ let
   };
 
   private = lib.mapAttrs
-    (k: lib.warn "External use of `lib.modules.${k}` is deprecated. If your use case isn't covered by non-deprecated functions, we'd like to know more and perhaps support your use case well, instead of providing access to these low level functions. In this case please open an issue in https://github.com/botnix/nixpkgs/issues/.")
+    (k: lib.warn "External use of `lib.modules.${k}` is deprecated. If your use case isn't covered by non-deprecated functions, we'd like to know more and perhaps support your use case well, instead of providing access to these low level functions. In this case please open an issue in https://github.com/nervosys/nixpkgs/issues/.")
     {
       inherit
         applyModuleArgsIfFunction

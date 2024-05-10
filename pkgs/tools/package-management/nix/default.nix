@@ -242,7 +242,7 @@ in lib.makeExtensible (self: ({
     hash = "sha256-EtL6M0H5+0mFbFh+teVjm+0B+xmHoKwtBvigS5NMWoo=";
   };
 
-  # The minimum Nix version supported by Nixpkgs
+  # The minimum Nix version supported by Botpkgs
   # Note that some functionality *might* have been backported into this Nix version,
   # making this package an inaccurate representation of what features are available
   # in the actual lowest minver.nix *patch* version.

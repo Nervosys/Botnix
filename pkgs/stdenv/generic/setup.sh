@@ -5,7 +5,7 @@ set -eu
 set -o pipefail
 
 if [[ -n "${BASH_VERSINFO-}" && "${BASH_VERSINFO-}" -lt 4 ]]; then
-    echo "Detected Bash version that isn't supported by Nixpkgs (${BASH_VERSION})"
+    echo "Detected Bash version that isn't supported by Botpkgs (${BASH_VERSION})"
     echo "Please install Bash 4 or greater to continue."
     exit 1
 fi
@@ -504,7 +504,7 @@ declare -a allPlatOffsets=(-1 0 1)
 
 
 # Mutually-recursively find all build inputs. See the dependency section of the
-# stdenv chapter of the Nixpkgs manual for the specification this algorithm
+# stdenv chapter of the Botpkgs manual for the specification this algorithm
 # implements.
 findInputs() {
     local -r pkg="$1"
@@ -1622,7 +1622,7 @@ genericBuild() {
 runHook postHook
 
 
-# Execute the global user hook (defined through the Nixpkgs
+# Execute the global user hook (defined through the Botpkgs
 # configuration option ‘stdenv.userHook’).  This can be used to set
 # global compiler optimisation flags, for instance.
 runHook userHook

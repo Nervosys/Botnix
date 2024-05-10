@@ -29,7 +29,7 @@ fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-# NOTE: Keep in sync with Nixpkgs manual (/doc/Makefile).
+# NOTE: Keep in sync with Botpkgs manual (/doc/Makefile).
 # TODO: Remove raw-attribute when we can get rid of DocBook altogether.
 pandoc_commonmark_enabled_extensions=+attributes+fenced_divs+footnotes+bracketed_spans+definition_lists+pipe_tables+raw_attribute
 targetLang="commonmark${pandoc_commonmark_enabled_extensions}+smart"

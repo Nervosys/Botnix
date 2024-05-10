@@ -11,7 +11,7 @@ environment.systemPackages = [ pkgs.thunderbird ];
 ```
 
 The effect of this specification is that the Thunderbird package from
-Nixpkgs will be built or downloaded as part of the system when you run
+Botpkgs will be built or downloaded as part of the system when you run
 `nixos-rebuild switch`.
 
 ::: {.note}

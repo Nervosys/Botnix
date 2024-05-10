@@ -2,17 +2,17 @@
 
 ## Introduction {#sec-cross-intro}
 
-"Cross-compilation" means compiling a program on one machine for another type of machine. For example, a typical use of cross-compilation is to compile programs for embedded devices. These devices often don't have the computing power and memory to compile their own programs. One might think that cross-compilation is a fairly niche concern. However, there are significant advantages to rigorously distinguishing between build-time and run-time environments! Significant, because the benefits apply even when one is developing and deploying on the same machine. Nixpkgs is increasingly adopting the opinion that packages should be written with cross-compilation in mind, and Nixpkgs should evaluate in a similar way (by minimizing cross-compilation-specific special cases) whether or not one is cross-compiling.
+"Cross-compilation" means compiling a program on one machine for another type of machine. For example, a typical use of cross-compilation is to compile programs for embedded devices. These devices often don't have the computing power and memory to compile their own programs. One might think that cross-compilation is a fairly niche concern. However, there are significant advantages to rigorously distinguishing between build-time and run-time environments! Significant, because the benefits apply even when one is developing and deploying on the same machine. Botpkgs is increasingly adopting the opinion that packages should be written with cross-compilation in mind, and Botpkgs should evaluate in a similar way (by minimizing cross-compilation-specific special cases) whether or not one is cross-compiling.
 
-This chapter will be organized in three parts. First, it will describe the basics of how to package software in a way that supports cross-compilation. Second, it will describe how to use Nixpkgs when cross-compiling. Third, it will describe the internal infrastructure supporting cross-compilation.
+This chapter will be organized in three parts. First, it will describe the basics of how to package software in a way that supports cross-compilation. Second, it will describe how to use Botpkgs when cross-compiling. Third, it will describe the internal infrastructure supporting cross-compilation.
 
 ## Packaging in a cross-friendly manner {#sec-cross-packaging}
 
 ### Platform parameters {#ssec-cross-platform-parameters}
 
-Nixpkgs follows the [conventions of GNU autoconf](https://gcc.gnu.org/onlinedocs/gccint/Configure-Terms.html). We distinguish between 3 types of platforms when building a derivation: _build_, _host_, and _target_. In summary, _build_ is the platform on which a package is being built, _host_ is the platform on which it will run. The third attribute, _target_, is relevant only for certain specific compilers and build tools.
+Botpkgs follows the [conventions of GNU autoconf](https://gcc.gnu.org/onlinedocs/gccint/Configure-Terms.html). We distinguish between 3 types of platforms when building a derivation: _build_, _host_, and _target_. In summary, _build_ is the platform on which a package is being built, _host_ is the platform on which it will run. The third attribute, _target_, is relevant only for certain specific compilers and build tools.
 
-In Nixpkgs, these three platforms are defined as attribute sets under the names `buildPlatform`, `hostPlatform`, and `targetPlatform`. They are always defined as attributes in the standard environment. That means one can access them like:
+In Botpkgs, these three platforms are defined as attribute sets under the names `buildPlatform`, `hostPlatform`, and `targetPlatform`. They are always defined as attributes in the standard environment. That means one can access them like:
 
 ```nix
 { stdenv, fooDep, barDep, ... }: ...stdenv.buildPlatform...
@@ -34,7 +34,7 @@ In Nixpkgs, these three platforms are defined as attribute sets under the names 
 
 : There is no fundamental need to think about a single target ahead of time like this. If the tool supports modular or pluggable backends, both the need to specify the target at build time and the constraint of having only a single target disappear. An example of such a tool is LLVM.
 
-: Although the existence of a "target platform" is arguably a historical mistake, it is a common one: examples of tools that suffer from it are GCC, Binutils, GHC and Autoconf. Nixpkgs tries to avoid sharing in the mistake where possible. Still, because the concept of a target platform is so ingrained, it is best to support it as is.
+: Although the existence of a "target platform" is arguably a historical mistake, it is a common one: examples of tools that suffer from it are GCC, Binutils, GHC and Autoconf. Botpkgs tries to avoid sharing in the mistake where possible. Still, because the concept of a target platform is so ingrained, it is best to support it as is.
 
 The exact schema these fields follow is a bit ill-defined due to a long and convoluted evolution, but this is slowly being cleaned up. You can see examples of ones used in practice in `lib.systems.examples`; note how they are not all very consistent. For now, here are few fields can count on them containing:
 
@@ -65,7 +65,7 @@ The exact schema these fields follow is a bit ill-defined due to a long and conv
 ### Theory of dependency categorization {#ssec-cross-dependency-categorization}
 
 ::: {.note}
-This is a rather philosophical description that isn't very Nixpkgs-specific. For an overview of all the relevant attributes given to `mkDerivation`, see [](#ssec-stdenv-dependencies). For a description of how everything is implemented, see [](#ssec-cross-dependency-implementation).
+This is a rather philosophical description that isn't very Botpkgs-specific. For an overview of all the relevant attributes given to `mkDerivation`, see [](#ssec-stdenv-dependencies). For a description of how everything is implemented, see [](#ssec-cross-dependency-implementation).
 :::
 
 In this section we explore the relationship between both runtime and build-time dependencies and the 3 Autoconf platforms.
@@ -131,7 +131,7 @@ makeFlags = [ "CC=${stdenv.cc.targetPrefix}cc" ];
 ```
 
 #### How do I avoid compiling a GCC cross-compiler from source? {#cross-qa-avoid-compiling-gcc-cross-compiler}
-On less powerful machines, it can be inconvenient to cross-compile a package only to find out that GCC has to be compiled from source, which could take up to several hours. Nixpkgs maintains a limited [cross-related jobset on Hydra](https://hydra.botnix.org/jobset/nixpkgs/cross-trunk), which tests cross-compilation to various platforms from build platforms "x86\_64-darwin", "x86\_64-linux", and "aarch64-linux".  See `pkgs/top-level/release-cross.nix` for the full list of target platforms and packages.  For instance, the following invocation fetches the pre-built cross-compiled GCC for `armv6l-unknown-linux-gnueabihf` and builds GNU Hello from source.
+On less powerful machines, it can be inconvenient to cross-compile a package only to find out that GCC has to be compiled from source, which could take up to several hours. Botpkgs maintains a limited [cross-related jobset on Hydra](https://hydra.botnix.org/jobset/nixpkgs/cross-trunk), which tests cross-compilation to various platforms from build platforms "x86\_64-darwin", "x86\_64-linux", and "aarch64-linux".  See `pkgs/top-level/release-cross.nix` for the full list of target platforms and packages.  For instance, the following invocation fetches the pre-built cross-compiled GCC for `armv6l-unknown-linux-gnueabihf` and builds GNU Hello from source.
 
 ```ShellSession
 $ nix-build '<nixpkgs>' -A pkgsCross.raspberryPi.hello
@@ -173,7 +173,7 @@ Example of an error which this fixes.
 
 ## Cross-building packages {#sec-cross-usage}
 
-Nixpkgs can be instantiated with `localSystem` alone, in which case there is no cross-compiling and everything is built by and for that system, or also with `crossSystem`, in which case packages run on the latter, but all building happens on the former. Both parameters take the same schema as the 3 (build, host, and target) platforms defined in the previous section. As mentioned above, `lib.systems.examples` has some platforms which are used as arguments for these parameters in practice. You can use them programmatically, or on the command line:
+Botpkgs can be instantiated with `localSystem` alone, in which case there is no cross-compiling and everything is built by and for that system, or also with `crossSystem`, in which case packages run on the latter, but all building happens on the former. Both parameters take the same schema as the 3 (build, host, and target) platforms defined in the previous section. As mentioned above, `lib.systems.examples` has some platforms which are used as arguments for these parameters in practice. You can use them programmatically, or on the command line:
 
 ```ShellSession
 $ nix-build '<nixpkgs>' --arg crossSystem '(import <nixpkgs/lib>).systems.examples.fooBarBaz' -A whatever
@@ -192,7 +192,7 @@ works in the vast majority of cases. The problem today is dependencies on other 
 While one is free to pass both parameters in full, there's a lot of logic to fill in missing fields. As discussed in the previous section, only one of `system`, `config`, and `parsed` is needed to infer the other two. Additionally, `libc` will be inferred from `parse`. Finally, `localSystem.system` is also _impurely_ inferred based on the platform evaluation occurs. This means it is often not necessary to pass `localSystem` at all, as in the command-line example in the previous paragraph.
 
 ::: {.note}
-Many sources (manual, wiki, etc) probably mention passing `system`, `platform`, along with the optional `crossSystem` to Nixpkgs: `import <nixpkgs> { system = ..; platform = ..; crossSystem = ..; }`. Passing those two instead of `localSystem` is still supported for compatibility, but is discouraged. Indeed, much of the inference we do for these parameters is motivated by compatibility as much as convenience.
+Many sources (manual, wiki, etc) probably mention passing `system`, `platform`, along with the optional `crossSystem` to Botpkgs: `import <nixpkgs> { system = ..; platform = ..; crossSystem = ..; }`. Passing those two instead of `localSystem` is still supported for compatibility, but is discouraged. Indeed, much of the inference we do for these parameters is motivated by compatibility as much as convenience.
 :::
 
 One would think that `localSystem` and `crossSystem` overlap horribly with the three `*Platforms` (`buildPlatform`, `hostPlatform,` and `targetPlatform`; see `stage.nix` or the manual). Actually, those identifiers are purposefully not used here to draw a subtle but important distinction: While the granularity of having 3 platforms is necessary to properly *build* packages, it is overkill for specifying the user's *intent* when making a build plan or package set. A simple "build vs deploy" dichotomy is adequate: the sliding window principle described in the previous section shows how to interpolate between the these two "end points" to get the 3 platform triple for each bootstrapping stage. That means for any package a given package set, even those not bound on the top level but only reachable via dependencies or `buildPackages`, the three platforms will be defined as one of `localSystem` or `crossSystem`, with the former replacing the latter as one traverses build-time dependencies. A last simple difference is that `crossSystem` should be null when one doesn't want to cross-compile, while the `*Platform`s are always non-null. `localSystem` is always non-null.
@@ -201,9 +201,9 @@ One would think that `localSystem` and `crossSystem` overlap horribly with the t
 
 ### Implementation of dependencies {#ssec-cross-dependency-implementation}
 
-The categories of dependencies developed in [](#ssec-cross-dependency-categorization) are specified as lists of derivations given to `mkDerivation`, as documented in [](#ssec-stdenv-dependencies). In short, each list of dependencies for "host → target" is called `deps<host><target>` (where `host`, and `target` values are either `build`, `host`, or `target`), with exceptions for backwards compatibility that `depsBuildHost` is instead called `nativeBuildInputs` and `depsHostTarget` is instead called `buildInputs`. Nixpkgs is now structured so that each `deps<host><target>` is automatically taken from `pkgs<host><target>`. (These `pkgs<host><target>`s are quite new, so there is no special case for `nativeBuildInputs` and `buildInputs`.) For example, `pkgsBuildHost.gcc` should be used at build-time, while `pkgsHostTarget.gcc` should be used at run-time.
+The categories of dependencies developed in [](#ssec-cross-dependency-categorization) are specified as lists of derivations given to `mkDerivation`, as documented in [](#ssec-stdenv-dependencies). In short, each list of dependencies for "host → target" is called `deps<host><target>` (where `host`, and `target` values are either `build`, `host`, or `target`), with exceptions for backwards compatibility that `depsBuildHost` is instead called `nativeBuildInputs` and `depsHostTarget` is instead called `buildInputs`. Botpkgs is now structured so that each `deps<host><target>` is automatically taken from `pkgs<host><target>`. (These `pkgs<host><target>`s are quite new, so there is no special case for `nativeBuildInputs` and `buildInputs`.) For example, `pkgsBuildHost.gcc` should be used at build-time, while `pkgsHostTarget.gcc` should be used at run-time.
 
-Now, for most of Nixpkgs's history, there were no `pkgs<host><target>` attributes, and most packages have not been refactored to use it explicitly. Prior to those, there were just `buildPackages`, `pkgs`, and `targetPackages`. Those are now redefined as aliases to `pkgsBuildHost`, `pkgsHostTarget`, and `pkgsTargetTarget`. It is acceptable, even recommended, to use them for libraries to show that the host platform is irrelevant.
+Now, for most of Botpkgs's history, there were no `pkgs<host><target>` attributes, and most packages have not been refactored to use it explicitly. Prior to those, there were just `buildPackages`, `pkgs`, and `targetPackages`. Those are now redefined as aliases to `pkgsBuildHost`, `pkgsHostTarget`, and `pkgsTargetTarget`. It is acceptable, even recommended, to use them for libraries to show that the host platform is irrelevant.
 
 But before that, there was just `pkgs`, even though both `buildInputs` and `nativeBuildInputs` existed. \[Cross barely worked, and those were implemented with some hacks on `mkDerivation` to override dependencies.\] What this means is the vast majority of packages do not use any explicit package set to populate their dependencies, just using whatever `callPackage` gives them even if they do correctly sort their dependencies into the multiple lists described above. And indeed, asking that users both sort their dependencies, _and_ take them from the right attribute set, is both too onerous and redundant, so the recommended approach (for now) is to continue just categorizing by list and not using an explicit package set.
 
@@ -250,5 +250,5 @@ Thirdly, it is because everything target-mentioning only exists to accommodate c
 :::
 
 ::: {.note}
-If one explores Nixpkgs, they will see derivations with names like `gccCross`. Such `*Cross` derivations is a holdover from before we properly distinguished between the host and target platforms—the derivation with “Cross” in the name covered the `build = host != target` case, while the other covered the `host = target`, with build platform the same or not based on whether one was using its `.__spliced.buildHost` or `.__spliced.hostTarget`.
+If one explores Botpkgs, they will see derivations with names like `gccCross`. Such `*Cross` derivations is a holdover from before we properly distinguished between the host and target platforms—the derivation with “Cross” in the name covered the `build = host != target` case, while the other covered the `host = target`, with build platform the same or not based on whether one was using its `.__spliced.buildHost` or `.__spliced.hostTarget`.
 :::

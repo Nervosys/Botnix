@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   # libxmlxx is listed as a dependency but Darwin build fails with it,
-  # might also be better in general since libxmlxx in Nixpkgs is 8 years old
+  # might also be better in general since libxmlxx in Botpkgs is 8 years old
   # https://github.com/hfst/hfst-ospell/issues/48#issuecomment-546535653
   configureFlags = [
     "--without-libxmlpp"

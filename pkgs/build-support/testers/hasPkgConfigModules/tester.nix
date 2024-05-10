@@ -16,7 +16,7 @@ runCommand testName {
     }
     # Make sure licensing info etc is preserved, as this is a concern for e.g. cache.botnix.org,
     # as hydra can't check this meta info in dependencies.
-    # The test itself is just Nixpkgs, with MIT license.
+    # The test itself is just Botpkgs, with MIT license.
     // builtins.intersectAttrs
         {
           available = throw "unused";

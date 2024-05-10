@@ -27,7 +27,7 @@ python3.pkgs.buildPythonApplication rec {
     imageio-ffmpeg
     numpy
     onnx
-    onnxruntime # Nixpkgs onnxruntime is missing CUDA support
+    onnxruntime # Botpkgs onnxruntime is missing CUDA support
     opencv4
     scikit-image
     tqdm

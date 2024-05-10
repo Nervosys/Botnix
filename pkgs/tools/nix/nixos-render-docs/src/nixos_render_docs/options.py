@@ -402,7 +402,7 @@ class ManpageConverter(BaseConverter[OptionsManpageRenderer]):
             result += [
                 r'''.SH "AUTHORS"''',
                 r'''.PP''',
-                r'''Eelco Dolstra and the Nixpkgs/Botnix contributors''',
+                r'''Eelco Dolstra and the Botpkgs/Botnix contributors''',
             ]
 
         return "\n".join(result)

@@ -418,7 +418,7 @@ expectEqual '_coerce "<tests>: value" { _type = "fileset"; _internalVersion = 2;
 expectFailure '_coerce "<tests>: value" { _type = "fileset"; _internalVersion = 4; }' '<tests>: value is a file set created from a future version of the file set library with a different internal representation:
 \s*- Internal version of the file set: 4
 \s*- Internal version of the library: 3
-\s*Make sure to update your Nixpkgs to have a newer version of `lib.fileset`.'
+\s*Make sure to update your Botpkgs to have a newer version of `lib.fileset`.'
 
 # _create followed by _coerce should give the inputs back without any validation
 expectEqual '{
@@ -1377,7 +1377,7 @@ checkGitTracked() {
 createGitRepo() {
     git init -q "$1"
     # Only repo-local config
-    git -C "$1" config user.name "Nixpkgs"
+    git -C "$1" config user.name "Botpkgs"
     git -C "$1" config user.email "nixpkgs@botnix.org"
     # Get at least a HEAD commit, needed for older Nix versions
     git -C "$1" commit -q --allow-empty -m "Empty commit"

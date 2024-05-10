@@ -1,4 +1,4 @@
-/* Nixpkgs/Botnix option handling. */
+/* Botpkgs/Botnix option handling. */
 { lib }:
 
 let

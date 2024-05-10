@@ -65,7 +65,7 @@ let
         inputsFrom = [ package ];
       };
 
-      # Tests the tool on the current Nixpkgs tree, this is a good sanity check
+      # Tests the tool on the current Botpkgs tree, this is a good sanity check
       passthru.tests.nixpkgs = runCommand "test-nixpkgs-check-by-name" {
         nativeBuildInputs = [
           package

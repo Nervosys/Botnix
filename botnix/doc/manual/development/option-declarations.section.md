@@ -19,8 +19,8 @@ options = {
 The attribute names within the `name` attribute path must be camel
 cased in general but should, as an exception, match the [ package
 attribute name](https://nixos.org/nixpkgs/manual/#sec-package-naming)
-when referencing a Nixpkgs package. For example, the option
-`services.nix-serve.bindAddress` references the `nix-serve` Nixpkgs
+when referencing a Botpkgs package. For example, the option
+`services.nix-serve.bindAddress` references the `nix-serve` Botpkgs
 package.
 
 The function `mkOption` accepts the following arguments.
@@ -45,7 +45,7 @@ The function `mkOption` accepts the following arguments.
     the manual. Useful if the default value is a complex expression or depends
     on other values or packages.
     Use `lib.literalExpression` for a Nix expression, `lib.literalMD` for
-    a plain English description in [Nixpkgs-flavored Markdown](
+    a plain English description in [Botpkgs-flavored Markdown](
     https://nixos.org/nixpkgs/manual/#sec-contributing-markup) format.
 
 `example`
@@ -56,7 +56,7 @@ The function `mkOption` accepts the following arguments.
 
 `description`
 
-:   A textual description of the option, in [Nixpkgs-flavored Markdown](
+:   A textual description of the option, in [Botpkgs-flavored Markdown](
     https://nixos.org/nixpkgs/manual/#sec-contributing-markup) format, that will be
     included in the Botnix manual. During the migration process from DocBook
     it is necessary to mark descriptions written in CommonMark with `lib.mdDoc`.

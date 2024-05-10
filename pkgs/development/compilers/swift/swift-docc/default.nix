@@ -31,7 +31,7 @@ stdenv.mkDerivation {
   # We only install the docc binary, so don't need the other products.
   # This works around a failure building generate-symbol-graph:
   #  Sources/generate-symbol-graph/main.swift:13:18: error: module 'SwiftDocC' was not compiled for testing
-  # TODO: Figure out the cause. It doesn't seem to happen outside Nixpkgs.
+  # TODO: Figure out the cause. It doesn't seem to happen outside Botpkgs.
   swiftpmFlags = [ "--product docc" ];
 
   # TODO: Tests depend on indexstore-db being provided by an existing Swift

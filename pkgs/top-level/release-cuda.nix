@@ -10,7 +10,7 @@
 
 */
 
-{ # The platforms for which we build Nixpkgs.
+{ # The platforms for which we build Botpkgs.
   supportedSystems ? [
     "x86_64-linux"
   ]

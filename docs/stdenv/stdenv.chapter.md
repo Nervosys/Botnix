@@ -17,7 +17,7 @@ stdenv.mkDerivation {
 ```
 
 (`stdenv` needs to be in scope, so if you write this in a separate Nix expression from `pkgs/all-packages.nix`, you need to pass it as a function argument.) Specifying a `name` and a `src` is the absolute minimum Nix requires. For convenience, you can also use `pname` and `version` attributes and `mkDerivation` will automatically set `name` to `"${pname}-${version}"` by default.
-**Since [RFC 0035](https://github.com/Botnix/rfcs/pull/35), this is preferred for packages in Nixpkgs**, as it allows us to reuse the version easily:
+**Since [RFC 0035](https://github.com/Botnix/rfcs/pull/35), this is preferred for packages in Botpkgs**, as it allows us to reuse the version easily:
 
 ```nix
 stdenv.mkDerivation rec {
@@ -269,7 +269,7 @@ The extension of `PATH` with dependencies, alluded to above, proceeds according 
 
 Propagated dependencies are made available to all downstream dependencies.
 This is particularly useful for interpreted languages, where all transitive dependencies have to be present in the same environment.
-Therefore it is used for the Python infrastructure in Nixpkgs.
+Therefore it is used for the Python infrastructure in Botpkgs.
 
 :::{.note}
 Propagated dependencies should be used with care, because they obscure the actual build inputs of dependent derivations and cause side effects through setup hooks.
@@ -492,7 +492,7 @@ A script to be run by `maintainers/scripts/update.nix` when the package is match
 
 - an attribute set containing:
   - [`command`]{#var-passthru-updateScript-set-command} – a string or list in the [format expected by `passthru.updateScript`](#var-passthru-updateScript-command).
-  - [`attrPath`]{#var-passthru-updateScript-set-attrPath} (optional) – a string containing the canonical attribute path for the package. If present, it will be passed to the update script instead of the attribute path on which the package was discovered during Nixpkgs traversal.
+  - [`attrPath`]{#var-passthru-updateScript-set-attrPath} (optional) – a string containing the canonical attribute path for the package. If present, it will be passed to the update script instead of the attribute path on which the package was discovered during Botpkgs traversal.
   - [`supportedFeatures`]{#var-passthru-updateScript-set-supportedFeatures} (optional) – a list of the [extra features](#var-passthru-updateScript-supported-features) the script supports.
 
   ```nix
@@ -504,7 +504,7 @@ A script to be run by `maintainers/scripts/update.nix` when the package is match
   ```
 
 ::: {.tip}
-A common pattern is to use the [`nix-update-script`](https://github.com/nervosys/Botnix/blob/master/pkgs/common-updater/nix-update.nix) attribute provided in Nixpkgs, which runs [`nix-update`](https://github.com/Mic92/nix-update):
+A common pattern is to use the [`nix-update-script`](https://github.com/nervosys/Botnix/blob/master/pkgs/common-updater/nix-update.nix) attribute provided in Botpkgs, which runs [`nix-update`](https://github.com/Mic92/nix-update):
 
 ```nix
 passthru.updateScript = nix-update-script { };
@@ -515,7 +515,7 @@ For simple packages, this is often enough, and will ensure that the package is u
 
 ##### How update scripts are executed? {#var-passthru-updateScript-execution}
 
-Update scripts are to be invoked by `maintainers/scripts/update.nix` script. You can run `nix-shell maintainers/scripts/update.nix` in the root of Nixpkgs repository for information on how to use it. `update.nix` offers several modes for selecting packages to update (e.g. select by attribute path, traverse Nixpkgs and filter by maintainer, etc.), and it will execute update scripts for all matched packages that have an `updateScript` attribute.
+Update scripts are to be invoked by `maintainers/scripts/update.nix` script. You can run `nix-shell maintainers/scripts/update.nix` in the root of Botpkgs repository for information on how to use it. `update.nix` offers several modes for selecting packages to update (e.g. select by attribute path, traverse Botpkgs and filter by maintainer, etc.), and it will execute update scripts for all matched packages that have an `updateScript` attribute.
 
 Each update script will be passed the following environment variables:
 
@@ -525,7 +525,7 @@ Each update script will be passed the following environment variables:
 - [`UPDATE_NIX_ATTR_PATH`]{#var-passthru-updateScript-env-UPDATE_NIX_ATTR_PATH} – attribute path the `update.nix` discovered the package on (or the [canonical `attrPath`](#var-passthru-updateScript-set-attrPath) when available). Example: `pantheon.elementary-terminal`
 
 ::: {.note}
-An update script will be usually run from the root of the Nixpkgs repository but you should not rely on that. Also note that `update.nix` executes update scripts in parallel by default so you should avoid running `git commit` or any other commands that cannot handle that.
+An update script will be usually run from the root of the Botpkgs repository but you should not rely on that. Also note that `update.nix` executes update scripts in parallel by default so you should avoid running `git commit` or any other commands that cannot handle that.
 :::
 
 ::: {.tip}
@@ -1115,7 +1115,7 @@ in
 This setup works as follows:
 - Add [`overlays`](#chap-overlays) to the package set, since debug symbols are disabled for `ncurses` and `readline` by default.
 - Create a derivation to combine all required debug symbols under one path with [`symlinkJoin`](#trivial-builder-symlinkJoin).
-- Set the environment variable `NIX_DEBUG_INFO_DIRS` in the shell. Nixpkgs patches `gdb` to use it for looking up debug symbols.
+- Set the environment variable `NIX_DEBUG_INFO_DIRS` in the shell. Botpkgs patches `gdb` to use it for looking up debug symbols.
 - Run `gdb` on the `socat` binary on shell startup in the [`shellHook`](#sec-pkgs-mkShell). Here we use [`lib.getBin`](#function-library-lib.attrsets.getBin) to ensure that the correct derivation output is selected rather than the default one.
 
 :::
@@ -1379,9 +1379,9 @@ Packages adding a hook should not hard code a specific hook, but rather choose a
 addEnvHooks "$hostOffset" myBashFunction
 ```
 
-The *existence* of setups hooks has long been documented and packages inside Nixpkgs are free to use this mechanism. Other packages, however, should not rely on these mechanisms not changing between Nixpkgs versions. Because of the existing issues with this system, there’s little benefit from mandating it be stable for any period of time.
+The *existence* of setups hooks has long been documented and packages inside Botpkgs are free to use this mechanism. Other packages, however, should not rely on these mechanisms not changing between Botpkgs versions. Because of the existing issues with this system, there’s little benefit from mandating it be stable for any period of time.
 
-First, let’s cover some setup hooks that are part of Nixpkgs default `stdenv`. This means that they are run for every package built using `stdenv.mkDerivation` or when using a custom builder that has `source $stdenv/setup`. Some of these are platform specific, so they may run on Linux but not Darwin or vice-versa.
+First, let’s cover some setup hooks that are part of Botpkgs default `stdenv`. This means that they are run for every package built using `stdenv.mkDerivation` or when using a custom builder that has `source $stdenv/setup`. Some of these are platform specific, so they may run on Linux but not Darwin or vice-versa.
 
 ### `move-docs.sh` {#move-docs.sh}
 
@@ -1520,13 +1520,13 @@ If the file `${binutils}/nix-support/post-link-hook` exists, it will be run at t
 These hooks allow a user to inject code into the wrappers.
 As an example, these hooks can be used to extract `extraBefore`, `params` and `extraAfter` which store all the command line arguments passed to the compiler and linker respectively.
 
-## Purity in Nixpkgs {#sec-purity-in-nixpkgs}
+## Purity in Botpkgs {#sec-purity-in-nixpkgs}
 
 *Measures taken to prevent dependencies on packages outside the store, and what you can do to prevent them.*
 
 GCC doesn’t search in locations such as `/usr/include`. In fact, attempts to add such directories through the `-I` flag are filtered out. Likewise, the linker (from GNU binutils) doesn’t search in standard locations such as `/usr/lib`. Programs built on Linux are linked against a GNU C Library that likewise doesn’t search in the default system locations.
 
-## Hardening in Nixpkgs {#sec-hardening-in-nixpkgs}
+## Hardening in Botpkgs {#sec-hardening-in-nixpkgs}
 
 There are flags available to harden packages at compile or link-time. These can be toggled using the `stdenv.mkDerivation` parameters `hardeningDisable` and `hardeningEnable`.
 

@@ -110,7 +110,7 @@ in
     };
 
     hostPkgs = mkOption {
-      description = mdDoc "Nixpkgs attrset used outside the nodes.";
+      description = mdDoc "Botpkgs attrset used outside the nodes.";
       type = types.raw;
       example = lib.literalExpression ''
         import nixpkgs { inherit system config overlays; }

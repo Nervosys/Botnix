@@ -35,7 +35,7 @@ mkDerivation {
     export PATH="$PWD/dist/build/cabal2nix:$PATH"
     export HOME="$TMPDIR/home"
   '';
-  homepage = "https://github.com/botnix/cabal2nix#readme";
+  homepage = "https://github.com/nervosys/cabal2nix#readme";
   description = "Convert Cabal files into Nix build instructions";
   license = lib.licenses.bsd3;
 }

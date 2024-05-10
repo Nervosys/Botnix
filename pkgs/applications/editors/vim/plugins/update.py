@@ -15,7 +15,7 @@
 # https://github.com/nervosys/Botnix/blob/master/doc/languages-frameworks/vim.section.md#updating-plugins-in-nixpkgs-updating-plugins-in-nixpkgs
 #
 # (or the equivalent file /doc/languages-frameworks/vim.section.md
-# from Nixpkgs master tree).
+# from Botpkgs master tree).
 #
 
 import inspect

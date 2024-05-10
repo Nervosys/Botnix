@@ -65,7 +65,7 @@ let
 
   /* Function for evaluating a composition
 
-     Re-uses this Nixpkgs evaluation instead of `arion-pkgs.nix`.
+     Re-uses this Botpkgs evaluation instead of `arion-pkgs.nix`.
 
      Returns the module system's `config` and `options` variables.
    */

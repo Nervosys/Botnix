@@ -1,8 +1,8 @@
 
-# This derivation confirms that the version of hpack used by stack in Nixpkgs
+# This derivation confirms that the version of hpack used by stack in Botpkgs
 # is the exact same version as the upstream stack release.
 #
-# It is important to make sure the version of hpack used by stack in Nixpkgs
+# It is important to make sure the version of hpack used by stack in Botpkgs
 # matches with the version of hpack used by the upstream stack release.  This
 # is because hpack works slightly differently based on the version, and it can
 # be frustrating to use hpack in a team setting when members are using different
@@ -23,7 +23,7 @@ let
       stack.passthru.getCabalDeps.executableHaskellDepends;
 
   # This is a statically linked version of stack, so it should be usable within
-  # the Nixpkgs builder (at least on x86_64-linux).
+  # the Botpkgs builder (at least on x86_64-linux).
   stackDownloadUrl =
     "https://github.com/commercialhaskell/stack/releases/download/v${stack.version}/stack-${stack.version}-linux-x86_64.tar.gz";
 
@@ -35,7 +35,7 @@ let
   # WARNING: When modifying this script, make sure you don't introduce any
   # paths to the Nix store within it.  We only want this derivation to be re-run
   # when the stack version (or the version of its hpack dependency) changes in
-  # Nixpkgs.
+  # Botpkgs.
   testScript = ''
     curl=(
       curl
@@ -60,7 +60,7 @@ let
     echo "nixpkgs \`stack --version\` output: $nixpkgs_stack_version_output"
 
     # Confirm that the upstream stack version is the same as the stack version
-    # in Nixpkgs. This check isn't strictly necessary, but it is a good sanity
+    # in Botpkgs. This check isn't strictly necessary, but it is a good sanity
     # check.
 
     if [[ "$upstream_stack_version_output" =~ "Version "([0-9]+((\.[0-9]+)+)) ]]; then
@@ -70,7 +70,7 @@ let
       echo "stack version from nixpkgs: ${stack.version}"
 
       if [[ "${stack.version}" != "$upstream_stack_version" ]]; then
-        echo "ERROR: stack version in Nixpkgs (${stack.version}) does not match the upstream version for some reason: $upstream_stack_version"
+        echo "ERROR: stack version in Botpkgs (${stack.version}) does not match the upstream version for some reason: $upstream_stack_version"
         exit 1
       fi
     else
@@ -79,17 +79,17 @@ let
     fi
 
     # Confirm that the hpack version used in the upstream stack release is the
-    # same as the hpack version used by the Nixpkgs stack binary.
+    # same as the hpack version used by the Botpkgs stack binary.
 
     if [[ "$upstream_stack_version_output" =~ hpack-([0-9]+((\.[0-9]+)+)) ]]; then
       upstream_hpack_version="''${BASH_REMATCH[1]}"
 
       echo "parsed upstream stack's hpack version: $upstream_hpack_version"
-      echo "Nixpkgs stack's hpack version: ${hpack.version}"
+      echo "Botpkgs stack's hpack version: ${hpack.version}"
 
       if [[ "${hpack.version}" != "$upstream_hpack_version" ]]; then
-        echo "ERROR: stack's hpack version in Nixpkgs (${hpack.version}) does not match the upstream stack's hpack version: $upstream_hpack_version"
-        echo "The stack derivation in Nixpkgs needs to be fixed up so that it depends on hpack-$upstream_hpack_version, instead of ${hpack.name}"
+        echo "ERROR: stack's hpack version in Botpkgs (${hpack.version}) does not match the upstream stack's hpack version: $upstream_hpack_version"
+        echo "The stack derivation in Botpkgs needs to be fixed up so that it depends on hpack-$upstream_hpack_version, instead of ${hpack.name}"
         exit 1
       fi
     else
@@ -110,7 +110,7 @@ stdenv.mkDerivation {
   #
   # The idea here is that want this derivation to be re-run everytime the
   # version of stack (or the version of its hpack dependency) changes in
-  # Nixpkgs.  We also want to re-run this derivation whenever the test script
+  # Botpkgs.  We also want to re-run this derivation whenever the test script
   # is changed.
   #
   # Nix/Hydra will re-run derivations if their name changes (even if they are a
@@ -141,7 +141,7 @@ stdenv.mkDerivation {
   '' + testScript;
 
   meta = with lib; {
-    description = "Test that the stack in Nixpkgs uses the same version of Hpack as the upstream stack release";
+    description = "Test that the stack in Botpkgs uses the same version of Hpack as the upstream stack release";
     maintainers = with maintainers; [ cdepillabout ];
 
     # This derivation internally runs a statically-linked version of stack from

@@ -77,7 +77,7 @@ pub enum DefinitionVariant {
     },
 }
 
-/// Check that the Nixpkgs attribute values corresponding to the packages in pkgs/by-name are
+/// Check that the Botpkgs attribute values corresponding to the packages in pkgs/by-name are
 /// of the form `callPackage <package_file> { ... }`.
 /// See the `eval.nix` file for how this is achieved on the Nix side
 pub fn check_values(
@@ -85,7 +85,7 @@ pub fn check_values(
     nix_file_store: &mut NixFileStore,
     package_names: Vec<String>,
     keep_nix_path: bool,
-) -> validation::Result<ratchet::Nixpkgs> {
+) -> validation::Result<ratchet::Botpkgs> {
     // Write the list of packages we need to check into a temporary JSON file.
     // This can then get read by the Nix evaluation.
     let attrs_file = NamedTempFile::new().with_context(|| "Failed to create a temporary file")?;
@@ -177,7 +177,7 @@ pub fn check_values(
             .collect_vec()?,
     );
 
-    Ok(check_result.map(|elems| ratchet::Nixpkgs {
+    Ok(check_result.map(|elems| ratchet::Botpkgs {
         package_names: elems.iter().map(|(name, _)| name.to_owned()).collect(),
         package_map: elems.into_iter().collect(),
     }))
@@ -413,9 +413,9 @@ fn handle_non_by_name_attribute(
             .call_package_argument_info_at(
                 location.line,
                 location.column,
-                // Passing the Nixpkgs path here both checks that the <arg1> is within Nixpkgs, and
-                // strips the absolute Nixpkgs path from it, such that
-                // syntactic_call_package.relative_path is relative to Nixpkgs
+                // Passing the Botpkgs path here both checks that the <arg1> is within Botpkgs, and
+                // strips the absolute Botpkgs path from it, such that
+                // syntactic_call_package.relative_path is relative to Botpkgs
                 nixpkgs_path
             )?;
 

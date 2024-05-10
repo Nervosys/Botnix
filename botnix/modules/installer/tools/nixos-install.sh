@@ -143,7 +143,7 @@ export TMPDIR=${TMPDIR:-$tmpdir}
 
 sub="auto?trusted=1"
 
-# Copy the Botnix/Nixpkgs sources to the target as the initial contents
+# Copy the Botnix/Botpkgs sources to the target as the initial contents
 # of the Botnix channel.
 if [[ -z $noChannelCopy ]]; then
     if [[ -z $channelPath ]]; then

@@ -1,25 +1,25 @@
 /*
-This file returns a mocked version of Nixpkgs' default.nix for testing purposes.
-It does not depend on Nixpkgs itself for the sake of simplicity.
+This file returns a mocked version of Botpkgs' default.nix for testing purposes.
+It does not depend on Botpkgs itself for the sake of simplicity.
 
 It takes one attribute as an argument:
-- `root`: The root of Nixpkgs to read other files from, including:
+- `root`: The root of Botpkgs to read other files from, including:
   - `./pkgs/by-name`: The `pkgs/by-name` directory to test
   - `./all-packages.nix`: A file containing an overlay to mirror the real `pkgs/top-level/all-packages.nix`.
     This allows adding overrides on top of the auto-called packages in `pkgs/by-name`.
 
-It returns a Nixpkgs-like function that can be auto-called and evaluates to an attribute set.
+It returns a Botpkgs-like function that can be auto-called and evaluates to an attribute set.
 */
 {
   root,
 }:
-# The arguments for the Nixpkgs function
+# The arguments for the Botpkgs function
 {
   # Passed by the checker to modify `callPackage`
   overlays ? [],
-  # Passed by the checker to make sure a real Nixpkgs isn't influenced by impurities
+  # Passed by the checker to make sure a real Botpkgs isn't influenced by impurities
   config ? {},
-  # Passed by the checker to make sure a real Nixpkgs isn't influenced by impurities
+  # Passed by the checker to make sure a real Botpkgs isn't influenced by impurities
   system ? null,
 }:
 let

@@ -104,7 +104,7 @@ static int open_needs_mode(int flags)
 }
 
 /* The following set of Glibc library functions is very incomplete -
-   it contains only what we needed for programs in Nixpkgs. Just add
+   it contains only what we needed for programs in Botpkgs. Just add
    more functions as needed. */
 
 WRAPPER(int, open)(const char * path, int flags, ...)

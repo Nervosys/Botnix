@@ -51,7 +51,7 @@ def repository_root() -> Path:
 
 
 def dump_packages() -> Dict[str, Dict[str, str]]:
-    # Store a JSON dump of Nixpkgs' python3Packages
+    # Store a JSON dump of Botpkgs' python3Packages
     output = subprocess.check_output(
         [
             "nix-env",
@@ -79,7 +79,7 @@ def name_to_attr_path(req: str, packages: Dict[str, Dict[str, str]]) -> Optional
     attr_paths = []
     names = [req]
     # E.g. python-mpd2 is actually called python3.6-mpd2
-    # instead of python-3.6-python-mpd2 inside Nixpkgs
+    # instead of python-3.6-python-mpd2 inside Botpkgs
     if req.startswith("python-") or req.startswith("python_"):
         names.append(req[len("python-") :])
     for name in names:

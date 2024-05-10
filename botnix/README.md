@@ -10,7 +10,7 @@ You can add new module to your Botnix configuration file (usually it’s `/etc/n
 
 ## Commit conventions
 
-- Make sure you read about the [commit conventions](../CONTRIBUTING.md#commit-conventions) common to Nixpkgs as a whole.
+- Make sure you read about the [commit conventions](../CONTRIBUTING.md#commit-conventions) common to Botpkgs as a whole.
 
 - Format the commit messages in the following way:
 

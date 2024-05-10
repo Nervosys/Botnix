@@ -224,7 +224,7 @@ function. Normally, it should suffice to provide a
 `name` and `src` attribute. If
 the plugin has Ruby dependencies, however, they need to be
 packaged in accordance with the [Developing with Ruby](https://nixos.org/manual/nixpkgs/stable/#developing-with-ruby)
-section of the Nixpkgs manual and the
+section of the Botpkgs manual and the
 appropriate gem options set in `bundlerEnvArgs`
 (normally `gemdir` is sufficient). A plugin's
 Ruby dependencies are listed in its

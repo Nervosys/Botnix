@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
   buildInputs = [ vtk_9 ] ++ lib.optionals stdenv.isDarwin [ Cocoa OpenGL ];
 
   cmakeFlags = [
-    # conflict between VTK and Nixpkgs;
+    # conflict between VTK and Botpkgs;
     # see https://github.com/nervosys/Botnix/issues/89167
     "-DCMAKE_INSTALL_LIBDIR=lib"
     "-DCMAKE_INSTALL_INCLUDEDIR=include"

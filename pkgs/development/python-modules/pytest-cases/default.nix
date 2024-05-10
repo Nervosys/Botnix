@@ -34,7 +34,7 @@ buildPythonPackage rec {
   ];
 
   # Tests have dependencies (pytest-harvest, pytest-steps) which
-  # are not available in Nixpkgs. Most of the packages (decopatch,
+  # are not available in Botpkgs. Most of the packages (decopatch,
   # makefun, pytest-*) have circular dependencies.
   doCheck = false;
 

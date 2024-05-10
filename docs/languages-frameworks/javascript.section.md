@@ -159,7 +159,7 @@ git config --global url."https://github.com/".insteadOf git://github.com/
 
 ### buildNpmPackage {#javascript-buildNpmPackage}
 
-`buildNpmPackage` allows you to package npm-based projects in Nixpkgs without the use of an auto-generated dependencies file (as used in [node2nix](#javascript-node2nix)). It works by utilizing npm's cache functionality -- creating a reproducible cache that contains the dependencies of a project, and pointing npm to it.
+`buildNpmPackage` allows you to package npm-based projects in Botpkgs without the use of an auto-generated dependencies file (as used in [node2nix](#javascript-node2nix)). It works by utilizing npm's cache functionality -- creating a reproducible cache that contains the dependencies of a project, and pointing npm to it.
 
 Here's an example:
 
@@ -214,7 +214,7 @@ In the default `installPhase` set by `buildNpmPackage`, it uses `npm pack --json
 
 #### prefetch-npm-deps {#javascript-buildNpmPackage-prefetch-npm-deps}
 
-`prefetch-npm-deps` is a Nixpkgs package that calculates the hash of the dependencies of an npm project ahead of time.
+`prefetch-npm-deps` is a Botpkgs package that calculates the hash of the dependencies of an npm project ahead of time.
 
 ```console
 $ ls
@@ -354,14 +354,14 @@ mkYarnPackage rec {
 
   - The `echo 9` steps comes from this answer: <https://stackoverflow.com/a/49139496>
   - Exporting the headers in `npm_config_nodedir` comes from this issue: <https://github.com/nodejs/node-gyp/issues/1191#issuecomment-301243919>
-- `offlineCache` (described [above](#javascript-yarn2nix-preparation)) must be specified to avoid [Import From Derivation](#ssec-import-from-derivation) (IFD) when used inside Nixpkgs.
+- `offlineCache` (described [above](#javascript-yarn2nix-preparation)) must be specified to avoid [Import From Derivation](#ssec-import-from-derivation) (IFD) when used inside Botpkgs.
 
-## Outside Nixpkgs {#javascript-outside-nixpkgs}
+## Outside Botpkgs {#javascript-outside-nixpkgs}
 
 There are some other tools available, which are written in the Nix language.
-These that can't be used inside Nixpkgs because they require [Import From Derivation](#ssec-import-from-derivation), which is not allowed in Nixpkgs.
+These that can't be used inside Botpkgs because they require [Import From Derivation](#ssec-import-from-derivation), which is not allowed in Botpkgs.
 
-If you are packaging something outside Nixpkgs, consider the following:
+If you are packaging something outside Botpkgs, consider the following:
 
 ### npmlock2nix {#javascript-npmlock2nix}
 

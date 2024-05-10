@@ -22,7 +22,7 @@ in
   # Utility functions, could just import but passing in for efficiency
   lib
 
-, # Use to reevaluate Nixpkgs
+, # Use to reevaluate Botpkgs
   nixpkgsFun
 
   ## Other parameters
@@ -245,7 +245,7 @@ let
 
     # Extend the package set with zero or more overlays. This preserves
     # preexisting overlays. Prefer to initialize with the right overlays
-    # in one go when calling Nixpkgs, for performance and simplicity.
+    # in one go when calling Botpkgs, for performance and simplicity.
     appendOverlays = extraOverlays:
       if extraOverlays == []
       then self
@@ -256,7 +256,7 @@ let
     #
     # Extend the package set with a single overlay. This preserves
     # preexisting overlays. Prefer to initialize with the right overlays
-    # in one go when calling Nixpkgs, for performance and simplicity.
+    # in one go when calling Botpkgs, for performance and simplicity.
     # Prefer appendOverlays if used repeatedly.
     extend = f: self.appendOverlays [f];
 

@@ -1,5 +1,5 @@
 # A replacement for the traditional nixpkgs module, such that none of the modules
-# can add their own configuration. This ensures that the Nixpkgs configuration is
+# can add their own configuration. This ensures that the Botpkgs configuration is
 # exactly as the user intends.
 # This may also be used as a performance optimization when evaluating multiple
 # configurations at once, with a shared `pkgs`.
@@ -30,14 +30,14 @@ in
         internal = true;
         type = types.unique { message = "nixpkgs.config is set to read-only"; } types.anything;
         description = lib.mdDoc ''
-          The Nixpkgs `config` that `pkgs` was initialized with.
+          The Botpkgs `config` that `pkgs` was initialized with.
         '';
       };
       overlays = mkOption {
         internal = true;
         type = types.unique { message = "nixpkgs.overlays is set to read-only"; } types.anything;
         description = lib.mdDoc ''
-          The Nixpkgs overlays that `pkgs` was initialized with.
+          The Botpkgs overlays that `pkgs` was initialized with.
         '';
       };
       hostPlatform = mkOption {

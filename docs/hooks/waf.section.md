@@ -2,7 +2,7 @@
 
 [Waf](https://waf.io) is a Python-based software building system.
 
-In Nixpkgs, `wafHook` overrides the default configure, build, and install phases.
+In Botpkgs, `wafHook` overrides the default configure, build, and install phases.
 
 ## Variables controlling wafHook {#waf-hook-variables-controlling}
 
@@ -14,7 +14,7 @@ The variables below are exclusive of `wafHook`.
 
 Location of the `waf` tool. It defaults to `./waf`, to honor software projects that include it directly inside their source trees.
 
-If `wafPath` doesn't exist, then `wafHook` will copy the `waf` provided from Nixpkgs to it.
+If `wafPath` doesn't exist, then `wafHook` will copy the `waf` provided from Botpkgs to it.
 
 #### `wafFlags` {#waf-flags}
 
@@ -41,7 +41,7 @@ When set to true, don't use the predefined `wafInstallPhase`.
 The following variables are similar to their `stdenv.mkDerivation` counterparts.
 
 | `wafHook` Variable    | `stdenv.mkDerivation` Counterpart |
-|-----------------------|-----------------------------------|
+| --------------------- | --------------------------------- |
 | `wafConfigureFlags`   | `configureFlags`                  |
 | `wafConfigureTargets` | `configureTargets`                |
 | `wafBuildFlags`       | `buildFlags`                      |

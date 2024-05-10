@@ -34,11 +34,11 @@ use std::process::ExitCode;
 #[derive(Parser, Debug)]
 #[command(about, verbatim_doc_comment)]
 pub struct Args {
-    /// Path to the main Nixpkgs to check.
+    /// Path to the main Botpkgs to check.
     /// For PRs, this should be set to a checkout of the PR branch.
     nixpkgs: PathBuf,
 
-    /// Path to the base Nixpkgs to run ratchet checks against.
+    /// Path to the base Botpkgs to run ratchet checks against.
     /// For PRs, this should be set to a checkout of the PRs base branch.
     #[arg(long)]
     base: PathBuf,
@@ -65,8 +65,8 @@ fn main() -> ExitCode {
 /// Does the actual work. This is the abstraction used both by `main` and the tests.
 ///
 /// # Arguments
-/// - `base_nixpkgs`: Path to the base Nixpkgs to run ratchet checks against.
-/// - `main_nixpkgs`: Path to the main Nixpkgs to check.
+/// - `base_nixpkgs`: Path to the base Botpkgs to run ratchet checks against.
+/// - `main_nixpkgs`: Path to the main Botpkgs to check.
 /// - `keep_nix_path`: Whether the value of the NIX_PATH environment variable should be kept for
 /// the evaluation stage, allowing its contents to be accessed.
 ///   This is used to allow the tests to access e.g. the mock-nixpkgs.nix file
@@ -82,14 +82,14 @@ pub fn process<W: io::Write>(
     keep_nix_path: bool,
     error_writer: &mut W,
 ) -> anyhow::Result<bool> {
-    // Check the main Nixpkgs first
+    // Check the main Botpkgs first
     let main_result = check_nixpkgs(main_nixpkgs, keep_nix_path, error_writer)?;
     let check_result = main_result.result_map(|nixpkgs_version| {
-        // If the main Nixpkgs doesn't have any problems, run the ratchet checks against the base
-        // Nixpkgs
+        // If the main Botpkgs doesn't have any problems, run the ratchet checks against the base
+        // Botpkgs
         check_nixpkgs(base_nixpkgs, keep_nix_path, error_writer)?.result_map(
             |base_nixpkgs_version| {
-                Ok(ratchet::Nixpkgs::compare(
+                Ok(ratchet::Botpkgs::compare(
                     base_nixpkgs_version,
                     nixpkgs_version,
                 ))
@@ -108,22 +108,22 @@ pub fn process<W: io::Write>(
     }
 }
 
-/// Checks whether the pkgs/by-name structure in Nixpkgs is valid.
+/// Checks whether the pkgs/by-name structure in Botpkgs is valid.
 ///
 /// This does not include ratchet checks, see ../README.md#ratchet-checks
-/// Instead a `ratchet::Nixpkgs` value is returned, whose `compare` method allows performing the
+/// Instead a `ratchet::Botpkgs` value is returned, whose `compare` method allows performing the
 /// ratchet check against another result.
 pub fn check_nixpkgs<W: io::Write>(
     nixpkgs_path: &Path,
     keep_nix_path: bool,
     error_writer: &mut W,
-) -> validation::Result<ratchet::Nixpkgs> {
+) -> validation::Result<ratchet::Botpkgs> {
     let mut nix_file_store = NixFileStore::default();
 
     Ok({
         let nixpkgs_path = nixpkgs_path.canonicalize().with_context(|| {
             format!(
-                "Nixpkgs path {} could not be resolved",
+                "Botpkgs path {} could not be resolved",
                 nixpkgs_path.display()
             )
         })?;
@@ -131,10 +131,10 @@ pub fn check_nixpkgs<W: io::Write>(
         if !nixpkgs_path.join(utils::BASE_SUBPATH).exists() {
             writeln!(
                 error_writer,
-                "Given Nixpkgs path does not contain a {} subdirectory, no check necessary.",
+                "Given Botpkgs path does not contain a {} subdirectory, no check necessary.",
                 utils::BASE_SUBPATH
             )?;
-            Success(ratchet::Nixpkgs::default())
+            Success(ratchet::Botpkgs::default())
         } else {
             check_structure(&nixpkgs_path, &mut nix_file_store)?.result_map(|package_names|
                 // Only if we could successfully parse the structure, we do the evaluation checks
@@ -178,7 +178,7 @@ mod tests {
         Ok(temp_env::with_vars(empty_list, tempfile::tempdir)?)
     }
 
-    // We cannot check case-conflicting files into Nixpkgs (the channel would fail to
+    // We cannot check case-conflicting files into Botpkgs (the channel would fail to
     // build), so we generate the case-conflicting file instead.
     #[test]
     fn test_case_sensitive() -> anyhow::Result<()> {

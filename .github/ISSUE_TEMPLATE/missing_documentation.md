@@ -1,6 +1,6 @@
 ---
 name: Missing or incorrect documentation
-about: Help us improve the Nixpkgs and Botnix reference manuals
+about: Help us improve the Botpkgs and Botnix reference manuals
 title: 'Documentation: '
 labels: '9.needs: documentation'
 assignees: ''
@@ -19,11 +19,11 @@ assignees: ''
 
 <!-- make sure this issue is not redundant or obsolete -->
 
-- [ ] checked [latest Nixpkgs manual] \([source][nixpkgs-source]) and [latest Botnix manual] \([source][nixos-source])
+- [ ] checked [latest Botpkgs manual] \([source][nixpkgs-source]) and [latest Botnix manual] \([source][nixos-source])
 - [ ] checked [open documentation issues] for possible duplicates
 - [ ] checked [open documentation pull requests] for possible solutions
 
-[latest Nixpkgs manual]: https://nixos.org/manual/nixpkgs/unstable/
+[latest Botpkgs manual]: https://nixos.org/manual/nixpkgs/unstable/
 [latest Botnix manual]: https://nixos.org/manual/nixos/unstable/
 [nixpkgs-source]: https://github.com/nervosys/Botnix/tree/master/doc
 [nixos-source]: https://github.com/nervosys/Botnix/tree/master/nixos/doc/manual

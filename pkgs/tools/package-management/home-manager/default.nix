@@ -82,7 +82,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     longDescription = ''
       The Home-Manager project provides a basic system for managing a user
       environment using the Nix package manager together with the Nix libraries
-      found in Nixpkgs. It allows declarative configuration of user specific
+      found in Botpkgs. It allows declarative configuration of user specific
       (non global) packages and dotfiles.
     '';
     license = lib.licenses.mit;

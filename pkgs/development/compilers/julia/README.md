@@ -8,7 +8,7 @@ as comments in the expressions themselves.
 
 [julia]: https://julialang.org
 
-For Nixpkgs, the manual is as always your primary reference, and for the Julia
+For Botpkgs, the manual is as always your primary reference, and for the Julia
 side of things you probably want to familiarise yourself with the [README
 ][readme], [build instructions][build], and [release process][release_process].
 Remember that these can change between Julia releases, especially if the LTS and

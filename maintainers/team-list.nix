@@ -703,7 +703,7 @@ with lib.maintainers; {
       infinisil
       roberth
     ];
-    scope = "Maintain the Nixpkgs module system.";
+    scope = "Maintain the Botpkgs module system.";
     shortName = "Module system";
     enableFeatureFreezePing = true;
   };

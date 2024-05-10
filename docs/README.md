@@ -1,6 +1,6 @@
-# Contributing to the Nixpkgs reference manual
+# Contributing to the Botpkgs reference manual
 
-This directory houses the sources files for the Nixpkgs reference manual.
+This directory houses the sources files for the Botpkgs reference manual.
 
 Going forward, it should only contain [reference](https://nix.dev/contributing/documentation/diataxis#reference) documentation.
 For tutorials, guides and explanations, contribute to <https://nix.dev/> instead.
@@ -139,7 +139,7 @@ watermelon
 
 ## Commit conventions
 
-- Make sure you read about the [commit conventions](../CONTRIBUTING.md#commit-conventions) common to Nixpkgs as a whole.
+- Make sure you read about the [commit conventions](../CONTRIBUTING.md#commit-conventions) common to Botpkgs as a whole.
 
 - If creating a commit purely for documentation changes, format the commit message in the following way:
 
@@ -160,7 +160,7 @@ watermelon
 
 ## Documentation conventions
 
-In an effort to keep the Nixpkgs manual in a consistent style, please follow the conventions below, unless they prevent you from properly documenting something.
+In an effort to keep the Botpkgs manual in a consistent style, please follow the conventions below, unless they prevent you from properly documenting something.
 In that case, please open an issue about the particular documentation convention and tag it with a "needs: documentation" label.
 When needed, each convention explain why it exists, so you can make a decision whether to follow it or not based on your particular case.
 Note that these conventions are about the **structure** of the manual (and its source files), not about the content that goes in it.

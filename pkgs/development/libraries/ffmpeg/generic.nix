@@ -12,7 +12,7 @@
   # Dependencies a user might customarily expect from a regular ffmpeg build.
   # /All/ packages that depend on ffmpeg and some of its feaures should depend
   # on the small variant. Small means the minimal set of features that satisfies
-  # all dependants in Nixpkgs
+  # all dependants in Botpkgs
 , withSmallDeps ? ffmpegVariant == "small" || withFullDeps
 
   # Everything enabled; only guarded behind platform exclusivity or brokeness.

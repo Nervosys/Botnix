@@ -126,7 +126,7 @@ let
             --disable-epsv
             --cookie-jar cookies
             --insecure
-            --user-agent "curl/$curlVersion Nixpkgs/${lib.trivial.release}"
+            --user-agent "curl/$curlVersion Botpkgs/${lib.trivial.release}"
             $NIX_CURL_FLAGS
         )
 

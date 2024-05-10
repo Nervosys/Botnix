@@ -2,7 +2,7 @@
 
 [Zig](https://ziglang.org/) is a general-purpose programming language and toolchain for maintaining robust, optimal and reusable software.
 
-In Nixpkgs, `zig.hook` overrides the default build, check and install phases.
+In Botpkgs, `zig.hook` overrides the default build, check and install phases.
 
 ## Example code snippet {#zig-hook-example-code-snippet}
 
@@ -50,7 +50,7 @@ Disables using `zigInstallPhase`.
 The following variables are similar to their `stdenv.mkDerivation` counterparts.
 
 | `zig.hook` Variable | `stdenv.mkDerivation` Counterpart |
-|---------------------|-----------------------------------|
+| ------------------- | --------------------------------- |
 | `zigBuildFlags`     | `buildFlags`                      |
 | `zigCheckFlags`     | `checkFlags`                      |
 | `zigInstallFlags`   | `installFlags`                    |

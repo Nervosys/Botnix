@@ -15,12 +15,12 @@ pkgs.runCommand "nixpkgs-release-checks"
     opts=(--option build-users-group "")
     nix-store --init
 
-    echo 'abort "Illegal use of <nixpkgs> in Nixpkgs."' > $TMPDIR/barf.nix
+    echo 'abort "Illegal use of <nixpkgs> in Botpkgs."' > $TMPDIR/barf.nix
 
-    # Make sure that Nixpkgs does not use <nixpkgs>.
+    # Make sure that Botpkgs does not use <nixpkgs>.
     badFiles=$(find $src/pkgs -type f -name '*.nix' -print | xargs grep -l '^[^#]*<nixpkgs/' || true)
     if [[ -n $badFiles ]]; then
-        echo "Nixpkgs is not allowed to use <nixpkgs> to refer to itself."
+        echo "Botpkgs is not allowed to use <nixpkgs> to refer to itself."
         echo "The offending files: $badFiles"
         exit 1
     fi
@@ -38,7 +38,7 @@ pkgs.runCommand "nixpkgs-release-checks"
 
     # Check that all-packages.nix evaluates on a number of platforms without any warnings.
     for platform in ${pkgs.lib.concatStringsSep " " supportedSystems}; do
-        echo "checking Nixpkgs on $platform"
+        echo "checking Botpkgs on $platform"
 
         # To get a call trace; see https://nixos.org/manual/nixpkgs/stable/#function-library-lib.trivial.warn
         # Relies on impure eval
@@ -74,14 +74,14 @@ pkgs.runCommand "nixpkgs-release-checks"
         s2=$(sha1sum packages2 | cut -c1-40)
 
         if [[ $s1 != $s2 ]]; then
-            echo "Nixpkgs evaluation depends on Nixpkgs path"
+            echo "Botpkgs evaluation depends on Botpkgs path"
             diff packages1 packages2
             exit 1
         fi
 
         # Catch any trace calls not caught by NIX_ABORT_ON_WARN (lib.warn)
         if [ -s eval-warnings.log ]; then
-            echo "Nixpkgs on $platform evaluated with warnings, aborting"
+            echo "Botpkgs on $platform evaluated with warnings, aborting"
             exit 1
         fi
         rm eval-warnings.log

@@ -23,7 +23,7 @@ Cuelang schemas are similar to JSON, here is a quick cheatsheet:
 
 ## `writeCueValidator` {#cuelang-writeCueValidator}
 
-Nixpkgs provides a `pkgs.writeCueValidator` helper, which will write a validation script based on the provided Cuelang schema.
+Botpkgs provides a `pkgs.writeCueValidator` helper, which will write a validation script based on the provided Cuelang schema.
 
 Here is an example:
 ```

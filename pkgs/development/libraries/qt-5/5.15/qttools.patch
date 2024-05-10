@@ -5,7 +5,7 @@
          qmlImportScannerPath = QCoreApplication::applicationDirPath() + "/qmlimportscanner";
  
 +#ifdef NIXPKGS_QMLIMPORTSCANNER
-+    // Fallback: Nixpkgs hardcoded path
++    // Fallback: Botpkgs hardcoded path
 +    if (!QFile(qmlImportScannerPath).exists())
 +        qmlImportScannerPath = NIXPKGS_QMLIMPORTSCANNER;
 +#endif

@@ -1,15 +1,15 @@
 
-# `dhallPackageToNix` is a utility function to take a Nixpkgs Dhall package
+# `dhallPackageToNix` is a utility function to take a Botpkgs Dhall package
 # (created with a function like `dhallPackages.buildDhallDirectoryPackage`)
 # and read it in as a Nix expression.
 #
-# This function is similar to `dhallToNix`, but takes a Nixpkgs Dhall package
+# This function is similar to `dhallToNix`, but takes a Botpkgs Dhall package
 # as input instead of raw Dhall code.
 #
 # Note that this uses "import from derivation" (IFD), meaning that Nix will
 # perform a build during the evaluation phase if you use this
 # `dhallPackageToNix` utility.  It is not possible to use `dhallPackageToNix`
-# in Nixpkgs, since the Nixpkgs Hydra doesn't allow IFD.
+# in Botpkgs, since the Botpkgs Hydra doesn't allow IFD.
 
 { stdenv, dhall-nix }:
 

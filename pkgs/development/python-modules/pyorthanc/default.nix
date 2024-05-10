@@ -31,7 +31,7 @@ buildPythonPackage rec {
     "httpx"
   ];
 
-  doCheck = false;  # requires orthanc server (not in Nixpkgs)
+  doCheck = false;  # requires orthanc server (not in Botpkgs)
 
   pythonImportsCheck = [
     "pyorthanc"

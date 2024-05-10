@@ -18,7 +18,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     maintainers = [ maintainers.eelco ];
-    description = "A utility for Nixpkgs contributors to check Nixpkgs for common errors";
+    description = "A utility for Botpkgs contributors to check Botpkgs for common errors";
     platforms = platforms.unix;
   };
 }

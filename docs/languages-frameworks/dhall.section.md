@@ -1,13 +1,13 @@
 # Dhall {#sec-language-dhall}
 
-The Nixpkgs support for Dhall assumes some familiarity with Dhall's language
+The Botpkgs support for Dhall assumes some familiarity with Dhall's language
 support for importing Dhall expressions, which is documented here:
 
 * [`dhall-lang.org` - Installing packages](https://docs.dhall-lang.org/tutorials/Language-Tour.html#installing-packages)
 
 ## Remote imports {#ssec-dhall-remote-imports}
 
-Nixpkgs bypasses Dhall's support for remote imports using Dhall's
+Botpkgs bypasses Dhall's support for remote imports using Dhall's
 semantic integrity checks.  Specifically, any Dhall import can be protected by
 an integrity check like:
 
@@ -19,14 +19,14 @@ https://prelude.dhall-lang.org/v20.1.0/package.dhall
 … and if the import is cached then the interpreter will load the import from
 cache instead of fetching the URL.
 
-Nixpkgs uses this trick to add all of a Dhall expression's dependencies into the
+Botpkgs uses this trick to add all of a Dhall expression's dependencies into the
 cache so that the Dhall interpreter never needs to resolve any remote URLs.  In
-fact, Nixpkgs uses a Dhall interpreter with remote imports disabled when
+fact, Botpkgs uses a Dhall interpreter with remote imports disabled when
 packaging Dhall expressions to enforce that the interpreter never resolves a
-remote import.  This means that Nixpkgs only supports building Dhall expressions
+remote import.  This means that Botpkgs only supports building Dhall expressions
 if all of their remote imports are protected by semantic integrity checks.
 
-Instead of remote imports, Nixpkgs uses Nix to fetch remote Dhall code.  For
+Instead of remote imports, Botpkgs uses Nix to fetch remote Dhall code.  For
 example, the Prelude Dhall package uses `pkgs.fetchFromGitHub` to fetch the
 `dhall-lang` repository containing the Prelude.  Relying exclusively on Nix
 to fetch Dhall code ensures that Dhall packages built using Nix remain pure and
@@ -34,7 +34,7 @@ also behave well when built within a sandbox.
 
 ## Packaging a Dhall expression from scratch {#ssec-dhall-packaging-expression}
 
-We can illustrate how Nixpkgs integrates Dhall by beginning from the following
+We can illustrate how Botpkgs integrates Dhall by beginning from the following
 trivial Dhall expression with one dependency (the Prelude):
 
 ```dhall
@@ -45,7 +45,7 @@ let Prelude = https://prelude.dhall-lang.org/v20.1.0/package.dhall
 in  Prelude.Bool.not False
 ```
 
-As written, this expression cannot be built using Nixpkgs because the
+As written, this expression cannot be built using Botpkgs because the
 expression does not protect the Prelude import with a semantic integrity
 check, so the first step is to freeze the expression using `dhall freeze`,
 like this:
@@ -408,7 +408,7 @@ builder for '/nix/store/0f1hla7ff1wiaqyk1r2ky4wnhnw114fi-true.drv' failed with e
 error: build of '/nix/store/0f1hla7ff1wiaqyk1r2ky4wnhnw114fi-true.drv' failed
 ```
 
-… because the default Prelude selected by Nixpkgs revision
+… because the default Prelude selected by Botpkgs revision
 `94b2848559b12a8ed1fe433084686b2a81123c99is` is version 20.1.0, which doesn't
 have the same integrity check as version 19.0.0.  This means that version
 19.0.0 is not cached and the interpreter is not allowed to fall back to

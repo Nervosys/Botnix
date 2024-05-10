@@ -188,7 +188,7 @@ in
       });
 
     system = {
-      # To prevent gratuitous rebuilds on each change to Nixpkgs
+      # To prevent gratuitous rebuilds on each change to Botpkgs
       botnix.revision = null;
 
       stateVersion = lib.mkDefault (throw ''

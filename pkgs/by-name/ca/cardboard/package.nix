@@ -112,7 +112,7 @@ stdenv.mkDerivation {
     sed '1i#include <functional>' -i cardboard/ViewAnimation.h
   '';
 
-  # "Inherited" from Nixpkgs expression for wlroots
+  # "Inherited" from Botpkgs expression for wlroots
   mesonFlags = [
     (lib.mesonBool "man" true)
     (lib.mesonOption "wlroots:logind-provider" "systemd")

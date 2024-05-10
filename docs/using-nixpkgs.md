@@ -1,4 +1,4 @@
-# Using Nixpkgs {#part-using}
+# Using Botpkgs {#part-using}
 
 ```{=include=} chapters
 using/platform-support.chapter.md

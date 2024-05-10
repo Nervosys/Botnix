@@ -2,7 +2,7 @@ cabal-version:      2.4
 name:               local
 version:            0.1.0.0
 
-synopsis: Nixpkgs test case
+synopsis: Botpkgs test case
 license:  MIT
 extra-source-files: CHANGELOG.md
 

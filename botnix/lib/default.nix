@@ -4,7 +4,7 @@ let
   inherit (nonExtendedLib) warn;
   nonExtendedLib = import ../../lib;
 in
-{ # Optional. Allows an extended `lib` to be used instead of the regular Nixpkgs lib.
+{ # Optional. Allows an extended `lib` to be used instead of the regular Botpkgs lib.
   lib ? nonExtendedLib,
 
   # Feature flags allow you to opt in to unfinished code. These may change some

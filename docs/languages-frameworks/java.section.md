@@ -14,7 +14,7 @@ stdenv.mkDerivation {
 ```
 
 Note that `jdk` is an alias for the OpenJDK (self-built where available,
-or pre-built via Zulu). Platforms with OpenJDK not (yet) in Nixpkgs
+or pre-built via Zulu). Platforms with OpenJDK not (yet) in Botpkgs
 (`Aarch32`, `Aarch64`) point to the (unfree) `oraclejdk`.
 
 JAR files that are intended to be used by other packages should be

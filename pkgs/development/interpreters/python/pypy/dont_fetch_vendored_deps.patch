@@ -5,7 +5,7 @@ diff -ur a/lib_pypy/pypy_tools/build_cffi_imports.py b/lib_pypy/pypy_tools/build
  
          print('*', ' '.join(args), file=sys.stderr)
          if embed_dependencies and key in cffi_dependencies:
-+            print("Nixpkgs: skipping fetching/building dependency", key)
++            print("Botpkgs: skipping fetching/building dependency", key)
 +        elif False:
              status, stdout, stderr = _build_dependency(key)
              if status != 0:

@@ -176,7 +176,7 @@ with builtins; with lib; recursiveUpdate lib (rec {
      whereas `overrideCoqDerivation` allows you to override arguments to the
      call to `mkCoqDerivation` in the Coq library.
 
-     Note that all Coq libraries in Nixpkgs have a `version` argument for
+     Note that all Coq libraries in Botpkgs have a `version` argument for
      easily using a different version.  So if all you want to do is use a
      different version, and the derivation for the Coq library already has
      support for the version you want, you likely only need to update the

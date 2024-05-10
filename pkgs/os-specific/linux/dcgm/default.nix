@@ -33,7 +33,7 @@ let
   cudaPackageSetByVersion = [
     {
       version = "10";
-      # Nixpkgs cudaPackages_10 doesn't have redist packages broken out.
+      # Botpkgs cudaPackages_10 doesn't have redist packages broken out.
       pkgSet = [
         cudaPackages_10_2.cudatoolkit
         cudaPackages_10_2.cudatoolkit.lib

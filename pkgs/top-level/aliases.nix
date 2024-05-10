@@ -50,7 +50,7 @@ let
 in
 
 mapAliases ({
-  # Added 2018-07-16 preserve, reason: forceSystem should not be used directly in Nixpkgs.
+  # Added 2018-07-16 preserve, reason: forceSystem should not be used directly in Botpkgs.
   forceSystem = system: _:
     (import self.path { localSystem = { inherit system; }; });
 
@@ -1193,7 +1193,7 @@ mapAliases ({
   inherit (stdenv.hostPlatform) system; # Added 2021-10-22
   inherit (stdenv) buildPlatform hostPlatform targetPlatform; # Added 2023-01-09
 
-  # LLVM packages for (integration) testing that should not be used inside Nixpkgs:
+  # LLVM packages for (integration) testing that should not be used inside Botpkgs:
   llvmPackages_latest = llvmPackages_17;
   llvmPackages_git = recurseIntoAttrs (callPackage ../development/compilers/llvm/git {
     inherit (stdenvAdapters) overrideCC;

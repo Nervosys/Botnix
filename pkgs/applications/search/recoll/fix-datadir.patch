@@ -8,6 +8,6 @@ index 6bafc119..d997cd17 100644
          "(e.g. setx RECOLL_DATADIR \"C:/Program Files (X86)/Recoll/Share)\"\n";
 -#elif defined(__APPLE__) && defined(RECOLL_AS_MAC_BUNDLE)
 +#elif defined(__APPLE__) && defined(RECOLL_AS_MAC_BUNDLE) && defined(NIXPKGS)
-     // The package manager builds (Macports, Homebrew, Nixpkgs ...) all arrange to set a proper
+     // The package manager builds (Macports, Homebrew, Botpkgs ...) all arrange to set a proper
      // compiled value for RECOLL_DATADIR. We can't do this when building a native bundle with
      // QCreator, in which case we use the executable location.

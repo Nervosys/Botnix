@@ -266,7 +266,7 @@ attrsets.filterAttrs (attr: _: (builtins.hasAttr attr prev)) {
         qtWaylandPlugins
       ];
 
-      # Older releases require boost 1.70 deprecated in Nixpkgs
+      # Older releases require boost 1.70 deprecated in Botpkgs
       meta.broken = prevAttrs.meta.broken or false || lib.versionOlder final.cudaVersion "11.8";
     }
   );

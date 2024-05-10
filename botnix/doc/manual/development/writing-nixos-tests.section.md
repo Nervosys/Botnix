@@ -75,7 +75,7 @@ in
 
 nixos-lib.runTest {
   imports = [ ./test.nix ];
-  hostPkgs = pkgs;  # the Nixpkgs package set used outside the VMs
+  hostPkgs = pkgs;  # the Botpkgs package set used outside the VMs
   defaults.services.foo.package = mypkg;
 }
 ```
@@ -173,7 +173,7 @@ For faster dev cycles it's also possible to disable the code-linters
 
 This will produce a Nix warning at evaluation time. To fully disable the
 linter, wrap the test script in comment directives to disable the Black
-linter directly (again, don't commit this within the Nixpkgs
+linter directly (again, don't commit this within the Botpkgs
 repository):
 
 ```nix

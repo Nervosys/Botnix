@@ -57,7 +57,7 @@ impl NixFile {
             .with_context(|| format!("Could not read file {}", path.as_ref().display()))?;
         let line_index = LineIndex::new(&contents);
 
-        // NOTE: There's now another Nixpkgs CI check to make sure all changed Nix files parse
+        // NOTE: There's now another Botpkgs CI check to make sure all changed Nix files parse
         // correctly, though that uses mainline Nix instead of rnix, so it doesn't give the same
         // errors. In the future we should unify these two checks, ideally moving the other CI
         // check into this tool as well and checking for both mainline Nix and rnix.
@@ -267,7 +267,7 @@ impl NixFile {
             if let ResolvedPath::Within(p) = self.static_resolve_path(actual_path, relative_to) {
                 Some(p)
             } else {
-                // We can't statically know an existing path inside Nixpkgs used as <arg2>
+                // We can't statically know an existing path inside Botpkgs used as <arg2>
                 None
             }
         } else {

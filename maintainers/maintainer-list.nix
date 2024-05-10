@@ -20946,7 +20946,7 @@
   };
   YoshiRulz = {
     name = "YoshiRulz";
-    email = "OSSYoshiRulz+Nixpkgs@gmail.com";
+    email = "OSSYoshiRulz+Botpkgs@gmail.com";
     matrix = "@YoshiRulz:matrix.org";
     github = "YoshiRulz";
     githubId = 13409956;

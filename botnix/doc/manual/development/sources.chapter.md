@@ -1,6 +1,6 @@
 # Getting the Sources {#sec-getting-sources}
 
-By default, Botnix's `nixos-rebuild` command uses the Botnix and Nixpkgs
+By default, Botnix's `nixos-rebuild` command uses the Botnix and Botpkgs
 sources provided by the `nixos` channel (kept in
 `/nix/var/nix/profiles/per-user/root/channels/nixos`). To modify Botnix,
 however, you should check out the latest sources from Git. This is as
@@ -12,10 +12,10 @@ $ cd nixpkgs
 $ git remote update origin
 ```
 
-This will check out the latest Nixpkgs sources to `./nixpkgs` the Botnix
+This will check out the latest Botpkgs sources to `./nixpkgs` the Botnix
 sources to `./nixpkgs/nixos`. (The Botnix source tree lives in a
-subdirectory of the Nixpkgs repository.) The `nixpkgs` repository has
-branches that correspond to each Nixpkgs/Botnix channel (see
+subdirectory of the Botpkgs repository.) The `nixpkgs` repository has
+branches that correspond to each Botpkgs/Botnix channel (see
 [](#sec-upgrading) for more information about channels). Thus, the
 Git branch `origin/nixos-17.03` will contain the latest built and tested
 version available in the `nixos-17.03` channel.

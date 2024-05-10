@@ -119,7 +119,7 @@ let
 
 # These types of dependencies are all exhaustively documented in
 # the "Specifying Dependencies" section of the "Standard
-# Environment" chapter of the Nixpkgs manual.
+# Environment" chapter of the Botpkgs manual.
 
 # TODO(@Ericson2314): Stop using legacy dep attribute names
 

@@ -19,7 +19,7 @@ The `swift` package also provides the `swift` command, with some caveats:
 
 ## Module search paths {#ssec-swift-module-search-paths}
 
-Like other toolchains in Nixpkgs, the Swift compiler executables are wrapped
+Like other toolchains in Botpkgs, the Swift compiler executables are wrapped
 to help Swift find your application's dependencies in the Nix store. These
 wrappers scan the `buildInputs` of your package derivation for specific
 directories where Swift modules are placed by convention, and automatically
@@ -32,7 +32,7 @@ look for the following directories:
   (If not targeting macOS, replace `macosx` with the Xcode platform name.)
 - On other platforms: `lib/swift/linux/x86_64`
   (Where `linux` and `x86_64` are from lowercase `uname -sm`.)
-- For convenience, Nixpkgs also adds `lib/swift` to the search path.
+- For convenience, Botpkgs also adds `lib/swift` to the search path.
   This can save a bit of work packaging Swift modules, because many Nix builds
   will produce output for just one target any way.
 
@@ -40,7 +40,7 @@ look for the following directories:
 
 In addition to the standard library, the Swift toolchain contains some
 additional 'core libraries' that, on Apple platforms, are normally distributed
-as part of the OS or Xcode. These are packaged separately in Nixpkgs, and can
+as part of the OS or Xcode. These are packaged separately in Botpkgs, and can
 be found (for use in `buildInputs`) as:
 
 - `swiftPackages.Dispatch`
@@ -49,7 +49,7 @@ be found (for use in `buildInputs`) as:
 
 ## Packaging with SwiftPM {#ssec-swift-packaging-with-swiftpm}
 
-Nixpkgs includes a small helper `swiftpm2nix` that can fetch your SwiftPM
+Botpkgs includes a small helper `swiftpm2nix` that can fetch your SwiftPM
 dependencies for you, when you need to write a Nix expression to package your
 application.
 
@@ -162,7 +162,7 @@ configurePhase = generated.configure ++ ''
 
 The `swift` package has a separate `lib` output containing just the Swift
 standard library, to prevent Swift applications needing a dependency on the
-full Swift compiler at run-time. Linking with the Nixpkgs Swift toolchain
+full Swift compiler at run-time. Linking with the Botpkgs Swift toolchain
 already ensures binaries correctly reference the `lib` output.
 
 Sometimes, Swift is used only to compile part of a mixed codebase, and the

@@ -115,7 +115,7 @@
   nixosTest =
     let
       /* The botnix/lib/testing-python.nix module, preapplied with arguments that
-       * make sense for this evaluation of Nixpkgs.
+       * make sense for this evaluation of Botpkgs.
        */
       nixosTesting =
         (import ../../../botnix/lib/testing-python.nix {

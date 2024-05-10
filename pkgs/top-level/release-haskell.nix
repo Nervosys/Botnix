@@ -1,5 +1,5 @@
 /*
-  This is the Hydra jobset for the `haskell-updates` branch in Nixpkgs.
+  This is the Hydra jobset for the `haskell-updates` branch in Botpkgs.
   You can see the status of this jobset at
   https://hydra.botnix.org/jobset/nixpkgs/haskell-updates.
 

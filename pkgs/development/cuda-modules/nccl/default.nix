@@ -56,7 +56,7 @@ backendStdenv.mkDerivation (
         cuda_nvcc.dev # crt/host_config.h
         cuda_cudart
       ]
-      # NOTE: CUDA versions in Nixpkgs only use a major and minor version. When we do comparisons
+      # NOTE: CUDA versions in Botpkgs only use a major and minor version. When we do comparisons
       # against other version, like below, it's important that we use the same format. Otherwise,
       # we'll get incorrect results.
       # For example, lib.versionAtLeast "12.0" "12.0.0" == false.

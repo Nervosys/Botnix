@@ -1,4 +1,4 @@
-/* Hydra job to build a tarball for Nixpkgs from a Git checkout.  It
+/* Hydra job to build a tarball for Botpkgs from a Git checkout.  It
    also builds the documentation and tests whether the Nix expressions
    evaluate correctly. */
 

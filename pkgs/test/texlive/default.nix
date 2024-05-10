@@ -416,7 +416,7 @@ rec {
         # GUI scripts that accept no argument or crash without a graphics server; please test manualy
         "epspdftk" "texdoctk" "tlshell" "xasy"
 
-        # requires Cinderella, not open source and not distributed via Nixpkgs
+        # requires Cinderella, not open source and not distributed via Botpkgs
         "ketcindy"
       ];
       # binaries that need a combined scheme and cannot work standalone

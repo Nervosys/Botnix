@@ -105,7 +105,7 @@ multinomials.override {
 }
 ```
 
-In Nixpkgs, all Coq derivations take a `version` argument.  This can be overridden in order to easily use a different version:
+In Botpkgs, all Coq derivations take a `version` argument.  This can be overridden in order to easily use a different version:
 
 ```nix
 coqPackages.multinomials.override {

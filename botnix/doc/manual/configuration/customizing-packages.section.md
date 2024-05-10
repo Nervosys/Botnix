@@ -1,10 +1,10 @@
 # Customising Packages {#sec-customising-packages}
 
-Some packages in Nixpkgs have options to enable or disable optional
+Some packages in Botpkgs have options to enable or disable optional
 functionality or change other aspects of the package.
 
 ::: {.warning}
-Unfortunately, Nixpkgs currently lacks a way to query available
+Unfortunately, Botpkgs currently lacks a way to query available
 configuration options.
 :::
 
@@ -33,7 +33,7 @@ environment.systemPackages = with pkgs; [
 
 Apart from high-level options, it's possible to tweak a package in
 almost arbitrary ways, such as changing or disabling dependencies of a
-package. For instance, the Emacs package in Nixpkgs by default has a
+package. For instance, the Emacs package in Botpkgs by default has a
 dependency on GTK 2. If you want to build it against GTK 3, you can
 specify that as follows:
 
@@ -73,7 +73,7 @@ attribute have been replaced by the given values by re-calling
 function argument, which is conventionally named `oldAttrs`.
 
 The overrides shown above are not global. They do not affect the
-original package; other packages in Nixpkgs continue to depend on the
+original package; other packages in Botpkgs continue to depend on the
 original rather than the customised package. This means that if another
 package in your system depends on the original package, you end up with
 two instances of the package. If you want to have everything depend on
@@ -86,7 +86,7 @@ nixpkgs.config.packageOverrides = pkgs:
 ```
 
 The effect of this definition is essentially equivalent to modifying the
-`emacs` attribute in the Nixpkgs source tree. Any package in Nixpkgs
+`emacs` attribute in the Botpkgs source tree. Any package in Botpkgs
 that depends on `emacs` will be passed your customised instance.
 (However, the value `pkgs.emacs` in `nixpkgs.config.packageOverrides`
 refers to the original rather than overridden instance, to prevent an

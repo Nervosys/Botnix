@@ -1,4 +1,4 @@
-# Nixpkgs `lib` {#id-1.4}
+# Botpkgs `lib` {#id-1.4}
 
 ```{=include=} chapters
 functions.md

@@ -4,7 +4,7 @@
 /*
   This is a set of tools to manipulate update scripts as recognized by update.nix.
   It is still very experimental with **instability** almost guaranteed so any use
-  outside Nixpkgs is discouraged.
+  outside Botpkgs is discouraged.
 
   update.nix currently accepts the following type:
 

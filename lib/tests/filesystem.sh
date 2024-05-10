@@ -65,7 +65,7 @@ expectSuccess "pathType $PWD/regular" '"regular"'
 expectSuccess "pathType $PWD/symlink" '"symlink"'
 expectSuccess "pathType $PWD/fifo" '"unknown"'
 
-# Only check error message when a Nixpkgs-specified error is thrown,
+# Only check error message when a Botpkgs-specified error is thrown,
 # which is only the case when `readFileType` is not available
 # and the fallback implementation needs to be used.
 if [[ "$(nix-instantiate --eval --expr 'builtins ? readFileType')" == false ]]; then

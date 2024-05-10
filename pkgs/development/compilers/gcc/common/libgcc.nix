@@ -105,7 +105,7 @@ in
       ln -s $libgcc/lib/libgcc_s.so.${libgcc_s-version-major} $lib/${targetPlatformSlash}lib/
     ''
     #
-    # Nixpkgs ordinarily turns dynamic linking into pseudo-static linking:
+    # Botpkgs ordinarily turns dynamic linking into pseudo-static linking:
     # libraries are still loaded dynamically, exactly which copy of each
     # library is loaded is permanently fixed at compile time (via RUNPATH).
     # For libgcc_s we must revert to the "impure dynamic linking" style found
@@ -115,7 +115,7 @@ in
     #
     #  1. A circular package dependency `glibc`<-`libgcc`<-`glibc`
     #
-    #  2. According to the `-Wl,-rpath` flags added by Nixpkgs' `ld-wrapper`,
+    #  2. According to the `-Wl,-rpath` flags added by Botpkgs' `ld-wrapper`,
     #     the two versions of `glibc` in the cycle above are actually
     #     different packages.  The later one is compiled by this `gcc`, but
     #     the earlier one was compiled by the compiler *that compiled* this

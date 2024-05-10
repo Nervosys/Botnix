@@ -14,7 +14,7 @@ This section has been moved to [pkgs/README.md](https://github.com/nervosys/Botn
 
 This section has been moved to [pkgs/README.md](https://github.com/nervosys/Botnix/blob/master/pkgs/README.md).
 
-### Steps to remove a package from Nixpkgs {#steps-to-remove-a-package-from-nixpkgs}
+### Steps to remove a package from Botpkgs {#steps-to-remove-a-package-from-nixpkgs}
 
 This section has been moved to [pkgs/README.md](https://github.com/nervosys/Botnix/blob/master/pkgs/README.md).
 
@@ -42,7 +42,7 @@ This section has been moved to [CONTRIBUTING.md](https://github.com/nervosys/Bot
 
 This section has been moved to [CONTRIBUTING.md](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md).
 
-### Meets Nixpkgs contribution standards {#submitting-changes-contribution-standards}
+### Meets Botpkgs contribution standards {#submitting-changes-contribution-standards}
 
 This section has been moved to [CONTRIBUTING.md](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md).
 

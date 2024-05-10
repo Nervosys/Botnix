@@ -4,7 +4,7 @@ if ! builtins ? nixVersion || builtins.compareVersions requiredVersion builtins.
 
   abort ''
 
-    This version of Nixpkgs requires Nix >= ${requiredVersion}, please upgrade:
+    This version of Botpkgs requires Nix >= ${requiredVersion}, please upgrade:
 
     - If you are running Botnix, `nixos-rebuild' can be used to upgrade your system.
 
@@ -18,7 +18,7 @@ if ! builtins ? nixVersion || builtins.compareVersions requiredVersion builtins.
 
     For more information, please see the Botnix release notes at
     https://nixos.org/nixos/manual or locally at
-    ${toString ./nixos/doc/manual/release-notes}.
+    ${toString ./botnix/doc/manual/release-notes}.
 
     If you need further help, see https://nixos.org/nixos/support.html
   ''

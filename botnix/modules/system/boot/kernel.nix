@@ -55,7 +55,7 @@ in
         This option allows you to override the Linux kernel used by
         Botnix.  Since things like external kernel module packages are
         tied to the kernel you're using, it also overrides those.
-        This option is a function that takes Nixpkgs as an argument
+        This option is a function that takes Botpkgs as an argument
         (as a convenience), and returns an attribute set containing at
         the very least an attribute {var}`kernel`.
         Additional attributes may be needed depending on your
@@ -111,7 +111,7 @@ in
         }
         ```
 
-        There's a small set of existing kernel patches in Nixpkgs, available as `pkgs.kernelPatches`,
+        There's a small set of existing kernel patches in Botpkgs, available as `pkgs.kernelPatches`,
         that follow this format and can be used directly.
       '';
     };

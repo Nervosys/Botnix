@@ -26,13 +26,13 @@ impl<A> From<NixpkgsProblem> for Validation<A> {
 
 /// A type alias representing the result of a check, either:
 /// - Err(anyhow::Error): A fatal failure, typically I/O errors.
-///   Such failures are not caused by the files in Nixpkgs.
+///   Such failures are not caused by the files in Botpkgs.
 ///   This hints at a bug in the code or a problem with the deployment.
-/// - Ok(Failure(Vec<NixpkgsProblem>)): A non-fatal validation problem with the Nixpkgs files.
+/// - Ok(Failure(Vec<NixpkgsProblem>)): A non-fatal validation problem with the Botpkgs files.
 ///   Further checks can be run even with this result type.
-///   Such problems can be fixed by changing the Nixpkgs files.
+///   Such problems can be fixed by changing the Botpkgs files.
 /// - Ok(Success(A)): A successful (potentially intermediate) result with an arbitrary value.
-///   No fatal errors have occurred and no validation problems have been found with Nixpkgs.
+///   No fatal errors have occurred and no validation problems have been found with Botpkgs.
 pub type Result<A> = anyhow::Result<Validation<A>>;
 
 pub trait ResultIteratorExt<A, E>: Sized + Iterator<Item = std::result::Result<A, E>> {

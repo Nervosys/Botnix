@@ -58,7 +58,7 @@ agda.withPackages (p: [
 ])
 ```
 
-If you want to use a library not added to Nixpkgs, you can add a
+If you want to use a library not added to Botpkgs, you can add a
 dependency to a local library by calling `agdaPackages.mkDerivation`.
 
 ```nix
@@ -158,7 +158,7 @@ This can be overridden.
 
 By default, Agda sources are files ending on `.agda`, or literate Agda files ending on `.lagda`, `.lagda.tex`, `.lagda.org`, `.lagda.md`, `.lagda.rst`. The list of recognised Agda source extensions can be extended by setting the `extraExtensions` config variable.
 
-## Maintaining the Agda package set on Nixpkgs {#maintaining-the-agda-package-set-on-nixpkgs}
+## Maintaining the Agda package set on Botpkgs {#maintaining-the-agda-package-set-on-nixpkgs}
 
 We are aiming at providing all common Agda libraries as packages on `nixpkgs`,
 and keeping them up to date.
@@ -174,7 +174,7 @@ It is a curated set of libraries that:
 While the Haskell ecosystem is huge, and Stackage is highly automatised,
 the Agda package set is small and can (still) be maintained by hand.
 
-### Adding Agda packages to Nixpkgs {#adding-agda-packages-to-nixpkgs}
+### Adding Agda packages to Botpkgs {#adding-agda-packages-to-nixpkgs}
 
 To add an Agda package to `nixpkgs`, the derivation should be written to `pkgs/development/libraries/agda/${library-name}/` and an entry should be added to `pkgs/top-level/agda-packages.nix`. Here it is called in a scope with access to all other Agda libraries, so the top line of the `default.nix` can look like:
 

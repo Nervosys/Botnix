@@ -22,9 +22,9 @@ rustPlatform.buildRustPackage rec {
 
   meta = with lib; {
     changelog = "https://git.qyliss.net/pr-tracker/plain/NEWS?h=${version}";
-    description = "Nixpkgs pull request channel tracker";
+    description = "Botpkgs pull request channel tracker";
     longDescription = ''
-      A web server that displays the path a Nixpkgs pull request will take
+      A web server that displays the path a Botpkgs pull request will take
       through the various release channels.
     '';
     platforms = platforms.linux;

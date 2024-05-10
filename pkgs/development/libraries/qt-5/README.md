@@ -6,7 +6,7 @@ Let `$major` be the major version number, e.g. `5.9`.
 
 1. Change the version number in the `$major/fetch.sh`.
 2. Run `./maintainers/scripts/fetch-kde-qt.sh pkgs/development/libraries/qt-5/$major`
-   from the top of the Nixpkgs tree.
+   from the top of the Botpkgs tree.
 
 See below if it is necessary to update any patches.
 
@@ -17,18 +17,18 @@ Let `$major` be the new major version number, e.g. `5.10`.
 1. Copy the subdirectory from the previous major version to `$major`.
 2. Change the version number in `$major/fetch.sh`.
 3. Run `./maintainers/scripts/fetch-kde-qt.sh pkgs/development/libraries/qt-5/$major`
-   from the top of the Nixpkgs tree.
+   from the top of the Botpkgs tree.
 4. Add a top-level attribute in `pkgs/top-level/all-packages.nix` for the new
    major version.
 5. Change the `qt5` top-level attribute to point to the new major version.
 6. If the previous major version is _not_ a long-term support release,
-   remove it from Nixpkgs.
+   remove it from Botpkgs.
 
 See below if it is necessary to update any patches.
 
 ## Patches
 
-Nixpkgs maintains several patches for Qt which cannot be submitted upstream. To
+Botpkgs maintains several patches for Qt which cannot be submitted upstream. To
 facilitate maintenance, a fork of the upstream repository is created for each patched module:
 
 - [qtbase](https://github.com/ttuegel/qtbase)
@@ -41,17 +41,17 @@ facilitate maintenance, a fork of the upstream repository is created for each pa
 
 In each repository, the patches are contained in a branch named `nixpkgs/$major`
 for each major version. Please make a pull request to add or update any patch
-which will be maintained in Nixpkgs.
+which will be maintained in Botpkgs.
 
 The forked repository for each module is used to create a single patch in
-Nixpkgs. To recreate the patch for module `$module` (e.g. `qtbase`) at version
+Botpkgs. To recreate the patch for module `$module` (e.g. `qtbase`) at version
 `$version` (e.g. `5.9.1`) in the branch `$major` (e.g. `5.9`),
 
 1. Clone the fork for `$module` from the list above.
 2. Checkout the active branch, `git checkout nixpkgs/$major`.
 3. Compare the patched branch to the release tag,
    `git diff v$version > $module.patch`.
-4. Copy `$module.patch` into the Nixpkgs tree.
+4. Copy `$module.patch` into the Botpkgs tree.
 
 ### Minor Version Updates
 
@@ -64,7 +64,7 @@ same branch `$major`,
    `git merge --no-ff v$version`.
 4. Fix any conflicts.
 5. Open a pull request for the changes.
-6. Follow the instructions above to recreate the module patch in Nixpkgs.
+6. Follow the instructions above to recreate the module patch in Botpkgs.
 
 ### Major Version Updates
 
@@ -78,4 +78,4 @@ To update module `$module` from `$oldversion` in branch `$oldmajor` to version
    `git rebase v$oldversion --onto v$version`.
 4. Fix any conflicts.
 5. Open a pull request for the changes.
-6. Follow the instructions above to recreate the module patch in Nixpkgs.
+6. Follow the instructions above to recreate the module patch in Botpkgs.

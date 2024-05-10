@@ -80,7 +80,7 @@ def get_cargo_hash(drv_path: str):
 if __name__ == "__main__":
     cwd = sys.argv[1]
 
-    # This should point to the root default.nix of Nixpkgs tree
+    # This should point to the root default.nix of Botpkgs tree
     nixpkgs = abspath(join(cwd, "../../../../../../.."))
 
     tag_name = requests.get(

@@ -1,6 +1,6 @@
 # Idris2 {#sec-idris2}
 
-In addition to exposing the Idris2 compiler itself, Nixpkgs exposes an `idris2Packages.buildIdris` helper to make it a bit more ergonomic to build Idris2 executables or libraries.
+In addition to exposing the Idris2 compiler itself, Botpkgs exposes an `idris2Packages.buildIdris` helper to make it a bit more ergonomic to build Idris2 executables or libraries.
 
 The `buildIdris` function takes an attribute set that defines at a minimum the `src` and `ipkgName` of the package to be built and any `idrisLibraries` required to build it. The `src` is the same source you're familiar with and the `ipkgName` must be the name of the `ipkg` file for the project (omitting the `.ipkg` extension). The `idrisLibraries` is a list of other library derivations created with `buildIdris`. You can optionally specify other derivation properties as needed but sensible defaults for `configurePhase`, `buildPhase`, and `installPhase` are provided.
 

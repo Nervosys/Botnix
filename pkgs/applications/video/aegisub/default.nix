@@ -138,7 +138,7 @@ stdenv.mkDerivation rec {
 
   configurePhase = ''
     export FORCE_GIT_VERSION=${version}
-    # Workaround for a Nixpkgs bug; remove when the fix arrives
+    # Workaround for a Botpkgs bug; remove when the fix arrives
     mkdir build-dir
     cd build-dir
     cmake -DCMAKE_INSTALL_PREFIX=$out ..

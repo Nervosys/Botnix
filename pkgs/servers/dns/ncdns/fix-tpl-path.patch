@@ -1,4 +1,4 @@
-This sets a default value for the tpl directory that works for Nixpkgs.
+This sets a default value for the tpl directory that works for Botpkgs.
 
 diff --git a/server/web.go b/server/web.go
 index d024a42..0522d02 100644

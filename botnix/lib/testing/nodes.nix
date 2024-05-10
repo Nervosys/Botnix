@@ -85,9 +85,9 @@ in
 
     node.pkgs = mkOption {
       description = mdDoc ''
-        The Nixpkgs to use for the nodes.
+        The Botpkgs to use for the nodes.
 
-        Setting this will make the `nixpkgs.*` options read-only, to avoid mistakenly testing with a Nixpkgs configuration that diverges from regular use.
+        Setting this will make the `nixpkgs.*` options read-only, to avoid mistakenly testing with a Botpkgs configuration that diverges from regular use.
       '';
       type = types.nullOr types.pkgs;
       default = null;

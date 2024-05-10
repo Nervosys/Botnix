@@ -54,7 +54,7 @@ buildPythonPackage rec {
   ];
 
   disabledTestPaths = [
-    # pytester_pretty is not available in Nixpkgs
+    # pytester_pretty is not available in Botpkgs
     "tests/test_insert_assert.py"
   ];
 

@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
   ];
 
   postPatch = ''
-    # Remove all mandatory manpaths. Nixpkgs makes no requirements on
+    # Remove all mandatory manpaths. Botpkgs makes no requirements on
     # these directories existing.
     sed -i 's/^MANDATORY_MANPATH/# &/' src/man_db.conf.in
 

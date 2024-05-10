@@ -1,6 +1,6 @@
 # Trivial build helpers {#chap-trivial-builders}
 
-Nixpkgs provides a variety of wrapper functions that help build commonly useful derivations.
+Botpkgs provides a variety of wrapper functions that help build commonly useful derivations.
 Like [`stdenv.mkDerivation`](#sec-using-stdenv), each of these build helpers creates a derivation, but the arguments passed are different (usually simpler) from those required by `stdenv.mkDerivation`.
 
 ## `runCommand` {#trivial-builder-runCommand}
@@ -61,7 +61,7 @@ This sets [`allowSubstitutes` to `false`](https://nixos.org/nix/manual/#adv-attr
 
 ## Writing text files {#trivial-builder-text-writing}
 
-Nixpkgs provides the following functions for producing derivations which write text files or executable scripts into the Nix store.
+Botpkgs provides the following functions for producing derivations which write text files or executable scripts into the Nix store.
 They are useful for creating files from Nix expression, and are all implemented as convenience wrappers around `writeTextFile`.
 
 Each of these functions will cause a derivation to be produced.
@@ -400,7 +400,7 @@ Write a Bash script to the store.
 The created file is marked as executable.
 The store path will include the name, and it will be a file.
 
-This function is almost exactly like [](#trivial-builder-writeScript), except that it prepends to the file a [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line that points to the version of Bash used in Nixpkgs.
+This function is almost exactly like [](#trivial-builder-writeScript), except that it prepends to the file a [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line that points to the version of Bash used in Botpkgs.
 <!-- this cannot be changed in practice, so there is no point pretending it's somehow generic -->
 
 ::: {.example #ex-writeShellScript}

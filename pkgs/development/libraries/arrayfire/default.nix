@@ -66,7 +66,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-80fxdkaeAQ5u0X/UGPaI/900cdkZ/vXNcOn5tkZ+C3Y=";
   };
 
-  # We cannot use the clfft from Nixpkgs because ArrayFire maintain a fork
+  # We cannot use the clfft from Botpkgs because ArrayFire maintain a fork
   # of clfft where they've modified the CMake build system, and the
   # CMakeLists.txt of ArrayFire assumes that we're using that fork.
   #
@@ -96,8 +96,8 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-AWzhsrDXyZrQN2bd0Ng/XlE8v02x7QWTiFTyaAuRXSw=";
   };
   # ArrayFire fails to compile with newer versions of spdlog, so we can't use
-  # the one in Nixpkgs. Once they upgrade, we can switch to using spdlog from
-  # Nixpkgs.
+  # the one in Botpkgs. Once they upgrade, we can switch to using spdlog from
+  # Botpkgs.
   spdlog = fetchFromGitHub {
     owner = "gabime";
     repo = "spdlog";
@@ -115,7 +115,7 @@ stdenv.mkDerivation rec {
     # Prevent ArrayFire from trying to download some matrices from the Internet
     "-DAF_TEST_WITH_MTX_FILES=OFF"
     # Have to use the header-only version, because we're not using the version
-    # from Nixpkgs. Otherwise, libaf.so won't be able to find the shared
+    # from Botpkgs. Otherwise, libaf.so won't be able to find the shared
     # library, because ArrayFire's CMake files do not run the install step of
     # spdlog.
     "-DAF_WITH_SPDLOG_HEADER_ONLY=ON"

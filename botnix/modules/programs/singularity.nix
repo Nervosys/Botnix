@@ -21,7 +21,7 @@ in
       description = mdDoc ''
         This option provides access to the overridden result of `programs.singularity.package`.
 
-        For example, the following configuration makes all the Nixpkgs packages use the overridden `singularity`:
+        For example, the following configuration makes all the Botpkgs packages use the overridden `singularity`:
         ```Nix
         { config, lib, pkgs, ... }:
         {

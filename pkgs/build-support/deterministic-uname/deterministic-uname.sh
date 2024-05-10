@@ -122,7 +122,7 @@ OPERATING_SYSTEM_VAL=@operatingSystem@
 if [[ "$version" = "1" ]]; then
     # in case some script greps for GNU coreutils.
     echo "uname (GNU coreutils) 9.1"
-    echo "Nixpkgs deterministic-uname"
+    echo "Botpkgs deterministic-uname"
     exit
 fi
 

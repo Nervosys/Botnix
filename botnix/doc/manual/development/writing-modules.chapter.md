@@ -5,7 +5,7 @@ combines multiple *modules* to produce the full system configuration.
 One of the modules that constitute the configuration is
 `/etc/nixos/configuration.nix`. Most of the others live in the
 [`nixos/modules`](https://github.com/nervosys/Botnix/tree/master/nixos/modules)
-subdirectory of the Nixpkgs tree.
+subdirectory of the Botpkgs tree.
 
 Each Botnix module is a file that handles one logical aspect of the
 configuration, such as a specific kind of hardware, a service, or
@@ -60,7 +60,7 @@ is shown in [Example: Structure of Botnix Modules](#ex-module-syntax).
 The meaning of each part is as follows.
 
 -   The first line makes the current Nix expression a function. The variable
-    `pkgs` contains Nixpkgs (by default, it takes the `nixpkgs` entry of
+    `pkgs` contains Botpkgs (by default, it takes the `nixpkgs` entry of
     `NIX_PATH`, see the [Nix manual](https://nixos.org/manual/nix/stable/#sec-common-env)
     for further details), while `config` contains the full system
     configuration. This line can be omitted if there is no reference to

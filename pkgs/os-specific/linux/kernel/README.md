@@ -1,4 +1,4 @@
-# How to add a new (major) version of the Linux kernel to Nixpkgs:
+# How to add a new (major) version of the Linux kernel to Botpkgs:
 
 1.  Copy the old Nix expression (e.g., `linux-2.6.21.nix`) to the new one (e.g., `linux-2.6.22.nix`) and update it.
 
@@ -6,7 +6,7 @@
 
 3.  Update the kernel configuration:
 
-    1. While in the Nixpkgs repository, enter the development shell for that kernel:
+    1. While in the Botpkgs repository, enter the development shell for that kernel:
 
        ```console
        $ nix-shell -A linuxKernel.kernels.linux_2_6_22

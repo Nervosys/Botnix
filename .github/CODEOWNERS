@@ -34,7 +34,7 @@
 /lib/tests/modules.sh       @infinisil @roberth
 /lib/tests/modules          @infinisil @roberth
 
-# Nixpkgs Internals
+# Botpkgs Internals
 /default.nix                                     @Ericson2314
 /pkgs/top-level/default.nix                      @Ericson2314
 /pkgs/top-level/impure.nix                       @Ericson2314
@@ -59,10 +59,10 @@
 /pkgs/top-level/by-name-overlay.nix @infinisil
 /.github/workflows/check-by-name.yml @infinisil
 
-# Nixpkgs build-support
+# Botpkgs build-support
 /pkgs/build-support/writers @lassulus @Profpatsch
 
-# Nixpkgs make-disk-image
+# Botpkgs make-disk-image
 /doc/build-helpers/images/makediskimage.section.md  @raitobezarius
 /botnix/lib/make-disk-image.nix                 @raitobezarius
 
@@ -70,7 +70,7 @@
 pkgs/tools/package-management/nix/                    @raitobezarius @ma27
 botnix/modules/installer/tools/nix-fallback-paths.nix  @raitobezarius @ma27
 
-# Nixpkgs documentation
+# Botpkgs documentation
 /maintainers/scripts/db-to-md.sh @jtojnar @ryantm
 /maintainers/scripts/doc @jtojnar @ryantm
 

@@ -487,7 +487,7 @@ in stdenv.mkDerivation (finalAttrs: {
     "--without-system-libqxp"
     "--without-system-dragonbox"
     "--without-system-libfixmath"
-  # the "still" variant doesn't support Nixpkgs' mdds 2.1, only mdds 2.0
+  # the "still" variant doesn't support Botpkgs' mdds 2.1, only mdds 2.0
   ] ++ optionals (variant == "still") [
     "--without-system-mdds"
   ] ++ optionals (variant == "fresh") [

@@ -39,7 +39,7 @@ in callPackage { inherit cudaPackages; };
 The CUDA NVCC compiler requires flags to determine which hardware you
 want to target for in terms of SASS (real hardware) or PTX (JIT kernels).
 
-Nixpkgs tries to target support real architecture defaults based on the
+Botpkgs tries to target support real architecture defaults based on the
 CUDA toolkit version with PTX support for future hardware.  Experienced
 users may optimize this configuration for a variety of reasons such as
 reducing binary size and compile time, supporting legacy hardware, or
@@ -112,7 +112,7 @@ All new projects should use the CUDA redistributables available in [`cudaPackage
 
 > **WARNING**
 >
-> While the CUDA Toolkit runfile installer is still available in Nixpkgs as the [`cudaPackages.cudatoolkit`](https://search.botnix.org/packages?channel=unstable&type=packages&query=cudaPackages.cudatoolkit) attribute, its use is not recommended and should it be considered deprecated. Please migrate to the CUDA redistributables provided by the [`cudaPackages`](https://search.botnix.org/packages?channel=unstable&type=packages&query=cudaPackages) package set.
+> While the CUDA Toolkit runfile installer is still available in Botpkgs as the [`cudaPackages.cudatoolkit`](https://search.botnix.org/packages?channel=unstable&type=packages&query=cudaPackages.cudatoolkit) attribute, its use is not recommended and should it be considered deprecated. Please migrate to the CUDA redistributables provided by the [`cudaPackages`](https://search.botnix.org/packages?channel=unstable&type=packages&query=cudaPackages) package set.
 >
 > To ensure packages relying on the CUDA Toolkit runfile installer continue to build, it will continue to be updated until a migration path is available.
 

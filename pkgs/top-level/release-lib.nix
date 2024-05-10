@@ -19,7 +19,7 @@ rec {
 
 
   /* !!! Hack: poor man's memoisation function.  Necessary to prevent
-     Nixpkgs from being evaluated again and again for every
+     Botpkgs from being evaluated again and again for every
      job/platform pair. */
   mkPkgsFor = crossSystem: let
     packageSet' = args: packageSet (args // { inherit crossSystem; } // nixpkgsArgs);
@@ -111,7 +111,7 @@ rec {
 
 
   /* Build a package on the given set of platforms.  The function `f'
-     is called for each supported platform with Nixpkgs for that
+     is called for each supported platform with Botpkgs for that
      platform as an argument .  We return an attribute set containing
      a derivation for each supported platform, i.e. ‘{ x86_64-linux =
      f pkgs_x86_64_linux; i686-linux = f pkgs_i686_linux; ... }’. */

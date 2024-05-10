@@ -130,7 +130,7 @@ in
       amule = 90;
       minidlna = 91;
       elasticsearch = 92;
-      tcpcryptd = 93; # tcpcryptd uses a hard-coded uid. We patch it in Nixpkgs to match this choice.
+      tcpcryptd = 93; # tcpcryptd uses a hard-coded uid. We patch it in Botpkgs to match this choice.
       firebird = 95;
       #keys = 96; # unused
       #haproxy = 97; # dynamically allocated as of 2020-03-11

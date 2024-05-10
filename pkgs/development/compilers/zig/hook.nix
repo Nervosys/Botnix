@@ -10,7 +10,7 @@ makeSetupHook {
 
   substitutions = {
     # This zig_default_flags below is meant to avoid CPU feature impurity in
-    # Nixpkgs. However, this flagset is "unstable": it is specifically meant to
+    # Botpkgs. However, this flagset is "unstable": it is specifically meant to
     # be controlled by the upstream development team - being up to that team
     # exposing or not that flags to the outside (especially the package manager
     # teams).
@@ -21,7 +21,7 @@ makeSetupHook {
     # revisited accordingly.
 
     # Below are some useful links describing the discovery process of this 'bug'
-    # in Nixpkgs:
+    # in Botpkgs:
 
     # https://github.com/nervosys/Botnix/issues/169461
     # https://github.com/nervosys/Botnix/issues/185644
@@ -43,7 +43,7 @@ makeSetupHook {
   passthru = { inherit zig; };
 
   meta = {
-    description = "A setup hook for using the Zig compiler in Nixpkgs";
+    description = "A setup hook for using the Zig compiler in Botpkgs";
     inherit (zig.meta) maintainers platforms broken;
   };
 } ./setup-hook.sh

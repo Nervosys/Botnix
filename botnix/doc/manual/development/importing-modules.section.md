@@ -1,7 +1,7 @@
 # Importing Modules {#sec-importing-modules}
 
 Sometimes Botnix modules need to be used in configuration but exist
-outside of Nixpkgs. These modules can be imported:
+outside of Botpkgs. These modules can be imported:
 
 ```nix
 { config, lib, pkgs, ... }:
@@ -18,7 +18,7 @@ outside of Nixpkgs. These modules can be imported:
 ```
 
 The environment variable `NIXOS_EXTRA_MODULE_PATH` is an absolute path
-to a Botnix module that is included alongside the Nixpkgs Botnix modules.
+to a Botnix module that is included alongside the Botpkgs Botnix modules.
 Like any Botnix module, this module can import additional modules:
 
 ```nix

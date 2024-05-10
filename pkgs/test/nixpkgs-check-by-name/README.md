@@ -1,12 +1,12 @@
-# Nixpkgs pkgs/by-name checker
+# Botpkgs pkgs/by-name checker
 
-This directory implements a program to check the [validity](#validity-checks) of the `pkgs/by-name` Nixpkgs directory.
+This directory implements a program to check the [validity](#validity-checks) of the `pkgs/by-name` Botpkgs directory.
 This is part of the implementation of [RFC 140](https://github.com/Botnix/rfcs/pull/140).
 
 A [pinned version](./scripts/pinned-tool.json) of this tool is used by [this GitHub Actions workflow](../../../.github/workflows/check-by-name.yml).
 See [./scripts](./scripts/README.md#update-pinned-toolsh) for how to update the pinned version.
 
-The source of the tool being right inside Nixpkgs allows any Nixpkgs committer to make updates to it.
+The source of the tool being right inside Botpkgs allows any Botpkgs committer to make updates to it.
 
 ## Interface
 
@@ -33,7 +33,7 @@ These checks are performed by this tool:
 
 ### Nix evaluation checks
 
-Evaluate Nixpkgs with `system` set to `x86_64-linux` and check that:
+Evaluate Botpkgs with `system` set to `x86_64-linux` and check that:
 - For each package directory, the `pkgs.${name}` attribute must be defined as `callPackage pkgs/by-name/${shard}/${name}/package.nix args` for some `args`.
 - For each package directory, `pkgs.lib.isDerivation pkgs.${name}` must be `true`.
 
@@ -69,7 +69,7 @@ cargo clippy
 
 ## Tests
 
-Tests are declared in [`./tests`](./tests) as subdirectories imitating Nixpkgs with these files:
+Tests are declared in [`./tests`](./tests) as subdirectories imitating Botpkgs with these files:
 - `default.nix`:
   Always contains
   ```nix
@@ -79,7 +79,7 @@ Tests are declared in [`./tests`](./tests) as subdirectories imitating Nixpkgs w
   ```
   nix-instantiate <subdir> --eval -A <attr> --arg overlays <overlays>
   ```
-  work very similarly to the real Nixpkgs, just enough for the program to be able to test it.
+  work very similarly to the real Botpkgs, just enough for the program to be able to test it.
 - `pkgs/by-name`:
   The `pkgs/by-name` directory to check.
 
@@ -94,7 +94,7 @@ Tests are declared in [`./tests`](./tests) as subdirectories imitating Nixpkgs w
   The default is an empty overlay.
 
 - `base` (optional):
-  Contains another subdirectory imitating Nixpkgs with potentially any of the above structures.
+  Contains another subdirectory imitating Botpkgs with potentially any of the above structures.
   This is used for [ratchet checks](#ratchet-checks).
 
 - `expected` (optional):

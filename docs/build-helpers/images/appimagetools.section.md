@@ -77,7 +77,7 @@ in appimageTools.wrapType2 {
 ## Extracting {#ssec-pkgs-appimageTools-extracting}
 
 Use `extract` if you need to extract the contents of an AppImage.
-This is usually used in Nixpkgs to install extra files in addition to [wrapping](#ssec-pkgs-appimageTools-wrapping) the AppImage.
+This is usually used in Botpkgs to install extra files in addition to [wrapping](#ssec-pkgs-appimageTools-wrapping) the AppImage.
 `extract` expects an argument with the `src` attribute, and either a `name` attribute or `pname` and `version` attributes.
 
 ::: {.note}
@@ -89,7 +89,7 @@ However, [those were unified early 2020](https://github.com/nervosys/Botnix/pull
 
 # Extracting an AppImage to install extra files
 
-This example was adapted from a real package in Nixpkgs to show how `extract` is usually used in combination with `wrapType2`.
+This example was adapted from a real package in Botpkgs to show how `extract` is usually used in combination with `wrapType2`.
 Note how `appimageContents` is used in `extraInstallCommands` to install additional files that were extracted from the AppImage.
 
 ```nix

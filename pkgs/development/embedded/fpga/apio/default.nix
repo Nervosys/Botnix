@@ -38,7 +38,7 @@ buildPythonApplication rec {
       '_command = join(get_bin_dir(), "tinyprog")' \
       '_command = "${tinyprog}/bin/tinyprog"'
 
-    # semantic-version seems to not support version numbers like the one of tinyprog in Nixpkgs (1.0.24.dev114+gxxxxxxx).
+    # semantic-version seems to not support version numbers like the one of tinyprog in Botpkgs (1.0.24.dev114+gxxxxxxx).
     # See https://github.com/rbarrois/python-semanticversion/issues/47.
     # This leads to an error like "Error: Invalid version string: '1.0.24.dev114+g97f6353'"
     # when executing "apio upload" for a TinyFPGA.

@@ -1,4 +1,4 @@
-# Contributing to Nixpkgs {#part-contributing}
+# Contributing to Botpkgs {#part-contributing}
 
 ```{=include=} chapters
 contributing/quick-start.chapter.md

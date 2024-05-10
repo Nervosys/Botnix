@@ -235,7 +235,7 @@ self: super: {
     sha256 = "14gllipl28lqry73c5dnclsskzk1bsrrgazibl4lkl8z98j2csjb";
   }) super.leveldb-haskell;
 
-  # Arion's test suite needs a Nixpkgs, which is cumbersome to do from Nixpkgs
+  # Arion's test suite needs a Botpkgs, which is cumbersome to do from Botpkgs
   # itself. For instance, pkgs.path has dirty sources and puts a huge .git in the
   # store. Testing is done upstream.
   arion-compose = dontCheck super.arion-compose;

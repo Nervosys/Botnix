@@ -1,6 +1,6 @@
 # Installing from another Linux distribution {#sec-installing-from-other-distro}
 
-Because Nix (the package manager) & Nixpkgs (the Nix packages
+Because Nix (the package manager) & Botpkgs (the Nix packages
 collection) can both be installed on any (most?) Linux distributions,
 they can be used to install Botnix in various creative ways. You can, for
 instance:

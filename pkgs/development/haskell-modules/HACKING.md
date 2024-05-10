@@ -2,9 +2,9 @@
 # Maintainer Workflow
 
 The goal of the [@Botnix/haskell](https://github.com/orgs/Botnix/teams/haskell)
-team is to keep the Haskell packages in Nixpkgs up-to-date, while making sure
+team is to keep the Haskell packages in Botpkgs up-to-date, while making sure
 there are no Haskell-related evaluation errors or build errors that get into
-the Nixpkgs `master` branch.
+the Botpkgs `master` branch.
 
 We do this by periodically merging an updated set of Haskell packages on the
 `haskell-updates` branch into the `master` branch.  Each member of the team
@@ -30,19 +30,19 @@ In this section we create the PR for merging `haskell-updates` into `master`.
 
 1.  Make sure the `haskell-updates` branch is up-to-date with `master`.
 
-1.  Update the Stackage Nightly resolver used by Nixpkgs and create a commit:
+1.  Update the Stackage Nightly resolver used by Botpkgs and create a commit:
 
     ```console
     $ ./maintainers/scripts/haskell/update-stackage.sh --do-commit
     ```
 
-1.  Update the Hackage package set used by Nixpkgs and create a commit:
+1.  Update the Hackage package set used by Botpkgs and create a commit:
 
     ```console
     $ ./maintainers/scripts/haskell/update-hackage.sh --do-commit
     ```
 
-1.  Regenerate the Haskell package set used in Nixpkgs and create a commit:
+1.  Regenerate the Haskell package set used in Botpkgs and create a commit:
 
     ```console
     $ ./maintainers/scripts/haskell/regenerate-hackage-packages.sh --do-commit
@@ -50,7 +50,7 @@ In this section we create the PR for merging `haskell-updates` into `master`.
 
 1.  Push these commits to the `haskell-updates` branch of the Botnix/nixpkgs repository.
 
-1.  Open a PR on Nixpkgs for merging `haskell-updates` into `master`.  The recommended
+1.  Open a PR on Botpkgs for merging `haskell-updates` into `master`.  The recommended
     PR title and body text are described in the `merge-and-open-pr.sh` section.
 
 ## Notify Maintainers and Fix Broken Packages
@@ -100,7 +100,7 @@ jobs. These are both defined in
 like Pandoc and XMonad.  These packages are widely used.  We would like to
 always keep these building.
 
-`maintained` is a set of Haskell packages that have maintainers in Nixpkgs.
+`maintained` is a set of Haskell packages that have maintainers in Botpkgs.
 We should be proactive in working with maintainers to keep their packages
 building.
 
@@ -127,7 +127,7 @@ $ ./maintainers/scripts/haskell/mark-broken.sh --do-commit
 ```
 
 This first opens up an editor with the broken package list.  Some of these
-packages may have a maintainer in Nixpkgs.  If these maintainers have not been
+packages may have a maintainer in Botpkgs.  If these maintainers have not been
 given 7 days to fix up their package, then make sure to remove those packages
 from the list before continuing.  After saving and exiting the editor, the
 following will happen:
@@ -249,7 +249,7 @@ opening the next one.  When you want to merge the currently open
     $ ./maintainers/scripts/haskell/merge-and-open-pr.sh PR_NUM_OF_CURRENT_HASKELL_UPDATES_PR
     ```
 
-    Find the PR number easily [here](https://github.com/botnix/nixpkgs/pulls?q=is%3Apr+is%3Aopen+head%3Ahaskell-updates)
+    Find the PR number easily [here](https://github.com/nervosys/nixpkgs/pulls?q=is%3Apr+is%3Aopen+head%3Ahaskell-updates)
 
     This does the following things:
 
@@ -265,7 +265,7 @@ opening the next one.  When you want to merge the currently open
     1.  Updates Stackage and Hackage snapshots.  Regenerates the Haskell package set.
 
     1.  Pushes the commits updating Stackage and Hackage and opens a new
-        `haskell-updates` PR on Nixpkgs.  If you'd like to do this by hand,
+        `haskell-updates` PR on Botpkgs.  If you'd like to do this by hand,
         look in the script for the recommended PR title and body text.
 
 ## Update Hackage Version Information
@@ -299,7 +299,7 @@ Here are some additional tips that didn't fit in above.
     script.
 
     You might want to do this if a user contributes a fix to `cabal2nix` that
-    will immediately fix a Haskell package in Nixpkgs.  First, merge in
+    will immediately fix a Haskell package in Botpkgs.  First, merge in
     the PR to `cabal2nix`, then run `update-cabal2nix-upstable.sh`.  Finally, run
     [`regenerate-hackage-packages.sh`](../../../maintainers/scripts/haskell/regenerate-hackage-packages.sh)
     to regenerate the Hackage package set with the updated version of `hackage2nix`.
@@ -324,7 +324,7 @@ Here are some additional tips that didn't fit in above.
     [#haskell:botnix.org](https://matrix.to/#/#haskell:botnix.org).
 
 -   This is a checklist for things that need to happen when a new
-    member is added to the Nixpkgs Haskell team.
+    member is added to the Botpkgs Haskell team.
 
     1.  Add the person to the
         [@Botnix/haskell](https://github.com/orgs/Botnix/teams/haskell)

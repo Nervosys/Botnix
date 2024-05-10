@@ -33,7 +33,7 @@ pub fn relative_file_for_package(package_name: &str) -> PathBuf {
     relative_dir_for_package(package_name).join(PACKAGE_NIX_FILENAME)
 }
 
-/// Check the structure of Nixpkgs, returning the attribute names that are defined in
+/// Check the structure of Botpkgs, returning the attribute names that are defined in
 /// `pkgs/by-name`
 pub fn check_structure(
     path: &Path,

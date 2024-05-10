@@ -507,10 +507,10 @@ rec {
     };
 
     pkgs = addCheck
-      (unique { message = "A Nixpkgs pkgs set can not be merged with another pkgs set."; } attrs // {
+      (unique { message = "A Botpkgs pkgs set can not be merged with another pkgs set."; } attrs // {
         name = "pkgs";
         descriptionClass = "noun";
-        description = "Nixpkgs package set";
+        description = "Botpkgs package set";
       })
       (x: (x._type or null) == "pkgs");
 

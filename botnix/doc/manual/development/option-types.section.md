@@ -113,7 +113,7 @@ merging is handled.
 
 `types.pkgs`
 
-:   A type for the top level Nixpkgs package set.
+:   A type for the top level Botpkgs package set.
 
 ### Numeric types {#sec-option-types-numeric}
 

@@ -15,9 +15,9 @@ If that's not the case, we recommend learning about it first [here](https://docs
 This file contains general contributing information, but individual parts also have more specific information to them in their respective `README.md` files, linked here:
 
 - [`lib`](./lib/README.md): Sources and documentation of the [library functions](https://nixos.org/manual/nixpkgs/stable/#chap-functions)
-- [`maintainers`](./maintainers/README.md): Nixpkgs maintainer and team listings, maintainer scripts
+- [`maintainers`](./maintainers/README.md): Botpkgs maintainer and team listings, maintainer scripts
 - [`pkgs`](./pkgs/README.md): Package and [builder](https://nixos.org/manual/nixpkgs/stable/#part-builders) definitions
-- [`doc`](./doc/README.md): Sources and infrastructure for the [Nixpkgs manual](https://nixos.org/manual/nixpkgs/stable/)
+- [`doc`](./doc/README.md): Sources and infrastructure for the [Botpkgs manual](https://nixos.org/manual/nixpkgs/stable/)
 - [`nixos`](./nixos/README.md): Implementation of [Botnix](https://nixos.org/manual/nixos/stable/)
 
 # Guide
@@ -30,10 +30,10 @@ This section describes in some detail how changes can be made and proposed with 
 > [!Note]
 > Be aware that contributing implies licensing those contributions under the terms of [COPYING](./COPYING), an MIT-like license.
 
-0. Set up a local version of Nixpkgs to work with using GitHub and Git
-   1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) the [Nixpkgs repository](https://github.com/nixos/nixpkgs/).
+0. Set up a local version of Botpkgs to work with using GitHub and Git
+   1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) the [Botpkgs repository](https://github.com/nixos/nixpkgs/).
    1. [Clone the forked repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository) into a local `nixpkgs` directory.
-   1. [Configure the upstream Nixpkgs repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#configuring-git-to-sync-your-fork-with-the-upstream-repository).
+   1. [Configure the upstream Botpkgs repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#configuring-git-to-sync-your-fork-with-the-upstream-repository).
 
 1. Figure out the branch that should be used for this change by going through [this section][branch].
    If in doubt use `master`, that's where most changes should go.
@@ -44,16 +44,16 @@ This section describes in some detail how changes can be made and proposed with 
    - The base of the branch includes the most recent changes on the base branch from step 1, we'll assume `master` here.
 
    ```bash
-   # Make sure you have the latest changes from upstream Nixpkgs
+   # Make sure you have the latest changes from upstream Botpkgs
    git fetch upstream
 
-   # Create and switch to a new branch based off the master branch in Nixpkgs
+   # Create and switch to a new branch based off the master branch in Botpkgs
    git switch --create update-hello upstream/master
    ```
 
    To avoid having to download and build potentially many derivations, at the expense of using a potentially outdated version, you can base the branch off a specific [Git commit](https://www.git-scm.com/docs/gitglossary#def_commit) instead:
    - The commit of the latest `nixpkgs-unstable` channel, available [here](https://channels.nixos.org/nixpkgs-unstable/git-revision).
-   - The commit of a local Nixpkgs downloaded using [nix-channel](https://nixos.org/manual/nix/stable/command-ref/nix-channel), available using `nix-instantiate --eval --expr '(import <nixpkgs/lib>).trivial.revisionWithDefault null'`
+   - The commit of a local Botpkgs downloaded using [nix-channel](https://nixos.org/manual/nix/stable/command-ref/nix-channel), available using `nix-instantiate --eval --expr '(import <nixpkgs/lib>).trivial.revisionWithDefault null'`
    - If you're using Botnix, the commit of your Botnix installation, available with `nixos-version --revision`.
 
    Once you have an appropriate commit you can use it instead of `upstream/master` in the above command:
@@ -61,7 +61,7 @@ This section describes in some detail how changes can be made and proposed with 
    git switch --create update-hello <the desired base commit>
    ```
 
-3. Make the desired changes in the local Nixpkgs repository using an editor of your choice.
+3. Make the desired changes in the local Botpkgs repository using an editor of your choice.
    Make sure to:
    - Adhere to both the [general code conventions][code-conventions], and the code conventions specific to the part you're making changes to.
      See the [overview section][overview] for more specific information.
@@ -76,7 +76,7 @@ This section describes in some detail how changes can be made and proposed with 
    Repeat the steps 3-4 as many times as necessary.
    Advance to the next step if all the commits (viewable with `git log`) make sense together.
 
-5. Push your commits to your fork of Nixpkgs.
+5. Push your commits to your fork of Botpkgs.
    ```
    git push --set-upstream origin HEAD
    ```
@@ -87,7 +87,7 @@ This section describes in some detail how changes can be made and proposed with 
    remote:      https://github.com/myUser/nixpkgs/pull/new/update-hello
    ```
 
-6. [Create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#creating-the-pull-request) from the new branch in your Nixpkgs fork to the upstream Nixpkgs repository.
+6. [Create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#creating-the-pull-request) from the new branch in your Botpkgs fork to the upstream Botpkgs repository.
    Use the branch from step 2 as the pull requests base branch.
    Go through the [pull request template](#pull-request-template) in the pre-filled default description.
 
@@ -188,7 +188,7 @@ nix-shell -p nixpkgs-review --run "nixpkgs-review rev HEAD"
 
 It’s important to test any executables generated by a build when you change or create a package in nixpkgs. This can be done by looking in `./result/bin` and running any files in there, or at a minimum, the main executable for the package. For example, if you make a change to texlive, you probably would only check the binaries associated with the change you made rather than testing all of them.
 
-#### Meets Nixpkgs contribution standards
+#### Meets Botpkgs contribution standards
 
 The last checkbox is about whether it fits the guidelines in this `CONTRIBUTING.md` file. This document has detailed information on standards the Nix community has for commit messages, reviews, licensing of contributions you make to the project, etc... Everyone should read and understand the standards the community has for contributing before submitting a pull request.
 
@@ -274,7 +274,7 @@ Once a pull request has been merged into `master`, a backport pull request to th
 ### Automatically backporting changes
 
 > [!Note]
-> You have to be a [Nixpkgs maintainer](./maintainers) to automatically create a backport pull request.
+> You have to be a [Botpkgs maintainer](./maintainers) to automatically create a backport pull request.
 
 Add the [`backport release-YY.MM` label](https://github.com/nervosys/Botnix/labels?q=backport) to the pull request on the `master` branch.
 This will cause [a GitHub Action](.github/workflows/backport.yml) to open a pull request to the `release-YY.MM` branch a few minutes later.
@@ -309,9 +309,9 @@ To manually create a backport pull request, follow [the standard pull request pr
 > [!Warning]
 > The following section is a draft, and the policy for reviewing is still being discussed in issues such as [#11166](https://github.com/nervosys/Botnix/issues/11166) and [#20836](https://github.com/nervosys/Botnix/issues/20836).
 
-The Nixpkgs project receives a fairly high number of contributions via GitHub pull requests. Reviewing and approving these is an important task and a way to contribute to the project.
+The Botpkgs project receives a fairly high number of contributions via GitHub pull requests. Reviewing and approving these is an important task and a way to contribute to the project.
 
-The high change rate of Nixpkgs makes any pull request that remains open for too long subject to conflicts that will require extra work from the submitter or the merger. Reviewing pull requests in a timely manner and being responsive to the comments is the key to avoid this issue. GitHub provides sort filters that can be used to see the [most recently](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc) and the [least recently](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-asc) updated pull requests. We highly encourage looking at [this list of ready to merge, unreviewed pull requests](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+review%3Anone+status%3Asuccess+-label%3A%222.status%3A+work-in-progress%22+no%3Aproject+no%3Aassignee+no%3Amilestone).
+The high change rate of Botpkgs makes any pull request that remains open for too long subject to conflicts that will require extra work from the submitter or the merger. Reviewing pull requests in a timely manner and being responsive to the comments is the key to avoid this issue. GitHub provides sort filters that can be used to see the [most recently](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc) and the [least recently](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-asc) updated pull requests. We highly encourage looking at [this list of ready to merge, unreviewed pull requests](https://github.com/nervosys/Botnix/pulls?q=is%3Apr+is%3Aopen+review%3Anone+status%3Asuccess+-label%3A%222.status%3A+work-in-progress%22+no%3Aproject+no%3Aassignee+no%3Amilestone).
 
 When reviewing a pull request, please always be nice and polite. Controversial changes can lead to controversial opinions, but it is important to respect every community member and their work.
 
@@ -321,7 +321,7 @@ Pull request reviews should include a list of what has been reviewed in a commen
 
 All the review template samples provided in this section are generic and meant as examples. Their usage is optional and the reviewer is free to adapt them to their liking.
 
-To get more information about how to review specific parts of Nixpkgs, refer to the documents linked to in the [overview section][overview].
+To get more information about how to review specific parts of Botpkgs, refer to the documents linked to in the [overview section][overview].
 
 If a pull request contains documentation changes that might require feedback from the documentation team, ping [@Botnix/documentation-reviewers](https://github.com/orgs/nixos/teams/documentation-reviewers) on the pull request.
 
@@ -332,7 +332,7 @@ Container system, boot system and library changes are some examples of the pull 
 ## How to merge pull requests
 [pr-merge]: #how-to-merge-pull-requests
 
-The *Nixpkgs committers* are people who have been given
+The *Botpkgs committers* are people who have been given
 permission to merge.
 
 It is possible for community members that have enough knowledge and experience on a special topic to contribute by merging pull requests.
@@ -356,7 +356,7 @@ In a case a contributor definitively leaves the Nix community, they should creat
 # Flow of merged pull requests
 
 After a pull request is merged, it eventually makes it to the [official Hydra CI](https://hydra.nixos.org/).
-Hydra regularly evaluates and builds Nixpkgs, updating [the official channels](https://channels.nixos.org/) when specific Hydra jobs succeeded.
+Hydra regularly evaluates and builds Botpkgs, updating [the official channels](https://channels.nixos.org/) when specific Hydra jobs succeeded.
 See [Nix Channel Status](https://status.nixos.org/) for the current channels and their state.
 Here's a brief overview of the main Git branches and what channels they're used for:
 
@@ -366,7 +366,7 @@ Here's a brief overview of the main Git branches and what channels they're used 
 When a channel is updated, a corresponding Git branch is also updated to point to the corresponding commit.
 So e.g. the [`nixpkgs-unstable` branch](https://github.com/nixos/nixpkgs/tree/nixpkgs-unstable) corresponds to the Git commit from the [`nixpkgs-unstable` channel](https://channels.nixos.org/nixpkgs-unstable).
 
-Nixpkgs in its entirety is tied to the Botnix release process, which is documented in the [Botnix Release Wiki](https://nixos.github.io/release-wiki/).
+Botpkgs in its entirety is tied to the Botnix release process, which is documented in the [Botnix Release Wiki](https://nixos.github.io/release-wiki/).
 
 See [this section][branch] to know when to use the release branches.
 
@@ -520,13 +520,13 @@ To get a sense for what changes are considered mass rebuilds, see [previously me
 - When adding yourself as maintainer in the same pull request, make a separate
   commit with the message `maintainers: add <handle>`.
   Add the commit before those making changes to the package or module.
-  See [Nixpkgs Maintainers](./maintainers/README.md) for details.
+  See [Botpkgs Maintainers](./maintainers/README.md) for details.
 
 - Make sure you read about any commit conventions specific to the area you're touching. See:
   - [Commit conventions](./pkgs/README.md#commit-conventions) for changes to `pkgs`.
   - [Commit conventions](./lib/README.md#commit-conventions) for changes to `lib`.
   - [Commit conventions](./nixos/README.md#commit-conventions) for changes to `nixos`.
-  - [Commit conventions](./doc/README.md#commit-conventions) for changes to `doc`, the Nixpkgs manual.
+  - [Commit conventions](./doc/README.md#commit-conventions) for changes to `doc`, the Botpkgs manual.
 
 ### Writing good commit messages
 

@@ -66,7 +66,7 @@ stdenv.mkDerivation rec {
   ];
 
   # FIXME: gst-plugins-good missing libsoup breaks streaming
-  # (https://github.com/botnix/nixpkgs/issues/271960)
+  # (https://github.com/nervosys/nixpkgs/issues/271960)
   preFixup = ''
     gappsWrapperArgs+=(--prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ libsoup_3 ]}")
   '';

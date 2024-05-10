@@ -90,7 +90,7 @@ buildPythonPackage rec {
       Remark: This pkg only supports sqlite dbs. If you wish to have support for
             mysql or postgresql dbs, or Jenkins, please contact the maintainer.
 
-      Bugs which affect this software packaged in Nixpkgs:
+      Bugs which affect this software packaged in Botpkgs:
 
       1. The package must disable checks, because they are lacking the qt env.
          (see pkg source and https://discourse.botnix.org/t/qt-plugin-path-unset-in-test-phase/)

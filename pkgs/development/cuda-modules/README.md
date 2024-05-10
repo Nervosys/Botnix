@@ -2,7 +2,7 @@
 
 > [!NOTE]
 > This document is meant to help CUDA maintainers understand the structure of
-> the CUDA packages in Nixpkgs. It is not meant to be a user-facing document.
+> the CUDA packages in Botpkgs. It is not meant to be a user-facing document.
 > For a user-facing document, see [the CUDA section of the manual](../../../doc/languages-frameworks/cuda.section.md).
 
 The files in this directory are added (in some way) to the `cudaPackages`
@@ -35,7 +35,7 @@ scope. These are typically required for the creation of the finalized
       short, the Multiplex builder adds multiple versions of a single package to
       single instance of the CUDA Packages package set. It is used primarily for
       packages like `cudnn` and `cutensor`.
-- `modules`: Nixpkgs modules to check the shape and content of CUDA
+- `modules`: Botpkgs modules to check the shape and content of CUDA
     redistributable and feature manifests. These modules additionally use shims
     provided by some CUDA packages to allow them to re-use the
     `genericManifestBuilder`, even if they don't have manifest files of their
@@ -45,7 +45,7 @@ scope. These are typically required for the creation of the finalized
 - `nccl`: NVIDIA NCCL library.
 - `nccl-tests`: NVIDIA NCCL tests.
 - `saxpy`: Example CMake project that uses CUDA.
-- `setup-hooks`: Nixpkgs setup hooks for CUDA.
+- `setup-hooks`: Botpkgs setup hooks for CUDA.
 - `tensorrt`: NVIDIA TensorRT library.
 
 ## Distinguished packages

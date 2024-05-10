@@ -76,7 +76,7 @@ stdenv.mkDerivation {
     echo 'PKG_CONFIG = ${buildPackages.pkg-config}/bin/${buildPackages.pkg-config.targetPrefix}pkg-config' >> config.mk
     echo 'RANLIB = ${lib.getBin stdenv.cc.bintools.bintools}/bin/${stdenv.cc.targetPrefix}ranlib' >> config.mk
 
-    # Use libraries from Nixpkgs
+    # Use libraries from Botpkgs
     echo "TIFFLIB = libtiff.so" >> config.mk
     echo "TIFFLIB_NEEDS_JPEG = N" >> config.mk
     echo "TIFFLIB_NEEDS_Z = N" >> config.mk

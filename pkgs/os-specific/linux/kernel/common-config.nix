@@ -5,7 +5,7 @@
 #   changelog, google or whatever) and mark it with `whenOlder` or
 #   `whenAtLeast`.
 # Then do test your change by building all the kernels (or at least
-# their configs) in Nixpkgs or else you will guarantee lots and lots
+# their configs) in Botpkgs or else you will guarantee lots and lots
 # of pain to users trying to switch to an older kernel because of some
 # hardware problems with a new one.
 

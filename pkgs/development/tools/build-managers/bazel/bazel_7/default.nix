@@ -226,7 +226,7 @@ stdenv.mkDerivation rec {
     ./darwin_sleep.patch
 
     # Fix DARWIN_XCODE_LOCATOR_COMPILE_COMMAND by removing multi-arch support.
-    # Nixpkgs toolcahins do not support that (yet?) and get confused.
+    # Botpkgs toolcahins do not support that (yet?) and get confused.
     # Also add an explicit /usr/bin prefix that will be patched below.
     ./xcode_locator.patch
 

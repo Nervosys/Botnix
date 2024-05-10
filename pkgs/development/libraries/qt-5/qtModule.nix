@@ -50,7 +50,7 @@ mkDerivation (args // {
     fixQtBuiltinPaths . '*.pr?'
   '' + lib.optionalString (builtins.compareVersions "5.15.0" version <= 0)
   # Note: We use ${version%%-*} to remove any tag from the end of the version
-  # string. Version tags are added by Nixpkgs maintainers and not reflected in
+  # string. Version tags are added by Botpkgs maintainers and not reflected in
   # the source version.
   ''
     if [[ -z "$dontCheckQtModuleVersion" ]] \
@@ -58,7 +58,7 @@ mkDerivation (args // {
         && ! grep -q -F "''${version%%-*}" .qmake.conf 2>/dev/null
     then
       echo >&2 "error: could not find version ''${version%%-*} in .qmake.conf"
-      echo >&2 "hint: check .qmake.conf and update the package version in Nixpkgs"
+      echo >&2 "hint: check .qmake.conf and update the package version in Botpkgs"
       exit 1
     fi
 

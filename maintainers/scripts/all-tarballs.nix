@@ -1,5 +1,5 @@
 /* Helper expression for copy-tarballs. This returns (nearly) all
-   tarballs used the free packages in Nixpkgs.
+   tarballs used the free packages in Botpkgs.
 
    Typical usage:
 

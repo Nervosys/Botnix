@@ -1,6 +1,6 @@
 # Titanium {#titanium}
 
-The Nixpkgs repository contains facilities to deploy a variety of versions of
+The Botpkgs repository contains facilities to deploy a variety of versions of
 the [Titanium SDK](https://www.appcelerator.com) versions, a cross-platform
 mobile app development framework using JavaScript as an implementation language,
 and includes a function abstraction making it possible to build Titanium

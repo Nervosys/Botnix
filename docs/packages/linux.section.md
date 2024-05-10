@@ -4,7 +4,7 @@ The Nix expressions to build the Linux kernel are in [`pkgs/os-specific/linux/ke
 
 The function [`pkgs.buildLinux`](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/generic.nix) builds a kernel with [common configuration values](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/common-config.nix).
 This is the preferred option unless you have a very specific use case.
-Most kernels packaged in Nixpkgs are built that way, and it will also generate kernels suitable for Botnix.
+Most kernels packaged in Botpkgs are built that way, and it will also generate kernels suitable for Botnix.
 [`pkgs.linuxManualConfig`](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/manual-config.nix) requires a complete configuration to be passed.
 It has fewer additional features than `pkgs.buildLinux`, which provides common configuration values and exposes the `features` attribute, as explained below.
 
@@ -12,7 +12,7 @@ Both functions have an argument `kernelPatches` which should be a list of `{name
 
 The kernel derivation created with `pkgs.buildLinux` exports an attribute `features` specifying whether optional functionality is or isn’t enabled. This is used in Botnix to implement kernel-specific behaviour.
 
-If you are using a kernel packaged in Nixpkgs, you can customize it by overriding its arguments. For details on how each argument affects the generated kernel, refer to [the `pkgs.buildLinux` source code](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/generic.nix).
+If you are using a kernel packaged in Botpkgs, you can customize it by overriding its arguments. For details on how each argument affects the generated kernel, refer to [the `pkgs.buildLinux` source code](https://github.com/nervosys/Botnix/blob/d77bda728d5041c1294a68fb25c79e2d161f62b9/pkgs/os-specific/linux/kernel/generic.nix).
 
 :::{.example #ex-overriding-kernel-derivation}
 

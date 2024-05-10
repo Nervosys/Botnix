@@ -31,7 +31,7 @@ file.
 
 -   `maintainers` contains a list of the module maintainers.
 
--   `doc` points to a valid [Nixpkgs-flavored CommonMark](
+-   `doc` points to a valid [Botpkgs-flavored CommonMark](
       https://nixos.org/manual/nixpkgs/unstable/#sec-contributing-markup
     ) file containing the module
     documentation. Its contents is automatically added to

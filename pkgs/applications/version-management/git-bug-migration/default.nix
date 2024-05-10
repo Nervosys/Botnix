@@ -21,7 +21,7 @@ buildGoModule rec {
 
   preCheck = ''
     export HOME=$(mktemp -d)
-    git config --global user.name 'Nixpkgs Test User'
+    git config --global user.name 'Botpkgs Test User'
     git config --global user.email 'nobody@localhost'
   '';
 

@@ -6,7 +6,7 @@ READ THIS FIRST
 
 This module is for the MauiKit framework and official Maui applications. All
 available packages are listed in `callPackage ./srcs.nix`, although some are not yet
-packaged in Nixpkgs.
+packaged in Botpkgs.
 
 IF YOUR PACKAGE IS NOT LISTED IN `callPackage ./srcs.nix`, IT DOES NOT GO HERE.
 
@@ -16,7 +16,7 @@ See also `pkgs/applications/kde` as this is what this is based on.
 
 1. Update the URL in `./fetch.sh`.
 2. Run `callPackage ./maintainers/scripts/fetch-kde-qt.sh pkgs/applications/maui`
-   from the top of the Nixpkgs tree.
+   from the top of the Botpkgs tree.
 3. Use `nixpkgs-review wip` to check that everything builds.
 4. Commit the changes and open a pull request.
 

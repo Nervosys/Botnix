@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
 
   preConfigure = let
     # The contents of this file comes from the Jamtop file from the
-    # root of the ArgyllCMS distribution, rewritten to pick up Nixpkgs
+    # root of the ArgyllCMS distribution, rewritten to pick up Botpkgs
     # library paths. When ArgyllCMS is updated, make sure that changes
     # in that file is reflected here.
     jamTop = writeText "argyllcms_jamtop" ''

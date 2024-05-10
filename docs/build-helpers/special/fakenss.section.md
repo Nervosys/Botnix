@@ -13,7 +13,7 @@ If you need that to be available, see [`dockerTools.binSh`](#sssec-pkgs-dockerTo
 
 ## Inputs {#sec-fakeNss-inputs}
 
-`fakeNss` is made available in Nixpkgs as a package rather than a function, but it has two attributes that can be overridden and might be useful in particular cases.
+`fakeNss` is made available in Botpkgs as a package rather than a function, but it has two attributes that can be overridden and might be useful in particular cases.
 For more details on how overriding works, see [](#ex-fakeNss-overriding) and [](#sec-pkg-override).
 
 `extraPasswdLines` (List of Strings; _optional_)

@@ -9,7 +9,7 @@ FIXME: This script doesn't update patched lldb. Please manually check branches
 of https://github.com/vadimcn/llvm-project and update lldb with correct version of LLVM.
 "
 
-# Ideally, nixpkgs points to default.nix file of Nixpkgs official tree
+# Ideally, nixpkgs points to default.nix file of Botpkgs official tree
 nixpkgs=../../../../../..
 nixFile=./default.nix
 owner=vadimcn

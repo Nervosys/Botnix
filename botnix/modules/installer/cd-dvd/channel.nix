@@ -12,7 +12,7 @@ let
   # `self.outPath` directly instead.
   nixpkgs = lib.cleanSource pkgs.path;
 
-  # We need a copy of the Nix expressions for Nixpkgs and Botnix on the
+  # We need a copy of the Nix expressions for Botpkgs and Botnix on the
   # CD.  These are installed into the "botnix" channel of the root
   # user, as expected by botnix-rebuild/botnix-install. FIXME: merge
   # with make-channel.nix.
@@ -34,7 +34,7 @@ let
 in
 
 {
-  options.system.installer.channel.enable = (lib.mkEnableOption "bundling Botnix/Nixpkgs channel in the installer") // { default = true; };
+  options.system.installer.channel.enable = (lib.mkEnableOption "bundling Botnix/Botpkgs channel in the installer") // { default = true; };
   config = lib.mkIf config.system.installer.channel.enable {
     # Pin the nixpkgs flake in the installer to our cleaned up nixpkgs source.
     # FIXME: this might be surprising and is really only needed for offline installations,
@@ -44,12 +44,12 @@ in
       path = "${channelSources}/botnix";
     };
 
-    # Provide the Botnix/Nixpkgs sources in /etc/botnix.  This is required
+    # Provide the Botnix/Botpkgs sources in /etc/botnix.  This is required
     # for botnix-install.
     boot.postBootCommands = lib.mkAfter
       ''
         if ! [ -e /var/lib/botnix/did-channel-init ]; then
-          echo "unpacking the Botnix/Nixpkgs sources..."
+          echo "unpacking the Botnix/Botpkgs sources..."
           mkdir -p /nix/var/nix/profiles/per-user/root
           ${config.nix.package.out}/bin/nix-env -p /nix/var/nix/profiles/per-user/root/channels \
             -i ${channelSources} --quiet --option build-use-substitutes false \

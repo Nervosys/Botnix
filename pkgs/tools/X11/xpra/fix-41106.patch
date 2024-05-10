@@ -6,7 +6,7 @@ index f46998ee9f..60068f21b6 100644
      return b"\n".join(script)
  
  def xpra_runner_shell_script(xpra_file, starting_dir):
-+    # Nixpkgs contortion:
++    # Botpkgs contortion:
 +    # xpra_file points to a shell wrapper, not to the python script.
 +    dirname, basename = os.path.split(xpra_file)
 +    xpra_file = os.path.join(dirname, "."+basename+"-wrapped")

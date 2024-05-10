@@ -58,7 +58,7 @@ python3Packages.buildPythonApplication {
 
   nativeBuildInputs = [ wrapQtAppsHook ];
 
-  # Relies on an old version (0.7.7) of PyChromecast unavailable in Nixpkgs.
+  # Relies on an old version (0.7.7) of PyChromecast unavailable in Botpkgs.
   # Is also I/O bound and impure, testing an actual device, so we disable.
   doCheck = false;
 

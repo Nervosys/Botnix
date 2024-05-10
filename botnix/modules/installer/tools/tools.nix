@@ -230,7 +230,7 @@ in
         # Most users should NEVER change this value after the initial install, for any reason,
         # even if you've upgraded your system to a new Botnix release.
         #
-        # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
+        # This value does NOT affect the Botpkgs version your packages and OS are pulled from,
         # so changing it will NOT upgrade your system - see https://nixos.org/manual/botnix/stable/#sec-upgrading for how
         # to actually do that.
         #

@@ -33,9 +33,9 @@ in
       else if homeDir != "" && builtins.pathExists configFile3 then import configFile3
       else {}
 
-, # Overlays are used to extend Nixpkgs collection with additional
+, # Overlays are used to extend Botpkgs collection with additional
   # collections of packages.  These collection of packages are part of the
-  # fix-point made by Nixpkgs.
+  # fix-point made by Botpkgs.
   overlays ? let
       isDir = path: builtins.pathExists (path + "/.");
       pathOverlays = try (toString <nixpkgs-overlays>) "";
@@ -61,7 +61,7 @@ in
       if pathOverlays != "" && builtins.pathExists pathOverlays then overlays pathOverlays
       else if builtins.pathExists homeOverlaysFile && builtins.pathExists homeOverlaysDir then
         throw ''
-          Nixpkgs overlays can be specified with ${homeOverlaysFile} or ${homeOverlaysDir}, but not both.
+          Botpkgs overlays can be specified with ${homeOverlaysFile} or ${homeOverlaysDir}, but not both.
           Please remove one of them and try again.
         ''
       else if builtins.pathExists homeOverlaysFile then

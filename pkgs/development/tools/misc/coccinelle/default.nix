@@ -80,7 +80,7 @@ stdenv.mkDerivation rec {
   strictDeps = true;
 
   postPatch = ''
-    # Ensure dependencies from Nixpkgs are picked up.
+    # Ensure dependencies from Botpkgs are picked up.
     rm -rf bundles/
   '';
 

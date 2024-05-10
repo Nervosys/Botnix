@@ -20,7 +20,7 @@ let
     if include-overlays == false then
       { overlays = []; }
     else if include-overlays == true then
-      { } # Let Nixpkgs include overlays impurely.
+      { } # Let Botpkgs include overlays impurely.
     else { overlays = include-overlays; }
   );
 

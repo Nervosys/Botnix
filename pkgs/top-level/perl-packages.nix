@@ -3014,7 +3014,7 @@ with self; {
       hash = "sha256-5jpH80y0P3+87GdYyaVCiAGOOIAjZTYYkLKjTfCKWyI=";
     };
     patches = [
-      # See Nixpkgs issues #16074 and #17624
+      # See Botpkgs issues #16074 and #17624
       ../development/perl-modules/CatalystXScriptServerStarman-fork-arg.patch
     ];
     buildInputs = [ TestWWWMechanizeCatalyst ];
@@ -21806,7 +21806,7 @@ with self; {
       homepage = "https://github.com/kazeburo/POSIX-strftime-Compiler";
       license = with lib.licenses; [ artistic1 gpl1Plus ];
       broken = stdenv.hostPlatform.isMusl; # Broken for Musl at 2023-01-14, reports:
-               # Nixpkgs: https://github.com/nervosys/Botnix/issues/210749
+               # Botpkgs: https://github.com/nervosys/Botnix/issues/210749
                # Upstream: https://github.com/kazeburo/POSIX-strftime-Compiler/issues/8
     };
   };

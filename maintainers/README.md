@@ -1,4 +1,4 @@
-# Nixpkgs Maintainers
+# Botpkgs Maintainers
 
 Unlike other packaging ecosystems, the maintainer doesn't have exclusive
 control over the packages and modules they maintain. This more fluid approach
@@ -34,7 +34,7 @@ the changes. This can happen for example if the maintainer was on holiday.
 ### How to become a maintainer
 
 We encourage people who care about a package to assign themselves as a
-maintainer. Commit access to the Nixpkgs repository is not required for that.
+maintainer. Commit access to the Botpkgs repository is not required for that.
 
 In order to do so, add yourself to the
 [`maintainer-list.nix`](./maintainer-list.nix), and then to the desired
@@ -43,7 +43,7 @@ package's `meta.maintainers` list, and send a PR with the changes.
 ### How to lose maintainer status
 
 Maintainers who have become inactive on a given package can be removed. This
-helps us keep an accurate view of the state of maintenance in Nixpkgs.
+helps us keep an accurate view of the state of maintenance in Botpkgs.
 
 The inactivity measure is currently not strictly enforced. We would typically
 look at it if we notice that the author hasn't reacted to package-related

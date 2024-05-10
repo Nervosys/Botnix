@@ -73,11 +73,11 @@ let
         improves backward compatibity, easing updates.
 
         The only reason to disable aliases is for continuous
-        integration purposes. For instance, Nixpkgs should
+        integration purposes. For instance, Botpkgs should
         not depend on aliases in its internal code. Projects
-        that aren't Nixpkgs should be cautious of instantly
+        that aren't Botpkgs should be cautious of instantly
         removing all usages of aliases, as migrating too soon
-        can break compatibility with the stable Nixpkgs releases.
+        can break compatibility with the stable Botpkgs releases.
       '';
     };
 
@@ -167,7 +167,7 @@ in {
 
   config = {
     warnings = lib.optionals config.warnUndeclaredOptions (
-      lib.mapAttrsToList (k: v: "undeclared Nixpkgs option set: config.${k}") config._undeclared or {}
+      lib.mapAttrsToList (k: v: "undeclared Botpkgs option set: config.${k}") config._undeclared or {}
     );
   };
 

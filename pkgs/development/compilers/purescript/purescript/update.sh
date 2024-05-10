@@ -10,7 +10,7 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 purescript_derivation_file="${script_dir}/default.nix"
 
-# This is the current revision of PureScript in Nixpkgs.
+# This is the current revision of PureScript in Botpkgs.
 old_version="$(sed -En 's/.*\bversion = "(.*?)".*/\1/p' "$purescript_derivation_file")"
 
 # This is the latest release version of PureScript on GitHub.

@@ -82,7 +82,7 @@ import ./make-test-python.nix ({ pkgs, ... }: {
       jmtpfs = {
         # jmtpfsTest:
         # 1. Mounts the device on a dir named `phone` using jmtpfs
-        # 2. Puts the current Nixpkgs libmtp version into a file
+        # 2. Puts the current Botpkgs libmtp version into a file
         # 3. Checks for corruption with `diff`
         # 4. Prints the directory tree
         jmtpfsTest = pkgs.writeScript "jmtpfsTest.sh" ''

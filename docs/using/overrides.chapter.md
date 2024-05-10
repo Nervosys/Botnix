@@ -2,7 +2,7 @@
 
 Sometimes one wants to override parts of `nixpkgs`, e.g. derivation attributes, the results of derivations.
 
-These functions are used to make changes to packages, returning only single packages. [Overlays](#chap-overlays), on the other hand, can be used to combine the overridden packages across the entire package set of Nixpkgs.
+These functions are used to make changes to packages, returning only single packages. [Overlays](#chap-overlays), on the other hand, can be used to combine the overridden packages across the entire package set of Botpkgs.
 
 ## &lt;pkg&gt;.override {#sec-pkg-override}
 
@@ -79,7 +79,7 @@ You should prefer `overrideAttrs` in almost all cases, see its documentation for
 :::
 
 ::: {.warning}
-Do not use this function in Nixpkgs as it evaluates a derivation before modifying it, which breaks package abstraction. In addition, this evaluation-per-function application incurs a performance penalty, which can become a problem if many overrides are used. It is only intended for ad-hoc customisation, such as in `~/.config/nixpkgs/config.nix`.
+Do not use this function in Botpkgs as it evaluates a derivation before modifying it, which breaks package abstraction. In addition, this evaluation-per-function application incurs a performance penalty, which can become a problem if many overrides are used. It is only intended for ad-hoc customisation, such as in `~/.config/nixpkgs/config.nix`.
 :::
 
 The function `overrideDerivation` creates a new derivation based on an existing one by overriding the original's attributes with the attribute set produced by the specified function. This function is available on all derivations defined using the `makeOverridable` function. Most standard derivation-producing functions, such as `stdenv.mkDerivation`, are defined using this function, which means most packages in the nixpkgs expression, `pkgs`, have this function.

@@ -23,7 +23,7 @@ rev=$(<"$nixpkgs/.git-revision")
 trace -e "Git revision of channel $channel is \e[34m$rev\e[0m"
 
 trace -n "Fetching the prebuilt version of nixpkgs-check-by-name for $CI_SYSTEM.. "
-# This is the architecture used by CI, we want to prefetch the exact path to avoid having to evaluate Nixpkgs
+# This is the architecture used by CI, we want to prefetch the exact path to avoid having to evaluate Botpkgs
 ci_path=$(nix-build --no-out-link "$nixpkgs" \
     -A tests.nixpkgs-check-by-name \
     --arg config '{}' \

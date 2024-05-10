@@ -80,7 +80,7 @@ with pkgs;
   gccStdenvNoLibs = mkStdenvNoLibs gccStdenv;
   clangStdenvNoLibs = mkStdenvNoLibs clangStdenv;
 
-  # For convenience, allow callers to get the path to Nixpkgs.
+  # For convenience, allow callers to get the path to Botpkgs.
   path = ../..;
 
   ### Helper functions.
@@ -102,11 +102,11 @@ with pkgs;
 
   stringsWithDeps = lib.stringsWithDeps;
 
-  ### Evaluating the entire Nixpkgs naively will fail, make failure fast
+  ### Evaluating the entire Botpkgs naively will fail, make failure fast
   AAAAAASomeThingsFailToEvaluate = throw ''
     Please be informed that this pseudo-package is not the only part
-    of Nixpkgs that fails to evaluate. You should not evaluate
-    entire Nixpkgs without some special measures to handle failing
+    of Botpkgs that fails to evaluate. You should not evaluate
+    entire Botpkgs without some special measures to handle failing
     packages, like using pkgs/top-level/release-attrpaths.nix.
   '';
 
@@ -118,7 +118,7 @@ with pkgs;
       import ./pkg-config/defaultPkgConfigPackages.nix pkgs
     ) // { __attrsFailEvaluation = true; };
 
-  ### Nixpkgs maintainer tools
+  ### Botpkgs maintainer tools
 
   nix-generate-from-cpan = callPackage ../../maintainers/scripts/nix-generate-from-cpan.nix { };
 
@@ -17741,7 +17741,7 @@ with pkgs;
   pypy3 = pypy39;
 
   # Python interpreter that is build with all modules, including tkinter.
-  # These are for compatibility and should not be used inside Nixpkgs.
+  # These are for compatibility and should not be used inside Botpkgs.
   python2Full = python2.override {
     self = python2Full;
     pythonAttr = "python2Full";
@@ -40430,7 +40430,7 @@ with pkgs;
   nixops_unstable = callPackage ../applications/networking/cluster/nixops { };
 
   /*
-    Evaluate a Botnix configuration using this evaluation of Nixpkgs.
+    Evaluate a Botnix configuration using this evaluation of Botpkgs.
 
     With this function you can write, for example, a package that
     depends on a custom virtual machine image.
@@ -40479,7 +40479,7 @@ with pkgs;
     For more information about writing Botnix modules, see
     https://nixos.org/botnix/manual/index.html#sec-writing-modules
 
-    Note that you will need to have called Nixpkgs with the system
+    Note that you will need to have called Botpkgs with the system
     parameter set to the right value for your deployment target.
   */
   botnix =

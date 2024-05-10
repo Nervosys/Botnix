@@ -41,7 +41,7 @@ Finally, replace `tlpdb.nix` with the generated file. Note that if the
 `00texlive.config` package), TeX Live packages will not evaluate.
 
 The test `pkgs.tests.texlive.tlpdbNix` verifies that the file `tlpdb.nix`
-in Nixpkgs matches the one that generated from `texlive.tlpdb.xz`.
+in Botpkgs matches the one that generated from `texlive.tlpdb.xz`.
 
 ### Build packages locally and generate fix hashes
 

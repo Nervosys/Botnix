@@ -8,17 +8,17 @@ use crate::structure;
 use crate::validation::{self, Validation, Validation::Success};
 use std::collections::HashMap;
 
-/// The ratchet value for the entirety of Nixpkgs.
+/// The ratchet value for the entirety of Botpkgs.
 #[derive(Default)]
-pub struct Nixpkgs {
+pub struct Botpkgs {
     /// Sorted list of packages in package_map
     pub package_names: Vec<String>,
     /// The ratchet values for all packages
     pub package_map: HashMap<String, Package>,
 }
 
-impl Nixpkgs {
-    /// Validates the ratchet checks for Nixpkgs
+impl Botpkgs {
+    /// Validates the ratchet checks for Botpkgs
     pub fn compare(from: Self, to: Self) -> Validation<()> {
         validation::sequence_(
             // We only loop over the current attributes,
@@ -76,7 +76,7 @@ pub enum RatchetState<Ratchet: ToNixpkgsProblem> {
 
 /// A trait that can convert an attribute-specific error context into a NixpkgsProblem
 pub trait ToNixpkgsProblem {
-    /// Context relating to the Nixpkgs that is being transitioned _to_
+    /// Context relating to the Botpkgs that is being transitioned _to_
     type ToContext;
 
     /// How to convert an attribute-specific error context into a NixpkgsProblem

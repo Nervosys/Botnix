@@ -1,5 +1,5 @@
-/* This file defines the builds that constitute the Nixpkgs.
-   Everything defined here ends up in the Nixpkgs channel.  Individual
+/* This file defines the builds that constitute the Botpkgs.
+   Everything defined here ends up in the Botpkgs channel.  Individual
    jobs can be tested by running:
 
    $ nix-build pkgs/top-level/release.nix -A <jobname>.<system>
@@ -10,7 +10,7 @@
 */
 { nixpkgs ? { outPath = (import ../../lib).cleanSource ../..; revCount = 1234; shortRev = "abcdef"; revision = "0000000000000000000000000000000000000000"; }
 , officialRelease ? false
-  # The platform doubles for which we build Nixpkgs.
+  # The platform doubles for which we build Botpkgs.
 , supportedSystems ? [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ]
   # The platform triples for which we build bootstrap tools.
 , bootstrapConfigs ? [
@@ -73,7 +73,7 @@ let
 
       darwin-tested = if supportDarwin.x86_64 then pkgs.releaseTools.aggregate
         { name = "nixpkgs-darwin-${jobs.tarball.version}";
-          meta.description = "Release-critical builds for the Nixpkgs darwin channel";
+          meta.description = "Release-critical builds for the Botpkgs darwin channel";
           constituents =
             [ jobs.tarball
               jobs.cabal2nix.x86_64-darwin
@@ -122,7 +122,7 @@ let
 
       unstable = pkgs.releaseTools.aggregate
         { name = "nixpkgs-${jobs.tarball.version}";
-          meta.description = "Release-critical builds for the Nixpkgs unstable channel";
+          meta.description = "Release-critical builds for the Botpkgs unstable channel";
           constituents =
             [ jobs.tarball
               jobs.metrics

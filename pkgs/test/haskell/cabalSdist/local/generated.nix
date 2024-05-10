@@ -7,6 +7,6 @@ mkDerivation {
   isLibrary = false;
   isExecutable = true;
   executableHaskellDepends = [ base ];
-  description = "Nixpkgs test case";
+  description = "Botpkgs test case";
   license = lib.licenses.mit;
 }

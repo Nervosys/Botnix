@@ -15,7 +15,7 @@ diff -Naur meson-0.60.2-old/mesonbuild/dependencies/boost.py meson-0.60.2-new/me
 -            tmp = [x for x in tmp if x.is_dir()]
 -            tmp = [x.resolve() for x in tmp]
 -            roots += tmp
-+            # Remove such spurious, non-explicit "system" paths for Nix&Nixpkgs
++            # Remove such spurious, non-explicit "system" paths for Nix&Botpkgs
  
          self.check_and_set_roots(roots, use_system=True)
  

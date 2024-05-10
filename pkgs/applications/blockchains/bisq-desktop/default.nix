@@ -82,7 +82,7 @@ stdenv.mkDerivation rec {
 
   buildPhase = ''
     # Replace the embedded Tor binary (which is in a Tar archive)
-    # with one from Nixpkgs.
+    # with one from Botpkgs.
 
     mkdir -p native/linux/x64/
     cp ${bisq-tor} ./tor

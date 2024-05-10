@@ -18,7 +18,7 @@ let
           sys == elaborate (toLosslessStringMaybe sys)
 
     NOTE: This property is not guaranteed when `sys` was elaborated by a different
-          version of Nixpkgs.
+          version of Botpkgs.
   */
   toLosslessStringMaybe = sys:
     if lib.isString sys then sys

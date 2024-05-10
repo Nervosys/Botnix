@@ -49,8 +49,8 @@ mkDerivation rec {
   ];
 
   preConfigure = ''
-    export _QV2RAY_BUILD_INFO_="Qv2ray Nixpkgs"
-    export _QV2RAY_BUILD_EXTRA_INFO_="(Nixpkgs build) nixpkgs"
+    export _QV2RAY_BUILD_INFO_="Qv2ray Botpkgs"
+    export _QV2RAY_BUILD_EXTRA_INFO_="(Botpkgs build) nixpkgs"
   '';
 
   buildInputs = [

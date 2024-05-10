@@ -55,7 +55,7 @@ buildPythonPackage rec {
   ];
 
   disabledTests = [
-    # Test requires an update as later cattrs is present in Nixpkgs
+    # Test requires an update as later cattrs is present in Botpkgs
     # https://github.com/daltonmaag/statmake/issues/42
     "test_load_stylespace_broken_range"
   ];

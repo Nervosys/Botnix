@@ -15,11 +15,11 @@ sub showHelp {
     print <<EOF;
 Usage: $0 [--package=NAME] [--maintainer=REGEXP] [--file=PATH]
 
-Check Nixpkgs for common errors/problems.
+Check Botpkgs for common errors/problems.
 
   -p, --package        filter packages by name (default is ‘*’)
   -m, --maintainer     filter packages by maintainer (case-insensitive regexp)
-  -f, --file           path to Nixpkgs (default is ‘<nixpkgs>’)
+  -f, --file           path to Botpkgs (default is ‘<nixpkgs>’)
 
 Examples:
   \$ nixpkgs-lint -f /my/nixpkgs -p firefox
@@ -34,7 +34,7 @@ GetOptions("package|p=s" => \$filter,
            "help" => sub { showHelp() }
     ) or exit 1;
 
-# Evaluate Nixpkgs into an XML representation.
+# Evaluate Botpkgs into an XML representation.
 my $xml = `nix-env -f '$path' --arg overlays '[]' -qa '$filter' --xml --meta --drv-path`;
 die "$0: evaluation of ‘$path’ failed\n" if $? != 0;
 

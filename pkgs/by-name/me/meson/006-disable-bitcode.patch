@@ -18,7 +18,7 @@
  
      def bitcode_args(self) -> T.List[str]:
 -        return self._apply_prefix('-bitcode_bundle')
-+        raise MesonException('Nixpkgs cctools does not support bitcode bundles')
++        raise MesonException('Botpkgs cctools does not support bitcode bundles')
  
      def fatal_warnings(self) -> T.List[str]:
          return self._apply_prefix('-fatal_warnings')

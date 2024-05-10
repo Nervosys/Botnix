@@ -1,7 +1,7 @@
 # Name-based package directories
 
 The structure of this directory maps almost directly to top-level package attributes.
-Add new top-level packages to Nixpkgs using this mechanism [whenever possible](#limitations).
+Add new top-level packages to Botpkgs using this mechanism [whenever possible](#limitations).
 
 Packages found in the name-based structure are automatically included, without needing to be added to `all-packages.nix`. However if the implicit attribute defaults need to be changed for a package, this [must still be declared in `all-packages.nix`](#changing-implicit-attribute-defaults).
 
@@ -44,7 +44,7 @@ stdenv.mkDerivation {
 
 You can also split up the package definition into more files in the same directory if necessary.
 
-Once defined, the package can be built from the Nixpkgs root directory using:
+Once defined, the package can be built from the Botpkgs root directory using:
 ```
 nix-build -A some-package
 ```

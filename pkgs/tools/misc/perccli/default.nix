@@ -15,7 +15,7 @@ stdenvNoCC.mkDerivation rec {
     url = "https://dl.dell.com/FOLDER09770976M/1/PERCCLI_7.2313.0_A14_Linux.tar.gz";
     hash = "sha256-IhclHVkdihRx5CzyO2dlOEhCon+0/HB3Fkue7MWsWnw=";
 
-    # Dell seems to block "uncommon" user-agents, such as Nixpkgs's custom one.
+    # Dell seems to block "uncommon" user-agents, such as Botpkgs's custom one.
     # 403 otherwise
     curlOptsList = [ "--user-agent" "Mozilla/5.0" ];
   };

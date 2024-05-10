@@ -71,7 +71,7 @@ stdenv.mkDerivation (finalAttrs: {
   outputBin = "dev"; # sdl-config
 
   patches = [
-    # `sdl2-config --cflags` from Nixpkgs returns include path to just SDL2.
+    # `sdl2-config --cflags` from Botpkgs returns include path to just SDL2.
     # On a normal distro this is enough for includes from all SDL2* packages to work,
     # but on Botnix they're spread across different paths.
     # This patch + the setup-hook will ensure that `sdl2-config --cflags` works correctly.

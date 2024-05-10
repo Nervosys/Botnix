@@ -151,7 +151,7 @@ entries, select the serial console boot entry.
 
 The boot process should have brought up networking (check `ip
 a`). Networking is necessary for the installer, since it will
-download lots of stuff (such as source tarballs or Nixpkgs channel
+download lots of stuff (such as source tarballs or Botpkgs channel
 binaries). It's best if you have a DHCP server on your network.
 Otherwise configure networking manually using `ifconfig`.
 

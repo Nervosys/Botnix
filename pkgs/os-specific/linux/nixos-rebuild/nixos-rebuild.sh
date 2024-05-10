@@ -334,9 +334,9 @@ nixFlakeBuild() {
 
 if [ -z "$action" ]; then showSyntax; fi
 
-# Only run shell scripts from the Nixpkgs tree if the action is
+# Only run shell scripts from the Botpkgs tree if the action is
 # "switch", "boot", or "test". With other actions (such as "build"),
-# the user may reasonably expect that no code from the Nixpkgs tree is
+# the user may reasonably expect that no code from the Botpkgs tree is
 # executed, so it's safe to run botnix-rebuild against a potentially
 # untrusted tree.
 canRun=
@@ -423,7 +423,7 @@ cleanup() {
 trap cleanup EXIT
 
 
-# Re-execute botnix-rebuild from the Nixpkgs tree.
+# Re-execute botnix-rebuild from the Botpkgs tree.
 if [[ -z $_NIXOS_REBUILD_REEXEC && -n $canRun && -z $fast ]]; then
     if [[ -z $flake ]]; then
         if p=$(runCmd nix-build --no-out-link --expr 'with import <nixpkgs/botnix> {}; config.system.build.botnix-rebuild' "${extraBuildFlags[@]}"); then
@@ -578,8 +578,8 @@ if [ "$action" = repl ]; then
 
                     - ${blue}config${reset}   All option values
                     - ${blue}options${reset}  Option data and metadata
-                    - ${blue}pkgs${reset}     Nixpkgs package set
-                    - ${blue}lib${reset}      Nixpkgs library functions
+                    - ${blue}pkgs${reset}     Botpkgs package set
+                    - ${blue}lib${reset}      Botpkgs library functions
                     - other module arguments
 
                     - ${blue}flake${reset}    Flake outputs, inputs and source info of $flake

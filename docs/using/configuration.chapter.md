@@ -77,9 +77,9 @@ The difference between a package being unsupported on some system and being brok
 
 ## Installing unfree packages {#sec-allow-unfree}
 
-All users of Nixpkgs are free software users, and many users (and developers) of Nixpkgs want to limit and tightly control their exposure to unfree software.
+All users of Botpkgs are free software users, and many users (and developers) of Botpkgs want to limit and tightly control their exposure to unfree software.
 At the same time, many users need (or want) to run some specific pieces of proprietary software.
-Nixpkgs includes some expressions for unfree software packages.
+Botpkgs includes some expressions for unfree software packages.
 By default unfree software cannot be installed and doesn’t show up in searches.
 
 There are several ways to tweak how Nix handles a package which has been marked as unfree.
@@ -220,7 +220,7 @@ Using `packageOverrides`, it is possible to manage packages declaratively. This 
 }
 ```
 
-To install it into our environment, you can just run `nix-env -iA nixpkgs.myPackages`. If you want to load the packages to be built from a working copy of `nixpkgs` you just run `nix-env -f. -iA myPackages`. To explore what's been installed, just look through `~/.nix-profile/`. You can see that a lot of stuff has been installed. Some of this stuff is useful some of it isn't. Let's tell Nixpkgs to only link the stuff that we want:
+To install it into our environment, you can just run `nix-env -iA nixpkgs.myPackages`. If you want to load the packages to be built from a working copy of `nixpkgs` you just run `nix-env -f. -iA myPackages`. To explore what's been installed, just look through `~/.nix-profile/`. You can see that a lot of stuff has been installed. Some of this stuff is useful some of it isn't. Let's tell Botpkgs to only link the stuff that we want:
 
 ```nix
 {
@@ -245,7 +245,7 @@ To install it into our environment, you can just run `nix-env -iA nixpkgs.myPack
 }
 ```
 
-`pathsToLink` tells Nixpkgs to only link the paths listed which gets rid of the extra stuff in the profile. `/bin` and `/share` are good defaults for a user environment, getting rid of the clutter. If you are running on Nix on MacOS, you may want to add another path as well, `/Applications`, that makes GUI apps available.
+`pathsToLink` tells Botpkgs to only link the paths listed which gets rid of the extra stuff in the profile. `/bin` and `/share` are good defaults for a user environment, getting rid of the clutter. If you are running on Nix on MacOS, you may want to add another path as well, `/Applications`, that makes GUI apps available.
 
 ### Getting documentation {#sec-getting-documentation}
 
@@ -369,4 +369,4 @@ Configuring GNU info is a little bit trickier than man pages. To work correctly,
 }
 ```
 
-`postBuild` tells Nixpkgs to run a command after building the environment. In this case, `install-info` adds the installed info pages to `dir` which is GNU info's default root node. Note that `texinfoInteractive` is added to the environment to give the `install-info` command.
+`postBuild` tells Botpkgs to run a command after building the environment. In this case, `install-info` adds the installed info pages to `dir` which is GNU info's default root node. Note that `texinfoInteractive` is added to the environment to give the `install-info` command.

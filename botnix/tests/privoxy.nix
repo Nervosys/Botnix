@@ -45,7 +45,7 @@ in
           text = "I've had a bad day!\n";
         };
       locations."/ads".extraConfig = ''
-        return 200 "Hot Nixpkgs PRs in your area. Click here!\n";
+        return 200 "Hot Botpkgs PRs in your area. Click here!\n";
       '';
     };
 

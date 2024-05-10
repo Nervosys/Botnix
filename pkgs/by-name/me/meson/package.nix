@@ -63,7 +63,7 @@ python3.pkgs.buildPythonApplication rec {
     # https://github.com/nervosys/Botnix/issues/86131#issuecomment-711051774
     ./005-boost-Do-not-add-system-paths-on-nix.patch
 
-    # Nixpkgs cctools does not have bitcode support.
+    # Botpkgs cctools does not have bitcode support.
     ./006-disable-bitcode.patch
   ];
 
@@ -108,7 +108,7 @@ python3.pkgs.buildPythonApplication rec {
     ''test cases/linuxlike/9 compiler checks with dependencies''
     # requires static zlib, see #66461
     ''test cases/linuxlike/14 static dynamic linkage''
-    # Nixpkgs cctools does not have bitcode support.
+    # Botpkgs cctools does not have bitcode support.
     ''test cases/osx/7 bitcode''
   ])
   ++ [
@@ -155,4 +155,4 @@ python3.pkgs.buildPythonApplication rec {
     inherit (python3.meta) platforms;
   };
 }
-# TODO: a more Nixpkgs-tailoired test suite
+# TODO: a more Botpkgs-tailoired test suite

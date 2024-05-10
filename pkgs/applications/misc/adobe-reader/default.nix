@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
   };
 
   # !!! Adobe Reader contains copies of OpenSSL, libcurl, and libicu.
-  # We should probably remove those and use the regular Nixpkgs versions.
+  # We should probably remove those and use the regular Botpkgs versions.
   libPath = lib.makeLibraryPath [ stdenv.cc.cc libX11 zlib libxml2 cups pango atk gtk2 glib gdk-pixbuf gdk-pixbuf-xlib ];
 
   passthru.mozillaPlugin = "/libexec/adobe-reader/Browser/intellinux";

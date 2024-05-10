@@ -157,7 +157,7 @@ let
   # these packages were not really meant to be installed using CMake. The
   # regular swiftpm bootstrap simply refers to the source and build
   # directories. The advantage of separate builds is that we can more easily
-  # link libs together using existing Nixpkgs infra.
+  # link libs together using existing Botpkgs infra.
   #
   # In the end, we don't expose these derivations, and they only exist during
   # the bootstrap phase. The final swiftpm derivation does not depend on them.

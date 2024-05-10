@@ -329,7 +329,7 @@ self: super: builtins.intersectAttrs super {
   # Heist's test suite requires system pandoc
   heist = addTestToolDepend pkgs.pandoc super.heist;
 
-  # Use Nixpkgs' double-conversion library
+  # Use Botpkgs' double-conversion library
   double-conversion = disableCabalFlag "embedded_double_conversion" (
     addBuildDepends [ pkgs.double-conversion ] super.double-conversion
   );
@@ -1341,7 +1341,7 @@ self: super: builtins.intersectAttrs super {
       gi-webkit2webextension
       ;
 
-  # Makes the mpi-hs package respect the choice of mpi implementation in Nixpkgs.
+  # Makes the mpi-hs package respect the choice of mpi implementation in Botpkgs.
   # Also adds required test dependencies for checks to pass
   mpi-hs =
     let validMpi = [ "openmpi" "mpich" "mvapich" ];

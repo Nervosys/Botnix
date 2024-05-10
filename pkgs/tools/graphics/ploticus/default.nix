@@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
     # Set the location of the PREFABS directory.
     ./set-prefabs-dir.patch
 
-    # Use gd from Nixpkgs instead of the vendored one.
+    # Use gd from Botpkgs instead of the vendored one.
     # This is required for non-ASCII fonts to work:
     # https://ploticus.sourceforge.net/doc/fonts.html
     ./use-gd-package.patch

@@ -126,7 +126,7 @@ let
       # path as is:
       #    ${with_build_sysroot}${native_system_header_dir}
       #
-      # Nixpkgs uses flat directory structure for both native and cross
+      # Botpkgs uses flat directory structure for both native and cross
       # cases. As a result libc headers don't get found for cross case
       # and many modern features get disabled (libssp is used instead of
       # target-specific implementations and similar). More details at:

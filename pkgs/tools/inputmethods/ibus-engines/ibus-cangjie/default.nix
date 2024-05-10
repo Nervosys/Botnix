@@ -21,7 +21,7 @@ let
   ];
 
   # Upstream builds Python packages as a part of a non-python
-  # autotools build, making it awkward to rely on Nixpkgs Python builders.
+  # autotools build, making it awkward to rely on Botpkgs Python builders.
   # Hence we manually set up PYTHONPATH.
   pythonPath = "$out/${python3.sitePackages}" + ":" + python3.pkgs.makePythonPath pythonModules;
 
@@ -54,7 +54,7 @@ stdenv.mkDerivation {
   ];
 
   # Upstream builds Python packages as a part of a non-python
-  # autotools build, making it awkward to rely on Nixpkgs Python builders.
+  # autotools build, making it awkward to rely on Botpkgs Python builders.
   postInstall = ''
     gappsWrapperArgs+=(--prefix PYTHONPATH : "${pythonPath}")
   '';

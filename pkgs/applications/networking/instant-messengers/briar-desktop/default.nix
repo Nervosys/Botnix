@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
 
   fixupPhase = ''
     # Replace the embedded Tor binary (which is in a Tar archive)
-    # with one from Nixpkgs.
+    # with one from Botpkgs.
     cp ${briar-tor} ./tor
     for arch in {aarch64,armhf,x86_64}; do
       7z a tor_linux-$arch.zip tor

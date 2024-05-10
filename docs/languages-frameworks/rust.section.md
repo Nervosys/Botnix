@@ -656,7 +656,7 @@ buildPythonPackage rec {
 ### Simple operation {#simple-operation}
 
 When run, `cargo build` produces a file called `Cargo.lock`,
-containing pinned versions of all dependencies. Nixpkgs contains a
+containing pinned versions of all dependencies. Botpkgs contains a
 tool called `crate2Nix` (`nix-shell -p crate2nix`), which can be
 used to turn a `Cargo.lock` into a Nix expression.  That Nix
 expression calls `rustc` directly (hence bypassing Cargo), and can
@@ -818,7 +818,7 @@ $ cargo test
 ## Using community maintained Rust toolchains {#using-community-maintained-rust-toolchains}
 
 ::: {.note}
-The following projects cannot be used within Nixpkgs since [Import From Derivation](https://nixos.org/manual/nix/unstable/language/import-from-derivation) (IFD) is disallowed in Nixpkgs.
+The following projects cannot be used within Botpkgs since [Import From Derivation](https://nixos.org/manual/nix/unstable/language/import-from-derivation) (IFD) is disallowed in Botpkgs.
 To package things that require Rust nightly, `RUSTC_BOOTSTRAP = true;` can sometimes be used as a hack.
 :::
 
@@ -946,7 +946,7 @@ and cross compilation in its [Examples](https://github.com/nix-community/fenix#e
 Sometimes an upgrade of the Rust compiler (`rustc`) will break a
 downstream package.  In these situations, being able to `git bisect`
 the `rustc` version history to find the offending commit is quite
-useful.  Nixpkgs makes it easy to do this.
+useful.  Botpkgs makes it easy to do this.
 
 First, roll back your nixpkgs to a commit in which its `rustc` used
 *the most recent one which doesn't have the problem.*  You'll need

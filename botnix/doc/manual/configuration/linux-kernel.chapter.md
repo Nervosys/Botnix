@@ -84,7 +84,7 @@ available parameters, run `sysctl -a`.
 
 ## Building a custom kernel {#sec-linux-config-customizing}
 
-Please refer to the Nixpkgs manual for the various ways of [building a custom kernel](https://nixos.org/nixpkgs/manual#sec-linux-kernel).
+Please refer to the Botpkgs manual for the various ways of [building a custom kernel](https://nixos.org/nixpkgs/manual#sec-linux-kernel).
 
 To use your custom kernel package in your Botnix configuration, set
 
@@ -112,7 +112,7 @@ boot.kernelPatches = [
 
 ## Developing kernel modules {#sec-linux-config-developing-modules}
 
-This section was moved to the [Nixpkgs manual](https://nixos.org/nixpkgs/manual#sec-linux-kernel-developing-modules).
+This section was moved to the [Botpkgs manual](https://nixos.org/nixpkgs/manual#sec-linux-kernel-developing-modules).
 
 ## ZFS {#sec-linux-zfs}
 

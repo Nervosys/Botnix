@@ -3,7 +3,7 @@ From: Jiajie Chen <c@jia.je>
 Date: Sat, 25 Jun 2022 10:19:44 +0800
 Subject: [PATCH] Patch LDCXXSHARED for macOS along with LDSHARED
 
-In Nixpkgs, we patched distutils to respect LDCXXSHARED environment, so
+In Botpkgs, we patched distutils to respect LDCXXSHARED environment, so
 the replacement should be taken on LDCXXSHARED as well.
 ---
  cocotb_build_libs.py | 1 +

@@ -143,7 +143,7 @@ in rec {
         > $dst/options.json
 
     if grep /nixpkgs/botnix/modules $dst/options.json; then
-      echo "The manual appears to depend on the location of Nixpkgs, which is bad"
+      echo "The manual appears to depend on the location of Botpkgs, which is bad"
       echo "since this prevents sharing via the Botnix channel.  This is typically"
       echo "caused by an option default that refers to a relative path (see above"
       echo "for hints about the offending path)."

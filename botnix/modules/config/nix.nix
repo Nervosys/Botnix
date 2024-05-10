@@ -317,7 +317,7 @@ in
                 `requiredSystemFeatures` attribute.
 
                 By default, pseudo-features `botnix-test`, `benchmark`,
-                and `big-parallel` used in Nixpkgs are set, `kvm`
+                and `big-parallel` used in Botpkgs are set, `kvm`
                 is also included if it is available.
               '';
             };

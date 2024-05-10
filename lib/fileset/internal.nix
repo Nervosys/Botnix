@@ -167,7 +167,7 @@ rec {
           ${context} is a file set created from a future version of the file set library with a different internal representation:
               - Internal version of the file set: ${toString value._internalVersion}
               - Internal version of the library: ${toString _currentVersion}
-              Make sure to update your Nixpkgs to have a newer version of `lib.fileset`.''
+              Make sure to update your Botpkgs to have a newer version of `lib.fileset`.''
       else if value._internalVersion < _currentVersion then
         let
           # Get all the migration functions necessary to convert from the old to the current version

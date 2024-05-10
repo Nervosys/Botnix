@@ -88,7 +88,7 @@ in
       python tests/test.py --start-dir unit
   '';
 
-  # Nixpkgs 15.9.4.3. When using wrapGAppsHook with special derivers you can end up with double wrapped binaries.
+  # Botpkgs 15.9.4.3. When using wrapGAppsHook with special derivers you can end up with double wrapped binaries.
   dontWrapGApps = true;
   preFixup = ''
     makeWrapperArgs+=(

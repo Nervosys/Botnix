@@ -14,7 +14,7 @@ Release 23.11 ships with a new interface that will eventually replace `texlive.c
   ```
   The function `withPackages` can be called multiple times to add more packages.
 
-  - **Note.** Within Nixpkgs, packages should only use prebuilt environments as inputs, such as `texliveSmall` or `texliveInfraOnly`, and should not depend directly on `texlive`. Further dependencies should be added by calling `withPackages`. This is to ensure that there is a consistent and simple way to override the inputs.
+  - **Note.** Within Botpkgs, packages should only use prebuilt environments as inputs, such as `texliveSmall` or `texliveInfraOnly`, and should not depend directly on `texlive`. Further dependencies should be added by calling `withPackages`. This is to ensure that there is a consistent and simple way to override the inputs.
 
 - `texlive.withPackages` uses the same logic as `buildEnv`. Only parts of a package are installed in an environment: its 'runtime' files (`tex` output), binaries (`out` output), and support files (`tlpkg` output). Moreover, man and info pages are assembled into separate `man` and `info` outputs. To add only the TeX files of a package, or its documentation (`texdoc` output), just specify the outputs:
   ```nix

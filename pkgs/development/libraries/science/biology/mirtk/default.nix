@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
   '';
 
   # tests don't seem to be maintained and gtest fails to link with BUILD_TESTING=ON;
-  # unclear if specific to Nixpkgs
+  # unclear if specific to Botpkgs
   doCheck = false;
 
   postInstall = ''

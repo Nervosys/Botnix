@@ -1,12 +1,12 @@
 # Haskell {#haskell}
 
-The Haskell infrastructure in Nixpkgs has two main purposes: The primary purpose
+The Haskell infrastructure in Botpkgs has two main purposes: The primary purpose
 is to provide a Haskell compiler and build tools as well as infrastructure for
 packaging Haskell-based packages.
 
 The secondary purpose is to provide support for Haskell development environments
 including prebuilt Haskell libraries. However, in this area sacrifices have been
-made due to self-imposed restrictions in Nixpkgs, to lessen the maintenance
+made due to self-imposed restrictions in Botpkgs, to lessen the maintenance
 effort and to improve performance. (More details in the subsection
 [Limitations.](#haskell-limitations))
 
@@ -132,13 +132,13 @@ Every package set also re-exposes the GHC used to build its packages as `haskell
 We aim for a “blessed” package set which only contains one version of each
 package, like [Stackage], which is a curated set of known to be compatible
 packages. We use the version information from Stackage snapshots and extend it
-with more packages. Normally in Nixpkgs the number of building Haskell packages
+with more packages. Normally in Botpkgs the number of building Haskell packages
 is roughly two to three times the size of Stackage. For choosing the version to
 use for a certain package we use the following rules:
 
 1. By default, for `haskellPackages.foo` is the newest version of the package
 `foo` found on [Hackage](https://hackage.org), which is the central registry
-of all open source Haskell packages. Nixpkgs contains a reference to a pinned
+of all open source Haskell packages. Botpkgs contains a reference to a pinned
 Hackage snapshot, thus we use the state of Hackage as of the last time we
 updated this pin.
 2. If the [Stackage] snapshot that we use (usually the newest LTS snapshot)
@@ -540,7 +540,7 @@ Then, GHC will use those build artifacts to avoid recompiling unchanged
 modules.
 
 For more detail on how to store and use incremental build products, see
-[Gabriella Gonzalez’ blog post “Nixpkgs support for incremental Haskell
+[Gabriella Gonzalez’ blog post “Botpkgs support for incremental Haskell
 builds”.][incremental-builds] motivation behind this feature.
 
 An incremental build for [the `turtle` package][turtle] can be performed like
@@ -1165,7 +1165,7 @@ on the issue linked above.
 
 ### How to enable or disable profiling builds globally? {#haskell-faq-override-profiling}
 
-By default, Nixpkgs builds a profiling version of each Haskell library. The
+By default, Botpkgs builds a profiling version of each Haskell library. The
 exception to this rule are some platforms where it is disabled due to concerns
 over output size. You may want to…
 
@@ -1180,7 +1180,7 @@ over output size. You may want to…
 ::: {.note}
 The method described below affects the build of all libraries in the
 respective Haskell package set as well as GHC. If your choices differ from
-Nixpkgs' default for your (host) platform, you will lose the ability to
+Botpkgs' default for your (host) platform, you will lose the ability to
 substitute from the official binary cache.
 
 If you are concerned about build times and thus want to disable profiling, it
@@ -1191,9 +1191,9 @@ continuing to substitute their dependencies and GHC.
 
 Since we need to change the profiling settings for the desired Haskell package
 set _and_ GHC (as the core libraries like `base`, `filepath` etc. are bundled
-with GHC), it is recommended to use overlays for Nixpkgs to change them.
+with GHC), it is recommended to use overlays for Botpkgs to change them.
 Since the interrelated parts, i.e. the package set and GHC, are connected
-via the Nixpkgs fixpoint, we need to modify them both in a way that preserves
+via the Botpkgs fixpoint, we need to modify them both in a way that preserves
 their connection (or else we'd have to wire it up again manually). This is
 achieved by changing GHC and the package set in separate overlays to prevent
 the package set from pulling in GHC from `prev`.
@@ -1287,7 +1287,7 @@ relevant.
 
 [Stackage]: https://www.stackage.org
 [cabal-project-files]: https://cabal.readthedocs.io/en/latest/cabal-project.html
-[cabal2nix]: https://github.com/botnix/cabal2nix
+[cabal2nix]: https://github.com/nervosys/cabal2nix
 [cpphs]: https://Hackage.haskell.org/package/cpphs
 [haddock-hoogle-option]: https://haskell-haddock.readthedocs.io/en/latest/invoking.html#cmdoption-hoogle
 [haddock-hyperlinked-source-option]: https://haskell-haddock.readthedocs.io/en/latest/invoking.html#cmdoption-hyperlinked-source

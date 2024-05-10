@@ -16,7 +16,7 @@ curl=(
     --retry 3
     --disable-epsv
     --cookie-jar cookies
-    --user-agent "curl/$curlVersion Nixpkgs/$nixpkgsVersion"
+    --user-agent "curl/$curlVersion Botpkgs/$nixpkgsVersion"
 )
 
 if ! [ -f "$SSL_CERT_FILE" ]; then

@@ -537,7 +537,7 @@ whether the package is considered primarily an application, or whether it should
 be used as a library, i.e., of primary interest are the modules in
 `site-packages` that should be importable.
 
-In the Nixpkgs tree Python applications can be found throughout, depending on
+In the Botpkgs tree Python applications can be found throughout, depending on
 what they do, and are called from the main package set. Python libraries,
 however, are in separate sets, with one set per interpreter version.
 
@@ -639,7 +639,7 @@ that sets up an interpreter pointing to them. This matters much more for "big"
 modules like `pytorch` or `tensorflow`.
 
 Module names usually match their names on [pypi.org](https://pypi.org/), but
-you can use the [Nixpkgs search website](https://nixos.org/botnix/packages.html)
+you can use the [Botpkgs search website](https://nixos.org/botnix/packages.html)
 to find them as well (along with non-python packages).
 
 At this point we can create throwaway experimental Python environments with
@@ -697,7 +697,7 @@ statically linked binary, where it can be run on any machine (provided nix is
 installed) without having to assume that `numpy` is installed globally on the
 system.
 
-By default it is pulling the import checkout of Nixpkgs itself from our nix
+By default it is pulling the import checkout of Botpkgs itself from our nix
 channel, which is nice as it cache aligns with our other package builds, but we
 can make it fully reproducible by pinning the `nixpkgs` import:
 
@@ -713,7 +713,7 @@ print(f"The dot product of {a} and {b} is: {np.dot(a, b)}")
 
 This will execute with the exact same versions of Python 3.10, numpy, and system
 dependencies a year from now as it does today, because it will always use
-exactly git commit `e51209796c4262bfb8908e3d6d72302fe4e96f5f` of Nixpkgs for all
+exactly git commit `e51209796c4262bfb8908e3d6d72302fe4e96f5f` of Botpkgs for all
 of the package versions.
 
 This is also a great way to ensure the script executes identically on different
@@ -779,7 +779,7 @@ in mkShell {
 This will create a unified environment that has not just our Python interpreter
 and its Python dependencies, but also tools like `black` or `mypy` and libraries
 like `libffi` the `openssl` in scope. This is generic and can span any number of
-tools or languages across the Nixpkgs ecosystem.
+tools or languages across the Botpkgs ecosystem.
 
 ##### Installing environments globally on the system {#installing-environments-globally-on-the-system}
 
@@ -857,7 +857,7 @@ Now that you know the basics to be up and running, it is time to take a step
 back and take a deeper look at how Python packages are packaged on Nix. Then,
 we will look at how you can use development mode with your code.
 
-#### Python library packages in Nixpkgs {#python-library-packages-in-nixpkgs}
+#### Python library packages in Botpkgs {#python-library-packages-in-nixpkgs}
 
 With Nix all packages are built by functions. The main function in Nix for
 building Python libraries is [`buildPythonPackage`](#buildpythonpackage-function). Let's see how we can build the
@@ -915,14 +915,14 @@ when building the package. Since there are no tests, we rely on [`pythonImportsC
 to test whether the package can be imported. Furthermore, we specify some meta
 information. The output of the function is a derivation.
 
-An expression for `toolz` can be found in the Nixpkgs repository. As explained
+An expression for `toolz` can be found in the Botpkgs repository. As explained
 in the introduction of this Python section, a derivation of `toolz` is available
 for each interpreter version, e.g. `python311.pkgs.toolz` refers to the `toolz`
 derivation corresponding to the CPython 3.11 interpreter.
 
 The above example works when you're directly working on
-`pkgs/top-level/python-packages.nix` in the Nixpkgs repository. Often though,
-you will want to test a Nix expression outside of the Nixpkgs tree.
+`pkgs/top-level/python-packages.nix` in the Botpkgs repository. Often though,
+you will want to test a Nix expression outside of the Botpkgs tree.
 
 The following expression creates a derivation for the `toolz` package,
 and adds it along with a `numpy` package to a Python environment.
@@ -972,7 +972,7 @@ to build a Python environment, and said that we wanted to include our own
 version of `toolz`, named `my_toolz`. To introduce our own package in the scope
 of [`withPackages`](#python.withpackages-function) we used a `let` expression. You can see that we used
 `ps.numpy` to select numpy from the nixpkgs package set (`ps`). We did not take
-`toolz` from the Nixpkgs package set this time, but instead took our own version
+`toolz` from the Botpkgs package set this time, but instead took our own version
 that we introduced with the `let` expression.
 
 #### Handling dependencies {#handling-dependencies}
@@ -1317,7 +1317,7 @@ present packages (e.g. `setuptools`).
 It is common for upstream to specify a range of versions for its package
 dependencies. This makes sense, since it ensures that the package will be built
 with a subset of packages that is well tested. However, this commonly causes
-issues when packaging in Nixpkgs, because the dependencies that this package
+issues when packaging in Botpkgs, because the dependencies that this package
 may need are too new or old for the package to build correctly. We also cannot
 package multiple versions of the same package since this may cause conflicts
 in `PYTHONPATH`.
@@ -1594,7 +1594,7 @@ package `pandas` but with the new name `foo`.
 
 All packages in the package set will use the renamed package. A typical use case
 is to switch to another version of a certain package. For example, in the
-Nixpkgs repository we have multiple versions of `django` and `scipy`. In the
+Botpkgs repository we have multiple versions of `django` and `scipy`. In the
 following example we use a different version of `scipy` and create an
 environment that uses it. All packages in the Python package set will now use
 the updated `scipy` version.
@@ -1616,7 +1616,7 @@ with import <nixpkgs> {};
 
 The requested package `blaze` depends on `pandas` which itself depends on `scipy`.
 
-If you want the whole of Nixpkgs to use your modifications, then you can use
+If you want the whole of Botpkgs to use your modifications, then you can use
 `overlays` as explained in this manual. In the following example we build a
 `inkscape` using a different version of `numpy`.
 
@@ -2087,7 +2087,7 @@ the latest interpreter, and what the majority of the Python packages support.
 
 New CPython interpreters are released in October. Generally, it takes some
 time for the majority of active Python projects to support the latest stable
-interpreter. To help ease the migration for Nixpkgs users
+interpreter. To help ease the migration for Botpkgs users
 between Python interpreters the schedule below will be used:
 
 | When                | Event                                                                                       |

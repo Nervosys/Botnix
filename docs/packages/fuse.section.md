@@ -5,9 +5,9 @@ Some packages rely on
 support for additional filesystems not supported by the kernel.
 
 In general, FUSE software are primarily developed for Linux but many of them can
-also run on macOS. Nixpkgs supports FUSE packages on macOS, but it requires
+also run on macOS. Botpkgs supports FUSE packages on macOS, but it requires
 [macFUSE](https://osxfuse.github.io) to be installed outside of Nix. macFUSE
-currently isn't packaged in Nixpkgs mainly because it includes a kernel
+currently isn't packaged in Botpkgs mainly because it includes a kernel
 extension, which isn't supported by Nix outside of Botnix.
 
 If a package fails to run on macOS with an error message similar to the
@@ -32,7 +32,7 @@ on macOS if the `FUSE_USE_VERSION` macro is undefined. Many projects do define
 error at configure time because the configure script would attempt to compile
 sample FUSE programs without defining `FUSE_USE_VERSION`.
 
-There are two possible solutions for this problem in Nixpkgs:
+There are two possible solutions for this problem in Botpkgs:
 
 1. Pass `FUSE_USE_VERSION` to the configure script by adding
    `CFLAGS=-DFUSE_USE_VERSION=25` in `configureFlags`. The actual value would

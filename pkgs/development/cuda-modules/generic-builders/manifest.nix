@@ -286,7 +286,7 @@ backendStdenv.mkDerivation (
     ];
 
     # The out output leverages the same functionality which backs the `symlinkJoin` function in
-    # Nixpkgs:
+    # Botpkgs:
     # https://github.com/nervosys/Botnix/blob/d8b2a92df48f9b08d68b0132ce7adfbdbc1fbfac/pkgs/build-support/trivial-builders/default.nix#L510
     #
     # That should allow us to emulate "fat" default outputs without having to actually create them.

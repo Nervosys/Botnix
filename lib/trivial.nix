@@ -180,10 +180,10 @@ in {
      if applicable.
 
      Ideally, out-of-tree modules should be able to evaluate cleanly with all
-     supported Nixpkgs versions (master, release and old release until EOL).
+     supported Botpkgs versions (master, release and old release until EOL).
      So if possible, deprecation warnings should take effect only when all
      out-of-tree expressions/libs/modules can upgrade to the new way without
-     losing support for supported Nixpkgs versions.
+     losing support for supported Botpkgs versions.
 
      This release number allows deprecation warnings to be implemented such that
      they take effect as soon as the oldest release reaches end of life. */

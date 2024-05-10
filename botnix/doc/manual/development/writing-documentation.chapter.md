@@ -9,7 +9,7 @@ worthy contribution to the project.
 
 The sources of the [](#book-nixos-manual) are in the
 [`nixos/doc/manual`](https://github.com/nervosys/Botnix/tree/master/nixos/doc/manual)
-subdirectory of the Nixpkgs repository.
+subdirectory of the Botpkgs repository.
 
 You can quickly validate your edits with `make`:
 

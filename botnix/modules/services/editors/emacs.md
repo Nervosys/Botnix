@@ -18,7 +18,7 @@ but works equally well on a text terminal. Under
 macOS, a "Mac port" edition is available, which
 uses Apple's native GUI frameworks.
 
-Nixpkgs provides a superior environment for
+Botpkgs provides a superior environment for
 running Emacs. It's simple to create custom builds
 by overriding the default packages. Chaotic collections of Emacs Lisp code
 and extensions can be brought under control using declarative package
@@ -34,7 +34,7 @@ Emacs can be installed in the normal way for Nix (see
 
 ### The Different Releases of Emacs {#module-services-emacs-releases}
 
-Nixpkgs defines several basic Emacs packages.
+Botpkgs defines several basic Emacs packages.
 The following are attributes belonging to the {var}`pkgs` set:
 
   {var}`emacs`
@@ -49,7 +49,7 @@ The following are attributes belonging to the {var}`pkgs` set:
     feel under macOS.
 
 If those aren't suitable, then the following imitation Emacs editors are
-also available in Nixpkgs:
+also available in Botpkgs:
 [Zile](https://www.gnu.org/software/zile/),
 [mg](http://homepage.boetes.org/software/mg/),
 [Yi](http://yi-editor.github.io/),
@@ -66,14 +66,14 @@ Most extensions are gotten with the Emacs packaging system
 [Emacs Lisp Package Archive (ELPA)](https://elpa.gnu.org/),
 [MELPA](https://melpa.org/),
 [MELPA Stable](https://stable.melpa.org/), and
-[Org ELPA](http://orgmode.org/elpa.html). Nixpkgs is
+[Org ELPA](http://orgmode.org/elpa.html). Botpkgs is
 regularly updated to mirror all these archives.
 
 Under Botnix, you can continue to use
 `package-list-packages` and
 `package-install` to install packages. You can also
 declare the set of Emacs packages you need using the derivations from
-Nixpkgs. The rest of this section discusses declarative installation of
+Botpkgs. The rest of this section discusses declarative installation of
 Emacs packages through nixpkgs.
 
 The first step to declare the list of packages you want in your Emacs
@@ -199,7 +199,7 @@ https://nixos.org/nixpkgs/manual/#sec-modify-via-packageOverrides
 If you are not on Botnix or want to install this particular Emacs only for
 yourself, you can do so by putting `emacs.nix` in `~/.config/nixpkgs` and
 adding it to your {file}`~/.config/nixpkgs/config.nix` (see
-[Nixpkgs manual](https://nixos.org/nixpkgs/manual/#sec-modify-via-packageOverrides)):
+[Botpkgs manual](https://nixos.org/nixpkgs/manual/#sec-modify-via-packageOverrides)):
 ::: {.example #module-services-emacs-config-nix}
 ### Custom Emacs in `~/.config/nixpkgs/config.nix`
 
@@ -338,7 +338,7 @@ This will add the symlink
 
 ## Configuring Emacs {#module-services-emacs-configuring}
 
-If you want to only use extension packages from Nixpkgs, you can add
+If you want to only use extension packages from Botpkgs, you can add
 `(setq package-archives nil)` to your init file.
 
 After the declarative Emacs package configuration has been tested,

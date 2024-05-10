@@ -214,7 +214,7 @@ in
       message = ''
         dhcpcd with privilege separation is incompatible with chosen system malloc.
           Currently only the `libc` and `scudo` allocators are known to work.
-          To disable dhcpcd's privilege separation, overlay Nixpkgs and override dhcpcd
+          To disable dhcpcd's privilege separation, overlay Botpkgs and override dhcpcd
           to set `enablePrivSep = false`.
       '';
     } ];

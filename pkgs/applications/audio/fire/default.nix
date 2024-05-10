@@ -22,7 +22,7 @@
 }:
 
 let
-  # FetchContent replacement, check CMakeLists.txt for requested versions (Nixpkgs' Catch2 works)
+  # FetchContent replacement, check CMakeLists.txt for requested versions (Botpkgs' Catch2 works)
   readerwriterqueue = fetchFromGitHub {
     owner = "cameron314";
     repo = "readerwriterqueue";

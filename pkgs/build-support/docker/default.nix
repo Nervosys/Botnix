@@ -72,7 +72,7 @@ let
   # The OCI Image specification recommends that configurations use values listed
   # in the Go Language document for GOARCH.
   # Reference: https://github.com/opencontainers/image-spec/blob/master/config.md#properties
-  # For the mapping from Nixpkgs system parameters to GOARCH, we can reuse the
+  # For the mapping from Botpkgs system parameters to GOARCH, we can reuse the
   # mapping from the go package.
   defaultArchitecture = go.GOARCH;
 

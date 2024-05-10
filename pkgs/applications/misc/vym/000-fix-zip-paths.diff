@@ -12,7 +12,7 @@ diff -Naur source-old/src/main.cpp source-new/src/main.cpp
 -    zipToolPath = "/usr/bin/zip";
 -    unzipToolPath = "/usr/bin/unzip";
 -#endif
-+    // Nixpkgs-specific hack
++    // Botpkgs-specific hack
 +    zipToolPath = "@zipPath@";
 +    unzipToolPath = "@unzipPath@";
 +

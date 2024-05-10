@@ -1,6 +1,6 @@
 # lisp-modules {#lisp}
 
-This document describes the Nixpkgs infrastructure for building Common Lisp
+This document describes the Botpkgs infrastructure for building Common Lisp
 systems that use [ASDF](https://asdf.common-lisp.dev/) (Another System
 Definition Facility). It lives in `pkgs/development/lisp-modules`.
 
@@ -133,7 +133,7 @@ During Quicklisp import:
 - `_` in names is converted to `__` for reversibility
 
 
-## Defining packages manually inside Nixpkgs {#lisp-defining-packages-inside}
+## Defining packages manually inside Botpkgs {#lisp-defining-packages-inside}
 
 Packages that for some reason are not in Quicklisp, and so cannot be
 auto-imported, or don't work straight from the import, are defined in the
@@ -148,7 +148,7 @@ The `build-asdf-system` function is documented
 [here](#lisp-defining-packages-outside). Also, `packages.nix` is full of
 examples of how to use it.
 
-## Defining packages manually outside Nixpkgs {#lisp-defining-packages-outside}
+## Defining packages manually outside Botpkgs {#lisp-defining-packages-outside}
 
 Lisp derivations (`abcl`, `sbcl` etc.) also export the `buildASDFSystem`
 function, which is similar to `build-asdf-system` from `packages.nix`, but is
@@ -165,13 +165,13 @@ It takes the following arguments:
 - `lispLibs`: dependencies on other packages build with `buildASDFSystem`
 - `systems`: list of systems to build
 
-It can be used to define packages outside Nixpkgs, and, for example, add them
+It can be used to define packages outside Botpkgs, and, for example, add them
 into the package scope with `withOverrides`.
 
 ### Including an external package in scope {#lisp-including-external-pkg-in-scope}
 
-A package defined outside Nixpkgs using `buildASDFSystem` can be woven into the
-Nixpkgs-provided scope like this:
+A package defined outside Botpkgs using `buildASDFSystem` can be woven into the
+Botpkgs-provided scope like this:
 
 ```
 let
@@ -264,7 +264,7 @@ library-generated wrappers.
 
 Use `(load (ext:getenv "ASDF"))` instead, supplying your implementation's way of
 getting an environment variable for `ext:getenv`. This will load the
-(pre-compiled to FASL) Nixpkgs-provided version of ASDF.
+(pre-compiled to FASL) Botpkgs-provided version of ASDF.
 
 ### Loading systems {#lisp-loading-systems}
 

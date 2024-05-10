@@ -60,7 +60,7 @@
 
  4. Use `git rebase HEAD^ --onto <dest>` to rebase the patches onto the new revision we are trying to build, and fix all conflicts.
 
- 5. Use `git diff HEAD^:<project> HEAD:<project>` to get subdir diff to write back to Nixpkgs.
+ 5. Use `git diff HEAD^:<project> HEAD:<project>` to get subdir diff to write back to Botpkgs.
 
 ## Information on our current patch sets
 

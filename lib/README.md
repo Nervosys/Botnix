@@ -1,6 +1,6 @@
-# Nixpkgs lib
+# Botpkgs lib
 
-This directory contains the implementation, documentation and tests for the Nixpkgs `lib` library.
+This directory contains the implementation, documentation and tests for the Botpkgs `lib` library.
 
 ## Overview
 
@@ -19,7 +19,7 @@ This file evaluates to an attribute set containing two separate kinds of attribu
   Example: `lib.take` is an alias for `lib.lists.take`.
 
 Most files in this directory are definitions of sub-libraries, but there are a few others:
-- [`minver.nix`](minver.nix): A string of the minimum version of Nix that is required to evaluate Nixpkgs.
+- [`minver.nix`](minver.nix): A string of the minimum version of Nix that is required to evaluate Botpkgs.
 - [`tests`](tests): Tests, see [Running tests](#running-tests)
   - [`release.nix`](tests/release.nix): A derivation aggregating all tests
   - [`misc.nix`](tests/misc.nix): Evaluation unit tests for most sub-libraries
@@ -91,7 +91,7 @@ Name variables well, even if they're internal.
 The code should be as self-explanatory as possible.
 Be generous with code comments when appropriate.
 
-As a baseline, follow the [Nixpkgs code conventions](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md#code-conventions).
+As a baseline, follow the [Botpkgs code conventions](https://github.com/nervosys/Botnix/blob/master/CONTRIBUTING.md#code-conventions).
 
 ### Write efficient code
 
@@ -102,7 +102,7 @@ That said, don't optimise prematurely, especially in new code.
 ## Reference documentation
 
 Reference documentation for library functions is written above each function as a multi-line comment.
-These comments are processed using [nixdoc](https://github.com/nix-community/nixdoc) and [rendered in the Nixpkgs manual](https://nixos.org/manual/nixpkgs/stable/#chap-functions).
+These comments are processed using [nixdoc](https://github.com/nix-community/nixdoc) and [rendered in the Botpkgs manual](https://nixos.org/manual/nixpkgs/stable/#chap-functions).
 The nixdoc README describes the [comment format](https://github.com/nix-community/nixdoc#comment-format).
 
 See [doc/README.md](../doc/README.md) for how to build the manual.
@@ -140,7 +140,7 @@ fileset/tests.sh
 
 ## Commit conventions
 
-- Make sure you read about the [commit conventions](../CONTRIBUTING.md#commit-conventions) common to Nixpkgs as a whole.
+- Make sure you read about the [commit conventions](../CONTRIBUTING.md#commit-conventions) common to Botpkgs as a whole.
 
 - Format the commit messages in the following way:
 

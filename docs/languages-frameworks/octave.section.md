@@ -13,7 +13,7 @@ All Octave add-on packages are available in two ways:
 
 ## Packaging Octave Packages {#ssec-octave-packaging}
 
-Nixpkgs provides a function `buildOctavePackage`, a generic package builder function for any Octave package that complies with the Octave's current packaging format.
+Botpkgs provides a function `buildOctavePackage`, a generic package builder function for any Octave package that complies with the Octave's current packaging format.
 
 All Octave packages are defined in [pkgs/top-level/octave-packages.nix](https://github.com/nervosys/Botnix/blob/master/pkgs/top-level/octave-packages.nix) rather than `pkgs/all-packages.nix`.
 Each package is defined in their own file in the [pkgs/development/octave-modules](https://github.com/nervosys/Botnix/blob/master/pkgs/development/octave-modules) directory.

@@ -7,7 +7,7 @@ resholve is developed to enable the Nix package manager to package and integrate
 
 <!-- generated from resholve's repo; best to suggest edits there (or at least notify me) -->
 
-This will hopefully make its way into the Nixpkgs manual soon, but
+This will hopefully make its way into the Botpkgs manual soon, but
 until then I'll outline how to use the functions:
 - `resholve.mkDerivation` (formerly `resholvePackage`)
 - `resholve.writeScript` (formerly `resholveScript`)
@@ -150,19 +150,19 @@ stdenv.mkDerivation {
 `resholve.mkDerivation` maps Nix types/idioms into the flags and environment variables
 that the `resholve` CLI expects. Here's an overview:
 
-| Option | Type | Containing |
-|--------|------|------------|
-| scripts | `<list>` | scripts to resolve (`$out`-relative paths) |
-| interpreter | `"none"` `<path>` | The absolute interpreter `<path>` for the script's shebang. The special value `none` ensures there is no shebang. |
-| inputs | `<packages>` `<paths>` | A list of packages and string paths to directories/files to resolve external dependencies from. |
-| fake | `<directives>` | pretend some commands exist |
-| fix | `<directives>` | fix things we can't auto-fix/ignore |
-| keep | `<directives>` | keep things we can't auto-fix/ignore |
-| lore | `<directory>` | control nested resolution |
-| execer | `<statements>` | modify nested resolution |
-| wrapper | `<statements>` | modify nested resolution |
-| prologue | `<file>` | insert file before resolved script |
-| epilogue | `<file>` | insert file after resolved script |
+| Option      | Type                   | Containing                                                                                                        |
+| ----------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| scripts     | `<list>`               | scripts to resolve (`$out`-relative paths)                                                                        |
+| interpreter | `"none"` `<path>`      | The absolute interpreter `<path>` for the script's shebang. The special value `none` ensures there is no shebang. |
+| inputs      | `<packages>` `<paths>` | A list of packages and string paths to directories/files to resolve external dependencies from.                   |
+| fake        | `<directives>`         | pretend some commands exist                                                                                       |
+| fix         | `<directives>`         | fix things we can't auto-fix/ignore                                                                               |
+| keep        | `<directives>`         | keep things we can't auto-fix/ignore                                                                              |
+| lore        | `<directory>`          | control nested resolution                                                                                         |
+| execer      | `<statements>`         | modify nested resolution                                                                                          |
+| wrapper     | `<statements>`         | modify nested resolution                                                                                          |
+| prologue    | `<file>`               | insert file before resolved script                                                                                |
+| epilogue    | `<file>`               | insert file after resolved script                                                                                 |
 
 <!-- TODO: section below is largely custom for nixpkgs, but I would LIKE to wurst it. -->
 

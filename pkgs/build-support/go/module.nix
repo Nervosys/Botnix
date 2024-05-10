@@ -68,7 +68,7 @@ let
     inherit GO111MODULE GOTOOLCHAIN;
 
     # The following inheritence behavior is not trivial to expect, and some may
-    # argue it's not ideal. Changing it may break vendor hashes in Nixpkgs and
+    # argue it's not ideal. Changing it may break vendor hashes in Botpkgs and
     # out in the wild. In anycase, it's documented in:
     # doc/languages-frameworks/go.section.md
     prePatch = args.prePatch or "";

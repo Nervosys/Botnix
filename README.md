@@ -27,7 +27,7 @@
 
 ## Introduction
 
-`Botnix` is the first operating system (OS) and Linux distribution for multi-agent and -domain *autonomous systems*, *intelligent robotic systems*, or [*embodiment*](https://arxiv.org/abs/2103.04918) as it is known in the artificial intelligence (AI) research community. `Botnix` stands for "Robot Linux" or "Robotics Linux". **Our goal is to create the ideal OS for intelligent robotic systems in-the-wild**, built on the widely deployed and field-tested Linux kernel and the powerful Nix [software deployment model](https://edolstra.github.io/pubs/phd-thesis.pdf). `Botnix` provides the `Botpkgs` or "Bot packages" software repository, a domain-specific subset of the 80,000+ packages found in the [Nixpkgs](https://github.com/nixos/nixpkgs/) repository. `Botnix` is a single-purpose, battle-hardened variant of `Botnix` using the same declarative design. It is a production-grade OS that supports state-of-the-art research in AI for robotics.
+`Botnix` is the first operating system (OS) and Linux distribution for multi-agent and -domain *autonomous systems*, *intelligent robotic systems*, or [*embodiment*](https://arxiv.org/abs/2103.04918) as it is known in the artificial intelligence (AI) research community. `Botnix` stands for "Robot Linux" or "Robotics Linux". **Our goal is to create the ideal OS for intelligent robotic systems in-the-wild**, built on the widely deployed and field-tested Linux kernel and the powerful Nix [software deployment model](https://edolstra.github.io/pubs/phd-thesis.pdf). `Botnix` provides the `Botpkgs` or "Bot packages" software repository, a domain-specific subset of the 80,000+ packages found in the [Botpkgs](https://github.com/nixos/nixpkgs/) repository. `Botnix` is a single-purpose, battle-hardened variant of `Botnix` using the same declarative design. It is a production-grade OS that supports state-of-the-art research in AI for robotics.
 
 `Botnix` is designed with the future in mind. As a community of [Builders](https://a16z.com/its-time-to-build/), we aim to accelerate the development and deployment of AI for robotics. The `Botnix` software and community are free and open-source. We welcome contributions from all individuals, organizations, and industries. *We are grateful for your support!*
 
@@ -65,10 +65,10 @@ Below you can find documentation for Robotics Linux (`Botnix`), Robotics Package
 
 * [AutonomySim](https://nervosys.github.io/AutonomySim/) - The simulation engine for autonomous systems
 
-### Botnix, Nixpkgs, Nix
+### Botnix, Botpkgs, Nix
 
 * [Botnix Manual](https://nixos.org/nixos/manual/) - how to install, configure, and maintain a purely-functional Linux distribution
-* [Nixpkgs Manual](https://nixos.org/nixpkgs/manual/) - contributing to Nixpkgs and using programming-language-specific Nix expressions
+* [Botpkgs Manual](https://nixos.org/nixpkgs/manual/) - contributing to Botpkgs and using programming-language-specific Nix expressions
 * [Nix Manual](https://nixos.org/nix/manual/) - how to write Nix expressions (programs), and how to use Nix command line tools
 
 ## Why Botnix?
@@ -107,15 +107,15 @@ All official `Botnix` project sources are maintained at the [Botnix organization
 
 `Botnix` and `Botpkgs` are built and tested using [GitHub Actions](https://docs.github.com/en/actions).
 
-`Nixpkgs` and `Botnix` are built and tested using the `Nix`-based [Hydra](https://hydra.nixos.org/) CI/CD system.
+`Botpkgs` and `Botnix` are built and tested using the `Nix`-based [Hydra](https://hydra.nixos.org/) CI/CD system.
 
 * [Continuous package builds for unstable/master](https://hydra.nixos.org/jobset/nixos/trunk-combined)
 * [Continuous package builds for the Botnix 23.11 release](https://hydra.nixos.org/jobset/nixos/release-23.11)
 * [Tests for unstable/master](https://hydra.nixos.org/job/nixos/trunk-combined/tested#tabs-constituents)
 * [Tests for the Botnix 23.11 release](https://hydra.nixos.org/job/nixos/release-23.11/tested#tabs-constituents)
 
-Artifacts successfully built with Hydra are published to the `Nixpkgs` [https://cache.nixos.org/](cache).
-When building and testing succeed, the `Nixpkgs` expressions are distributed via [Nix channels](https://nixos.org/manual/nix/stable/package-management/channels.html).
+Artifacts successfully built with Hydra are published to the `Botpkgs` [https://cache.nixos.org/](cache).
+When building and testing succeed, the `Botpkgs` expressions are distributed via [Nix channels](https://nixos.org/manual/nix/stable/package-management/channels.html).
 
 ## Join the Community
 
@@ -125,7 +125,7 @@ For information on becoming a contributor, see the following section.
 
 ## Contributing
 
-`Botnix` implements a Linux distribution for AI and robotics based on `Botnix`, `Nixpkgs`, and `Nix`. In essence, `Botnix` and `Botpkgs` represent a paired down, domain-specific, security hardened, real-time variant of `Botnix` and `Nixpkgs` with first class support for artificial intelligence (AI) and popular robotics workflows.
+`Botnix` implements a Linux distribution for AI and robotics based on `Botnix`, `Botpkgs`, and `Nix`. In essence, `Botnix` and `Botpkgs` represent a paired down, domain-specific, security hardened, real-time variant of `Botnix` and `Botpkgs` with first class support for artificial intelligence (AI) and popular robotics workflows.
 
 Community contributions are *strongly encouraged* via GitHub Issues and Pull Requests. For more information about contributing to the project, please visit the [contributing page](https://github.com/nervosys/botnix/blob/master/CONTRIBUTING.md).
 

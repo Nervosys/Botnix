@@ -130,7 +130,7 @@ runCommand "test-botnix-rebuild-repl" {
       # Note that a length of 4 only matches e.g. "24.
       lib.strings.substring 0 4 (lib.strings.escapeNixString lib.version))}
 
-    # Make sure it's the right lib - should be the flake lib, not Nixpkgs lib.
+    # Make sure it's the right lib - should be the flake lib, not Botpkgs lib.
     expect_simple "nix-repl>"
     send "lib?nixosSystem\n"
     expect_simple "true"

@@ -245,7 +245,7 @@ impure-cmds // appleSourcePackages // chooseLibs // {
             ../../botnix/modules/profiles/macos-builder.nix
           ] ++ modules;
 
-          # If you need to override this, consider starting with the right Nixpkgs
+          # If you need to override this, consider starting with the right Botpkgs
           # in the first place, ie change `pkgs` in `pkgs.darwin.linux-builder`.
           # or if you're creating new wiring that's not `pkgs`-centric, perhaps use the
           # macos-builder profile directly.

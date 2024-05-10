@@ -14,7 +14,7 @@ with lib;
       # /etc/botnix/configuration.nix.
       ./clone-config.nix
 
-      # Include a copy of Nixpkgs so that botnix-install works out of
+      # Include a copy of Botpkgs so that botnix-install works out of
       # the box.
       ../installer/cd-dvd/channel.nix
     ];

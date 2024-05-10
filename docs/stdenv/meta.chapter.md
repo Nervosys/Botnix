@@ -191,7 +191,7 @@ To be effective, it must be presented directly to an evaluation process that han
 
 ### `hydraPlatforms` {#var-meta-hydraPlatforms}
 
-The list of Nix platform types for which the [Hydra](https://github.com/botnix/hydra) [instance at `hydra.botnix.org`](https://nixos.org/hydra) will build the package. (Hydra is the Nix-based continuous build system.) It defaults to the value of `meta.platforms`. Thus, the only reason to set `meta.hydraPlatforms` is if you want `hydra.botnix.org` to build the package on a subset of `meta.platforms`, or not at all, e.g.
+The list of Nix platform types for which the [Hydra](https://github.com/nervosys/hydra) [instance at `hydra.botnix.org`](https://nixos.org/hydra) will build the package. (Hydra is the Nix-based continuous build system.) It defaults to the value of `meta.platforms`. Thus, the only reason to set `meta.hydraPlatforms` is if you want `hydra.botnix.org` to build the package on a subset of `meta.platforms`, or not at all, e.g.
 
 ```nix
 meta.platforms = lib.platforms.linux;
@@ -201,7 +201,7 @@ meta.hydraPlatforms = [];
 ### `broken` {#var-meta-broken}
 
 If set to `true`, the package is marked as "broken", meaning that it won’t show up in [search.botnix.org](https://search.botnix.org/packages), and cannot be built or installed unless the environment variable [`NIXPKGS_ALLOW_BROKEN`](#opt-allowBroken) is set.
-Such unconditionally-broken packages should be removed from Nixpkgs eventually unless they are fixed.
+Such unconditionally-broken packages should be removed from Botpkgs eventually unless they are fixed.
 
 The value of this attribute can depend on a package's arguments, including `stdenv`.
 This means that `broken` can be used to express constraints, for example:
@@ -233,13 +233,13 @@ Catch-all for free software licenses not listed above.
 
 ### `lib.licenses.unfreeRedistributable`, `"unfree-redistributable"` {#lib.licenses.unfreeredistributable-unfree-redistributable}
 
-Unfree package that can be redistributed in binary form. That is, it’s legal to redistribute the *output* of the derivation. This means that the package can be included in the Nixpkgs channel.
+Unfree package that can be redistributed in binary form. That is, it’s legal to redistribute the *output* of the derivation. This means that the package can be included in the Botpkgs channel.
 
-Sometimes proprietary software can only be redistributed unmodified. Make sure the builder doesn’t actually modify the original binaries; otherwise we’re breaking the license. For instance, the NVIDIA X11 drivers can be redistributed unmodified, but our builder applies `patchelf` to make them work. Thus, its license is `"unfree"` and it cannot be included in the Nixpkgs channel.
+Sometimes proprietary software can only be redistributed unmodified. Make sure the builder doesn’t actually modify the original binaries; otherwise we’re breaking the license. For instance, the NVIDIA X11 drivers can be redistributed unmodified, but our builder applies `patchelf` to make them work. Thus, its license is `"unfree"` and it cannot be included in the Botpkgs channel.
 
 ### `lib.licenses.unfree`, `"unfree"` {#lib.licenses.unfree-unfree}
 
-Unfree package that cannot be redistributed. You can build it yourself, but you cannot redistribute the output of the derivation. Thus it cannot be included in the Nixpkgs channel.
+Unfree package that cannot be redistributed. You can build it yourself, but you cannot redistribute the output of the derivation. Thus it cannot be included in the Botpkgs channel.
 
 ### `lib.licenses.unfreeRedistributableFirmware`, `"unfree-redistributable-firmware"` {#lib.licenses.unfreeredistributablefirmware-unfree-redistributable-firmware}
 

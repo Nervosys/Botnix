@@ -7,7 +7,7 @@ index a875c3a4..0411d047 100644
        cpp_pipe = 0;
  
 -      if (dash)
-+      /* Nixpkgs specific : look first at the prefixed path
++      /* Botpkgs specific : look first at the prefixed path
 +        ( there should be no gcc in the binutils folder ) */
 +      if (slash && dash) {
 +        cpp_pipe = look_for_default(cmd, slash + 1, dash - slash, preprocargs, filename);

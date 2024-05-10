@@ -1,18 +1,18 @@
 # Fetchers {#chap-pkgs-fetchers}
 
 Building software with Nix often requires downloading source code and other files from the internet.
-To this end, Nixpkgs provides *fetchers*: functions to obtain remote sources via various protocols and services.
+To this end, Botpkgs provides *fetchers*: functions to obtain remote sources via various protocols and services.
 
-Nixpkgs fetchers differ from built-in fetchers such as [`builtins.fetchTarball`](https://nixos.org/manual/nix/stable/language/builtins.html#builtins-fetchTarball):
+Botpkgs fetchers differ from built-in fetchers such as [`builtins.fetchTarball`](https://nixos.org/manual/nix/stable/language/builtins.html#builtins-fetchTarball):
 - A built-in fetcher will download and cache files at evaluation time and produce a [store path](https://nixos.org/manual/nix/stable/glossary#gloss-store-path).
-  A Nixpkgs fetcher will create a ([fixed-output](https://nixos.org/manual/nix/stable/glossary#gloss-fixed-output-derivation)) [derivation](https://nixos.org/manual/nix/stable/language/derivations), and files are downloaded at build time.
+  A Botpkgs fetcher will create a ([fixed-output](https://nixos.org/manual/nix/stable/glossary#gloss-fixed-output-derivation)) [derivation](https://nixos.org/manual/nix/stable/language/derivations), and files are downloaded at build time.
 - Built-in fetchers will invalidate their cache after [`tarball-ttl`](https://nixos.org/manual/nix/stable/command-ref/conf-file#conf-tarball-ttl) expires, and will require network activity to check if the cache entry is up to date.
-  Nixpkgs fetchers only re-download if the specified hash changes or the store object is not otherwise available.
+  Botpkgs fetchers only re-download if the specified hash changes or the store object is not otherwise available.
 - Built-in fetchers do not use [substituters](https://nixos.org/manual/nix/stable/command-ref/conf-file#conf-substituters).
-  Derivations produced by Nixpkgs fetchers will use any configured binary cache transparently.
+  Derivations produced by Botpkgs fetchers will use any configured binary cache transparently.
 
-This significantly reduces the time needed to evaluate the entirety of Nixpkgs, and allows [Hydra](https://nixos.org/hydra) to retain and re-distribute sources used by Nixpkgs in the [public binary cache](https://cache.botnix.org).
-For these reasons, built-in fetchers are not allowed in Nixpkgs source code.
+This significantly reduces the time needed to evaluate the entirety of Botpkgs, and allows [Hydra](https://nixos.org/hydra) to retain and re-distribute sources used by Botpkgs in the [public binary cache](https://cache.botnix.org).
+For these reasons, built-in fetchers are not allowed in Botpkgs source code.
 
 The following table shows an overview of the differences:
 
@@ -64,7 +64,7 @@ A similar problem arises while testing changes to a fetcher's implementation. If
 
 ## `fetchurl` and `fetchzip` {#fetchurl}
 
-Two basic fetchers are `fetchurl` and `fetchzip`. Both of these have two required arguments, a URL and a hash. The hash is typically `hash`, although many more hash algorithms are supported. Nixpkgs contributors are currently recommended to use `hash`. This hash will be used by Nix to identify your source. A typical usage of `fetchurl` is provided below.
+Two basic fetchers are `fetchurl` and `fetchzip`. Both of these have two required arguments, a URL and a hash. The hash is typically `hash`, although many more hash algorithms are supported. Botpkgs contributors are currently recommended to use `hash`. This hash will be used by Nix to identify your source. A typical usage of `fetchurl` is provided below.
 
 ```nix
 { stdenv, fetchurl }:
@@ -184,7 +184,7 @@ Used with CVS. Expects `cvsRoot`, `tag`, and `hash`.
 
 Used with Mercurial. Expects `url`, `rev`, and `hash`.
 
-A number of fetcher functions wrap part of `fetchurl` and `fetchzip`. They are mainly convenience functions intended for commonly used destinations of source code in Nixpkgs. These wrapper fetchers are listed below.
+A number of fetcher functions wrap part of `fetchurl` and `fetchzip`. They are mainly convenience functions intended for commonly used destinations of source code in Botpkgs. These wrapper fetchers are listed below.
 
 ## `fetchFromGitea` {#fetchfromgitea}
 

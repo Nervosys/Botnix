@@ -97,7 +97,7 @@ let
         inherit version modDirVersion config kernelPatches configfile
           moduleBuildDependencies stdenv;
         inherit isZen isHardened isLibre withRust;
-        isXen = lib.warn "The isXen attribute is deprecated. All Nixpkgs kernels that support it now have Xen enabled." true;
+        isXen = lib.warn "The isXen attribute is deprecated. All Botpkgs kernels that support it now have Xen enabled." true;
         baseVersion = lib.head (lib.splitString "-rc" version);
         kernelOlder = lib.versionOlder baseVersion;
         kernelAtLeast = lib.versionAtLeast baseVersion;

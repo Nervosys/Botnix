@@ -5,7 +5,7 @@ use std::fmt;
 use std::io;
 use std::path::PathBuf;
 
-/// Any problem that can occur when checking Nixpkgs
+/// Any problem that can occur when checking Botpkgs
 pub enum NixpkgsProblem {
     ShardNonDir {
         relative_shard_path: PathBuf,

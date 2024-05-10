@@ -1,7 +1,7 @@
 # File set library
 
 This is the internal contributor documentation.
-The user documentation is [in the Nixpkgs manual](https://nixos.org/manual/nixpkgs/unstable/#sec-fileset).
+The user documentation is [in the Botpkgs manual](https://nixos.org/manual/nixpkgs/unstable/#sec-fileset).
 
 ## Goals
 
@@ -36,7 +36,7 @@ This is intended to be run manually and is not checked by CI.
 
 ## Internal representation
 
-The internal representation is versioned in order to allow file sets from different Nixpkgs versions to be composed with each other, see [`internal.nix`](./internal.nix) for the versions and conversions between them.
+The internal representation is versioned in order to allow file sets from different Botpkgs versions to be composed with each other, see [`internal.nix`](./internal.nix) for the versions and conversions between them.
 This section describes only the current representation, but past versions will have to be supported by the code.
 
 ### `fileset`

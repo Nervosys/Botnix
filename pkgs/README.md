@@ -1,6 +1,6 @@
-# Contributing to Nixpkgs packages
+# Contributing to Botpkgs packages
 
-This document is for people wanting to contribute specifically to the package collection in Nixpkgs.
+This document is for people wanting to contribute specifically to the package collection in Botpkgs.
 See the [CONTRIBUTING.md](../CONTRIBUTING.md) document for more general information.
 
 ## Overview
@@ -24,14 +24,14 @@ See the [CONTRIBUTING.md](../CONTRIBUTING.md) document for more general informat
 
 ## Quick Start to Adding a Package
 
-We welcome new contributors of new packages to Nixpkgs, arguably the greatest software database known. However, each new package comes with a cost for the maintainers, Continuous Integration, caching servers and users downloading Nixpkgs.
+We welcome new contributors of new packages to Botpkgs, arguably the greatest software database known. However, each new package comes with a cost for the maintainers, Continuous Integration, caching servers and users downloading Botpkgs.
 
 Before adding a new package, please consider the following questions:
 
 * Is the package ready for general use? We don't want to include projects that are too immature or are going to be abandoned immediately. In case of doubt, check with upstream.
 * Does the project have a clear license statement? Remember that software is unfree by default (all rights reserved), and merely providing access to the source code does not imply its redistribution. In case of doubt, ask upstream.
 * How realistic is it that it will be used by other people? It's good that nixpkgs caters to various niches, but if it's a niche of 5 people it's probably too small.
-* Are you willing to maintain the package? You should care enough about the package to be willing to keep it up and running for at least one complete Nixpkgs' release life-cycle.
+* Are you willing to maintain the package? You should care enough about the package to be willing to keep it up and running for at least one complete Botpkgs' release life-cycle.
 
 If any of these questions' answer is no, then you should probably not add the package.
 
@@ -41,9 +41,9 @@ Luckily it's pretty easy to maintain your own package set with Nix, which can th
 
 ---
 
-Now that this is out of the way. To add a package to Nixpkgs:
+Now that this is out of the way. To add a package to Botpkgs:
 
-1. Checkout the Nixpkgs source tree:
+1. Checkout the Botpkgs source tree:
 
    ```ShellSession
    $ git clone https://github.com/nervosys/Botnix
@@ -80,7 +80,7 @@ Now that this is out of the way. To add a package to Nixpkgs:
 
    - buildMozillaMach: [`pkgs/applications/networking/browser/firefox/common.nix`](applications/networking/browsers/firefox/common.nix). A reusable build function for Firefox, Thunderbird and Librewolf.
 
-   - JDiskReport, a Java utility: [`pkgs/tools/misc/jdiskreport/default.nix`](tools/misc/jdiskreport/default.nix). Nixpkgs doesn’t have a decent `stdenv` for Java yet so this is pretty ad-hoc.
+   - JDiskReport, a Java utility: [`pkgs/tools/misc/jdiskreport/default.nix`](tools/misc/jdiskreport/default.nix). Botpkgs doesn’t have a decent `stdenv` for Java yet so this is pretty ad-hoc.
 
    - XML::Simple, a Perl module: [`pkgs/top-level/perl-packages.nix`](top-level/perl-packages.nix) (search for the `XMLSimple` attribute). Most Perl modules are so simple to build that they are defined directly in `perl-packages.nix`; no need to make a separate file for them.
 
@@ -116,7 +116,7 @@ Now that this is out of the way. To add a package to Nixpkgs:
 
 ## Commit conventions
 
-- Make sure you read about the [commit conventions](../CONTRIBUTING.md#commit-conventions) common to Nixpkgs as a whole.
+- Make sure you read about the [commit conventions](../CONTRIBUTING.md#commit-conventions) common to Botpkgs as a whole.
 
 - Format the commit messages in the following way:
 
@@ -332,7 +332,7 @@ A (typically large) program with a distinct user interface, primarily used inter
 
 The key words _must_, _must not_, _required_, _shall_, _shall not_, _should_, _should not_, _recommended_, _may_, and _optional_ in this section are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119). Only _emphasized_ words are to be interpreted in this way.
 
-In Nixpkgs, there are generally three different names associated with a package:
+In Botpkgs, there are generally three different names associated with a package:
 
 - The `pname` attribute of the derivation. This is what most users see, in particular when using `nix-env`.
 
@@ -365,9 +365,9 @@ Example: Given a project that has no tags / released versions at all, or applies
 ## Versioning
 [versioning]: #versioning
 
-Because every version of a package in Nixpkgs creates a potential maintenance burden, old versions of a package should not be kept unless there is a good reason to do so. For instance, Nixpkgs contains several versions of GCC because other packages don’t build with the latest version of GCC. Other examples are having both the latest stable and latest pre-release version of a package, or to keep several major releases of an application that differ significantly in functionality.
+Because every version of a package in Botpkgs creates a potential maintenance burden, old versions of a package should not be kept unless there is a good reason to do so. For instance, Botpkgs contains several versions of GCC because other packages don’t build with the latest version of GCC. Other examples are having both the latest stable and latest pre-release version of a package, or to keep several major releases of an application that differ significantly in functionality.
 
-If there is only one version of a package, its Nix expression should be named `e2fsprogs/default.nix`. If there are multiple versions, this should be reflected in the filename, e.g. `e2fsprogs/1.41.8.nix` and `e2fsprogs/1.41.9.nix`. The version in the filename should leave out unnecessary detail. For instance, if we keep the latest Firefox 2.0.x and 3.5.x versions in Nixpkgs, they should be named `firefox/2.0.nix` and `firefox/3.5.nix`, respectively (which, at a given point, might contain versions `2.0.0.20` and `3.5.4`). If a version requires many auxiliary files, you can use a subdirectory for each version, e.g. `firefox/2.0/default.nix` and `firefox/3.5/default.nix`.
+If there is only one version of a package, its Nix expression should be named `e2fsprogs/default.nix`. If there are multiple versions, this should be reflected in the filename, e.g. `e2fsprogs/1.41.8.nix` and `e2fsprogs/1.41.9.nix`. The version in the filename should leave out unnecessary detail. For instance, if we keep the latest Firefox 2.0.x and 3.5.x versions in Botpkgs, they should be named `firefox/2.0.nix` and `firefox/3.5.nix`, respectively (which, at a given point, might contain versions `2.0.0.20` and `3.5.4`). If a version requires many auxiliary files, you can use a subdirectory for each version, e.g. `firefox/2.0/default.nix` and `firefox/3.5/default.nix`.
 
 All versions of a package _must_ be included in `all-packages.nix` to make sure that they evaluate correctly.
 
@@ -387,11 +387,11 @@ All versions of a package _must_ be included in `all-packages.nix` to make sure 
 * `meta.mainProgram` must be set when appropriate.
 * `meta.maintainers` must be set for new packages.
 
-See the Nixpkgs manual for more details on [standard meta-attributes](https://nixos.org/nixpkgs/manual/#sec-standard-meta-attributes).
+See the Botpkgs manual for more details on [standard meta-attributes](https://nixos.org/nixpkgs/manual/#sec-standard-meta-attributes).
 
 ### Import From Derivation
 
-[Import From Derivation](https://nixos.org/manual/nix/unstable/language/import-from-derivation) (IFD) is disallowed in Nixpkgs for performance reasons:
+[Import From Derivation](https://nixos.org/manual/nix/unstable/language/import-from-derivation) (IFD) is disallowed in Botpkgs for performance reasons:
 [Hydra](https://github.com/Botnix/hydra) evaluates the entire package set, and sequential builds during evaluation would increase evaluation times to become impractical.
 
 Import From Derivation can be worked around in some cases by committing generated intermediate files to version control and reading those instead.
@@ -455,7 +455,7 @@ Preferred source hash type is sha256. There are several ways to get it.
 
 3. Upstream provided hash: use it when upstream provides `sha256` or `sha512` (when upstream provides `md5`, don't use it, compute `sha256` instead).
 
-    A little nuance is that `nix-prefetch-*` tools produce hash encoded with `base32`, but upstream usually provides hexadecimal (`base16`) encoding. Fetchers understand both formats. Nixpkgs does not standardize on any one format.
+    A little nuance is that `nix-prefetch-*` tools produce hash encoded with `base32`, but upstream usually provides hexadecimal (`base16`) encoding. Fetchers understand both formats. Botpkgs does not standardize on any one format.
 
     You can convert between formats with nix-hash, for example:
 
@@ -545,11 +545,11 @@ There is currently no policy when to remove a package.
 
 Before removing a package, one should try to find a new maintainer or fix smaller issues first.
 
-### Steps to remove a package from Nixpkgs
+### Steps to remove a package from Botpkgs
 
 We use jbidwatcher as an example for a discontinued project here.
 
-1. Have Nixpkgs checked out locally and up to date.
+1. Have Botpkgs checked out locally and up to date.
 1. Create a new branch for your change, e.g. `git checkout -b jbidwatcher`
 1. Remove the actual package including its directory, e.g. `git rm -rf pkgs/applications/misc/jbidwatcher`
 1. Remove the package from the list of all packages (`pkgs/top-level/all-packages.nix`).
@@ -582,7 +582,7 @@ We use jbidwatcher as an example for a discontinued project here.
     ```
 
 1. Push changes to your GitHub fork with `git push`
-1. Create a pull request against Nixpkgs. Mention the package maintainer.
+1. Create a pull request against Botpkgs. Mention the package maintainer.
 
 This is how the pull request looks like in this case: [https://github.com/nervosys/Botnix/pull/116470](https://github.com/nervosys/Botnix/pull/116470)
 
@@ -820,7 +820,7 @@ Sample template for a new package review is provided below.
 Security fixes are submitted in the same way as other changes and thus the same guidelines apply.
 
 - If a new version fixing the vulnerability has been released, update the package;
-- If the security fix comes in the form of a patch and a CVE is available, then add the patch to the Nixpkgs tree, and apply it to the package.
+- If the security fix comes in the form of a patch and a CVE is available, then add the patch to the Botpkgs tree, and apply it to the package.
   The name of the patch should be the CVE identifier, so e.g. `CVE-2019-13636.patch`; If a patch is fetched the name needs to be set as well, e.g.:
 
   ```nix
@@ -839,7 +839,7 @@ Critical security fixes may by-pass the staging branches and be delivered direct
 
 #### Issues
 
-Vulnerable packages in Nixpkgs are managed using issues.
+Vulnerable packages in Botpkgs are managed using issues.
 Currently opened ones can be found using the following:
 
 [github.com/Botnix/nixpkgs/issues?q=is:issue+is:open+"Vulnerability+roundup"](https://github.com/nervosys/Botnix/issues?q=is%3Aissue+is%3Aopen+%22Vulnerability+roundup%22)
@@ -854,11 +854,11 @@ Each issue correspond to a vulnerable version of a package; As a consequence:
 A "Vulnerability roundup" issue usually respects the following format:
 
 ```txt
-<link to relevant package search on search.nix.gsc.io>, <link to relevant files in Nixpkgs on GitHub>
+<link to relevant package search on search.nix.gsc.io>, <link to relevant files in Botpkgs on GitHub>
 
 <list of related CVEs, their CVSS score, and the impacted Botnix version>
 
-<list of the scanned Nixpkgs versions>
+<list of the scanned Botpkgs versions>
 
 <list of relevant contributors>
 ```
@@ -874,7 +874,7 @@ If you find such a "false positive", comment on the issue an explanation of why 
 If you are investigating a "true positive":
 
 - Find the earliest patched version or a code patch in the CVE details;
-- Is the issue already patched (version up-to-date or patch applied manually) in Nixpkgs's `master` branch?
+- Is the issue already patched (version up-to-date or patch applied manually) in Botpkgs's `master` branch?
   - **No**:
     - [Submit a security fix][security-fixes];
     - Once the fix is merged into `master`, [submit the change to the vulnerable release branch(es)](../CONTRIBUTING.md#how-to-backport-pull-requests);

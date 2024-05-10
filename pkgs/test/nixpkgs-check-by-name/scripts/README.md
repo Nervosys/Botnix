@@ -1,6 +1,6 @@
 # CI-related Scripts
 
-This directory contains scripts and files used and related to the CI running the `pkgs/by-name` checks in Nixpkgs.
+This directory contains scripts and files used and related to the CI running the `pkgs/by-name` checks in Botpkgs.
 See also the [CI GitHub Action](../../../../.github/workflows/check-by-name.yml).
 
 ## `./run-local.sh BASE_BRANCH [REPOSITORY]`
@@ -24,13 +24,13 @@ Updates the pinned CI tool in [`./pinned-tool.json`](./pinned-tool.json) to the
 This script needs to be called manually when the CI tooling needs to be updated.
 
 The `pinned-tool.json` file gets populated with both:
-- The `/nix/store` path for `x86_64-linux`, such that CI doesn't have to evaluate Nixpkgs and can directly fetch it from the cache instead.
-- The Nixpkgs revision, such that the `./run-local.sh` script can be used to run the checks locally on any system.
+- The `/nix/store` path for `x86_64-linux`, such that CI doesn't have to evaluate Botpkgs and can directly fetch it from the cache instead.
+- The Botpkgs revision, such that the `./run-local.sh` script can be used to run the checks locally on any system.
 
 To ensure that the tool is always pre-built for `x86_64-linux` in the `botnix-unstable` channel,
 it's included in the `tested` jobset description in [`botnix/release-combined.nix`](../../../botnix/release-combined.nix).
 
-Why not just build the tooling right from the PRs Nixpkgs version?
+Why not just build the tooling right from the PRs Botpkgs version?
 - Because it allows CI to check all PRs, even if they would break the CI tooling.
 - Because it makes the CI check very fast, since no Nix builds need to be done, even for mass rebuilds.
 - Because it improves security, since we don't have to build potentially untrusted code from PRs.

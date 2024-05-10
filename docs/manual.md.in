@@ -1,4 +1,4 @@
-# Nixpkgs Reference Manual {#nixpkgs-manual}
+# Botpkgs Reference Manual {#nixpkgs-manual}
 ## Version @MANUAL_VERSION@
 
 ```{=include=} chapters

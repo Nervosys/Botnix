@@ -227,7 +227,7 @@ let
             Exactly one of the following must be true:
             - All CUDA capabilities belong to Jetson devices and hostPlatform is aarch64.
             - No CUDA capabilities belong to Jetson devices.
-            See ${./gpus.nix} for a list of architectures supported by this version of Nixpkgs.
+            See ${./gpus.nix} for a list of architectures supported by this version of Botpkgs.
           ''
           jetsonBuildSufficientCondition
         && jetsonBuildNecessaryCondition;

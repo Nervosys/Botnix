@@ -13,7 +13,7 @@ stdenv.mkDerivation {
     install -Dt $out/bin nim_builder
   '';
   meta = {
-    description = "Internal Nixpkgs utility for buildNimPackage.";
+    description = "Internal Botpkgs utility for buildNimPackage.";
     maintainers = [ lib.maintainers.ehmry ];
   };
 }

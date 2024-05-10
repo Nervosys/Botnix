@@ -179,7 +179,7 @@ in
         Most users should **never** change this value after the initial install, for any reason,
         even if you've upgraded your system to a new Botnix release.
 
-        This value does **not** affect the Nixpkgs version your packages and OS are pulled from,
+        This value does **not** affect the Botpkgs version your packages and OS are pulled from,
         so changing it will **not** upgrade your system.
 
         This value being lower than the current Botnix release does **not** mean your system is

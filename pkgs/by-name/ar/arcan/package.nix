@@ -184,7 +184,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   cmakeFlags = [
     # The upstream project recommends tagging the distribution
-    (lib.cmakeFeature "DISTR_TAG" "Nixpkgs")
+    (lib.cmakeFeature "DISTR_TAG" "Botpkgs")
     (lib.cmakeFeature "ENGINE_BUILDTAG" finalAttrs.src.rev)
     (lib.cmakeFeature "BUILD_PRESET" "everything")
     (lib.cmakeBool "BUILTIN_LUA" useBuiltinLua)

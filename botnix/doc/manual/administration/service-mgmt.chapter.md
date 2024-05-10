@@ -73,7 +73,7 @@ necessary).
 
 ## systemd in Botnix {#sect-nixos-systemd-nixos}
 
-Packages in Nixpkgs sometimes provide systemd units with them, usually
+Packages in Botpkgs sometimes provide systemd units with them, usually
 in e.g `#pkg-out#/lib/systemd/`. Putting such a package in
 `environment.systemPackages` doesn't make the service available to
 users or the system.
@@ -89,7 +89,7 @@ Usually Botnix modules written by the community do the above, plus take
 care of other details. If a module was written for a service you are
 interested in, you'd probably need only to use
 `services.#name#.enable = true;`. These services are defined in
-Nixpkgs' [ `nixos/modules/` directory
+Botpkgs' [ `nixos/modules/` directory
 ](https://github.com/nervosys/Botnix/tree/master/nixos/modules). In case
 the service is simple enough, the above method should work, and start
 the service on boot.

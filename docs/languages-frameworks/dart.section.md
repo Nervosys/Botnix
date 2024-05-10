@@ -11,7 +11,7 @@ If you are packaging a Flutter desktop application, use [`buildFlutterApplicatio
 `pubspecLock` is the parsed pubspec.lock file. pub2nix uses this to download required packages.
 This can be converted to JSON from YAML with something like `yq . pubspec.lock`, and then read by Nix.
 
-Alternatively, `autoPubspecLock` can be used instead, and set to a path to a regular `pubspec.lock` file. This relies on import-from-derivation, and is not permitted in Nixpkgs, but can be useful at other times.
+Alternatively, `autoPubspecLock` can be used instead, and set to a path to a regular `pubspec.lock` file. This relies on import-from-derivation, and is not permitted in Botpkgs, but can be useful at other times.
 
 ::: {.warning}
 When using `autoPubspecLock` with a local source directory, make sure to use a
@@ -51,7 +51,7 @@ buildDartApplication rec {
 
 Some Dart packages require patches or build environment changes. Package derivations can be customised with the `customSourceBuilders` argument.
 
-A collection of such customisations can be found in Nixpkgs, in the `development/compilers/dart/package-source-builders` directory.
+A collection of such customisations can be found in Botpkgs, in the `development/compilers/dart/package-source-builders` directory.
 
 This allows fixes for packages to be shared between all applications that use them. It is strongly recommended to add to this collection instead of including fixes in your application derivation itself.
 
@@ -61,7 +61,7 @@ Many Dart applications require executables from the `dev_dependencies` section i
 
 This can be done in `preBuild`, in one of two ways:
 
-1. Packaging the tool with `buildDartApplication`, adding it to Nixpkgs, and running it like any other application
+1. Packaging the tool with `buildDartApplication`, adding it to Botpkgs, and running it like any other application
 2. Running the tool from the package cache
 
 Of these methods, the first is recommended when using a tool that does not need

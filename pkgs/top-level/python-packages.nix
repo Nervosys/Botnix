@@ -4,7 +4,7 @@
 # Python packages that do not need to be available for each interpreter version do not belong in this packages set.
 # Examples are Python-based cli tools.
 #
-# For more details, please see the Python section in the Nixpkgs manual.
+# For more details, please see the Python section in the Botpkgs manual.
 
 self: super: with self; {
 

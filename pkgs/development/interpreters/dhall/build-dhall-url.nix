@@ -1,7 +1,7 @@
 { cacert, dhall, dhall-docs, haskell, lib, runCommand }:
 
 # `buildDhallUrl` is similar to `buildDhallDirectoryPackage` or
-# `buildDhallGitHubPackage`, but instead builds a Nixpkgs Dhall package
+# `buildDhallGitHubPackage`, but instead builds a Botpkgs Dhall package
 # based on a hashed URL.  This will generally be a URL that has an integrity
 # check in a Dhall file.
 #

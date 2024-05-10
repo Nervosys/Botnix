@@ -23,7 +23,7 @@ ekgcore_derivation_file="${script_dir}/ekg-core.nix"
 ekgjson_derivation_file="${script_dir}/ekg-json.nix"
 kritilang_derivation_file="${script_dir}/kriti-lang.nix"
 
-# TODO: get current revision of graphql-engine in Nixpkgs.
+# TODO: get current revision of graphql-engine in Botpkgs.
 # old_version="$(sed -En 's/.*\bversion = "(.*?)".*/\1/p' "$engine_derivation_file")"
 
 # This is the latest release version of graphql-engine on GitHub.

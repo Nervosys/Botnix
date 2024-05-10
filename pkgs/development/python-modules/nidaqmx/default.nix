@@ -11,7 +11,7 @@
 }:
 
 # Note we currently do not patch the path to the drivers
-# because those are not available in Nixpkgs.
+# because those are not available in Botpkgs.
 # https://github.com/nervosys/Botnix/pull/74980
 
 buildPythonPackage rec {

@@ -3,11 +3,11 @@
 [Meson](https://mesonbuild.com/) is an open source meta build system meant to be
 fast and user-friendly.
 
-In Nixpkgs, meson comes with a setup hook that overrides the configure, check,
+In Botpkgs, meson comes with a setup hook that overrides the configure, check,
 and install phases.
 
 Being a meta build system, meson needs an accompanying backend. In the context
-of Nixpkgs, the typical companion backend is [Ninja](#ninja), that provides a
+of Botpkgs, the typical companion backend is [Ninja](#ninja), that provides a
 setup hook registering ninja-based build and install phases.
 
 ## Variables controlling Meson {#meson-variables-controlling}
@@ -22,9 +22,9 @@ Controls the flags passed to `meson setup` during configure phase.
 
 Which value is passed as
 [`-Dwrap_mode=`](https://mesonbuild.com/Builtin-options.html#core-options)
-to. In Nixpkgs the default value is `nodownload`, so that no subproject will be
+to. In Botpkgs the default value is `nodownload`, so that no subproject will be
 downloaded (since network access is already disabled during deployment in
-Nixpkgs).
+Botpkgs).
 
 Note: Meson allows pre-population of subprojects that would otherwise be
 downloaded.
@@ -33,13 +33,13 @@ downloaded.
 
 Which value is passed as
 [`--buildtype`](https://mesonbuild.com/Builtin-options.html#core-options) to
-`meson setup` during configure phase. In Nixpkgs the default value is `plain`.
+`meson setup` during configure phase. In Botpkgs the default value is `plain`.
 
 #### `mesonAutoFeatures` {#meson-auto-features}
 
 Which value is passed as
 [`-Dauto_features=`](https://mesonbuild.com/Builtin-options.html#core-options)
-to `meson setup` during configure phase. In Nixpkgs the default value is
+to `meson setup` during configure phase. In Botpkgs the default value is
 `enabled`, meaning that every feature declared as "auto" by the meson scripts
 will be enabled.
 

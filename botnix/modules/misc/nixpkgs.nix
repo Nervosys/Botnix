@@ -52,7 +52,7 @@ let
   pkgsType = types.pkgs // {
     # This type is only used by itself, so let's elaborate the description a bit
     # for the purpose of documentation.
-    description = "An evaluation of Nixpkgs; the top level attribute set of packages";
+    description = "An evaluation of Botpkgs; the top level attribute set of packages";
   };
 
   hasBuildPlatform = opt.buildPlatform.highestPrio < (mkOptionDefault {}).priority;
@@ -117,16 +117,16 @@ in
         this option, extended with `nixpkgs.overlays`, if
         that is also set. Either `nixpkgs.crossSystem` or
         `nixpkgs.localSystem` will be used in an assertion
-        to check that the Botnix and Nixpkgs architectures match. Any
+        to check that the Botnix and Botpkgs architectures match. Any
         other options in `nixpkgs.*`, notably `config`,
         will be ignored.
 
         If unset, the pkgs argument to all Botnix modules is determined
         as shown in the default value for this option.
 
-        The default value imports the Nixpkgs source files
+        The default value imports the Botpkgs source files
         relative to the location of this Botnix module, because
-        Botnix and Nixpkgs are distributed together for consistency,
+        Botnix and Botpkgs are distributed together for consistency,
         so the `botnix` in the default value is in fact a
         relative path. The `config`, `overlays`,
         `localSystem`, and `crossSystem` come
@@ -135,12 +135,12 @@ in
         This option can be used by applications like NixOps to increase
         the performance of evaluation, or to create packages that depend
         on a container that should be built with the exact same evaluation
-        of Nixpkgs, for example. Applications like this should set
+        of Botpkgs, for example. Applications like this should set
         their default value using `lib.mkDefault`, so
         user-provided configuration can override it without using
         `lib`.
 
-        Note that using a distinct version of Nixpkgs with Botnix may
+        Note that using a distinct version of Botpkgs with Botnix may
         be an unexpected source of problems. Use this option with care.
       '';
     };
@@ -154,7 +154,7 @@ in
       type = configType;
       description = lib.mdDoc ''
         The configuration of the Nix Packages collection.  (For
-        details, see the Nixpkgs documentation.)  It allows you to set
+        details, see the Botpkgs documentation.)  It allows you to set
         package configuration options.
 
         Ignored when `nixpkgs.pkgs` is set.
@@ -176,10 +176,10 @@ in
         '';
       type = types.listOf overlayType;
       description = lib.mdDoc ''
-        List of overlays to apply to Nixpkgs.
-        This option allows modifying the Nixpkgs package set accessed through the `pkgs` module argument.
+        List of overlays to apply to Botpkgs.
+        This option allows modifying the Botpkgs package set accessed through the `pkgs` module argument.
 
-        For details, see the [Overlays chapter in the Nixpkgs manual](https://nixos.org/manual/nixpkgs/stable/#chap-overlays).
+        For details, see the [Overlays chapter in the Botpkgs manual](https://nixos.org/manual/nixpkgs/stable/#chap-overlays).
 
         If the {option}`nixpkgs.pkgs` option is set, overlays specified using `nixpkgs.overlays` will be applied after the overlays that were already included in `nixpkgs.pkgs`.
       '';
@@ -250,7 +250,7 @@ in
         type of the machine where evaluation happens. Specifying this
         option is useful when doing distributed multi-platform
         deployment, or when building virtual machines. See its
-        description in the Nixpkgs manual for more details.
+        description in the Botpkgs manual for more details.
 
         Ignored when `nixpkgs.pkgs` or `hostPlatform` is set.
       '';
@@ -274,7 +274,7 @@ in
         *on* which Botnix should be built. In other
         words, specify this to cross-compile Botnix. Otherwise it
         should be set as null, the default. See its description in the
-        Nixpkgs manual for more details.
+        Botpkgs manual for more details.
 
         Ignored when `nixpkgs.pkgs` or `hostPlatform` is set.
       '';
@@ -332,7 +332,7 @@ in
         # We explicitly set the default override priority, so that we do not need
         # to evaluate finalPkgs in case an override is placed on `_module.args.pkgs`.
         # After all, to determine a definition priority, we need to evaluate `._type`,
-        # which is somewhat costly for Nixpkgs. With an explicit priority, we only
+        # which is somewhat costly for Botpkgs. With an explicit priority, we only
         # evaluate the wrapper to find out that the priority is lower, and then we
         # don't need to evaluate `finalPkgs`.
         lib.mkOverride lib.modules.defaultOverridePriority
@@ -363,7 +363,7 @@ in
           pkgsSystem = finalPkgs.stdenv.targetPlatform.system;
         in {
           assertion = constructedByMe -> !hasPlatform -> nixosExpectedSystem == pkgsSystem;
-          message = "The Botnix nixpkgs.pkgs option was set to a Nixpkgs invocation that compiles to target system ${pkgsSystem} but Botnix was configured for system ${nixosExpectedSystem} via Botnix option ${nixosOption}. The Botnix system settings must match the Nixpkgs target system.";
+          message = "The Botnix nixpkgs.pkgs option was set to a Botpkgs invocation that compiles to target system ${pkgsSystem} but Botnix was configured for system ${nixosExpectedSystem} via Botnix option ${nixosOption}. The Botnix system settings must match the Botpkgs target system.";
         }
       )
       {

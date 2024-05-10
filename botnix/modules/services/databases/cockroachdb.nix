@@ -148,7 +148,7 @@ in
       package = mkPackageOption pkgs "cockroachdb" {
         extraDescription = ''
           This would primarily be useful to enable Enterprise Edition features
-          in your own custom CockroachDB build (Nixpkgs CockroachDB binaries
+          in your own custom CockroachDB build (Botpkgs CockroachDB binaries
           only contain open source features and open source code).
         '';
       };

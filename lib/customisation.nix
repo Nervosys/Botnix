@@ -24,7 +24,7 @@ rec {
      `overrideDerivation` allows certain "ad-hoc" customisation
      scenarios (e.g. in ~/.config/nixpkgs/config.nix).  For instance,
      if you want to "patch" the derivation returned by a package
-     function in Nixpkgs to build another version than what the
+     function in Botpkgs to build another version than what the
      function itself provides.
 
      For another application, see build-support/vm, where this
@@ -205,7 +205,7 @@ rec {
        then makeOverridable f allArgs
        # This needs to be an abort so it can't be caught with `builtins.tryEval`,
        # which is used by nix-env and ofborg to filter out packages that don't evaluate.
-       # This way we're forced to fix such errors in Nixpkgs,
+       # This way we're forced to fix such errors in Botpkgs,
        # which is especially relevant with allowAliases = false
        else abort "lib.customisation.callPackageWith: ${error}";
 

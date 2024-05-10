@@ -31,7 +31,7 @@ This means each Emscripten package requires that a [`checkPhase`](#ssec-check-ph
 
 # Using `pkgs.zlib.override {}`
 
-This example uses `zlib` from Nixpkgs, but instead of compiling **C** to **ELF** it compiles **C** to **JavaScript** since we were using `pkgs.zlib.override` and changed `stdenv` to `pkgs.emscriptenStdenv`.
+This example uses `zlib` from Botpkgs, but instead of compiling **C** to **ELF** it compiles **C** to **JavaScript** since we were using `pkgs.zlib.override` and changed `stdenv` to `pkgs.emscriptenStdenv`.
 
 A few adaptions and hacks were put in place to make it work.
 One advantage is that when `pkgs.zlib` is updated, it will automatically update this package as well.

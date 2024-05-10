@@ -5,7 +5,7 @@
 # from build-aux/configure-lib.sh.
 #
 # You may point this tool at a manually downloaded tarball, but more ideal is
-# using the source tarball from Nixpkgs. For example:
+# using the source tarball from Botpkgs. For example:
 #
 # MES_TARBALL="$(nix-build --no-link -A minimal-bootstrap.mes.src ../../../../..)"
 # ./gen-sources.sh "$MES_TARBALL" > ./new-sources.nix

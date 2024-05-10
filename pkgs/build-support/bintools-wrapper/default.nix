@@ -1,4 +1,4 @@
-# The Nixpkgs CC is not directly usable, since it doesn't know where
+# The Botpkgs CC is not directly usable, since it doesn't know where
 # the C library and standard header files are. Therefore the compiler
 # produced by that package cannot be installed directly in a user
 # environment and used from the command line. So we use a wrapper

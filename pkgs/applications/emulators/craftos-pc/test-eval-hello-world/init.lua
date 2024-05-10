@@ -1,3 +1,3 @@
-print("Hello Nixpkgs!")
+print("Hello Botpkgs!")
 
 shell.run("shutdown")

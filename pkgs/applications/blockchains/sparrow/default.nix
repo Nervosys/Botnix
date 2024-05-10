@@ -145,7 +145,7 @@ let
       popd
 
       # Replace the embedded Tor binary (which is in a Tar archive)
-      # with one from Nixpkgs.
+      # with one from Botpkgs.
       gzip -c ${torWrapper}  > tor.gz
       cp tor.gz modules/kmp.tor.binary.linuxx64/kmptor/linux/x64/tor.gz
       find modules

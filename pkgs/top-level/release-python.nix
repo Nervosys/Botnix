@@ -3,7 +3,7 @@
    $ hydra-eval-jobs pkgs/top-level/release-python.nix
 */
 
-{ # The platforms for which we build Nixpkgs.
+{ # The platforms for which we build Botpkgs.
   supportedSystems ? [
     "aarch64-linux"
     "x86_64-linux"

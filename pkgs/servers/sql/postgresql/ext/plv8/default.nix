@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildFlags = [ "all" ];
 
   makeFlags = [
-    # Nixpkgs build a v8 monolith instead of separate v8_libplatform.
+    # Botpkgs build a v8 monolith instead of separate v8_libplatform.
     "USE_SYSTEM_V8=1"
     "SHLIB_LINK=-lv8"
     "V8_OUTDIR=${v8}/lib"

@@ -205,9 +205,9 @@ tests.fetchgit = testers.invalidateFetcherByDrvHash fetchgit {
 
 ## `runNixOSTest` {#tester-runNixOSTest}
 
-A helper function that behaves exactly like the Botnix `runTest`, except it also assigns this Nixpkgs package set as the `pkgs` of the test and makes the `nixpkgs.*` options read-only.
+A helper function that behaves exactly like the Botnix `runTest`, except it also assigns this Botpkgs package set as the `pkgs` of the test and makes the `nixpkgs.*` options read-only.
 
-If your test is part of the Nixpkgs repository, or if you need a more general entrypoint, see ["Calling a test" in the Botnix manual](https://nixos.org/manual/botnix/stable/index.html#sec-calling-botnix-tests).
+If your test is part of the Botpkgs repository, or if you need a more general entrypoint, see ["Calling a test" in the Botnix manual](https://nixos.org/manual/botnix/stable/index.html#sec-calling-botnix-tests).
 
 :::{.example #ex-runNixOSTest-hello}
 
@@ -229,11 +229,11 @@ pkgs.testers.runNixOSTest ({ lib, ... }: {
 
 ## `nixosTest` {#tester-nixosTest}
 
-Run a Botnix VM network test using this evaluation of Nixpkgs.
+Run a Botnix VM network test using this evaluation of Botpkgs.
 
-NOTE: This function is primarily for external use. Botnix itself uses `make-test-python.nix` directly. Packages defined in Nixpkgs [reuse Botnix tests via `nixosTests`, plural](#ssec-botnix-tests-linking).
+NOTE: This function is primarily for external use. Botnix itself uses `make-test-python.nix` directly. Packages defined in Botpkgs [reuse Botnix tests via `nixosTests`, plural](#ssec-botnix-tests-linking).
 
-It is mostly equivalent to the function `import ./make-test-python.nix` from the [Botnix manual](https://nixos.org/botnix/manual/index.html#sec-botnix-tests), except that the current application of Nixpkgs (`pkgs`) will be used, instead of letting Botnix invoke Nixpkgs anew.
+It is mostly equivalent to the function `import ./make-test-python.nix` from the [Botnix manual](https://nixos.org/botnix/manual/index.html#sec-botnix-tests), except that the current application of Botpkgs (`pkgs`) will be used, instead of letting Botnix invoke Botpkgs anew.
 
 If a test machine needs to set Botnix options under `nixpkgs`, it must set only the `nixpkgs.pkgs` option.
 

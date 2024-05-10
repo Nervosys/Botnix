@@ -97,11 +97,11 @@ newtype JobsetEvals = JobsetEvals
    deriving stock (Generic, Show)
    deriving anyclass (ToJSON, FromJSON)
 
-newtype Nixpkgs = Nixpkgs {revision :: Text}
+newtype Botpkgs = Botpkgs {revision :: Text}
    deriving stock (Generic, Show)
    deriving anyclass (ToJSON, FromJSON)
 
-newtype JobsetEvalInputs = JobsetEvalInputs {nixpkgs :: Nixpkgs}
+newtype JobsetEvalInputs = JobsetEvalInputs {nixpkgs :: Botpkgs}
    deriving stock (Generic, Show)
    deriving anyclass (ToJSON, FromJSON)
 
@@ -423,7 +423,7 @@ platformIsOS os (Platform x) = case (os, x) of
 --
 -- 'PkgName' is also used as a key in 'DependencyMap' and 'ReverseDependencyMap'.
 -- In this case, 'PkgName' originally comes from attribute names in @haskellPackages@
--- in Nixpkgs.
+-- in Botpkgs.
 newtype PkgName = PkgName Text
    deriving stock (Generic, Show)
    deriving newtype (Eq, FromJSON, FromJSONKey, Ord, ToJSON)
@@ -598,7 +598,7 @@ details :: Text -> [Text] -> [Text]
 details summary content = ["<details><summary>" <> summary <> " </summary>", ""] <> content <> ["</details>", ""]
 
 evalLine :: Eval -> UTCTime -> Text
-evalLine Eval{id, jobsetevalinputs = JobsetEvalInputs{nixpkgs = Nixpkgs{revision}}} fetchTime =
+evalLine Eval{id, jobsetevalinputs = JobsetEvalInputs{nixpkgs = Botpkgs{revision}}} fetchTime =
    "*evaluation ["
     <> showT id
     <> "](https://hydra.botnix.org/eval/"

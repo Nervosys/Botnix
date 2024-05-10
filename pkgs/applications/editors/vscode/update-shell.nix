@@ -1,6 +1,6 @@
 { pkgs ? import ../../../.. { } }:
 
-# Ideally, pkgs points to default.nix file of Nixpkgs official tree
+# Ideally, pkgs points to default.nix file of Botpkgs official tree
 with pkgs;
 
 mkShell {

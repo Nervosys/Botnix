@@ -11,7 +11,7 @@ let
   inherit (vscode-utils) buildVscodeMarketplaceExtension;
 
   # As VS Code executes this code on the remote machine
-  # we test to see if we can build Node from Nixpkgs
+  # we test to see if we can build Node from Botpkgs
   # otherwise we check if the globally installed Node
   # is usable.
   patch = ''

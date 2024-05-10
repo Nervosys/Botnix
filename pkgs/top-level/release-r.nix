@@ -1,5 +1,5 @@
 /*
-  This is the Hydra jobset for the `r-updates` branch in Nixpkgs.
+  This is the Hydra jobset for the `r-updates` branch in Botpkgs.
   The jobset can be tested by:
 
   $ hydra-eval-jobs -I . pkgs/top-level/release-r.nix

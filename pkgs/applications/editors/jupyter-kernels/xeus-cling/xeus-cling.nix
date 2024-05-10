@@ -24,7 +24,7 @@
 }:
 
 let
-  # Nixpkgs moved to argparse 3.x, but we need ~2.9
+  # Botpkgs moved to argparse 3.x, but we need ~2.9
   argparse_2_9 = argparse.overrideAttrs (oldAttrs: {
     version = "2.9";
 

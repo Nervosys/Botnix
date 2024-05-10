@@ -4,7 +4,7 @@ Writing Nix expressions for Qt libraries and applications is largely similar as 
 This section assumes some knowledge of the latter.
 
 The major caveat with Qt applications is that Qt uses a plugin system to load additional modules at runtime,
-from a list of well-known locations. In Nixpkgs, we patch QtCore to instead use an environment variable,
+from a list of well-known locations. In Botpkgs, we patch QtCore to instead use an environment variable,
 and wrap Qt applications to set it to the right paths. This effectively makes the runtime dependencies
 pure and explicit at build-time, at the cost of introducing an extra indirection.
 

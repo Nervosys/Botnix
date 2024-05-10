@@ -27,7 +27,7 @@
 , # Allow a configuration attribute set to be passed in as an argument.
   config ? {}
 
-, # List of overlays layers used to extend Nixpkgs.
+, # List of overlays layers used to extend Botpkgs.
   overlays ? []
 
 , # List of overlays to apply to target packages only.

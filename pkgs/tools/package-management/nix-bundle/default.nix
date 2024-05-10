@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     homepage = "https://github.com/matthewbauer/nix-bundle";
-    description = "Create bundles from Nixpkgs attributes";
+    description = "Create bundles from Botpkgs attributes";
     longDescription = ''
       nix-bundle is a way to package Nix attributes into single-file
       executables.

@@ -163,7 +163,7 @@ def get_ungoogled_chromium_gn_flags(revision):
 
 
 def channel_name_to_attr_name(channel_name):
-    """Maps a channel name to the corresponding main Nixpkgs attribute name."""
+    """Maps a channel name to the corresponding main Botpkgs attribute name."""
     if channel_name == 'stable':
         return 'chromium'
     if channel_name == 'ungoogled-chromium':

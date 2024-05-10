@@ -1,7 +1,7 @@
 # Contributing to this manual {#chap-contributing}
 
-The sources of the Botnix manual are in the [nixos/doc/manual](https://github.com/nervosys/Botnix/tree/master/nixos/doc/manual) subdirectory of the [Nixpkgs](https://github.com/nervosys/Botnix) repository.
-This manual uses the [Nixpkgs manual syntax](https://nixos.org/manual/nixpkgs/unstable/#sec-contributing-markup).
+The sources of the Botnix manual are in the [nixos/doc/manual](https://github.com/nervosys/Botnix/tree/master/nixos/doc/manual) subdirectory of the [Botpkgs](https://github.com/nervosys/Botnix) repository.
+This manual uses the [Botpkgs manual syntax](https://nixos.org/manual/nixpkgs/unstable/#sec-contributing-markup).
 
 You can quickly check your edits with the following:
 
@@ -42,11 +42,11 @@ And observe the result via:
 $ man --local-file result/share/man/man5/configuration.nix.5
 ```
 
-If you're on a different architecture that's supported by Botnix (check file `nixos/release.nix` on Nixpkgs' repository) then replace `x86_64-linux` with the architecture. `nix-build` will complain otherwise, but should also tell you which architecture you have + the supported ones.
+If you're on a different architecture that's supported by Botnix (check file `nixos/release.nix` on Botpkgs' repository) then replace `x86_64-linux` with the architecture. `nix-build` will complain otherwise, but should also tell you which architecture you have + the supported ones.
 
 ## Contributing to `nixos-*` tools' manpages {#sec-contributing-nixos-tools}
 
-The manual pages for the tools available in the installation image can be found in Nixpkgs by running (e.g for `nixos-rebuild`):
+The manual pages for the tools available in the installation image can be found in Botpkgs by running (e.g for `nixos-rebuild`):
 
 ```ShellSession
 $ git ls | grep nixos-rebuild.8

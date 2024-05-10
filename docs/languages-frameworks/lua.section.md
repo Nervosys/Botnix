@@ -39,7 +39,7 @@ Now you can use the Lua interpreter, as well as the extra packages (`busted`,
 
 #### Lua environment defined in `~/.config/nixpkgs/config.nix` {#lua-environment-defined-in-.confignixpkgsconfig.nix}
 
-If you prefer to, you could also add the environment as a package override to the Nixpkgs set, e.g.
+If you prefer to, you could also add the environment as a package override to the Botpkgs set, e.g.
 using `config.nix`,
 
 ```nix

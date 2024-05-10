@@ -24,7 +24,7 @@ let
     Return:
 
       An attribute set containing `config.system.build.toplevel` among other
-      attributes. See `lib.evalModules` in the Nixpkgs library.
+      attributes. See `lib.evalModules` in the Botpkgs library.
 
    */
   evalModules = {

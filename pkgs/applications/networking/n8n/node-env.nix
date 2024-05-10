@@ -3,7 +3,7 @@
 {lib, stdenv, nodejs, python2, pkgs, libtool, runCommand, writeTextFile, writeShellScript}:
 
 let
-  # Workaround to cope with utillinux in Nixpkgs 20.09 and util-linux in Nixpkgs master
+  # Workaround to cope with utillinux in Botpkgs 20.09 and util-linux in Botpkgs master
   utillinux = if pkgs ? utillinux then pkgs.utillinux else pkgs.util-linux;
 
   python = if nodejs ? python then nodejs.python else python2;
