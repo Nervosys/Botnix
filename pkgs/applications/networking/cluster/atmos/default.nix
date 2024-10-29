@@ -2,7 +2,7 @@
 
 buildGoModule rec {
   pname = "atmos";
-  version = "1.57.0";
+  version = "1.96.0";
 
   src = fetchFromGitHub {
     owner = "cloudposse";
@@ -13,7 +13,7 @@ buildGoModule rec {
 
   vendorHash = "sha256-Gjff8341MrUal3fVTDXE6nP9RwxaHYTjhPImaEv/9RU=";
 
-  ldflags = [ "-s" "-w" "-X github.com/cloudposse/atmos/cmd.Version=v${version}" ];
+  ldflags = [ "-s" "-w" "-X github.com/cloudposse/atmos/pkg/version.Version=v${version}" ];
 
   preCheck = ''
     # Remove tests that depend on a network connection.
